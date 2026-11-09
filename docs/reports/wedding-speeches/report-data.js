@@ -222,35 +222,6 @@ window.KMI_DATA = {
    "One live competitor made $32.75 in 30 days. Help is in demand; paying for it isn't."
   ],
   "lesson": "When the product is a prompt, distribution is the whole business. Don't start without a channel.",
-  "rescue": [
-   {
-    "change": "Sell a human-polished AI speech on Fiverr or Etsy at $49–99",
-    "why": "Fixes the missing channel (the marketplace brings traffic) and the free alternative (people pay for the human touch).",
-    "score_after": 62,
-    "difficulty": "doable",
-    "effort": "2 days to list; ~30 min per order",
-    "cost": "€0",
-    "requires": "Good writing, plus 3 sample speeches"
-   },
-   {
-    "change": "Build an audience first: short videos of speech tips (TikTok, Reels), then sell to it",
-    "why": "Gives you your own distribution, and the content doubles as proof.",
-    "score_after": 56,
-    "difficulty": "hard",
-    "effort": "3+ months of posting",
-    "cost": "€0",
-    "requires": "Posting on camera 3–5 times a week"
-   },
-   {
-    "change": "White-label the tool for wedding planners and venues (B2B)",
-    "why": "One sale reaches many weddings, and the price can be higher.",
-    "score_after": 53,
-    "difficulty": "very-hard",
-    "effort": "6–10 weeks of sales",
-    "cost": "€0–200",
-    "requires": "B2B sales, wedding-industry contacts"
-   }
-  ],
   "kill_shots": {
    "free_alternative": {
     "evidence": "ChatGPT and Claude free tiers; Speech Generator is free for 50 speeches; free French Word and PDF speeches.",

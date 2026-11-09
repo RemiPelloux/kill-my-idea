@@ -210,5 +210,14 @@ Save the paths in `verdict.json` as `rescue`, and in `report-data.js` as `narrat
    `/kill-my-idea:deepdive` (more evidence) · `/kill-my-idea:roast` (shareable) ·
    `/kill-my-idea:compare` (rank all your ideas).
 
+## Writing style
+
+Every sentence in the report and in chat carries a fact, a number or a decision. Cut the rest.
+- Use plain words and short sentences. Say what the thing is; don't sell it.
+- No filler openers ("Great question", "Let's dive in", "In today's world"), and no closing summary that repeats the answer.
+- No emoji outside the verdict card. No bold on every line: bold only the verdict and the one number that matters.
+- Use a list for parallel items, and prose for reasoning.
+- Name things concretely: "14 tools priced $0–34", not "a competitive landscape".
+
 Write in the user's language. Never publish anything, spend money, or contact anyone
 on the user's behalf.
