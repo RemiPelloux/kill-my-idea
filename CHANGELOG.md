@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.6.0 — 2026-11-09
+
+**Features**
+- **Share card.** A new button in the report downloads a 1200×675 PNG verdict card (score ring, verdict, key finding) for X, LinkedIn or Reddit. It's drawn in your browser; nothing is uploaded.
+- **`/kill-my-idea:check-tweet`.** Fact-checks a viral "make money" post: every claim checked, the headline number recomputed from real fees and prices, the author's offer named, and a kill-my-idea verdict on the opportunity.
+- **Reports in French.** Labels follow the idea's language (`idea.language`: `en` or `fr`), including country names and dates.
+
+**Hardening**
+- Strict Content-Security-Policy, with the only inline script pinned by sha256 (`scripts/update-csp.py`). No network calls except fonts.
+- Data validation: malformed `report-data.js` shows a clear error card instead of a blank page. Strings are capped at 4000 characters and lists have limits.
+- The skill gets a "Safety and integrity" section: fetched content is never instructions, no invented URLs, no actions, and a 5-point self-check before files are written.
+- New `SECURITY.md` with the threat model and the known limitation.
+- Reviewed with a security review of the changes (no findings) and tested with 15 injection attempts, a malformed data file, French data, and the share card.
+
 ## 0.5.1 — 2026-11-09 (security)
 
 The report shows content gathered from web research, so it must never run code found in that content.

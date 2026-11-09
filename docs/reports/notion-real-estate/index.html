@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-KoDpZRm1HZr9qcJBXQqtY6Hit/FJPMjt2HSvi1G8qgc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,7 +214,10 @@ footer{max-width:1200px;margin:0 auto;padding:0 var(--s3) var(--s5);color:var(--
 (() => {
 "use strict";
 const D = window.KMI_DATA, app = document.getElementById("app");
-if (!D) { app.innerHTML = '<div class="err card"><h2>Report data not found</h2><p>Keep <code>report.html</code> and <code>report-data.js</code> in the same folder, or run <code>/kill-my-idea:kill</code> again.</p></div>'; return; }
+const fail = (title, detail) => { app.innerHTML = '<div class="err card"><h2></h2><p></p></div>'; app.querySelector("h2").textContent = title; app.querySelector("p").textContent = detail; };
+if (!D || typeof D !== "object") { fail("Report data not found", "Keep report.html and report-data.js in the same folder, or run /kill-my-idea:kill again."); return; }
+if (!D.verdict || typeof D.verdict !== "object" || !D.idea || typeof D.idea !== "object") { fail("Report data is incomplete", "report-data.js must contain idea and verdict objects (see report-data.schema.json). Run /kill-my-idea:kill again."); return; }
+try {
 const I = D.idea || {}, V = D.verdict || {}, N = D.narrative || {}, M = V.metrics || {};
 /* security: values rendered without escaping must be numbers or known enums */
 const num = v => (v === null || v === undefined || v === "") ? null : (Number.isFinite(+v) ? +v : null);
@@ -225,8 +230,48 @@ const LMH = v => ["L", "M", "H"].includes(v) ? v : "M";
 (N.scenarios || []).forEach(sc => { ["customers_month", "revenue_month", "costs_month"].forEach(k => { sc[k] = num(sc[k]); }); });
 (N.risks || []).forEach(r => { r.likelihood = LMH(r.likelihood); r.impact = LMH(r.impact); });
 if (I.price) I.price.amount = num(I.price.amount);
+/* language: UI labels follow the idea's language (en, fr) */
+const LANG = String(I.language || N.language || "en").slice(0, 2).toLowerCase() === "fr" ? "fr" : "en";
+const FR = {
+  "Executive summary": "Synthèse", "Could it be saved?": "Peut-on la sauver ?", "How to make it stronger": "Comment la renforcer", "Next step: 7-day test": "Prochaine étape : test de 7 jours",
+  "Evidence": "Preuves", "Market": "Marché", "Competition": "Concurrence", "What customers say": "Ce que disent les clients", "Unit economics": "Économie unitaire", "Countries": "Pays",
+  "Risks": "Risques", "Scoring": "Notation", "Sources": "Sources", "Recommendation": "Recommandation", "Lesson:": "Leçon :", "Plan": "Plan", "Stop if": "Arrêter si",
+  "LTV : CAC": "LTV : CAC", "Break-even": "Point mort", "Time to first sale": "Délai avant la 1re vente", "Competitors found": "Concurrents trouvés",
+  "Healthy is 3 or more": "Sain à partir de 3", "Each paid customer loses money": "Chaque client payant fait perdre de l'argent", "Positive but fragile": "Positif mais fragile", "Healthy": "Sain",
+  "Customers needed per month": "Clients nécessaires par mois", "From today": "À partir d'aujourd'hui", "Doable": "Faisable", "Hard": "Difficile", "Very hard": "Très difficile",
+  "Effort": "Effort", "Cost": "Coût", "Needs": "Besoins", "Hit": "Touché", "Clear": "Écarté", "Kill shots": "Points de rupture",
+  "Free alternative": "Alternative gratuite", "Strong direct competitor": "Concurrent direct solide", "Failed attempts before": "Échecs précédents", "No distribution channel": "Pas de canal de distribution",
+  "Costs eat the margin": "Les coûts mangent la marge", "Weak or falling demand": "Demande faible ou en baisse", "Legal or platform risk": "Risque juridique ou de plateforme", "Saturated wave of look-alike launches": "Vague saturée de lancements similaires",
+  "Fact-check of the source": "Vérification de la source", "Claim": "Affirmation", "Verdict": "Verdict", "True": "Vrai", "Partly true": "Partiellement vrai", "False": "Faux", "Not verified": "Non vérifié",
+  "Who buys": "Qui achète", "Their problem": "Leur problème", "What they use today": "Ce qu'ils utilisent aujourd'hui", "Market size": "Taille du marché", "Total market": "Marché total",
+  "Market you can serve": "Marché adressable", "What you can win in year 1": "Ce que vous pouvez gagner en 1re année", "Demand trend:": "Tendance de la demande :", "Ways to make money with it": "Façons d'en tirer de l'argent",
+  "Option": "Option", "Who pays": "Qui paie", "Best": "Meilleure", "Price vs traction": "Prix vs traction", "All competitors": "Tous les concurrents", "Name": "Nom", "Price": "Prix", "Traction": "Traction", "Free": "Gratuit",
+  "Metric": "Indicateur", "Value": "Valeur", "Launch": "Lancer ici", "All metrics": "Tous les indicateurs", "Monthly scenarios": "Scénarios mensuels", "Likelihood vs impact": "Probabilité vs impact",
+  "Risks and what to do": "Risques et parades", "Criterion": "Critère", "Score": "Note", "Points": "Points", "Total": "Total", "out of 100": "sur 100", "Save PDF": "Enregistrer en PDF", "Share card": "Carte à partager",
+  "sourced": "sourcé", "estimate": "estimation", "unknown": "inconnu", "Profit potential": "Potentiel de profit", "Feasibility for you": "Faisabilité pour vous", "Time to first revenue": "Délai avant le 1er revenu",
+  "Market demand": "Demande du marché", "Competitive room": "Espace concurrentiel", "Risk (5 = low)": "Risque (5 = faible)", "Founder fit": "Adéquation fondateur",
+  "Gross margin": "Marge brute", "Pricing power": "Pouvoir de fixation des prix", "Build effort": "Effort de construction", "Skills match": "Adéquation des compétences", "Capital needed": "Capital nécessaire",
+  "Time to MVP": "Délai avant MVP", "Sales cycle": "Cycle de vente", "Channel readiness": "Canal prêt", "Search demand": "Demande en recherche", "Trend": "Tendance", "Willingness to pay": "Disposition à payer",
+  "Free alternatives": "Alternatives gratuites", "Competitor density": "Densité concurrentielle", "Differentiation": "Différenciation", "Legal and regulatory": "Juridique et réglementaire",
+  "Platform dependency": "Dépendance aux plateformes", "Market risk": "Risque de marché", "Skills": "Compétences", "Assets and network": "Actifs et réseau", "Interest": "Intérêt" };
+const FR_RX = [[/^As pitched it scores (\d+)\. Each option fixes at least one kill shot\. New scores are estimates\.$/, "Telle que présentée, l'idée obtient $1. Chaque option corrige au moins un point de rupture. Les nouvelles notes sont des estimations."],
+  [/^(\d+) of (\d+) kill shots landed\.$/, "$1 points de rupture sur $2 ont touché."], [/^(\d+) competitors and alternatives found\.$/, "$1 concurrents et alternatives trouvés."],
+  [/^(\d+) sources\. Every sourced number links here\.$/, "$1 sources. Chaque chiffre sourcé renvoie ici."], [/^(\d+)\/100 across seven weighted criteria and 21 sub-scores\.$/, "$1/100 sur sept critères pondérés et 21 sous-notes."],
+  [/^weight (\d+)$/, "poids $1"], [/^Priced (.*)$/, "Prix : $1"], [/^Recommended launch market:$/, "Marché de lancement recommandé :"],
+  [/^What a customer is worth, what one costs, and how many you need\.$/, "Ce que vaut un client, ce qu'il coûte, et combien il en faut."]];
+const T = k => (LANG === "fr" && FR[k]) || k;
+const translateUI = root => { if (LANG !== "fr") return; const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  for (const n of nodes) { if (n.parentElement && n.parentElement.closest(".answer,.kf p,.rx .ch,.rx .why,.e,.snote,.quote,ol.src,.tl,.stop ul,td")) continue;
+    const raw = n.textContent, t = raw.trim(); if (!t) continue; let out = FR[t];
+    if (!out) for (const [rx, rep] of FR_RX) if (rx.test(t)) { out = t.replace(rx, rep); break; }
+    if (out) n.textContent = raw.replace(t, out); }
+  document.documentElement.lang = "fr"; };
+const CAP = { key_findings: 3, rescue: 5, competitors: 40, customer_voice: 24, scenarios: 6, risks: 15, test_plan: 12, fact_checks: 20, use_cases: 8, tldr: 6, sources: 150 };
+for (const k in CAP) if (Array.isArray(N[k])) N[k] = N[k].slice(0, CAP[k]);
+if (Array.isArray(V.sources)) V.sources = V.sources.slice(0, 150);
+if (Array.isArray(V.kill_criteria)) V.kill_criteria = V.kill_criteria.slice(0, 10);
 const VC = { "GO": "var(--go-fill)", "PIVOT": "var(--pivot-fill)", "NO-GO": "var(--nogo-fill)" };
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const esc = s => String(s ?? "").slice(0, 4000).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const has = x => Array.isArray(x) ? x.length > 0 : x && typeof x === "object" ? Object.keys(x).length > 0 : !!x;
 const rt = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong class="kw">$1</strong>');
 const vlabel = s => s >= 70 ? "GO" : s >= 50 ? "PIVOT" : "NO-GO";
@@ -244,7 +289,7 @@ const L = { check: '<path d="M20 6 9 17l-5-5"/>', x: '<path d="M18 6 6 18"/><pat
   info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>', target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
   users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
   clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>', scale: '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
-  flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>', chevron: '<path d="m9 18 6-6-6-6"/>' };
+  flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>', share: '<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/>', chevron: '<path d="m9 18 6-6-6-6"/>' };
 const ic = (n, sz = 16) => `<svg class="ic" width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${L[n] || L.info}</svg>`;
 const VICON = { "GO": "check", "PIVOT": "rotate", "NO-GO": "x" };
 const vbadge = s => { const v = vlabel(s); return `<span class="badge b-${v}">${ic(VICON[v], 14)}${v} <span class="num">${s}</span></span>`; };
@@ -291,7 +336,9 @@ const ring = (score, v) => { const r = 88, c = 2 * Math.PI * r, off = c * (1 - s
     <text class="ring-num" x="110" y="122" text-anchor="middle" style="font-size:60px;font-weight:600;fill:var(--fg)">${score}</text>
     <text x="110" y="150" text-anchor="middle" style="font:500 13px var(--sans);fill:var(--muted-fg)">out of 100</text></svg>`; };
 const CN = { FR: "France", BE: "Belgium", US: "United States", GB: "United Kingdom", UK: "United Kingdom", DE: "Germany", ES: "Spain", IT: "Italy", CA: "Canada", CH: "Switzerland", NL: "Netherlands", PT: "Portugal", AU: "Australia" };
-const niceDate = d => { const t = d ? new Date(d + "T12:00:00") : null; return t && !isNaN(t) ? t.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : (d || ""); };
+const CN_FR = { FR: "France", BE: "Belgique", US: "États-Unis", GB: "Royaume-Uni", UK: "Royaume-Uni", DE: "Allemagne", ES: "Espagne", IT: "Italie", CA: "Canada", CH: "Suisse", NL: "Pays-Bas", PT: "Portugal", AU: "Australie" };
+if (String((D.idea && D.idea.language) || (D.narrative && D.narrative.language) || "").slice(0, 2).toLowerCase() === "fr") Object.assign(CN, CN_FR);
+const niceDate = d => { const t = d ? new Date(d + "T12:00:00") : null; return t && !isNaN(t) ? t.toLocaleDateString(String(I.language || "en").slice(0, 2) === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "short", year: "numeric" }) : (d || ""); };
 const hero = `<div class="card hero">
   <div><div class="meta"><span class="badge b-neutral">${ic("clock", 14)}${esc(niceDate(V.evaluated || I.created))}</span>${(I.countries || []).map(c => `<span class="badge b-neutral">${ic("flag", 14)}${esc(CN[c] || c)}</span>`).join("")}</div>
   <h1>${esc(I.title || "Untitled idea")}</h1>${I.solution ? `<p class="pitch">${esc(I.solution)}</p>` : ""}<p class="answer">${rt(N.answer || "")}</p></div>
@@ -446,11 +493,37 @@ const ORDER = [...(body + sSrc).matchAll(/<section id="([^"]+)"/g)].map(m => m[1
 const logo = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#1E40AF"/><path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#fff"/><g stroke="#1E40AF" stroke-width="44" stroke-linecap="round"><path d="M380 340l80 80M460 340l-80 80M564 340l80 80M644 340l-80 80"/></g><rect x="396" y="776" width="232" height="60" rx="26" fill="#BFDBFE"/></svg>`;
 app.innerHTML = `<header class="top"><div class="topbar"><a class="brand" href="https://github.com/RemiPelloux/kill-my-idea" target="_blank" rel="noopener">${logo}kill-my-idea</a>
   <span class="t">${esc(I.title || "")}</span><span class="badge b-${esc(V.verdict)}">${ic(VICON[V.verdict], 14)}${esc(V.verdict || "")} <span class="num">${V.score ?? "?"}</span></span>
-  <button class="btn" type="button" id="print" aria-label="Print or save as PDF">${ic("printer")}<span>Save PDF</span></button></div>
+  <button class="btn" type="button" id="card" aria-label="Download a shareable verdict image">${ic("share")}<span>Share card</span></button><button class="btn" type="button" id="print" aria-label="Print or save as PDF">${ic("printer")}<span>Save PDF</span></button></div>
   <nav class="tabs" aria-label="Report sections">${TABS.slice().sort((x, y) => ORDER.indexOf(x[0]) - ORDER.indexOf(y[0])).map(([id, t]) => `<a href="#${id}">${esc(t)}</a>`).join("")}</nav></header>
   <main>${hero}${body}${sSrc}</main>
   <footer>Generated by kill-my-idea. Sourced numbers link to a footnote, estimates show their reasoning on hover, and anything not found is marked unknown. Research, not financial advice.</footer>`;
+translateUI(app);
 document.getElementById("print").addEventListener("click", () => print());
+/* share card: 1200x675 PNG drawn locally, nothing is uploaded */
+document.getElementById("card").addEventListener("click", async () => {
+  try { await document.fonts.ready; } catch (e) {}
+  const W = 1200, H = 675, cv = document.createElement("canvas"); cv.width = W * 2; cv.height = H * 2; const g = cv.getContext("2d"); g.scale(2, 2);
+  const COL = { "GO": ["#15803D", "#22C55E", "#DCFCE7"], "PIVOT": ["#C2410C", "#F59E0B", "#FFEDD5"], "NO-GO": ["#DC2626", "#EF4444", "#FEE2E2"] }[V.verdict];
+  const SANS = '"Fira Sans", system-ui, sans-serif', MONO = '"Fira Code", ui-monospace, monospace';
+  const wrap = (text, x, y, maxW, lh, maxLines) => { const words = String(text || "").split(/\s+/); let line = "", n = 0;
+    for (const w of words) { const t = line ? line + " " + w : w; if (g.measureText(t).width > maxW && line) { g.fillText(line, x, y + n * lh); line = w; if (++n >= maxLines - 1) { line = words.slice(words.indexOf(w)).join(" "); while (g.measureText(line + "…").width > maxW && line.length) line = line.slice(0, -1); g.fillText(line + (line.length < words.slice(words.indexOf(w)).join(" ").length ? "…" : ""), x, y + n * lh); return; } } else line = t; }
+    g.fillText(line, x, y + n * lh); };
+  g.fillStyle = "#F8FAFC"; g.fillRect(0, 0, W, H);
+  g.fillStyle = "#FFFFFF"; g.strokeStyle = "#E2E8F0"; g.lineWidth = 2; g.beginPath(); g.roundRect(40, 40, W - 80, H - 80, 24); g.fill(); g.stroke();
+  const cx = 930, cy = 300, r = 150; g.lineCap = "round"; g.lineWidth = 26;
+  g.strokeStyle = "#E9EEF6"; g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.stroke();
+  g.strokeStyle = COL[1]; g.beginPath(); g.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (V.score / 100)); g.stroke();
+  g.fillStyle = "#0F172A"; g.textAlign = "center"; g.font = `600 110px ${MONO}`; g.fillText(String(V.score), cx, cy + 34);
+  g.fillStyle = "#475569"; g.font = `500 22px ${SANS}`; g.fillText(T("out of 100"), cx, cy + 74);
+  g.fillStyle = COL[2]; g.beginPath(); g.roundRect(cx - 110, cy + r + 34, 220, 64, 16); g.fill();
+  g.fillStyle = COL[0]; g.font = `700 34px ${SANS}`; g.fillText(V.verdict, cx, cy + r + 78);
+  g.textAlign = "left"; g.fillStyle = "#475569"; g.font = `600 22px ${SANS}`; g.fillText("kill-my-idea", 90, 115);
+  g.fillStyle = "#0F172A"; g.font = `700 50px ${SANS}`; wrap(I.title || "", 90, 185, 640, 60, 3);
+  const top = findings[0] || {}; g.fillStyle = "#334155"; g.font = `500 26px ${SANS}`;
+  wrap(plain(String(top.title || "").replace(/\*\*/g, "")) + (top.detail ? ": " + plain(String(top.detail).replace(/\*\*/g, "")) : ""), 90, 410, 640, 36, 4);
+  g.fillStyle = "#1E40AF"; g.font = `600 22px ${SANS}`; g.fillText("github.com/RemiPelloux/kill-my-idea", 90, H - 80);
+  cv.toBlob(b => { const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = `${String(I.slug || "kill-my-idea").replace(/[^a-z0-9-]/gi, "").slice(0, 60) || "kill-my-idea"}-${V.verdict}-${V.score}.png`; document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); }, "image/png");
+});
 addEventListener("beforeprint", () => document.querySelectorAll("details.crit").forEach(d => { d.open = true; }));
 
 /* tooltips */
@@ -485,6 +558,7 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObse
   document.querySelectorAll(".rv").forEach(el => rio.observe(el));
   addEventListener("beforeprint", () => { finish(); document.querySelectorAll(".rv,.grow").forEach(el => el.classList.add("in")); });
 }
+} catch (e) { fail("This report could not be displayed", "The data in report-data.js has an unexpected shape (" + (e && e.message || e) + "). Run /kill-my-idea:kill again."); }
 })();
 </script>
 </body>

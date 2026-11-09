@@ -20,4 +20,5 @@ Thanks for helping kill more bad ideas.
   claude --plugin-dir .   # then: kill my idea: <something>
   ```
 
+- Changed `skills/kill/report.html`? Run `python3 scripts/update-csp.py` (it re-pins the CSP hash).
 - One change per PR, with a [Conventional Commit](https://www.conventionalcommits.org) title (`feat(kill): add pricing-page kill shot`).

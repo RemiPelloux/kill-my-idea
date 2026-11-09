@@ -82,6 +82,7 @@ It goes on to cover:
 - numbered sources.
 
 Every number shows whether it was sourced, estimated (hover for the reasoning) or not found.
+One click on **Share card** downloads a PNG verdict card for social media, and reports follow your language (English or French).
 
 ## Commands
 
@@ -89,6 +90,7 @@ Every number shows whether it was sourced, estimated (hover for the reasoning) o
 |---|---|
 | `/kill-my-idea:kill` | The verdict, report and 7-day test. Accepts one line, a pasted tweet, a URL or a long document |
 | `/kill-my-idea:deepdive` | Six research tracks in parallel: market size, competitor teardown, real customer quotes, pricing, channels, regulation per country |
+| `/kill-my-idea:check-tweet` | Fact-checks a viral "make money" post: every claim, the real math, what the author sells, then a verdict |
 | `/kill-my-idea:roast` | The same verdict as five sourced one-liners, sized for a screenshot ([Juicero](examples/juicero-roast.md)) |
 | `/kill-my-idea:compare` | Ranks every idea you've checked and picks the one to work on this week |
 
