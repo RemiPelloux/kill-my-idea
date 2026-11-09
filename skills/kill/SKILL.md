@@ -132,6 +132,7 @@ Write three things in the idea folder:
      fact checks, customer, use cases, competitors (with `price_low` and a `traction` of 1–5),
      scenarios, risks, test plan, sources.
    - Leave out what you don't have. The HTML hides empty sections.
+   - Write it directly. Don't leave temporary files in the idea folder.
 
 The HTML is a consultant-grade dossier: a cover with a gauge and a stamp, a rescue plan,
 charts, every number's evidence marker, numbered footnotes, a sticky table of contents, and

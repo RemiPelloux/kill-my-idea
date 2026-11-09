@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kill-my-idea: a Claude Code plugin that tries to kill your startup idea</title>
+<meta name="description" content="Free, open-source Claude Code plugin. It researches your startup or side-project idea, scores it out of 100, gives a GO / PIVOT / NO-GO verdict with sources, shows how it could be saved, and writes a consultant-grade report.">
+<link rel="canonical" href="https://remipelloux.github.io/kill-my-idea/">
+<link rel="icon" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="kill-my-idea: Claude says your idea is great. This plugin tries to kill it.">
+<meta property="og:description" content="Sourced GO / PIVOT / NO-GO verdicts for startup ideas, with market metrics, competitors, rescue paths and a 7-day test.">
+<meta property="og:image" content="https://remipelloux.github.io/kill-my-idea/og.png">
+<meta property="og:url" content="https://remipelloux.github.io/kill-my-idea/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#15120F;--ink-2:#1D1915;--rule:#3A332C;--bone:#EFE8DC;--ash:#A39A8E;--ash-2:#7C746A;--red:#E5383B;--amber:#E9B44C;--green:#3FB47A;
+  --serif:"Newsreader",Georgia,serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--bone);font:400 19px/1.6 var(--serif);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:3px;text-decoration-color:var(--ash-2)}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:center;padding:88px 0 72px;border-bottom:1px solid var(--rule)}
+h1{font:500 clamp(42px,6vw,76px)/1 var(--serif);letter-spacing:-.025em;margin:0 0 22px}
+.sub{font-size:22px;color:var(--ash);max-width:36ch;margin:0 0 30px}
+pre{background:var(--ink-2);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;font:400 14px/1.7 var(--mono);overflow-x:auto;margin:0 0 18px}
+.cta{display:inline-flex;gap:10px;align-items:center;font:600 15px var(--mono);background:var(--bone);color:var(--ink);padding:12px 18px;border-radius:10px;text-decoration:none}
+.ghost{background:transparent;color:var(--bone);border:1px solid var(--rule);margin-left:8px}
+.logo{width:min(100%,340px);justify-self:center;filter:drop-shadow(0 30px 60px #E5383B22)}
+h2{font:500 clamp(30px,3.4vw,42px)/1.1 var(--serif);margin:0 0 8px}
+.lede{color:var(--ash);margin:0 0 28px;max-width:60ch}
+section{padding:64px 0;border-bottom:1px solid var(--rule)}
+.reports{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.rep{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;background:var(--ink-2);padding:22px 24px;text-decoration:none}
+.rep:hover{background:#25201B}
+.rep .t{font:500 23px/1.25 var(--serif)} .rep .d{color:var(--ash);font-size:16px;margin-top:4px}
+.pill{font:800 13px var(--mono);padding:6px 10px;border-radius:8px;color:var(--ink);white-space:nowrap}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.steps h3{font:500 22px var(--serif);margin:0 0 6px} .steps p{color:var(--ash);margin:0;font-size:17px}
+footer{padding:36px 0 56px;font:400 13px/1.6 var(--mono);color:var(--ash-2)}
+@media (max-width:820px){header{grid-template-columns:1fr;padding-top:48px}.logo{width:200px;order:-1}.steps{grid-template-columns:1fr}.ghost{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>Claude says your idea is great. This plugin tries to kill it.</h1>
+    <p class="sub">kill-my-idea is a free Claude Code plugin. It researches your idea like a skeptical co-founder and gives you a sourced verdict: GO, PIVOT or NO-GO.</p>
+<pre>/plugin marketplace add RemiPelloux/kill-my-idea
+/plugin install kill-my-idea@kill-my-idea</pre>
+    <a class="cta" href="https://github.com/RemiPelloux/kill-my-idea">Get it on GitHub</a><a class="cta ghost" href="#reports">See real reports</a>
+  </div>
+  <img class="logo" src="icon.png" alt="kill-my-idea logo: a dead lightbulb with a NO-GO stamp">
+</header>
+
+<section id="reports">
+  <h2>Real reports</h2>
+  <p class="lede">These are ideas we actually evaluated with the plugin. Each report shows its sources, its metrics and how the idea could be saved.</p>
+  <div class="reports" id="list"></div>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <p class="lede">Type <code>kill my idea: …</code>, or paste a tweet or a link.</p>
+  <div class="steps">
+    <div><h3>It hunts for kill shots</h3><p>A free alternative, direct competitors, people who already failed, no channel, costs that eat the margin, weak demand, legal risk.</p></div>
+    <div><h3>It measures and scores</h3><p>Market size, CAC, LTV, payback and break-even, country by country. Then a score out of 100 with hard rules.</p></div>
+    <div><h3>It shows a way forward</h3><p>Rescue paths with their projected score and difficulty, and the cheapest test you can run in 7 days.</p></div>
+  </div>
+</section>
+
+<footer>MIT licensed · made with Claude Code · <a href="https://github.com/RemiPelloux/kill-my-idea">github.com/RemiPelloux/kill-my-idea</a></footer>
+</div>
+<script>
+const REPORTS = [
+  { href: "reports/notion-real-estate/", title: "Notion templates for French real-estate agents, €39", desc: "France vs Belgium. Crowded at €19–89, but a €190–290 done-for-you setup could reach PIVOT 64.", verdict: "PIVOT", score: 57 },
+  { href: "reports/wedding-speeches/", title: "AI wedding speeches for best men, $19", desc: "France vs US. 14+ tools already sell it; a Fiverr version could reach PIVOT 62.", verdict: "NO-GO", score: 48 },
+];
+const C = { "GO": "var(--green)", "PIVOT": "var(--amber)", "NO-GO": "var(--red)" };
+document.getElementById("list").innerHTML = REPORTS.map(r =>
+  `<a class="rep" href="${r.href}"><div><div class="t">${r.title}</div><div class="d">${r.desc}</div></div><span class="pill" style="background:${C[r.verdict]}">${r.verdict} ${r.score}</span></a>`).join("");
+</script>
+</body>
+</html>

@@ -64,7 +64,10 @@ What's inside:
 
 Every number carries its evidence: ● sourced (with a footnote), ○ estimate (hover to see the reasoning), or *unknown*.
 
-→ [Example: the wedding-speech report](examples/wedding-speeches-report/) (download the folder and open `report.html`)
+**See live reports:** [remipelloux.github.io/kill-my-idea](https://remipelloux.github.io/kill-my-idea/)
+
+- [AI wedding speeches, France vs US: NO-GO 48](https://remipelloux.github.io/kill-my-idea/reports/wedding-speeches/)
+- [Notion templates for French real-estate agents: PIVOT 57](https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/)
 
 ## What you get
 

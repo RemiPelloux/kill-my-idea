@@ -243,7 +243,7 @@ function marketFunnel() {
 }
 
 function competitorMap() {
-  const cs = (N.competitors || []).filter(c => c.price_low !== null && c.price_low !== undefined);
+  const cs = (N.competitors || []).filter(c => c.price_low !== null && c.price_low !== undefined && c.traction);
   if (cs.length < 2) return "";
   const W = 860, H = 360, pl = 60, pr = 40, pt = 44, pb = 50;
   const prices = cs.map(c => c.price_low), maxP = Math.max(...prices, (I.price && I.price.amount) || 0) * 1.15 || 1;
@@ -266,7 +266,7 @@ function competitorMap() {
     return `<g class="hit" data-tip="${esc(tip)}" tabindex="0"><circle cx="${cx}" cy="${cy}" r="16" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="${r}" fill="${c.free ? "var(--ink)" : "var(--bone)"}" stroke="${c.free ? "var(--red)" : "var(--ink)"}" stroke-width="${c.free ? 3 : 2}"/>${lab}</g>`; }).join("");
   return `<h3>Where competitors sit</h3><figure class="fig"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Competitors by entry price and traction">${grid}${xt}${you}${dots}
     <text class="axis" x="${W - pr}" y="${H - 6}" text-anchor="end">Entry price →</text><text class="axis" x="${pl}" y="${pt - 26}">↑ Traction (1–5)</text></svg>
-    <figcaption>Filled dot = paid product. Red ring = free option. Traction is an estimate from visible signals (reviews, revenue, launches). Hover a dot for details.</figcaption></figure>`;
+    <figcaption>Filled dot = paid product. Red ring = free option. Traction is an estimate from visible signals (reviews, revenue, launches); competitors with unknown traction are only in the table. Hover a dot for details.</figcaption></figure>`;
 }
 
 function riskMatrix() {
