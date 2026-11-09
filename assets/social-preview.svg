@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <rect width="1280" height="640" fill="#111113"/>
+  <circle cx="300" cy="320" r="330" fill="#E5383B" opacity="0.07"/>
+  <g transform="translate(90 120) scale(0.39)">  <rect width="1024" height="1024" rx="224" fill="#111113"/>
+  <!-- glow -->
+  <circle cx="512" cy="420" r="300" fill="#E5383B" opacity="0.10"/>
+  <!-- bulb -->
+  <path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#F3EEE3"/>
+  <!-- base -->
+  <rect x="396" y="776" width="232" height="44" rx="22" fill="#9A958C"/>
+  <rect x="412" y="834" width="200" height="44" rx="22" fill="#9A958C"/>
+  <path d="M452 892h120l-18 34h-84z" fill="#9A958C"/>
+  <!-- X eyes -->
+  <g stroke="#111113" stroke-width="34" stroke-linecap="round">
+    <path d="M380 340l80 80M460 340l-80 80"/>
+    <path d="M564 340l80 80M644 340l-80 80"/>
+  </g>
+  <!-- flat mouth -->
+  <path d="M440 530h144" stroke="#111113" stroke-width="30" stroke-linecap="round"/>
+  <!-- red NO-GO stamp tilt -->
+  <g transform="rotate(-14 512 640)">
+    <rect x="300" y="590" width="424" height="112" rx="18" fill="none" stroke="#E5383B" stroke-width="22"/>
+    <text x="512" y="676" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-weight="900" font-size="84" fill="#E5383B" letter-spacing="6">NO-GO</text>
+  </g></g>
+  <g font-family="'JetBrainsMono Nerd Font','JetBrains Mono','DejaVu Sans Mono',monospace">
+    <text x="560" y="230" fill="#F3EEE3" font-size="76" font-weight="800">kill-my-idea</text>
+    <text x="562" y="300" fill="#8A857C" font-size="27">Claude says your idea is great.</text>
+    <text x="562" y="342" fill="#F3EEE3" font-size="27" font-weight="700">This plugin tries to kill it.</text>
+    <text x="562" y="384" fill="#F3EEE3" font-size="27" font-weight="700">With sources.</text>
+    <g font-size="22" font-weight="800">
+      <rect x="562" y="430" width="96" height="44" rx="10" fill="#2BB673"/><text x="610" y="460" text-anchor="middle" fill="#111113">GO</text>
+      <rect x="672" y="430" width="128" height="44" rx="10" fill="#F2C14E"/><text x="736" y="460" text-anchor="middle" fill="#111113">PIVOT</text>
+      <rect x="814" y="430" width="138" height="44" rx="10" fill="#E5383B"/><text x="883" y="460" text-anchor="middle" fill="#111113">NO-GO</text>
+    </g>
+    <text x="562" y="540" fill="#8A857C" font-size="20">Claude Code plugin · score /100 · open source</text>
+  </g>
+</svg>

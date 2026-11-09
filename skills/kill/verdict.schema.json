@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/RemiPelloux/kill-my-idea/skills/kill/verdict.schema.json",
+  "title": "kill-my-idea verdict",
+  "description": "Machine-readable verdict and metrics. Read by /kill-my-idea:compare and /kill-my-idea:deepdive. Each metric carries its own source or is marked estimate.",
+  "type": "object",
+  "required": ["slug", "evaluated", "verdict", "score", "criteria", "metrics", "kill_shots"],
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "required": ["value", "basis"],
+      "properties": {
+        "value": { "type": ["number", "string", "null"], "description": "null or \"unknown\" when not found" },
+        "unit": { "type": ["string", "null"] },
+        "basis": { "enum": ["sourced", "estimate", "unknown"] },
+        "source": { "type": ["string", "null"], "description": "URL when basis is sourced" },
+        "reasoning": { "type": ["string", "null"], "description": "Required when basis is estimate" }
+      }
+    }
+  },
+  "properties": {
+    "slug": { "type": "string" },
+    "evaluated": { "type": "string", "format": "date" },
+    "mode": { "enum": ["kill", "deepdive", "roast"] },
+    "verdict": { "enum": ["GO", "PIVOT", "NO-GO"] },
+    "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "criteria": {
+      "type": "object",
+      "required": ["profit", "feasibility", "time_to_first_revenue", "demand", "competition", "risk", "fit"],
+      "additionalProperties": { "type": "integer", "minimum": 1, "maximum": 5 }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "tam": { "$ref": "#/$defs/metric" },
+        "sam": { "$ref": "#/$defs/metric" },
+        "som": { "$ref": "#/$defs/metric" },
+        "competitors_found": { "$ref": "#/$defs/metric" },
+        "competitor_price_range": { "$ref": "#/$defs/metric" },
+        "demand_trend": { "$ref": "#/$defs/metric" },
+        "price": { "$ref": "#/$defs/metric" },
+        "gross_margin_pct": { "$ref": "#/$defs/metric" },
+        "cac": { "$ref": "#/$defs/metric" },
+        "ltv": { "$ref": "#/$defs/metric" },
+        "ltv_cac": { "$ref": "#/$defs/metric" },
+        "payback_months": { "$ref": "#/$defs/metric" },
+        "break_even_customers_per_month": { "$ref": "#/$defs/metric" },
+        "time_to_first_revenue_weeks": { "$ref": "#/$defs/metric" }
+      }
+    },
+    "by_country": {
+      "type": "object",
+      "description": "Optional: same metrics keyed by ISO country code, plus a recommended launch country",
+      "additionalProperties": { "type": "object" }
+    },
+    "launch_country": { "type": ["string", "null"] },
+    "kill_shots": {
+      "type": "object",
+      "properties": {
+        "free_alternative": { "type": "boolean" },
+        "strong_competitor": { "type": "boolean" },
+        "graveyard": { "type": "boolean" },
+        "no_distribution": { "type": "boolean" },
+        "costs_eat_margin": { "type": "boolean" },
+        "weak_demand": { "type": "boolean" },
+        "legal_platform_risk": { "type": "boolean" }
+      }
+    },
+    "cheapest_test": { "type": ["string", "null"] },
+    "kill_criteria": { "type": "array", "items": { "type": "string" } },
+    "sources": { "type": "array", "items": { "type": "string" } }
+  }
+}

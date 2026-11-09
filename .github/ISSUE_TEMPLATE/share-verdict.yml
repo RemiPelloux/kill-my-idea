@@ -1,0 +1,27 @@
+name: "☠️ Share your verdict"
+description: Post the card kill-my-idea gave your idea (killed or not) to the public gallery.
+title: "[verdict] "
+labels: ["verdict"]
+body:
+  - type: textarea
+    id: card
+    attributes:
+      label: Your verdict card
+      description: Paste the card from your report (markdown is fine).
+      render: markdown
+    validations:
+      required: true
+  - type: dropdown
+    id: agree
+    attributes:
+      label: Was it right?
+      options:
+        - "Yes, it saved me time or money"
+        - "Partly"
+        - "No, it was wrong (please tell us why below)"
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: What happened next? (optional)

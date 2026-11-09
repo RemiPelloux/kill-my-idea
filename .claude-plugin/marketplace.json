@@ -1,0 +1,16 @@
+{
+  "name": "kill-my-idea",
+  "owner": {
+    "name": "Remi Pelloux"
+  },
+  "metadata": {
+    "description": "kill-my-idea: brutally honest, sourced GO / PIVOT / NO-GO verdicts for startup and side-project ideas."
+  },
+  "plugins": [
+    {
+      "name": "kill-my-idea",
+      "source": "./",
+      "description": "Brutally honest, sourced GO / PIVOT / NO-GO verdicts for business ideas."
+    }
+  ]
+}

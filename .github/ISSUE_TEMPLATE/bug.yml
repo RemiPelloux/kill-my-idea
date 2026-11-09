@@ -1,0 +1,19 @@
+name: "🐛 Bug or bad verdict"
+description: A crash, a broken report, or a verdict built on wrong or unsourced facts.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: The input you gave (idea or pasted post)
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version and Claude Code version
+      placeholder: "kill-my-idea 0.1.0, Claude Code 2.x"

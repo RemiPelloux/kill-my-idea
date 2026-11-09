@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <title>kill-my-idea: a dead lightbulb</title>
+  <rect width="1024" height="1024" rx="224" fill="#111113"/>
+  <!-- glow -->
+  <circle cx="512" cy="420" r="300" fill="#E5383B" opacity="0.10"/>
+  <!-- bulb -->
+  <path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#F3EEE3"/>
+  <!-- base -->
+  <rect x="396" y="776" width="232" height="44" rx="22" fill="#9A958C"/>
+  <rect x="412" y="834" width="200" height="44" rx="22" fill="#9A958C"/>
+  <path d="M452 892h120l-18 34h-84z" fill="#9A958C"/>
+  <!-- X eyes -->
+  <g stroke="#111113" stroke-width="34" stroke-linecap="round">
+    <path d="M380 340l80 80M460 340l-80 80"/>
+    <path d="M564 340l80 80M644 340l-80 80"/>
+  </g>
+  <!-- flat mouth -->
+  <path d="M440 530h144" stroke="#111113" stroke-width="30" stroke-linecap="round"/>
+  <!-- red NO-GO stamp tilt -->
+  <g transform="rotate(-14 512 640)">
+    <rect x="300" y="590" width="424" height="112" rx="18" fill="none" stroke="#E5383B" stroke-width="22"/>
+    <text x="512" y="676" text-anchor="middle" font-family="Arial Black, Helvetica, Arial, sans-serif" font-weight="900" font-size="84" fill="#E5383B" letter-spacing="6">NO-GO</text>
+  </g>
+</svg>

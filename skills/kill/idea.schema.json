@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/RemiPelloux/kill-my-idea/skills/kill/idea.schema.json",
+  "title": "kill-my-idea idea brief",
+  "description": "Structured brief extracted from the user's raw input. Fields not stated in the input are null and listed in unknowns.",
+  "type": "object",
+  "required": ["slug", "title", "source", "problem", "customer", "solution", "revenue_model", "countries", "unknowns"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "title": { "type": "string", "maxLength": 80 },
+    "created": { "type": "string", "format": "date" },
+    "source": {
+      "type": "object",
+      "required": ["type", "text"],
+      "properties": {
+        "type": { "enum": ["own-idea", "tweet", "thread", "post", "article", "url", "doc", "voice-note", "other"] },
+        "text": { "type": "string", "description": "Verbatim input" },
+        "url": { "type": ["string", "null"] },
+        "author": { "type": ["string", "null"] },
+        "posted": { "type": ["string", "null"] }
+      }
+    },
+    "problem": { "type": ["string", "null"] },
+    "customer": { "type": ["string", "null"], "description": "A precise segment, not 'everyone'" },
+    "solution": { "type": ["string", "null"] },
+    "revenue_model": { "enum": ["subscription", "one-off", "usage", "ads", "affiliate", "marketplace", "service", "other", null] },
+    "price": {
+      "type": ["object", "null"],
+      "properties": { "amount": { "type": "number" }, "currency": { "type": "string" }, "period": { "type": ["string", "null"] } }
+    },
+    "channel": { "type": ["string", "null"], "description": "How the first customers are reached" },
+    "countries": { "type": "array", "items": { "type": "string", "description": "ISO 3166-1 alpha-2, e.g. FR, US" } },
+    "claims": { "type": "array", "items": { "type": "string" }, "description": "Claims from the source to fact-check" },
+    "context": {
+      "type": "object",
+      "properties": {
+        "budget": { "type": ["string", "null"] },
+        "time_per_week": { "type": ["string", "null"] },
+        "goal": { "enum": ["side-income", "startup", "audience", "learning", "other", null] },
+        "edge": { "type": ["string", "null"] }
+      }
+    },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "unknowns": { "type": "array", "items": { "type": "string" } }
+  }
+}
