@@ -6,450 +6,420 @@
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="report-data.js"></script>
 <style>
+/* Design system: ui-ux-pro-max "Data-Dense Dashboard" (financial analytics) — blue data, slate neutrals, Fira Sans / Fira Code */
 :root{
-  --ink:#15120F; --ink-2:#1D1915; --ink-3:#28231E; --rule:#3A332C;
-  --bone:#EFE8DC; --ash:#A39A8E; --ash-2:#7C746A;
-  --red:#E5383B; --amber:#E9B44C; --green:#3FB47A;
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --measure:68ch;
+  --bg:#F8FAFC; --card:#FFFFFF; --fg:#0F172A; --muted:#E9EEF6; --muted-fg:#475569; --border:#DBEAFE; --line:#E2E8F0;
+  --primary:#1E40AF; --secondary:#3B82F6; --on-primary:#FFFFFF;
+  --go:#15803D; --go-bg:#DCFCE7; --go-fill:#22C55E; --pivot:#C2410C; --pivot-bg:#FFEDD5; --pivot-fill:#F59E0B; --nogo:#DC2626; --nogo-bg:#FEE2E2; --nogo-fill:#EF4444;
+  --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px -12px rgba(15,23,42,.12);
+  --radius:14px; --sans:"Fira Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"Fira Code",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px;
 }
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0B1220; --card:#111A2E; --fg:#E2E8F0; --muted:#1A2540; --muted-fg:#94A3B8; --border:#1E2B47; --line:#1E293B;
+  --primary:#60A5FA; --secondary:#93C5FD; --on-primary:#0B1220;
+  --go:#4ADE80; --go-bg:#052E1A; --go-fill:#22C55E; --pivot:#FBBF24; --pivot-bg:#2A1A06; --pivot-fill:#F59E0B; --nogo:#F87171; --nogo-bg:#3A0D0D; --nogo-fill:#EF4444;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:24px}
-body{margin:0;background:var(--ink);color:var(--bone);font:400 19px/1.62 var(--serif);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration-color:var(--ash-2);text-underline-offset:3px}
-a:hover{text-decoration-color:var(--bone)}
-::selection{background:var(--v);color:var(--ink)}
-html{scrollbar-color:var(--rule) var(--ink);caret-color:var(--v)}
-.num,.tbl td,.v{font-variant-numeric:tabular-nums}
-a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
-.layout{display:grid;grid-template-columns:240px minmax(0,1fr);max-width:1320px;margin:0 auto}
-/* rail */
-.rail{position:sticky;top:0;height:100vh;padding:36px 20px 24px 28px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:28px;overflow:auto}
-.brand{display:flex;align-items:center;gap:10px;font:600 14px var(--mono);color:var(--bone);text-decoration:none}
+html{scroll-behavior:smooth;scroll-padding-top:120px;scrollbar-color:var(--line) var(--bg);caret-color:var(--primary)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+::selection{background:var(--primary);color:var(--on-primary)}
+a{color:var(--primary);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--secondary);outline-offset:2px;border-radius:6px}
+button{font:inherit;cursor:pointer}
+.num,table td{font-variant-numeric:tabular-nums}
+.num{font-family:var(--mono);font-weight:500}
+.ic{width:16px;height:16px;flex:none;vertical-align:-3px}
+
+/* top bar + section tabs */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1200px;margin:0 auto;padding:12px var(--s3);display:flex;align-items:center;gap:var(--s2)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--fg);text-decoration:none;white-space:nowrap}
 .brand svg{width:28px;height:28px}
-.rail nav ol{list-style:none;margin:0;padding:0;counter-reset:toc}
-.rail nav li a{display:block;padding:6px 0 6px 12px;border-left:2px solid transparent;color:var(--ash);text-decoration:none;font-size:16px;line-height:1.3}
-.rail nav li a:hover{color:var(--bone)}
-.rail nav li a.on{color:var(--bone);border-left-color:var(--v)}
-.chip{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--serif);color:var(--ink);background:var(--v);padding:6px 12px;border-radius:6px}
-.chip .num{font-size:13px}
-.ic{width:1em;height:1em;vertical-align:-.12em;flex:none}
-.rail .foot{margin-top:auto;font:400 14px/1.5 var(--serif);color:var(--ash-2)}
-main{padding:0 56px 96px;min-width:0}
-/* cover */
-.cover{min-height:min(92vh,980px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:center;border-bottom:1px solid var(--rule);padding:56px 0 48px}
-.case{font:italic 400 17px var(--serif);color:var(--ash);margin:0 0 26px}
-.cover h1{font:500 var(--h1,clamp(44px,5.6vw,84px))/1 var(--serif);letter-spacing:-.025em;margin:0 0 22px;text-wrap:balance}
-.cover .pitch{font-size:21px;color:var(--ash);max-width:34ch;margin:0 0 30px;font-style:italic}
-.answer{font-size:24px;line-height:1.48;max-width:38ch;margin:0;text-wrap:pretty}
-.verdict-fig{position:relative;justify-self:center;width:min(100%,440px);padding-bottom:64px}
-.stamp{position:absolute;left:50%;top:100%;transform:translate(-50%,-50%) rotate(-9deg);border:5px solid var(--v);color:var(--v);border-radius:10px;padding:8px 24px 6px;font:800 clamp(34px,4.2vw,56px)/1 var(--mono);letter-spacing:.04em;white-space:nowrap;filter:url(#ink)}
-.motion .stamp{opacity:0;transform:translate(-50%,-50%) rotate(-4deg) scale(1.35);filter:url(#ink) blur(6px)}
-.motion .stamp.pressed{opacity:1;transform:translate(-50%,-50%) rotate(-9deg) scale(1);filter:url(#ink) blur(0);transition:transform .32s cubic-bezier(.16,1,.3,1),opacity .12s linear,filter .32s cubic-bezier(.16,1,.3,1)}
-.motion .grow .bar{transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
-.motion .grow.in .bar{transform:scaleX(1);transition:transform .9s cubic-bezier(.16,1,.3,1)}
-/* sections */
-section{padding:72px 0 8px;border-bottom:1px solid var(--rule)}
-section:last-of-type{border-bottom:0}
-.sec-head{margin-bottom:28px}
-h2{font:500 clamp(30px,3.4vw,44px)/1.1 var(--serif);letter-spacing:-.015em;margin:0;text-wrap:balance}
-.lede{color:var(--ash);margin:12px 0 0;max-width:var(--measure);font-size:19px}
-.body{margin-left:0}
-p{max-width:var(--measure)}
-h3{font:500 22px/1.3 var(--serif);margin:34px 0 12px}
-/* evidence markers */
-.num{font:600 .92em var(--mono);white-space:nowrap}
-.num .h,.v .h{font:400 .72em var(--mono);color:var(--ash)}
-.txt{font-size:16px;line-height:1.45}
-.mk{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 2px 1px 6px;vertical-align:middle;cursor:help}
-.mk.s{background:var(--bone)} .mk.e{border:1.5px solid var(--bone)} .mk.u{border:1.5px dashed var(--ash-2)}
-sup.fn a{font:600 11px var(--mono);color:var(--amber);text-decoration:none;margin-left:2px}
-.unk{font:400 .85em var(--mono);color:var(--ash-2);border-bottom:1px dashed var(--ash-2)}
-.legend-ev{display:flex;flex-wrap:wrap;gap:20px;font:italic 400 16px var(--serif);color:var(--ash);margin:0 0 18px}
-/* tiles */
-/* key figures */
-.figs{width:100%;border-collapse:collapse;margin:8px 0 30px;max-width:900px}
-.figs td{padding:16px 16px 16px 0;border-bottom:1px solid var(--rule);vertical-align:baseline}
-.figs tr:first-child td{border-top:1px solid var(--rule)}
-.figs .k{width:34%;font-size:18px}
-.figs .val{width:22%;font:800 26px var(--mono);letter-spacing:-.02em;white-space:nowrap}
-.figs .val .h{font:400 13px var(--mono);color:var(--ash)}
-.figs .m{color:var(--ash);font-size:16px}
-.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:14px;overflow:hidden;margin:28px 0}
-.tile{background:var(--ink-2);padding:20px 20px 18px}
-.tile .k{font-size:15px;color:var(--ash);line-height:1.3;min-height:2.6em}
-.tile .v{font:800 30px/1.1 var(--mono);margin-top:8px;letter-spacing:-.02em}
-.tile .h{font:400 12px/1.4 var(--mono);color:var(--ash-2);margin-top:6px}
-ul.tldr{padding:0;list-style:none;max-width:var(--measure)}
-ul.tldr li{padding:10px 0 10px 26px;border-top:1px solid var(--rule);position:relative}
-ul.tldr li::before{content:"";position:absolute;left:4px;top:24px;width:6px;height:6px;border-radius:50%;background:var(--ash-2)}
-/* tables */
-.tbl{width:100%;border-collapse:collapse;font-size:16px;margin:8px 0 28px}
-.tbl th{font:500 15px var(--serif);color:var(--ash);text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule)}
-.tbl td{padding:12px;border-bottom:1px solid var(--ink-3);vertical-align:top}
-.tbl tr:hover td{background:var(--ink-2)}
-.tbl .launch{background:color-mix(in srgb,var(--green) 9%,transparent)}
-.scroll{overflow-x:auto}
-/* pills */
-.pill{display:inline-flex;align-items:center;gap:6px;font:500 15px var(--serif);padding:2px 0;white-space:nowrap}
-.pill .num{font-size:13px}
-.tag{font:italic 400 14px var(--serif);color:var(--ash);margin-left:8px;white-space:nowrap}
-.pill.red{color:var(--red)} .pill.amber{color:var(--amber)} .pill.green{color:var(--green)} .pill.ash{color:var(--ash)}
+.bar .t{flex:1;min-width:0;color:var(--muted-fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:15px}
+.badge{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--sans);padding:5px 10px;border-radius:999px;white-space:nowrap}
+.b-GO{color:var(--go);background:var(--go-bg)} .b-PIVOT{color:var(--pivot);background:var(--pivot-bg)} .b-NO-GO{color:var(--nogo);background:var(--nogo-bg)}
+.b-doable{color:var(--go);background:var(--go-bg)} .b-hard{color:var(--pivot);background:var(--pivot-bg)} .b-very-hard{color:var(--nogo);background:var(--nogo-bg)}
+.b-neutral{color:var(--muted-fg);background:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--fg);font-weight:500;transition:background .2s,border-color .2s}
+.btn:hover{background:var(--muted);border-color:var(--secondary)}
+.tabs{max-width:1200px;margin:0 auto;padding:0 var(--s3);display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:none;padding:10px 12px;color:var(--muted-fg);text-decoration:none;font-size:14px;font-weight:500;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.tabs a:hover{color:var(--fg)} .tabs a.on{color:var(--primary);border-bottom-color:var(--primary)}
+
+/* layout */
+main{max-width:1200px;margin:0 auto;padding:var(--s4) var(--s3) var(--s6)}
+.grid{display:grid;gap:var(--s3);align-items:start}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))} .g3{grid-template-columns:repeat(3,minmax(0,1fr))} .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:var(--s3);min-width:0}
+section{margin-top:var(--s5)}
+.sh{margin-bottom:var(--s2)}
+h1{font:700 clamp(30px,4vw,46px)/1.12 var(--sans);letter-spacing:-.02em;margin:0 0 12px;text-wrap:balance}
+h2{font:600 24px/1.25 var(--sans);letter-spacing:-.01em;margin:0}
+h3{font:600 17px/1.35 var(--sans);margin:0 0 12px}
+.sub{color:var(--muted-fg);margin:4px 0 0;max-width:70ch}
+p{max-width:72ch}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:var(--s4);align-items:center;padding:var(--s4)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--s2)}
+.pitch{color:var(--muted-fg);font-size:18px;margin:0 0 var(--s3)}
+.answer{font-size:19px;line-height:1.55;margin:0}
+.score{display:grid;justify-items:center;gap:12px}
+.ring{width:min(100%,240px);aspect-ratio:1}
+.ring text{font-family:var(--mono)}
+.verdict{display:inline-flex;align-items:center;gap:8px;font:700 20px var(--sans);letter-spacing:.02em;padding:8px 18px;border-radius:12px}
+.verdict .ic{width:20px;height:20px}
+
+/* KPI cards */
+.kpi .k{display:flex;align-items:center;gap:8px;color:var(--muted-fg);font-size:14px;font-weight:500}
+.kpi .v{font:600 30px/1.15 var(--mono);margin:10px 0 6px;letter-spacing:-.02em}
+.kpi .v .u,.num .u{font:400 13px var(--sans);color:var(--muted-fg);margin-left:2px}
+.kpi .m{font-size:14px;color:var(--muted-fg)}
+.kpi .m.bad{color:var(--nogo)} .kpi .m.ok{color:var(--pivot)} .kpi .m.good{color:var(--go)}
+.ev{display:inline-flex;align-items:center;gap:3px;font:500 11px var(--sans);color:var(--muted-fg);border:1px solid var(--line);border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:3px;cursor:help;white-space:nowrap}
+.ev.s{color:var(--primary);border-color:var(--border)}
+.ev .ic{width:11px;height:11px;vertical-align:0}
+.unk{color:var(--muted-fg);font-style:italic}
+sup.fn a{font:600 11px var(--mono);text-decoration:none;margin-left:2px}
+
+.tldr{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.tldr li{display:flex;gap:10px;align-items:flex-start}
+.tldr li .ic{color:var(--primary);margin-top:4px}
+.lesson{margin:var(--s2) 0 0;padding:14px 16px;background:var(--muted);border-radius:10px;max-width:none}
+
 /* rescue */
-.rescue{border-top:1px solid var(--rule)}
-.rx:last-child{border-bottom:0}
-.rx{display:grid;grid-template-columns:minmax(0,1.5fr) 260px minmax(0,1fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
-.rx .ch{font:500 21px/1.35 var(--serif)}
-.rx .why{color:var(--ash);font-size:16px;margin-top:6px}
-.rx dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:15px}
-.rx dt{font:italic 400 15px/1.6 var(--serif);color:var(--ash)} .rx dd{margin:0}
+.rx{display:flex;flex-direction:column;gap:14px;transition:transform .2s,border-color .2s}
+.rx:hover{transform:translateY(-2px);border-color:var(--secondary)}
+.rx .ch{font-weight:600;font-size:17px;line-height:1.4}
+.rx .why{color:var(--muted-fg);font-size:14px}
+.delta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.track{position:relative;height:8px;background:var(--muted);border-radius:99px;overflow:hidden}
+.track span{position:absolute;top:0;bottom:0;left:0;border-radius:99px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:0;font-size:14px}
+.facts dt{color:var(--muted-fg)} .facts dd{margin:0}
+
 /* kill shots */
-.ks{list-style:none;padding:0;margin:0;max-width:880px}
-.ks li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--ink-3)}
-.ks li>.pill{align-self:start;justify-self:start;margin-top:3px}
-.ks .t{font:500 19px var(--serif)} .ks .e{color:var(--ash);font-size:16px;margin-top:2px}
-/* quotes */
-.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px;margin:12px 0 24px}
-.quotes blockquote{margin:0;font:italic 400 21px/1.45 var(--serif);border-left:2px solid var(--rule);padding-left:18px}
-.quotes cite{display:block;font:400 12px var(--mono);font-style:normal;color:var(--ash-2);margin-top:8px}
+.ks{list-style:none;margin:0;padding:0}
+.ks li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:start}
+.ks li:last-child{border-bottom:0}
+.dot{width:28px;height:28px;border-radius:8px;display:grid;place-items:center}
+.ks .t{font-weight:600} .ks .e{color:var(--muted-fg);font-size:14px;margin-top:2px}
+
+/* tables */
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font:600 13px var(--sans);color:var(--muted-fg);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--bg);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr{transition:background .15s} tbody tr:hover{background:var(--bg)}
+td.r,th.r{text-align:right}
+.hl{background:color-mix(in srgb,var(--go-bg) 55%,transparent)}
+
 /* charts */
-.fig{margin:8px 0 30px}
-.fig svg{width:100%;height:auto;display:block;overflow:visible}
-.fig figcaption{font:italic 400 15px/1.5 var(--serif);color:var(--ash);margin-top:10px;max-width:var(--measure)}
-.axis{font:400 11px var(--mono);fill:var(--ash-2)}
-.lbl{font:400 13px var(--serif);fill:var(--bone)}
-.lbl-m{font:600 12px var(--mono);fill:var(--bone)}
+.chart{margin:0}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart figcaption{font-size:13px;color:var(--muted-fg);margin-top:10px}
+.ax{font:400 12px var(--mono);fill:var(--muted-fg)}
+.lb{font:500 15px var(--sans);fill:var(--fg)}
+.lv{font:500 14px var(--mono);fill:var(--fg)}
+.gridl{stroke:var(--line)}
 .hit{cursor:pointer}
-#tip{position:fixed;pointer-events:none;z-index:9;max-width:300px;background:var(--bone);color:var(--ink);font:400 14px/1.4 var(--serif);padding:10px 12px;border-radius:8px;box-shadow:0 8px 30px #0008;opacity:0;transition:opacity .12s}
-#tip b{font:600 12px var(--mono);display:block;margin-bottom:2px}
+.hit:hover .mk,.hit:focus .mk{stroke:var(--secondary);stroke-width:3}
+#tip{position:fixed;z-index:50;pointer-events:none;max-width:300px;background:var(--fg);color:var(--bg);font:400 13px/1.45 var(--sans);padding:10px 12px;border-radius:10px;box-shadow:var(--shadow);opacity:0;transition:opacity .15s}
+#tip b{display:block;font-weight:600;margin-bottom:2px}
+
+.quote{margin:0;font-size:16px;line-height:1.55}
+.quote cite{display:block;font-style:normal;font-size:13px;color:var(--muted-fg);margin-top:8px}
+
 /* timeline */
-.tl{list-style:none;padding:0;margin:0;max-width:var(--measure);counter-reset:d}
-.tl li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--ink-3)}
-.tl .w{font:600 14px var(--mono);color:var(--ash);padding-top:4px}
-.tl .vf{font-size:16px;color:var(--ash);margin-top:4px}
-.kill{border-top:1px solid var(--red);padding:16px 0 0;margin:30px 0;max-width:var(--measure)}
-.kill h3{margin:0 0 8px;font-size:20px}
-.kill ul{margin:0;padding-left:20px}
-/* sources */
-ol.src{font-size:15px;max-width:880px;padding-left:28px}
-ol.src li{padding:6px 0;color:var(--ash)} ol.src li::marker{font:600 12px var(--mono);color:var(--amber)}
-ol.src a{color:var(--bone)} ol.src li:target{background:var(--ink-3)}
-footer{margin:64px 0 0;font:italic 400 15px/1.6 var(--serif);color:var(--ash-2);max-width:var(--measure)}
-.err{max-width:640px;margin:20vh auto;padding:24px;font:400 16px var(--mono)}
-/* responsive */
-@media (max-width:1100px){.cover{grid-template-columns:1fr}.verdict-fig{max-width:420px}.rx{grid-template-columns:1fr 1fr}.rx .ch-wrap{grid-column:1/-1}}
-@media (max-width:860px){
-  .layout{grid-template-columns:1fr}.rail{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule);padding:18px 16px}
-  .rail nav,.rail .foot{display:none} main{padding:0 16px 64px} .body{margin-left:0}
-  .figs .k{width:auto} .figs td{display:block;padding:4px 0} .figs tr{display:block;padding:12px 0;border-bottom:1px solid var(--rule)} .figs td{border:0!important}
-  .quotes{grid-template-columns:1fr} .rx{grid-template-columns:1fr} .ks li,.tl li{grid-template-columns:1fr;gap:4px}
-  body{font-size:18px}
-}
-/* print: white consulting paper */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:92px 20px minmax(0,1fr);gap:12px;padding-bottom:18px}
+.tl .w{font:600 13px var(--mono);color:var(--primary);padding-top:2px;text-align:right}
+.tl .node{position:relative;display:flex;justify-content:center}
+.tl .node::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--primary);margin-top:5px;z-index:1}
+.tl li:not(:last-child) .node::after{content:"";position:absolute;top:18px;bottom:-22px;width:2px;background:var(--border)}
+.tl .vf{color:var(--muted-fg);font-size:14px;margin-top:2px}
+.stop{border:1px solid color-mix(in srgb,var(--nogo) 35%,transparent);background:var(--nogo-bg);border-radius:12px;padding:14px 16px}
+.stop h3{color:var(--nogo);display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.stop ul{margin:0;padding-left:20px}
+
+ol.src{margin:0;padding-left:26px;font-size:14px;columns:2;column-gap:var(--s4)}
+ol.src li{padding:4px 0;break-inside:avoid;color:var(--muted-fg)} ol.src li::marker{font:600 12px var(--mono);color:var(--primary)}
+ol.src li:target{background:var(--pivot-bg);border-radius:6px}
+footer{max-width:1200px;margin:0 auto;padding:0 var(--s3) var(--s5);color:var(--muted-fg);font-size:13px}
+.err{max-width:560px;margin:20vh auto}
+
+/* motion (ui-ux-pro-max Stagger List: 400ms, back-out) — only when JS runs and motion is allowed */
+.motion .rv{opacity:0;transform:translateY(16px) scale(.98)}
+.motion .rv.in{opacity:1;transform:none;transition:opacity .4s ease-out,transform .45s cubic-bezier(.34,1.4,.64,1);transition-delay:var(--d,0ms)}
+.motion .grow .bar{transform:scaleX(0);transform-box:fill-box;transform-origin:left center}
+.motion .grow.in .bar{transform:scaleX(1);transition:transform .8s cubic-bezier(.22,1,.36,1) .15s}
+.motion .verdict{opacity:0;transform:scale(.6)}
+.motion .verdict.in{opacity:1;transform:none;transition:opacity .2s,transform .45s cubic-bezier(.34,1.56,.64,1)}
+
+/* responsive: 375 / 768 / 1024 / 1440 */
+@media (max-width:1024px){.g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))} .hero{grid-template-columns:1fr} .score{order:-1}}
+@media (max-width:768px){.g2,.g3{grid-template-columns:1fr} ol.src{columns:1} .bar .t{display:none} main{padding:var(--s3) var(--s2) var(--s5)} .bar,.tabs{padding-left:var(--s2);padding-right:var(--s2)} .hero{padding:var(--s3)}}
+@media (max-width:480px){.g4{grid-template-columns:1fr} .tl li{grid-template-columns:64px 20px minmax(0,1fr)} .ks li{grid-template-columns:28px minmax(0,1fr)} .ks li .badge{grid-column:2;justify-self:start} .btn span{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important}}
 @media print{
-  @page{size:A4;margin:16mm 14mm}
-  :root{--ink:#fff;--ink-2:#F6F4F0;--ink-3:#E8E4DD;--rule:#D6D0C6;--bone:#15120F;--ash:#4D463E;--ash-2:#6E665C;--amber:#9A6A00}
-  body{font-size:11.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .layout{display:block}.rail{display:none} main{padding:0}
-  .cover{min-height:auto;page-break-after:always;padding-top:0}
-  section{page-break-inside:auto;padding-top:28px} .sec-head,h2,h3{break-after:avoid;page-break-after:avoid} .rx,.ks li,.tl li,.fig,.tiles,blockquote{break-inside:avoid}
-  .stamp,.motion .stamp{mix-blend-mode:normal;opacity:1;filter:none;transform:translate(-50%,-50%) rotate(-9deg)} .motion .grow .bar{transform:none} #tip{display:none} .figs .val .h{color:var(--ash)}
-  a{text-decoration:none}
+  @page{size:A4;margin:14mm 12mm}
+  :root{--bg:#fff;--card:#fff;--shadow:none}
+  body{font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .top,#tip{display:none} main{padding:0} .card{break-inside:avoid;box-shadow:none}
+  .motion .rv,.motion .verdict{opacity:1;transform:none} .motion .grow .bar{transform:none}
+  section{margin-top:var(--s3)} .hero{grid-template-columns:1.5fr 1fr} .score{order:0} a{color:inherit;text-decoration:none}
 }
 </style>
 </head>
 <body>
 <div id="tip" role="tooltip"></div>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="ink" x="-10%" y="-20%" width="120%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3.2 2.75" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
-<div class="layout" id="app"></div>
+<div id="app"></div>
 <script>
 (() => {
 "use strict";
-const D = window.KMI_DATA;
-const app = document.getElementById("app");
-if (!D) { app.innerHTML = '<p class="err">report-data.js was not found next to this file. Re-run /kill-my-idea:kill, or keep report.html and report-data.js in the same folder.</p>'; return; }
+const D = window.KMI_DATA, app = document.getElementById("app");
+if (!D) { app.innerHTML = '<div class="err card"><h2>Report data not found</h2><p>Keep <code>report.html</code> and <code>report-data.js</code> in the same folder, or run <code>/kill-my-idea:kill</code> again.</p></div>'; return; }
 const I = D.idea || {}, V = D.verdict || {}, N = D.narrative || {}, M = V.metrics || {};
-const VC = { "GO": "var(--green)", "PIVOT": "var(--amber)", "NO-GO": "var(--red)" };
-const svgI = d => `<svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
-const ICON = { check: svgI('<path d="M3 8.5l3.2 3L13 4.5"/>'), cross: svgI('<path d="M4 4l8 8M12 4l-8 8"/>'), turn: svgI('<path d="M3 8a5 5 0 1 0 1.6-3.7"/><path d="M3 2.5v2.8h2.8"/>'), step: svgI('<path d="M3 12l5-8 5 8z"/>'), dot: svgI('<circle cx="8" cy="8" r="3"/>'), arrow: svgI('<path d="M3 8h10M9 4l4 4-4 4"/>') };
-const VI = { "GO": ICON.check, "PIVOT": ICON.turn, "NO-GO": ICON.cross };
-document.documentElement.style.setProperty("--v", VC[V.verdict] || "var(--ash)");
-const TL = (I.title || "").length; if (TL > 28) document.documentElement.style.setProperty("--h1", TL > 60 ? "clamp(36px,3.6vw,54px)" : "clamp(40px,4.4vw,66px)");
+const VC = { "GO": "var(--go-fill)", "PIVOT": "var(--pivot-fill)", "NO-GO": "var(--nogo-fill)" };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const has = x => Array.isArray(x) ? x.length > 0 : x && typeof x === "object" ? Object.keys(x).length > 0 : !!x;
+const vlabel = s => s >= 70 ? "GO" : s >= 50 ? "PIVOT" : "NO-GO";
+const plain = h => String(h ?? "").replace(/<[^>]+>/g, "");
 document.title = `${V.verdict || ""} ${V.score ?? ""}/100 · ${I.title || "kill-my-idea report"}`;
 
-const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const CN = { FR: "France", BE: "Belgium", US: "the US", GB: "the UK", UK: "the UK", DE: "Germany", ES: "Spain", IT: "Italy", CA: "Canada", CH: "Switzerland", NL: "the Netherlands", PT: "Portugal", AU: "Australia" };
-const listJoin = a => { const n = a.map(c => CN[c] || c); return n.length < 2 ? n.join("") : n.slice(0, -1).join(", ") + " and " + n[n.length - 1]; };
-const niceDate = d => { const t = d ? new Date(d + "T12:00:00") : null; return t && !isNaN(t) ? t.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) : (d || "recently"); };
-const has = x => Array.isArray(x) ? x.length > 0 : x && typeof x === "object" ? Object.keys(x).length > 0 : !!x;
+/* Lucide icons, stroke 2 */
+const L = { check: '<path d="M20 6 9 17l-5-5"/>', x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>', rotate: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
+  alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>', arrow: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+  printer: '<path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>', target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>', scale: '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+  flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/>', chevron: '<path d="m9 18 6-6-6-6"/>' };
+const ic = (n, sz = 16) => `<svg class="ic" width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${L[n] || L.info}</svg>`;
+const VICON = { "GO": "check", "PIVOT": "rotate", "NO-GO": "x" };
+const vbadge = s => { const v = vlabel(s); return `<span class="badge b-${v}">${ic(VICON[v], 14)}${v} <span class="num">${s}</span></span>`; };
 
-/* footnotes: one numbered list built from narrative.sources + verdict.sources + any cited URL */
+/* footnotes */
 const SRC = [], SIDX = new Map();
-const addSrc = (s) => { const o = typeof s === "string" ? { url: s } : s; if (!o || !o.url) return 0;
-  if (!SIDX.has(o.url)) { SRC.push(o); SIDX.set(o.url, SRC.length); } else Object.assign(SRC[SIDX.get(o.url) - 1], o); return SIDX.get(o.url); };
+const addSrc = s => { const o = typeof s === "string" ? { url: s } : s; if (!o || !o.url) return 0;
+  if (!SIDX.has(o.url)) { SRC.push({ ...o }); SIDX.set(o.url, SRC.length); } else Object.assign(SRC[SIDX.get(o.url) - 1], o); return SIDX.get(o.url); };
 (N.sources || []).forEach(addSrc); (V.sources || []).forEach(addSrc);
-const fn = url => { const n = url ? addSrc(url) : 0; return n ? `<sup class="fn"><a href="#src-${n}">[${n}]</a></sup>` : ""; };
+const fn = url => { const n = url ? addSrc(url) : 0; return n ? `<sup class="fn"><a href="#src-${n}" aria-label="Source ${n}">[${n}]</a></sup>` : ""; };
 
+/* numbers */
 const CUR = { USD: "$", EUR: "€", GBP: "£" };
+const short = v => { const a = Math.abs(v); return a >= 1e9 ? (v / 1e9).toFixed(1) + "B" : a >= 1e6 ? (v / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : a >= 1e4 ? Math.round(v / 1e3) + "k" : Number.isInteger(v) ? v.toLocaleString("en") : (+v.toFixed(2)).toString(); };
 const fmt = (v, unit) => {
   if (v === null || v === undefined || v === "unknown") return null;
   if (typeof v !== "number") return esc(v);
-  const um = /^(USD|EUR|GBP)(?!\/(?:USD|EUR|GBP))\b\s*(.*)$/i.exec(unit || ""), sym = um ? CUR[um[1].toUpperCase()] : "", rest = um ? um[2] : "";
-  const a = Math.abs(v); const s = a >= 1e9 ? (v / 1e9).toFixed(1) + "B" : a >= 1e6 ? (v / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : a >= 1e4 ? (v / 1e3).toFixed(0) + "k" : (Number.isInteger(v) ? v.toLocaleString("en") : v.toFixed(2).replace(/0$/, ""));
-  if (unit === "%") return s + "%";
-  const extra = sym ? rest : (unit || "");
-  return sym + s + (extra ? `<span class="h">${extra.startsWith("/") ? "" : " "}${esc(extra)}</span>` : "");
+  if (unit === "%") return short(v) + "%";
+  const um = /^(USD|EUR|GBP)(?!\/(?:USD|EUR|GBP))\b\s*(.*)$/i.exec(unit || ""), sym = um ? CUR[um[1].toUpperCase()] : "", rest = um ? um[2] : (unit || "");
+  return sym + short(v) + (rest ? `<span class="u">${rest.startsWith("/") ? "" : " "}${esc(rest)}</span>` : "");
 };
-/* a metric value with its evidence marker */
-const txt = v => typeof v === "string" && v.length > 18;
+const evTag = m => m.basis === "sourced" ? `<span class="ev s">${ic("check", 11)}sourced</span>${fn(m.source)}`
+  : m.basis === "estimate" ? `<span class="ev" data-tip="<b>Estimate</b>${esc(m.reasoning || "Reasoning in the report")}" tabindex="0">estimate</span>` : "";
 const metric = (m, key = "") => {
   if (m === null || m === undefined) return '<span class="unk">unknown</span>';
-  if (typeof m !== "object") return txt(m) ? `<span class="txt">${esc(m)}</span>` : `<span class="num">${esc(m)}${typeof m === "number" && /_pct$/.test(key) ? "%" : ""}</span>`;
-  if (txt(m.value)) return `<span class="txt">${esc(m.value)}</span><i class="mk ${m.basis === "sourced" ? "s" : m.basis === "estimate" ? "e" : "u"}" data-tip="${esc(m.basis === "estimate" ? "Estimate: " + (m.reasoning || "") : m.basis || "")}" tabindex="0"></i>${m.basis === "sourced" ? fn(m.source) : ""}`;
+  if (typeof m !== "object") return typeof m === "number" ? `<span class="num">${short(m)}${/_pct$/.test(key) ? "%" : ""}</span>` : esc(m);
   const val = fmt(m.value, m.unit || (/_pct$/.test(key) ? "%" : ""));
-  if (!val || m.basis === "unknown") return `<span class="unk" data-tip="${esc(m.reasoning || "Not found in public sources")}">unknown</span>`;
-  const tip = m.basis === "estimate" ? `Estimate: ${m.reasoning || "see report"}` : "Sourced";
-  return `<span class="num">${val}</span><i class="mk ${m.basis === "sourced" ? "s" : "e"}" data-tip="${esc(tip)}" tabindex="0" aria-label="${esc(tip)}"></i>${m.basis === "sourced" ? fn(m.source) : ""}`;
+  if (!val || m.basis === "unknown") return `<span class="unk" data-tip="${esc(m.reasoning || "Not found in public sources")}" tabindex="0">unknown</span>`;
+  return `${typeof m.value === "number" ? `<span class="num">${val}</span>` : val}${evTag(m)}`;
 };
 
-const RAIL = [];
-let secN = 0;
-const section = (id, title, lede, html) => { if (!html) return ""; secN++; RAIL.push([id, title]);
-  return `<section id="${id}" aria-labelledby="${id}-h"><div class="sec-head"><h2 id="${id}-h">${esc(title)}</h2>${lede ? `<p class="lede">${lede}</p>` : ""}</div><div class="body">${html}</div></section>`; };
+/* layout helpers */
+const TABS = [];
+const section = (id, title, sub, body) => { if (!body) return ""; TABS.push([id, title]);
+  return `<section id="${id}" aria-labelledby="${id}-h"><div class="sh"><h2 id="${id}-h">${esc(title)}</h2>${sub ? `<p class="sub">${sub}</p>` : ""}</div>${body}</section>`; };
+const card = (html, d = 0) => `<div class="card rv" style="--d:${d}ms">${html}</div>`;
 
-/* ---------- charts (inline SVG) ---------- */
-function gauge(score, verdict) {
-  const r = 150, cx = 180, cy = 180, len = Math.PI * r, off = len * (1 - score / 100);
-  const arc = (a0, a1, rr = r) => { const p = a => [cx - rr * Math.cos(a * Math.PI / 100), cy - rr * Math.sin(a * Math.PI / 100)];
-    const [x0, y0] = p(a0), [x1, y1] = p(a1); return `M${x0.toFixed(1)},${y0.toFixed(1)} A${rr},${rr} 0 0 1 ${x1.toFixed(1)},${y1.toFixed(1)}`; };
-  const zone = (a0, a1, c) => `<path d="${arc(a0, a1, r - 26)}" stroke="${c}" stroke-width="3" fill="none" opacity=".7"/>`;
-  const ticks = [0, 50, 70, 100].map(t => { const a = t * Math.PI / 100, x = cx - (r + 22) * Math.cos(a), y = cy - (r + 22) * Math.sin(a);
-    return `<text class="axis" x="${x.toFixed(0)}" y="${(y + 4).toFixed(0)}" text-anchor="middle">${t}</text>`; }).join("");
-  return `<svg viewBox="-14 0 388 200" role="img" aria-label="Score ${score} out of 100, verdict ${verdict}">
-    <path d="${arc(0, 100)}" stroke="var(--ink-3)" stroke-width="26" fill="none" stroke-linecap="round"/>
-    <path class="gauge-arc" d="${arc(0, 100)}" stroke="var(--v)" stroke-width="26" fill="none" stroke-linecap="round" stroke-dasharray="${len.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}" data-len="${len.toFixed(1)}"/>
-    ${zone(0, 49.5, "var(--red)")}${zone(50.5, 69.5, "var(--amber)")}${zone(70.5, 100, "var(--green)")}
-    ${ticks}
-    <text x="${cx}" y="${cy - 4}" text-anchor="middle" style="font:800 78px var(--mono);fill:var(--bone)" class="gauge-num">${score}</text>
-    <text x="${cx}" y="${cy + 16}" text-anchor="middle" class="axis">out of 100</text></svg>`;
-}
+/* hero: score ring */
+const ring = (score, v) => { const r = 88, c = 2 * Math.PI * r, off = c * (1 - score / 100);
+  const tick = t => { const a = (t / 100) * 2 * Math.PI - Math.PI / 2; return `<line x1="${(110 + (r - 12) * Math.cos(a)).toFixed(1)}" y1="${(110 + (r - 12) * Math.sin(a)).toFixed(1)}" x2="${(110 + (r + 12) * Math.cos(a)).toFixed(1)}" y2="${(110 + (r + 12) * Math.sin(a)).toFixed(1)}" stroke="var(--muted-fg)" stroke-width="2" opacity=".45"/>`; };
+  return `<svg class="ring" viewBox="0 0 220 220" role="img" aria-label="Score ${score} out of 100">
+    <circle cx="110" cy="110" r="${r}" fill="none" stroke="var(--muted)" stroke-width="16"/>${tick(50)}${tick(70)}
+    <circle class="ring-arc" cx="110" cy="110" r="${r}" fill="none" stroke="${VC[v] || "var(--primary)"}" stroke-width="16" stroke-linecap="round" transform="rotate(-90 110 110)" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}" data-c="${c.toFixed(1)}"/>
+    <text class="ring-num" x="110" y="122" text-anchor="middle" style="font-size:60px;font-weight:600;fill:var(--fg)">${score}</text>
+    <text x="110" y="150" text-anchor="middle" style="font:500 13px var(--sans);fill:var(--muted-fg)">out of 100</text></svg>`; };
+const CN = { FR: "France", BE: "Belgium", US: "United States", GB: "United Kingdom", UK: "United Kingdom", DE: "Germany", ES: "Spain", IT: "Italy", CA: "Canada", CH: "Switzerland", NL: "Netherlands", PT: "Portugal", AU: "Australia" };
+const niceDate = d => { const t = d ? new Date(d + "T12:00:00") : null; return t && !isNaN(t) ? t.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : (d || ""); };
+const hero = `<div class="card hero">
+  <div><div class="meta"><span class="badge b-neutral">${ic("clock", 14)}${esc(niceDate(V.evaluated || I.created))}</span>${(I.countries || []).map(c => `<span class="badge b-neutral">${ic("flag", 14)}${esc(CN[c] || c)}</span>`).join("")}</div>
+  <h1>${esc(I.title || "Untitled idea")}</h1>${I.solution ? `<p class="pitch">${esc(I.solution)}</p>` : ""}<p class="answer">${esc(N.answer || "")}</p></div>
+  <div class="score">${ring(V.score ?? 0, V.verdict)}<div class="verdict b-${esc(V.verdict)}">${ic(VICON[V.verdict], 20)}${esc(V.verdict || "")}</div></div></div>`;
 
-function scoreBars(criteria) {
-  const W = { profit: 25, feasibility: 20, time_to_first_revenue: 15, demand: 15, competition: 10, risk: 10, fit: 5 };
-  const L = { profit: "Profit potential", feasibility: "Feasibility for you", time_to_first_revenue: "Time to first €", demand: "Market demand", competition: "Competition (5 = open field)", risk: "Risk (5 = low)", fit: "Fit with your skills" };
-  const rows = Object.keys(W), x0 = 230, sc = 22, rh = 44;
-  const body = rows.map((k, i) => { const s = criteria[k] ?? 0, w = W[k], pts = w * s / 5, y = i * rh;
-    return `<g class="hit" data-tip="<b>${esc(L[k])}</b>Score ${s}/5 × weight ${w} = ${pts} of ${w} pts" tabindex="0">
-      <text class="lbl" x="0" y="${y + 22}">${esc(L[k])}</text>
-      <rect x="${x0}" y="${y + 8}" width="${w * sc}" height="20" rx="4" fill="var(--ink-3)"/>
-      <rect class="bar" x="${x0}" y="${y + 8}" width="${Math.max(pts * sc - 2, 0)}" height="20" rx="4" fill="${s <= 1 ? "var(--red)" : "var(--bone)"}"/>
-      <text class="lbl-m" x="${x0 + w * sc + 12}" y="${y + 23}">${pts} / ${w}</text></g>`; }).join("");
-  return `<figure class="fig grow"><svg viewBox="0 0 860 ${rows.length * rh}" role="img" aria-label="Scorecard: points earned per weighted criterion">${body}</svg>
-    <figcaption>Each track is as long as the criterion's weight; the filled part is the points earned. A red bar scored 1 out of 5. Total: ${V.score} out of 100.</figcaption></figure>`;
-}
-
-function marketFunnel() {
-  const rows = [["TAM", "Everyone who could buy", M.tam], ["SAM", "Who you can actually serve", M.sam], ["SOM", "What you can win in year 1", M.som]];
-  if (!rows.some(r => r[2])) return "";
-  const nums = rows.map(r => (r[2] && typeof r[2].value === "number") ? r[2].value : null), max = Math.max(...nums.filter(n => n !== null), 1);
-  const html = rows.map(([k, d, m], i) => { const w = nums[i] !== null ? Math.max(Math.sqrt(nums[i] / max) * 100, 3) : 0;
-    return `<div style="display:grid;grid-template-columns:70px minmax(0,1fr) 200px;gap:16px;align-items:center;padding:10px 0;border-bottom:1px solid var(--ink-3)">
-      <span class="num">${k}</span><div><div style="height:22px;width:${w}%;background:var(--bone);opacity:${1 - i * 0.28};border-radius:4px"></div><div style="font:italic 400 15px var(--serif);color:var(--ash);margin-top:4px">${d}</div></div><div>${metric(m)}</div></div>`; }).join("");
-  return `<h3>Market size</h3><figure class="fig">${html}<figcaption>Widths use a square-root scale so the year-one share stays visible.</figcaption></figure>`;
-}
-
-function competitorMap() {
-  const cs = (N.competitors || []).filter(c => c.price_low !== null && c.price_low !== undefined && c.traction);
-  if (cs.length < 2) return "";
-  const W = 860, H = 360, pl = 60, pr = 40, pt = 44, pb = 50;
-  const prices = cs.map(c => c.price_low), maxP = Math.max(...prices, (I.price && I.price.amount) || 0) * 1.15 || 1;
-  const x = p => pl + (p / maxP) * (W - pl - pr), y = t => pt + (5 - (t || 1)) / 4 * (H - pt - pb);
-  const cur = cs[0].currency || (I.price && I.price.currency) || "";
-  const grid = [1, 2, 3, 4, 5].map(t => `<line x1="${pl}" x2="${W - pr}" y1="${y(t)}" y2="${y(t)}" stroke="var(--ink-3)"/><text class="axis" x="${pl - 10}" y="${y(t) + 4}" text-anchor="end">${t}</text>`).join("");
-  const xt = [0, .25, .5, .75, 1].map(f => { const p = maxP * f; return `<text class="axis" x="${x(p)}" y="${H - pb + 20}" text-anchor="middle">${fmt(Math.round(p), cur) || 0}</text>`; }).join("");
-  const you = I.price && I.price.amount ? `<line x1="${x(I.price.amount)}" x2="${x(I.price.amount)}" y1="${pt}" y2="${H - pb}" stroke="var(--v)" stroke-dasharray="4 4" stroke-width="2"/><text class="lbl-m" x="${x(I.price.amount) + 6}" y="${pt + 12}" style="fill:var(--v)">Your price</text>` : "";
-  const placed = cs.map(c => ({ x: x(c.price_low) - 9, y: y(c.traction) - 9, w: 18, h: 18 }));
-  if (I.price && I.price.amount) placed.push({ x: x(I.price.amount) - 2, y: pt, w: 90, h: 16 });
-  const clash = b => placed.some(o => b.x < o.x + o.w && b.x + b.w > o.x && b.y < o.y + o.h && b.y + b.h > o.y) || b.x < pl || b.x + b.w > W || b.y < 0 || b.y + b.h > H - pb + 4;
-  const labelPos = (c) => { const cx = x(c.price_low), cy = y(c.traction), w = c.name.length * 7.4 + 4;
-    for (const [dx, dy, a] of [[12, -8, "start"], [-12, -8, "end"], [12, 16, "start"], [-12, 16, "end"], [12, -24, "start"], [-12, 30, "end"]]) {
-      const b = { x: a === "start" ? cx + dx : cx + dx - w, y: cy + dy - 12, w, h: 15 };
-      if (!clash(b)) { placed.push(b); return [cx + dx, cy + dy, a]; } }
-    return null; };
-  const dots = cs.map((c, i) => { const cx = x(c.price_low), cy = y(c.traction), r = c.free ? 8 : 7, lp = labelPos(c);
-    const tip = `<b>${esc(c.name)}</b>${fmt(c.price_low, c.currency) ?? ""}${c.price_high ? "–" + fmt(c.price_high, c.currency) : ""} · traction ${c.traction ?? "?"}/5${c.traction_note ? " (" + esc(c.traction_note) + ")" : ""}${c.gap ? "<br>Gap: " + esc(c.gap) : ""}`;
-    const lab = lp ? `<text class="lbl" x="${lp[0]}" y="${lp[1]}" text-anchor="${lp[2]}">${esc(c.name)}</text>` : "";
-    return `<g class="hit" data-tip="${esc(tip)}" tabindex="0"><circle cx="${cx}" cy="${cy}" r="16" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="${r}" fill="${c.free ? "var(--ink)" : "var(--bone)"}" stroke="${c.free ? "var(--red)" : "var(--ink)"}" stroke-width="${c.free ? 3 : 2}"/>${lab}</g>`; }).join("");
-  return `<h3>Where competitors sit</h3><figure class="fig"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Competitors by entry price and traction">${grid}${xt}${you}${dots}
-    <text class="axis" x="${W - pr}" y="${H - 6}" text-anchor="end">Entry price →</text><text class="axis" x="${pl}" y="${pt - 26}">↑ Traction (1–5)</text></svg>
-    <figcaption>Filled dot = paid product. Red ring = free option. Traction is an estimate from visible signals (reviews, revenue, launches); competitors with unknown traction are only in the table. Hover a dot for details.</figcaption></figure>`;
-}
-
-function riskMatrix() {
-  const rs = N.risks || []; if (!rs.length) return "";
-  const LV = { L: 0, M: 1, H: 2 }, cell = 120, ox = 90, oy = 10;
-  let cells = "";
-  for (let li = 0; li < 3; li++) for (let ii = 0; ii < 3; ii++) { const sev = (li + 1) * (ii + 1);
-    cells += `<rect x="${ox + ii * cell}" y="${oy + (2 - li) * cell}" width="${cell - 3}" height="${cell - 3}" rx="8" fill="var(--red)" opacity="${(0.035 + sev * 0.03).toFixed(2)}"/>`; }
-  const bucket = {};
-  const marks = rs.map((r, i) => { const li = LV[r.likelihood] ?? 1, ii = LV[r.impact] ?? 1, key = li + "-" + ii, k = bucket[key] = (bucket[key] || 0) + 1;
-    const cx = ox + ii * cell + 30 + ((k - 1) % 3) * 30, cy = oy + (2 - li) * cell + 34 + Math.floor((k - 1) / 3) * 34;
-    return `<g class="hit" data-tip="<b>Risk ${i + 1}</b>${esc(r.risk)}${r.mitigation ? "<br>Mitigation: " + esc(r.mitigation) : ""}" tabindex="0"><circle cx="${cx}" cy="${cy}" r="13" fill="var(--bone)"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font:800 12px var(--mono);fill:var(--ink)">${i + 1}</text></g>`; }).join("");
-  const ax = ["Low", "Medium", "High"];
-  const labels = ax.map((a, i) => `<text class="axis" x="${ox + i * cell + cell / 2}" y="${oy + 3 * cell + 18}" text-anchor="middle">${a}</text><text class="axis" x="${ox - 10}" y="${oy + (2 - i) * cell + cell / 2}" text-anchor="end">${a}</text>`).join("");
-  const svg = `<svg viewBox="0 0 470 410" role="img" aria-label="Risk matrix">${cells}${marks}${labels}<text class="axis" x="${ox + 1.5 * cell}" y="${oy + 3 * cell + 40}" text-anchor="middle">Impact →</text><text class="axis" x="10" y="${oy + 8}">Likelihood</text></svg>`;
-  const list = `<table class="tbl"><thead><tr><th>#</th><th>Risk</th><th>What to do</th></tr></thead><tbody>${rs.map((r, i) => `<tr><td class="num">${i + 1}</td><td>${esc(r.risk)}<div style="font:400 12px var(--mono);color:var(--ash-2);margin-top:4px">likelihood ${r.likelihood} · impact ${r.impact}</div></td><td>${esc(r.mitigation || "")}</td></tr>`).join("")}</tbody></table>`;
-  return `<div style="display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:40px;align-items:start" class="riskgrid"><figure class="fig">${svg}<figcaption>Darker cells are more severe. Hover a number for the risk.</figcaption></figure><div class="scroll">${list}</div></div>`;
-}
-
-function scenarioBars() {
-  const ss = (N.scenarios || []).filter(s => typeof s.revenue_month === "number"); if (!ss.length) return "";
-  const cur = N.currency || (I.price && I.price.currency) || "", max = Math.max(...ss.map(s => Math.max(s.revenue_month, s.costs_month || 0)), 1);
-  const x0 = 150, W = 860, bw = W - x0 - 120, rh = 70;
-  const rows = ss.map((s, i) => { const y = i * rh, rv = s.revenue_month / max * bw, cs = (s.costs_month || 0) / max * bw;
-    return `<g class="hit" data-tip="<b>${esc(s.name)}</b>${s.customers_month ?? "?"} customers/month · revenue ${fmt(s.revenue_month, cur)} · costs ${fmt(s.costs_month || 0, cur)}${s.note ? "<br>" + esc(s.note) : ""}" tabindex="0">
-      <text class="lbl" x="0" y="${y + 24}">${esc(s.name)}</text><text class="axis" x="0" y="${y + 42}">${s.customers_month ?? "?"} customers/mo</text>
-      <rect class="bar" x="${x0}" y="${y + 10}" width="${Math.max(rv, 2)}" height="18" rx="4" fill="var(--bone)"/><text class="lbl-m" x="${x0 + Math.max(rv, 2) + 8}" y="${y + 24}">${fmt(s.revenue_month, cur)}</text>
-      <rect x="${x0}" y="${y + 32}" width="${Math.max(cs, 2)}" height="12" rx="4" fill="var(--ash-2)"/><text class="axis" x="${x0 + Math.max(cs, 2) + 8}" y="${y + 42}">${fmt(s.costs_month || 0, cur)} costs</text></g>`; }).join("");
-  return `<h3>Monthly scenarios</h3><figure class="fig grow"><svg viewBox="0 0 ${W} ${ss.length * rh}" role="img" aria-label="Revenue and costs per scenario">${rows}</svg>
-    <figcaption>Light bars are monthly revenue, grey bars are costs. These are estimates unless a footnote says otherwise.</figcaption></figure>`;
-}
-
-function ltvBullet() {
-  const m = M.ltv_cac; if (!m || typeof m.value !== "number") return "";
-  const v = m.value, max = Math.max(5, v * 1.2), W = 860, x = t => 20 + t / max * (W - 60);
-  return `<h3>LTV : CAC</h3><figure class="fig"><svg viewBox="0 0 ${W} 86" role="img" aria-label="LTV to CAC ratio ${v}, healthy is 3 or more">
-    <rect x="${x(0)}" y="22" width="${x(1) - x(0)}" height="24" fill="var(--red)" opacity=".28" rx="4"/><rect x="${x(1)}" y="22" width="${x(3) - x(1)}" height="24" fill="var(--amber)" opacity=".22"/><rect x="${x(3)}" y="22" width="${x(max) - x(3)}" height="24" fill="var(--green)" opacity=".2" rx="4"/>
-    <rect x="${x(0)}" y="29" width="${Math.max(x(v) - x(0), 3)}" height="10" fill="var(--bone)" rx="3"/><line x1="${x(v)}" x2="${x(v)}" y1="14" y2="54" stroke="var(--bone)" stroke-width="3"/>
-    <text class="lbl-m" x="${x(v)}" y="10" text-anchor="middle">${v}</text>${[0, 1, 3].map(t => `<text class="axis" x="${x(t)}" y="72" text-anchor="middle">${t}</text>`).join("")}
-    <text class="axis" x="${x(0.5)}" y="84" text-anchor="middle">loses money</text><text class="axis" x="${x(2)}" y="84" text-anchor="middle">fragile</text><text class="axis" x="${x(Math.min(4, max - .5))}" y="84" text-anchor="middle">healthy</text></svg>
-    <figcaption>${m.basis === "estimate" ? "Estimate: " + esc(m.reasoning || "") : "Sourced"} ${m.source ? fn(m.source) : ""}</figcaption></figure>`;
-}
-
-/* ---------- sections ---------- */
-const best = (N.rescue || []).slice().sort((a, b) => b.score_after - a.score_after)[0];
-const vlabel = s => s >= 70 ? "GO" : s >= 50 ? "PIVOT" : "NO-GO";
-const vpill = s => { const v = vlabel(s); return `<span class="pill ${v === "GO" ? "green" : v === "PIVOT" ? "amber" : "red"}">${VI[v]}${v} <span class="num">${s}</span></span>`; };
-const DIFF = { "doable": ["green", ICON.check + "Doable"], "hard": ["amber", ICON.step + "Hard"], "very-hard": ["red", ICON.step + "Very hard"] };
-
-const cover = `<header class="cover"><div>
-  <p class="case">Evaluated ${esc(niceDate(V.evaluated || I.created))}${(I.countries || []).length ? " for " + esc(listJoin(I.countries)) : ""}.</p>
-  <h1>${esc(I.title || "Untitled idea")}</h1>
-  ${I.solution ? `<p class="pitch">${esc(I.solution)}</p>` : ""}
-  <p class="answer">${esc(N.answer || "")}</p></div>
-  <div class="verdict-fig">${gauge(V.score ?? 0, V.verdict)}<div class="stamp" aria-hidden="true">${esc(V.verdict || "")}</div></div></header>`;
-
+/* summary KPIs */
 const lc = M.ltv_cac && typeof M.ltv_cac.value === "number" ? M.ltv_cac.value : null;
-const figs = [
-  ["Value of a customer vs cost to get one", M.ltv_cac, lc === null ? "LTV : CAC. Healthy is 3 or more." : lc < 1 ? "Each paid customer loses money." : lc < 3 ? "Positive, but fragile." : "Healthy: 3 or more."],
-  ["Customers needed each month to break even", M.break_even_customers_per_month, ""],
-  ["Weeks until the first sale", M.time_to_first_revenue_weeks, ""],
-  ["Competitors found", M.competitors_found, M.competitor_price_range && M.competitor_price_range.value ? "Priced " + esc(M.competitor_price_range.value) + "." : ""]];
-const sSummary = section("summary", "Verdict", null,
-  `<table class="figs"><tbody>${figs.filter(f => f[1]).map(([k, m, h]) => `<tr><td class="k">${k}</td><td class="val">${metric(m)}</td><td class="m">${h}</td></tr>`).join("")}</tbody></table>
-   ${has(N.tldr) ? `<ul class="tldr">${N.tldr.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
-   ${N.lesson ? `<p><strong>The lesson.</strong> ${esc(N.lesson)}</p>` : ""}`);
+const kpis = [
+  ["scale", "LTV : CAC", M.ltv_cac, lc === null ? ["", "Healthy is 3 or more"] : lc < 1 ? ["bad", "Each paid customer loses money"] : lc < 3 ? ["ok", "Positive but fragile"] : ["good", "Healthy"]],
+  ["target", "Break-even", M.break_even_customers_per_month, ["", "Customers needed per month"]],
+  ["clock", "Time to first sale", M.time_to_first_revenue_weeks, ["", "From today"]],
+  ["users", "Competitors found", M.competitors_found, ["", M.competitor_price_range && M.competitor_price_range.value ? "Priced " + esc(M.competitor_price_range.value) : ""]]].filter(k => k[2]);
+const sSummary = section("summary", "Summary", null,
+  `${kpis.length ? `<div class="grid g4">${kpis.map(([i, k, m, [cls, h]], n) => card(`<div class="kpi"><div class="k">${ic(i)}${k}</div><div class="v">${metric(m)}</div><div class="m ${cls}">${h}</div></div>`, n * 60)).join("")}</div>` : ""}
+   ${has(N.tldr) || N.lesson ? `<div style="margin-top:var(--s3)">${card(`${has(N.tldr) ? `<ul class="tldr">${N.tldr.map(t => `<li>${ic("chevron")}<span>${esc(t)}</span></li>`).join("")}</ul>` : ""}${N.lesson ? `<p class="lesson"><strong>Lesson:</strong> ${esc(N.lesson)}</p>` : ""}`)}</div>` : ""}`);
 
-const sRescue = has(N.rescue) ? section("rescue", V.verdict === "GO" ? "How to make it even stronger" : "Could it be saved?",
-  `As pitched, it scores ${V.score}. Each change below fixes at least one kill shot. The new scores are estimates.`,
-  `<div class="rescue">${N.rescue.map(r => { const [c, l] = DIFF[r.difficulty] || ["ash", r.difficulty];
-    return `<div class="rx"><div class="ch-wrap"><div class="ch">${esc(r.change)}</div>${r.why ? `<div class="why">${esc(r.why)}</div>` : ""}</div>
-      <div><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">${vpill(V.score)}<span style="color:var(--ash-2)" aria-label="becomes">${ICON.arrow}</span>${vpill(r.score_after)}</div>
-      <div style="margin-top:10px"><span class="pill ${c}">${l}</span></div></div>
-      <dl>${r.effort ? `<dt>Effort</dt><dd>${esc(r.effort)}</dd>` : ""}${r.cost ? `<dt>Cost</dt><dd>${esc(r.cost)}</dd>` : ""}${r.requires ? `<dt>Needs</dt><dd>${esc(r.requires)}</dd>` : ""}</dl></div>`; }).join("")}</div>`) : "";
+/* rescue paths */
+const DIFF = { "doable": "Doable", "hard": "Hard", "very-hard": "Very hard" };
+const sRescue = has(N.rescue) ? section("rescue", V.verdict === "GO" ? "How to make it stronger" : "Could it be saved?",
+  `As pitched it scores ${V.score}. Each option fixes at least one kill shot. New scores are estimates.`,
+  `<div class="grid g3">${N.rescue.map((r, n) => `<div class="card rv rx" style="--d:${n * 80}ms">
+    <div class="delta">${vbadge(V.score)}<span style="color:var(--muted-fg)">${ic("arrow")}</span>${vbadge(r.score_after)}</div>
+    <div class="track" role="img" aria-label="Score from ${V.score} to ${r.score_after}"><span style="width:${r.score_after}%;background:${VC[vlabel(r.score_after)]};opacity:.3"></span><span style="width:${V.score}%;background:${VC[vlabel(r.score_after)]}"></span></div>
+    <div class="ch">${esc(r.change)}</div>${r.why ? `<div class="why">${esc(r.why)}</div>` : ""}
+    <div><span class="badge b-${esc(r.difficulty)}">${ic(r.difficulty === "doable" ? "check" : "alert", 14)}${DIFF[r.difficulty] || esc(r.difficulty)}</span></div>
+    <dl class="facts">${r.effort ? `<dt>Effort</dt><dd>${esc(r.effort)}</dd>` : ""}${r.cost ? `<dt>Cost</dt><dd>${esc(r.cost)}</dd>` : ""}${r.requires ? `<dt>Needs</dt><dd>${esc(r.requires)}</dd>` : ""}</dl></div>`).join("")}</div>`) : "";
 
-const sScore = has(V.criteria) ? section("score", "How the score adds up", "Seven weighted criteria, each scored 1–5. Hard rules can cap a criterion no matter how good the rest looks.", scoreBars(V.criteria)) : "";
+/* score + kill shots */
+const W8 = { profit: 25, feasibility: 20, time_to_first_revenue: 15, demand: 15, competition: 10, risk: 10, fit: 5 };
+const LB = { profit: "Profit potential", feasibility: "Feasibility for you", time_to_first_revenue: "Time to first €", demand: "Market demand", competition: "Competition", risk: "Risk", fit: "Fit with your skills" };
+const scoreChart = c => { const keys = Object.keys(W8), x0 = 180, sc = 14, rh = 42;
+  return `<figure class="chart grow"><svg viewBox="0 0 600 ${keys.length * rh}" role="img" aria-label="Points earned per criterion">${keys.map((k, i) => { const s = c[k] ?? 0, w = W8[k], p = w * s / 5, y = i * rh;
+    return `<g class="hit" tabindex="0" data-tip="<b>${LB[k]}</b>Scored ${s}/5, weight ${w}: ${p} of ${w} points"><text class="lb" x="0" y="${y + 23}">${LB[k]}</text>
+      <rect x="${x0}" y="${y + 10}" width="${w * sc}" height="16" rx="8" fill="var(--muted)"/><rect class="bar" x="${x0}" y="${y + 10}" width="${Math.max(p * sc, 4)}" height="16" rx="8" fill="${s <= 1 ? "var(--nogo-fill)" : "var(--primary)"}"/>
+      <text class="lv" x="${x0 + w * sc + 10}" y="${y + 23}">${p}/${w}</text></g>`; }).join("")}</svg>
+    <figcaption>Track length is the weight. Red means the criterion scored 1 out of 5.</figcaption></figure>`; };
+const KS = { free_alternative: "Free alternative", strong_competitor: "Strong direct competitor", graveyard: "Failed attempts before", no_distribution: "No distribution channel", costs_eat_margin: "Costs eat the margin", weak_demand: "Weak or falling demand", legal_platform_risk: "Legal or platform risk" };
+const ksKeys = Object.keys(KS).filter(k => V.kill_shots && k in V.kill_shots);
+const ksList = ksKeys.length ? `<ul class="ks">${ksKeys.map(k => { const hit = V.kill_shots[k], ev = (N.kill_shots || {})[k] || {};
+  return `<li><span class="dot" style="background:${hit ? "var(--nogo-bg)" : "var(--go-bg)"};color:${hit ? "var(--nogo)" : "var(--go)"}">${ic(hit ? "x" : "check")}</span>
+    <div><div class="t">${KS[k]}</div>${ev.evidence ? `<div class="e">${esc(ev.evidence)}${fn(ev.source)}</div>` : ""}</div>
+    <span class="badge ${hit ? "b-NO-GO" : "b-GO"}">${hit ? "Hit" : "Clear"}</span></li>`; }).join("")}</ul>` : "";
+const hits = ksKeys.filter(k => V.kill_shots[k]).length;
+const sScore = (has(V.criteria) || ksList) ? section("score", "Score and kill shots", ksKeys.length ? `${hits} of ${ksKeys.length} kill shots landed.` : null,
+  `<div class="grid g2">${has(V.criteria) ? card(`<h3>How the ${V.score} adds up</h3>${scoreChart(V.criteria)}`) : ""}${ksList ? card(`<h3>Kill shots</h3>${ksList}`, 80) : ""}</div>`) : "";
 
-const KS = { free_alternative: "Free alternative", strong_competitor: "Strong direct competitor", graveyard: "Graveyard of failed attempts", no_distribution: "No distribution channel", costs_eat_margin: "Costs eat the margin", weak_demand: "Weak or falling demand", legal_platform_risk: "Legal or platform risk" };
-const sKill = has(V.kill_shots) ? section("kill-shots", "Kill shots", `${Object.values(V.kill_shots).filter(Boolean).length} of ${Object.keys(V.kill_shots).length} landed.`,
-  `<ul class="ks">${Object.keys(KS).filter(k => k in V.kill_shots).map(k => { const hit = V.kill_shots[k], ev = (N.kill_shots || {})[k] || {};
-    return `<li><span class="pill ${hit ? "red" : "green"}">${hit ? ICON.cross + "Hit" : ICON.check + "Clear"}</span><div><div class="t">${KS[k]}</div>${ev.evidence ? `<div class="e">${esc(ev.evidence)}${fn(ev.source)}</div>` : ""}</div></li>`; }).join("")}</ul>`) : "";
+const FC = { "true": ["GO", "check", "True"], "partly": ["PIVOT", "rotate", "Partly true"], "false": ["NO-GO", "x", "False"], "unverified": ["neutral", "info", "Not verified"] };
+const sFacts = has(N.fact_checks) ? section("fact-check", "Fact-check", "Claims from the source, checked against public evidence.",
+  card(`<div class="scroll"><table><thead><tr><th>Claim</th><th>Verdict</th><th>Evidence</th></tr></thead><tbody>${N.fact_checks.map(f => { const [b, i, l] = FC[f.status] || FC.unverified;
+    return `<tr><td>${esc(f.claim)}</td><td><span class="badge b-${b}">${ic(i, 14)}${l}</span></td><td>${esc(f.evidence || "")}${fn(f.source)}</td></tr>`; }).join("")}</tbody></table></div>`)) : "";
 
-const FC = { "true": ["green", ICON.check + "True"], "partly": ["amber", ICON.turn + "Partly true"], "false": ["red", ICON.cross + "False"], "unverified": ["ash", ICON.dot + "Not verified"] };
-const sFacts = has(N.fact_checks) ? section("fact-check", "Fact-check", "Every claim in the source, checked against public evidence.",
-  `<div class="scroll"><table class="tbl"><thead><tr><th>Claim</th><th>Verdict</th><th>Evidence</th></tr></thead><tbody>${N.fact_checks.map(f => { const [c, l] = FC[f.status] || FC.unverified;
-    return `<tr><td>${esc(f.claim)}</td><td><span class="pill ${c}">${l}</span></td><td>${esc(f.evidence || "")}${fn(f.source)}</td></tr>`; }).join("")}</tbody></table></div>`) : "";
-
+/* market */
+const funnel = () => { const rows = [["TAM", "Total market", M.tam], ["SAM", "Market you can serve", M.sam], ["SOM", "What you can win in year 1", M.som]].filter(r => r[2]);
+  if (!rows.length) return ""; const nums = rows.map(r => typeof r[2].value === "number" ? r[2].value : null), mx = Math.max(...nums.filter(n => n !== null), 1);
+  return `<h3>Market size</h3><figure class="chart grow">${rows.map(([k, d, m], i) => { const w = nums[i] !== null ? Math.max(Math.sqrt(nums[i] / mx) * 100, 4) : 0;
+    return `<div style="display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)"><span class="num" style="font-weight:600">${k}</span>
+      <div><svg viewBox="0 0 100 10" preserveAspectRatio="none" style="height:12px"><rect class="bar" width="${w}" height="10" rx="5" fill="var(--primary)" opacity="${1 - i * .25}"/></svg><div style="font-size:13px;color:var(--muted-fg);margin-top:4px">${d}</div></div><div style="text-align:right">${metric(m)}</div></div>`; }).join("")}
+    <figcaption>Bar widths use a square-root scale so the year-1 share stays visible.</figcaption></figure>`; };
 const cu = N.customer || {};
-const sMarket = (has(cu) || M.tam || M.sam) ? section("market", "Market", null,
-  `${has(cu) ? `<table class="figs"><tbody><tr><td class="k">Who buys</td><td class="m" colspan="2" style="color:var(--bone)">${esc(cu.segment || "unknown")}</td></tr><tr><td class="k">Their problem</td><td class="m" colspan="2" style="color:var(--bone)">${esc(cu.pain || "unknown")}</td></tr><tr><td class="k">What they use today</td><td class="m" colspan="2" style="color:var(--bone)">${esc(cu.today || "unknown")}</td></tr></tbody></table>` : ""}
-   ${marketFunnel()}${M.demand_trend ? `<p><strong>Demand trend.</strong> ${metric(M.demand_trend)}</p>` : ""}
-   ${has(N.use_cases) ? `<h3>Ways to use it</h3><div class="scroll"><table class="tbl"><thead><tr><th>Option</th><th>Who pays</th><th>Effort</th></tr></thead><tbody>${N.use_cases.map(u => `<tr${u.best ? ' class="launch"' : ""}><td>${esc(u.name)}${u.best ? ' <span class="tag">our pick</span>' : ""}</td><td>${esc(u.who_pays || "")}</td><td>${esc(u.effort || "")}</td></tr>`).join("")}</tbody></table></div>` : ""}`) : "";
+const sMarket = (has(cu) || M.tam || has(N.use_cases)) ? section("market", "Market", null,
+  `${has(cu) ? `<div class="grid g3">${[["users", "Who buys", cu.segment], ["alert", "Their problem", cu.pain], ["clock", "What they use today", cu.today]].map(([i, k, v], n) => card(`<div class="kpi"><div class="k">${ic(i)}${k}</div><p style="margin:8px 0 0">${esc(v || "unknown")}</p></div>`, n * 60)).join("")}</div>` : ""}
+   <div class="grid g2" style="margin-top:var(--s3)">${M.tam || M.sam ? card(`${funnel()}${M.demand_trend ? `<p style="margin:14px 0 0"><strong>Demand trend:</strong> ${metric(M.demand_trend)}</p>` : ""}`) : ""}
+   ${has(N.use_cases) ? card(`<h3>Ways to make money with it</h3><div class="scroll"><table><thead><tr><th>Option</th><th>Who pays</th><th>Effort</th></tr></thead><tbody>${N.use_cases.map(u => `<tr${u.best ? ' class="hl"' : ""}><td>${esc(u.name)}${u.best ? ` <span class="badge b-GO">${ic("check", 12)}Best</span>` : ""}</td><td>${esc(u.who_pays || "")}</td><td>${esc(u.effort || "")}</td></tr>`).join("")}</tbody></table></div>`, 80) : ""}</div>`) : "";
 
+/* competitors */
+const compMap = () => { const cs = (N.competitors || []).filter(c => c.price_low !== null && c.price_low !== undefined && c.traction); if (cs.length < 2) return "";
+  const W = 600, H = 300, pl = 44, pr = 20, pt = 26, pb = 40, mxP = Math.max(...cs.map(c => c.price_high || c.price_low), (I.price && I.price.amount) || 0) * 1.1 || 1;
+  const x = p => pl + p / mxP * (W - pl - pr), y = t => pt + (5 - t) / 4 * (H - pt - pb), cur = cs[0].currency || (I.price && I.price.currency) || "";
+  const placed = cs.map(c => ({ x: x(c.price_low) - 8, y: y(c.traction) - 8, w: 16, h: 16 }));
+  if (I.price && I.price.amount) placed.push({ x: x(I.price.amount), y: pt - 8, w: 80, h: 16 });
+  const clash = b => placed.some(o => b.x < o.x + o.w && b.x + b.w > o.x && b.y < o.y + o.h && b.y + b.h > o.y) || b.x < pl || b.x + b.w > W || b.y < 0 || b.y + b.h > H - pb + 4;
+  const lab = c => { const cx = x(c.price_low), cy = y(c.traction), w = c.name.length * 6.4 + 4;
+    for (const [dx, dy, a] of [[12, 4, "start"], [-12, 4, "end"], [10, -12, "start"], [-10, -12, "end"], [10, 20, "start"], [-10, 20, "end"]]) { const b = { x: a === "start" ? cx + dx : cx + dx - w, y: cy + dy - 11, w, h: 14 }; if (!clash(b)) { placed.push(b); return [cx + dx, cy + dy, a]; } } return null; };
+  const you = I.price && I.price.amount ? `<line x1="${x(I.price.amount)}" x2="${x(I.price.amount)}" y1="${pt}" y2="${H - pb}" stroke="${VC[V.verdict]}" stroke-dasharray="5 4" stroke-width="2"/><text class="lv" x="${x(I.price.amount) + 6}" y="${pt + 4}" style="fill:${VC[V.verdict]}">Your price</text>` : "";
+  return `<figure class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Competitors by entry price and traction">
+    ${[1, 2, 3, 4, 5].map(t => `<line class="gridl" x1="${pl}" x2="${W - pr}" y1="${y(t)}" y2="${y(t)}"/><text class="ax" x="${pl - 10}" y="${y(t) + 4}" text-anchor="end">${t}</text>`).join("")}
+    ${[0, .25, .5, .75, 1].map(f => `<text class="ax" x="${x(mxP * f)}" y="${H - pb + 18}" text-anchor="middle">${plain(fmt(Math.round(mxP * f), cur)) || "0"}</text>`).join("")}
+    ${you}${cs.map(c => { const l = lab(c), tip = `<b>${esc(c.name)}</b>${plain(fmt(c.price_low, c.currency))}${c.price_high ? "–" + plain(fmt(c.price_high, c.currency)) : ""}, traction ${c.traction}/5${c.gap ? "<br>Weak spot: " + esc(c.gap) : ""}`;
+      return `<g class="hit" tabindex="0" data-tip="${esc(tip)}"><circle cx="${x(c.price_low)}" cy="${y(c.traction)}" r="14" fill="transparent"/><circle class="mk" cx="${x(c.price_low)}" cy="${y(c.traction)}" r="7" fill="${c.free ? "var(--card)" : "var(--primary)"}" stroke="${c.free ? "var(--nogo)" : "var(--card)"}" stroke-width="${c.free ? 3 : 2}"/>${l ? `<text class="lb" x="${l[0]}" y="${l[1]}" text-anchor="${l[2]}" style="font-size:12px">${esc(c.name)}</text>` : ""}</g>`; }).join("")}
+    <text class="ax" x="${W - pr}" y="${H - 4}" text-anchor="end">Entry price</text><text class="ax" x="${pl}" y="12">Traction (1–5)</text></svg>
+    <figcaption>Blue dots are paid products, red rings are free options. Traction is an estimate from visible signals.</figcaption></figure>`; };
+const map = compMap();
 const sComp = has(N.competitors) ? section("competition", "Competition", `${N.competitors.length} competitors and alternatives found.`,
-  `${competitorMap()}<div class="scroll"><table class="tbl"><thead><tr><th>Name</th><th>Price</th><th>Traction</th><th>Their weak spot</th></tr></thead><tbody>${N.competitors.map(c => `<tr><td>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.name)}</a>` : esc(c.name)}${c.free ? ' <span class="tag">free</span>' : ""}${c.country ? ` <span class="tag">${esc(c.country)}</span>` : ""}</td><td class="num">${c.price_low === null || c.price_low === undefined ? '<span class="unk">unknown</span>' : fmt(c.price_low, c.currency) + (c.price_high ? "–" + fmt(c.price_high, c.currency) : "")}</td><td>${c.traction ? `<span class="num">${c.traction}/5</span>` : '<span class="unk">unknown</span>'}${c.traction_note ? `<div style="font-size:14px;color:var(--ash)">${esc(c.traction_note)}</div>` : ""}</td><td>${esc(c.gap || "")}</td></tr>`).join("")}</tbody></table></div>`) : "";
+  `<div class="grid ${map ? "g2" : ""}">${map ? card(`<h3>Price vs traction</h3>${map}`) : ""}${card(`<h3>All competitors</h3><div class="scroll"><table><thead><tr><th>Name</th><th class="r">Price</th><th class="r">Traction</th></tr></thead><tbody>${N.competitors.map(c => `<tr><td>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.name)}</a>` : esc(c.name)}${c.free ? ` <span class="badge b-NO-GO">Free</span>` : ""}${c.country ? ` <span class="badge b-neutral">${esc(c.country)}</span>` : ""}${c.gap ? `<div style="font-size:13px;color:var(--muted-fg)">${esc(c.gap)}</div>` : ""}</td><td class="r"><span class="num">${c.price_low === null || c.price_low === undefined ? '<span class="unk">unknown</span>' : (fmt(c.price_low, c.currency) || "") + (c.price_high ? "–" + fmt(c.price_high, c.currency) : "")}</span></td><td class="r">${c.traction ? `<span class="num">${c.traction}/5</span>` : '<span class="unk">unknown</span>'}</td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`) : "";
 
-const sVoice = has(N.customer_voice) ? section("voice", "In their own words", "Verbatim quotes from reviews and forums.",
-  `<div class="quotes">${N.customer_voice.map(q => `<blockquote>“${esc(q.quote)}”<cite>${q.pain ? esc(q.pain) + " · " : ""}<a href="${esc(q.source)}" target="_blank" rel="noopener">source</a>${fn(q.source)}</cite></blockquote>`).join("")}</div>`) : "";
+const sVoice = has(N.customer_voice) ? section("voice", "What customers say", "Verbatim quotes from reviews and forums.",
+  `<div class="grid g2">${N.customer_voice.map((q, n) => card(`<blockquote class="quote">“${esc(q.quote)}”<cite>${q.pain ? esc(q.pain) + ", " : ""}<a href="${esc(q.source)}" target="_blank" rel="noopener">source</a>${fn(q.source)}</cite></blockquote>`, n * 50)).join("")}</div>`) : "";
 
+/* countries */
 const BC = V.by_country && typeof V.by_country === "object" ? V.by_country : null;
-const countries = BC ? Object.keys(BC).filter(k => BC[k] && typeof BC[k] === "object") : [];
+const ctys = BC ? Object.keys(BC).filter(k => BC[k] && typeof BC[k] === "object") : [];
 const launch = V.launch_country || "";
-const ML = { tam: "TAM", sam: "SAM", som: "SOM (year 1)", competitors: "Competitors", competitors_found: "Competitors found", gross_margin_pct: "Gross margin %", cac: "CAC", ltv: "LTV", ltv_cac: "LTV : CAC", payback_months: "Payback (months)", break_even_customers_per_month: "Break-even (customers / month)", time_to_first_revenue_weeks: "Time to first € (weeks)", demand_trend: "Demand trend", price: "Price" };
+const ML = { tam: "TAM", sam: "SAM", som: "SOM (year 1)", gross_margin_pct: "Gross margin", cac: "CAC", ltv: "LTV", ltv_cac: "LTV : CAC", payback_months: "Payback (months)", break_even_customers_per_month: "Break-even (customers/month)", time_to_first_revenue_weeks: "Time to first sale (weeks)", demand_trend: "Demand trend", price: "Price", competitors_found: "Competitors found", competitor_price_range: "Competitor prices" };
 const human = k => ML[k] || k.replace(/_/g, " ").replace(/^./, c => c.toUpperCase());
-const sCountry = countries.length > 1 ? section("countries", "Country by country", `Recommended launch market: <strong>${esc(launch || "not set")}</strong>.${typeof BC.recommended === "string" ? " " + esc(BC.recommended) : ""}`,
-  `<div class="scroll"><table class="tbl"><thead><tr><th></th>${countries.map(c => `<th class="${c === launch ? "launch" : ""}">${esc(c)}${c === launch ? ' <span class="tag">launch here</span>' : ""}</th>`).join("")}</tr></thead><tbody>${[...new Set(countries.flatMap(c => Object.keys(BC[c])))].map(k => `<tr><td>${esc(human(k))}</td>${countries.map(c => `<td class="${c === launch ? "launch" : ""}">${k in BC[c] ? metric(BC[c][k], k) : '<span class="unk">—</span>'}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`) : "";
+const sCountry = ctys.length > 1 ? section("countries", "Countries", `Recommended launch market: <strong>${esc(CN[launch] || launch || "not set")}</strong>.${typeof BC.recommended === "string" ? " " + esc(BC.recommended) : ""}`,
+  card(`<div class="scroll"><table><thead><tr><th>Metric</th>${ctys.map(c => `<th class="${c === launch ? "hl" : ""}">${esc(CN[c] || c)}${c === launch ? ` <span class="badge b-GO">${ic("check", 12)}Launch</span>` : ""}</th>`).join("")}</tr></thead><tbody>${[...new Set(ctys.flatMap(c => Object.keys(BC[c])))].map(k => `<tr><td>${esc(human(k))}</td>${ctys.map(c => `<td class="${c === launch ? "hl" : ""}">${k in BC[c] ? metric(BC[c][k], k) : '<span class="unk">n/a</span>'}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`)) : "";
 
-const mkeys = Object.keys(M);
-const sEcon = (mkeys.length || has(N.scenarios)) ? section("economics", "Unit economics", "What one customer is worth, what it costs to get one, and how many you need.",
-  `<div class="legend-ev"><span><i class="mk s"></i> sourced, footnote</span><span><i class="mk e"></i> estimate, hover for reasoning</span><span><span class="unk">unknown</span> not found</span></div>
-   ${ltvBullet()}<div class="scroll"><table class="tbl"><thead><tr><th>Metric</th><th>Value</th><th>Reasoning</th></tr></thead><tbody>${mkeys.map(k => { const m = M[k] || {};
-     return `<tr><td>${esc(human(k))}</td><td>${metric(m, k)}</td><td style="color:var(--ash);font-size:15px">${esc(m.reasoning || "")}</td></tr>`; }).join("")}</tbody></table></div>${scenarioBars()}`) : "";
+/* unit economics */
+const bullet = () => { if (lc === null) return ""; const mx = Math.max(5, lc * 1.2), W = 600, x = t => 10 + t / mx * (W - 20);
+  return `<h3>LTV : CAC</h3><figure class="chart grow" style="margin-bottom:var(--s3)"><svg viewBox="0 0 ${W} 80" role="img" aria-label="LTV to CAC ${lc}; healthy is 3 or more">
+    <rect x="${x(0)}" y="22" width="${x(1) - x(0)}" height="22" fill="var(--nogo-bg)" rx="6"/><rect x="${x(1)}" y="22" width="${x(3) - x(1)}" height="22" fill="var(--pivot-bg)"/><rect x="${x(3)}" y="22" width="${x(mx) - x(3)}" height="22" fill="var(--go-bg)" rx="6"/>
+    <rect class="bar" x="${x(0)}" y="29" width="${Math.max(x(lc) - x(0), 4)}" height="8" rx="4" fill="var(--primary)"/><line x1="${x(lc)}" x2="${x(lc)}" y1="16" y2="50" stroke="var(--primary)" stroke-width="3"/>
+    <text class="lv" x="${x(lc)}" y="11" text-anchor="middle">${lc}</text>${[0, 1, 3].map(t => `<text class="ax" x="${x(t)}" y="62" text-anchor="middle">${t}</text>`).join("")}
+    <text class="ax" x="${x(.5)}" y="77" text-anchor="middle">loses money</text><text class="ax" x="${x(2)}" y="77" text-anchor="middle">fragile</text><text class="ax" x="${x(Math.min(4, mx - .5))}" y="77" text-anchor="middle">healthy</text></svg></figure>`; };
+const scen = () => { const ss = (N.scenarios || []).filter(s => typeof s.revenue_month === "number"); if (!ss.length) return "";
+  const cur = N.currency || (I.price && I.price.currency) || "", mx = Math.max(...ss.map(s => Math.max(s.revenue_month, s.costs_month || 0)), 1), x0 = 130, bw = 380, rh = 62, W = 600, pl = t => plain(fmt(t, cur)) || "0";
+  return `<h3>Monthly scenarios</h3><figure class="chart grow"><svg viewBox="0 0 ${W} ${ss.length * rh}" role="img" aria-label="Revenue and costs per scenario">${ss.map((s, i) => { const y = i * rh, rv = s.revenue_month / mx * bw, cs = (s.costs_month || 0) / mx * bw;
+    return `<g class="hit" tabindex="0" data-tip="<b>${esc(s.name)}</b>${s.customers_month ?? "?"} customers/month, revenue ${pl(s.revenue_month)}, costs ${pl(s.costs_month || 0)}${s.note ? "<br>" + esc(s.note) : ""}"><text class="lb" x="0" y="${y + 20}">${esc(s.name)}</text><text class="ax" x="0" y="${y + 38}">${s.customers_month ?? "?"} customers/mo</text>
+      <rect class="bar" x="${x0}" y="${y + 8}" width="${Math.max(rv, 4)}" height="16" rx="8" fill="var(--primary)"/><text class="lv" x="${x0 + Math.max(rv, 4) + 8}" y="${y + 21}">${pl(s.revenue_month)}</text>
+      <rect class="bar" x="${x0}" y="${y + 30}" width="${Math.max(cs, 4)}" height="10" rx="5" fill="var(--muted-fg)" opacity=".45"/><text class="ax" x="${x0 + Math.max(cs, 4) + 8}" y="${y + 39}">${pl(s.costs_month || 0)} costs</text></g>`; }).join("")}</svg>
+    <figcaption>Blue: revenue per month. Grey: costs. Estimates unless a footnote says otherwise.</figcaption></figure>`; };
+const mk = Object.keys(M);
+const sEcon = (mk.length || has(N.scenarios)) ? section("economics", "Unit economics", "What a customer is worth, what one costs, and how many you need.",
+  `<div class="grid g2">${card(`${bullet()}${scen()}`)}${card(`<h3>All metrics</h3><div class="scroll"><table><thead><tr><th>Metric</th><th class="r">Value</th></tr></thead><tbody>${mk.map(k => { const m = M[k] || {}; return `<tr><td>${esc(human(k))}${m.reasoning && m.basis === "estimate" ? `<div style="font-size:13px;color:var(--muted-fg)">${esc(m.reasoning)}</div>` : ""}</td><td class="r">${metric(m, k)}</td></tr>`; }).join("")}</tbody></table></div>`, 80)}</div>`) : "";
 
-const sRisk = has(N.risks) ? section("risks", "Risks", null, riskMatrix()) : "";
+/* risks */
+const sRisk = has(N.risks) ? (() => { const rs = N.risks, LV = { L: 0, M: 1, H: 2 }, cs = 96, ox = 64, oy = 6; let cells = "";
+  for (let li = 0; li < 3; li++) for (let ii = 0; ii < 3; ii++) cells += `<rect x="${ox + ii * cs}" y="${oy + (2 - li) * cs}" width="${cs - 4}" height="${cs - 4}" rx="10" fill="var(--nogo-fill)" opacity="${(.06 + (li + 1) * (ii + 1) * .05).toFixed(2)}"/>`;
+  const bk = {}, marks = rs.map((r, i) => { const li = LV[r.likelihood] ?? 1, ii = LV[r.impact] ?? 1, key = li + "-" + ii, k = bk[key] = (bk[key] || 0) + 1, cx = ox + ii * cs + 24 + ((k - 1) % 3) * 24, cy = oy + (2 - li) * cs + 28 + Math.floor((k - 1) / 3) * 28;
+    return `<g class="hit" tabindex="0" data-tip="<b>Risk ${i + 1}</b>${esc(r.risk)}"><circle cx="${cx}" cy="${cy}" r="11" fill="var(--card)" stroke="var(--nogo)" stroke-width="2"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font:600 11px var(--mono);fill:var(--fg)">${i + 1}</text></g>`; }).join("");
+  const ax = ["Low", "Med", "High"].map((a, i) => `<text class="ax" x="${ox + i * cs + cs / 2}" y="${oy + 3 * cs + 14}" text-anchor="middle">${a}</text><text class="ax" x="${ox - 8}" y="${oy + (2 - i) * cs + cs / 2}" text-anchor="end">${a}</text>`).join("");
+  return section("risks", "Risks", null, `<div class="grid g2">${card(`<h3>Likelihood vs impact</h3><figure class="chart"><svg viewBox="0 0 360 350" role="img" aria-label="Risk heatmap" style="max-width:380px;margin:0 auto">${cells}${marks}${ax}<text class="ax" x="${ox + 1.5 * cs}" y="${oy + 3 * cs + 38}" text-anchor="middle">Impact</text><text class="ax" x="0" y="${oy + 10}">Likelihood</text></svg></figure>`)}
+    ${card(`<h3>Risks and what to do</h3><div class="scroll"><table><tbody>${rs.map((r, i) => `<tr><td class="num" style="width:28px">${i + 1}</td><td><strong>${esc(r.risk)}</strong><div style="font-size:14px;color:var(--muted-fg)">${esc(r.mitigation || "")}</div></td><td class="r"><span class="badge b-neutral" title="Likelihood / impact">${r.likelihood} / ${r.impact}</span></td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`); })() : "";
 
+/* test */
 const kc = V.kill_criteria || [];
-const sTest = (has(N.test_plan) || V.cheapest_test) ? section("test", V.verdict === "NO-GO" && !has(N.test_plan) ? "What to do instead" : "The 7-day test", V.cheapest_test ? esc(V.cheapest_test) : null,
-  `${has(N.test_plan) ? `<ol class="tl">${N.test_plan.map(t => `<li><span class="w">${esc(t.when)}</span><div><div>${esc(t.step)}</div>${t.verify ? `<div class="vf">Check: ${esc(t.verify)}</div>` : ""}</div></li>`).join("")}</ol>` : ""}
-   ${kc.length ? `<div class="kill"><h3>Stop if</h3><ul>${kc.map(k => `<li>${esc(k)}</li>`).join("")}</ul></div>` : ""}`) : "";
+const sTest = (has(N.test_plan) || V.cheapest_test || kc.length) ? section("test", "7-day test", V.cheapest_test ? esc(V.cheapest_test) : null,
+  `<div class="grid ${has(N.test_plan) && kc.length ? "g2" : ""}">${has(N.test_plan) ? card(`<h3>Plan</h3><ol class="tl">${N.test_plan.map(t => `<li><span class="w">${esc(t.when)}</span><span class="node"></span><div><div>${esc(t.step)}</div>${t.verify ? `<div class="vf">${ic("check", 14)} ${esc(t.verify)}</div>` : ""}</div></li>`).join("")}</ol>`) : ""}
+   ${kc.length ? card(`<div class="stop"><h3>${ic("alert")}Stop if</h3><ul>${kc.map(k => `<li>${esc(k)}</li>`).join("")}</ul></div>`, 80) : ""}</div>`) : "";
 
-const body = [sSummary, sRescue, sScore, sKill, sFacts, sMarket, sComp, sVoice, sCountry, sEcon, sRisk, sTest].join("");
-const sSrc = SRC.length ? section("sources", "Sources", `${SRC.length} sources. Every sourced number in this report links here.`,
-  `<ol class="src">${SRC.map((s, i) => `<li id="src-${i + 1}"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title || s.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 80))}</a>${s.supports ? ` · ${esc(s.supports)}` : ""}${s.accessed ? ` · accessed ${esc(s.accessed)}` : ""}</li>`).join("")}</ol>`) : "";
+const body = [sSummary, sRescue, sScore, sFacts, sMarket, sComp, sVoice, sCountry, sEcon, sRisk, sTest].join("");
+const sSrc = SRC.length ? section("sources", "Sources", `${SRC.length} sources. Every sourced number links here.`,
+  card(`<ol class="src">${SRC.map((s, i) => `<li id="src-${i + 1}"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title || s.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 70))}</a>${s.supports ? `: ${esc(s.supports)}` : ""}</li>`).join("")}</ol>`)) : "";
 
-const icon = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#28231E"/><path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#EFE8DC"/><g stroke="#15120F" stroke-width="40" stroke-linecap="round"><path d="M380 340l80 80M460 340l-80 80M564 340l80 80M644 340l-80 80"/></g><rect x="396" y="776" width="232" height="60" rx="26" fill="#A39A8E"/></svg>`;
-app.innerHTML = `<aside class="rail"><a class="brand" href="https://github.com/RemiPelloux/kill-my-idea" target="_blank" rel="noopener">${icon} kill-my-idea</a>
-  <span class="chip">${VI[V.verdict] || ""}${esc(V.verdict || "")} <span class="num">${V.score ?? "?"}/100</span></span>
-  <nav aria-label="Report sections"><ol>${RAIL.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join("")}</ol></nav>
-  <div class="foot">${best && V.verdict !== "GO" ? `Best way to save it reaches ${best.score_after}.<br>` : ""}Print this page for a PDF copy.</div></aside>
-  <main>${cover}${body}${sSrc}<footer>Written by kill-my-idea for Claude Code. Sourced numbers link to a footnote, estimates show their reasoning when you hover them, and anything not found says so. This is research, not financial advice.</footer></main>`;
+const logo = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#1E40AF"/><path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#fff"/><g stroke="#1E40AF" stroke-width="44" stroke-linecap="round"><path d="M380 340l80 80M460 340l-80 80M564 340l80 80M644 340l-80 80"/></g><rect x="396" y="776" width="232" height="60" rx="26" fill="#BFDBFE"/></svg>`;
+app.innerHTML = `<header class="top"><div class="bar"><a class="brand" href="https://github.com/RemiPelloux/kill-my-idea" target="_blank" rel="noopener">${logo}kill-my-idea</a>
+  <span class="t">${esc(I.title || "")}</span><span class="badge b-${esc(V.verdict)}">${ic(VICON[V.verdict], 14)}${esc(V.verdict || "")} <span class="num">${V.score ?? "?"}</span></span>
+  <button class="btn" type="button" id="print" aria-label="Print or save as PDF">${ic("printer")}<span>Save PDF</span></button></div>
+  <nav class="tabs" aria-label="Report sections">${TABS.map(([id, t]) => `<a href="#${id}">${esc(t)}</a>`).join("")}</nav></header>
+  <main>${hero}${body}${sSrc}</main>
+  <footer>Generated by kill-my-idea. Sourced numbers link to a footnote, estimates show their reasoning on hover, and anything not found is marked unknown. Research, not financial advice.</footer>`;
+document.getElementById("print").addEventListener("click", () => print());
 
-/* tooltip for any [data-tip] element */
+/* tooltips */
 const tip = document.getElementById("tip");
-const show = (el, x, y) => { tip.innerHTML = el.getAttribute("data-tip"); tip.style.opacity = 1;
-  const r = tip.getBoundingClientRect(); tip.style.left = Math.min(x + 14, innerWidth - r.width - 10) + "px"; tip.style.top = Math.max(y - r.height - 12, 10) + "px"; };
+const show = (el, x, y) => { tip.innerHTML = el.getAttribute("data-tip"); tip.style.opacity = 1; const r = tip.getBoundingClientRect(); tip.style.left = Math.min(x + 14, innerWidth - r.width - 10) + "px"; tip.style.top = Math.max(y - r.height - 12, 10) + "px"; };
 document.addEventListener("mousemove", e => { const el = e.target.closest("[data-tip]"); if (el) show(el, e.clientX, e.clientY); else tip.style.opacity = 0; });
 document.addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el) { const b = el.getBoundingClientRect(); show(el, b.right, b.top); } });
 document.addEventListener("focusout", () => { tip.style.opacity = 0; });
 
-/* one authored moment: the score counts up with the gauge, then the stamp presses down */
-const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (!calm) {
-  document.documentElement.classList.add("motion");
-  const arcEl = document.querySelector(".gauge-arc"), numEl = document.querySelector(".gauge-num"), stamp = document.querySelector(".stamp");
-  const target = V.score ?? 0, len = arcEl ? +arcEl.dataset.len : 0, dur = 1100, ease = t => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-  let t0 = null, done = false;
-  const paint = v => { if (arcEl) arcEl.setAttribute("stroke-dashoffset", (len * (1 - v * target / 100)).toFixed(1)); if (numEl) numEl.textContent = Math.round(v * target); };
-  /* the final state never depends on animation frames: a timer and printing both force it */
-  const finish = () => { if (done) return; done = true; paint(1); if (stamp) stamp.classList.add("pressed"); };
-  const frame = now => { if (done) return; t0 ??= now; const p = Math.min((now - t0) / dur, 1); paint(ease(p));
-    if (p < 1) requestAnimationFrame(frame); else setTimeout(finish, 90); };
-  paint(0);
-  setTimeout(() => requestAnimationFrame(frame), 250);
-  setTimeout(finish, 250 + dur + 400);
-  addEventListener("beforeprint", finish);
-  /* bars that encode quantities fill once, when they first come into view */
-  const gio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); gio.unobserve(en.target); } }), { threshold: .35 });
-  document.querySelectorAll(".grow").forEach(f => gio.observe(f));
+/* active tab follows the section in view */
+const links = [...document.querySelectorAll(".tabs a")];
+if ("IntersectionObserver" in window) {
+  const tio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) links.forEach(a => { const on = a.getAttribute("href") === "#" + en.target.id; a.classList.toggle("on", on); if (on) a.scrollIntoView({ block: "nearest", inline: "nearest" }); }); }), { rootMargin: "-25% 0px -65% 0px" });
+  document.querySelectorAll("main section").forEach(s => tio.observe(s));
 }
-/* table of contents: highlight the section in view */
-const links = [...document.querySelectorAll(".rail nav a")];
-const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id)); }), { rootMargin: "-30% 0px -60% 0px" });
-document.querySelectorAll("main section").forEach(s => io.observe(s));
+
+/* motion: ring count-up, verdict pop, cards stagger in once. A timer and printing always force the final state. */
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+  document.documentElement.classList.add("motion");
+  const arc = document.querySelector(".ring-arc"), num = document.querySelector(".ring-num"), vd = document.querySelector(".verdict");
+  const target = V.score ?? 0, c = arc ? +arc.dataset.c : 0, dur = 1100, ease = t => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  let t0 = null, done = false;
+  const paint = v => { if (arc) arc.setAttribute("stroke-dashoffset", (c * (1 - v * target / 100)).toFixed(1)); if (num) num.textContent = Math.round(v * target); };
+  const finish = () => { if (done) return; done = true; paint(1); if (vd) vd.classList.add("in"); };
+  const frame = now => { if (done) return; t0 ??= now; const p = Math.min((now - t0) / dur, 1); paint(ease(p)); if (p < 1) requestAnimationFrame(frame); else finish(); };
+  paint(0); setTimeout(() => requestAnimationFrame(frame), 200); setTimeout(finish, 200 + dur + 300);
+  const rio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); en.target.querySelectorAll(".grow").forEach(g => g.classList.add("in")); rio.unobserve(en.target); } }), { threshold: .12 });
+  document.querySelectorAll(".rv").forEach(el => rio.observe(el));
+  addEventListener("beforeprint", () => { finish(); document.querySelectorAll(".rv,.grow").forEach(el => el.classList.add("in")); });
+}
 })();
 </script>
 </body>

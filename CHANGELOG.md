@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 — 2026-11-09
+
+The HTML report was rewritten from scratch with the ui-ux-pro-max design system ("Data-Dense Dashboard" for financial analytics).
+- Light blue and slate palette with Fira Sans and Fira Code. Dark mode follows the system setting.
+- Layout: a sticky top bar with the verdict and a "Save PDF" button, section tabs, a hero card with a score ring, KPI cards, rescue-path cards, chart cards and data tables.
+- Verdict colors are reserved for verdicts, with vivid fills and darker text for 4.5:1 contrast.
+- Lucide icons, hover and focus states, 44px touch targets, and checked layouts at 375, 768, 1024 and 1440px.
+- Motion: the score ring counts up, the verdict badge pops in, cards fade in one after another (400ms), and bars fill when they come into view. Reduced motion, printing and a fallback timer all show the final state.
+- The data format (`report-data.js`) is unchanged, so earlier reports still render.
+
 ## 0.2.1 — 2026-11-09
 
 The HTML report was reworked after a design critique.
