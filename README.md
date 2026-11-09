@@ -13,6 +13,7 @@ and a **GO / PIVOT / NO-GO** verdict, before you waste a weekend or a budget.
 [![MIT license](https://img.shields.io/badge/license-MIT-F3EEE3?labelColor=111113)](LICENSE)
 [![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-E5383B?labelColor=111113)](https://code.claude.com/docs/en/plugins/install)
 [![version](https://img.shields.io/badge/version-0.2.0-F2C14E?labelColor=111113)](CHANGELOG.md)
+[![Sponsor](https://img.shields.io/badge/sponsor-%E2%99%A5-E5383B?labelColor=111113)](https://github.com/sponsors/RemiPelloux)
 [![GitHub stars](https://img.shields.io/github/stars/RemiPelloux/kill-my-idea?style=flat&color=2BB673&labelColor=111113)](https://github.com/RemiPelloux/kill-my-idea/stargazers)
 
 <img src="assets/demo.svg" alt="Demo: an idea is researched, scored 42/100 and stamped NO-GO" width="760">
@@ -183,10 +184,16 @@ Yes. The whole method is one readable file: [`skills/kill/SKILL.md`](skills/kill
 **Does it work outside Claude Code?**
 The skills follow the open [Agent Skills](https://agentskills.io) format, so you can use them in other agents. The `/plugin` install is Claude Code only.
 
+## Support the project
+
+kill-my-idea is free and MIT-licensed. If it saved you a weekend or a budget, you can
+[**sponsor it on GitHub**](https://github.com/sponsors/RemiPelloux). Sponsorships pay for
+new kill shots, country guides and better reports. Stars help too: they tell me to keep building it.
+
 ## Contributing
 
 Ideas for new kill shots, country guides or better metrics are very welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-[MIT](LICENSE) © Remi Pelloux
+The code is [MIT](LICENSE) © Remi Pelloux. The name "kill-my-idea" and the logo are trademarks, not covered by the MIT License: see [TRADEMARK.md](TRADEMARK.md) and [NOTICE](NOTICE).
