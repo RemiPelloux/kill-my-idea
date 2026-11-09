@@ -44,13 +44,18 @@ spending real money or months of work.
    9. Risks.
    10. Updated 7-day test and kill criteria.
    11. Sources (at least 20, each with its access date).
-5. **Update `verdict.json`.** Set `mode` to `"deepdive"` and refresh the metrics, score and sources.
+5. **Update `verdict.json` and the HTML report.**
+   - In `verdict.json`: set `mode` to `"deepdive"`, and refresh the metrics, score, rescue paths and sources.
+   - Rewrite `report-data.js` (kill skill §6). Add `customer_voice`, the full competitor list with
+     `price_low` and `traction`, and the `by_country` breakdown.
+   - Copy `report.html` from `${CLAUDE_PLUGIN_ROOT}/skills/kill/` if it isn't there yet.
+     The HTML then shows the deep-dive version.
 6. **Answer in chat**:
    - the updated card;
    - the score change ("42 → 47, because…");
    - the 3 most surprising findings;
    - the launch country;
-   - the path to `deepdive.md`.
+   - the path to `report.html` (open it in a browser) and to `deepdive.md`.
 
 Evidence rules are the same as in the kill skill: every number is sourced or marked (estimate),
 unknowns stay unknown, quotes are verbatim. Never publish anything, spend money, or contact anyone.

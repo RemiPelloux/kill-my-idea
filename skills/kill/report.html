@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kill-my-idea report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="report-data.js"></script>
+<style>
+:root{
+  --ink:#15120F; --ink-2:#1D1915; --ink-3:#28231E; --rule:#3A332C;
+  --bone:#EFE8DC; --ash:#A39A8E; --ash-2:#7C746A;
+  --red:#E5383B; --amber:#E9B44C; --green:#3FB47A;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --measure:68ch;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--ink);color:var(--bone);font:400 19px/1.62 var(--serif);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-color:var(--ash-2);text-underline-offset:3px}
+a:hover{text-decoration-color:var(--bone)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);max-width:1320px;margin:0 auto}
+/* rail */
+.rail{position:sticky;top:0;height:100vh;padding:36px 20px 24px 28px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:28px;overflow:auto}
+.brand{display:flex;align-items:center;gap:10px;font:600 14px var(--mono);color:var(--bone);text-decoration:none}
+.brand svg{width:28px;height:28px}
+.rail nav ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.rail nav li a{display:block;padding:6px 0 6px 12px;border-left:2px solid transparent;color:var(--ash);text-decoration:none;font-size:16px;line-height:1.3}
+.rail nav li a:hover{color:var(--bone)}
+.rail nav li a.on{color:var(--bone);border-left-color:var(--v)}
+.chip{display:inline-flex;align-items:center;gap:8px;font:800 13px var(--mono);color:var(--ink);background:var(--v);padding:6px 10px;border-radius:6px;letter-spacing:.02em}
+.rail .foot{margin-top:auto;font:400 12px/1.5 var(--mono);color:var(--ash-2)}
+main{padding:0 56px 96px;min-width:0}
+/* cover */
+.cover{min-height:min(92vh,980px);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:center;border-bottom:1px solid var(--rule);padding:56px 0 48px}
+.case{display:grid;grid-template-columns:auto auto auto;gap:4px 28px;justify-content:start;font:400 13px var(--mono);color:var(--ash);margin-bottom:28px}
+.case b{display:block;font-weight:600;color:var(--bone)}
+.cover h1{font:500 var(--h1,clamp(44px,5.6vw,84px))/1 var(--serif);letter-spacing:-.025em;margin:0 0 22px;text-wrap:balance}
+.cover .pitch{font-size:21px;color:var(--ash);max-width:34ch;margin:0 0 30px;font-style:italic}
+.answer{font-size:22px;line-height:1.5;max-width:40ch;border-left:3px solid var(--v);padding-left:20px;margin:0}
+.verdict-fig{position:relative;justify-self:center;width:min(100%,440px);padding-bottom:64px}
+.stamp{position:absolute;left:50%;top:100%;transform:translate(-50%,-50%) rotate(-11deg);border:6px solid var(--v);color:var(--v);border-radius:12px;padding:6px 22px;font:800 clamp(34px,4.4vw,58px)/1 var(--mono);letter-spacing:.06em;white-space:nowrap;background:color-mix(in srgb,var(--ink) 55%,transparent);animation:thump .5s cubic-bezier(.2,1.6,.4,1) 1.1s both}
+@keyframes thump{0%{opacity:0;transform:translate(-50%,-50%) rotate(-11deg) scale(2.2)}100%{opacity:1;transform:translate(-50%,-50%) rotate(-11deg) scale(1)}}
+.gauge-arc{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:sweep 1s ease-out .2s forwards}
+@keyframes sweep{to{stroke-dashoffset:var(--off)}}
+@media (prefers-reduced-motion:reduce){.stamp,.gauge-arc{animation:none}.gauge-arc{stroke-dashoffset:var(--off)}}
+/* sections */
+section{padding:72px 0 8px;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.sec-head{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:baseline;margin-bottom:26px}
+.sec-head .n{font:600 14px var(--mono);color:var(--ash-2)}
+h2{font:500 clamp(30px,3.4vw,44px)/1.1 var(--serif);letter-spacing:-.015em;margin:0;text-wrap:balance}
+.lede{grid-column:2;color:var(--ash);margin:10px 0 0;max-width:var(--measure);font-size:18px}
+.body{margin-left:64px}
+p{max-width:var(--measure)}
+h3{font:500 22px/1.3 var(--serif);margin:34px 0 12px}
+/* evidence markers */
+.num{font:600 .92em var(--mono);white-space:nowrap}
+.num .h,.v .h{font:400 .72em var(--mono);color:var(--ash)}
+.txt{font-size:16px;line-height:1.45}
+.mk{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 2px 1px 6px;vertical-align:middle;cursor:help}
+.mk.s{background:var(--bone)} .mk.e{border:1.5px solid var(--bone)} .mk.u{border:1.5px dashed var(--ash-2)}
+sup.fn a{font:600 11px var(--mono);color:var(--amber);text-decoration:none;margin-left:2px}
+.unk{font:400 .85em var(--mono);color:var(--ash-2);border-bottom:1px dashed var(--ash-2)}
+.legend-ev{display:flex;flex-wrap:wrap;gap:18px;font:400 13px var(--mono);color:var(--ash);margin:0 0 18px}
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:14px;overflow:hidden;margin:28px 0}
+.tile{background:var(--ink-2);padding:20px 20px 18px}
+.tile .k{font-size:15px;color:var(--ash);line-height:1.3;min-height:2.6em}
+.tile .v{font:800 30px/1.1 var(--mono);margin-top:8px;letter-spacing:-.02em}
+.tile .h{font:400 12px/1.4 var(--mono);color:var(--ash-2);margin-top:6px}
+ul.tldr{padding:0;list-style:none;max-width:var(--measure)}
+ul.tldr li{padding:10px 0 10px 26px;border-top:1px solid var(--rule);position:relative}
+ul.tldr li::before{content:"";position:absolute;left:4px;top:22px;width:9px;height:2px;background:var(--v)}
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:16px;margin:8px 0 28px}
+.tbl th{font:600 12px var(--mono);color:var(--ash);text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.tbl td{padding:12px;border-bottom:1px solid var(--ink-3);vertical-align:top}
+.tbl tr:hover td{background:var(--ink-2)}
+.tbl .launch{background:color-mix(in srgb,var(--green) 9%,transparent)}
+.scroll{overflow-x:auto}
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--mono);padding:3px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.pill.red{color:var(--red)} .pill.amber{color:var(--amber)} .pill.green{color:var(--green)} .pill.ash{color:var(--ash)}
+/* rescue */
+.rescue{border-top:1px solid var(--rule)}
+.rx{display:grid;grid-template-columns:minmax(0,1.5fr) 260px minmax(0,1fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+.rx .ch{font:500 21px/1.35 var(--serif)}
+.rx .why{color:var(--ash);font-size:16px;margin-top:6px}
+.rx dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:15px}
+.rx dt{font:400 12px/1.9 var(--mono);color:var(--ash-2)} .rx dd{margin:0}
+/* kill shots */
+.ks{list-style:none;padding:0;margin:0;max-width:880px}
+.ks li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--ink-3)}
+.ks li>.pill{align-self:start;justify-self:start;margin-top:3px}
+.ks .t{font:500 19px var(--serif)} .ks .e{color:var(--ash);font-size:16px;margin-top:2px}
+/* quotes */
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px;margin:12px 0 24px}
+.quotes blockquote{margin:0;font:italic 400 21px/1.45 var(--serif);border-left:2px solid var(--rule);padding-left:18px}
+.quotes cite{display:block;font:400 12px var(--mono);font-style:normal;color:var(--ash-2);margin-top:8px}
+/* charts */
+.fig{margin:8px 0 30px}
+.fig svg{width:100%;height:auto;display:block;overflow:visible}
+.fig figcaption{font:400 13px/1.5 var(--mono);color:var(--ash-2);margin-top:10px;max-width:var(--measure)}
+.axis{font:400 11px var(--mono);fill:var(--ash-2)}
+.lbl{font:400 13px var(--serif);fill:var(--bone)}
+.lbl-m{font:600 12px var(--mono);fill:var(--bone)}
+.hit{cursor:pointer}
+#tip{position:fixed;pointer-events:none;z-index:9;max-width:300px;background:var(--bone);color:var(--ink);font:400 14px/1.4 var(--serif);padding:10px 12px;border-radius:8px;box-shadow:0 8px 30px #0008;opacity:0;transition:opacity .12s}
+#tip b{font:600 12px var(--mono);display:block;margin-bottom:2px}
+/* timeline */
+.tl{list-style:none;padding:0;margin:0;max-width:var(--measure);counter-reset:d}
+.tl li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--ink-3)}
+.tl .w{font:600 13px var(--mono);color:var(--amber);padding-top:4px}
+.tl .vf{font-size:16px;color:var(--ash);margin-top:4px}
+.kill{border:1px solid var(--red);border-radius:12px;padding:16px 20px;margin:26px 0;max-width:var(--measure)}
+.kill h3{margin:0 0 8px;color:var(--red);font-size:19px}
+.kill ul{margin:0;padding-left:20px}
+/* sources */
+ol.src{font-size:15px;max-width:880px;padding-left:28px}
+ol.src li{padding:6px 0;color:var(--ash)} ol.src li::marker{font:600 12px var(--mono);color:var(--amber)}
+ol.src a{color:var(--bone)} ol.src li:target{background:var(--ink-3)}
+footer{margin:56px 0 0 64px;font:400 13px/1.6 var(--mono);color:var(--ash-2)}
+.err{max-width:640px;margin:20vh auto;padding:24px;font:400 16px var(--mono)}
+/* responsive */
+@media (max-width:1100px){.cover{grid-template-columns:1fr}.verdict-fig{max-width:420px}.rx{grid-template-columns:1fr 1fr}.rx .ch-wrap{grid-column:1/-1}}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr}.rail{position:static;height:auto;border-right:0;border-bottom:1px solid var(--rule);padding:18px 16px}
+  .rail nav,.rail .foot{display:none} main{padding:0 16px 64px} .body,footer{margin-left:0}
+  .sec-head{grid-template-columns:44px minmax(0,1fr)} .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quotes{grid-template-columns:1fr} .rx{grid-template-columns:1fr} .ks li,.tl li{grid-template-columns:1fr;gap:4px}
+  .case{grid-template-columns:1fr 1fr} body{font-size:18px}
+}
+/* print: white consulting paper */
+@media print{
+  @page{size:A4;margin:16mm 14mm}
+  :root{--ink:#fff;--ink-2:#F6F4F0;--ink-3:#E8E4DD;--rule:#D6D0C6;--bone:#15120F;--ash:#4D463E;--ash-2:#6E665C;--amber:#9A6A00}
+  body{font-size:11.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .layout{display:block}.rail{display:none} main{padding:0}
+  .cover{min-height:auto;page-break-after:always;padding-top:0}
+  section{page-break-inside:auto;padding-top:28px} .sec-head,h2,h3{break-after:avoid;page-break-after:avoid} .rx,.ks li,.tl li,.fig,.tiles,blockquote{break-inside:avoid}
+  .stamp,.gauge-arc{animation:none}.gauge-arc{stroke-dashoffset:var(--off)} #tip{display:none}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div id="tip" role="tooltip"></div>
+<div class="layout" id="app"></div>
+<script>
+(() => {
+"use strict";
+const D = window.KMI_DATA;
+const app = document.getElementById("app");
+if (!D) { app.innerHTML = '<p class="err">report-data.js was not found next to this file. Re-run /kill-my-idea:kill, or keep report.html and report-data.js in the same folder.</p>'; return; }
+const I = D.idea || {}, V = D.verdict || {}, N = D.narrative || {}, M = V.metrics || {};
+const VC = { "GO": "var(--green)", "PIVOT": "var(--amber)", "NO-GO": "var(--red)" };
+const VI = { "GO": "✓", "PIVOT": "↺", "NO-GO": "✕" };
+document.documentElement.style.setProperty("--v", VC[V.verdict] || "var(--ash)");
+const TL = (I.title || "").length; if (TL > 28) document.documentElement.style.setProperty("--h1", TL > 60 ? "clamp(36px,3.6vw,54px)" : "clamp(40px,4.4vw,66px)");
+document.title = `${V.verdict || ""} ${V.score ?? ""}/100 · ${I.title || "kill-my-idea report"}`;
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const has = x => Array.isArray(x) ? x.length > 0 : x && typeof x === "object" ? Object.keys(x).length > 0 : !!x;
+
+/* footnotes: one numbered list built from narrative.sources + verdict.sources + any cited URL */
+const SRC = [], SIDX = new Map();
+const addSrc = (s) => { const o = typeof s === "string" ? { url: s } : s; if (!o || !o.url) return 0;
+  if (!SIDX.has(o.url)) { SRC.push(o); SIDX.set(o.url, SRC.length); } else Object.assign(SRC[SIDX.get(o.url) - 1], o); return SIDX.get(o.url); };
+(N.sources || []).forEach(addSrc); (V.sources || []).forEach(addSrc);
+const fn = url => { const n = url ? addSrc(url) : 0; return n ? `<sup class="fn"><a href="#src-${n}">[${n}]</a></sup>` : ""; };
+
+const CUR = { USD: "$", EUR: "€", GBP: "£" };
+const fmt = (v, unit) => {
+  if (v === null || v === undefined || v === "unknown") return null;
+  if (typeof v !== "number") return esc(v);
+  const um = /^(USD|EUR|GBP)(?!\/(?:USD|EUR|GBP))\b\s*(.*)$/i.exec(unit || ""), sym = um ? CUR[um[1].toUpperCase()] : "", rest = um ? um[2] : "";
+  const a = Math.abs(v); const s = a >= 1e9 ? (v / 1e9).toFixed(1) + "B" : a >= 1e6 ? (v / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : a >= 1e4 ? (v / 1e3).toFixed(0) + "k" : (Number.isInteger(v) ? v.toLocaleString("en") : v.toFixed(2).replace(/0$/, ""));
+  if (unit === "%") return s + "%";
+  const extra = sym ? rest : (unit || "");
+  return sym + s + (extra ? `<span class="h">${extra.startsWith("/") ? "" : " "}${esc(extra)}</span>` : "");
+};
+/* a metric value with its evidence marker */
+const txt = v => typeof v === "string" && v.length > 18;
+const metric = (m, key = "") => {
+  if (m === null || m === undefined) return '<span class="unk">unknown</span>';
+  if (typeof m !== "object") return txt(m) ? `<span class="txt">${esc(m)}</span>` : `<span class="num">${esc(m)}${typeof m === "number" && /_pct$/.test(key) ? "%" : ""}</span>`;
+  if (txt(m.value)) return `<span class="txt">${esc(m.value)}</span><i class="mk ${m.basis === "sourced" ? "s" : m.basis === "estimate" ? "e" : "u"}" data-tip="${esc(m.basis === "estimate" ? "Estimate: " + (m.reasoning || "") : m.basis || "")}" tabindex="0"></i>${m.basis === "sourced" ? fn(m.source) : ""}`;
+  const val = fmt(m.value, m.unit || (/_pct$/.test(key) ? "%" : ""));
+  if (!val || m.basis === "unknown") return `<span class="unk" data-tip="${esc(m.reasoning || "Not found in public sources")}">unknown</span>`;
+  const tip = m.basis === "estimate" ? `Estimate: ${m.reasoning || "see report"}` : "Sourced";
+  return `<span class="num">${val}</span><i class="mk ${m.basis === "sourced" ? "s" : "e"}" data-tip="${esc(tip)}" tabindex="0" aria-label="${esc(tip)}"></i>${m.basis === "sourced" ? fn(m.source) : ""}`;
+};
+
+const RAIL = [];
+let secN = 0;
+const section = (id, title, lede, html) => { if (!html) return ""; secN++; RAIL.push([id, title]);
+  return `<section id="${id}" aria-labelledby="${id}-h"><div class="sec-head"><span class="n">${String(secN).padStart(2, "0")}</span><div><h2 id="${id}-h">${esc(title)}</h2>${lede ? `<p class="lede">${lede}</p>` : ""}</div></div><div class="body">${html}</div></section>`; };
+
+/* ---------- charts (inline SVG) ---------- */
+function gauge(score, verdict) {
+  const r = 150, cx = 180, cy = 180, len = Math.PI * r, off = len * (1 - score / 100);
+  const arc = (a0, a1, rr = r) => { const p = a => [cx - rr * Math.cos(a * Math.PI / 100), cy - rr * Math.sin(a * Math.PI / 100)];
+    const [x0, y0] = p(a0), [x1, y1] = p(a1); return `M${x0.toFixed(1)},${y0.toFixed(1)} A${rr},${rr} 0 0 1 ${x1.toFixed(1)},${y1.toFixed(1)}`; };
+  const zone = (a0, a1, c) => `<path d="${arc(a0, a1, r - 26)}" stroke="${c}" stroke-width="3" fill="none" opacity=".7"/>`;
+  const ticks = [0, 50, 70, 100].map(t => { const a = t * Math.PI / 100, x = cx - (r + 22) * Math.cos(a), y = cy - (r + 22) * Math.sin(a);
+    return `<text class="axis" x="${x.toFixed(0)}" y="${(y + 4).toFixed(0)}" text-anchor="middle">${t}</text>`; }).join("");
+  return `<svg viewBox="-14 0 388 200" role="img" aria-label="Score ${score} out of 100, verdict ${verdict}">
+    <path d="${arc(0, 100)}" stroke="var(--ink-3)" stroke-width="26" fill="none" stroke-linecap="round"/>
+    <path class="gauge-arc" d="${arc(0, 100)}" stroke="var(--v)" stroke-width="26" fill="none" stroke-linecap="round" style="--len:${len.toFixed(1)};--off:${off.toFixed(1)}"/>
+    ${zone(0, 49.5, "var(--red)")}${zone(50.5, 69.5, "var(--amber)")}${zone(70.5, 100, "var(--green)")}
+    ${ticks}
+    <text x="${cx}" y="${cy - 4}" text-anchor="middle" style="font:800 78px var(--mono);fill:var(--bone)">${score}</text>
+    <text x="${cx}" y="${cy + 16}" text-anchor="middle" class="axis">out of 100</text></svg>`;
+}
+
+function scoreBars(criteria) {
+  const W = { profit: 25, feasibility: 20, time_to_first_revenue: 15, demand: 15, competition: 10, risk: 10, fit: 5 };
+  const L = { profit: "Profit potential", feasibility: "Feasibility for you", time_to_first_revenue: "Time to first €", demand: "Market demand", competition: "Competition (5 = open field)", risk: "Risk (5 = low)", fit: "Fit with your skills" };
+  const rows = Object.keys(W), x0 = 230, sc = 22, rh = 44;
+  const body = rows.map((k, i) => { const s = criteria[k] ?? 0, w = W[k], pts = w * s / 5, y = i * rh;
+    return `<g class="hit" data-tip="<b>${esc(L[k])}</b>Score ${s}/5 × weight ${w} = ${pts} of ${w} pts" tabindex="0">
+      <text class="lbl" x="0" y="${y + 22}">${esc(L[k])}</text>
+      <rect x="${x0}" y="${y + 8}" width="${w * sc}" height="20" rx="4" fill="var(--ink-3)"/>
+      <rect x="${x0}" y="${y + 8}" width="${Math.max(pts * sc - 2, 0)}" height="20" rx="4" fill="${s <= 1 ? "var(--red)" : "var(--bone)"}"/>
+      <text class="lbl-m" x="${x0 + w * sc + 12}" y="${y + 23}">${pts} / ${w}</text></g>`; }).join("");
+  return `<figure class="fig"><svg viewBox="0 0 860 ${rows.length * rh}" role="img" aria-label="Scorecard: points earned per weighted criterion">${body}</svg>
+    <figcaption>Bar length = the criterion's weight. Filled part = points earned (score ÷ 5 × weight). Red = scored 1/5. Total ${V.score}/100.</figcaption></figure>`;
+}
+
+function marketFunnel() {
+  const rows = [["TAM", "Everyone who could buy", M.tam], ["SAM", "Who you can actually serve", M.sam], ["SOM", "What you can win in year 1", M.som]];
+  if (!rows.some(r => r[2])) return "";
+  const nums = rows.map(r => (r[2] && typeof r[2].value === "number") ? r[2].value : null), max = Math.max(...nums.filter(n => n !== null), 1);
+  const html = rows.map(([k, d, m], i) => { const w = nums[i] !== null ? Math.max(Math.sqrt(nums[i] / max) * 100, 3) : 0;
+    return `<div style="display:grid;grid-template-columns:70px minmax(0,1fr) 200px;gap:16px;align-items:center;padding:10px 0;border-bottom:1px solid var(--ink-3)">
+      <span class="num">${k}</span><div><div style="height:22px;width:${w}%;background:var(--bone);opacity:${1 - i * 0.28};border-radius:4px"></div><div class="h" style="font:400 13px var(--mono);color:var(--ash-2);margin-top:4px">${d}</div></div><div>${metric(m)}</div></div>`; }).join("");
+  return `<h3>Market size</h3><figure class="fig">${html}<figcaption>Bar widths use a square-root scale so the year-1 slice stays visible.</figcaption></figure>`;
+}
+
+function competitorMap() {
+  const cs = (N.competitors || []).filter(c => c.price_low !== null && c.price_low !== undefined);
+  if (cs.length < 2) return "";
+  const W = 860, H = 360, pl = 60, pr = 40, pt = 44, pb = 50;
+  const prices = cs.map(c => c.price_low), maxP = Math.max(...prices, (I.price && I.price.amount) || 0) * 1.15 || 1;
+  const x = p => pl + (p / maxP) * (W - pl - pr), y = t => pt + (5 - (t || 1)) / 4 * (H - pt - pb);
+  const cur = cs[0].currency || (I.price && I.price.currency) || "";
+  const grid = [1, 2, 3, 4, 5].map(t => `<line x1="${pl}" x2="${W - pr}" y1="${y(t)}" y2="${y(t)}" stroke="var(--ink-3)"/><text class="axis" x="${pl - 10}" y="${y(t) + 4}" text-anchor="end">${t}</text>`).join("");
+  const xt = [0, .25, .5, .75, 1].map(f => { const p = maxP * f; return `<text class="axis" x="${x(p)}" y="${H - pb + 20}" text-anchor="middle">${fmt(Math.round(p), cur) || 0}</text>`; }).join("");
+  const you = I.price && I.price.amount ? `<line x1="${x(I.price.amount)}" x2="${x(I.price.amount)}" y1="${pt}" y2="${H - pb}" stroke="var(--v)" stroke-dasharray="4 4" stroke-width="2"/><text class="lbl-m" x="${x(I.price.amount) + 6}" y="${pt + 12}" style="fill:var(--v)">Your price</text>` : "";
+  const placed = cs.map(c => ({ x: x(c.price_low) - 9, y: y(c.traction) - 9, w: 18, h: 18 }));
+  if (I.price && I.price.amount) placed.push({ x: x(I.price.amount) - 2, y: pt, w: 90, h: 16 });
+  const clash = b => placed.some(o => b.x < o.x + o.w && b.x + b.w > o.x && b.y < o.y + o.h && b.y + b.h > o.y) || b.x < pl || b.x + b.w > W || b.y < 0 || b.y + b.h > H - pb + 4;
+  const labelPos = (c) => { const cx = x(c.price_low), cy = y(c.traction), w = c.name.length * 7.4 + 4;
+    for (const [dx, dy, a] of [[12, -8, "start"], [-12, -8, "end"], [12, 16, "start"], [-12, 16, "end"], [12, -24, "start"], [-12, 30, "end"]]) {
+      const b = { x: a === "start" ? cx + dx : cx + dx - w, y: cy + dy - 12, w, h: 15 };
+      if (!clash(b)) { placed.push(b); return [cx + dx, cy + dy, a]; } }
+    return null; };
+  const dots = cs.map((c, i) => { const cx = x(c.price_low), cy = y(c.traction), r = c.free ? 8 : 7, lp = labelPos(c);
+    const tip = `<b>${esc(c.name)}</b>${fmt(c.price_low, c.currency) ?? ""}${c.price_high ? "–" + fmt(c.price_high, c.currency) : ""} · traction ${c.traction ?? "?"}/5${c.traction_note ? " (" + esc(c.traction_note) + ")" : ""}${c.gap ? "<br>Gap: " + esc(c.gap) : ""}`;
+    const lab = lp ? `<text class="lbl" x="${lp[0]}" y="${lp[1]}" text-anchor="${lp[2]}">${esc(c.name)}</text>` : "";
+    return `<g class="hit" data-tip="${esc(tip)}" tabindex="0"><circle cx="${cx}" cy="${cy}" r="16" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="${r}" fill="${c.free ? "var(--ink)" : "var(--bone)"}" stroke="${c.free ? "var(--red)" : "var(--ink)"}" stroke-width="${c.free ? 3 : 2}"/>${lab}</g>`; }).join("");
+  return `<h3>Where competitors sit</h3><figure class="fig"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Competitors by entry price and traction">${grid}${xt}${you}${dots}
+    <text class="axis" x="${W - pr}" y="${H - 6}" text-anchor="end">Entry price →</text><text class="axis" x="${pl}" y="${pt - 26}">↑ Traction (1–5)</text></svg>
+    <figcaption>Filled dot = paid product. Red ring = free option. Traction is an estimate from visible signals (reviews, revenue, launches). Hover a dot for details.</figcaption></figure>`;
+}
+
+function riskMatrix() {
+  const rs = N.risks || []; if (!rs.length) return "";
+  const LV = { L: 0, M: 1, H: 2 }, cell = 120, ox = 90, oy = 10;
+  let cells = "";
+  for (let li = 0; li < 3; li++) for (let ii = 0; ii < 3; ii++) { const sev = (li + 1) * (ii + 1);
+    cells += `<rect x="${ox + ii * cell}" y="${oy + (2 - li) * cell}" width="${cell - 3}" height="${cell - 3}" rx="8" fill="var(--red)" opacity="${(0.035 + sev * 0.03).toFixed(2)}"/>`; }
+  const bucket = {};
+  const marks = rs.map((r, i) => { const li = LV[r.likelihood] ?? 1, ii = LV[r.impact] ?? 1, key = li + "-" + ii, k = bucket[key] = (bucket[key] || 0) + 1;
+    const cx = ox + ii * cell + 30 + ((k - 1) % 3) * 30, cy = oy + (2 - li) * cell + 34 + Math.floor((k - 1) / 3) * 34;
+    return `<g class="hit" data-tip="<b>Risk ${i + 1}</b>${esc(r.risk)}${r.mitigation ? "<br>Mitigation: " + esc(r.mitigation) : ""}" tabindex="0"><circle cx="${cx}" cy="${cy}" r="13" fill="var(--bone)"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font:800 12px var(--mono);fill:var(--ink)">${i + 1}</text></g>`; }).join("");
+  const ax = ["Low", "Medium", "High"];
+  const labels = ax.map((a, i) => `<text class="axis" x="${ox + i * cell + cell / 2}" y="${oy + 3 * cell + 18}" text-anchor="middle">${a}</text><text class="axis" x="${ox - 10}" y="${oy + (2 - i) * cell + cell / 2}" text-anchor="end">${a}</text>`).join("");
+  const svg = `<svg viewBox="0 0 470 410" role="img" aria-label="Risk matrix">${cells}${marks}${labels}<text class="axis" x="${ox + 1.5 * cell}" y="${oy + 3 * cell + 40}" text-anchor="middle">Impact →</text><text class="axis" x="10" y="${oy + 8}">Likelihood</text></svg>`;
+  const list = `<table class="tbl"><thead><tr><th>#</th><th>Risk</th><th>What to do</th></tr></thead><tbody>${rs.map((r, i) => `<tr><td class="num">${i + 1}</td><td>${esc(r.risk)}<div style="font:400 12px var(--mono);color:var(--ash-2);margin-top:4px">likelihood ${r.likelihood} · impact ${r.impact}</div></td><td>${esc(r.mitigation || "")}</td></tr>`).join("")}</tbody></table>`;
+  return `<div style="display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:40px;align-items:start" class="riskgrid"><figure class="fig">${svg}<figcaption>Darker = more severe. Hover a number.</figcaption></figure><div class="scroll">${list}</div></div>`;
+}
+
+function scenarioBars() {
+  const ss = (N.scenarios || []).filter(s => typeof s.revenue_month === "number"); if (!ss.length) return "";
+  const cur = N.currency || (I.price && I.price.currency) || "", max = Math.max(...ss.map(s => Math.max(s.revenue_month, s.costs_month || 0)), 1);
+  const x0 = 150, W = 860, bw = W - x0 - 120, rh = 70;
+  const rows = ss.map((s, i) => { const y = i * rh, rv = s.revenue_month / max * bw, cs = (s.costs_month || 0) / max * bw;
+    return `<g class="hit" data-tip="<b>${esc(s.name)}</b>${s.customers_month ?? "?"} customers/month · revenue ${fmt(s.revenue_month, cur)} · costs ${fmt(s.costs_month || 0, cur)}${s.note ? "<br>" + esc(s.note) : ""}" tabindex="0">
+      <text class="lbl" x="0" y="${y + 24}">${esc(s.name)}</text><text class="axis" x="0" y="${y + 42}">${s.customers_month ?? "?"} customers/mo</text>
+      <rect x="${x0}" y="${y + 10}" width="${Math.max(rv, 2)}" height="18" rx="4" fill="var(--bone)"/><text class="lbl-m" x="${x0 + Math.max(rv, 2) + 8}" y="${y + 24}">${fmt(s.revenue_month, cur)}</text>
+      <rect x="${x0}" y="${y + 32}" width="${Math.max(cs, 2)}" height="12" rx="4" fill="var(--ash-2)"/><text class="axis" x="${x0 + Math.max(cs, 2) + 8}" y="${y + 42}">${fmt(s.costs_month || 0, cur)} costs</text></g>`; }).join("");
+  return `<h3>Monthly scenarios</h3><figure class="fig"><svg viewBox="0 0 ${W} ${ss.length * rh}" role="img" aria-label="Revenue and costs per scenario">${rows}</svg>
+    <figcaption>Light bar = revenue per month. Grey bar = costs. All figures are estimates unless the report cites a source.</figcaption></figure>`;
+}
+
+function ltvBullet() {
+  const m = M.ltv_cac; if (!m || typeof m.value !== "number") return "";
+  const v = m.value, max = Math.max(5, v * 1.2), W = 860, x = t => 20 + t / max * (W - 60);
+  return `<h3>LTV : CAC</h3><figure class="fig"><svg viewBox="0 0 ${W} 86" role="img" aria-label="LTV to CAC ratio ${v}, healthy is 3 or more">
+    <rect x="${x(0)}" y="22" width="${x(1) - x(0)}" height="24" fill="var(--red)" opacity=".28" rx="4"/><rect x="${x(1)}" y="22" width="${x(3) - x(1)}" height="24" fill="var(--amber)" opacity=".22"/><rect x="${x(3)}" y="22" width="${x(max) - x(3)}" height="24" fill="var(--green)" opacity=".2" rx="4"/>
+    <rect x="${x(0)}" y="29" width="${Math.max(x(v) - x(0), 3)}" height="10" fill="var(--bone)" rx="3"/><line x1="${x(v)}" x2="${x(v)}" y1="14" y2="54" stroke="var(--bone)" stroke-width="3"/>
+    <text class="lbl-m" x="${x(v)}" y="10" text-anchor="middle">${v}</text>${[0, 1, 3].map(t => `<text class="axis" x="${x(t)}" y="72" text-anchor="middle">${t}</text>`).join("")}
+    <text class="axis" x="${x(0.5)}" y="84" text-anchor="middle">loses money</text><text class="axis" x="${x(2)}" y="84" text-anchor="middle">fragile</text><text class="axis" x="${x(Math.min(4, max - .5))}" y="84" text-anchor="middle">healthy</text></svg>
+    <figcaption>${m.basis === "estimate" ? "Estimate: " + esc(m.reasoning || "") : "Sourced"} ${m.source ? fn(m.source) : ""}</figcaption></figure>`;
+}
+
+/* ---------- sections ---------- */
+const best = (N.rescue || []).slice().sort((a, b) => b.score_after - a.score_after)[0];
+const vlabel = s => s >= 70 ? "GO" : s >= 50 ? "PIVOT" : "NO-GO";
+const vpill = s => { const v = vlabel(s); return `<span class="pill ${v === "GO" ? "green" : v === "PIVOT" ? "amber" : "red"}">${VI[v]} ${v} ${s}</span>`; };
+const DIFF = { "doable": ["green", "✓ Doable"], "hard": ["amber", "▲ Hard"], "very-hard": ["red", "▲▲ Very hard"] };
+
+const cover = `<header class="cover"><div>
+  <div class="case"><span>Case file<b>${esc(I.slug || V.slug || "idea")}</b></span><span>Evaluated<b>${esc(V.evaluated || I.created || "")}</b></span><span>Markets<b>${esc((I.countries || []).join(", ") || "not set")}</b></span></div>
+  <h1>${esc(I.title || "Untitled idea")}</h1>
+  ${I.solution ? `<p class="pitch">${esc(I.solution)}</p>` : ""}
+  <p class="answer">${esc(N.answer || "")}</p></div>
+  <div class="verdict-fig">${gauge(V.score ?? 0, V.verdict)}<div class="stamp" aria-hidden="true">${esc(V.verdict || "")}</div></div></header>`;
+
+const tiles = [["LTV : CAC", M.ltv_cac, "3 or more is healthy"], ["Break-even", M.break_even_customers_per_month, "customers per month"], ["Time to first €", M.time_to_first_revenue_weeks, "weeks from today"], ["Competitors found", M.competitors_found, M.competitor_price_range && M.competitor_price_range.value ? "priced " + esc(M.competitor_price_range.value) : ""]];
+const sSummary = section("summary", "The short answer", null,
+  `<div class="tiles">${tiles.map(([k, m, h]) => `<div class="tile"><div class="k">${k}</div><div class="v">${metric(m)}</div><div class="h">${h}</div></div>`).join("")}</div>
+   ${has(N.tldr) ? `<ul class="tldr">${N.tldr.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
+   ${N.lesson ? `<p><strong>Lesson.</strong> ${esc(N.lesson)}</p>` : ""}`);
+
+const sRescue = has(N.rescue) ? section("rescue", V.verdict === "GO" ? "How to make it even stronger" : "Could it be saved?",
+  `As pitched, this is a ${esc(V.verdict)} at ${V.score}/100. These changes attack the kill shots directly. Projected scores are estimates.`,
+  `<div class="rescue">${N.rescue.map(r => { const [c, l] = DIFF[r.difficulty] || ["ash", r.difficulty];
+    return `<div class="rx"><div class="ch-wrap"><div class="ch">${esc(r.change)}</div>${r.why ? `<div class="why">${esc(r.why)}</div>` : ""}</div>
+      <div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">${vpill(V.score)}<span aria-hidden="true" style="color:var(--ash-2)">→</span>${vpill(r.score_after)}</div>
+      <div style="margin-top:10px"><span class="pill ${c}">${l}</span></div></div>
+      <dl>${r.effort ? `<dt>Effort</dt><dd>${esc(r.effort)}</dd>` : ""}${r.cost ? `<dt>Cost</dt><dd>${esc(r.cost)}</dd>` : ""}${r.requires ? `<dt>Needs</dt><dd>${esc(r.requires)}</dd>` : ""}</dl></div>`; }).join("")}</div>`) : "";
+
+const sScore = has(V.criteria) ? section("score", "How the score adds up", "Seven weighted criteria, each scored 1–5. Hard rules can cap a criterion no matter how good the rest looks.", scoreBars(V.criteria)) : "";
+
+const KS = { free_alternative: "Free alternative", strong_competitor: "Strong direct competitor", graveyard: "Graveyard of failed attempts", no_distribution: "No distribution channel", costs_eat_margin: "Costs eat the margin", weak_demand: "Weak or falling demand", legal_platform_risk: "Legal or platform risk" };
+const sKill = has(V.kill_shots) ? section("kill-shots", "Kill shots", `${Object.values(V.kill_shots).filter(Boolean).length} of ${Object.keys(V.kill_shots).length} landed.`,
+  `<ul class="ks">${Object.keys(KS).filter(k => k in V.kill_shots).map(k => { const hit = V.kill_shots[k], ev = (N.kill_shots || {})[k] || {};
+    return `<li><span class="pill ${hit ? "red" : "green"}">${hit ? "✕ Hit" : "✓ Clear"}</span><div><div class="t">${KS[k]}</div>${ev.evidence ? `<div class="e">${esc(ev.evidence)}${fn(ev.source)}</div>` : ""}</div></li>`; }).join("")}</ul>`) : "";
+
+const FC = { "true": ["green", "✓ True"], "partly": ["amber", "◐ Partly"], "false": ["red", "✕ False"], "unverified": ["ash", "? Unverified"] };
+const sFacts = has(N.fact_checks) ? section("fact-check", "Fact-check", "Every claim in the source, checked against public evidence.",
+  `<div class="scroll"><table class="tbl"><thead><tr><th>Claim</th><th>Verdict</th><th>Evidence</th></tr></thead><tbody>${N.fact_checks.map(f => { const [c, l] = FC[f.status] || FC.unverified;
+    return `<tr><td>${esc(f.claim)}</td><td><span class="pill ${c}">${l}</span></td><td>${esc(f.evidence || "")}${fn(f.source)}</td></tr>`; }).join("")}</tbody></table></div>`) : "";
+
+const cu = N.customer || {};
+const sMarket = (has(cu) || M.tam || M.sam) ? section("market", "Market", null,
+  `${has(cu) ? `<div class="tiles" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="tile"><div class="k">Who buys</div><p style="margin:6px 0 0;font-size:17px">${esc(cu.segment || "unknown")}</p></div><div class="tile"><div class="k">The pain</div><p style="margin:6px 0 0;font-size:17px">${esc(cu.pain || "unknown")}</p></div><div class="tile"><div class="k">What they do today</div><p style="margin:6px 0 0;font-size:17px">${esc(cu.today || "unknown")}</p></div></div>` : ""}
+   ${marketFunnel()}${M.demand_trend ? `<p><strong>Demand trend.</strong> ${metric(M.demand_trend)}</p>` : ""}
+   ${has(N.use_cases) ? `<h3>Ways to use it</h3><div class="scroll"><table class="tbl"><thead><tr><th>Option</th><th>Who pays</th><th>Effort</th></tr></thead><tbody>${N.use_cases.map(u => `<tr${u.best ? ' class="launch"' : ""}><td>${esc(u.name)}${u.best ? ' <span class="pill green">✓ Best</span>' : ""}</td><td>${esc(u.who_pays || "")}</td><td>${esc(u.effort || "")}</td></tr>`).join("")}</tbody></table></div>` : ""}`) : "";
+
+const sComp = has(N.competitors) ? section("competition", "Competition", `${N.competitors.length} competitors and alternatives found.`,
+  `${competitorMap()}<div class="scroll"><table class="tbl"><thead><tr><th>Name</th><th>Price</th><th>Traction</th><th>Their weak spot</th></tr></thead><tbody>${N.competitors.map(c => `<tr><td>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.name)}</a>` : esc(c.name)}${c.free ? ' <span class="pill red">Free</span>' : ""}${c.country ? ` <span class="pill ash">${esc(c.country)}</span>` : ""}</td><td class="num">${c.price_low === null || c.price_low === undefined ? '<span class="unk">unknown</span>' : fmt(c.price_low, c.currency) + (c.price_high ? "–" + fmt(c.price_high, c.currency) : "")}</td><td>${c.traction ? `<span class="num">${c.traction}/5</span>` : '<span class="unk">unknown</span>'}${c.traction_note ? `<div style="font-size:14px;color:var(--ash)">${esc(c.traction_note)}</div>` : ""}</td><td>${esc(c.gap || "")}</td></tr>`).join("")}</tbody></table></div>`) : "";
+
+const sVoice = has(N.customer_voice) ? section("voice", "In their own words", "Verbatim quotes from reviews and forums.",
+  `<div class="quotes">${N.customer_voice.map(q => `<blockquote>“${esc(q.quote)}”<cite>${q.pain ? esc(q.pain) + " · " : ""}<a href="${esc(q.source)}" target="_blank" rel="noopener">source</a>${fn(q.source)}</cite></blockquote>`).join("")}</div>`) : "";
+
+const BC = V.by_country && typeof V.by_country === "object" ? V.by_country : null;
+const countries = BC ? Object.keys(BC).filter(k => BC[k] && typeof BC[k] === "object") : [];
+const launch = V.launch_country || "";
+const ML = { tam: "TAM", sam: "SAM", som: "SOM (year 1)", competitors: "Competitors", competitors_found: "Competitors found", gross_margin_pct: "Gross margin %", cac: "CAC", ltv: "LTV", ltv_cac: "LTV : CAC", payback_months: "Payback (months)", break_even_customers_per_month: "Break-even (customers / month)", time_to_first_revenue_weeks: "Time to first € (weeks)", demand_trend: "Demand trend", price: "Price" };
+const human = k => ML[k] || k.replace(/_/g, " ").replace(/^./, c => c.toUpperCase());
+const sCountry = countries.length > 1 ? section("countries", "Country by country", `Recommended launch market: <strong>${esc(launch || "not set")}</strong>.${typeof BC.recommended === "string" ? " " + esc(BC.recommended) : ""}`,
+  `<div class="scroll"><table class="tbl"><thead><tr><th></th>${countries.map(c => `<th class="${c === launch ? "launch" : ""}">${esc(c)}${c === launch ? ' <span class="pill green">✓ Launch here</span>' : ""}</th>`).join("")}</tr></thead><tbody>${[...new Set(countries.flatMap(c => Object.keys(BC[c])))].map(k => `<tr><td>${esc(human(k))}</td>${countries.map(c => `<td class="${c === launch ? "launch" : ""}">${k in BC[c] ? metric(BC[c][k], k) : '<span class="unk">—</span>'}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`) : "";
+
+const mkeys = Object.keys(M);
+const sEcon = (mkeys.length || has(N.scenarios)) ? section("economics", "Unit economics", "What one customer is worth, what it costs to get one, and how many you need.",
+  `<div class="legend-ev"><span><i class="mk s"></i> sourced, footnote</span><span><i class="mk e"></i> estimate, hover for reasoning</span><span><span class="unk">unknown</span> not found</span></div>
+   ${ltvBullet()}<div class="scroll"><table class="tbl"><thead><tr><th>Metric</th><th>Value</th><th>Reasoning</th></tr></thead><tbody>${mkeys.map(k => { const m = M[k] || {};
+     return `<tr><td>${esc(human(k))}</td><td>${metric(m, k)}</td><td style="color:var(--ash);font-size:15px">${esc(m.reasoning || "")}</td></tr>`; }).join("")}</tbody></table></div>${scenarioBars()}`) : "";
+
+const sRisk = has(N.risks) ? section("risks", "Risks", null, riskMatrix()) : "";
+
+const kc = V.kill_criteria || [];
+const sTest = (has(N.test_plan) || V.cheapest_test) ? section("test", V.verdict === "NO-GO" && !has(N.test_plan) ? "What to do instead" : "The 7-day test", V.cheapest_test ? esc(V.cheapest_test) : null,
+  `${has(N.test_plan) ? `<ol class="tl">${N.test_plan.map(t => `<li><span class="w">${esc(t.when)}</span><div><div>${esc(t.step)}</div>${t.verify ? `<div class="vf">Check: ${esc(t.verify)}</div>` : ""}</div></li>`).join("")}</ol>` : ""}
+   ${kc.length ? `<div class="kill"><h3>✕ Kill it if</h3><ul>${kc.map(k => `<li>${esc(k)}</li>`).join("")}</ul></div>` : ""}`) : "";
+
+const body = [sSummary, sRescue, sScore, sKill, sFacts, sMarket, sComp, sVoice, sCountry, sEcon, sRisk, sTest].join("");
+const sSrc = SRC.length ? section("sources", "Sources", `${SRC.length} sources. Every sourced number in this report links here.`,
+  `<ol class="src">${SRC.map((s, i) => `<li id="src-${i + 1}"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title || s.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 80))}</a>${s.supports ? ` · ${esc(s.supports)}` : ""}${s.accessed ? ` · accessed ${esc(s.accessed)}` : ""}</li>`).join("")}</ol>`) : "";
+
+const icon = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#28231E"/><path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#EFE8DC"/><g stroke="#15120F" stroke-width="40" stroke-linecap="round"><path d="M380 340l80 80M460 340l-80 80M564 340l80 80M644 340l-80 80"/></g><rect x="396" y="776" width="232" height="60" rx="26" fill="#A39A8E"/></svg>`;
+app.innerHTML = `<aside class="rail"><a class="brand" href="https://github.com/RemiPelloux/kill-my-idea" target="_blank" rel="noopener">${icon} kill-my-idea</a>
+  <span class="chip">${VI[V.verdict] || ""} ${esc(V.verdict || "")} · ${V.score ?? "?"}/100</span>
+  <nav aria-label="Report sections"><ol>${RAIL.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join("")}</ol></nav>
+  <div class="foot">${best && V.verdict !== "GO" ? `Best rescue: ${best.score_after}/100 (${esc(best.difficulty)})<br>` : ""}Print or save as PDF for a light, paper version.</div></aside>
+  <main>${cover}${body}${sSrc}<footer>Killed by kill-my-idea, a brutally honest co-founder for Claude Code. Every number is sourced, marked as an estimate, or left unknown. Not financial advice.</footer></main>`;
+
+/* tooltip for any [data-tip] element */
+const tip = document.getElementById("tip");
+const show = (el, x, y) => { tip.innerHTML = el.getAttribute("data-tip"); tip.style.opacity = 1;
+  const r = tip.getBoundingClientRect(); tip.style.left = Math.min(x + 14, innerWidth - r.width - 10) + "px"; tip.style.top = Math.max(y - r.height - 12, 10) + "px"; };
+document.addEventListener("mousemove", e => { const el = e.target.closest("[data-tip]"); if (el) show(el, e.clientX, e.clientY); else tip.style.opacity = 0; });
+document.addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el) { const b = el.getBoundingClientRect(); show(el, b.right, b.top); } });
+document.addEventListener("focusout", () => { tip.style.opacity = 0; });
+
+/* table of contents: highlight the section in view */
+const links = [...document.querySelectorAll(".rail nav a")];
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id)); }), { rootMargin: "-30% 0px -60% 0px" });
+document.querySelectorAll("main section").forEach(s => io.observe(s));
+})();
+</script>
+</body>
+</html>

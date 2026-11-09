@@ -111,14 +111,34 @@ Hard rules:
 - No credible distribution channel → the verdict cannot be GO.
 - LTV : CAC below 1 with no path to fix it → Profit potential ≤ 2.
 
-Write `verdict.json`, following `${CLAUDE_PLUGIN_ROOT}/skills/kill/verdict.schema.json`.
+Write `verdict.json`, following `${CLAUDE_PLUGIN_ROOT}/skills/kill/verdict.schema.json`
+(the `rescue` paths come in section 7).
 The other skills (`compare`, `deepdive`) read it.
 
-## 6. Report and verdict card
+## 6. Report, HTML report and verdict card
 
-Write `report.md` with the structure of `${CLAUDE_PLUGIN_ROOT}/skills/kill/report-template.md`.
-Put this card at its top **and** in your chat answer, with every `<…>` field filled in. The
-`<sub>` line is part of the card.
+Write three things in the idea folder:
+
+1. **`report.md`**: the full report, structured like
+   `${CLAUDE_PLUGIN_ROOT}/skills/kill/report-template.md`.
+2. **`report.html`**: copy the template as-is. Never rewrite it.
+   - With Bash: `cp "${CLAUDE_PLUGIN_ROOT}/skills/kill/report.html" ideas/<folder>/report.html`
+   - Without Bash: Read the file and Write it unchanged.
+3. **`report-data.js`**: one line, `window.KMI_DATA = {...};`
+   - Follow `${CLAUDE_PLUGIN_ROOT}/skills/kill/report-data.schema.json`.
+   - `idea` = the content of idea.json, `verdict` = the content of verdict.json,
+     `narrative` = what the report says.
+   - Fill every section you have evidence for: answer, tldr, rescue, kill-shot evidence,
+     fact checks, customer, use cases, competitors (with `price_low` and a `traction` of 1–5),
+     scenarios, risks, test plan, sources.
+   - Leave out what you don't have. The HTML hides empty sections.
+
+The HTML is a consultant-grade dossier: a cover with a gauge and a stamp, a rescue plan,
+charts, every number's evidence marker, numbered footnotes, a sticky table of contents, and
+it prints to an A4 PDF. Tell the user to open `report.html` in a browser.
+
+Put this card at the top of `report.md` **and** in your chat answer, with every `<…>` field
+filled in. The `<sub>` line is part of the card.
 
 ```markdown
 > ## <EMOJI> <VERDICT> · <SCORE>/100
@@ -130,6 +150,7 @@ Put this card at its top **and** in your chat answer, with every `<…>` field f
 > - ❌ <second reason against, with a source>
 > - ✅ <the best thing about it>
 >
+> **Could be saved:** <best rescue path> → <score after>/100 (<difficulty>)
 > **Cheapest test:** <a test of 7 days or less, or "none: archive it">
 >
 > <sub>Killed by [kill-my-idea](https://github.com/RemiPelloux/kill-my-idea)</sub>
@@ -140,30 +161,51 @@ Field values:
 - **Emoji:** 🟢 GO, 🟡 PIVOT, ☠️ NO-GO.
 - **Bar:** 10 characters. `round(score / 10)` × `█`, then `░` up to 10.
   Example: 42 → `████░░░░░░`.
+- **Could be saved:** leave this line out for a GO, or when no rescue path exists.
 - **Badge**, written under the card:
   `![kill-my-idea: <VERDICT> <SCORE>/100](https://img.shields.io/badge/kill--my--idea-<V>%20<SCORE>%2F100-<COLOR>)`
   - `<V>` is the verdict with each `-` doubled (`NO--GO`).
   - `<COLOR>` is `brightgreen` for GO, `yellow` for PIVOT, `red` for NO-GO.
 
-## 7. Next step
+## 7. Rescue plan and next step
 
-**GO / PIVOT:**
+**Could it be saved?** For a NO-GO or a PIVOT, find 1–3 **rescue paths**: concrete changes
+that each defeat one or more kill shots, most promising first.
+Examples: a different customer, a marketplace channel, a service instead of an app,
+a niche, another country, a different price model.
+
+For each path, give:
+- **change**: what to do, in one line;
+- **why**: which kill shot it fixes;
+- **score_after**: re-score it with the same weights and hard rules, and mark it as an estimate;
+- **difficulty**:
+  - `doable`: under 2 weeks, with the user's current skills and budget;
+  - `hard`: months of work, or a skill the user lacks;
+  - `very-hard`: needs money, a team or contacts the user doesn't have;
+- **effort**, **cost**, and what it **requires**.
+
+Be honest. If nothing gets it to 50, say so: "no rescue path above 50, archive it".
+For a GO, give the 1–2 changes that would make it stronger.
+Save the paths in `verdict.json` as `rescue`, and in `report-data.js` as `narrative.rescue`.
+
+**GO / PIVOT (or the best rescue path):**
 - Plan the smallest test that brings real proof in 7 days or less: a landing page,
   a waitlist, a pre-sale, a manual "fake door" or a no-code version. Do not build a product.
 - Write it as `step → verify: <signal>` lines.
 - Add kill criteria with numbers ("fewer than 10 sign-ups by day 7 → stop").
 
-**NO-GO:**
+**NO-GO with no rescue path:**
 - Say it plainly, and state the lesson in one line.
-- Name the one variant worth a look, if there is one.
 
 ## 8. Answer in chat
 
 1. The card.
 2. A 3-line TL;DR.
 3. The 4 key metrics: LTV : CAC, break-even, time to first €, competitors found.
-4. The path to the report.
-5. One line offering the next moves:
+4. The rescue paths in one line each: change → score after (difficulty).
+5. Where the report is: "Open `ideas/<folder>/report.html` in your browser (it prints to PDF)",
+   with `report.md` as the text version.
+6. One line offering the next moves:
    `/kill-my-idea:deepdive` (more evidence) · `/kill-my-idea:roast` (shareable) ·
    `/kill-my-idea:compare` (rank all your ideas).
 

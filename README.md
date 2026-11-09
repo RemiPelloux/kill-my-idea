@@ -12,7 +12,7 @@ and a **GO / PIVOT / NO-GO** verdict, before you waste a weekend or a budget.
 
 [![MIT license](https://img.shields.io/badge/license-MIT-F3EEE3?labelColor=111113)](LICENSE)
 [![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-E5383B?labelColor=111113)](https://code.claude.com/docs/en/plugins/install)
-[![version](https://img.shields.io/badge/version-0.1.0-F2C14E?labelColor=111113)](CHANGELOG.md)
+[![version](https://img.shields.io/badge/version-0.2.0-F2C14E?labelColor=111113)](CHANGELOG.md)
 [![GitHub stars](https://img.shields.io/github/stars/RemiPelloux/kill-my-idea?style=flat&color=2BB673&labelColor=111113)](https://github.com/RemiPelloux/kill-my-idea/stargazers)
 
 <img src="assets/demo.svg" alt="Demo: an idea is researched, scored 42/100 and stamped NO-GO" width="760">
@@ -35,6 +35,36 @@ kill my idea: an AI app that writes wedding speeches, sold at €19, France and 
 ```
 
 Paste a tweet, a thread, a URL or a long doc instead and it extracts the idea for you.
+
+## A report you'd pay a consultant for
+
+Every verdict comes with **`report.html`**, a due-diligence dossier you open in your browser.
+It works offline and prints to a clean A4 PDF.
+
+<img src="assets/report-cover.png" alt="kill-my-idea HTML report cover: the idea title, the answer first, a score gauge at 48/100 and a NO-GO stamp" width="100%">
+
+<img src="assets/report-rescue.png" alt="The 'Could it be saved?' section: three rescue paths with projected scores and difficulty" width="100%">
+
+What's inside:
+
+| Section | What it shows |
+|---|---|
+| Cover | Answer-first summary, score gauge and verdict stamp |
+| Could it be saved? | Each rescue path: the change, the projected score (e.g. NO-GO 48 → PIVOT 62), difficulty (doable / hard / very hard), effort, cost and what it needs |
+| Score | The score broken down by criterion |
+| Kill shots | Each kill-shot checked, with its evidence |
+| Fact-check | The claims from the source, checked |
+| Market | Market size: TAM, SAM and the share you can win (SOM) |
+| Competitors | A map of competitors by price and traction |
+| Countries | A side-by-side country comparison |
+| Unit economics | LTV:CAC against healthy thresholds, and monthly scenarios |
+| Risks | A matrix of likelihood against impact |
+| 7-day test | The test plan and its kill criteria |
+| Sources | Numbered footnotes |
+
+Every number carries its evidence: ● sourced (with a footnote), ○ estimate (hover to see the reasoning), or *unknown*.
+
+→ [Example: the wedding-speech report](examples/wedding-speeches-report/) (download the folder and open `report.html`)
 
 ## What you get
 
@@ -107,7 +137,8 @@ A 5-minute competitor check killed it. That's why this plugin exists. → [full 
    - a free equivalent with no edge means Competition = 1;
    - no channel means it can never be GO;
    - LTV:CAC below 1 caps Profit.
-6. **Plan** the smallest test that brings real proof in ≤ 7 days, with numeric kill criteria.
+6. **Rescue**: if it's a NO-GO or a PIVOT, find up to 3 ways to save it, each with a projected score, a difficulty (doable / hard / very hard), effort and cost.
+7. **Plan** the smallest test that brings real proof in ≤ 7 days, with numeric kill criteria.
 
 **Country-aware:** give it several countries and it compares local competitors, prices in local currency, laws, payment habits and channels, then recommends where to launch first.
 
@@ -117,9 +148,10 @@ Everything goes into your project under `ideas/<YYYY-MM>-<slug>/`:
 
 | File | What |
 |---|---|
-| `report.md` | Full report: card, fact-check, kill shots, market, metrics, scenarios, risks, scorecard, test, sources |
+| `report.html` + `report-data.js` | The designed report: open it in a browser, print it to PDF |
+| `report.md` | The same report as text: card, fact-check, kill shots, market, metrics, rescue paths, scenarios, risks, scorecard, test, sources |
 | `idea.json` | The extracted brief ([schema](skills/kill/idea.schema.json)) |
-| `verdict.json` | Score, criteria, metrics with their source or reasoning, country breakdown ([schema](skills/kill/verdict.schema.json)) |
+| `verdict.json` | Score, criteria, metrics with their source or reasoning, country breakdown, rescue paths ([schema](skills/kill/verdict.schema.json)) |
 | `deepdive.md` · `roast.md` | When you run those modes |
 
 The JSON files make your ideas comparable over time, and easy to feed into your own scripts or dashboards.

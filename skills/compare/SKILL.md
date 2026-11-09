@@ -10,14 +10,14 @@ description: Rank all the ideas evaluated with kill-my-idea in this project, fro
    - Fewer than 2 found → say so, and suggest `/kill-my-idea:kill`.
 2. **Build the ranking table.** Sort by score, then by time to first € (ties: the faster one wins).
 
-   | # | Idea | Verdict | Score | LTV : CAC | Break-even | Time to first € | Biggest kill shot |
-   |---|------|---------|-------|-----------|------------|-----------------|-------------------|
+   | # | Idea | Verdict | Score | Best rescue (score, difficulty) | LTV : CAC | Break-even | Time to first € | Biggest kill shot |
+   |---|------|---------|-------|----------------------------------|-----------|------------|-----------------|-------------------|
 
    Read the values from `verdict.json`. A missing metric is `unknown`, never a guess.
    Add a column per country when ideas target different markets.
 3. **Decide like a co-founder:**
    - **Focus** on ONE idea this week, with the reason and its first action and a deadline.
-   - **Pause:** what to park, and why.
+   - **Pause:** what to park, and why. A NO-GO with a `doable` rescue path above 60 is a pause, not a kill.
    - **Kill:** NO-GOs that are still in `ideas/` and should be archived.
    - **Opportunity cost:** what the focus idea beats the others on, in one line.
 4. **Write `ideas/RANKING.md`** with the table, the decision and today's date.

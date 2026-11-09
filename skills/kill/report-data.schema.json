@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/RemiPelloux/kill-my-idea/skills/kill/report-data.schema.json",
+  "title": "kill-my-idea report data",
+  "description": "Content of report-data.js (window.KMI_DATA = {...}). report.html renders it. idea = idea.json, verdict = verdict.json, narrative = what the report says. Every section is optional: the HTML hides empty ones.",
+  "type": "object",
+  "required": ["idea", "verdict", "narrative"],
+  "properties": {
+    "idea": { "$ref": "idea.schema.json" },
+    "verdict": { "$ref": "verdict.schema.json" },
+    "narrative": {
+      "type": "object",
+      "required": ["answer"],
+      "properties": {
+        "answer": { "type": "string", "description": "Answer first: the verdict and why, in 2–3 sentences" },
+        "tldr": { "type": "array", "items": { "type": "string" }, "maxItems": 5 },
+        "lesson": { "type": "string" },
+        "rescue": {
+          "type": "array",
+          "description": "How a NO-GO / PIVOT could become better. Most promising first.",
+          "items": {
+            "type": "object",
+            "required": ["change", "score_after", "difficulty"],
+            "properties": {
+              "change": { "type": "string", "description": "What to change, in one line" },
+              "why": { "type": "string", "description": "Which kill shot it fixes" },
+              "score_after": { "type": "integer", "minimum": 0, "maximum": 100, "description": "Projected score (estimate)" },
+              "difficulty": { "enum": ["doable", "hard", "very-hard"] },
+              "effort": { "type": "string", "description": "e.g. '2 days', '3 months'" },
+              "cost": { "type": "string" },
+              "requires": { "type": "string" }
+            }
+          }
+        },
+        "fact_checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["claim", "status"],
+            "properties": {
+              "claim": { "type": "string" },
+              "status": { "enum": ["true", "partly", "false", "unverified"] },
+              "evidence": { "type": "string" },
+              "source": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "kill_shots": {
+          "type": "object",
+          "description": "Evidence per kill shot, keyed like verdict.kill_shots",
+          "additionalProperties": {
+            "type": "object",
+            "properties": { "evidence": { "type": "string" }, "source": { "type": ["string", "null"] } }
+          }
+        },
+        "customer": {
+          "type": "object",
+          "properties": { "segment": { "type": "string" }, "pain": { "type": "string" }, "today": { "type": "string" } }
+        },
+        "use_cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": { "name": { "type": "string" }, "who_pays": { "type": "string" }, "effort": { "type": "string" }, "best": { "type": "boolean" } }
+          }
+        },
+        "competitors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": ["string", "null"] },
+              "price_low": { "type": ["number", "null"] },
+              "price_high": { "type": ["number", "null"] },
+              "currency": { "type": ["string", "null"] },
+              "traction": { "type": ["integer", "null"], "minimum": 1, "maximum": 5, "description": "1 = none visible, 5 = market leader (estimate)" },
+              "traction_note": { "type": ["string", "null"] },
+              "gap": { "type": ["string", "null"] },
+              "free": { "type": "boolean" },
+              "country": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "customer_voice": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["quote", "source"],
+            "properties": { "quote": { "type": "string", "description": "Verbatim" }, "source": { "type": "string" }, "pain": { "type": "string" } }
+          }
+        },
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "customers_month": { "type": ["number", "null"] },
+              "revenue_month": { "type": ["number", "null"] },
+              "costs_month": { "type": ["number", "null"] },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "currency": { "type": "string", "description": "Currency of scenarios, e.g. USD" },
+        "risks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["risk", "likelihood", "impact"],
+            "properties": {
+              "risk": { "type": "string" },
+              "likelihood": { "enum": ["L", "M", "H"] },
+              "impact": { "enum": ["L", "M", "H"] },
+              "mitigation": { "type": "string" }
+            }
+          }
+        },
+        "test_plan": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["when", "step"],
+            "properties": { "when": { "type": "string" }, "step": { "type": "string" }, "verify": { "type": "string" } }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url"],
+            "properties": { "url": { "type": "string" }, "title": { "type": "string" }, "supports": { "type": "string" }, "accessed": { "type": "string" } }
+          }
+        }
+      }
+    }
+  }
+}

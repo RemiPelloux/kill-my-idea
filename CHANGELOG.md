@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.0 — 2026-11-09
+
+- **HTML report** (`report.html` + `report-data.js`): a consultant-grade dossier in an editorial noir design.
+  - Charts: score gauge, scorecard, market funnel, competitor map, LTV:CAC bullet chart, scenario bars, risk matrix.
+  - Every number shows whether it is sourced, an estimate or unknown, and sources are numbered footnotes.
+  - Sticky table of contents, hover tooltips and keyboard access.
+  - Works offline and prints to A4 PDF in a light theme.
+- **"Could it be saved?"**: NO-GO and PIVOT verdicts now come with up to 3 rescue paths. Each has a projected score, a difficulty (doable / hard / very hard), effort, cost and requirements. They appear on the card, in the report and in `verdict.json`.
+- `compare` shows the best rescue path; `deepdive` refreshes the HTML report with customer quotes and the competitor teardown.
+- New `report-data.schema.json`.
+
 ## 0.1.0 — 2026-11-09
 
 First release.
