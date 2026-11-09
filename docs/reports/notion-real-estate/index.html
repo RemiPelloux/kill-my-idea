@@ -288,7 +288,7 @@ const kpis = [
   ["target", "Break-even", M.break_even_customers_per_month, ["", "Customers needed per month"]],
   ["clock", "Time to first sale", M.time_to_first_revenue_weeks, ["", "From today"]],
   ["users", "Competitors found", M.competitors_found, ["", M.competitor_price_range && M.competitor_price_range.value ? "Priced " + esc(M.competitor_price_range.value) : ""]]].filter(k => k[2]);
-const KS = { free_alternative: "Free alternative", strong_competitor: "Strong direct competitor", graveyard: "Failed attempts before", no_distribution: "No distribution channel", costs_eat_margin: "Costs eat the margin", weak_demand: "Weak or falling demand", legal_platform_risk: "Legal or platform risk" };
+const KS = { free_alternative: "Free alternative", strong_competitor: "Strong direct competitor", graveyard: "Failed attempts before", no_distribution: "No distribution channel", costs_eat_margin: "Costs eat the margin", weak_demand: "Weak or falling demand", legal_platform_risk: "Legal or platform risk", saturated_wave: "Saturated wave of look-alike launches" };
 const findings = has(N.key_findings) ? N.key_findings.slice(0, 3)
   : Object.keys(KS).filter(k => V.kill_shots && V.kill_shots[k] && N.kill_shots && N.kill_shots[k]).slice(0, 3).map(k => ({ title: KS[k], detail: N.kill_shots[k].evidence, source: N.kill_shots[k].source }));
 const best = (N.rescue || []).slice().sort((x, y) => y.score_after - x.score_after)[0];

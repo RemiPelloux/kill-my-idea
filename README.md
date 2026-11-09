@@ -109,7 +109,8 @@ You can also just write "kill my idea: …", "is this worth building?" or "which
    - costs that eat the margin;
    - weak demand;
    - legal or platform risk;
-   - for "I make $10k a month" posts, what the author is selling.
+   - for "I make $10k a month" posts, what the author is selling;
+   - a saturated wave of look-alike launches in the last 6–12 months.
 4. **Measure:**
    - market size (TAM / SAM / SOM);
    - competitor prices and demand trend;

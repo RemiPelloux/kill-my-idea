@@ -47,6 +47,7 @@ Author incentives (pasted posts only):
 | 5 | Costs eat the margin | | |
 | 6 | Weak or falling demand | | |
 | 7 | Legal / platform risk | | |
+| 8 | Saturated wave (look-alike launches in the last 6–12 months, with count and examples) | | |
 
 ## 4. Ways to use it
 

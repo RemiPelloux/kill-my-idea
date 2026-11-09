@@ -188,6 +188,10 @@
         },
         "legal_platform_risk": {
           "type": "boolean"
+        },
+        "saturated_wave": {
+          "type": "boolean",
+          "description": "Part of a flood of near-identical launches in the last 6\u201312 months"
         }
       }
     },

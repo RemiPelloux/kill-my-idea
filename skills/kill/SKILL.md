@@ -60,6 +60,15 @@ country's language and on its local sites. Go down this kill-shot checklist and 
    regulated sectors, terms of service, dependency on one platform.
 8. **Pasted money posts only**: fact-check every claim, and name the author's incentive
    (course, coaching, affiliate links, their own tool).
+9. **Saturated wave**: is this idea part of a flood of near-identical launches in the last
+   6–12 months? Examples: AI wrappers, "100 tools in your browser, privacy first", Notion
+   template packs, AI headshot generators, pay-to-rank leaderboards.
+   - Count recent look-alike launches on Product Hunt, Show HN, r/SideProject, GitHub and
+     X, and name 3–5 of them with links.
+   - Write the count with its search window, e.g. "12 near-identical launches on Product Hunt
+     since May 2026".
+   - A wave means buyers have already seen 10 versions: your differentiation must be
+     specific, not "better UX" or "privacy-first".
 
 Evidence rules:
 - Every number has a source link, or is labelled **(estimate)** with its reasoning.
@@ -114,6 +123,7 @@ Verdict: **GO** ≥ 70 · **PIVOT** 50–69 · **NO-GO** < 50.
 Hard rules:
 - A free equivalent exists and the user has no clear edge → Competitive room ≤ 1.5.
 - No credible distribution channel → the verdict cannot be GO.
+- Saturated wave (10 or more near-identical launches in 12 months) and no specific edge → Competitive room ≤ 1.5 and differentiation ≤ 1.5.
 - LTV : CAC below 1 with no path to fix it → Profit potential ≤ 2.
 
 Write `verdict.json`, following `${CLAUDE_PLUGIN_ROOT}/skills/kill/verdict.schema.json`

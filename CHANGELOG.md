@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 — 2026-11-09
+
+- **New kill shot: saturated wave.** Flags ideas that belong to a flood of near-identical launches in the last 6–12 months (AI wrappers, "100 tools in your browser", Notion template packs…). It counts look-alike launches on Product Hunt, Show HN, r/SideProject, GitHub and X, and names examples. A fixed rule applies: a saturated wave with no specific edge caps Competitive room and differentiation at 1.5. Suggested by u/medialantern on r/ClaudeCode. Thanks!
+
 ## 0.4.0 — 2026-11-09
 
 - **Fixed scroll lag.** The section tabs no longer scroll the page, the sticky header has no blur effect, and tooltips update at most once per frame.
