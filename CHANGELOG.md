@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-11-09
+
+- **Fixed scroll lag.** The section tabs no longer scroll the page, the sticky header has no blur effect, and tooltips update at most once per frame.
+- **Answer-first structure.** The report now opens with an executive summary (3 key findings, the KPIs, one recommendation), followed by the rescue paths, the 7-day test, the evidence, market, competition, unit economics, countries, risks, scoring and sources.
+- **More granular score.** 21 sub-scores, three per criterion, in half points, each with a one-line justification and a source. Click a criterion to expand it; all sub-scores print in the PDF.
+- **Writing standard.** Concise text, highlighted keywords (`**like this**`), professional vocabulary, and named primary sources with their year, e.g. "(INSEE, 2025)".
+- New fields: `key_findings`, `recommendation` and `criteria_detail`.
+
 ## 0.3.0 — 2026-11-09
 
 The HTML report was rewritten from scratch with the ui-ux-pro-max design system ("Data-Dense Dashboard" for financial analytics).

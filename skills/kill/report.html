@@ -25,7 +25,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
 }}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:120px;scrollbar-color:var(--line) var(--bg);caret-color:var(--primary)}
+html{scroll-padding-top:120px;scrollbar-color:var(--line) var(--bg);caret-color:var(--primary)}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 ::selection{background:var(--primary);color:var(--on-primary)}
 a{color:var(--primary);text-underline-offset:3px;text-decoration-thickness:1px}
@@ -37,7 +37,7 @@ button{font:inherit;cursor:pointer}
 .ic{width:16px;height:16px;flex:none;vertical-align:-3px}
 
 /* top bar + section tabs */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 .bar{max-width:1200px;margin:0 auto;padding:12px var(--s3);display:flex;align-items:center;gap:var(--s2)}
 .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--fg);text-decoration:none;white-space:nowrap}
 .brand svg{width:28px;height:28px}
@@ -87,6 +87,7 @@ p{max-width:72ch}
 .ev.s{color:var(--primary);border-color:var(--border)}
 .ev .ic{width:11px;height:11px;vertical-align:0}
 .unk{color:var(--muted-fg);font-style:italic}
+.kw{font-weight:600;color:var(--fg);background:linear-gradient(transparent 58%,color-mix(in srgb,var(--secondary) 24%,transparent) 58%);padding:0 2px;border-radius:2px}
 sup.fn a{font:600 11px var(--mono);text-decoration:none;margin-left:2px}
 
 .tldr{list-style:none;margin:0;padding:0;display:grid;gap:10px}
@@ -136,6 +137,33 @@ td.r,th.r{text-align:right}
 
 .quote{margin:0;font-size:16px;line-height:1.55}
 .quote cite{display:block;font-style:normal;font-size:13px;color:var(--muted-fg);margin-top:8px}
+
+
+/* key findings + recommendation */
+.kf{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px}
+.kf-n{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--muted);color:var(--primary);font:600 15px var(--mono)}
+.kf h3{margin:4px 0 6px} .kf p{margin:0;color:var(--muted-fg);font-size:15px}
+.reco{border-color:var(--border);background:linear-gradient(0deg,var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--primary),var(--secondary)) border-box;border:1px solid transparent}
+.reco-k{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--primary);font-size:14px;text-transform:none}
+.reco p{font-size:18px;margin:8px 0 12px;max-width:none}
+/* granular scoring */
+.crit-h,.crit summary,.crit.flat{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,2fr) 70px 110px 18px;gap:16px;align-items:center}
+.crit-h{font:600 13px var(--sans);color:var(--muted-fg);padding:0 0 10px;border-bottom:1px solid var(--line)} .crit-h span:nth-child(3),.crit-h span:nth-child(4){text-align:right}
+.crit{border-bottom:1px solid var(--line)} .crit summary{list-style:none;cursor:pointer;padding:14px 0;border-radius:8px;transition:background .15s} .crit summary::-webkit-details-marker{display:none}
+.crit summary:hover{background:var(--bg)} .crit summary .ic{transition:transform .2s;color:var(--muted-fg)} .crit[open] summary .ic{transform:rotate(90deg)}
+.crit.flat{padding:14px 0}
+.cn{font-weight:600;display:flex;flex-direction:column} .cw{font:400 12px var(--sans);color:var(--muted-fg)}
+.cs,.cp{text-align:right}
+.sbar{display:block;height:10px;background:var(--muted);border-radius:99px;overflow:hidden} .sbar .bar{display:block;height:100%;border-radius:99px}
+.subs{list-style:none;margin:0 0 14px;padding:12px 14px;background:var(--bg);border-radius:10px;display:grid;gap:10px}
+.subs li{display:grid;grid-template-columns:150px minmax(0,1fr) 40px;gap:4px 14px;align-items:center;font-size:14px}
+.subs .sn{font-weight:500} .subs .snote{grid-column:1/-1;color:var(--muted-fg);font-size:13px}
+.crit-t{display:flex;justify-content:space-between;padding:14px 0 4px;font-weight:600;font-size:17px}
+.note{font-size:13px;color:var(--muted-fg);margin:10px 0 0;max-width:none}
+.motion .rv.in .sbar .bar{animation:fill .8s cubic-bezier(.22,1,.36,1) both}
+@keyframes fill{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+@media (max-width:768px){.crit-h{display:none}.crit summary,.crit.flat{grid-template-columns:minmax(0,1fr) 60px 18px;row-gap:8px}.crit summary .sbar,.crit.flat .sbar{grid-column:1/-1;grid-row:2}.cp{display:none}.subs li{grid-template-columns:110px minmax(0,1fr) 36px}}
+@media print{.crit summary .ic{display:none}}
 
 /* timeline */
 .tl{list-style:none;margin:0;padding:0}
@@ -190,6 +218,7 @@ const I = D.idea || {}, V = D.verdict || {}, N = D.narrative || {}, M = V.metric
 const VC = { "GO": "var(--go-fill)", "PIVOT": "var(--pivot-fill)", "NO-GO": "var(--nogo-fill)" };
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const has = x => Array.isArray(x) ? x.length > 0 : x && typeof x === "object" ? Object.keys(x).length > 0 : !!x;
+const rt = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong class="kw">$1</strong>');
 const vlabel = s => s >= 70 ? "GO" : s >= 50 ? "PIVOT" : "NO-GO";
 const plain = h => String(h ?? "").replace(/<[^>]+>/g, "");
 document.title = `${V.verdict || ""} ${V.score ?? ""}/100 · ${I.title || "kill-my-idea report"}`;
@@ -251,19 +280,26 @@ const CN = { FR: "France", BE: "Belgium", US: "United States", GB: "United Kingd
 const niceDate = d => { const t = d ? new Date(d + "T12:00:00") : null; return t && !isNaN(t) ? t.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : (d || ""); };
 const hero = `<div class="card hero">
   <div><div class="meta"><span class="badge b-neutral">${ic("clock", 14)}${esc(niceDate(V.evaluated || I.created))}</span>${(I.countries || []).map(c => `<span class="badge b-neutral">${ic("flag", 14)}${esc(CN[c] || c)}</span>`).join("")}</div>
-  <h1>${esc(I.title || "Untitled idea")}</h1>${I.solution ? `<p class="pitch">${esc(I.solution)}</p>` : ""}<p class="answer">${esc(N.answer || "")}</p></div>
+  <h1>${esc(I.title || "Untitled idea")}</h1>${I.solution ? `<p class="pitch">${esc(I.solution)}</p>` : ""}<p class="answer">${rt(N.answer || "")}</p></div>
   <div class="score">${ring(V.score ?? 0, V.verdict)}<div class="verdict b-${esc(V.verdict)}">${ic(VICON[V.verdict], 20)}${esc(V.verdict || "")}</div></div></div>`;
 
-/* summary KPIs */
+/* executive summary: key findings, KPIs, recommendation (pyramid principle: answer first) */
 const lc = M.ltv_cac && typeof M.ltv_cac.value === "number" ? M.ltv_cac.value : null;
 const kpis = [
   ["scale", "LTV : CAC", M.ltv_cac, lc === null ? ["", "Healthy is 3 or more"] : lc < 1 ? ["bad", "Each paid customer loses money"] : lc < 3 ? ["ok", "Positive but fragile"] : ["good", "Healthy"]],
   ["target", "Break-even", M.break_even_customers_per_month, ["", "Customers needed per month"]],
   ["clock", "Time to first sale", M.time_to_first_revenue_weeks, ["", "From today"]],
   ["users", "Competitors found", M.competitors_found, ["", M.competitor_price_range && M.competitor_price_range.value ? "Priced " + esc(M.competitor_price_range.value) : ""]]].filter(k => k[2]);
-const sSummary = section("summary", "Summary", null,
-  `${kpis.length ? `<div class="grid g4">${kpis.map(([i, k, m, [cls, h]], n) => card(`<div class="kpi"><div class="k">${ic(i)}${k}</div><div class="v">${metric(m)}</div><div class="m ${cls}">${h}</div></div>`, n * 60)).join("")}</div>` : ""}
-   ${has(N.tldr) || N.lesson ? `<div style="margin-top:var(--s3)">${card(`${has(N.tldr) ? `<ul class="tldr">${N.tldr.map(t => `<li>${ic("chevron")}<span>${esc(t)}</span></li>`).join("")}</ul>` : ""}${N.lesson ? `<p class="lesson"><strong>Lesson:</strong> ${esc(N.lesson)}</p>` : ""}`)}</div>` : ""}`);
+const KS = { free_alternative: "Free alternative", strong_competitor: "Strong direct competitor", graveyard: "Failed attempts before", no_distribution: "No distribution channel", costs_eat_margin: "Costs eat the margin", weak_demand: "Weak or falling demand", legal_platform_risk: "Legal or platform risk" };
+const findings = has(N.key_findings) ? N.key_findings.slice(0, 3)
+  : Object.keys(KS).filter(k => V.kill_shots && V.kill_shots[k] && N.kill_shots && N.kill_shots[k]).slice(0, 3).map(k => ({ title: KS[k], detail: N.kill_shots[k].evidence, source: N.kill_shots[k].source }));
+const best = (N.rescue || []).slice().sort((x, y) => y.score_after - x.score_after)[0];
+const reco = N.recommendation || (best ? `${best.change}` : V.cheapest_test || "");
+const sSummary = section("summary", "Executive summary", null,
+  `${findings.length ? `<div class="grid g3">${findings.map((f, n) => card(`<div class="kf"><span class="kf-n">${n + 1}</span><div><h3>${rt(f.title)}</h3><p>${rt(f.detail || "")}${fn(f.source)}</p></div></div>`, n * 70)).join("")}</div>` : ""}
+   ${kpis.length ? `<div class="grid g4" style="margin-top:var(--s3)">${kpis.map(([i, k, m, [cls, h]], n) => card(`<div class="kpi"><div class="k">${ic(i)}${k}</div><div class="v">${metric(m)}</div><div class="m ${cls}">${h}</div></div>`, n * 60)).join("")}</div>` : ""}
+   ${reco ? `<div class="card rv reco" style="margin-top:var(--s3)"><div class="reco-k">${ic("target")}Recommendation</div><p>${rt(reco)}</p>${best && V.verdict !== "GO" ? `<div class="delta">${vbadge(V.score)}<span style="color:var(--muted-fg)">${ic("arrow")}</span>${vbadge(best.score_after)}<span class="badge b-${esc(best.difficulty)}">${ic(best.difficulty === "doable" ? "check" : "alert", 14)}${({ "doable": "Doable", "hard": "Hard", "very-hard": "Very hard" })[best.difficulty] || ""}</span></div>` : ""}</div>` : ""}
+   ${has(N.tldr) && !has(N.key_findings) ? `<div style="margin-top:var(--s3)">${card(`<ul class="tldr">${N.tldr.map(t => `<li>${ic("chevron")}<span>${rt(t)}</span></li>`).join("")}</ul>${N.lesson ? `<p class="lesson"><strong>Lesson:</strong> ${rt(N.lesson)}</p>` : ""}`)}</div>` : N.lesson ? `<div style="margin-top:var(--s3)">${card(`<p class="lesson" style="margin:0"><strong>Lesson:</strong> ${rt(N.lesson)}</p>`)}</div>` : ""}`);
 
 /* rescue paths */
 const DIFF = { "doable": "Doable", "hard": "Hard", "very-hard": "Very hard" };
@@ -272,33 +308,42 @@ const sRescue = has(N.rescue) ? section("rescue", V.verdict === "GO" ? "How to m
   `<div class="grid g3">${N.rescue.map((r, n) => `<div class="card rv rx" style="--d:${n * 80}ms">
     <div class="delta">${vbadge(V.score)}<span style="color:var(--muted-fg)">${ic("arrow")}</span>${vbadge(r.score_after)}</div>
     <div class="track" role="img" aria-label="Score from ${V.score} to ${r.score_after}"><span style="width:${r.score_after}%;background:${VC[vlabel(r.score_after)]};opacity:.3"></span><span style="width:${V.score}%;background:${VC[vlabel(r.score_after)]}"></span></div>
-    <div class="ch">${esc(r.change)}</div>${r.why ? `<div class="why">${esc(r.why)}</div>` : ""}
+    <div class="ch">${rt(r.change)}</div>${r.why ? `<div class="why">${rt(r.why)}</div>` : ""}
     <div><span class="badge b-${esc(r.difficulty)}">${ic(r.difficulty === "doable" ? "check" : "alert", 14)}${DIFF[r.difficulty] || esc(r.difficulty)}</span></div>
     <dl class="facts">${r.effort ? `<dt>Effort</dt><dd>${esc(r.effort)}</dd>` : ""}${r.cost ? `<dt>Cost</dt><dd>${esc(r.cost)}</dd>` : ""}${r.requires ? `<dt>Needs</dt><dd>${esc(r.requires)}</dd>` : ""}</dl></div>`).join("")}</div>`) : "";
 
-/* score + kill shots */
+/* scoring: 7 weighted criteria, each the average of 3 sub-scores (expandable) */
 const W8 = { profit: 25, feasibility: 20, time_to_first_revenue: 15, demand: 15, competition: 10, risk: 10, fit: 5 };
-const LB = { profit: "Profit potential", feasibility: "Feasibility for you", time_to_first_revenue: "Time to first €", demand: "Market demand", competition: "Competition", risk: "Risk", fit: "Fit with your skills" };
-const scoreChart = c => { const keys = Object.keys(W8), x0 = 180, sc = 14, rh = 42;
-  return `<figure class="chart grow"><svg viewBox="0 0 600 ${keys.length * rh}" role="img" aria-label="Points earned per criterion">${keys.map((k, i) => { const s = c[k] ?? 0, w = W8[k], p = w * s / 5, y = i * rh;
-    return `<g class="hit" tabindex="0" data-tip="<b>${LB[k]}</b>Scored ${s}/5, weight ${w}: ${p} of ${w} points"><text class="lb" x="0" y="${y + 23}">${LB[k]}</text>
-      <rect x="${x0}" y="${y + 10}" width="${w * sc}" height="16" rx="8" fill="var(--muted)"/><rect class="bar" x="${x0}" y="${y + 10}" width="${Math.max(p * sc, 4)}" height="16" rx="8" fill="${s <= 1 ? "var(--nogo-fill)" : "var(--primary)"}"/>
-      <text class="lv" x="${x0 + w * sc + 10}" y="${y + 23}">${p}/${w}</text></g>`; }).join("")}</svg>
-    <figcaption>Track length is the weight. Red means the criterion scored 1 out of 5.</figcaption></figure>`; };
-const KS = { free_alternative: "Free alternative", strong_competitor: "Strong direct competitor", graveyard: "Failed attempts before", no_distribution: "No distribution channel", costs_eat_margin: "Costs eat the margin", weak_demand: "Weak or falling demand", legal_platform_risk: "Legal or platform risk" };
-const ksKeys = Object.keys(KS).filter(k => V.kill_shots && k in V.kill_shots);
-const ksList = ksKeys.length ? `<ul class="ks">${ksKeys.map(k => { const hit = V.kill_shots[k], ev = (N.kill_shots || {})[k] || {};
+const LB = { profit: "Profit potential", feasibility: "Feasibility for you", time_to_first_revenue: "Time to first revenue", demand: "Market demand", competition: "Competitive room", risk: "Risk (5 = low)", fit: "Founder fit" };
+const SUB = { gross_margin: "Gross margin", ltv_cac: "LTV : CAC", pricing_power: "Pricing power", build_effort: "Build effort", skills_match: "Skills match", capital_needed: "Capital needed",
+  time_to_mvp: "Time to MVP", sales_cycle: "Sales cycle", channel_readiness: "Channel readiness", search_demand: "Search demand", trend: "Trend", willingness_to_pay: "Willingness to pay",
+  free_alternatives: "Free alternatives", competitor_density: "Competitor density", differentiation: "Differentiation", legal_regulatory: "Legal and regulatory", platform_dependency: "Platform dependency",
+  market_risk: "Market risk", skills: "Skills", assets: "Assets and network", interest: "Interest" };
+const CD = V.criteria_detail || {};
+const bar = (v, max, color) => `<span class="sbar"><span class="bar" style="width:${Math.max(v / max * 100, 2)}%;background:${color}"></span></span>`;
+const scoring = () => { const c = V.criteria || {}; let total = 0;
+  const rows = Object.keys(W8).map(k => { const s5 = +(c[k] ?? 0), w = W8[k], pts = Math.round(w * s5 / 5 * 10) / 10; total += pts; const subs = CD[k] && typeof CD[k] === "object" ? Object.entries(CD[k]) : [];
+    const col = s5 <= 1.5 ? "var(--nogo-fill)" : s5 < 3 ? "var(--pivot-fill)" : "var(--primary)";
+    const head = `<span class="cn">${LB[k]}<span class="cw">weight ${w}</span></span>${bar(s5, 5, col)}<span class="num cs">${s5.toFixed(1)}<span class="u">/5</span></span><span class="num cp">${pts}<span class="u"> / ${w} pts</span></span>`;
+    return subs.length ? `<details class="crit"><summary>${head}${ic("chevron")}</summary><ul class="subs">${subs.map(([sk, sv]) => { const v = typeof sv === "object" ? sv : { score: sv };
+      return `<li><span class="sn">${esc(SUB[sk] || sk.replace(/_/g, " "))}</span>${bar(+v.score || 0, 5, "var(--secondary)")}<span class="num">${(+v.score || 0).toFixed(1)}</span><span class="snote">${rt(v.note || "")}${fn(v.source)}</span></li>`; }).join("")}</ul></details>`
+      : `<div class="crit flat">${head}</div>`; }).join("");
+  return `<div class="card rv"><div class="crit-h"><span>Criterion</span><span></span><span>Score</span><span>Points</span></div>${rows}<div class="crit-t"><span>Total</span><span class="num">${V.score ?? Math.round(total)}<span class="u"> / 100</span></span></div>
+    <p class="note">Each criterion is the average of three sub-scores from 1 to 5. Points = score ÷ 5 × weight. Fixed rules cap a criterion when a free equivalent exists, when no distribution channel exists, or when LTV : CAC is below 1. ${Object.keys(CD).length ? "Open a criterion to see its sub-scores." : ""}</p></div>`; };
+const KSL = Object.keys(KS).filter(k => V.kill_shots && k in V.kill_shots);
+const ksList = KSL.length ? `<ul class="ks">${KSL.map(k => { const hit = V.kill_shots[k], ev = (N.kill_shots || {})[k] || {};
   return `<li><span class="dot" style="background:${hit ? "var(--nogo-bg)" : "var(--go-bg)"};color:${hit ? "var(--nogo)" : "var(--go)"}">${ic(hit ? "x" : "check")}</span>
-    <div><div class="t">${KS[k]}</div>${ev.evidence ? `<div class="e">${esc(ev.evidence)}${fn(ev.source)}</div>` : ""}</div>
+    <div><div class="t">${KS[k]}</div>${ev.evidence ? `<div class="e">${rt(ev.evidence)}${fn(ev.source)}</div>` : ""}</div>
     <span class="badge ${hit ? "b-NO-GO" : "b-GO"}">${hit ? "Hit" : "Clear"}</span></li>`; }).join("")}</ul>` : "";
-const hits = ksKeys.filter(k => V.kill_shots[k]).length;
-const sScore = (has(V.criteria) || ksList) ? section("score", "Score and kill shots", ksKeys.length ? `${hits} of ${ksKeys.length} kill shots landed.` : null,
-  `<div class="grid g2">${has(V.criteria) ? card(`<h3>How the ${V.score} adds up</h3>${scoreChart(V.criteria)}`) : ""}${ksList ? card(`<h3>Kill shots</h3>${ksList}`, 80) : ""}</div>`) : "";
+const hits = KSL.filter(k => V.kill_shots[k]).length;
+const sScore = has(V.criteria) ? section("scoring", "Scoring", `${V.score}/100 across seven weighted criteria and 21 sub-scores.`, scoring()) : "";
 
 const FC = { "true": ["GO", "check", "True"], "partly": ["PIVOT", "rotate", "Partly true"], "false": ["NO-GO", "x", "False"], "unverified": ["neutral", "info", "Not verified"] };
-const sFacts = has(N.fact_checks) ? section("fact-check", "Fact-check", "Claims from the source, checked against public evidence.",
-  card(`<div class="scroll"><table><thead><tr><th>Claim</th><th>Verdict</th><th>Evidence</th></tr></thead><tbody>${N.fact_checks.map(f => { const [b, i, l] = FC[f.status] || FC.unverified;
-    return `<tr><td>${esc(f.claim)}</td><td><span class="badge b-${b}">${ic(i, 14)}${l}</span></td><td>${esc(f.evidence || "")}${fn(f.source)}</td></tr>`; }).join("")}</tbody></table></div>`)) : "";
+const factTable = has(N.fact_checks) ? (`<div class="scroll"><table><thead><tr><th>Claim</th><th>Verdict</th><th>Evidence</th></tr></thead><tbody>${N.fact_checks.map(f => { const [b, i, l] = FC[f.status] || FC.unverified;
+    return `<tr><td>${rt(f.claim)}</td><td><span class="badge b-${b}">${ic(i, 14)}${l}</span></td><td>${rt(f.evidence || "")}${fn(f.source)}</td></tr>`; }).join("")}</tbody></table></div>`) : "";
+const sEvidence = (ksList || factTable) ? section("evidence", "Evidence", KSL.length ? `${hits} of ${KSL.length} kill shots landed.` : null,
+  `<div class="grid ${ksList && factTable ? "g2" : ""}">${ksList ? card(`<h3>Kill shots</h3>${ksList}`) : ""}${factTable ? card(`<h3>Fact-check of the source</h3>${factTable}`, 80) : ""}</div>`) : "";
+
 
 /* market */
 const funnel = () => { const rows = [["TAM", "Total market", M.tam], ["SAM", "Market you can serve", M.sam], ["SOM", "What you can win in year 1", M.som]].filter(r => r[2]);
@@ -309,7 +354,7 @@ const funnel = () => { const rows = [["TAM", "Total market", M.tam], ["SAM", "Ma
     <figcaption>Bar widths use a square-root scale so the year-1 share stays visible.</figcaption></figure>`; };
 const cu = N.customer || {};
 const sMarket = (has(cu) || M.tam || has(N.use_cases)) ? section("market", "Market", null,
-  `${has(cu) ? `<div class="grid g3">${[["users", "Who buys", cu.segment], ["alert", "Their problem", cu.pain], ["clock", "What they use today", cu.today]].map(([i, k, v], n) => card(`<div class="kpi"><div class="k">${ic(i)}${k}</div><p style="margin:8px 0 0">${esc(v || "unknown")}</p></div>`, n * 60)).join("")}</div>` : ""}
+  `${has(cu) ? `<div class="grid g3">${[["users", "Who buys", cu.segment], ["alert", "Their problem", cu.pain], ["clock", "What they use today", cu.today]].map(([i, k, v], n) => card(`<div class="kpi"><div class="k">${ic(i)}${k}</div><p style="margin:8px 0 0">${rt(v || "unknown")}</p></div>`, n * 60)).join("")}</div>` : ""}
    <div class="grid g2" style="margin-top:var(--s3)">${M.tam || M.sam ? card(`${funnel()}${M.demand_trend ? `<p style="margin:14px 0 0"><strong>Demand trend:</strong> ${metric(M.demand_trend)}</p>` : ""}`) : ""}
    ${has(N.use_cases) ? card(`<h3>Ways to make money with it</h3><div class="scroll"><table><thead><tr><th>Option</th><th>Who pays</th><th>Effort</th></tr></thead><tbody>${N.use_cases.map(u => `<tr${u.best ? ' class="hl"' : ""}><td>${esc(u.name)}${u.best ? ` <span class="badge b-GO">${ic("check", 12)}Best</span>` : ""}</td><td>${esc(u.who_pays || "")}</td><td>${esc(u.effort || "")}</td></tr>`).join("")}</tbody></table></div>`, 80) : ""}</div>`) : "";
 
@@ -332,7 +377,7 @@ const compMap = () => { const cs = (N.competitors || []).filter(c => c.price_low
     <figcaption>Blue dots are paid products, red rings are free options. Traction is an estimate from visible signals.</figcaption></figure>`; };
 const map = compMap();
 const sComp = has(N.competitors) ? section("competition", "Competition", `${N.competitors.length} competitors and alternatives found.`,
-  `<div class="grid ${map ? "g2" : ""}">${map ? card(`<h3>Price vs traction</h3>${map}`) : ""}${card(`<h3>All competitors</h3><div class="scroll"><table><thead><tr><th>Name</th><th class="r">Price</th><th class="r">Traction</th></tr></thead><tbody>${N.competitors.map(c => `<tr><td>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.name)}</a>` : esc(c.name)}${c.free ? ` <span class="badge b-NO-GO">Free</span>` : ""}${c.country ? ` <span class="badge b-neutral">${esc(c.country)}</span>` : ""}${c.gap ? `<div style="font-size:13px;color:var(--muted-fg)">${esc(c.gap)}</div>` : ""}</td><td class="r"><span class="num">${c.price_low === null || c.price_low === undefined ? '<span class="unk">unknown</span>' : (fmt(c.price_low, c.currency) || "") + (c.price_high ? "–" + fmt(c.price_high, c.currency) : "")}</span></td><td class="r">${c.traction ? `<span class="num">${c.traction}/5</span>` : '<span class="unk">unknown</span>'}</td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`) : "";
+  `<div class="grid ${map ? "g2" : ""}">${map ? card(`<h3>Price vs traction</h3>${map}`) : ""}${card(`<h3>All competitors</h3><div class="scroll"><table><thead><tr><th>Name</th><th class="r">Price</th><th class="r">Traction</th></tr></thead><tbody>${N.competitors.map(c => `<tr><td>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.name)}</a>` : esc(c.name)}${c.free ? ` <span class="badge b-NO-GO">Free</span>` : ""}${c.country ? ` <span class="badge b-neutral">${esc(c.country)}</span>` : ""}${c.gap ? `<div style="font-size:13px;color:var(--muted-fg)">${rt(c.gap)}</div>` : ""}</td><td class="r"><span class="num">${c.price_low === null || c.price_low === undefined ? '<span class="unk">unknown</span>' : (fmt(c.price_low, c.currency) || "") + (c.price_high ? "–" + fmt(c.price_high, c.currency) : "")}</span></td><td class="r">${c.traction ? `<span class="num">${c.traction}/5</span>` : '<span class="unk">unknown</span>'}</td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`) : "";
 
 const sVoice = has(N.customer_voice) ? section("voice", "What customers say", "Verbatim quotes from reviews and forums.",
   `<div class="grid g2">${N.customer_voice.map((q, n) => card(`<blockquote class="quote">“${esc(q.quote)}”<cite>${q.pain ? esc(q.pain) + ", " : ""}<a href="${esc(q.source)}" target="_blank" rel="noopener">source</a>${fn(q.source)}</cite></blockquote>`, n * 50)).join("")}</div>`) : "";
@@ -371,15 +416,15 @@ const sRisk = has(N.risks) ? (() => { const rs = N.risks, LV = { L: 0, M: 1, H: 
     return `<g class="hit" tabindex="0" data-tip="<b>Risk ${i + 1}</b>${esc(r.risk)}"><circle cx="${cx}" cy="${cy}" r="11" fill="var(--card)" stroke="var(--nogo)" stroke-width="2"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font:600 11px var(--mono);fill:var(--fg)">${i + 1}</text></g>`; }).join("");
   const ax = ["Low", "Med", "High"].map((a, i) => `<text class="ax" x="${ox + i * cs + cs / 2}" y="${oy + 3 * cs + 14}" text-anchor="middle">${a}</text><text class="ax" x="${ox - 8}" y="${oy + (2 - i) * cs + cs / 2}" text-anchor="end">${a}</text>`).join("");
   return section("risks", "Risks", null, `<div class="grid g2">${card(`<h3>Likelihood vs impact</h3><figure class="chart"><svg viewBox="0 0 360 350" role="img" aria-label="Risk heatmap" style="max-width:380px;margin:0 auto">${cells}${marks}${ax}<text class="ax" x="${ox + 1.5 * cs}" y="${oy + 3 * cs + 38}" text-anchor="middle">Impact</text><text class="ax" x="0" y="${oy + 10}">Likelihood</text></svg></figure>`)}
-    ${card(`<h3>Risks and what to do</h3><div class="scroll"><table><tbody>${rs.map((r, i) => `<tr><td class="num" style="width:28px">${i + 1}</td><td><strong>${esc(r.risk)}</strong><div style="font-size:14px;color:var(--muted-fg)">${esc(r.mitigation || "")}</div></td><td class="r"><span class="badge b-neutral" title="Likelihood / impact">${r.likelihood} / ${r.impact}</span></td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`); })() : "";
+    ${card(`<h3>Risks and what to do</h3><div class="scroll"><table><tbody>${rs.map((r, i) => `<tr><td class="num" style="width:28px">${i + 1}</td><td><strong>${rt(r.risk)}</strong><div style="font-size:14px;color:var(--muted-fg)">${rt(r.mitigation || "")}</div></td><td class="r"><span class="badge b-neutral" title="Likelihood / impact">${r.likelihood} / ${r.impact}</span></td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`); })() : "";
 
 /* test */
 const kc = V.kill_criteria || [];
-const sTest = (has(N.test_plan) || V.cheapest_test || kc.length) ? section("test", "7-day test", V.cheapest_test ? esc(V.cheapest_test) : null,
-  `<div class="grid ${has(N.test_plan) && kc.length ? "g2" : ""}">${has(N.test_plan) ? card(`<h3>Plan</h3><ol class="tl">${N.test_plan.map(t => `<li><span class="w">${esc(t.when)}</span><span class="node"></span><div><div>${esc(t.step)}</div>${t.verify ? `<div class="vf">${ic("check", 14)} ${esc(t.verify)}</div>` : ""}</div></li>`).join("")}</ol>`) : ""}
-   ${kc.length ? card(`<div class="stop"><h3>${ic("alert")}Stop if</h3><ul>${kc.map(k => `<li>${esc(k)}</li>`).join("")}</ul></div>`, 80) : ""}</div>`) : "";
+const sTest = (has(N.test_plan) || V.cheapest_test || kc.length) ? section("test", "Next step: 7-day test", V.cheapest_test ? rt(V.cheapest_test) : null,
+  `<div class="grid ${has(N.test_plan) && kc.length ? "g2" : ""}">${has(N.test_plan) ? card(`<h3>Plan</h3><ol class="tl">${N.test_plan.map(t => `<li><span class="w">${esc(t.when)}</span><span class="node"></span><div><div>${rt(t.step)}</div>${t.verify ? `<div class="vf">${ic("check", 14)} ${rt(t.verify)}</div>` : ""}</div></li>`).join("")}</ol>`) : ""}
+   ${kc.length ? card(`<div class="stop"><h3>${ic("alert")}Stop if</h3><ul>${kc.map(k => `<li>${rt(k)}</li>`).join("")}</ul></div>`, 80) : ""}</div>`) : "";
 
-const body = [sSummary, sRescue, sScore, sFacts, sMarket, sComp, sVoice, sCountry, sEcon, sRisk, sTest].join("");
+const body = [sSummary, sRescue, sTest, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
 const sSrc = SRC.length ? section("sources", "Sources", `${SRC.length} sources. Every sourced number links here.`,
   card(`<ol class="src">${SRC.map((s, i) => `<li id="src-${i + 1}"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title || s.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 70))}</a>${s.supports ? `: ${esc(s.supports)}` : ""}</li>`).join("")}</ol>`)) : "";
 
@@ -391,18 +436,23 @@ app.innerHTML = `<header class="top"><div class="bar"><a class="brand" href="htt
   <main>${hero}${body}${sSrc}</main>
   <footer>Generated by kill-my-idea. Sourced numbers link to a footnote, estimates show their reasoning on hover, and anything not found is marked unknown. Research, not financial advice.</footer>`;
 document.getElementById("print").addEventListener("click", () => print());
+addEventListener("beforeprint", () => document.querySelectorAll("details.crit").forEach(d => { d.open = true; }));
 
 /* tooltips */
 const tip = document.getElementById("tip");
 const show = (el, x, y) => { tip.innerHTML = el.getAttribute("data-tip"); tip.style.opacity = 1; const r = tip.getBoundingClientRect(); tip.style.left = Math.min(x + 14, innerWidth - r.width - 10) + "px"; tip.style.top = Math.max(y - r.height - 12, 10) + "px"; };
-document.addEventListener("mousemove", e => { const el = e.target.closest("[data-tip]"); if (el) show(el, e.clientX, e.clientY); else tip.style.opacity = 0; });
+let tipQ = null;
+document.addEventListener("mousemove", e => { if (tipQ) return; const { target, clientX, clientY } = e; tipQ = requestAnimationFrame(() => { tipQ = null; const el = target.closest && target.closest("[data-tip]"); if (el) show(el, clientX, clientY); else if (tip.style.opacity !== "0") tip.style.opacity = 0; }); }, { passive: true });
 document.addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el) { const b = el.getBoundingClientRect(); show(el, b.right, b.top); } });
 document.addEventListener("focusout", () => { tip.style.opacity = 0; });
 
 /* active tab follows the section in view */
 const links = [...document.querySelectorAll(".tabs a")];
 if ("IntersectionObserver" in window) {
-  const tio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) links.forEach(a => { const on = a.getAttribute("href") === "#" + en.target.id; a.classList.toggle("on", on); if (on) a.scrollIntoView({ block: "nearest", inline: "nearest" }); }); }), { rootMargin: "-25% 0px -65% 0px" });
+  /* only the tab strip scrolls sideways; never the page */
+  const strip = document.querySelector(".tabs"); let cur = "";
+  const tio = new IntersectionObserver(es => es.forEach(en => { if (!en.isIntersecting || cur === en.target.id) return; cur = en.target.id;
+    links.forEach(a => { const on = a.getAttribute("href") === "#" + cur; a.classList.toggle("on", on); if (on && strip) strip.scrollLeft = a.offsetLeft - strip.clientWidth / 2 + a.offsetWidth / 2; }); }), { rootMargin: "-25% 0px -65% 0px" });
   document.querySelectorAll("main section").forEach(s => tio.observe(s));
 }
 

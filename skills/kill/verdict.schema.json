@@ -98,10 +98,12 @@
         "fit"
       ],
       "additionalProperties": {
-        "type": "integer",
+        "type": "number",
         "minimum": 1,
-        "maximum": 5
-      }
+        "maximum": 5,
+        "multipleOf": 0.5
+      },
+      "description": "Each criterion = average of its 3 sub-scores in criteria_detail, rounded to 0.5"
     },
     "metrics": {
       "type": "object",
@@ -244,6 +246,607 @@
           },
           "requires": {
             "type": "string"
+          }
+        }
+      }
+    },
+    "criteria_detail": {
+      "type": "object",
+      "description": "21 sub-scores: 3 per criterion",
+      "properties": {
+        "profit": {
+          "type": "object",
+          "required": [
+            "gross_margin",
+            "ltv_cac",
+            "pricing_power"
+          ],
+          "properties": {
+            "gross_margin": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "ltv_cac": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "pricing_power": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "feasibility": {
+          "type": "object",
+          "required": [
+            "build_effort",
+            "skills_match",
+            "capital_needed"
+          ],
+          "properties": {
+            "build_effort": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "skills_match": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "capital_needed": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "time_to_first_revenue": {
+          "type": "object",
+          "required": [
+            "time_to_mvp",
+            "sales_cycle",
+            "channel_readiness"
+          ],
+          "properties": {
+            "time_to_mvp": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "sales_cycle": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "channel_readiness": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "demand": {
+          "type": "object",
+          "required": [
+            "search_demand",
+            "trend",
+            "willingness_to_pay"
+          ],
+          "properties": {
+            "search_demand": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "trend": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "willingness_to_pay": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "competition": {
+          "type": "object",
+          "required": [
+            "free_alternatives",
+            "competitor_density",
+            "differentiation"
+          ],
+          "properties": {
+            "free_alternatives": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "competitor_density": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "differentiation": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "risk": {
+          "type": "object",
+          "required": [
+            "legal_regulatory",
+            "platform_dependency",
+            "market_risk"
+          ],
+          "properties": {
+            "legal_regulatory": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "platform_dependency": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "market_risk": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "fit": {
+          "type": "object",
+          "required": [
+            "skills",
+            "assets",
+            "interest"
+          ],
+          "properties": {
+            "skills": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "assets": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "interest": {
+              "type": "object",
+              "required": [
+                "score",
+                "note"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "multipleOf": 0.5
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "source": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
           }
         }
       }

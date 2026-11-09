@@ -92,22 +92,27 @@ one to launch in first.
 
 ## 5. Score
 
-| Criterion | Weight |
-|-----------|--------|
-| Profit potential | 25 |
-| Feasibility for this user | 20 |
-| Time to first € | 15 |
-| Market demand | 15 |
-| Competition (5 = open field) | 10 |
-| Risk (5 = low) | 10 |
-| Fit with the user's skills | 5 |
+Score 21 sub-criteria from 1 to 5, in half points, with one line of justification each
+(at most 160 characters) and a source when one exists. Each criterion is the average of its
+three sub-scores, rounded to 0.5.
 
-Score each criterion from 1 to 5. Total = Σ (weight × score) ÷ 5.
+| Criterion (weight) | Sub-criteria |
+|--------------------|--------------|
+| Profit potential (25) | gross_margin · ltv_cac · pricing_power |
+| Feasibility for this user (20) | build_effort · skills_match · capital_needed |
+| Time to first revenue (15) | time_to_mvp · sales_cycle · channel_readiness |
+| Market demand (15) | search_demand · trend · willingness_to_pay |
+| Competitive room (10, 5 = open field) | free_alternatives · competitor_density · differentiation |
+| Risk (10, 5 = low) | legal_regulatory · platform_dependency · market_risk |
+| Founder fit (5) | skills · assets · interest |
+
+Total = Σ (weight × criterion) ÷ 5, rounded to the nearest whole number.
+Save the sub-scores in `verdict.json` as `criteria_detail` and the criteria as `criteria`.
 
 Verdict: **GO** ≥ 70 · **PIVOT** 50–69 · **NO-GO** < 50.
 
 Hard rules:
-- A free equivalent exists and the user has no clear edge → Competition = 1.
+- A free equivalent exists and the user has no clear edge → Competitive room ≤ 1.5.
 - No credible distribution channel → the verdict cannot be GO.
 - LTV : CAC below 1 with no path to fix it → Profit potential ≤ 2.
 
@@ -128,6 +133,8 @@ Write three things in the idea folder:
    - Follow `${CLAUDE_PLUGIN_ROOT}/skills/kill/report-data.schema.json`.
    - `idea` = the content of idea.json, `verdict` = the content of verdict.json,
      `narrative` = what the report says.
+   - Fill `key_findings` (exactly 3, most decisive first) and `recommendation` (one action,
+     stated as a decision).
    - Fill every section you have evidence for: answer, tldr, rescue, kill-shot evidence,
      fact checks, customer, use cases, competitors (with `price_low` and a `traction` of 1–5),
      scenarios, risks, test plan, sources.
@@ -210,14 +217,28 @@ Save the paths in `verdict.json` as `rescue`, and in `report-data.js` as `narrat
    `/kill-my-idea:deepdive` (more evidence) · `/kill-my-idea:roast` (shareable) ·
    `/kill-my-idea:compare` (rank all your ideas).
 
-## Writing style
+## Writing standard
 
-Every sentence in the report and in chat carries a fact, a number or a decision. Cut the rest.
-- Use plain words and short sentences. Say what the thing is; don't sell it.
-- No filler openers ("Great question", "Let's dive in", "In today's world"), and no closing summary that repeats the answer.
-- No emoji outside the verdict card. No bold on every line: bold only the verdict and the one number that matters.
-- Use a list for parallel items, and prose for reasoning.
-- Name things concretely: "14 tools priced $0–34", not "a competitive landscape".
+Write like a strategy consultant writing for a founder.
+Lead with the answer, then the 3 findings that decide it, then the evidence.
+
+- **Concise.** The answer is at most 45 words. A key finding is a title of at most 8 words plus
+  one sentence. Evidence and notes are one sentence each. No filler, no hedging stacks
+  ("could potentially"), and no closing recap.
+- **Highlight keywords.** In every narrative string, wrap the 1–2 decisive words or numbers in
+  `**double asterisks**`. The HTML renders them highlighted. Never more than 2 per sentence.
+- **Professional vocabulary,** used precisely:
+  - unit economics, CAC, LTV, contribution margin, payback period;
+  - TAM / SAM / SOM;
+  - go-to-market, distribution channel, ICP (ideal customer profile);
+  - willingness to pay, price anchoring, switching costs, moat, churn, conversion rate.
+  Don't use jargon where a plain word is clearer.
+- **Real studies first.** Prefer primary and named sources: national statistics offices
+  (INSEE, US Census, Eurostat), industry reports, academic papers, company filings and pricing
+  pages, and platform data (Google Trends, app stores). Name them in the text with a year:
+  "(INSEE, 2025)". Use blogs and listicles only when nothing better exists, and label them
+  "secondary".
+- No emoji outside the verdict card.
 
 Write in the user's language. Never publish anything, spend money, or contact anyone
 on the user's behalf.

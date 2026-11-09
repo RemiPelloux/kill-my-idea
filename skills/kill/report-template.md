@@ -13,9 +13,16 @@
 | **Countries** | <ISO codes, launch country first> |
 | **Assumptions** | <budget, time per week, market, goal, or what was assumed> |
 
-## 0. TL;DR
+## 0. Executive summary
 
-<3–5 lines: what it is, whether it makes money, how hard it is, the verdict, and the next step.>
+**Answer:** <at most 45 words, with the 1–2 decisive words in **bold**>
+
+**Key findings**
+1. **<title, at most 8 words>**: <one sentence with evidence> ([source](url))
+2. **<title>**: <one sentence> ([source](url))
+3. **<title>**: <one sentence> ([source](url))
+
+**Recommendation:** <one action, stated as a decision>
 
 ## 1. Source
 
@@ -110,16 +117,20 @@ Several countries: add one column per country and name the launch country.
 
 ## 9. Scorecard
 
-| Criterion | Weight | Score (1–5) | Weighted |
-|-----------|--------|-------------|----------|
-| Profit potential | 25 | | |
-| Feasibility for this user | 20 | | |
-| Time to first € | 15 | | |
-| Market demand | 15 | | |
-| Competition (5 = open field) | 10 | | |
-| Risk (5 = low) | 10 | | |
-| Fit with the user's skills | 5 | | |
-| **Total** | 100 | | **/ 100** |
+Each criterion is the average of its 3 sub-scores (1–5, in half points).
+
+| Criterion (weight) | Sub-scores | Score | Points |
+|--------------------|------------|-------|--------|
+| Profit potential (25) | gross margin · LTV:CAC · pricing power | | |
+| Feasibility (20) | build effort · skills match · capital needed | | |
+| Time to first revenue (15) | time to MVP · sales cycle · channel readiness | | |
+| Market demand (15) | search demand · trend · willingness to pay | | |
+| Competitive room (10) | free alternatives · competitor density · differentiation | | |
+| Risk (10, 5 = low) | legal/regulatory · platform dependency · market risk | | |
+| Founder fit (5) | skills · assets · interest | | |
+| **Total** | | | **/ 100** |
+
+<one line of justification per sub-score, with a source when there is one>
 
 ## 10. Verdict and next step
 

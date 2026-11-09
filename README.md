@@ -19,6 +19,24 @@ the opposite. It looks for a free alternative, competitors, people who already f
 numbers that don't add up. Then it gives you a score out of 100, a GO / PIVOT / NO-GO verdict, the
 ways the idea could still be saved, and a report where every number has a source.
 
+## Paste a "$10k/month" tweet
+
+The most common use: you see a viral thread promising easy money. Paste it in:
+
+```text
+kill my idea: <paste the thread>
+```
+
+It checks every claim, names what the author is selling, redoes the math and gives a verdict.
+Real example, a viral thread about AI-written Amazon KDP books:
+
+| The thread said | The check found |
+|---|---|
+| "$3,000 a month from 5 sales a day" | **About $1,380** in royalties once printing costs are counted ([KDP royalty rules](https://kdp.amazon.com/en_US/help/topic/G201834330)) |
+| "Anyone can do it" | About 300k new books a month compete for the same shelf ([AI Policy Desk](https://www.aipolicydesk.com/blog/amazon-kdp-ai-generated-content-surge-enforcement-2026)) |
+| "$3M from books" | No evidence ever shown. The author **sells KDP coaching** |
+| Verdict | **PIVOT, 52/100.** Run a 1-week niche test before writing a word ([full card](examples/kdp-books.md)) |
+
 ## Same idea, two answers
 
 We asked plain Claude and kill-my-idea about the same idea: an AI app that writes wedding speeches, at $19 each.
