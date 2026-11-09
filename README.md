@@ -71,17 +71,19 @@ It opens with the answer, then shows what would change it:
 <a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/#rescue"><img src="assets/report-rescue.png" alt="Could it be saved: three changes to the Notion-template idea, each with a projected score, a difficulty, the effort and the cost" width="100%"></a>
 
 It goes on to cover:
-- the score breakdown;
-- each kill shot, with its evidence;
+- the score breakdown: 21 sub-scores you can expand, the raw total, and which fixed rules capped it;
+- a confidence level (high, medium or low) and the distance to the next verdict band;
+- each kill shot, with its evidence, marked hit, clear or not checked, and the one that weighs most;
 - market size;
 - a map of competitors by price and traction;
 - a country comparison;
 - LTV:CAC against healthy thresholds;
 - monthly scenarios and a risk matrix;
 - a 7-day test with the conditions for stopping it;
-- numbered sources.
+- numbered sources, each tagged primary, secondary or tertiary.
 
-Every number shows whether it was sourced, estimated (hover for the reasoning) or not found.
+Every number shows whether it was sourced, estimated (hover for the formula) or not found.
+After a deep dive, the report shows how the score moved since the quick verdict.
 One click on **Share card** downloads a PNG verdict card for social media, and reports follow your language (English or French).
 
 ## Commands
@@ -91,8 +93,8 @@ One click on **Share card** downloads a PNG verdict card for social media, and r
 | `/kill-my-idea:kill` | The verdict, report and 7-day test. Accepts one line, a pasted tweet, a URL or a long document |
 | `/kill-my-idea:deepdive` | Six research tracks in parallel, 40+ sources: market size, competitor teardown, real customer quotes, pricing, channels, regulation per country |
 | `/kill-my-idea:check-tweet` | Fact-checks a viral "make money" post: every claim, the real math, what the author sells, then a verdict |
-| `/kill-my-idea:roast` | The same verdict as five sourced one-liners, sized for a screenshot ([Juicero](examples/juicero-roast.md)) |
-| `/kill-my-idea:compare` | Ranks every idea you've checked and picks the one to work on this week |
+| `/kill-my-idea:roast` | The same verdict as five sourced one-liners, sized for a screenshot ([Juicero](examples/juicero-roast.md)). Also saved for `compare` |
+| `/kill-my-idea:compare` | Ranks every idea you've checked by score, speed and confidence, and picks the one to work on this week |
 
 You can also just write "kill my idea: …", "is this worth building?" or "which idea should I do?".
 
@@ -164,6 +166,18 @@ Everything goes into `ideas/<YYYY-MM>-<slug>/` in your current folder.
 | `report.md` | The same report as plain text |
 | `idea.json` | The extracted brief ([schema](skills/kill/idea.schema.json)) |
 | `verdict.json` | Score, 21 sub-scores, rules applied, confidence, metrics with their sources, countries, rescue paths ([schema](skills/kill/verdict.schema.json)) |
+| `deepdive.md` | The deep-dive write-up (`deepdive` only) |
+| `roast.md` | The roast (`roast` only) |
+| `ideas/RANKING.md` | The ranking of all your ideas (`compare`) |
+
+Check any run yourself:
+
+```sh
+python3 scripts/check-idea.py ideas/<folder>   # or --all for every idea
+```
+
+It recomputes the score from the sub-scores, applies the fixed rules, and checks every source and
+count. `ERROR` lines mean the verdict doesn't follow its own rules.
 
 </details>
 

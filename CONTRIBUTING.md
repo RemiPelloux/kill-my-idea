@@ -4,7 +4,11 @@ Thanks for helping kill more bad ideas.
 
 ## Good contributions
 
-- **New kill shots**: a check that has killed real ideas (add it to `skills/kill/SKILL.md` §3).
+- **New kill shots**: a check that has killed real ideas. Add it to the table in `skills/kill/SKILL.md` §3
+  (with what counts as a hit and the searches to run), the R5 coherence rule in §5 if it maps to a sub-score,
+  `kill_shots` in `skills/kill/verdict.schema.json`, `KILL_SHOTS` / `COHERENCE` in `scripts/check-idea.py`,
+  `KS` (and its French label) in `skills/kill/report.html`, and the table in `skills/kill/report-template.md`.
+- **Rubric anchors**: a sharper, sourced threshold for one of the 21 sub-scores (`SKILL.md` §5).
 - **Country guides**: local competitors, channels, laws or payment habits that change verdicts.
 - **Better metrics**: a formula or benchmark, with its source.
 - **Real example verdicts**: your own idea, card + sources, in `examples/`.

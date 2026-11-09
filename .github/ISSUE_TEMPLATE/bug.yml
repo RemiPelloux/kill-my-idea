@@ -16,4 +16,10 @@ body:
     id: version
     attributes:
       label: Plugin version and Claude Code version
-      placeholder: "kill-my-idea 0.1.0, Claude Code 2.x"
+      placeholder: "kill-my-idea 0.7.0, Claude Code 2.x"
+  - type: textarea
+    id: check
+    attributes:
+      label: Output of the checker (optional)
+      description: "Run `python3 scripts/check-idea.py ideas/<folder>` from the plugin folder and paste the result."
+      render: text
