@@ -53,7 +53,7 @@ Plain Claude's full answer is [here, unedited](examples/plain-claude-wedding.md)
 
 ## Seven ideas it has checked
 
-<a href="https://remipelloux.github.io/kill-my-idea/"><img src="assets/verdict-wall.svg" alt="Seven real verdicts: Juicero 27, a travel blog 41, a coloring book 42, wedding speeches 48, KDP paperbacks 52, Notion templates 57, and kill-my-idea itself 63" width="100%"></a>
+<a href="https://remipelloux.github.io/kill-my-idea/"><img src="assets/verdict-wall.svg" alt="Seven real verdicts: Juicero 27, a travel blog 41, a coloring book 42, wedding speeches 48, KDP paperbacks 52, Notion templates 55, and kill-my-idea itself 63" width="100%"></a>
 
 All seven are real runs, mostly ideas we were about to spend time or money on. The coloring book is
 why this exists: we built it first, three versions and a day of work, and a five-minute search then
@@ -64,7 +64,7 @@ validators already exist.
 
 Every run writes `report.html`, a report you open in a browser and can print as an A4 PDF.
 
-<a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/"><img src="assets/report-cover.png" alt="Report cover for Notion templates for French real-estate agents: the answer, a score gauge at 57 and a PIVOT stamp" width="100%"></a>
+<a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/"><img src="assets/report-cover.png" alt="Report cover for Notion templates for French real-estate agents: the answer, a score ring at 55 and a PIVOT badge" width="100%"></a>
 
 It opens with the answer, then shows what would change it:
 

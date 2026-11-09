@@ -38,10 +38,10 @@ button{font:inherit;cursor:pointer}
 
 /* top bar + section tabs */
 .top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
-.bar{max-width:1200px;margin:0 auto;padding:12px var(--s3);display:flex;align-items:center;gap:var(--s2)}
+.topbar{max-width:1200px;margin:0 auto;padding:12px var(--s3);display:flex;align-items:center;gap:var(--s2)}
 .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--fg);text-decoration:none;white-space:nowrap}
 .brand svg{width:28px;height:28px}
-.bar .t{flex:1;min-width:0;color:var(--muted-fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:15px}
+.topbar .t{flex:1;min-width:0;color:var(--muted-fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:15px}
 .badge{display:inline-flex;align-items:center;gap:6px;font:600 13px var(--sans);padding:5px 10px;border-radius:999px;white-space:nowrap}
 .b-GO{color:var(--go);background:var(--go-bg)} .b-PIVOT{color:var(--pivot);background:var(--pivot-bg)} .b-NO-GO{color:var(--nogo);background:var(--nogo-bg)}
 .b-doable{color:var(--go);background:var(--go-bg)} .b-hard{color:var(--pivot);background:var(--pivot-bg)} .b-very-hard{color:var(--nogo);background:var(--nogo-bg)}
@@ -160,8 +160,6 @@ td.r,th.r{text-align:right}
 .subs .sn{font-weight:500} .subs .snote{grid-column:1/-1;color:var(--muted-fg);font-size:13px}
 .crit-t{display:flex;justify-content:space-between;padding:14px 0 4px;font-weight:600;font-size:17px}
 .note{font-size:13px;color:var(--muted-fg);margin:10px 0 0;max-width:none}
-.motion .rv.in .sbar .bar{animation:fill .8s cubic-bezier(.22,1,.36,1) both}
-@keyframes fill{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
 @media (max-width:768px){.crit-h{display:none}.crit summary,.crit.flat{grid-template-columns:minmax(0,1fr) 60px 18px;row-gap:8px}.crit summary .sbar,.crit.flat .sbar{grid-column:1/-1;grid-row:2}.cp{display:none}.subs li{grid-template-columns:110px minmax(0,1fr) 36px}}
 @media print{.crit summary .ic{display:none}}
 
@@ -193,7 +191,7 @@ footer{max-width:1200px;margin:0 auto;padding:0 var(--s3) var(--s5);color:var(--
 
 /* responsive: 375 / 768 / 1024 / 1440 */
 @media (max-width:1024px){.g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))} .hero{grid-template-columns:1fr} .score{order:-1}}
-@media (max-width:768px){.g2,.g3{grid-template-columns:1fr} ol.src{columns:1} .bar .t{display:none} main{padding:var(--s3) var(--s2) var(--s5)} .bar,.tabs{padding-left:var(--s2);padding-right:var(--s2)} .hero{padding:var(--s3)}}
+@media (max-width:768px){.g2,.g3{grid-template-columns:1fr} ol.src{columns:1} .topbar .t{display:none} main{padding:var(--s3) var(--s2) var(--s5)} .topbar,.tabs{padding-left:var(--s2);padding-right:var(--s2)} .hero{padding:var(--s3)}}
 @media (max-width:480px){.g4{grid-template-columns:1fr} .tl li{grid-template-columns:64px 20px minmax(0,1fr)} .ks li{grid-template-columns:28px minmax(0,1fr)} .ks li .badge{grid-column:2;justify-self:start} .btn span{display:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important}}
 @media print{
@@ -428,11 +426,12 @@ const body = [sSummary, sRescue, sTest, sEvidence, sMarket, sComp, sVoice, sEcon
 const sSrc = SRC.length ? section("sources", "Sources", `${SRC.length} sources. Every sourced number links here.`,
   card(`<ol class="src">${SRC.map((s, i) => `<li id="src-${i + 1}"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title || s.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 70))}</a>${s.supports ? `: ${esc(s.supports)}` : ""}</li>`).join("")}</ol>`)) : "";
 
+const ORDER = [...(body + sSrc).matchAll(/<section id="([^"]+)"/g)].map(m => m[1]);
 const logo = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#1E40AF"/><path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#fff"/><g stroke="#1E40AF" stroke-width="44" stroke-linecap="round"><path d="M380 340l80 80M460 340l-80 80M564 340l80 80M644 340l-80 80"/></g><rect x="396" y="776" width="232" height="60" rx="26" fill="#BFDBFE"/></svg>`;
-app.innerHTML = `<header class="top"><div class="bar"><a class="brand" href="https://github.com/RemiPelloux/kill-my-idea" target="_blank" rel="noopener">${logo}kill-my-idea</a>
+app.innerHTML = `<header class="top"><div class="topbar"><a class="brand" href="https://github.com/RemiPelloux/kill-my-idea" target="_blank" rel="noopener">${logo}kill-my-idea</a>
   <span class="t">${esc(I.title || "")}</span><span class="badge b-${esc(V.verdict)}">${ic(VICON[V.verdict], 14)}${esc(V.verdict || "")} <span class="num">${V.score ?? "?"}</span></span>
   <button class="btn" type="button" id="print" aria-label="Print or save as PDF">${ic("printer")}<span>Save PDF</span></button></div>
-  <nav class="tabs" aria-label="Report sections">${TABS.map(([id, t]) => `<a href="#${id}">${esc(t)}</a>`).join("")}</nav></header>
+  <nav class="tabs" aria-label="Report sections">${TABS.slice().sort((x, y) => ORDER.indexOf(x[0]) - ORDER.indexOf(y[0])).map(([id, t]) => `<a href="#${id}">${esc(t)}</a>`).join("")}</nav></header>
   <main>${hero}${body}${sSrc}</main>
   <footer>Generated by kill-my-idea. Sourced numbers link to a footnote, estimates show their reasoning on hover, and anything not found is marked unknown. Research, not financial advice.</footer>`;
 document.getElementById("print").addEventListener("click", () => print());

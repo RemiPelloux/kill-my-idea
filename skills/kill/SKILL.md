@@ -128,7 +128,8 @@ Write three things in the idea folder:
    `${CLAUDE_PLUGIN_ROOT}/skills/kill/report-template.md`.
 2. **`report.html`**: copy the template as-is. Never rewrite it.
    - With Bash: `cp "${CLAUDE_PLUGIN_ROOT}/skills/kill/report.html" ideas/<folder>/report.html`
-   - Without Bash: Read the file and Write it unchanged.
+   - If Bash isn't available or the copy is refused, Read the file and Write it unchanged.
+     Never skip this step: the HTML report is the main deliverable.
 3. **`report-data.js`**: one line, `window.KMI_DATA = {...};`
    - Follow `${CLAUDE_PLUGIN_ROOT}/skills/kill/report-data.schema.json`.
    - `idea` = the content of idea.json, `verdict` = the content of verdict.json,
