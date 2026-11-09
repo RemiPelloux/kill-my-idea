@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.1 — 2026-11-09 (security)
+
+The report shows content gathered from web research, so it must never run code found in that content.
+- **Links:** source and competitor links are only rendered for `http(s)` URLs. A `javascript:` or other scheme is shown as plain text.
+- **Tooltips:** tooltips are now plain text, inserted with `textContent`. A hostile string in a reasoning note, a competitor name, a risk or a scenario can no longer run code on hover.
+- **Data normalization:** fields rendered without escaping (scores, traction, prices, risk levels, verdict, difficulty) are forced to numbers or known values when the data loads.
+- Tested with 15 injection attempts. The previous version ran one of them and kept 3 `javascript:` links; this version runs none and keeps no such links. Thanks to the reviewer who reported the link issue.
+
 ## 0.5.0 — 2026-11-09
 
 - **New kill shot: saturated wave.** Flags ideas that belong to a flood of near-identical launches in the last 6–12 months (AI wrappers, "100 tools in your browser", Notion template packs…). It counts look-alike launches on Product Hunt, Show HN, r/SideProject, GitHub and X, and names examples. A fixed rule applies: a saturated wave with no specific edge caps Competitive room and differentiation at 1.5. Suggested by u/medialantern on r/ClaudeCode. Thanks!

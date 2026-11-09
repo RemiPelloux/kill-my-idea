@@ -134,6 +134,7 @@ td.r,th.r{text-align:right}
 .hit:hover .mk,.hit:focus .mk{stroke:var(--secondary);stroke-width:3}
 #tip{position:fixed;z-index:50;pointer-events:none;max-width:300px;background:var(--fg);color:var(--bg);font:400 13px/1.45 var(--sans);padding:10px 12px;border-radius:10px;box-shadow:var(--shadow);opacity:0;transition:opacity .15s}
 #tip b{display:block;font-weight:600;margin-bottom:2px}
+#tip{white-space:pre-line}
 
 .quote{margin:0;font-size:16px;line-height:1.55}
 .quote cite{display:block;font-style:normal;font-size:13px;color:var(--muted-fg);margin-top:8px}
@@ -213,12 +214,27 @@ footer{max-width:1200px;margin:0 auto;padding:0 var(--s3) var(--s5);color:var(--
 const D = window.KMI_DATA, app = document.getElementById("app");
 if (!D) { app.innerHTML = '<div class="err card"><h2>Report data not found</h2><p>Keep <code>report.html</code> and <code>report-data.js</code> in the same folder, or run <code>/kill-my-idea:kill</code> again.</p></div>'; return; }
 const I = D.idea || {}, V = D.verdict || {}, N = D.narrative || {}, M = V.metrics || {};
+/* security: values rendered without escaping must be numbers or known enums */
+const num = v => (v === null || v === undefined || v === "") ? null : (Number.isFinite(+v) ? +v : null);
+V.score = num(V.score) ?? 0;
+if (!["GO", "PIVOT", "NO-GO"].includes(V.verdict)) V.verdict = V.score >= 70 ? "GO" : V.score >= 50 ? "PIVOT" : "NO-GO";
+if (V.criteria) for (const k in V.criteria) V.criteria[k] = num(V.criteria[k]) ?? 0;
+const LMH = v => ["L", "M", "H"].includes(v) ? v : "M";
+(N.rescue || []).forEach(r => { r.score_after = num(r.score_after) ?? 0; if (!["doable", "hard", "very-hard"].includes(r.difficulty)) r.difficulty = "hard"; });
+(N.competitors || []).forEach(c => { c.traction = num(c.traction); c.price_low = num(c.price_low); c.price_high = num(c.price_high); });
+(N.scenarios || []).forEach(sc => { ["customers_month", "revenue_month", "costs_month"].forEach(k => { sc[k] = num(sc[k]); }); });
+(N.risks || []).forEach(r => { r.likelihood = LMH(r.likelihood); r.impact = LMH(r.impact); });
+if (I.price) I.price.amount = num(I.price.amount);
 const VC = { "GO": "var(--go-fill)", "PIVOT": "var(--pivot-fill)", "NO-GO": "var(--nogo-fill)" };
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const has = x => Array.isArray(x) ? x.length > 0 : x && typeof x === "object" ? Object.keys(x).length > 0 : !!x;
 const rt = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong class="kw">$1</strong>');
 const vlabel = s => s >= 70 ? "GO" : s >= 50 ? "PIVOT" : "NO-GO";
 const plain = h => String(h ?? "").replace(/<[^>]+>/g, "");
+/* security: only http(s) links; tooltips are plain text rendered with textContent (report data comes from web research) */
+const safeUrl = u => { try { const x = new URL(String(u || ""), "https://example.invalid/"); return /^https?:$/.test(x.protocol) && x.hostname !== "example.invalid" ? x.href : null; } catch (e) { return null; } };
+const link = (u, text) => { const h = safeUrl(u); return h ? `<a href="${esc(h)}" target="_blank" rel="noopener noreferrer">${text}</a>` : text; };
+const tipA = (title, body) => `${title ? `data-tip-t="${esc(title)}" ` : ""}data-tip="${esc(body)}"`;
 document.title = `${V.verdict || ""} ${V.score ?? ""}/100 · ${I.title || "kill-my-idea report"}`;
 
 /* Lucide icons, stroke 2 */
@@ -251,12 +267,12 @@ const fmt = (v, unit) => {
   return sym + short(v) + (rest ? `<span class="u">${rest.startsWith("/") ? "" : " "}${esc(rest)}</span>` : "");
 };
 const evTag = m => m.basis === "sourced" ? `<span class="ev s">${ic("check", 11)}sourced</span>${fn(m.source)}`
-  : m.basis === "estimate" ? `<span class="ev" data-tip="<b>Estimate</b>${esc(m.reasoning || "Reasoning in the report")}" tabindex="0">estimate</span>` : "";
+  : m.basis === "estimate" ? `<span class="ev" ${tipA("Estimate", m.reasoning || "Reasoning in the report")} tabindex="0">estimate</span>` : "";
 const metric = (m, key = "") => {
   if (m === null || m === undefined) return '<span class="unk">unknown</span>';
   if (typeof m !== "object") return typeof m === "number" ? `<span class="num">${short(m)}${/_pct$/.test(key) ? "%" : ""}</span>` : esc(m);
   const val = fmt(m.value, m.unit || (/_pct$/.test(key) ? "%" : ""));
-  if (!val || m.basis === "unknown") return `<span class="unk" data-tip="${esc(m.reasoning || "Not found in public sources")}" tabindex="0">unknown</span>`;
+  if (!val || m.basis === "unknown") return `<span class="unk" ${tipA("Unknown", m.reasoning || "Not found in public sources")} tabindex="0">unknown</span>`;
   return `${typeof m.value === "number" ? `<span class="num">${val}</span>` : val}${evTag(m)}`;
 };
 
@@ -369,16 +385,16 @@ const compMap = () => { const cs = (N.competitors || []).filter(c => c.price_low
   return `<figure class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Competitors by entry price and traction">
     ${[1, 2, 3, 4, 5].map(t => `<line class="gridl" x1="${pl}" x2="${W - pr}" y1="${y(t)}" y2="${y(t)}"/><text class="ax" x="${pl - 10}" y="${y(t) + 4}" text-anchor="end">${t}</text>`).join("")}
     ${[0, .25, .5, .75, 1].map(f => `<text class="ax" x="${x(mxP * f)}" y="${H - pb + 18}" text-anchor="middle">${plain(fmt(Math.round(mxP * f), cur)) || "0"}</text>`).join("")}
-    ${you}${cs.map(c => { const l = lab(c), tip = `<b>${esc(c.name)}</b>${plain(fmt(c.price_low, c.currency))}${c.price_high ? "–" + plain(fmt(c.price_high, c.currency)) : ""}, traction ${c.traction}/5${c.gap ? "<br>Weak spot: " + esc(c.gap) : ""}`;
-      return `<g class="hit" tabindex="0" data-tip="${esc(tip)}"><circle cx="${x(c.price_low)}" cy="${y(c.traction)}" r="14" fill="transparent"/><circle class="mk" cx="${x(c.price_low)}" cy="${y(c.traction)}" r="7" fill="${c.free ? "var(--card)" : "var(--primary)"}" stroke="${c.free ? "var(--nogo)" : "var(--card)"}" stroke-width="${c.free ? 3 : 2}"/>${l ? `<text class="lb" x="${l[0]}" y="${l[1]}" text-anchor="${l[2]}" style="font-size:12px">${esc(c.name)}</text>` : ""}</g>`; }).join("")}
+    ${you}${cs.map(c => { const l = lab(c), tip = `${plain(fmt(c.price_low, c.currency))}${c.price_high ? "–" + plain(fmt(c.price_high, c.currency)) : ""}, traction ${c.traction}/5${c.gap ? "\nWeak spot: " + c.gap : ""}`;
+      return `<g class="hit" tabindex="0" ${tipA(c.name, tip)}><circle cx="${x(c.price_low)}" cy="${y(c.traction)}" r="14" fill="transparent"/><circle class="mk" cx="${x(c.price_low)}" cy="${y(c.traction)}" r="7" fill="${c.free ? "var(--card)" : "var(--primary)"}" stroke="${c.free ? "var(--nogo)" : "var(--card)"}" stroke-width="${c.free ? 3 : 2}"/>${l ? `<text class="lb" x="${l[0]}" y="${l[1]}" text-anchor="${l[2]}" style="font-size:12px">${esc(c.name)}</text>` : ""}</g>`; }).join("")}
     <text class="ax" x="${W - pr}" y="${H - 4}" text-anchor="end">Entry price</text><text class="ax" x="${pl}" y="12">Traction (1–5)</text></svg>
     <figcaption>Blue dots are paid products, red rings are free options. Traction is an estimate from visible signals.</figcaption></figure>`; };
 const map = compMap();
 const sComp = has(N.competitors) ? section("competition", "Competition", `${N.competitors.length} competitors and alternatives found.`,
-  `<div class="grid ${map ? "g2" : ""}">${map ? card(`<h3>Price vs traction</h3>${map}`) : ""}${card(`<h3>All competitors</h3><div class="scroll"><table><thead><tr><th>Name</th><th class="r">Price</th><th class="r">Traction</th></tr></thead><tbody>${N.competitors.map(c => `<tr><td>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.name)}</a>` : esc(c.name)}${c.free ? ` <span class="badge b-NO-GO">Free</span>` : ""}${c.country ? ` <span class="badge b-neutral">${esc(c.country)}</span>` : ""}${c.gap ? `<div style="font-size:13px;color:var(--muted-fg)">${rt(c.gap)}</div>` : ""}</td><td class="r"><span class="num">${c.price_low === null || c.price_low === undefined ? '<span class="unk">unknown</span>' : (fmt(c.price_low, c.currency) || "") + (c.price_high ? "–" + fmt(c.price_high, c.currency) : "")}</span></td><td class="r">${c.traction ? `<span class="num">${c.traction}/5</span>` : '<span class="unk">unknown</span>'}</td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`) : "";
+  `<div class="grid ${map ? "g2" : ""}">${map ? card(`<h3>Price vs traction</h3>${map}`) : ""}${card(`<h3>All competitors</h3><div class="scroll"><table><thead><tr><th>Name</th><th class="r">Price</th><th class="r">Traction</th></tr></thead><tbody>${N.competitors.map(c => `<tr><td>${link(c.url, esc(c.name))}${c.free ? ` <span class="badge b-NO-GO">Free</span>` : ""}${c.country ? ` <span class="badge b-neutral">${esc(c.country)}</span>` : ""}${c.gap ? `<div style="font-size:13px;color:var(--muted-fg)">${rt(c.gap)}</div>` : ""}</td><td class="r"><span class="num">${c.price_low === null || c.price_low === undefined ? '<span class="unk">unknown</span>' : (fmt(c.price_low, c.currency) || "") + (c.price_high ? "–" + fmt(c.price_high, c.currency) : "")}</span></td><td class="r">${c.traction ? `<span class="num">${c.traction}/5</span>` : '<span class="unk">unknown</span>'}</td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`) : "";
 
 const sVoice = has(N.customer_voice) ? section("voice", "What customers say", "Verbatim quotes from reviews and forums.",
-  `<div class="grid g2">${N.customer_voice.map((q, n) => card(`<blockquote class="quote">“${esc(q.quote)}”<cite>${q.pain ? esc(q.pain) + ", " : ""}<a href="${esc(q.source)}" target="_blank" rel="noopener">source</a>${fn(q.source)}</cite></blockquote>`, n * 50)).join("")}</div>`) : "";
+  `<div class="grid g2">${N.customer_voice.map((q, n) => card(`<blockquote class="quote">“${esc(q.quote)}”<cite>${q.pain ? esc(q.pain) + ", " : ""}${link(q.source, "source")}${fn(q.source)}</cite></blockquote>`, n * 50)).join("")}</div>`) : "";
 
 /* countries */
 const BC = V.by_country && typeof V.by_country === "object" ? V.by_country : null;
@@ -399,7 +415,7 @@ const bullet = () => { if (lc === null) return ""; const mx = Math.max(5, lc * 1
 const scen = () => { const ss = (N.scenarios || []).filter(s => typeof s.revenue_month === "number"); if (!ss.length) return "";
   const cur = N.currency || (I.price && I.price.currency) || "", mx = Math.max(...ss.map(s => Math.max(s.revenue_month, s.costs_month || 0)), 1), x0 = 130, bw = 380, rh = 62, W = 600, pl = t => plain(fmt(t, cur)) || "0";
   return `<h3>Monthly scenarios</h3><figure class="chart grow"><svg viewBox="0 0 ${W} ${ss.length * rh}" role="img" aria-label="Revenue and costs per scenario">${ss.map((s, i) => { const y = i * rh, rv = s.revenue_month / mx * bw, cs = (s.costs_month || 0) / mx * bw;
-    return `<g class="hit" tabindex="0" data-tip="<b>${esc(s.name)}</b>${s.customers_month ?? "?"} customers/month, revenue ${pl(s.revenue_month)}, costs ${pl(s.costs_month || 0)}${s.note ? "<br>" + esc(s.note) : ""}"><text class="lb" x="0" y="${y + 20}">${esc(s.name)}</text><text class="ax" x="0" y="${y + 38}">${s.customers_month ?? "?"} customers/mo</text>
+    return `<g class="hit" tabindex="0" ${tipA(s.name, `${s.customers_month ?? "?"} customers/month, revenue ${pl(s.revenue_month)}, costs ${pl(s.costs_month || 0)}${s.note ? "\n" + s.note : ""}`)}><text class="lb" x="0" y="${y + 20}">${esc(s.name)}</text><text class="ax" x="0" y="${y + 38}">${s.customers_month ?? "?"} customers/mo</text>
       <rect class="bar" x="${x0}" y="${y + 8}" width="${Math.max(rv, 4)}" height="16" rx="8" fill="var(--primary)"/><text class="lv" x="${x0 + Math.max(rv, 4) + 8}" y="${y + 21}">${pl(s.revenue_month)}</text>
       <rect class="bar" x="${x0}" y="${y + 30}" width="${Math.max(cs, 4)}" height="10" rx="5" fill="var(--muted-fg)" opacity=".45"/><text class="ax" x="${x0 + Math.max(cs, 4) + 8}" y="${y + 39}">${pl(s.costs_month || 0)} costs</text></g>`; }).join("")}</svg>
     <figcaption>Blue: revenue per month. Grey: costs. Estimates unless a footnote says otherwise.</figcaption></figure>`; };
@@ -411,7 +427,7 @@ const sEcon = (mk.length || has(N.scenarios)) ? section("economics", "Unit econo
 const sRisk = has(N.risks) ? (() => { const rs = N.risks, LV = { L: 0, M: 1, H: 2 }, cs = 96, ox = 64, oy = 6; let cells = "";
   for (let li = 0; li < 3; li++) for (let ii = 0; ii < 3; ii++) cells += `<rect x="${ox + ii * cs}" y="${oy + (2 - li) * cs}" width="${cs - 4}" height="${cs - 4}" rx="10" fill="var(--nogo-fill)" opacity="${(.06 + (li + 1) * (ii + 1) * .05).toFixed(2)}"/>`;
   const bk = {}, marks = rs.map((r, i) => { const li = LV[r.likelihood] ?? 1, ii = LV[r.impact] ?? 1, key = li + "-" + ii, k = bk[key] = (bk[key] || 0) + 1, cx = ox + ii * cs + 24 + ((k - 1) % 3) * 24, cy = oy + (2 - li) * cs + 28 + Math.floor((k - 1) / 3) * 28;
-    return `<g class="hit" tabindex="0" data-tip="<b>Risk ${i + 1}</b>${esc(r.risk)}"><circle cx="${cx}" cy="${cy}" r="11" fill="var(--card)" stroke="var(--nogo)" stroke-width="2"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font:600 11px var(--mono);fill:var(--fg)">${i + 1}</text></g>`; }).join("");
+    return `<g class="hit" tabindex="0" ${tipA(`Risk ${i + 1}`, r.risk)}><circle cx="${cx}" cy="${cy}" r="11" fill="var(--card)" stroke="var(--nogo)" stroke-width="2"/><text x="${cx}" y="${cy + 4}" text-anchor="middle" style="font:600 11px var(--mono);fill:var(--fg)">${i + 1}</text></g>`; }).join("");
   const ax = ["Low", "Med", "High"].map((a, i) => `<text class="ax" x="${ox + i * cs + cs / 2}" y="${oy + 3 * cs + 14}" text-anchor="middle">${a}</text><text class="ax" x="${ox - 8}" y="${oy + (2 - i) * cs + cs / 2}" text-anchor="end">${a}</text>`).join("");
   return section("risks", "Risks", null, `<div class="grid g2">${card(`<h3>Likelihood vs impact</h3><figure class="chart"><svg viewBox="0 0 360 350" role="img" aria-label="Risk heatmap" style="max-width:380px;margin:0 auto">${cells}${marks}${ax}<text class="ax" x="${ox + 1.5 * cs}" y="${oy + 3 * cs + 38}" text-anchor="middle">Impact</text><text class="ax" x="0" y="${oy + 10}">Likelihood</text></svg></figure>`)}
     ${card(`<h3>Risks and what to do</h3><div class="scroll"><table><tbody>${rs.map((r, i) => `<tr><td class="num" style="width:28px">${i + 1}</td><td><strong>${rt(r.risk)}</strong><div style="font-size:14px;color:var(--muted-fg)">${rt(r.mitigation || "")}</div></td><td class="r"><span class="badge b-neutral" title="Likelihood / impact">${r.likelihood} / ${r.impact}</span></td></tr>`).join("")}</tbody></table></div>`, 80)}</div>`); })() : "";
@@ -424,7 +440,7 @@ const sTest = (has(N.test_plan) || V.cheapest_test || kc.length) ? section("test
 
 const body = [sSummary, sRescue, sTest, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
 const sSrc = SRC.length ? section("sources", "Sources", `${SRC.length} sources. Every sourced number links here.`,
-  card(`<ol class="src">${SRC.map((s, i) => `<li id="src-${i + 1}"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title || s.url.replace(/^https?:\/\/(www\.)?/, "").slice(0, 70))}</a>${s.supports ? `: ${esc(s.supports)}` : ""}</li>`).join("")}</ol>`)) : "";
+  card(`<ol class="src">${SRC.map((s, i) => `<li id="src-${i + 1}">${link(s.url, esc(s.title || String(s.url).replace(/^https?:\/\/(www\.)?/, "").slice(0, 70)))}${s.supports ? `: ${esc(s.supports)}` : ""}</li>`).join("")}</ol>`)) : "";
 
 const ORDER = [...(body + sSrc).matchAll(/<section id="([^"]+)"/g)].map(m => m[1]);
 const logo = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#1E40AF"/><path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#fff"/><g stroke="#1E40AF" stroke-width="44" stroke-linecap="round"><path d="M380 340l80 80M460 340l-80 80M564 340l80 80M644 340l-80 80"/></g><rect x="396" y="776" width="232" height="60" rx="26" fill="#BFDBFE"/></svg>`;
@@ -439,7 +455,7 @@ addEventListener("beforeprint", () => document.querySelectorAll("details.crit").
 
 /* tooltips */
 const tip = document.getElementById("tip");
-const show = (el, x, y) => { tip.innerHTML = el.getAttribute("data-tip"); tip.style.opacity = 1; const r = tip.getBoundingClientRect(); tip.style.left = Math.min(x + 14, innerWidth - r.width - 10) + "px"; tip.style.top = Math.max(y - r.height - 12, 10) + "px"; };
+const show = (el, x, y) => { tip.replaceChildren(); const t = el.getAttribute("data-tip-t"); if (t) { const b = document.createElement("b"); b.textContent = t; tip.append(b); } tip.append(document.createTextNode(el.getAttribute("data-tip") || "")); tip.style.opacity = 1; const r = tip.getBoundingClientRect(); tip.style.left = Math.min(x + 14, innerWidth - r.width - 10) + "px"; tip.style.top = Math.max(y - r.height - 12, 10) + "px"; };
 let tipQ = null;
 document.addEventListener("mousemove", e => { if (tipQ) return; const { target, clientX, clientY } = e; tipQ = requestAnimationFrame(() => { tipQ = null; const el = target.closest && target.closest("[data-tip]"); if (el) show(el, clientX, clientY); else if (tip.style.opacity !== "0") tip.style.opacity = 0; }); }, { passive: true });
 document.addEventListener("focusin", e => { const el = e.target.closest("[data-tip]"); if (el) { const b = el.getBoundingClientRect(); show(el, b.right, b.top); } });
