@@ -7,7 +7,7 @@
 /plugin install kill-my-idea@kill-my-idea
 ```
 
-[Live reports](https://remipelloux.github.io/kill-my-idea/) &nbsp;·&nbsp; [Examples](examples/) &nbsp;·&nbsp; [Changelog](CHANGELOG.md) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/RemiPelloux)
+[Live reports](https://remipelloux.github.io/kill-my-idea/) &nbsp;·&nbsp; [Examples](examples/README.md) &nbsp;·&nbsp; [Security](SECURITY.md) &nbsp;·&nbsp; [Changelog](CHANGELOG.md) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/RemiPelloux)
 
 [![MIT license](https://img.shields.io/badge/license-MIT-EFE8DC?labelColor=15120F)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/RemiPelloux/kill-my-idea?style=flat&color=E5383B&labelColor=15120F)](https://github.com/RemiPelloux/kill-my-idea/stargazers)
@@ -64,7 +64,7 @@ validators already exist.
 
 Every run writes `report.html`, a report you open in a browser and can print as an A4 PDF.
 
-<a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/"><img src="assets/report-cover.png" alt="Report cover for Notion templates for French real-estate agents: the answer, a score ring at 55 and a PIVOT badge" width="100%"></a>
+<a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/"><img src="assets/report-cover.png" alt="Report cover for Notion templates for French real-estate agents: the answer, a score ring at 55, a PIVOT badge, and Share card and Save PDF buttons" width="100%"></a>
 
 It opens with the answer, then shows what would change it:
 
