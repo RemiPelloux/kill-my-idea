@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1 — 2026-11-09
+
+The HTML report was reworked after a design critique.
+- Removed generic AI patterns: section numbers, monospace labels, the colored left border, metric tiles, text glyphs used as icons, middle dots and boilerplate copy.
+- Key figures are now a table that says what each number means ("Each paid customer loses money.").
+- Icons are drawn SVG in one stroke weight. Text selection, scrollbar, caret and table numerals are themed.
+- One load animation: the score counts up with the gauge, then the verdict stamp presses down with an ink texture. Bars fill once when they scroll into view. Reduced motion, printing and a timer all show the final state.
+
 ## 0.2.0 — 2026-11-09
 
 - **HTML report** (`report.html` + `report-data.js`): a consultant-grade dossier in an editorial noir design.
