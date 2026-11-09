@@ -20,5 +20,9 @@ Thanks for helping kill more bad ideas.
   claude --plugin-dir .   # then: kill my idea: <something>
   ```
 
-- Changed `skills/kill/report.html`? Run `python3 scripts/update-csp.py` (it re-pins the CSP hash).
+- Changed `skills/kill/report.html`? Run `python3 scripts/update-csp.py` (it re-pins the CSP hash), then
+  copy it over `docs/reports/*/index.html` and `examples/*/report.html` so the live reports match.
+- Changed the scoring (weights, rubric, rules) in `skills/kill/SKILL.md`? Change `scripts/check-idea.py`,
+  `skills/kill/verdict.schema.json` and the scoring note in `report.html` in the same PR: they must agree.
+- Check a run with `python3 scripts/check-idea.py ideas/<folder>` (or `--all`). It must pass with no ERROR.
 - One change per PR, with a [Conventional Commit](https://www.conventionalcommits.org) title (`feat(kill): add pricing-page kill shot`).

@@ -2,11 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/RemiPelloux/kill-my-idea/skills/kill/idea.schema.json",
   "title": "kill-my-idea idea brief",
-  "description": "Structured brief extracted from the user's raw input. Fields not stated in the input are null and listed in unknowns.",
+  "description": "Structured brief extracted from the user's raw input. Fields not stated in the input are null and listed in unknowns. Never invent a value.",
   "type": "object",
   "required": [
     "slug",
     "title",
+    "created",
+    "language",
     "source",
     "problem",
     "customer",
@@ -26,7 +28,8 @@
     },
     "created": {
       "type": "string",
-      "format": "date"
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
     "source": {
       "type": "object",
@@ -56,7 +59,8 @@
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "pattern": "^https?://"
         },
         "author": {
           "type": [
@@ -114,15 +118,30 @@
           "type": "number"
         },
         "currency": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "description": "ISO 4217, e.g. EUR"
         },
         "period": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "enum": [
+            "month",
+            "year",
+            "one-off",
+            "per-use",
+            "per-seat-month",
+            null
+          ],
+          "description": "Billing period. null when revenue_model has no price (ads, affiliate)."
         }
-      }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ]
     },
     "channel": {
       "type": [
@@ -133,9 +152,11 @@
     },
     "countries": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "string",
-        "description": "ISO 3166-1 alpha-2, e.g. FR, US"
+        "pattern": "^[A-Z]{2}$",
+        "description": "ISO 3166-1 alpha-2, e.g. FR, US. Launch country first."
       }
     },
     "claims": {
@@ -143,7 +164,7 @@
       "items": {
         "type": "string"
       },
-      "description": "Claims from the source to fact-check"
+      "description": "Claims from the source to fact-check, one per line, verbatim where possible"
     },
     "context": {
       "type": "object",
@@ -152,13 +173,15 @@
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "Money available, with currency, e.g. 'EUR 500-5,000'"
         },
         "time_per_week": {
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "e.g. '10 h'"
         },
         "goal": {
           "enum": [
@@ -182,18 +205,21 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "description": "What was assumed because the user did not say (budget, country, price...). Each one is also stated in the report."
     },
     "unknowns": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "description": "Names of fields that are null after extraction and the questions, e.g. 'price', 'channel'"
     },
     "language": {
       "type": "string",
-      "description": "The user's language, ISO 639-1 (e.g. en, fr). The HTML report labels follow it.",
-      "default": "en"
+      "pattern": "^[a-z]{2}$",
+      "default": "en",
+      "description": "The user's language, ISO 639-1. The HTML report has labels for en and fr; other languages fall back to en labels with the narrative in the user's language."
     }
   }
 }

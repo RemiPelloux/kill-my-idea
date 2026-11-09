@@ -14,3 +14,5 @@ Real runs of kill-my-idea, mostly on ideas we were about to spend time or money 
 | [kill-my-idea itself](kill-my-idea.md) | `kill` | PIVOT 63 | The plugin rating its own launch |
 
 To open an HTML report locally, download its folder and open `report.html`. It needs `report-data.js` next to it.
+
+These runs predate 0.7.0, so they don't carry the rubric-based sub-scores, source tiers, confidence or `rules_applied`, and `scripts/check-idea.py` reports that. They are kept as they were run.

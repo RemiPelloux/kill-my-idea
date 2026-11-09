@@ -89,7 +89,7 @@ One click on **Share card** downloads a PNG verdict card for social media, and r
 | Command | What it does |
 |---|---|
 | `/kill-my-idea:kill` | The verdict, report and 7-day test. Accepts one line, a pasted tweet, a URL or a long document |
-| `/kill-my-idea:deepdive` | Six research tracks in parallel: market size, competitor teardown, real customer quotes, pricing, channels, regulation per country |
+| `/kill-my-idea:deepdive` | Six research tracks in parallel, 40+ sources: market size, competitor teardown, real customer quotes, pricing, channels, regulation per country |
 | `/kill-my-idea:check-tweet` | Fact-checks a viral "make money" post: every claim, the real math, what the author sells, then a verdict |
 | `/kill-my-idea:roast` | The same verdict as five sourced one-liners, sized for a screenshot ([Juicero](examples/juicero-roast.md)) |
 | `/kill-my-idea:compare` | Ranks every idea you've checked and picks the one to work on this week |
@@ -103,7 +103,8 @@ You can also just write "kill my idea: …", "is this worth building?" or "which
 
 1. **Extract.** It turns your input into a brief: problem, customer, solution, price, channel, countries, claims.
 2. **Ask once.** At most four questions (country, budget and time, goal, your edge), and only the ones that would change the verdict. Say "just go" to skip them.
-3. **Look for kill shots**, searching in the target country's language:
+3. **Look for kill shots**, searching in the target country's language, with at least 20 sources
+   from 10 domains, each tagged primary, secondary or tertiary:
    - a free alternative;
    - direct competitors;
    - people who already failed;
@@ -117,27 +118,36 @@ You can also just write "kill my idea: …", "is this worth building?" or "which
    - market size (TAM / SAM / SOM);
    - competitor prices and demand trend;
    - gross margin, CAC, LTV and LTV:CAC;
-   - payback, break-even and time to first euro.
+   - churn, conversion, payback, break-even and time to first revenue.
 5. **Score.** Seven weighted criteria:
 
    | Criterion | Weight |
    |---|---|
    | Profit | 25 |
    | Feasibility for you | 20 |
-   | Time to first € | 15 |
+   | Time to first revenue | 15 |
    | Demand | 15 |
    | Competition | 10 |
    | Risk | 10 |
    | Fit | 5 |
 
-   GO at 70 and above, PIVOT from 50 to 69, NO-GO below 50. Three fixed rules stop it from rescuing a bad idea:
-   - a free equivalent with no edge sets Competition to 1;
-   - no channel rules out GO;
-   - an LTV:CAC below 1 caps Profit.
+   Each criterion is the mean of three sub-scores (21 in all), each scored 1–5 against a fixed
+   rubric with numeric anchors (a gross margin under 30% is a 1, over 85% a 5). The total is
+   rounded half up, then five fixed rules stop it from rescuing a bad idea:
+   - a free equivalent with no edge caps Competitive room at 1.5;
+   - no channel caps the total at 69, so no GO;
+   - a saturated wave of look-alike launches caps Competitive room and differentiation at 1.5;
+   - an LTV:CAC below 1 caps Profit at 2;
+   - every kill shot that hit must show in the sub-scores.
+
+   GO at 70 and above, PIVOT from 50 to 69, NO-GO below 50. Every verdict carries a
+   confidence level (high, medium or low) computed from how many sub-scores and sources back it.
 6. **Rescue.** Up to three changes that would fix the kill shots, each re-scored and rated doable, hard or very hard.
 7. **Test.** The cheapest way to get real proof in seven days, with numbers that tell you to stop.
 
 The whole method is one readable file, [`skills/kill/SKILL.md`](skills/kill/SKILL.md). Fork it and change the weights.
+After each run, `scripts/check-idea.py` recomputes the score, applies the rules and checks every source, so the
+verdict you read is the one the sub-scores give.
 
 </details>
 
@@ -153,7 +163,7 @@ Everything goes into `ideas/<YYYY-MM>-<slug>/` in your current folder.
 | `report.html` + `report-data.js` | The designed report. Works offline and prints to PDF |
 | `report.md` | The same report as plain text |
 | `idea.json` | The extracted brief ([schema](skills/kill/idea.schema.json)) |
-| `verdict.json` | Score, criteria, metrics with their sources, countries, rescue paths ([schema](skills/kill/verdict.schema.json)) |
+| `verdict.json` | Score, 21 sub-scores, rules applied, confidence, metrics with their sources, countries, rescue paths ([schema](skills/kill/verdict.schema.json)) |
 
 </details>
 
@@ -163,8 +173,8 @@ Everything goes into `ideas/<YYYY-MM>-<slug>/` in your current folder.
 <br>
 
 **Isn't this just a prompt?**
-It's a method with fixed rules, required sources, a schema for every output, and tests run on real
-ideas. You can read all of it. The comparison above shows the difference in practice.
+It's a method with a scoring rubric, fixed rules, source minimums, a schema for every output, a
+checker that recomputes the score, and tests run on real ideas. You can read all of it. The comparison above shows the difference in practice.
 
 **Does it cost anything?**
 No. It's MIT-licensed and runs on your own Claude Code plan. It never publishes anything, spends

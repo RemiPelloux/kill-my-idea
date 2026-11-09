@@ -19,12 +19,16 @@
     "narrative": {
       "type": "object",
       "required": [
-        "answer"
+        "answer",
+        "key_findings",
+        "recommendation",
+        "sources"
       ],
       "properties": {
         "answer": {
           "type": "string",
-          "description": "Answer first: the verdict and why, in 2\u20133 sentences"
+          "maxLength": 320,
+          "description": "Answer first: the verdict and why, at most 45 words, with the 1-2 decisive words in **bold**"
         },
         "tldr": {
           "type": "array",
@@ -38,11 +42,12 @@
         },
         "rescue": {
           "type": "array",
-          "description": "How a NO-GO / PIVOT could become better. Most promising first.",
+          "description": "Same objects as verdict.rescue (copy them). Sorted by score_after descending, then doable before hard before very-hard.",
           "items": {
             "type": "object",
             "required": [
               "change",
+              "why",
               "score_after",
               "difficulty"
             ],
@@ -79,7 +84,8 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "maxItems": 3
         },
         "fact_checks": {
           "type": "array",
@@ -99,7 +105,8 @@
                   "partly",
                   "false",
                   "unverified"
-                ]
+                ],
+                "description": "true = holds, partly = holds with a smaller number or a condition, false = contradicted by a source, unverified = no public evidence either way"
               },
               "evidence": {
                 "type": "string"
@@ -115,20 +122,40 @@
         },
         "kill_shots": {
           "type": "object",
-          "description": "Evidence per kill shot, keyed like verdict.kill_shots",
+          "description": "Evidence per kill shot, keyed like verdict.kill_shots. Write one entry for every kill shot that was checked, hit or clear, so the reader sees what was looked at.",
           "additionalProperties": {
             "type": "object",
             "properties": {
               "evidence": {
-                "type": "string"
+                "type": "string",
+                "maxLength": 400,
+                "description": "One sentence with the number, the name and the date. For a clear kill shot, what was searched and not found."
               },
               "source": {
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "pattern": "^https?://"
+              },
+              "count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "description": "saturated_wave: number of look-alike launches found in the window; strong_competitor and free_alternative: number found"
+              },
+              "window": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "saturated_wave: the search window, e.g. '2025-11 to 2026-11'"
               }
-            }
+            },
+            "required": [
+              "evidence"
+            ]
           }
         },
         "customer": {
@@ -180,7 +207,8 @@
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "pattern": "^https?://"
               },
               "price_low": {
                 "type": [
@@ -207,7 +235,7 @@
                 ],
                 "minimum": 1,
                 "maximum": 5,
-                "description": "1 = none visible, 5 = market leader (estimate)"
+                "description": "1 = no visible users, 2 = a few reviews or a small community, 3 = thousands of users or 100+ reviews, 4 = well funded or 100k+ users, 5 = market leader. Estimate from visible signals; say which in traction_note."
               },
               "traction_note": {
                 "type": [
@@ -228,10 +256,41 @@
                 "type": [
                   "string",
                   "null"
+                ],
+                "pattern": "^[A-Z]{2}$"
+              },
+              "price_source": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^https?://",
+                "description": "The pricing page the price was read from"
+              },
+              "price_period": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "month",
+                  "year",
+                  "one-off",
+                  "per-use",
+                  "per-seat-month",
+                  null
                 ]
+              },
+              "price_as_of": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "YYYY-MM when the price was read"
               }
             }
-          }
+          },
+          "description": "At least 5 for kill, 10 for deepdive, including every free alternative found. Prices come from the competitor's pricing page, dated."
         },
         "customer_voice": {
           "type": "array",
@@ -247,13 +306,22 @@
                 "description": "Verbatim"
               },
               "source": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^https?://"
               },
               "pain": {
                 "type": "string"
+              },
+              "date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "When it was posted, YYYY-MM"
               }
             }
-          }
+          },
+          "description": "Verbatim quotes from reviews and forums, each with its link. 15 or more for deepdive. Group by pain."
         },
         "scenarios": {
           "type": "array",
@@ -261,7 +329,8 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "Pessimistic, Base, Optimistic"
               },
               "customers_month": {
                 "type": [
@@ -285,7 +354,10 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Three monthly scenarios (pessimistic, base, optimistic) with customers, revenue and costs. The base scenario uses the metrics table's inputs."
         },
         "currency": {
           "type": "string",
@@ -320,6 +392,13 @@
               },
               "mitigation": {
                 "type": "string"
+              },
+              "source": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^https?://"
               }
             }
           }
@@ -334,13 +413,17 @@
             ],
             "properties": {
               "when": {
-                "type": "string"
+                "type": "string",
+                "maxLength": 20,
+                "description": "e.g. 'Day 1', 'Day 3-4'"
               },
               "step": {
                 "type": "string"
               },
               "verify": {
-                "type": "string"
+                "type": "string",
+                "maxLength": 200,
+                "description": "The signal that proves the step worked, with a number"
               }
             }
           }
@@ -350,33 +433,59 @@
           "items": {
             "type": "object",
             "required": [
-              "url"
+              "url",
+              "title",
+              "accessed",
+              "tier"
             ],
             "properties": {
               "url": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^https?://"
               },
               "title": {
-                "type": "string"
+                "type": "string",
+                "maxLength": 140,
+                "description": "Publisher and title, e.g. 'INSEE, Household equipment 2025'"
               },
               "supports": {
-                "type": "string"
+                "type": "string",
+                "maxLength": 200,
+                "description": "Which number or claim this source backs"
               },
               "accessed": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "published": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Publication date when known (YYYY or YYYY-MM). Prices and competitor data older than 24 months are marked dated."
+              },
+              "tier": {
+                "enum": [
+                  "primary",
+                  "secondary",
+                  "tertiary"
+                ],
+                "description": "primary: official statistics, laws, filings, pricing pages, platform data, first-party reports. secondary: industry reports, reputable press, academic papers. tertiary: blogs, listicles, forum and social posts (demand signals and customer voice only)."
               }
             }
-          }
+          },
+          "description": "Every source cited in the report, deduplicated by URL. Minimum 20 for kill, 40 for deepdive, 10 for roast. Each has a tier."
         },
         "key_findings": {
           "type": "array",
           "maxItems": 3,
-          "description": "The 3 findings that decide the verdict, most important first",
+          "description": "Exactly 3 findings that decide the verdict, most decisive first. Each has a source.",
           "items": {
             "type": "object",
             "required": [
               "title",
-              "detail"
+              "detail",
+              "source"
             ],
             "properties": {
               "title": {
@@ -391,15 +500,28 @@
                 "type": [
                   "string",
                   "null"
-                ]
+                ],
+                "pattern": "^https?://",
+                "description": "null only when the finding is an estimate; then detail says so"
               }
             }
-          }
+          },
+          "minItems": 3
         },
         "recommendation": {
           "type": "string",
           "maxLength": 260,
-          "description": "One action, stated as a decision"
+          "description": "One action, stated as a decision, e.g. 'Do not build the app. Test a done-for-you service at EUR 149 for 7 days.'"
+        },
+        "steelman": {
+          "type": "string",
+          "maxLength": 400,
+          "description": "The strongest case FOR the idea in 1-2 sentences, and what the evidence says about it. Guards against killing by reflex."
+        },
+        "language": {
+          "type": "string",
+          "pattern": "^[a-z]{2}$",
+          "description": "Same as idea.language"
         }
       }
     }

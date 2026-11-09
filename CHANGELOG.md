@@ -1,5 +1,53 @@
 # Changelog
 
+## 0.7.0 — 2026-11-10
+
+A consistency audit of the whole plugin: every rule now lives in one place, is machine-checked, and
+agrees across the skills, the schemas, the report and the docs.
+
+**Scoring**
+- **One formula, no double rounding.** The total is computed from the unrounded means of the 21
+  sub-scores and rounded half up; `score_raw` is stored. The old rule (sum of criteria already
+  rounded to 0.5, with no tie rule) gave a different total in 4 of 8 real runs.
+- **A rubric for every sub-score.** Each of the 21 sub-criteria has numeric anchors for 1, 3 and 5
+  (gross margin under 30% is a 1, over 85% a 5; LTV:CAC under 1 is a 1, over 5 a 5…).
+- **Five fixed rules (R1–R5), recorded.** The rules are a table in the skill, stored in
+  `verdict.rules_applied` with their effect, shown as chips in the report, and stated the same way
+  in the README. New: R5 coherence, which makes every kill shot hit show in the sub-scores.
+- **Steelman.** The strongest case for the idea is written and checked before the verdict, so the
+  skill does not kill by reflex.
+- **Confidence.** `verdict.confidence` (high / medium / low) is computed from sourced sub-scores,
+  source count and primary sources. The card, the report and `compare` show it.
+- `primary_kill_shot`, `history` (deepdive keeps the quick verdict), `launch_reason`, and
+  `null` kill shots for "not checked" (previously stored as clear).
+
+**Sources**
+- Minimums: 20 sources from 10 domains for `kill`, 40 / 15 for `deepdive`, 10 / 6 for `roast`.
+- Tiers (primary / secondary / tertiary) on every source, triangulation for TAM, price and CAC,
+  2 local sources per country, freshness marks for prices older than 24 months.
+- Metrics store their inputs (variable cost, churn, lifetime, conversion, fixed costs) so LTV,
+  CAC and break-even can be recomputed; competitor prices carry their pricing-page URL and date.
+
+**Checker**
+- New `scripts/check-idea.py` (no dependencies): recomputes the score, applies R1–R5, checks
+  sources, counts, kill-shot coherence, rescue ordering, kill criteria and the shape of
+  `report-data.js`. Every skill runs it before answering.
+
+**Report**
+- Rule chips and raw total in Scoring, a warning when the sub-scores disagree with the score,
+  confidence badge, score history, distance to the next band, "Not checked" kill shots, the
+  primary kill shot, source tiers and domain count, pricing-page footnotes, 46 country names,
+  French strings for all of it.
+
+**Consistency**
+- `roast` writes `idea.json` and `verdict.json`, so `compare` can rank roasted ideas.
+- `check-tweet` has its own `mode`; fact-check statuses use the schema's words.
+- `report-template.md` follows the report's order and has rescue, test, customer-voice and
+  country sections.
+- Schemas: `verdict.schema.json` is 40% shorter with `$defs`, rejects unknown sub-scores, and
+  requires `rules_applied`, `confidence` and `mode`; `by_country` only accepts ISO codes.
+- Labels: "time to first revenue" everywhere.
+
 ## 0.6.1 — 2026-11-09
 
 - `roast` now points to the right sections of the kill skill. It runs sections 0–5, so the safety rules and the scoring are no longer skipped, and it takes the verdict card from section 6 instead of section 5.

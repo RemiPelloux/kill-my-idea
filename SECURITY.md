@@ -14,10 +14,11 @@ kill-my-idea reads web pages by design, so **everything in a report is treated a
 | `report.html` | Every data string is escaped. Links are limited to `http(s)`. Tooltips are plain text (`textContent`). Numbers and enums are checked when the data loads. Strings and lists are capped. |
 | Content-Security-Policy | Only the pinned inline script (sha256) and `report-data.js` can run. No network calls except fonts, no forms, no `<base>`. |
 | Errors | Malformed data shows an error card, never a blank page. |
+| `scripts/check-idea.py` | Refuses a `report-data.js` that is not a single `window.KMI_DATA = {...};` literal in strict JSON, or that contains a `<script` tag, and rejects any non-`http(s)` URL. |
 
 ### Known limitation
 
-`report-data.js` is written by the model as JavaScript (`window.KMI_DATA = {...};`), because browsers can't load a JSON file from `file://`. If a model were manipulated into writing code instead of a data literal, that code would run in the report page. The skill's self-check requires a single data statement. Before opening a report built from sources you don't trust, check that `report-data.js` starts with `window.KMI_DATA = {` and contains nothing else.
+`report-data.js` is written by the model as JavaScript (`window.KMI_DATA = {...};`), because browsers can't load a JSON file from `file://`. If a model were manipulated into writing code instead of a data literal, that code would run in the report page. The skill's self-check requires a single data statement, and `scripts/check-idea.py` verifies it (the object must parse as strict JSON). Before opening a report built from sources you don't trust, check that `report-data.js` starts with `window.KMI_DATA = {` and contains nothing else.
 
 ## Maintainers
 
