@@ -27,6 +27,12 @@
 
 **Recommendation:** <one action, stated as a decision>
 
+**Premortem:** 12 months later, the idea failed. Most likely causes first.
+
+| # | Cause | Linked to (kill shot / sub-score) | Likelihood | Early signal (first 30 days) |
+|---|-------|-----------------------------------|------------|------------------------------|
+| 1 | <at most 160 characters> | <e.g. no_distribution, ltv_cac> | L / M / H | <what you'd see, with a number> |
+
 ## 1. Could it be saved?
 
 <GO: "How to make it stronger", 1–2 changes. PIVOT / NO-GO: 1–3 rescue paths, best first. None: "No rescue path above 50, archive it.">
@@ -85,6 +91,24 @@
 | TAM | | sourced / estimate / unknown | |
 | SAM | | | |
 | SOM (year 1) | | | |
+
+### Why now: <now / early / late / unclear>
+
+| What changed | When | Source |
+|--------------|------|--------|
+| <tech, regulation, platform, price or behaviour change> | <YYYY-MM> | |
+
+<One sentence on the verdict. "unclear" when no sourced change was found.>
+
+### Ideal customer profile (ICP)
+
+| | |
+|---|---|
+| **Who** | <a precise segment> |
+| **Where to reach them** | <up to 5 communities, platforms or events> |
+| **Pays for today** | <what they already pay to solve it, with the price> |
+| **Budget** | <amount, currency and period, or unknown> |
+| **Trigger** | <the moment they start looking for a solution> |
 
 ### Ways to use it
 

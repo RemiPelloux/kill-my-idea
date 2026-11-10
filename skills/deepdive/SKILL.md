@@ -28,8 +28,8 @@ rubric and fixed rules §5) with higher minimums.
    | Competitor teardown | Top 10 (global + local): offer, price tiers from the pricing page (dated), traction (traffic, reviews, funding, headcount), positioning, weakest point |
    | Customer voice | 15 or more verbatim quotes or complaints from reviews (G2, Trustpilot, app stores, Amazon), Reddit or forums, grouped by pain and ranked by frequency. Exact words only, each with a link and a date |
    | Pricing | The price ladder in the market, willingness to pay, the most common model, and the price elasticity signals (discounts, churn complaints about price) |
-   | Channels | 3 acquisition channels with a cost estimate (CPC, CPM, creator rates, from sourced benchmarks) and real examples of companies using them |
-   | Regulation & platform | Per-country laws, licences, taxes (VAT, OSS), terms-of-service risks, dependency on one platform, with links to the legal text or the platform page |
+   | Channels | 3 acquisition channels with a cost estimate (CPC, CPM, creator rates, from sourced benchmarks) and real examples of companies using them. Where the ICP gathers (communities, platforms, events) |
+   | Regulation & platform | Per-country laws, licences, taxes (VAT, OSS), terms-of-service risks, dependency on one platform, with links to the legal text or the platform page. Recent changes (tech, law, platform, price) for why now |
 
 3. **Update the numbers.**
    - Recompute the metrics table (kill skill §4), one `by_country` set per country, and
@@ -37,16 +37,18 @@ rubric and fixed rules §5) with higher minimums.
    - Re-score all 21 sub-scores with the rubric, the formula and the fixed rules.
    - Recompute `confidence`. A deep dive should reach `high`; if it doesn't, say why.
    - The verdict may change. Say what moved it, which sub-scores, and by how many points.
+   - Rewrite the premortem, why now and ICP (kill skill §3 and §5) from the new evidence.
+     Every premortem cause links to a kill shot or sub-score of the updated verdict.
 4. **Write `deepdive.md`** next to `report.md`, with these sections:
    1. Updated card.
    2. What changed since the quick verdict (score before → after, the sub-scores that moved).
-   3. Market.
+   3. Market, why now and ICP.
    4. Competitor teardown table.
    5. Customer voice: pains ranked by frequency, with quotes.
    6. Pricing ladder.
    7. Channels with costs.
    8. Country comparison and the launch country.
-   9. Risks.
+   9. Risks and premortem.
    10. Updated rescue paths, 7-day test and kill criteria.
    11. Sources: **at least 40 from 15 domains**, each with its tier and access date.
 5. **Update `verdict.json` and the HTML report.**
@@ -54,7 +56,8 @@ rubric and fixed rules §5) with higher minimums.
      `"deepdive"` and `evaluated` to today, and refresh the metrics, sub-scores, score,
      rules, confidence, rescue paths and sources.
    - Rewrite `report-data.js` (kill skill §6). Add `customer_voice`, the full competitor list
-     with `price_low`, `price_source` and `traction`, and the `by_country` breakdown.
+     with `price_low`, `price_source` and `traction`, the `by_country` breakdown, and the
+     updated `premortem`, `why_now` and `icp`.
    - Copy `report.html` from `${CLAUDE_PLUGIN_ROOT}/skills/kill/` if it isn't there yet.
      The HTML then shows the deep-dive version, with the score history.
 6. **Self-check** with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>`

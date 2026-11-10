@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.8.0 — 2026-11-10
+
+Smarter verdicts, a board for all your ideas, and a harder report.
+
+**Smarter**
+- **Pre-mortem.** Before the verdict, the skill writes the three most likely causes of death, each
+  linked to a kill shot or sub-score, with a likelihood and the early signal to watch. Shown in the report.
+- **Why now?** The changes (technology, regulation, prices, behaviour) that make the timing right,
+  early or late, each dated and sourced, with a verdict: now, early, late or unclear.
+- **Ideal customer.** Who exactly, where they hang out, what they pay for today, their budget and
+  the event that makes them buy.
+
+**More useful**
+- **What if?** card in Unit economics: sliders for price, CAC, gross margin, lifetime and
+  conversion recompute LTV, LTV:CAC, payback, break-even and the projected Profit sub-score with the
+  checker's formulas. The verdict itself is never recalculated.
+- **Idea board.** `compare` now writes `ideas/board.html`: verdict counts, filters, sorting, and a card
+  per idea with its score, confidence, primary kill shot and best rescue path.
+- **`compare --refresh`** marks verdicts older than 90 days as stale and re-checks them (asked for on Reddit).
+- **Standalone export.** `scripts/export-standalone.py` bundles a report into one HTML file that opens
+  offline from anywhere, data embedded as inert JSON.
+
+**Harder**
+- The report reads data from an inert `application/json` block first; invalid data shows an error card.
+- The skill must write `report-data.js` as a strict data literal, and must not run code or install packages
+  during research. The checker enforces the literal.
+- `scripts/scan-report.py` fails if a template gains an unreviewed HTML sink.
+- `scripts/update-csp.py --check` covers both templates.
+- CI (GitHub Actions) runs the CSP check, the sink scan, the checker and schema validation on every push.
+- `.gitignore` covers editor, OS, Python, Node, env and tool folders. `.serena/` is no longer tracked.
+- New report labels are translated into French.
+
 ## 0.7.0 — 2026-11-10
 
 A consistency audit of the whole plugin: every rule now lives in one place, is machine-checked, and

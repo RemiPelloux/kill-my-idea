@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-NfvQ6lcbpG1+o7mGAZvCPNgAvJhHnkF01yLnpTjAAFc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-nHQUd1uvjod1POu41DyTNmHiU+nu0xEd9mPLAD7m0Js='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -183,6 +183,49 @@ td.r,th.r{text-align:right}
 .stop h3{color:var(--nogo);display:flex;gap:8px;align-items:center;margin-bottom:6px}
 .stop ul{margin:0;padding-left:20px}
 
+/* pre-mortem, why now, ideal customer */
+.pm{display:flex;flex-direction:column;gap:12px;align-self:stretch}
+.pm-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pm-c{font-weight:600;font-size:17px;line-height:1.4}
+.pm-s{display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--muted-fg)} .pm-s .ic{margin-top:3px;color:var(--pivot)} .pm-s strong{color:var(--fg);font-weight:600}
+.chip{display:inline-flex;align-items:center;gap:6px;font:500 12px var(--sans);color:var(--primary);border:1px solid var(--border);border-radius:999px;padding:3px 10px;max-width:100%}
+.wn-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap} .wn-h h3,.wi-head h3{margin:0;display:flex;align-items:center;gap:8px} .wn-h h3 .ic,.wi-head h3 .ic{color:var(--primary)}
+.wn-n{margin:0 0 16px;color:var(--muted-fg);font-size:15px}
+.tl.wn li{padding-bottom:14px}
+.icp{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:12px 16px;margin:0;font-size:15px}
+.icp dt{display:flex;gap:8px;align-items:flex-start;color:var(--muted-fg);font-weight:500;font-size:14px} .icp dt .ic{margin-top:4px;color:var(--primary)}
+.icp dd{margin:0;min-width:0} .chips{display:flex;flex-wrap:wrap;gap:6px}
+/* what-if sliders */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wi-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px} .wi-head .note{margin-top:4px}
+.wi-reset{min-height:44px;flex:none}
+.wi{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s4);margin-top:var(--s3)}
+.wi-ctl{display:grid;gap:10px}
+.wi-l{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:500;font-size:15px}
+.wi-v{font:600 16px var(--mono);color:var(--fg);white-space:nowrap} .wi-v.chg{color:var(--primary)} .wi-v.chg::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--secondary);margin-right:6px;vertical-align:3px}
+.wi-tr{position:relative}
+.wi-r{-webkit-appearance:none;appearance:none;display:block;width:100%;height:44px;margin:0;background:transparent;cursor:pointer;--p:.5}
+.wi-r::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:linear-gradient(90deg,var(--primary) calc(11px + (100% - 22px) * var(--p)),var(--muted) 0)}
+.wi-r::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:var(--card);border:3px solid var(--primary);box-shadow:0 1px 3px rgba(15,23,42,.25);transition:transform .15s}
+.wi-r::-moz-range-track{height:6px;border-radius:99px;background:var(--muted)} .wi-r::-moz-range-progress{height:6px;border-radius:99px;background:var(--primary)}
+.wi-r::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--card);border:3px solid var(--primary);box-shadow:0 1px 3px rgba(15,23,42,.25)}
+.wi-r:active::-webkit-slider-thumb{transform:scale(1.15)}
+.wi-r:focus-visible{outline:none} .wi-r:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 5px color-mix(in srgb,var(--secondary) 35%,transparent)} .wi-r:focus-visible::-moz-range-thumb{box-shadow:0 0 0 5px color-mix(in srgb,var(--secondary) 35%,transparent)}
+.wi-0{position:absolute;bottom:6px;left:calc(11px + (100% - 22px) * var(--b) - 1px);width:2px;height:7px;border-radius:1px;background:var(--muted-fg);opacity:.6;pointer-events:none}
+.wi-h{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted-fg);margin-top:-4px} .wi-h span:last-child{font-family:var(--mono);white-space:nowrap}
+.wi-out{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:start}
+.wi-t{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0} .wi-t.wide{grid-column:1/-1}
+.wi-k{font-size:13px;color:var(--muted-fg);font-weight:500}
+.wi-n{font:600 26px/1.2 var(--mono);margin:6px 0 4px;letter-spacing:-.02em;overflow-wrap:anywhere}
+.wi-m{font-size:13px;color:var(--muted-fg)} .wi-m.bad{color:var(--nogo)} .wi-m.ok{color:var(--pivot)} .wi-m.good{color:var(--go)}
+.wi-scale{position:relative;display:flex;height:8px;margin:10px 0 8px} .wi-scale span{flex:1;background:var(--nogo-bg);border-radius:99px 0 0 99px} .wi-scale span:nth-child(2){flex:2;background:var(--pivot-bg);border-radius:0} .wi-scale span:nth-child(3){flex:3;background:var(--go-bg);border-radius:0 99px 99px 0}
+.wi-scale i{position:absolute;top:-5px;width:4px;height:18px;border-radius:2px;background:var(--fg);transition:left .2s ease-out}
+.wi-ax{position:relative;height:14px;margin:-2px 0 6px;font:400 11px var(--mono);color:var(--muted-fg)} .wi-ax b{position:absolute;top:0;font-weight:400;transform:translateX(-50%)} .wi-ax b:first-child{transform:none} .wi-ax b:last-child{transform:translateX(-100%)}
+.wi-dots{display:flex;gap:4px;margin:10px 0 8px;max-width:260px} .wi-dots i{flex:1;height:8px;border-radius:99px;background:var(--muted);transition:background .2s}
+.wi-dots.s1 i.on{background:var(--nogo-fill)} .wi-dots.s2 i.on,.wi-dots.s3 i.on{background:var(--pivot-fill)} .wi-dots.s4 i.on,.wi-dots.s5 i.on{background:var(--go-fill)}
+@media (max-width:1024px){.wi{grid-template-columns:1fr}}
+@media (max-width:480px){.icp{grid-template-columns:1fr;gap:4px} .icp dd{margin-bottom:10px} .wi-n{font-size:20px} .wi-t{padding:12px} .wi-head{flex-direction:column} .btn.wi-reset span{display:inline}}
+
 ol.src{margin:0;padding-left:26px;font-size:14px;columns:2;column-gap:var(--s4)}
 ol.src li{padding:4px 0;break-inside:avoid;color:var(--muted-fg)} ol.src li::marker{font:600 12px var(--mono);color:var(--primary)}
 ol.src li:target{background:var(--pivot-bg);border-radius:6px}
@@ -218,8 +261,13 @@ footer{max-width:1200px;margin:0 auto;padding:0 var(--s3) var(--s5);color:var(--
 <script>
 (() => {
 "use strict";
-const D = window.KMI_DATA, app = document.getElementById("app");
+const main = () => {
+const app = document.getElementById("app");
 const fail = (title, detail) => { app.innerHTML = '<div class="err card"><h2></h2><p></p></div>'; app.querySelector("h2").textContent = title; app.querySelector("p").textContent = detail; };
+/* data: the embedded JSON block #kmi-data (standalone export, inert JSON, never executed) wins over report-data.js */
+let D = window.KMI_DATA;
+const jd = document.getElementById("kmi-data");
+if (jd) { try { D = JSON.parse(jd.textContent); } catch (e) { fail("Report data could not be read", "The embedded report data is not valid JSON (" + (e && e.message || e) + "). Export the report again."); return; } }
 if (!D || typeof D !== "object") { fail("Report data not found", "Keep report.html and report-data.js in the same folder, or run /kill-my-idea:kill again."); return; }
 if (!D.verdict || typeof D.verdict !== "object" || !D.idea || typeof D.idea !== "object") { fail("Report data is incomplete", "report-data.js must contain idea and verdict objects (see report-data.schema.json). Run /kill-my-idea:kill again."); return; }
 try {
@@ -235,6 +283,13 @@ const LMH = v => ["L", "M", "H"].includes(v) ? v : "M";
 (N.scenarios || []).forEach(sc => { ["customers_month", "revenue_month", "costs_month"].forEach(k => { sc[k] = num(sc[k]); }); });
 (N.risks || []).forEach(r => { r.likelihood = LMH(r.likelihood); r.impact = LMH(r.impact); });
 if (I.price) I.price.amount = num(I.price.amount);
+const obj = x => x && typeof x === "object" && !Array.isArray(x) ? x : null;
+N.premortem = Array.isArray(N.premortem) ? N.premortem.filter(p => obj(p) && p.cause).slice(0, 3) : [];
+N.premortem.forEach(p => { p.likelihood = LMH(p.likelihood); });
+const WN = obj(N.why_now);
+if (WN) { if (!["now", "early", "late", "unclear"].includes(WN.verdict)) WN.verdict = "unclear"; WN.changes = Array.isArray(WN.changes) ? WN.changes.filter(c => obj(c) && c.what).slice(0, 6) : []; }
+const ICP = obj(N.icp);
+if (ICP) ICP.where = Array.isArray(ICP.where) ? ICP.where.filter(w => typeof w === "string" && w.trim()).slice(0, 8) : typeof ICP.where === "string" && ICP.where.trim() ? [ICP.where] : [];
 /* language: UI labels follow the idea's language (en, fr) */
 const LANG = String(I.language || N.language || "en").slice(0, 2).toLowerCase() === "fr" ? "fr" : "en";
 const FR = {
@@ -263,7 +318,17 @@ const FR = {
   "Not checked": "Non vérifié", "Not checked in this run.": "Non vérifié lors de cette analyse.", "Primary": "Principal", "The case for it": "Ce qui plaide pour", "Time to first revenue": "Délai avant le 1er revenu",
   "primary": "primaire", "secondary": "secondaire", "tertiary": "tertiaire", "Variable cost per unit": "Coût variable unitaire", "Monthly churn": "Attrition mensuelle", "Customer lifetime": "Durée de vie client", "Conversion rate": "Taux de conversion", "Fixed costs / month": "Coûts fixes / mois",
   "Time to first revenue (weeks)": "Délai avant le 1er revenu (semaines)", "Payback (months)": "Retour sur CAC (mois)", "Break-even (customers/month)": "Point mort (clients/mois)", "Competitor prices": "Prix des concurrents", "SOM (year 1)": "SOM (année 1)",
-  "R1 · free equivalent, no edge": "R1 · équivalent gratuit, pas d'avantage", "R2 · no channel: capped at 69": "R2 · pas de canal : plafonné à 69", "R3 · saturated wave": "R3 · vague saturée", "R4 · LTV : CAC below 1": "R4 · LTV : CAC sous 1", "R5 · kill-shot coherence": "R5 · cohérence des points de rupture" };
+  "R1 · free equivalent, no edge": "R1 · équivalent gratuit, pas d'avantage", "R2 · no channel: capped at 69": "R2 · pas de canal : plafonné à 69", "R3 · saturated wave": "R3 · vague saturée", "R4 · LTV : CAC below 1": "R4 · LTV : CAC sous 1", "R5 · kill-shot coherence": "R5 · cohérence des points de rupture",
+  "Pre-mortem": "Pré-mortem", "It's 12 months later and it failed. The most likely reasons.": "Douze mois plus tard, l'idée a échoué. Voici les raisons les plus probables.",
+  "High likelihood": "Probabilité élevée", "Medium likelihood": "Probabilité moyenne", "Low likelihood": "Probabilité faible", "Early signal:": "Signal précurseur :", "linked to": "lié à",
+  "Why now?": "Pourquoi maintenant ?", "Good timing": "Bon timing", "Too early": "Trop tôt", "Window closing": "Fenêtre qui se referme", "Unclear": "Incertain",
+  "Ideal customer": "Client idéal", "Who": "Qui", "Where they hang out": "Où les trouver", "What they pay for today": "Ce qu'ils paient aujourd'hui", "Budget": "Budget", "Buying trigger": "Déclencheur d'achat",
+  "What if?": "Et si ?", "Reset": "Réinitialiser", "Reset to the report's values": "Revenir aux valeurs du rapport", "Payback": "Retour sur CAC", "Projected sub-score": "Sous-note projetée", "LTV : CAC sub-score": "Sous-note LTV : CAC",
+  "Estimates for exploring; the verdict above is not recalculated.": "Estimations pour explorer ; le verdict ci-dessus n'est pas recalculé.", "Move a slider to test an assumption.": "Déplacez un curseur pour tester une hypothèse.",
+  "months": "mois", "purchases": "achats", "month": "mois", "purchase": "achat", "never": "jamais", "/ month": "/ mois", "/ year": "/ an", "Report": "Rapport", "From churn": "Déduit de l'attrition", "Assumed": "Hypothèse", "Effective CAC": "CAC effectif",
+  "Customer lifetime (purchases)": "Durée de vie client (achats)", "Customer lifetime (months)": "Durée de vie client (mois)", "Lifetime gross profit per customer": "Marge brute par client sur sa durée de vie",
+  "Longer than the customer lifetime": "Plus long que la durée de vie client", "Months to earn back the CAC": "Mois pour rembourser le CAC", "Purchases to earn back the CAC": "Achats pour rembourser le CAC",
+  "Paying customers needed per month": "Clients payants nécessaires par mois", "Scaled by the conversion rate": "Ajusté selon le taux de conversion", "Free to acquire": "Acquisition gratuite", "In the report": "Dans le rapport" };
 const FR_RX = [[/^As pitched it scores (\d+)\. Each option fixes at least one kill shot\. New scores are estimates\.$/, "Telle que présentée, l'idée obtient $1. Chaque option corrige au moins un point de rupture. Les nouvelles notes sont des estimations."],
   [/^(\d+) of (\d+) kill shots landed\.$/, "$1 points de rupture sur $2 ont touché."], [/^(\d+) competitors and alternatives found\.$/, "$1 concurrents et alternatives trouvés."],
   [/^(\d+) sources\. Every sourced number links here\.$/, "$1 sources. Chaque chiffre sourcé renvoie ici."], [/^(\d+)\/100 across seven weighted criteria and 21 sub-scores\.$/, "$1/100 sur sept critères pondérés et 21 sous-notes."],
@@ -275,7 +340,7 @@ const FR_RX = [[/^As pitched it scores (\d+)\. Each option fixes at least one ki
   [/^What a customer is worth, what one costs, and how many you need\.$/, "Ce que vaut un client, ce qu'il coûte, et combien il en faut."]];
 const T = k => (LANG === "fr" && FR[k]) || k;
 const translateUI = root => { if (LANG !== "fr") return; const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
-  for (const n of nodes) { if (n.parentElement && n.parentElement.closest(".answer,.kf p,.rx .ch,.rx .why,.e,.snote,.quote,ol.src,.tl,.stop ul,td")) continue;
+  for (const n of nodes) { if (n.parentElement && n.parentElement.closest(".answer,.kf p,.rx .ch,.rx .why,.e,.snote,.quote,ol.src,.tl,.stop ul,td,.pm-c,.pm-d,.icp-v,.wn-n,.chip,.chips")) continue;
     const raw = n.textContent, t = raw.trim(); if (!t) continue; let out = FR[t];
     if (!out) for (const [rx, rep] of FR_RX) if (rx.test(t)) { out = t.replace(rx, rep); break; }
     if (out) n.textContent = raw.replace(t, out); }
@@ -454,9 +519,17 @@ const funnel = () => { const rows = [["TAM", "Total market", M.tam], ["SAM", "Ma
     return `<div style="display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)"><span class="num" style="font-weight:600">${k}</span>
       <div><svg viewBox="0 0 100 10" preserveAspectRatio="none" style="height:12px"><rect class="bar" width="${w}" height="10" rx="5" fill="var(--primary)" opacity="${1 - i * .25}"/></svg><div style="font-size:13px;color:var(--muted-fg);margin-top:4px">${d}</div></div><div style="text-align:right">${metric(m)}</div></div>`; }).join("")}
     <figcaption>Bar widths use a square-root scale so the year-1 share stays visible.</figcaption></figure>`; };
+/* why now + ideal customer (narrative.why_now, narrative.icp) */
+const WNB = { now: ["GO", "check", "Good timing"], early: ["PIVOT", "clock", "Too early"], late: ["NO-GO", "alert", "Window closing"], unclear: ["neutral", "info", "Unclear"] };
+const whyNow = WN && (WN.changes.length || WN.note || WN.verdict !== "unclear") ? (() => { const [b, i, l] = WNB[WN.verdict];
+  return card(`<div class="wn-h"><h3>${ic("clock")} Why now?</h3><span class="badge b-${b}">${ic(i, 14)}${l}</span></div>${WN.note ? `<p class="wn-n">${rt(WN.note)}</p>` : ""}
+    ${WN.changes.length ? `<ol class="tl wn">${WN.changes.map(c => `<li><span class="w">${esc(c.when || "")}</span><span class="node"></span><div>${rt(c.what)}${fn(c.source)}</div></li>`).join("")}</ol>` : ""}`); })() : "";
+const icpRows = ICP ? [["users", "Who", ICP.who], ["flag", "Where they hang out", ICP.where.length ? ICP.where : null], ["clock", "What they pay for today", ICP.pays_for_today], ["scale", "Budget", ICP.budget], ["target", "Buying trigger", ICP.trigger]].filter(r => r[2] !== null && r[2] !== undefined && r[2] !== "") : [];
+const icpCard = icpRows.length ? card(`<h3>${ic("target")} Ideal customer</h3><dl class="icp">${icpRows.map(([i, k, v]) => `<dt>${ic(i, 14)}${k}</dt><dd class="${Array.isArray(v) ? "chips" : "icp-v"}">${Array.isArray(v) ? v.map(w => `<span class="badge b-neutral">${esc(w)}</span>`).join("") : rt(v)}</dd>`).join("")}</dl>`, 60) : "";
 const cu = N.customer || {};
-const sMarket = (has(cu) || M.tam || has(N.use_cases)) ? section("market", "Market", null,
-  `${has(cu) ? `<div class="grid g3">${[["users", "Who buys", cu.segment], ["alert", "Their problem", cu.pain], ["clock", "What they use today", cu.today]].map(([i, k, v], n) => card(`<div class="kpi"><div class="k">${ic(i)}${k}</div><p style="margin:8px 0 0">${rt(v || "unknown")}</p></div>`, n * 60)).join("")}</div>` : ""}
+const sMarket = (has(cu) || M.tam || has(N.use_cases) || whyNow || icpCard) ? section("market", "Market", null,
+  `${whyNow || icpCard ? `<div class="grid ${whyNow && icpCard ? "g2" : ""}" style="margin-bottom:var(--s3)">${whyNow}${icpCard}</div>` : ""}
+   ${has(cu) ? `<div class="grid g3">${[["users", "Who buys", cu.segment], ["alert", "Their problem", cu.pain], ["clock", "What they use today", cu.today]].map(([i, k, v], n) => card(`<div class="kpi"><div class="k">${ic(i)}${k}</div><p style="margin:8px 0 0">${rt(v || "unknown")}</p></div>`, n * 60)).join("")}</div>` : ""}
    <div class="grid g2" style="margin-top:var(--s3)">${M.tam || M.sam ? card(`${funnel()}${M.demand_trend ? `<p style="margin:14px 0 0"><strong>Demand trend:</strong> ${metric(M.demand_trend)}</p>` : ""}`) : ""}
    ${has(N.use_cases) ? card(`<h3>Ways to make money with it</h3><div class="scroll"><table><thead><tr><th>Option</th><th>Who pays</th><th>Effort</th></tr></thead><tbody>${N.use_cases.map(u => `<tr${u.best ? ' class="hl"' : ""}><td>${esc(u.name)}${u.best ? ` <span class="badge b-GO">${ic("check", 12)}Best</span>` : ""}</td><td>${esc(u.who_pays || "")}</td><td>${esc(u.effort || "")}</td></tr>`).join("")}</tbody></table></div>`, 80) : ""}</div>`) : "";
 
@@ -509,9 +582,79 @@ const scen = () => { const ss = (N.scenarios || []).filter(s => typeof s.revenue
       <rect class="bar" x="${x0}" y="${y + 8}" width="${Math.max(rv, 4)}" height="16" rx="8" fill="var(--primary)"/><text class="lv" x="${x0 + Math.max(rv, 4) + 8}" y="${y + 21}">${pl(s.revenue_month)}</text>
       <rect class="bar" x="${x0}" y="${y + 30}" width="${Math.max(cs, 4)}" height="10" rx="5" fill="var(--muted-fg)" opacity=".45"/><text class="ax" x="${x0 + Math.max(cs, 4) + 8}" y="${y + 39}">${pl(s.costs_month || 0)} costs</text></g>`; }).join("")}</svg>
     <figcaption>Blue: revenue per month. Grey: costs. Estimates unless a footnote says otherwise.</figcaption></figure>`; };
+/* what-if: live unit economics from the report's own metrics. Nothing here changes the verdict. */
+const WI = (() => {
+  const mv = k => obj(M[k]) ? (M[k].basis === "unknown" ? null : num(M[k].value)) : num(M[k]);
+  const price0 = mv("price") ?? (I.price ? I.price.amount : null), cac0 = mv("cac");
+  if (price0 === null || cac0 === null || price0 <= 0 || cac0 < 0) return null;
+  const code = c => typeof c === "string" && /^[A-Z]{3}$/.test(c) ? c : "";
+  const um = /^(USD|EUR|GBP|[A-Z]{3})\b/.exec(String((M.price && M.price.unit) || "")), cur = (um && code(um[1])) || code(I.price && I.price.currency) || code(N.currency) || code(M.cac && String(M.cac.unit || "").slice(0, 3));
+  const ltu = String((M.expected_lifetime && M.expected_lifetime.unit) || ""), per = String((I.price && I.price.period) || ""), pu = String((M.price && M.price.unit) || ""), churn = mv("churn_monthly_pct");
+  const sub = /purchase|achat|order|commande|time/i.test(ltu) ? false : /month|mois/i.test(ltu) ? true
+    : per === "one-off" || I.revenue_model === "one-off" ? false : /month|year|seat/.test(per) || I.revenue_model === "subscription" || /\/\s*(mo|month|yr|year|an|mois)\b/i.test(pu) || (churn !== null && churn > 0);
+  const pm = sub && (per === "year" || /\/\s*(yr|year|an)\b/i.test(pu)) ? 1 / 12 : 1;
+  let life0 = mv("expected_lifetime"), lifeSrc = "In the report";
+  if ((life0 === null || life0 <= 0) && sub && churn > 0) { life0 = Math.max(1, Math.min(120, Math.round(100 / churn))); lifeSrc = "From churn"; }
+  if (life0 === null || life0 <= 0) { life0 = sub ? 12 : 1; lifeSrc = "Assumed"; }
+  let mg0 = mv("gross_margin_pct"), mgSrc = "In the report";
+  if (mg0 === null) { const vc = mv("variable_cost_per_unit"); if (vc !== null && vc < price0) { mg0 = Math.round((price0 - vc) / price0 * 100); } else { mg0 = 80; mgSrc = "Assumed"; } }
+  mg0 = Math.min(100, Math.max(1, mg0));
+  const conv0 = mv("conversion_rate_pct") > 0 ? Math.min(100, mv("conversion_rate_pct")) : null, fx = mv("fixed_costs_month") !== null && mv("fixed_costs_month") >= 0 ? mv("fixed_costs_month") : null;
+  const colon = LANG === "fr" ? " :" : ":";
+  const money = x => plain(fmt(Math.abs(x) >= 100 ? Math.round(x) : Math.round(x * 100) / 100, cur)) || "0", r1 = x => short(Math.round(x * 10) / 10);
+  const lifeTxt = x => `${r1(x)} ${T((sub ? "month" : "purchase") + (x === 1 ? "" : "s"))}`, priceTxt = x => money(x) + (sub ? ` ${T(pm < 1 ? "/ year" : "/ month")}` : "");
+  /* slider ranges: 0.25x to 3x the report value, with a minimum span; the step keeps the report value exactly reachable */
+  const decs = v => { const s = String(v), i = s.indexOf("."); return i < 0 || /e/i.test(s) ? 0 : Math.min(2, s.length - i - 1); };
+  const mkS = (id, label, v0, lo, hi, txt, src, fine, rng) => { let step = Math.min(Math.pow(10, -decs(v0)), fine || 1); while ((hi - lo) / step > 2000) step *= 10;
+    const d = Math.max(0, -Math.floor(Math.log10(step) + 1e-9)), fix = x => +(+x).toFixed(d), min = fix(Math.floor(lo / step) * step), max = fix(Math.ceil(hi / step) * step);
+    return { id, label, v0: fix(Math.min(max, Math.max(min, v0))), min, max, step: fix(step), txt, src, rng: rng || txt }; };
+  const S = [mkS("price", "Price", price0, Math.max(price0 * .25, Math.pow(10, -decs(price0))), Math.max(price0 * 3, price0 + 5), priceTxt, "In the report", 0, money),
+    mkS("cac", "CAC", cac0, 0, Math.max(cac0 * 3, 10), money, "In the report"),
+    mkS("margin", "Gross margin", mg0, 1, 100, x => r1(x) + "%", mgSrc),
+    mkS("life", sub ? "Customer lifetime (months)" : "Customer lifetime (purchases)", life0, sub ? 1 : 1, sub ? Math.max(life0 * 3, 24) : Math.max(life0 * 3, 5), lifeTxt, lifeSrc, sub ? 0 : .1, r1)];
+  if (conv0 !== null) S.push(mkS("conv", "Conversion rate", conv0, Math.max(conv0 * .25, .1), Math.min(100, Math.max(conv0 * 3, conv0 + 2)), x => r1(x) + "%", "In the report", .1));
+  const sc0 = CD.profit && obj(CD.profit) ? num(obj(CD.profit.ltv_cac) ? CD.profit.ltv_cac.score : CD.profit.ltv_cac) : null;
+  const pct = s => (s.max > s.min ? (s.v0 - s.min) / (s.max - s.min) : 0).toFixed(4);
+  const tile = (id, k, extra = "", wide = false) => `<div class="wi-t${wide ? " wide" : ""}"><div class="wi-k">${k}</div><div class="wi-n num" id="wi-${id}"></div>${extra}<div class="wi-m" id="wi-${id}-m"></div></div>`;
+  const html = `<div class="card rv wi-card" style="margin-bottom:var(--s3)"><div class="wi-head"><div><h3>${ic("scale")} What if?</h3><p class="note" style="margin:0">Estimates for exploring; the verdict above is not recalculated.</p></div>
+    <button class="btn wi-reset" type="button" id="wi-reset" aria-label="${esc(T("Reset to the report's values"))}">${ic("rotate")}<span>Reset</span></button></div>
+    <div class="wi"><div class="wi-ctl">${S.map(s => `<div class="wi-f"><div class="wi-l"><label for="wi-${s.id}">${s.label}</label><output class="wi-v" id="wi-${s.id}-v" for="wi-${s.id}"></output></div>
+      <div class="wi-tr"><input class="wi-r" type="range" id="wi-${s.id}" min="${s.min}" max="${s.max}" step="${s.step}" value="${s.v0}" aria-describedby="wi-${s.id}-h"><i class="wi-0" style="--b:${pct(s)}" aria-hidden="true"></i></div>
+      <div class="wi-h" id="wi-${s.id}-h"><span>${esc(T(s.src))}${colon} ${esc(s.txt(s.v0))}</span><span>${esc(s.rng(s.min))} – ${esc(s.rng(s.max))}</span></div></div>`).join("")}</div>
+    <div class="wi-out">${tile("ltv", "LTV")}${tile("ratio", "LTV : CAC", `<div class="wi-scale" aria-hidden="true"><span></span><span></span><span></span><i id="wi-mark"></i></div><div class="wi-ax" aria-hidden="true"><b style="left:0">0</b><b style="left:16.67%">1</b><b style="left:50%">3</b><b style="left:100%">6+</b></div>`)}
+      ${tile("pay", "Payback")}${fx !== null ? tile("be", "Break-even") : conv0 !== null ? tile("ecac", "Effective CAC") : ""}
+      ${tile("sub", "Projected sub-score", `<div class="wi-dots" id="wi-dots" aria-hidden="true">${"<i></i>".repeat(5)}</div>`, (fx !== null) !== (conv0 !== null))}${fx !== null && conv0 !== null ? tile("ecac", "Effective CAC") : ""}</div></div>
+    <p class="sr-only" id="wi-live" aria-live="polite"></p></div>`;
+  const wire = () => {
+    const el = id => document.getElementById("wi-" + id), set = (id, t, cls) => { const e = el(id); if (!e) return; e.textContent = t; if (cls !== undefined) e.className = "wi-m " + cls; };
+    const inp = Object.fromEntries(S.map(s => [s.id, el(s.id)]));
+    let liveT = null;
+    const update = quiet => {
+      const v = {}; S.forEach(s => { const x = +inp[s.id].value; v[s.id] = x; const t = s.txt(x); inp[s.id].setAttribute("aria-valuetext", t);
+        inp[s.id].style.setProperty("--p", (s.max > s.min ? (x - s.min) / (s.max - s.min) : 0).toFixed(4)); const o = el(s.id + "-v"); o.textContent = t; o.classList.toggle("chg", x !== s.v0); });
+      const ec = conv0 !== null ? v.cac * conv0 / v.conv : v.cac, unit = v.price * pm * v.margin / 100, ltv = unit * v.life;
+      const ratio = ec > 0 ? ltv / ec : Infinity, pay = unit > 0 ? ec / unit : Infinity, s5 = ratio < 1 ? 1 : ratio < 2 ? 2 : ratio < 3 ? 3 : ratio <= 5 ? 4 : 5;
+      const rTxt = Number.isFinite(ratio) ? r1(ratio) : "∞";
+      set("ltv", money(ltv)); set("ltv-m", T("Lifetime gross profit per customer"));
+      set("ratio", rTxt); set("ratio-m", T(ratio < 1 ? "Each paid customer loses money" : ratio < 3 ? "Positive but fragile" : "Healthy"), ratio < 1 ? "bad" : ratio < 3 ? "ok" : "good");
+      el("mark").style.left = `calc(${(Math.min(Number.isFinite(ratio) ? ratio : 6, 6) / 6 * 100).toFixed(2)}% - 2px)`;
+      set("pay", !Number.isFinite(pay) ? T("never") : sub ? `${r1(pay)} ${T("months")}` : `${r1(pay)} ${T("purchases")}`);
+      set("pay-m", ec <= 0 ? T("Free to acquire") : pay > v.life ? T("Longer than the customer lifetime") : T(sub ? "Months to earn back the CAC" : "Purchases to earn back the CAC"), ec > 0 && pay > v.life ? "bad" : "");
+      if (fx !== null) { set("be", unit > 0 ? short(Math.ceil(fx / unit)) : T("never")); set("be-m", T("Paying customers needed per month")); }
+      if (conv0 !== null) { set("ecac", money(ec)); set("ecac-m", T("Scaled by the conversion rate")); }
+      set("sub", `${s5}/5`); set("sub-m", `${T("LTV : CAC sub-score")}${sc0 !== null ? ` · ${T("Report")}${colon} ${short(sc0)}/5` : ""}`, s5 <= 1 ? "bad" : s5 <= 3 ? "ok" : "good");
+      el("dots").className = "wi-dots s" + s5; [...el("dots").children].forEach((d, i) => d.classList.toggle("on", i < s5));
+      clearTimeout(liveT); if (quiet !== true) liveT = setTimeout(() => { el("live").textContent = `LTV ${money(ltv)}, LTV : CAC ${rTxt}, ${T("Projected sub-score")} ${s5}/5.`; }, 600);
+    };
+    S.forEach(s => inp[s.id].addEventListener("input", () => update()));
+    el("reset").addEventListener("click", () => { S.forEach(s => { inp[s.id].value = s.v0; }); update(); });
+    update(true);
+  };
+  return { html, wire };
+})();
 const mk = Object.keys(M).sort((a, b) => (MORDER.indexOf(a) + 1 || 99) - (MORDER.indexOf(b) + 1 || 99));
 const sEcon = (mk.length || has(N.scenarios)) ? section("economics", "Unit economics", "What a customer is worth, what one costs, and how many you need.",
-  `<div class="grid g2">${card(`${bullet()}${scen()}`)}${card(`<h3>All metrics</h3><div class="scroll"><table><thead><tr><th>Metric</th><th class="r">Value</th></tr></thead><tbody>${mk.map(k => { const m = M[k] || {}; return `<tr><td>${esc(human(k))}${m.as_of ? ` <span class="u">(${esc(m.as_of)})</span>` : ""}${m.reasoning && m.basis === "estimate" ? `<div style="font-size:13px;color:var(--muted-fg)">${esc(m.reasoning)}</div>` : ""}</td><td class="r">${metric(m, k)}</td></tr>`; }).join("")}</tbody></table></div>`, 80)}</div>`) : "";
+  `${WI ? WI.html : ""}<div class="grid g2">${card(`${bullet()}${scen()}`)}${card(`<h3>All metrics</h3><div class="scroll"><table><thead><tr><th>Metric</th><th class="r">Value</th></tr></thead><tbody>${mk.map(k => { const m = M[k] || {}; return `<tr><td>${esc(human(k))}${m.as_of ? ` <span class="u">(${esc(m.as_of)})</span>` : ""}${m.reasoning && m.basis === "estimate" ? `<div style="font-size:13px;color:var(--muted-fg)">${esc(m.reasoning)}</div>` : ""}</td><td class="r">${metric(m, k)}</td></tr>`; }).join("")}</tbody></table></div>`, 80)}</div>`) : "";
 
 /* risks */
 const sRisk = has(N.risks) ? (() => { const rs = N.risks, LV = { L: 0, M: 1, H: 2 }, cs = 96, ox = 64, oy = 6; let cells = "";
@@ -528,7 +671,14 @@ const sTest = (has(N.test_plan) || V.cheapest_test || kc.length) ? section("test
   `<div class="grid ${has(N.test_plan) && kc.length ? "g2" : ""}">${has(N.test_plan) ? card(`<h3>Plan</h3><ol class="tl">${N.test_plan.map(t => `<li><span class="w">${esc(t.when)}</span><span class="node"></span><div><div>${rt(t.step)}</div>${t.verify ? `<div class="vf">${ic("check", 14)} ${rt(t.verify)}</div>` : ""}</div></li>`).join("")}</ol>`) : ""}
    ${kc.length ? card(`<div class="stop"><h3>${ic("alert")}Stop if</h3><ul>${kc.map(k => `<li>${rt(k)}</li>`).join("")}</ul></div>`, 80) : ""}</div>`) : "";
 
-const body = [sSummary, sRescue, sTest, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
+/* pre-mortem (narrative.premortem) */
+const PML = { H: ["NO-GO", "High likelihood"], M: ["PIVOT", "Medium likelihood"], L: ["neutral", "Low likelihood"] };
+const linkLabel = k => { const s = String(k || ""); return KS[s] || SUB[s] || LB[s] || s.replace(/_/g, " "); };
+const sPremortem = N.premortem.length ? section("premortem", "Pre-mortem", "It's 12 months later and it failed. The most likely reasons.",
+  `<div class="grid g3">${N.premortem.map((p, n) => { const [b, l] = PML[p.likelihood]; return `<div class="card rv pm" style="--d:${n * 80}ms"><div class="pm-top"><span class="kf-n">${n + 1}</span><span class="badge b-${b}">${ic("alert", 13)}${l}</span></div>
+    <div class="pm-c">${rt(p.cause)}</div>${p.early_signal ? `<div class="pm-s">${ic("flag", 14)}<span><strong>Early signal:</strong> <span class="pm-d">${rt(p.early_signal)}</span></span></div>` : ""}
+    ${p.linked_to ? `<div><span class="chip">${ic("target", 12)}${esc(T("linked to"))} ${esc(T(linkLabel(p.linked_to)))}</span></div>` : ""}</div>`; }).join("")}</div>`) : "";
+const body = [sSummary, sRescue, sPremortem, sTest, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
 const TIER = { primary: "primary", secondary: "secondary", tertiary: "tertiary" };
 const tiers = SRC.reduce((a, s) => { if (TIER[s.tier]) a[s.tier] = (a[s.tier] || 0) + 1; return a; }, {});
 const tierSub = Object.keys(tiers).length ? ` ${["primary", "secondary", "tertiary"].filter(t => tiers[t]).map(t => `${tiers[t]} ${t}`).join(", ")}.` : "";
@@ -546,6 +696,7 @@ app.innerHTML = `<header class="top"><div class="topbar"><a class="brand" href="
   <main>${hero}${body}${sSrc}</main>
   <footer>Generated by kill-my-idea. Sourced numbers link to a footnote, estimates show their reasoning on hover, and anything not found is marked unknown. Research, not financial advice.</footer>`;
 translateUI(app);
+if (WI) WI.wire();
 document.getElementById("print").addEventListener("click", () => print());
 /* share card: 1200x675 PNG drawn locally, nothing is uploaded */
 document.getElementById("card").addEventListener("click", async () => {
@@ -607,6 +758,8 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObse
   addEventListener("beforeprint", () => { finish(); document.querySelectorAll(".rv,.grow").forEach(el => el.classList.add("in")); });
 }
 } catch (e) { fail("This report could not be displayed", "The data in report-data.js has an unexpected shape (" + (e && e.message || e) + "). Run /kill-my-idea:kill again."); }
+};
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", main, { once: true }); else main();
 })();
 </script>
 </body>

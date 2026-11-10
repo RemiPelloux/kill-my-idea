@@ -518,6 +518,144 @@
           "maxLength": 400,
           "description": "The strongest case FOR the idea in 1-2 sentences, and what the evidence says about it. Guards against killing by reflex."
         },
+        "premortem": {
+          "type": "array",
+          "maxItems": 3,
+          "description": "It's 12 months later and the idea failed: the 3 most likely causes, most likely first. Each links to a kill shot or a sub-score of this report and names an early warning signal. Optional for old reports; the kill and deepdive skills always write it.",
+          "items": {
+            "type": "object",
+            "required": [
+              "cause",
+              "linked_to",
+              "likelihood",
+              "early_signal"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "cause": {
+                "type": "string",
+                "maxLength": 160,
+                "description": "Why it failed, in one sentence"
+              },
+              "linked_to": {
+                "type": "string",
+                "description": "A key of verdict.kill_shots (e.g. 'no_distribution') or a sub-score key of verdict.criteria_detail (e.g. 'ltv_cac')"
+              },
+              "likelihood": {
+                "enum": [
+                  "L",
+                  "M",
+                  "H"
+                ]
+              },
+              "early_signal": {
+                "type": "string",
+                "maxLength": 160,
+                "description": "What you would see in the first 30 days, with a number when possible"
+              }
+            }
+          }
+        },
+        "why_now": {
+          "type": "object",
+          "required": [
+            "verdict",
+            "changes"
+          ],
+          "additionalProperties": false,
+          "description": "What changed recently (tech, regulation, platform, price, behaviour) that makes this possible now. Optional for old reports; the kill and deepdive skills always write it.",
+          "properties": {
+            "verdict": {
+              "enum": [
+                "now",
+                "early",
+                "late",
+                "unclear"
+              ],
+              "description": "now = the window is open; early = the market is not ready; late = the window is closing or saturated; unclear = no evidence either way"
+            },
+            "changes": {
+              "type": "array",
+              "maxItems": 5,
+              "items": {
+                "type": "object",
+                "required": [
+                  "what",
+                  "when",
+                  "source"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "what": {
+                    "type": "string",
+                    "maxLength": 200,
+                    "description": "The change, in one sentence"
+                  },
+                  "when": {
+                    "type": "string",
+                    "maxLength": 40,
+                    "description": "YYYY or YYYY-MM"
+                  },
+                  "source": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^https?://"
+                  }
+                }
+              }
+            },
+            "note": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "One sentence explaining the verdict"
+            }
+          }
+        },
+        "icp": {
+          "type": "object",
+          "required": [
+            "who",
+            "where",
+            "pays_for_today",
+            "budget",
+            "trigger"
+          ],
+          "additionalProperties": false,
+          "description": "Ideal customer profile: who buys first and where to reach them. Optional for old reports; the kill and deepdive skills always write it.",
+          "properties": {
+            "who": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "A precise segment: role, size, situation"
+            },
+            "where": {
+              "type": "array",
+              "maxItems": 5,
+              "items": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "description": "Communities, platforms or events where they can be reached"
+            },
+            "pays_for_today": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "What they already pay for to solve this, with the price"
+            },
+            "budget": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "What they can spend, with currency and period, or 'unknown'"
+            },
+            "trigger": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "The moment they start looking for a solution"
+            }
+          }
+        },
         "language": {
           "type": "string",
           "pattern": "^[a-z]{2}$",

@@ -79,6 +79,9 @@ It goes on to cover:
 - a country comparison;
 - LTV:CAC against healthy thresholds;
 - monthly scenarios and a risk matrix;
+- a pre-mortem: the three most likely ways it dies, each with an early warning sign;
+- **Why now?** (what changed that makes this the right time, or not) and the ideal first customer;
+- a **What if?** card: move price, CAC, margin and lifetime with sliders and watch LTV, LTV:CAC, payback and the Profit sub-score update;
 - a 7-day test with the conditions for stopping it;
 - numbered sources, each tagged primary, secondary or tertiary.
 
@@ -94,7 +97,7 @@ One click on **Share card** downloads a PNG verdict card for social media, and r
 | `/kill-my-idea:deepdive` | Six research tracks in parallel, 40+ sources: market size, competitor teardown, real customer quotes, pricing, channels, regulation per country |
 | `/kill-my-idea:check-tweet` | Fact-checks a viral "make money" post: every claim, the real math, what the author sells, then a verdict |
 | `/kill-my-idea:roast` | The same verdict as five sourced one-liners, sized for a screenshot ([Juicero](examples/juicero-roast.md)). Also saved for `compare` |
-| `/kill-my-idea:compare` | Ranks every idea you've checked by score, speed and confidence, and picks the one to work on this week |
+| `/kill-my-idea:compare` | Ranks every idea you've checked by score, speed and confidence, picks the one to work on this week, and writes `ideas/board.html`, a filterable board of all your verdicts. `--refresh` re-checks the stale ones |
 
 You can also just write "kill my idea: …", "is this worth building?" or "which idea should I do?".
 
@@ -168,7 +171,7 @@ Everything goes into `ideas/<YYYY-MM>-<slug>/` in your current folder.
 | `verdict.json` | Score, 21 sub-scores, rules applied, confidence, metrics with their sources, countries, rescue paths ([schema](skills/kill/verdict.schema.json)) |
 | `deepdive.md` | The deep-dive write-up (`deepdive` only) |
 | `roast.md` | The roast (`roast` only) |
-| `ideas/RANKING.md` | The ranking of all your ideas (`compare`) |
+| `ideas/RANKING.md` + `ideas/board.html` | The ranking of all your ideas, as text and as a board (`compare`) |
 
 Check any run yourself:
 
@@ -178,6 +181,12 @@ python3 scripts/check-idea.py ideas/<folder>   # or --all for every idea
 
 It recomputes the score from the sub-scores, applies the fixed rules, and checks every source and
 count. `ERROR` lines mean the verdict doesn't follow its own rules.
+
+To send a report to someone, bundle it into one file that opens anywhere, offline:
+
+```sh
+python3 scripts/export-standalone.py ideas/<folder>   # writes report-standalone.html
+```
 
 </details>
 

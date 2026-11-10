@@ -2,12 +2,16 @@
 """Check one kill-my-idea folder (or every folder under ideas/) against the rules in SKILL.md.
 
     python3 scripts/check-idea.py ideas/2026-11-my-idea
-    python3 scripts/check-idea.py --all            # every ideas/*/ folder with a verdict.json
+    python3 scripts/check-idea.py --all [ideas]    # every ideas/*/ folder with a verdict.json
+    python3 scripts/check-idea.py --board [ideas]  # ideas/board-data.js, written by compare
 
 No dependencies. Exit code 1 when any ERROR is found. It recomputes the score from the 21
-sub-scores, applies the fixed rules R1-R5, and checks sources, counts, kill-shot coherence
-and the shape of report-data.js. WARN lines are advice; ERROR lines must be fixed.
+sub-scores, applies the fixed rules R1-R5, and checks sources, counts, kill-shot coherence,
+the premortem / why-now / ICP sections and the shape of report-data.js (one strict data
+literal: no functions, comments or template literals). WARN lines are advice; ERROR lines
+must be fixed.
 """
+import datetime
 import json
 import pathlib
 import re
@@ -66,8 +70,8 @@ class Report:
     def warn(self, msg):
         self.warnings.append(msg)
 
-    def legacy(self, what):
-        self.warn(f"legacy (pre-0.7) verdict: missing {what}. Fine for an old report; a new run must write it.")
+    def legacy(self, what, since="0.7"):
+        self.warn(f"legacy (pre-{since}) verdict: missing {what}. Fine for an old report; a new run must write it.")
 
 
 def load_json(rep, path):
@@ -395,22 +399,179 @@ def check_rescue_and_test(rep, v):
             rep.error("verdict.json: each history entry needs mode, evaluated, score and verdict")
 
 
-def load_report_data(rep, path):
-    """report-data.js must be exactly one statement: window.KMI_DATA = {...};"""
+def code_outside_strings(text):
+    """The text with every double-quoted JSON string replaced by "", so only code is left."""
+    out, i, n = [], 0, len(text)
+    while i < n:
+        ch = text[i]
+        if ch == '"':
+            j = i + 1
+            while j < n and text[j] != '"':
+                j += 2 if text[j] == "\\" else 1
+            out.append('""')
+            i = j + 1
+        else:
+            out.append(ch)
+            i += 1
+    return "".join(out)
+
+
+# Things a data file must never contain outside its strings: it is loaded with <script src>.
+FORBIDDEN_CODE = [(re.compile(r"\bfunction\b"), "a function"),
+                  (re.compile(r"=>"), "an arrow function"),
+                  (re.compile(r"`"), "a template literal (backtick)"),
+                  (re.compile(r"//|/\*"), "a comment"),
+                  (re.compile(r"'"), "a single-quoted string"),
+                  (re.compile(r"\b(?:new|import|require|eval|document|fetch)\b"), "code (new, import, require, eval, document, fetch)"),
+                  (re.compile(r"[()]"), "a call or parenthesis")]
+
+
+def load_js_literal(rep, path, var):
+    """A data file must be exactly one statement, window.<var> = {...}; with a strict JSON literal."""
     if not path.exists():
         return None
+    name = path.name
     text = path.read_text(encoding="utf-8")
+    if text.startswith("﻿"):
+        rep.error(f"{name}: starts with a byte-order mark; save it as UTF-8 without BOM")
+        text = text[1:]
     if re.search(r"</?script", text, re.I):
-        rep.error("report-data.js: contains a <script> tag")
-    m = re.match(r"^\s*window\.KMI_DATA\s*=\s*(\{.*\})\s*;?\s*$", text, re.S)
+        rep.error(f"{name}: contains a <script> or </script> tag; inside a string, escape it as <\\/script>")
+    if "<!--" in text:
+        rep.error(f"{name}: contains '<!--', which browsers treat as a comment inside a script")
+    code = code_outside_strings(text)
+    for rx, what in FORBIDDEN_CODE:
+        if rx.search(code):
+            rep.error(f"{name}: contains {what} outside a string. It must be a plain data literal")
+    if code.rstrip().rstrip(";").count(";"):
+        rep.error(f"{name}: contains more than one statement")
+    m = re.match(r"^\s*window\." + re.escape(var) + r"\s*=\s*(\{.*\})\s*;?\s*$", text, re.S)
     if not m:
-        rep.error("report-data.js: must be exactly one statement, window.KMI_DATA = {...};")
+        rep.error(f"{name}: must be exactly one statement, window.{var} = {{...}};")
         return None
     try:
         return json.loads(m.group(1))
     except json.JSONDecodeError as e:
-        rep.error(f"report-data.js: the object is not strict JSON ({e}). Use double quotes, no trailing commas, no functions or comments")
+        rep.error(f"{name}: the object is not strict JSON ({e}). Use double quotes, no trailing commas, no functions or comments")
         return None
+
+
+def load_report_data(rep, path):
+    """report-data.js must be exactly one statement: window.KMI_DATA = {...};"""
+    return load_js_literal(rep, path, "KMI_DATA")
+
+
+def check_text(rep, where, val, max_len, required=True):
+    """A non-empty string of at most max_len characters. Returns True when it is one."""
+    if val is None or val == "":
+        if required:
+            rep.error(f"report-data.js: {where} is required")
+        return False
+    if not isinstance(val, str):
+        rep.error(f"report-data.js: {where} must be a string")
+        return False
+    if len(val) > max_len:
+        rep.error(f"report-data.js: {where} is {len(val)} chars; max {max_len}")
+    return True
+
+
+def check_premortem(rep, n, v):
+    """narrative.premortem: at most 3 failure causes, each linked to a kill shot or sub-score of this report."""
+    pm = n.get("premortem")
+    if pm is None:
+        rep.legacy("narrative.premortem", "0.8")
+        return
+    if not isinstance(pm, list):
+        rep.error("report-data.js: narrative.premortem must be a list")
+        return
+    if len(pm) > 3:
+        rep.error(f"report-data.js: narrative.premortem has {len(pm)} causes; at most 3")
+    if not pm:
+        rep.warn("report-data.js: narrative.premortem is empty; write the 3 most likely causes of failure")
+    ks = v.get("kill_shots") if isinstance(v.get("kill_shots"), dict) else {}
+    cd = v.get("criteria_detail") if isinstance(v.get("criteria_detail"), dict) else {}
+    subs = {s for block in cd.values() if isinstance(block, dict) for s in block}
+    subs |= {f"{c}.{s}" for c, block in cd.items() if isinstance(block, dict) for s in block}
+    for i, p in enumerate(pm):
+        where = f"premortem[{i}]"
+        if not isinstance(p, dict):
+            rep.error(f"report-data.js: {where} must be an object")
+            continue
+        check_text(rep, f"{where}.cause", p.get("cause"), 160)
+        check_text(rep, f"{where}.early_signal", p.get("early_signal"), 160)
+        if p.get("likelihood") not in ("L", "M", "H"):
+            rep.error(f"report-data.js: {where}.likelihood {p.get('likelihood')!r} must be L, M or H")
+        link = p.get("linked_to")
+        if not isinstance(link, str) or not link:
+            rep.error(f"report-data.js: {where}.linked_to is required (a kill shot or sub-score key)")
+        elif link not in ks and link not in subs:
+            rep.error(f"report-data.js: {where}.linked_to {link!r} is not a kill shot in verdict.kill_shots or a sub-score in verdict.criteria_detail")
+        elif link in ks and ks[link] is None:
+            rep.warn(f"report-data.js: {where} links to kill shot {link}, which was not checked")
+    order = {"H": 0, "M": 1, "L": 2}
+    lk = [order[p["likelihood"]] for p in pm if isinstance(p, dict) and p.get("likelihood") in order]
+    if lk != sorted(lk):
+        rep.warn("report-data.js: premortem causes should be sorted most likely first")
+
+
+def check_why_now(rep, n):
+    wn = n.get("why_now")
+    if wn is None:
+        rep.legacy("narrative.why_now", "0.8")
+        return
+    if not isinstance(wn, dict):
+        rep.error("report-data.js: narrative.why_now must be an object")
+        return
+    verdict = wn.get("verdict")
+    if verdict not in ("now", "early", "late", "unclear"):
+        rep.error(f"report-data.js: why_now.verdict {verdict!r} must be now, early, late or unclear")
+    changes = wn.get("changes")
+    if changes is None:
+        changes = []
+    if not isinstance(changes, list):
+        rep.error("report-data.js: why_now.changes must be a list")
+        changes = []
+    if len(changes) > 5:
+        rep.error(f"report-data.js: why_now.changes has {len(changes)} entries; at most 5")
+    for i, c in enumerate(changes):
+        where = f"why_now.changes[{i}]"
+        if not isinstance(c, dict):
+            rep.error(f"report-data.js: {where} must be an object")
+            continue
+        check_text(rep, f"{where}.what", c.get("what"), 200)
+        check_text(rep, f"{where}.when", c.get("when"), 40)
+        check_url(rep, f"report-data.js {where}.source", c.get("source"))
+    sourced = sum(1 for c in changes if isinstance(c, dict) and c.get("source"))
+    if verdict in ("now", "early", "late") and not sourced:
+        rep.error(f"report-data.js: why_now.verdict is {verdict} but no change has a source; cite one or use unclear")
+    check_text(rep, "why_now.note", wn.get("note"), 200, required=False)
+
+
+def check_icp(rep, n):
+    icp = n.get("icp")
+    if icp is None:
+        rep.legacy("narrative.icp", "0.8")
+        return
+    if not isinstance(icp, dict):
+        rep.error("report-data.js: narrative.icp must be an object")
+        return
+    check_text(rep, "icp.who", icp.get("who"), 200)
+    for k in ("pays_for_today", "budget", "trigger"):
+        if icp.get(k) in (None, ""):
+            rep.warn(f"report-data.js: icp.{k} is empty; write unknown if not found")
+        else:
+            check_text(rep, f"icp.{k}", icp.get(k), 200)
+    where = icp.get("where")
+    if where is None or where == []:
+        rep.warn("report-data.js: icp.where is empty; name where this customer can be reached")
+    elif not isinstance(where, list) or not all(isinstance(w, str) and w for w in where):
+        rep.error("report-data.js: icp.where must be a list of strings")
+    else:
+        if len(where) > 5:
+            rep.error(f"report-data.js: icp.where has {len(where)} entries; at most 5")
+        for i, w in enumerate(where):
+            if len(w) > 120:
+                rep.error(f"report-data.js: icp.where[{i}] is {len(w)} chars; max 120")
 
 
 def check_report_data(rep, data, idea, v):
@@ -449,6 +610,9 @@ def check_report_data(rep, data, idea, v):
         rep.error("report-data.js: narrative.recommendation (one action, stated as a decision) is required")
     if "steelman" not in n:
         rep.legacy("narrative.steelman")
+    check_premortem(rep, n, v)
+    check_why_now(rep, n)
+    check_icp(rep, n)
     ks = v.get("kill_shots") or {}
     nks = n.get("kill_shots") or {}
     for k in KILL_SHOTS:
@@ -606,10 +770,127 @@ def check_folder(folder):
     return rep
 
 
+BOARD_KEYS = {"slug", "title", "verdict", "score", "confidence", "evaluated", "time_to_first_revenue_weeks",
+              "ltv_cac", "primary_kill_shot", "best_rescue", "countries", "report", "stale"}
+
+
+def check_board(ideas_dir):
+    """ideas/board-data.js, written by compare: window.KMI_BOARD = {"generated": ..., "ideas": [...]};"""
+    rep = Report(ideas_dir)
+    path = ideas_dir / "board-data.js"
+    if not path.exists():
+        rep.error("board-data.js: missing (run /kill-my-idea:compare)")
+        return rep
+    board = load_js_literal(rep, path, "KMI_BOARD")
+    if board is None:
+        return rep
+    if set(board) - {"generated", "ideas"}:
+        rep.error(f"board-data.js: unknown top-level keys {sorted(set(board) - {'generated', 'ideas'})}")
+    gen = board.get("generated")
+    if not DATE_RX.match(str(gen)):
+        rep.error(f"board-data.js: generated {gen!r} is not YYYY-MM-DD")
+        gen = None
+    ideas = board.get("ideas")
+    if not isinstance(ideas, list):
+        rep.error("board-data.js: ideas must be a list")
+        return rep
+    if not (ideas_dir / "board.html").exists():
+        rep.warn("board.html is missing next to board-data.js: copy it from skills/compare/board.html")
+    num = (int, float)
+    slugs = set()
+    for i, it in enumerate(ideas):
+        w = f"board-data.js: ideas[{i}]"
+        if not isinstance(it, dict):
+            rep.error(f"{w} must be an object")
+            continue
+        missing, extra = BOARD_KEYS - set(it), set(it) - BOARD_KEYS
+        if missing:
+            rep.error(f"{w} is missing {sorted(missing)}")
+        if extra:
+            rep.error(f"{w} has unknown keys {sorted(extra)}")
+        slug = it.get("slug")
+        if not isinstance(slug, str) or not re.match(r"^[a-z0-9]+(-[a-z0-9]+)*$", slug):
+            rep.error(f"{w}.slug {slug!r} is not kebab-case ASCII")
+        elif slug in slugs:
+            rep.error(f"{w}.slug {slug!r} appears twice")
+        slugs.add(slug)
+        if not isinstance(it.get("title"), str) or not it.get("title"):
+            rep.error(f"{w}.title must be a non-empty string")
+        if it.get("verdict") not in ("GO", "PIVOT", "NO-GO"):
+            rep.error(f"{w}.verdict {it.get('verdict')!r} must be GO, PIVOT or NO-GO")
+        sc = it.get("score")
+        if not isinstance(sc, int) or isinstance(sc, bool) or not 0 <= sc <= 100:
+            rep.error(f"{w}.score {sc!r} must be an integer 0-100")
+        elif it.get("verdict") in ("GO", "PIVOT", "NO-GO") and band(sc) != it["verdict"]:
+            rep.error(f"{w}.verdict {it['verdict']} does not match score {sc}")
+        if it.get("confidence") not in ("high", "medium", "low", None):
+            rep.error(f"{w}.confidence {it.get('confidence')!r} must be high, medium, low or null")
+        ev = it.get("evaluated")
+        if not DATE_RX.match(str(ev)):
+            rep.error(f"{w}.evaluated {ev!r} is not YYYY-MM-DD")
+        for k in ("time_to_first_revenue_weeks", "ltv_cac"):
+            val = it.get(k)
+            if val is not None and (not isinstance(val, num) or isinstance(val, bool)):
+                rep.error(f"{w}.{k} {val!r} must be a number or null")
+        pk = it.get("primary_kill_shot")
+        if pk is not None and pk not in KILL_SHOTS:
+            rep.error(f"{w}.primary_kill_shot {pk!r} is not a kill shot key")
+        br = it.get("best_rescue")
+        if br is not None:
+            if not isinstance(br, dict) or set(br) != {"change", "score_after", "difficulty"}:
+                rep.error(f"{w}.best_rescue must be null or {{change, score_after, difficulty}}")
+            else:
+                if not isinstance(br["change"], str) or not br["change"]:
+                    rep.error(f"{w}.best_rescue.change must be a non-empty string")
+                if not isinstance(br["score_after"], int) or not 0 <= br["score_after"] <= 100:
+                    rep.error(f"{w}.best_rescue.score_after {br['score_after']!r} must be an integer 0-100")
+                if br["difficulty"] not in DIFF_ORDER:
+                    rep.error(f"{w}.best_rescue.difficulty {br['difficulty']!r} must be doable, hard or very-hard")
+        cs = it.get("countries")
+        if not isinstance(cs, list) or not all(isinstance(c, str) and re.match(r"^[A-Z]{2}$", c) for c in cs):
+            rep.error(f"{w}.countries must be a list of ISO 3166-1 alpha-2 codes")
+        rp = it.get("report")
+        if not isinstance(rp, str) or not re.match(r"^[A-Za-z0-9._-]+/report\.html$", rp) or rp.startswith("."):
+            rep.error(f"{w}.report {rp!r} must be '<folder>/report.html', relative to ideas/")
+        else:
+            folder = ideas_dir / rp.split("/")[0]
+            if not (folder / "report.html").exists():
+                rep.warn(f"{w}.report {rp} does not exist")
+            vj = load_json(rep, folder / "verdict.json")
+            if isinstance(vj, dict):
+                for k in ("slug", "verdict", "score", "evaluated", "primary_kill_shot"):
+                    if k in vj and k in it and vj[k] != it[k]:
+                        rep.error(f"{w}.{k} = {it[k]!r} but {folder.name}/verdict.json says {vj[k]!r}; rerun compare")
+        st = it.get("stale")
+        if not isinstance(st, bool):
+            rep.error(f"{w}.stale must be true or false")
+        elif gen and DATE_RX.match(str(ev)):
+            age = (datetime.date.fromisoformat(gen) - datetime.date.fromisoformat(ev)).days
+            if st != (age > 90):
+                rep.error(f"{w}.stale is {st} but the verdict is {age} days old (stale = older than 90 days)")
+    return rep
+
+
+def print_report(name, rep):
+    for e in rep.errors:
+        print(f"ERROR  {name}: {e}")
+    for w in rep.warnings:
+        print(f"WARN   {name}: {w}")
+    print(f"{'FAIL' if rep.errors else 'PASS'}   {name}: {len(rep.errors)} errors, {len(rep.warnings)} warnings")
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
         return 0
+    if argv[0] == "--board":
+        root = pathlib.Path(argv[1]) if len(argv) > 1 else pathlib.Path("ideas")
+        if not root.is_dir():
+            print(f"{root}: not a folder")
+            return 1
+        rep = check_board(root)
+        print_report(root.name or str(root), rep)
+        return 1 if rep.errors else 0
     if argv[0] == "--all":
         root = pathlib.Path(argv[1]) if len(argv) > 1 else pathlib.Path("ideas")
         folders = sorted(p.parent for p in root.glob("*/verdict.json"))
@@ -625,12 +906,7 @@ def main(argv):
             failed += 1
             continue
         rep = check_folder(f)
-        for e in rep.errors:
-            print(f"ERROR  {f.name}: {e}")
-        for w in rep.warnings:
-            print(f"WARN   {f.name}: {w}")
-        status = "FAIL" if rep.errors else "PASS"
-        print(f"{status}   {f.name}: {len(rep.errors)} errors, {len(rep.warnings)} warnings")
+        print_report(f.name, rep)
         failed += bool(rep.errors)
     return 1 if failed else 0
 

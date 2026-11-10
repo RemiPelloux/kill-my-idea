@@ -1,0 +1,40 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: CSP hashes are pinned
+        run: python3 scripts/update-csp.py --check
+
+      - name: Template safety scan
+        run: python3 scripts/scan-report.py
+
+      - name: Check example ideas
+        run: |
+          found=0
+          while IFS= read -r v; do
+            found=1
+            dir=$(dirname "$v")
+            echo "::group::check-idea $dir"
+            python3 scripts/check-idea.py "$dir"
+            echo "::endgroup::"
+          done < <(find examples -name verdict.json -type f | sort)
+          if [ "$found" = 0 ]; then echo "No examples with verdict.json, skipping."; fi
+
+      - name: Schemas are valid JSON
+        run: |
+          find . -name '*.schema.json' -not -path './.git/*' -print0 \
+            | xargs -0 -I{} sh -c 'python3 -m json.tool "{}" > /dev/null && echo "ok {}"'
