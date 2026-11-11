@@ -46,6 +46,12 @@
   - **branding**: a positioning statement, 5 names checked by search only (domains, the launch
     country's trademark register, handles, with the date), and the tone. Nothing is registered or
     bought (#29).
+- **Cost and time in the report:** `verdict.run` records the minutes, searches, pages read and
+  research agents, and the report footer shows them. (#14)
+- **Quick mode** (`--quick`): 10 sources from 6 domains in about half the time, always low
+  confidence, never a GO (capped at 69), labelled in the report. (#15)
+- **Parallel research by default:** kill now starts 4 research subagents in one message instead of
+  searching one query at a time. 16 of the 18 gallery runs had used none. (#16, measured at the gallery re-run)
 
 ## 0.9.1 — 2026-11-11
 

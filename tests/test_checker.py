@@ -241,6 +241,37 @@ class GoToMarket(unittest.TestCase):
         c.close()
 
 
+class QuickAndRun(unittest.TestCase):
+    def test_quick_needs_low_confidence(self):
+        c = IdeaCopy("dental")
+        v = c.verdict()
+        v["quick"] = True
+        c.save(v)
+        self.assertTrue(any("quick run's confidence must be low" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_quick_is_never_go(self):
+        c = IdeaCopy("dental")
+        v = c.verdict()
+        v["quick"] = True
+        v["kill_shots"]["no_distribution"] = False
+        for crit in v["criteria_detail"].values():
+            for sub in crit.values():
+                sub["score"] = 5
+        v["score"], v["verdict"] = 100, "GO"
+        c.save(v)
+        self.assertTrue(any("recomputes to 69" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_bad_run_numbers(self):
+        c = IdeaCopy("dental")
+        v = c.verdict()
+        v["run"] = {"minutes": -3, "searches": 19}
+        c.save(v)
+        self.assertTrue(any("run.minutes" in e for e in errors(c.dir)))
+        c.close()
+
+
 class Safety(unittest.TestCase):
     def test_code_in_report_data_is_refused(self):
         c = IdeaCopy("dental")

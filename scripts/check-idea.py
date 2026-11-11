@@ -162,6 +162,20 @@ def check_type_and_answers(rep, idea, v):
         rep.error(f"idea.json: {stages['follow_up']} follow-up questions; ask at most 2")
 
 
+def check_run(rep, v):
+    """1.0: what the run cost, shown in the report footer."""
+    r = v.get("run")
+    if r is None:
+        return
+    if not isinstance(r, dict):
+        rep.error("verdict.json: run must be an object")
+        return
+    for k in ("minutes", "searches", "fetches"):
+        x = r.get(k)
+        if x is not None and (not isinstance(x, (int, float)) or isinstance(x, bool) or x < 0 or x > 10000):
+            rep.error(f"verdict.json: run.{k} {x!r} must be a non-negative number")
+
+
 def check_version(rep, where, obj):
     """Every file written since 1.0 says which format wrote it."""
     if not isinstance(obj, dict):
@@ -277,6 +291,8 @@ def check_scores(rep, v):
             rep.error("verdict.json: kill_shots.no_distribution is true and the raw total is above 69, so rules_applied must contain R2_no_channel")
     if capped:
         expected = min(expected, 69)
+    if v.get("quick") is True:
+        expected = min(expected, 69)  # a quick run is never a GO
     lc = ((v.get("metrics") or {}).get("ltv_cac") or {}).get("value")
     r6 = ks.get("no_distribution") is True and isinstance(lc, (int, float)) and not isinstance(lc, bool) and lc < 1
     if r6:
@@ -439,6 +455,11 @@ def check_sources_and_confidence(rep, v, narrative, scores):
     min_n, min_d = MIN_SOURCES[mode]
     conf = v.get("confidence")
     level = conf.get("level") if isinstance(conf, dict) else None
+    if v.get("quick") is True:
+        # quick mode: 10 sources from 6 domains, always low confidence, never a GO
+        min_n, min_d = 10, 6
+        if level != "low":
+            rep.error("verdict.json: a quick run's confidence must be low (quick mode, SKILL.md §3)")
     if len(set(urls)) < min_n or len(domains) < min_d:
         msg = f"{len(set(urls))} sources from {len(domains)} domains; a {mode} needs {min_n} from {min_d}"
         if level == "low":
@@ -995,6 +1016,7 @@ def check_folder(folder, legacy=False):
     check_version(rep, "idea.json", idea)
     check_version(rep, "verdict.json", v)
     check_type_and_answers(rep, idea, v)
+    check_run(rep, v)
     scores = check_scores(rep, v)
     check_metrics(rep, v)
     check_kill_shots(rep, v)

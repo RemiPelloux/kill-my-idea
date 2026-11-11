@@ -789,6 +789,35 @@
           }
         }
       }
+    },
+    "quick": {
+      "type": "boolean",
+      "description": "Quick mode (--quick): 10 sources from 6 domains, confidence low, never a GO (capped at 69)."
+    },
+    "run": {
+      "type": "object",
+      "description": "What the run cost, shown in the report footer.",
+      "properties": {
+        "started": {
+          "type": "string"
+        },
+        "minutes": {
+          "type": "number",
+          "minimum": 0
+        },
+        "searches": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fetches": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "subagents": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
     }
   }
 }

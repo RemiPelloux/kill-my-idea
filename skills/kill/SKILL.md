@@ -119,8 +119,21 @@ instead. If `BRAIN.md` doesn't exist yet, `build-brain.py` (§8) creates it; the
 
 ## 3. Try to kill it: research
 
-Run many web searches **in parallel** (use subagents when available: one per kill shot, or
-one per country). Search in the target country's language and on its local sites. Go down
+**Start the clock.** With Bash, run `date -u +%Y-%m-%dT%H:%M:%SZ` before the research and save it
+as `verdict.run.started`. At the end, set `run.minutes` (rounded), `run.searches` and
+`run.fetches` (how many web searches and page fetches you ran, all agents included) and
+`run.subagents`. The report footer shows them.
+
+**Research in parallel.** When the Agent tool is available, start **4 research subagents in one
+message**, and don't search one query at a time in the main thread:
+1. free alternatives, direct competitors with their traction and prices, the saturated wave;
+2. the graveyard, demand and trend, why now;
+3. distribution, the ICP and where it gathers, real costs from price pages;
+4. legal and platform risk, and the 2 type checks (§1).
+Give each the idea brief, the country and language, the source rules below and the safety rules
+(§0), and ask for facts with URLs, tiers and dates, estimates with formulas, and unknowns. Then
+merge, deduplicate and fill the gaps yourself. Without the Agent tool, run the searches in
+parallel batches. Search in the target country's language and on its local sites. Go down
 this kill-shot checklist and record evidence for every item, hit or clear:
 
 | # | Kill shot | What counts as a hit | Searches to run (adapt the words) |
@@ -168,6 +181,11 @@ its `verdict`:
 `where` (up to 5 communities, platforms or events where they can be reached), what they
 `pays_for_today` to solve it (with the price), their `budget`, and the `trigger` (the moment
 they start looking for a solution). Write "unknown" for a field you found no evidence for.
+
+**Quick mode** (`--quick`, or "quick check"): one research subagent per group, 10 sources from
+6 domains at least, about half the time. Set `verdict.quick: true` and `confidence.level: low`,
+and say in the report that it's a first look. A quick run is never a GO: its score is capped at
+69. Suggest a full run or `/kill-my-idea:deepdive` before any money is spent.
 
 **Source rules.** The research is only as good as its sources:
 

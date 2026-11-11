@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-vymh/n71d9Th3mSE/RZr5KFb6MWd5EDuC/t3LQaz7Qw='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-5XvQgDfMHipW+qC0kvUd9n+xqZcXoeO4knoBFi3Vmak='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -303,6 +303,7 @@ if (ICP) ICP.where = Array.isArray(ICP.where) ? ICP.where.filter(w => typeof w =
 /* language: UI labels follow the idea's language (en, fr) */
 const LANG = String(I.language || N.language || "en").slice(0, 2).toLowerCase() === "fr" ? "fr" : "en";
 const FR = {
+  "Quick mode": "Mode rapide",
   "Go to market": "Mise sur le marché", "Who to sell to, how to get in, what to say, and under what name. Built from the evidence above.": "À qui vendre, par où entrer, quoi dire et sous quel nom. Construit à partir des preuves ci-dessus.",
   "Personas": "Personas", "In their words": "Avec leurs mots", "Uses today": "Utilise aujourd'hui", "Pays today": "Paie aujourd'hui", "Starts looking when": "Commence à chercher quand", "Objections": "Objections", "Reach them": "Où les toucher",
   "Ways in": "Par où entrer", "Recommended": "Recommandé", "Segment": "Segment", "Channel": "Canal", "Price": "Prix", "First 10 customers": "10 premiers clients", "Risks": "Risques",
@@ -454,8 +455,11 @@ const TC_L = { churn_benchmark: "Churn for this segment", switching_cost: "Switc
   rpm: "Revenue per 1,000 views", platform_policy: "Platform policy", founder_time_ceiling: "Your time ceiling", client_concentration: "Client concentration",
   location_traffic: "Location and traffic", permits_capex: "Permits and upfront cost" };
 const ITYPE = TYPE_L[I.type] ? I.type : null;
+const RUN = V.run && typeof V.run === "object" ? V.run : null;
+const runBits = RUN ? [num(RUN.minutes) !== null ? `${Math.round(num(RUN.minutes))} min` : "", num(RUN.searches) !== null ? `${Math.round(num(RUN.searches))} searches` : "", num(RUN.fetches) !== null ? `${Math.round(num(RUN.fetches))} pages read` : "", num(RUN.subagents) ? `${Math.round(num(RUN.subagents))} research agents` : ""].filter(Boolean) : [];
+const runLine = runBits.length ? `<br>This run: ${runBits.join(" · ")}.` : "";
 const hero = `<div class="card hero">
-  <div><div class="meta"><span class="badge b-neutral">${ic("clock", 14)}${esc(niceDate(V.evaluated || I.created))}</span>${modeLabel ? `<span class="badge b-neutral">${esc(modeLabel)}</span>` : ""}${ITYPE ? `<span class="badge b-neutral">${ic("layers", 14)}${TYPE_L[ITYPE]}</span>` : ""}${(I.countries || []).map(c => `<span class="badge b-neutral">${ic("flag", 14)}${esc(CN[c] || c)}</span>`).join("")}${CF ? `<span class="badge ${CFC[CF.level]}" ${tipA("Confidence", cfTip)} tabindex="0">${ic("info", 14)}${CFL[CF.level]}</span>` : ""}${prevScore !== null && prevScore !== V.score ? `<span class="badge b-neutral" ${tipA("Previous verdict", `${prev.verdict || ""} ${prevScore} (${prev.mode || ""}, ${niceDate(prev.evaluated)})`)} tabindex="0">${prevScore} ${ic("arrow", 12)} ${V.score}</span>` : ""}</div>
+  <div><div class="meta"><span class="badge b-neutral">${ic("clock", 14)}${esc(niceDate(V.evaluated || I.created))}</span>${modeLabel ? `<span class="badge b-neutral">${esc(modeLabel)}</span>` : ""}${V.quick === true ? `<span class="badge b-PIVOT">${ic("clock", 14)}Quick mode</span>` : ""}${ITYPE ? `<span class="badge b-neutral">${ic("layers", 14)}${TYPE_L[ITYPE]}</span>` : ""}${(I.countries || []).map(c => `<span class="badge b-neutral">${ic("flag", 14)}${esc(CN[c] || c)}</span>`).join("")}${CF ? `<span class="badge ${CFC[CF.level]}" ${tipA("Confidence", cfTip)} tabindex="0">${ic("info", 14)}${CFL[CF.level]}</span>` : ""}${prevScore !== null && prevScore !== V.score ? `<span class="badge b-neutral" ${tipA("Previous verdict", `${prev.verdict || ""} ${prevScore} (${prev.mode || ""}, ${niceDate(prev.evaluated)})`)} tabindex="0">${prevScore} ${ic("arrow", 12)} ${V.score}</span>` : ""}</div>
   <h1>${esc(I.title || "Untitled idea")}</h1>${I.solution ? `<p class="pitch">${esc(I.solution)}</p>` : ""}<p class="answer">${rt(N.answer || "")}</p></div>
   <div class="score">${ring(V.score ?? 0, V.verdict)}<div class="verdict b-${esc(V.verdict)}">${ic(VICON[V.verdict], 20)}${esc(V.verdict || "")}</div>${nextBand}</div></div>`;
 
@@ -759,7 +763,7 @@ app.innerHTML = `<header class="top"><div class="topbar"><a class="brand" href="
   <button class="btn" type="button" id="card" aria-label="Download a shareable verdict image">${ic("share")}<span>Share card</span></button><button class="btn" type="button" id="print" aria-label="Print or save as PDF">${ic("printer")}<span>Save PDF</span></button></div>
   <nav class="tabs" aria-label="Report sections">${TABS.slice().sort((x, y) => ORDER.indexOf(x[0]) - ORDER.indexOf(y[0])).map(([id, t]) => `<a href="#${id}">${esc(t)}</a>`).join("")}</nav></header>
   <main>${hero}${body}${sSrc}</main>
-  <footer>Generated by kill-my-idea. Sourced numbers link to a footnote, estimates show their reasoning on hover, and anything not found is marked unknown. Research, not financial advice.</footer>`;
+  <footer>Generated by kill-my-idea. Sourced numbers link to a footnote, estimates show their reasoning on hover, and anything not found is marked unknown. Research, not financial advice.${runLine}</footer>`;
 translateUI(app);
 if (WI) WI.wire();
 document.getElementById("print").addEventListener("click", () => print());
