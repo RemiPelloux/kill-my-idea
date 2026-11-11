@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.11.1 — 2026-11-11
 
 - **Research agents run in the foreground:** kill and deepdive wait for their research subagents
   instead of starting them in the background. In the background, a run ended its turn and was woken
