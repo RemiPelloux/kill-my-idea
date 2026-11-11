@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.0",
   "slug": "dental-ai-receptionist",
   "title": "AI receptionist for US dental clinics' missed calls",
   "created": "2026-11-11",

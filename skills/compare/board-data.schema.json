@@ -10,6 +10,11 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.\\d+$",
+      "description": "The file format that wrote this file. \"1.0\" since kill-my-idea 1.0; files without it are pre-1.0 (run scripts/migrate.py)."
+    },
     "generated": {
       "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$",

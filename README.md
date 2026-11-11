@@ -208,6 +208,7 @@ Check any run yourself:
 ```sh
 python3 scripts/check-idea.py ideas/<folder>   # or --all for every idea
 python3 scripts/build-brain.py ideas           # rebuild the dashboard and BRAIN.md by hand
+python3 scripts/migrate.py --all ideas         # upgrade verdicts made before 1.0 to the 1.0 format
 ```
 
 It recomputes the score from the sub-scores, applies the fixed rules, and checks every source and

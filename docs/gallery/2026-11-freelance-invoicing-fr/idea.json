@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.0",
   "slug": "freelance-invoicing-fr",
   "title": "Simple invoicing + VAT/URSSAF app for French auto-entrepreneurs",
   "created": "2026-11-11",

@@ -38,6 +38,7 @@ COHERENCE = {"free_alternative": [("competition", "free_alternatives", 2)],
              "saturated_wave": [("competition", "competitor_density", 2)],
              "strong_competitor": [("competition", "competitor_density", 3)]}
 MIN_SOURCES = {"kill": (20, 10), "deepdive": (40, 15), "roast": (10, 6), "check-tweet": (20, 10)}
+SCHEMA_VERSION = "1.0"  # the file format; 1.x readers accept every 1.x file
 DIFF_ORDER = {"doable": 0, "hard": 1, "very-hard": 2}
 URL_RX = re.compile(r"^https?://", re.I)
 DATE_RX = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -96,6 +97,17 @@ def check_url(rep, where, url, required=False):
         return
     if not isinstance(url, str) or not URL_RX.match(url):
         rep.error(f"{where}: not an http(s) URL: {str(url)[:80]!r}")
+
+
+def check_version(rep, where, obj):
+    """Every file written since 1.0 says which format wrote it."""
+    if not isinstance(obj, dict):
+        return
+    ver = obj.get("schema_version")
+    if ver is None:
+        rep.legacy(f"{where} schema_version (run scripts/migrate.py)", since="1.0")
+    elif not isinstance(ver, str) or not re.match(r"^1\.\d+$", ver):
+        rep.error(f"{where}: schema_version {ver!r} is not a 1.x format; this checker reads 1.x files")
 
 
 def check_idea(rep, idea):
@@ -761,6 +773,8 @@ def check_folder(folder, legacy=False):
     if not DATE_RX.match(str(v.get("evaluated", ""))):
         rep.error(f"verdict.json: evaluated {v.get('evaluated')!r} is not YYYY-MM-DD")
     check_idea(rep, idea)
+    check_version(rep, "idea.json", idea)
+    check_version(rep, "verdict.json", v)
     scores = check_scores(rep, v)
     check_metrics(rep, v)
     check_kill_shots(rep, v)
@@ -799,7 +813,7 @@ def check_board(ideas_dir):
     board = load_js_literal(rep, path, "KMI_BOARD")
     if board is None:
         return rep
-    top = {"generated", "ideas", "brain", "focus", "patterns"}
+    top = {"schema_version", "generated", "ideas", "brain", "focus", "patterns"}
     if set(board) - top:
         rep.error(f"board-data.js: unknown top-level keys {sorted(set(board) - top)}")
     if "brain" in board and not isinstance(board["brain"], bool):

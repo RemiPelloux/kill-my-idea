@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased (1.0.0 sprint)
+
+- **Tests:** 25 stdlib unit tests for the checker rules (R1–R6, rounding, tampering, unsafe data),
+  build-brain, the board check, the export and the CSP pins. CI runs them. (#10)
+- **File format 1.0:** `idea.json`, `verdict.json`, `report-data` and `board-data.js` carry
+  `schema_version`. `scripts/migrate.py` upgrades a folder that passes today's rules and lists the
+  ones that need a re-run. The gallery is upgraded. (#9)
+
 ## 0.9.1 — 2026-11-11
 
 **Fixed: dead ideas scored as PIVOT.** Twelve real runs for the new gallery showed it: an idea with no

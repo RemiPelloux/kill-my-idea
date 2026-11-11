@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.0",
   "slug": "ai-history-channel",
   "evaluated": "2026-11-11",
   "mode": "kill",

@@ -94,6 +94,30 @@ class Rules(unittest.TestCase):
         c.close()
 
 
+class Versions(unittest.TestCase):
+    def test_fixtures_are_1_0(self):
+        c = IdeaCopy("pet")
+        self.assertEqual(c.verdict().get("schema_version"), chk.SCHEMA_VERSION)
+        c.close()
+
+    def test_unknown_major_version_is_refused(self):
+        c = IdeaCopy("pet")
+        v = c.verdict()
+        v["schema_version"] = "2.0"
+        c.save(v)
+        self.assertTrue(any("schema_version" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_missing_version_is_only_a_warning(self):
+        c = IdeaCopy("pet")
+        v = c.verdict()
+        del v["schema_version"]
+        c.save(v)
+        rep = chk.check_folder(c.dir)
+        self.assertTrue(any("schema_version" in w for w in rep.warnings))
+        c.close()
+
+
 class Safety(unittest.TestCase):
     def test_code_in_report_data_is_refused(self):
         c = IdeaCopy("dental")

@@ -231,7 +231,7 @@ def main(argv):
         return 1
     pats = patterns(ideas)
     focus = load_focus(ideas_dir, {x["slug"] for x in ideas})
-    board = {"generated": today.isoformat(), "brain": brain, "focus": focus, "patterns": pats,
+    board = {"schema_version": "1.0", "generated": today.isoformat(), "brain": brain, "focus": focus, "patterns": pats,
              "ideas": [{k: v for k, v in x.items() if not k.startswith("_")} for x in ideas]}
     payload = json.dumps(board, ensure_ascii=False).replace("<", "\\u003c")
     (ideas_dir / "board-data.js").write_text(f"window.KMI_BOARD = {payload};\n", encoding="utf-8")
