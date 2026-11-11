@@ -44,6 +44,13 @@ Applied after the total, recorded in `rules_applied` with their effect:
 
 A quick run (`--quick`) is also capped at 69, because 10 sources are not enough for a GO.
 
+**Strong competitor is information, not a penalty.** A hit needs a traction number (revenue of $1M+
+a year, 500+ reviews, $5M+ raised, 100k+ users or a top-10 rank). Even so, it hit 13 of the 14
+gallery ideas and 8 of the 10 calibration ideas, successes included: almost every real market
+already has a leader. So it only caps competitor density at 3 (R5), which makes it a mild
+penalty, not a kill. What decides the score is whether you can still win the customers: free
+alternatives, a saturated wave, no channel, and the unit economics.
+
 **Verdict:** GO at 70 and above, PIVOT from 50 to 69, NO-GO below 50.
 
 ## 4. A worked example
@@ -54,20 +61,20 @@ Shopify pet-products dropshipping store with TikTok ads, in the US.
 | Criterion | Weight | Sub-scores | Mean | Points |
 |---|---|---|---|---|
 | Profit potential | 25 | 2 / 1 / 1.5 | 1.50 | 7.50 |
-| Feasibility for you | 20 | 4.5 / 2.5 / 3 | 3.33 | 13.33 |
+| Feasibility for you | 20 | 4.5 / 2.5 / 2.5 | 3.17 | 12.67 |
 | Time to first revenue | 15 | 4.5 / 5 / 2 | 3.83 | 11.50 |
-| Market demand | 15 | 4.5 / 3.5 / 3.5 | 3.83 | 11.50 |
+| Market demand | 15 | 4 / 3 / 3 | 3.33 | 10.00 |
 | Competitive room | 10 | 2.5 / 1 / 1 | 1.50 | 3.00 |
-| Risk | 10 | 2.5 / 2 / 3 | 2.50 | 5.00 |
+| Risk | 10 | 2.5 / 2 / 2.5 | 2.33 | 4.67 |
 | Founder fit | 5 | 2 / 1 / 1 | 1.33 | 1.33 |
-| **Raw total** | | | | **53.2** |
+| **Raw total** | | | | **50.7** |
 
-1. The raw total rounds to **53**, which would be a PIVOT.
-2. **R3** already lowered competition: 30,000+ Shopify pet stores sell the same catalogs.
-3. **R5** lowered channel readiness to 2, because no channel was found.
-4. **R7**: Profit potential is **1.50** (a customer costs about $57 on TikTok and brings $18 of
-   lifetime profit, LTV:CAC **0.32**). The model doesn't make money: 53 − 10 = **43**.
-5. **R6** would also cap it at 49 (no channel and LTV:CAC below 1). The final score is **43: NO-GO**.
+1. The raw total rounds to **51**, which would be a PIVOT.
+2. **R5** lowered gross margin to 2, because the costs-eat-margin kill shot hit.
+3. **R3** lowered competition to 1.5: a saturated wave of look-alike pet stores.
+4. **R7**: Profit potential is **1.50** (a customer costs about $30 on TikTok and brings $15.40 of
+   lifetime profit, LTV:CAC **0.51**). The model doesn't make money: 51 − 10 = **41**.
+5. **R6** would also cap it at 49 (no channel and LTV:CAC below 1). The final score is **41: NO-GO**.
 
 Easy to start and fast to first revenue lifted the average above 50. R6 and R7 exist so that can't
 happen when the model loses money.

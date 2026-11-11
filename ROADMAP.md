@@ -1,6 +1,6 @@
 # Roadmap to 1.0.0
 
-1.0.0 is a quality bar, not a date. **Status (2026-11-11):** 22 of 26 done; the calibration set passes all three targets (see [calibration](calibration/README.md)). All the work happens in **one sprint**, the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) milestone (26 issues), and 1.0.0 ships when it is closed.
+1.0.0 is a quality bar, not a date. **Status (2026-11-11): shipped.** All 26 items of the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) are closed. Two targets were missed and are recorded as such: "strong competitor" still hits almost every idea (it is now documented as information, see [How scoring works](docs/scoring.md)), and parallel research made runs more reliable, not faster (moved to [after 1.0](#after-10)).
 
 **What 1.0 means**
 
@@ -33,10 +33,10 @@ set, the regenerated examples and the gallery re-run) are real runs: at most 3 a
 7. ✅ [#24](https://github.com/RemiPelloux/kill-my-idea/issues/24) Smarter questions
 8. ✅ [#25](https://github.com/RemiPelloux/kill-my-idea/issues/25) Follow-up after research
 9. ✅ [#4](https://github.com/RemiPelloux/kill-my-idea/issues/4) Calibration set
-10. [#6](https://github.com/RemiPelloux/kill-my-idea/issues/6) Strong competitor threshold
+10. ✅ [#6](https://github.com/RemiPelloux/kill-my-idea/issues/6) Strong competitor threshold
 11. ✅ [#7](https://github.com/RemiPelloux/kill-my-idea/issues/7) Weights review
 12. ✅ [#11](https://github.com/RemiPelloux/kill-my-idea/issues/11) Golden runs
-13. [#13](https://github.com/RemiPelloux/kill-my-idea/issues/13) Regenerate the examples
+13. ✅ [#13](https://github.com/RemiPelloux/kill-my-idea/issues/13) Regenerate the examples
 
 **Go to market (deepdive)**
 
@@ -48,7 +48,7 @@ set, the regenerated examples and the gallery re-run) are real runs: at most 3 a
 **Speed and docs**
 
 18. ✅ [#14](https://github.com/RemiPelloux/kill-my-idea/issues/14) Cost and time in the report
-19. [#16](https://github.com/RemiPelloux/kill-my-idea/issues/16) Parallel research by default
+19. ✅ [#16](https://github.com/RemiPelloux/kill-my-idea/issues/16) Parallel research by default
 20. ✅ [#15](https://github.com/RemiPelloux/kill-my-idea/issues/15) Quick mode
 21. ✅ [#17](https://github.com/RemiPelloux/kill-my-idea/issues/17) Write a "How scoring works" page
 22. ✅ [#18](https://github.com/RemiPelloux/kill-my-idea/issues/18) Rubric-change process
@@ -58,7 +58,7 @@ set, the regenerated examples and the gallery re-run) are real runs: at most 3 a
 23. ✅ [#21](https://github.com/RemiPelloux/kill-my-idea/issues/21) Release checklist
 24. ✅ [#19](https://github.com/RemiPelloux/kill-my-idea/issues/19) Compatibility promise
 25. ✅ [#20](https://github.com/RemiPelloux/kill-my-idea/issues/20) Security review
-26. [#22](https://github.com/RemiPelloux/kill-my-idea/issues/22) Gallery re-run
+26. ✅ [#22](https://github.com/RemiPelloux/kill-my-idea/issues/22) Gallery re-run
 
 ---
 
@@ -75,7 +75,7 @@ those because of the R6 cap. A score that never leaves 43–58 is not telling id
 | **Follow-up after research** | Some kill shots hinge on one fact the research can't find, like "do you already have 1,000 followers in this niche?". Today that becomes a silent assumption. | S | After research, when a kill shot or a capped rule depends on a founder fact, the skill asks at most 2 targeted follow-ups before scoring, then records which answer changed what ("no channel → channel clear, +6"). In headless mode they become explicit assumptions in the report. |
 | **Calibration set** | Without known answers, nobody can tell whether a score is too harsh or too soft. | L | 10 ideas with a known outcome: 5 that clearly worked and 5 that clearly failed (Juicero, Quibi…). Each is scored "as of" its launch date, using only sources from before that date. The 5 that worked score a median of 60 or more, the 5 failures under 50, and at least one reaches GO. |
 | **`scripts/calibrate.py`** | Clustering is only visible once you look at all runs together. | S | It prints the score distribution, how often each rule fired, and how often each kill shot hit, across any set of verdicts. CI runs it on the gallery. |
-| **"Strong competitor" threshold** | It hit 13 of 14 gallery ideas. A kill shot that hits nearly everything tells you nothing. | M | The rubric defines "clear traction" with numbers (revenue, reviews or funding). On the gallery it hits at most 2 of every 3 ideas. |
+| **"Strong competitor" threshold** | It hit 13 of 14 gallery ideas. A kill shot that hits nearly everything tells you nothing. | M | The rubric defines "clear traction" with numbers (revenue, reviews or funding). **Result:** done, but it still hits 13 of 14 gallery ideas and 8 of 10 calibration ideas, successes included. Real markets almost always have a leader, so it stays as information with a mild cap (competitor density ≤ 3), documented in docs/scoring.md. |
 | **Weights review** | R6 was needed because easy feasibility and fast first revenue lifted dead ideas above 50. | M | Feasibility and time to first revenue are re-weighted, or capped when Profit is 2 or lower. The change is checked against the calibration set, and the old and new scores are published in the changelog. |
 | **Hindsight guard** | Scoring a famous company with today's sources leaks the outcome into the score. | S | Roast and calibration runs take an `as_of` date. Sources dated after it are flagged by the checker. |
 
@@ -111,7 +111,7 @@ The evidence: across the gallery runs, a kill run took a median of 6 minutes and
 |---|---|---|---|
 | **Cost and time in the report** | Users can't see what a run cost. | S | `verdict.json` records the duration and the number of searches. The report footer shows them. |
 | **Quick mode** | Not every idea needs 20+ sources. | M | `--quick`: 10 sources, about half the time, and the confidence is forced to low and labelled as such. It is never used for a GO. |
-| **Parallel research by default** | 16 of the 18 gallery runs used no subagent: all of their 16–23 searches ran one after another in the main thread. | M | The kill shots are searched by parallel subagents. The median run time drops by at least 30% at the same source count. |
+| **Parallel research by default** | 16 of the 18 gallery runs used no subagent: all of their 16–23 searches ran one after another in the main thread. | M | The kill shots are searched by parallel subagents. **Result:** every gallery run now uses 4 subagents. The minimum source count rose from 4 to 36 (median 34 → 39.5), but the median run takes 7 minutes against 6. The speed target moves to after 1.0. |
 | **"How scoring works" page** | The rules are spread across SKILL.md, the README and the report footnote. | S | One page with a worked example from raw score to rules to verdict, linked from the report. |
 | **Rubric-change process** | Users will want to reweight the scores. | S | CONTRIBUTING explains how to propose a rubric change: run calibrate.py before and after, and include the diff. |
 
@@ -123,6 +123,10 @@ The evidence: across the gallery runs, a kill run took a median of 6 minutes and
 | **Security review** | The templates and scripts changed a lot between 0.5 and 0.12. | M | A fresh review of the report, the dashboard and the scripts, with the injection tests rerun and SECURITY.md updated. |
 | **Release checklist** | Releases are manual today, and one v0.9.0 tag was briefly pushed on the wrong commit. | S | `scripts/release.py --check` verifies the version, the changelog entry, the pinned CSP, the tests and the tag before anything is pushed. |
 | **Gallery re-run** | The public verdicts must match the 1.0 rules. | M | The gallery is rebuilt with 1.0, and calibrate.py's output is published next to it. |
+
+## After 1.0
+
+- **Faster runs:** the 30% speed target from #16. Measure where the 7 minutes go (subagent start-up, the research budget, report writing) before cutting.
 
 ## Not before 1.0
 
