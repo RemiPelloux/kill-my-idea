@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.1.0 — 2026-11-11
+
+- **New skill, `/kill-my-idea:build`:** turns an idea that has a verdict (or one of its rescue paths)
+  into a starter kit in `ideas/<folder>/build/`: README, `CLAUDE.md` for an agent building it,
+  `.env.example`, the folder structure and starter files, a PRD, architecture, decision log and test
+  plan, user stories with acceptance criteria, 3–5 sprints (sprint 0 is the verdict's 7-day test, not
+  code), a Definition of Done, a 12-month business plan with 3 scenarios, brand tokens, a 15–30 s
+  video storyboard and 3–9 creative ads, each with a target cost per customer. Any verdict can be
+  built; a NO-GO kit says so at the top.
+- **Pelloux guidelines in every kit:** `build/pelloux-guidelines.md` (think of 3 approaches and pick the
+  simplest, size limits, surgical changes, Make/Test/Document) is copied into every kit, and the
+  check fails when `build/CLAUDE.md` doesn't tell the agent to follow it.
+- **SmartTest in every kit:** the README, test plan and guidelines set up
+  [SmartTest](https://github.com/RemiPelloux/SmarttyTest) (`@tkmremi/smarttest` 1.2.0), so only the
+  tests a change can affect run, on every commit through its pre-commit hook. Starter tests are laid
+  out so its runner collects them (Python: `pyproject.toml` + `tests/__init__.py`).
+- **The numbers are computed, not written:** the model writes `build/plan.json`
+  ([schema](skills/build/build-plan.schema.json)); `scripts/build-kit.py` checks it against
+  `verdict.json` (inputs marked `verdict` must equal the metric, an ad's target CPA can't exceed a
+  customer's lifetime gross profit, colours must pass contrast), does the projection, break-even and
+  cash-needed math, and renders the docs and a CSV.
+- **Video and ads with Remotion:** a fixed, pinned [Remotion](https://www.remotion.dev) template
+  (4.0.538) reads only `video/src/props.json`. `npm run video` renders the promo MP4, `npm run ads`
+  one PNG per ad. The model never writes the video code.
+- **Example:** the UGC agency gallery idea (PIVOT 56), built from rescue path 1 in one Opus run
+  (6 minutes, $1.95): [examples/ugc-agency-build](examples/ugc-agency-build/build/BUILD.md), with
+  the rendered video and ads in `media/`.
+- 19 new unit tests (69 in all); CI checks every example build kit.
+
 ## 1.0.0 — 2026-11-11
 
 The 1.0 quality bar from the [roadmap](ROADMAP.md) is met: a calibrated score, versioned formats,
