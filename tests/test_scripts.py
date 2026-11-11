@@ -140,10 +140,14 @@ class BuildReport(unittest.TestCase):
 
 class Calibrate(unittest.TestCase):
     def test_targets(self):
+        import contextlib
+        import io
         w = Workspace()
-        res = cal.report(cal.verdicts([w.ideas]))
+        with contextlib.redirect_stdout(io.StringIO()):
+            res = cal.report(cal.verdicts([w.ideas]))
+            ok = cal.targets(res, {"pet-dropshipping-tiktok": "failed", "dental-ai-receptionist": "worked"})
         self.assertEqual(sorted(res["scores"].values()), [49, 51])
-        self.assertFalse(cal.targets(res, {"pet-dropshipping-tiktok": "failed", "dental-ai-receptionist": "worked"}))
+        self.assertFalse(ok)
         w.tmp.cleanup()
 
     def test_rescore_matches_checker_with_default_weights(self):

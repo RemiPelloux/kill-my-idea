@@ -1,0 +1,374 @@
+{
+  "schema_version": "1.0",
+  "slug": "vending-machine-route",
+  "evaluated": "2026-11-11",
+  "mode": "kill",
+  "verdict": "NO-GO",
+  "score": 49,
+  "score_raw": 48.7,
+  "confidence": {
+    "level": "high",
+    "sourced_subscores": 18,
+    "sources": 31,
+    "primary_sources": 14,
+    "note": "Per-machine revenue rests on a 2020 survey of 23 operators; real sales data from local office and gym sites would raise it."
+  },
+  "criteria": {
+    "profit": 1.5,
+    "feasibility": 3.0,
+    "time_to_first_revenue": 2.5,
+    "demand": 2.5,
+    "competition": 2.0,
+    "risk": 3.0,
+    "fit": 1.5
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 1.5,
+        "note": "~31% after 50% COGS, 10% commission, ~4.8% card fees, 4% shrink (estimate). Under 30% = 1. R5 costs_eat_margin.",
+        "source": "https://thehustle.co/the-economics-of-vending-machines/"
+      },
+      "ltv_cac": {
+        "score": 1.5,
+        "note": "LTV $3,448 vs $3,334 per placed machine = 1.03; 0.49 after per-machine fixed costs. Fix path: only high-traffic sites.",
+        "source": "https://www.usedvending.com/i/Crane-National-167-Snack-Vending-Machine-for-Sale-in-Illinois-/IL-I-492C2"
+      },
+      "pricing_power": {
+        "score": 2,
+        "note": "Snack prices anchored by stores; locations expect free placement plus 5-25% commission. Card surcharge is the only lever.",
+        "source": "https://vendingexchange.com/vending-machine-locators/vending-location-commission-explained"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 4,
+        "note": "Nothing to build: buy a used machine, stock from Sam's Club, place it. 2-4 weeks.",
+        "source": "https://www.samsclub.com/b/bulk-candy-and-bulk-snack/3110105"
+      },
+      "skills_match": {
+        "score": 3,
+        "note": "No stated vending, sales or repair skills; all learnable, but cold prospecting is the hard part.",
+        "source": "https://thehustle.co/the-economics-of-vending-machines/"
+      },
+      "capital_needed": {
+        "score": 2.5,
+        "note": "3 used machines + readers + stock = ~$9,900 of a $10,000 budget; no buffer for insurance or repairs.",
+        "source": "https://www.usedvending.com/i/Crane-National-167-Snack-Vending-Machine-for-Sale-in-Illinois-/IL-I-492C2"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 3,
+        "note": "~4 weeks: find a site, buy and move a used machine, get a sales tax permit (estimate).",
+        "source": "https://www.nav.com/blog/how-to-start-a-business-1362503"
+      },
+      "sales_cycle": {
+        "score": 3,
+        "note": "Office or gym manager decides in 1-4 weeks; property managers may require insurance certificates.",
+        "source": "https://www.insureon.com/retail-business-insurance/vending-machine-operators/cost"
+      },
+      "channel_readiness": {
+        "score": 2,
+        "note": "Channel exists (walk-ins, cold calls) but user has none; operators report 100+ calls per decent site.",
+        "source": "https://thehustle.co/the-economics-of-vending-machines/"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 3,
+        "note": "Daily snack habit, but host demand is weak: offices run ~54% of pre-pandemic occupancy.",
+        "source": "https://www.axios.com/2025/02/06/return-office-remote-work"
+      },
+      "trend": {
+        "score": 2,
+        "note": "US vending operators -1.3% in 2025, -0.3%/yr 2020-2025 (IBISWorld). R5 weak_demand.",
+        "source": "https://www.ibisworld.com/united-states/market-size/vending-machine-operators/1113/"
+      },
+      "willingness_to_pay": {
+        "score": 2.5,
+        "note": "Buyers pay per vend, but hosts pay $0 and expect commission; per-machine gross ~$309/month.",
+        "source": "https://thehustle.co/the-economics-of-vending-machines/"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 3,
+        "note": "Hosts get free full-service vending from any operator; employees can also bring snacks or use pantries.",
+        "source": "https://vendingexchange.com/vending-machine-locators/vending-location-commission-explained"
+      },
+      "competitor_density": {
+        "score": 2,
+        "note": "Local operators, national Canteen (Compass) and micro markets all pitch the same breakrooms. R5 strong_competitor.",
+        "source": "https://www.canteen.com/about-us/"
+      },
+      "differentiation": {
+        "score": 1.5,
+        "note": "Same machines, same snacks, no edge. Micro markets and smart coolers out-feature a used spiral machine.",
+        "source": "https://www.vendingmarketwatch.com/reports/article/55381943/state-of-the-industry-2026-smart-coolers-move-mainstream-as-revenue-tops-40-billion"
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 4,
+        "note": "Sales tax permit, local business licence; health permit only for some food. Light compliance.",
+        "source": "https://www.candymachines.com/blog/permits-and-licensing-requirements-for-your-vending-business"
+      },
+      "platform_dependency": {
+        "score": 3,
+        "note": "Each site's host can remove you at will; card processor terms set fees. Alternatives exist.",
+        "source": "https://vendingexchange.com/vending-machine-locators/vending-location-commission-explained"
+      },
+      "market_risk": {
+        "score": 2.5,
+        "note": "Structural, not cyclical: hybrid work and micro markets shrink office vending.",
+        "source": "https://365retailmarkets.com/beyond-vending/"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 2,
+        "note": "No relevant skills stated (route ops, sales, machine repair).",
+        "source": null
+      },
+      "assets": {
+        "score": 1,
+        "note": "No audience, network or locations: 'no special edge'.",
+        "source": null
+      },
+      "interest": {
+        "score": 1.5,
+        "note": "Goal is side income: the money, not the domain.",
+        "source": null
+      }
+    }
+  },
+  "rules_applied": [],
+  "metrics": {
+    "tam": {
+      "value": 7700000000.0,
+      "unit": "USD/year",
+      "basis": "sourced",
+      "source": "https://www.ibisworld.com/united-states/market-size/vending-machine-operators/1113/",
+      "reasoning": null,
+      "as_of": "2025"
+    },
+    "sam": {
+      "value": 58000000.0,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$7.7bn x 1.5% (one metro's share of US population, assumed) x 50% snack share (assumed) = ~$58M",
+      "as_of": "2026-11"
+    },
+    "som": {
+      "value": 11124,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "3 machines x $309/month x 12 = $11,124 gross",
+      "as_of": "2026-11"
+    },
+    "competitors_found": {
+      "value": 6,
+      "unit": "count",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Named: Canteen, local independent operators, Vending Exchange free placement, 365 Retail Markets, Cantaloupe micro markets, office pantry/convenience stores",
+      "as_of": "2026-11"
+    },
+    "competitor_price_range": {
+      "value": "USD 0 to the host (free placement)",
+      "unit": "USD",
+      "basis": "sourced",
+      "source": "https://vendingexchange.com/vending-machine-locators/vending-location-commission-explained",
+      "reasoning": null,
+      "as_of": "2026-11"
+    },
+    "demand_trend": {
+      "value": "falling (-1.3% in 2025)",
+      "unit": "%",
+      "basis": "sourced",
+      "source": "https://www.ibisworld.com/united-states/market-size/vending-machine-operators/1113/",
+      "reasoning": null,
+      "as_of": "2025"
+    },
+    "price": {
+      "value": 309,
+      "unit": "USD/month gross per machine",
+      "basis": "sourced",
+      "source": "https://thehustle.co/the-economics-of-vending-machines/",
+      "reasoning": null,
+      "as_of": "2020-10 (dated)"
+    },
+    "variable_cost_per_unit": {
+      "value": 213,
+      "unit": "USD/month per machine",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "309 x (50% COGS + 10% commission + 5.95% card fee x 80% cashless + 4% shrink = 68.8%) = $213",
+      "as_of": "2026-11"
+    },
+    "gross_margin_pct": {
+      "value": 31,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "(309 - 213) / 309 = 31%",
+      "as_of": "2026-11"
+    },
+    "churn_monthly_pct": {
+      "value": 2.8,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Assumed 36-month average placement life: 1 / 36 = 2.8%/month; no source found",
+      "as_of": "2026-11"
+    },
+    "expected_lifetime": {
+      "value": 36,
+      "unit": "months",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Assumed average placement life before host cancels or swaps operator",
+      "as_of": "2026-11"
+    },
+    "conversion_rate_pct": {
+      "value": 2,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Pitch to signed placement: The Hustle reports 100+ calls for a decent site; assumed 1 in 50 pitches",
+      "as_of": "2026-11"
+    },
+    "cac": {
+      "value": 3334,
+      "unit": "USD per placed machine",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Used machine $2,645 + Nayax reader $314 + $375 prospecting (50 pitches x 0.3 h x $25/h) = $3,334",
+      "as_of": "2026-11"
+    },
+    "ltv": {
+      "value": 3448,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$309 x 31% x 36 months = $3,448 gross contribution, before fixed costs",
+      "as_of": "2026-11"
+    },
+    "ltv_cac": {
+      "value": 1.03,
+      "unit": "ratio",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "3,448 / 3,334 = 1.03; 0.49 after ~$50/machine/month fixed costs",
+      "as_of": "2026-11"
+    },
+    "payback_months": {
+      "value": 34.8,
+      "unit": "months",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "CAC $3,334 / $95.8 monthly contribution per machine = 34.8 months",
+      "as_of": "2026-11"
+    },
+    "fixed_costs_month": {
+      "value": 152,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Readers 3 x $7.95 + insurance $442/12 + mileage 30 mi/wk x 4.33 x $0.70 = $24 + $37 + $91 = $152",
+      "as_of": "2026-11"
+    },
+    "break_even_customers_per_month": {
+      "value": 1.6,
+      "unit": "machines",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$152 fixed / $95.8 contribution per machine = 1.6 machines to cover running costs; ~6 to repay $9,867 capex in 24 months",
+      "as_of": "2026-11"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 4,
+      "unit": "weeks",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "1-2 weeks prospecting + 1 week buying and moving a used machine + 1 week permits and stocking",
+      "as_of": "2026-11"
+    }
+  },
+  "launch_country": "US",
+  "launch_reason": "The user's stated market.",
+  "kill_shots": {
+    "free_alternative": false,
+    "strong_competitor": true,
+    "graveyard": true,
+    "no_distribution": false,
+    "costs_eat_margin": true,
+    "weak_demand": true,
+    "legal_platform_risk": false,
+    "saturated_wave": false
+  },
+  "primary_kill_shot": "costs_eat_margin",
+  "cheapest_test": "Before buying anything: pitch 40 high-traffic sites in 7 days and get 1 signed placement with 75+ daily users.",
+  "kill_criteria": [
+    "0 signed placements from 40 pitches by day 7 -> stop",
+    "Best site has fewer than 75 daily on-site people -> do not buy a machine",
+    "Projected gross under $400/month per machine at day 7 -> do not buy",
+    "First full month gross under $250 per machine -> sell the machine within 60 days"
+  ],
+  "sources": [
+    "https://thehustle.co/the-economics-of-vending-machines/",
+    "https://routeconsultant.com/vending-routes",
+    "https://vmfsusa.com/are-vending-machines-profitable/",
+    "https://www.ibisworld.com/united-states/market-size/vending-machine-operators/1113/",
+    "https://www.vendingmarketwatch.com/reports/article/55381943/state-of-the-industry-2026-smart-coolers-move-mainstream-as-revenue-tops-40-billion",
+    "https://www.vendingmarketwatch.com/management/news/55365563/national-automatic-merchandising-association-nama-convenience-services-revenue-hits-311-billion-in-2025-nama-says",
+    "https://namanow.org/new-census-reveals-shifts-in-convenience-services-industry/",
+    "https://www.ftc.gov/node/39358",
+    "https://www.ftc.gov/sites/default/files/documents/cases/2002/06/020612westbrookcmpt.pdf",
+    "https://www.dsvendinginc.com/p-13121-ds970-cantaloupe-engage-eport-credit-card-cashless-kit-att-network.aspx",
+    "https://www.candymachines.com/pulse-nayax-vpos-touch-cashless-credit-card-reader",
+    "https://www.cantaloupe.com/articles/what-is-two-tier-pricing-at-vending-machines/",
+    "https://vendingexchange.com/vending-machine-locators/vending-location-commission-explained",
+    "https://www.usedvending.com/i/Crane-National-167-Snack-Vending-Machine-for-Sale-in-Illinois-/IL-I-492C2",
+    "https://www.capitalvending.com/crane-national-vendors-merchant-6-snack-machine-model-181-free-shipping",
+    "https://365retailmarkets.com/beyond-vending/",
+    "https://www.insureon.com/retail-business-insurance/vending-machine-operators/cost",
+    "https://www.bizbuysell.com/learning-center/valuation-benchmarks/vending-machine-business/",
+    "https://www.axios.com/2025/02/06/return-office-remote-work",
+    "https://kastle.com/safety-wellness/getting-america-back-to-work/",
+    "https://www.canteen.com/about-us/",
+    "https://prod.bbb.org/us/ga/atlanta/profile/vending-machines/fly-vending-llc-0443-28197462/complaints",
+    "https://supercarblondie.com/tech/youtuber-financial-wolf-vending-machine-business/",
+    "https://www.nav.com/blog/how-to-start-a-business-1362503",
+    "https://www.yahoo.com/news/making-fast-money-vending-machines-145926413.html",
+    "https://www.vendingtimes.com/news/pandemic-driven-economic-downturn-brings-new-wave-of-vending-newbies/",
+    "https://www.vendingtimes.com/news/12-year-old-cites-tiktok-inspiration-for-launching-vending-machine-business/",
+    "https://www.candymachines.com/blog/permits-and-licensing-requirements-for-your-vending-business",
+    "https://www.samsclub.com/b/bulk-candy-and-bulk-snack/3110105",
+    "https://twobrainbusiness.com/gym-vending-machines/",
+    "https://vmfsusa.com/how-to-plan-cash-flow-in-your-vending-business"
+  ],
+  "rescue": [
+    {
+      "change": "Start with 1 combo machine, placed only after a signed deal at a 24/7 warehouse, plant or hospital with 75+ daily staff",
+      "why": "Fixes ltv_cac and weak_demand: high-traffic sites gross $400-1,000/month vs ~$309 in offices; keeps $7k in reserve",
+      "score_after": 56,
+      "difficulty": "doable",
+      "effort": "2 weeks of pitching, 8 h/week",
+      "cost": "~$3,300 for one machine and reader",
+      "requires": "40+ pitches to industrial sites; a signed placement letter before buying"
+    },
+    {
+      "change": "Buy an existing small route with proven locations instead of placing new machines",
+      "why": "Fixes channel_readiness and time to revenue: locations and sales history come with it",
+      "score_after": 53,
+      "difficulty": "hard",
+      "effort": "1-3 months of due diligence",
+      "cost": "$10,000 buys ~$8,600/year revenue at 1.16x",
+      "requires": "Verified sales records, location contracts that transfer, scam screening"
+    }
+  ]
+}

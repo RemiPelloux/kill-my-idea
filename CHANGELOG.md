@@ -33,6 +33,8 @@
 - **"Strong competitor" needs proof of traction:** $1M+ revenue, 500+ reviews, $5M+ raised, 100k+
   users or a top-10 rank, with the number in the evidence. A crowded field without that proof lowers
   `competitor_density` instead. It hit 13 of 14 gallery ideas before. (#6, checked again at the gallery re-run)
+- **Golden runs:** 5 real verdicts are frozen in `tests/golden/`. A rule change that moves their score
+  fails CI until the golden file is updated on purpose. (#11)
 
 ## 0.9.1 — 2026-11-11
 
