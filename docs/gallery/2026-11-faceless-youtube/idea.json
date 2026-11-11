@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "slug": "faceless-youtube",
+  "title": "Faceless AI history YouTube channel (AdSense)",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "content",
+  "source": {
+    "type": "own-idea",
+    "text": "A faceless YouTube channel that posts AI-generated history videos and earns from AdSense. Launch country US, budget $500, 10 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug faceless-youtube.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": null,
+  "customer": "US viewers of long-form YouTube history videos; advertisers pay through AdSense (implied by the input)",
+  "solution": "AI-generated history videos (AI script help, AI voice, AI visuals) posted on a faceless YouTube channel",
+  "revenue_model": "ads",
+  "price": null,
+  "channel": "YouTube search and recommendations",
+  "countries": [
+    "US"
+  ],
+  "claims": [
+    "earns from AdSense"
+  ],
+  "context": {
+    "budget": "USD 500",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Long-form videos: history Shorts pay about $0.04-0.10 per 1,000 views, so Shorts are not a revenue path",
+    "RPM of $6 per 1,000 US views, the midpoint of a $4-9 tertiary range for history",
+    "The channel applies to YPP after 2027-02-01, under the 8,000-watch-hour rule",
+    "Tool stack: ElevenLabs Creator + Google AI Pro + CapCut Pro, about $62/month",
+    "About 5 hours per video, so about 8 videos a month at 10 h/week; founder time valued at $15/h",
+    "Headless run: no history audience, list or channel today (the input says no special edge)"
+  ],
+  "unknowns": [
+    "problem",
+    "price"
+  ],
+  "answers": []
+}

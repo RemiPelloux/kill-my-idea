@@ -1,0 +1,1149 @@
+{
+ "schema_version": "1.0",
+ "idea": {
+  "schema_version": "1.0",
+  "slug": "notion-real-estate",
+  "title": "Notion template pack for French real-estate agents",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "ecommerce",
+  "source": {
+   "type": "own-idea",
+   "text": "A paid Notion template pack for French real-estate agents (agents immobiliers and independent mandataires) to manage leads, visits and mandates, 39 EUR one-off. Countries FR then BE. Budget 100 EUR, 5 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug notion-real-estate.",
+   "url": null,
+   "author": null,
+   "posted": null
+  },
+  "problem": "French agents and independent mandataires need to track leads, visits and mandates",
+  "customer": "French agents immobiliers and independent mandataires (iad, SAFTI, Capifrance, eXp networks), then Belgian agents",
+  "solution": "A paid pack of Notion templates for leads, visits and mandates",
+  "revenue_model": "one-off",
+  "price": {
+   "amount": 39,
+   "currency": "EUR",
+   "period": "one-off"
+  },
+  "channel": null,
+  "countries": [
+   "FR",
+   "BE"
+  ],
+  "claims": [],
+  "context": {
+   "budget": "EUR 100",
+   "time_per_week": "5 h",
+   "goal": "side-income",
+   "edge": "none"
+  },
+  "assumptions": [
+   "The 39 EUR price includes 20% French VAT",
+   "Sold through a merchant-of-record platform (Gumroad, Lemon Squeezy or Notion Marketplace) that collects VAT",
+   "The founder has no audience in real estate and no real-estate background",
+   "Channel not stated: assumed organic posts in agent communities, plus small paid ads within the 100 EUR budget"
+  ],
+  "unknowns": [
+   "channel",
+   "claims"
+  ],
+  "answers": []
+ },
+ "verdict": {
+  "schema_version": "1.0",
+  "slug": "notion-real-estate",
+  "evaluated": "2026-11-11",
+  "as_of": null,
+  "mode": "kill",
+  "verdict": "NO-GO",
+  "score": 43,
+  "score_raw": 53.3,
+  "confidence": {
+   "level": "high",
+   "sourced_subscores": 15,
+   "sources": 36,
+   "primary_sources": 15,
+   "note": "Competitor sales counts, FR search volumes and real-estate CPC are unknown; a sales count from any FR Notion seller would raise it"
+  },
+  "criteria": {
+   "profit": 2.0,
+   "feasibility": 4.0,
+   "time_to_first_revenue": 3.5,
+   "demand": 2.0,
+   "competition": 1.5,
+   "risk": 3.0,
+   "fit": 1.5
+  },
+  "criteria_detail": {
+   "profit": {
+    "gross_margin": {
+     "score": 3.5,
+     "note": "About 28.6 EUR kept of 39 EUR after VAT and Notion's 8% + 0.40 USD + 1% FX: 73% margin",
+     "source": "https://www.notion.com/help/selling-on-marketplace"
+    },
+    "ltv_cac": {
+     "score": 1.0,
+     "note": "One-off sale: LTV 28.6 EUR vs paid CAC ~50 EUR (1 EUR CPC / 2% conversion) = 0.57",
+     "source": "https://theopsdesk.pages.dev/blog/notion-templates-that-sell-on-gumroad.html"
+    },
+    "pricing_power": {
+     "score": 1.5,
+     "note": "Free Notion CRM templates exist and a French mandataire CRM template sells at 19 EUR",
+     "source": "https://payhip.com/b/8zt52"
+    }
+   },
+   "feasibility": {
+    "build_effort": {
+     "score": 4.5,
+     "note": "A Notion template is 1-2 weeks of work at 5 h/week, no code",
+     "source": null
+    },
+    "skills_match": {
+     "score": 3.0,
+     "note": "Notion skills are learnable; no real-estate know-how (registre des mandats, pige, compromis)",
+     "source": null
+    },
+    "capital_needed": {
+     "score": 5.0,
+     "note": "Gumroad and Notion Marketplace charge no monthly fee; 100 EUR covers it",
+     "source": "https://gumroad.com/pricing"
+    }
+   },
+   "time_to_first_revenue": {
+    "time_to_mvp": {
+     "score": 4.0,
+     "note": "Sellable in 2-3 weeks on Gumroad; Notion Marketplace review may take months",
+     "source": "https://www.notion.com/help/selling-on-marketplace"
+    },
+    "sales_cycle": {
+     "score": 4.5,
+     "note": "39 EUR is an impulse buy for an individual agent, no committee",
+     "source": null
+    },
+    "channel_readiness": {
+     "score": 1.5,
+     "note": "No audience, no network contact; paid CAC above LTV (R5: no_distribution hit, max 2)",
+     "source": "https://copeps.fr/actualites/adwords-clic-comptabilise/"
+    }
+   },
+   "demand": {
+    "search_demand": {
+     "score": 2.5,
+     "note": "44,000 mandataires in France (end 2024) but no measured search volume for Notion real-estate templates",
+     "source": "https://www.immomatin.com/file/28e814674108b6f416a746805b9b8838/barometre-2024.pdf"
+    },
+    "trend": {
+     "score": 2.0,
+     "note": "Mandataire count fell 5% in 2024; only 4 of the top 10 networks still growing in H1 2026 (R5: max 2.5)",
+     "source": "https://www.xerfi.com/blog/le-marche-de-l-immobilier-residentiel-se-remet-en-ordre-de-marche_2174"
+    },
+    "willingness_to_pay": {
+     "score": 2.0,
+     "note": "Agents already pay 159-200 EUR/month network packs that bundle tools; templates sell at 7-45 USD",
+     "source": "https://copeps.fr/actualites/cout-franchise-iad/"
+    }
+   },
+   "competition": {
+    "free_alternatives": {
+     "score": 1.5,
+     "note": "Notion's own free CRM for real-estate agents does the core job (R1: no edge, max 1.5)",
+     "source": "https://www.notion.com/templates/notion-crm-for-real-estate-agents"
+    },
+    "competitor_density": {
+     "score": 1.5,
+     "note": "20+ paid Notion real-estate templates, 3+ in French, plus Hektor at 8,500 agencies",
+     "source": "https://www.la-boite-immo.com/sites/default/files/2024-01/cp_rachat-protexa_202401_0.pdf"
+    },
+    "differentiation": {
+     "score": 1.5,
+     "note": "French language only; French templates already exist at 19-89 EUR (R1)",
+     "source": "https://notionforagents.gumroad.com/l/systeme-ultime-agents-immobiliers"
+    }
+   },
+   "risk": {
+    "legal_regulatory": {
+     "score": 3.0,
+     "note": "Cannot be sold as a Hoguet-compliant registre des mandats; prospect data sits in the US outside Enterprise",
+     "source": "https://www.notion.com/help/data-residency"
+    },
+    "platform_dependency": {
+     "score": 2.5,
+     "note": "100% Notion-dependent; Marketplace lists in USD only and Notion may revise fees at any time",
+     "source": "https://www.notion.com/help/template-gallery-guidelines-and-terms"
+    },
+    "market_risk": {
+     "score": 3.0,
+     "note": "Real estate is cyclical: 1,120 agency failures May 2023-Apr 2024, rebound in 2025",
+     "source": "https://www.moneyvox.fr/immobilier/actualites/98247/crise-de-immo-les-faillites-agences-immobilieres-explosent"
+    }
+   },
+   "fit": {
+    "skills": {
+     "score": 2.0,
+     "note": "No stated real-estate or template-selling track record",
+     "source": null
+    },
+    "assets": {
+     "score": 1.0,
+     "note": "No audience, list or network among agents",
+     "source": null
+    },
+    "interest": {
+     "score": 1.5,
+     "note": "Stated goal is side income, no domain passion",
+     "source": null
+    }
+   }
+  },
+  "rules_applied": [
+   {
+    "rule": "R1_free_equivalent",
+    "effect": "free_alternatives 2 -> 1.5; competition mean 1.67 -> 1.5"
+   },
+   {
+    "rule": "R7_unprofitable_model",
+    "effect": "Profit potential 2.0: total 53 - 10 = 43"
+   },
+   {
+    "rule": "R6_unprofitable_no_channel",
+    "effect": "no channel and LTV:CAC 0.57: total capped at 49 (43 already below)"
+   }
+  ],
+  "metrics": {
+   "tam": {
+    "value": 1716000,
+    "unit": "EUR",
+    "basis": "estimate",
+    "reasoning": "44,000 FR mandataires x 39 EUR one-off; agency agents not counted (count unknown)",
+    "source": null,
+    "as_of": "2024-12"
+   },
+   "sam": {
+    "value": 85800,
+    "unit": "EUR",
+    "basis": "estimate",
+    "reasoning": "TAM x 5% assumed Notion users among agents (Notion adoption among FR agents unknown)",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "som": {
+    "value": 858,
+    "unit": "EUR",
+    "basis": "estimate",
+    "reasoning": "SAM x 1% year-1 share = 22 customers x 39 EUR",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "competitors_found": {
+    "value": 20,
+    "unit": "competitors",
+    "basis": "estimate",
+    "reasoning": "~17 Gumroad/Etsy/Payhip/Getly listings + 8 in Notion's official collection, minus overlap; plus Hektor, Apimo, Modelo CRMs",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "competitor_price_range": {
+    "value": "19-89 EUR one-off (FR Notion templates); 79-139 EUR/month (CRMs)",
+    "unit": "EUR",
+    "basis": "sourced",
+    "source": "https://hackceleration.com/fr/labs/meilleur/crm-immobilier",
+    "reasoning": null,
+    "as_of": "2026-11"
+   },
+   "demand_trend": {
+    "value": "flat to falling",
+    "unit": null,
+    "basis": "sourced",
+    "source": "https://www.xerfi.com/blog/le-marche-de-l-immobilier-residentiel-se-remet-en-ordre-de-marche_2174",
+    "reasoning": null,
+    "as_of": "2025"
+   },
+   "price": {
+    "value": 39,
+    "unit": "EUR",
+    "basis": "estimate",
+    "reasoning": "Founder's stated price, one-off, assumed VAT-inclusive",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "variable_cost_per_unit": {
+    "value": 10.4,
+    "unit": "EUR",
+    "basis": "estimate",
+    "reasoning": "VAT 6.50 (39/1.2 x 0.2) + Notion fee 8% x 39 = 3.12 + 0.37 fixed + 1% FX 0.39 = 10.38",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "gross_margin_pct": {
+    "value": 73,
+    "unit": "%",
+    "basis": "estimate",
+    "reasoning": "(39 - 10.4) / 39 = 73%",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "churn_monthly_pct": {
+    "value": null,
+    "unit": "%",
+    "basis": "unknown",
+    "source": null,
+    "reasoning": "One-off purchase, no subscription",
+    "as_of": null
+   },
+   "expected_lifetime": {
+    "value": 1,
+    "unit": "purchases",
+    "basis": "estimate",
+    "reasoning": "One pack, no upsell planned: 1 purchase per customer",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "conversion_rate_pct": {
+    "value": 2.3,
+    "unit": "%",
+    "basis": "sourced",
+    "source": "https://theopsdesk.pages.dev/blog/notion-templates-that-sell-on-gumroad.html",
+    "reasoning": null,
+    "as_of": "2026"
+   },
+   "cac": {
+    "value": 50,
+    "unit": "EUR",
+    "basis": "estimate",
+    "reasoning": "CPC ~1 EUR (generic FR range 0.50-3 EUR) / 2% conversion = 50 EUR",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "ltv": {
+    "value": 28.6,
+    "unit": "EUR",
+    "basis": "estimate",
+    "reasoning": "39 EUR x 73% margin x 1 purchase = 28.6 EUR",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "ltv_cac": {
+    "value": 0.57,
+    "unit": "ratio",
+    "basis": "estimate",
+    "reasoning": "28.6 / 50 = 0.57",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "payback_months": {
+    "value": "never",
+    "unit": "months",
+    "basis": "estimate",
+    "reasoning": "One-off profit 28.6 EUR < CAC 50 EUR: a paid customer never pays back",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "fixed_costs_month": {
+    "value": 0,
+    "unit": "EUR/month",
+    "basis": "sourced",
+    "source": "https://gumroad.com/pricing",
+    "reasoning": null,
+    "as_of": "2026-11"
+   },
+   "break_even_customers_per_month": {
+    "value": 18,
+    "unit": "customers/month",
+    "basis": "estimate",
+    "reasoning": "Fixed costs 0, so break-even is 0; for a 500 EUR/month side income: 500 / 28.6 = 18 sales a month",
+    "source": null,
+    "as_of": "2026-11"
+   },
+   "time_to_first_revenue_weeks": {
+    "value": 4,
+    "unit": "weeks",
+    "basis": "estimate",
+    "reasoning": "2-3 weeks to build at 5 h/week + 1-2 weeks of community posting before the first sale",
+    "source": null,
+    "as_of": "2026-11"
+   }
+  },
+  "by_country": {
+   "FR": {
+    "tam": {
+     "value": 1716000,
+     "unit": "EUR",
+     "basis": "estimate",
+     "reasoning": "44,000 mandataires x 39 EUR",
+     "source": null,
+     "as_of": "2024-12"
+    },
+    "price": {
+     "value": 39,
+     "unit": "EUR",
+     "basis": "estimate",
+     "reasoning": "Founder's stated price",
+     "source": null,
+     "as_of": "2026-11"
+    }
+   },
+   "BE": {
+    "tam": {
+     "value": 425958,
+     "unit": "EUR",
+     "basis": "estimate",
+     "reasoning": "10,922 IPI professionals (end 2024) x 39 EUR; Flemish agents need a Dutch version",
+     "source": null,
+     "as_of": "2024-12"
+    },
+    "price": {
+     "value": 39,
+     "unit": "EUR",
+     "basis": "estimate",
+     "reasoning": "Same price; Belgian VAT 21%",
+     "source": null,
+     "as_of": "2026-11"
+    }
+   }
+  },
+  "launch_country": "FR",
+  "launch_reason": "France has about 4x more agents than Belgium (44,000 mandataires vs 10,922 IPI professionals) and needs no translation.",
+  "kill_shots": {
+   "free_alternative": true,
+   "strong_competitor": true,
+   "graveyard": false,
+   "no_distribution": true,
+   "costs_eat_margin": false,
+   "weak_demand": true,
+   "legal_platform_risk": true,
+   "saturated_wave": false
+  },
+  "primary_kill_shot": "no_distribution",
+  "type_checks": [
+   {
+    "check": "contribution_margin",
+    "result": "clear",
+    "note": "About 28.6 EUR of 39 EUR kept per order after VAT and Notion fees (73%); before ads, margin is not the problem",
+    "source": "https://www.notion.com/help/selling-on-marketplace"
+   },
+   {
+    "check": "returns_shipping",
+    "result": "clear",
+    "note": "No shipping; Notion Marketplace grants refunds within 14 days, refund rate for templates unknown",
+    "source": "https://www.notion.com/help/selling-on-marketplace"
+   }
+  ],
+  "cheapest_test": "Gumroad pre-order page at 39 EUR, posted in 5 mandataire Facebook/LinkedIn groups plus 30 DMs: 3 paid pre-orders in 7 days or archive it",
+  "kill_criteria": [
+   "Fewer than 3 paid pre-orders at 39 EUR by day 7 -> archive",
+   "Fewer than 5 replies to 30 DMs to mandataires by day 5 -> archive",
+   "Fewer than 100 landing-page visits by day 7 -> the channel is dead, archive"
+  ],
+  "rescue": [
+   {
+    "change": "Sell through network sponsors (parrains/team leaders at iad or SAFTI) who onboard new recruits, with a 30% affiliate cut",
+    "why": "Fixes no_distribution and ltv_cac: CAC becomes 30% of the price, paid only on sale",
+    "score_after": 55,
+    "difficulty": "hard",
+    "effort": "20-40 cold messages, 1-2 months",
+    "cost": "0 EUR upfront, 30% per sale",
+    "requires": "One sponsor who agrees to push it to their team"
+   },
+   {
+    "change": "Turn it into a 99 EUR 'first 90 days' kit for new mandataires: prospecting scripts, pige routine and the Notion tracker",
+    "why": "Lifts pricing_power and ltv_cac above 1 (LTV ~72 EUR vs CAC ~50 EUR); escapes the 19 EUR template anchor",
+    "score_after": 51,
+    "difficulty": "hard",
+    "effort": "4-6 weeks at 5 h/week",
+    "cost": "0-50 EUR",
+    "requires": "Real-estate know-how from interviews with 5+ working mandataires"
+   }
+  ],
+  "sources": [
+   "https://www.notion.com/templates/notion-crm-for-real-estate-agents",
+   "https://www.notion.com/fr/templates/collections/top-real-estate-agent-templates-in-notion",
+   "https://payhip.com/b/8zt52",
+   "https://notionforagents.gumroad.com/l/systeme-ultime-agents-immobiliers",
+   "https://lesheros.gumroad.com/l/lorganiseur-immobilier",
+   "https://maitemplates.gumroad.com/l/UltimateAgent",
+   "https://notomantra.gumroad.com/l/real-estate-agents-os",
+   "https://adviceforagents.gumroad.com",
+   "https://hackceleration.com/fr/labs/meilleur/crm-immobilier",
+   "https://www.la-boite-immo.com/sites/default/files/2024-01/cp_rachat-protexa_202401_0.pdf",
+   "https://www.mysweetimmo.com/2026/02/19/immobilier-la-boite-immo-soffre-opinion-system-specialiste-des-avis-clients/",
+   "https://www.mysweetimmo.com/2025/12/11/exp-realty-sassocie-a-septeo-pour-booster-lefficacite-de-ses-conseillers-immobiliers/",
+   "https://www.immomatin.com/file/28e814674108b6f416a746805b9b8838/barometre-2024.pdf",
+   "https://www.xerfi.com/blog/le-marche-de-l-immobilier-residentiel-se-remet-en-ordre-de-marche_2174",
+   "https://www.moneyvox.fr/immobilier/actualites/98247/crise-de-immo-les-faillites-agences-immobilieres-explosent",
+   "https://www.mysweetimmo.com/2026/01/19/immobilier-la-reprise-redistribue-les-cartes-chez-les-reseaux-de-mandataires/",
+   "https://www.insee.fr/fr/statistiques/fichier/version-html/8745266/IR47_Notaires-IPLA_4T2025.pdf",
+   "https://www.lalibre.be/economie/immo/2025/03/12/il-y-a-de-moins-en-moins-dagents-immobiliers-en-belgique-GGG54IKN6JBKZADKKWF6KX4NM4/",
+   "https://www.lexgo.be/fr/actualites-et-articles/15122-nouveau-code-de-deontologie-des-agents-immobiliers-bien-plus-qu-une-simple-mise-a-jour",
+   "https://www.notion.com/help/selling-on-marketplace",
+   "https://www.notion.com/help/template-gallery-guidelines-and-terms",
+   "https://gumroad.com/pricing",
+   "https://www.lemonsqueezy.com/pricing",
+   "https://www.notion.com/help/data-residency",
+   "https://www.juritravail.com/Actualite/agent-immobilier-quels-sont-les-registres-obligatoires-que-vous-devez-obligatoirement-tenir/Id/377278",
+   "https://www.mysweetimmo.com/2023/04/05/lagent-immobilier-doit-il-imprimer-ses-documents-etablis-sous-forme-electronique",
+   "https://copeps.fr/actualites/cout-franchise-iad/",
+   "https://kupkaike.com/blog/is-selling-notion-templates-still-profitable-2026",
+   "https://theopsdesk.pages.dev/blog/notion-templates-that-sell-on-gumroad.html",
+   "https://copeps.fr/actualites/adwords-clic-comptabilise/",
+   "https://searchengineland.com/google-ads-costs-keep-rising-but-conversion-rates-improved-in-2025-477927",
+   "https://userjot.com/blog/notion-pricing-2025-plans-ai-costs-explained",
+   "https://dev.to/fermainpariz/how-to-make-money-selling-notion-templates-in-2026-realistic-guide-5g09",
+   "https://www.capterra.fr/software/1081283/Realty",
+   "https://templatesfornotion.com/fr/notion-templates-for/immobilier",
+   "https://www.legalplace.fr/guides/renoncement-expres-droit-retractation"
+  ],
+  "run": {
+   "started": "2026-11-11T09:53:57Z",
+   "minutes": 8,
+   "searches": 32,
+   "fetches": 16,
+   "subagents": 4
+  }
+ },
+ "narrative": {
+  "language": "en",
+  "currency": "EUR",
+  "answer": "**NO-GO**. Free and 19 EUR French Notion CRMs already exist, so a 39 EUR one-off pack keeps 28.6 EUR while a paid buyer costs about 50 EUR. With no audience, there is **no channel** that pays back.",
+  "tldr": [
+   "The product already exists: Notion gives a **free** real-estate CRM, and French templates sell at **19-89 EUR**.",
+   "One-off at 39 EUR leaves **28.6 EUR** per sale; paid acquisition costs about 50 EUR, so **LTV:CAC 0.57**.",
+   "The market shrank (mandataires **-5%** in 2024) and the founder has no audience or real-estate edge."
+  ],
+  "lesson": "A cheap one-off digital product with no audience needs a free channel you already own; without it, unit economics never close.",
+  "key_findings": [
+   {
+    "title": "The product already exists for free",
+    "detail": "Notion's own gallery lists a **free** CRM for real-estate agents, and a French mandataire CRM template sells for **19 EUR** on Payhip.",
+    "source": "https://www.notion.com/templates/notion-crm-for-real-estate-agents"
+   },
+   {
+    "title": "Each paid buyer loses money",
+    "detail": "At about 1 EUR per click and 2.3% conversion, a buyer costs **~50 EUR** against **28.6 EUR** kept per sale (estimate).",
+    "source": "https://theopsdesk.pages.dev/blog/notion-templates-that-sell-on-gumroad.html"
+   },
+   {
+    "title": "A shrinking, tool-bundled market",
+    "detail": "Mandataires fell **5%** in 2024 and networks charge 159-200 EUR/month packs that already **bundle tools**.",
+    "source": "https://www.xerfi.com/blog/le-marche-de-l-immobilier-residentiel-se-remet-en-ordre-de-marche_2174"
+   }
+  ],
+  "recommendation": "Archive the 39 EUR template pack. Run the 7-day pre-order test only if you can first find one network sponsor willing to push it to their recruits.",
+  "steelman": "44,000 mandataires are self-employed, many new and disorganised, and Notion templates cost nothing to build or host; a French-native, Hoguet-aware pack could sell in mandataire Facebook groups. The evidence: French versions already exist at 19-89 EUR with no visible sales counts, so language alone is not an edge.",
+  "premortem": [
+   {
+    "cause": "Nobody finds the page: posts in agent groups get no traction and 100 EUR of ads buys 2 sales at best.",
+    "linked_to": "no_distribution",
+    "likelihood": "H",
+    "early_signal": "Fewer than 100 page visits and 0 sales after 2 weeks of posting"
+   },
+   {
+    "cause": "Buyers pick Notion's free agent CRM or the 19 EUR French template instead.",
+    "linked_to": "free_alternative",
+    "likelihood": "H",
+    "early_signal": "Comments asking 'why pay when the free one exists?' on 3+ posts"
+   },
+   {
+    "cause": "Each sale nets 28.6 EUR, so 500 EUR/month needs 18 sales a month that 5 h/week cannot generate.",
+    "linked_to": "ltv_cac",
+    "likelihood": "M",
+    "early_signal": "Fewer than 3 sales in the first 30 days"
+   }
+  ],
+  "why_now": {
+   "verdict": "late",
+   "changes": [
+    {
+     "what": "Notion Marketplace takes 8% + 0.40 USD and is merchant of record, but lists in USD only and review may take months",
+     "when": "2026",
+     "source": "https://www.notion.com/help/selling-on-marketplace"
+    },
+    {
+     "what": "Notion AI bundled only into Business plans, so built-in AI can build a CRM from a prompt",
+     "when": "2025-05",
+     "source": "https://userjot.com/blog/notion-pricing-2025-plans-ai-costs-explained"
+    },
+    {
+     "what": "Transaction rebound: SAFTI and iad revenue up ~30% in H1 2025, then only 4 of the top 10 networks growing in H1 2026",
+     "when": "2026-01",
+     "source": "https://www.mysweetimmo.com/2026/01/19/immobilier-la-reprise-redistribue-les-cartes-chez-les-reseaux-de-mandataires/"
+    },
+    {
+     "what": "New Belgian IPI code of ethics in force, with a chapter on AI",
+     "when": "2026-10",
+     "source": "https://www.lexgo.be/fr/actualites-et-articles/15122-nouveau-code-de-deontologie-des-agents-immobiliers-bien-plus-qu-une-simple-mise-a-jour"
+    }
+   ],
+   "note": "Generic Notion templates are saturated and French real-estate versions already exist: the window has passed."
+  },
+  "icp": {
+   "who": "New French independent mandataires (iad, SAFTI, Capifrance) in their first 12 months, working alone",
+   "where": [
+    "Mandataire Facebook groups",
+    "LinkedIn",
+    "Network sponsors (parrains) and team leaders",
+    "Podcasts: Le Vestiaire de l'immobilier, MySweetImmo"
+   ],
+   "pays_for_today": "Network pack 159-200 EUR/month with tools bundled (iad Premium 199.90 EUR TTC/month); agencies pay Hektor from 79 EUR HT/month",
+   "budget": "unknown; tight in year 1, when many earn little",
+   "trigger": "unknown (assumed: first mandates signed and leads piling up in a notebook)"
+  },
+  "customer": {
+   "segment": "French independent mandataires, then Belgian IPI agents",
+   "pain": "Tracking leads, visits and mandates across a phone, notebook and network software",
+   "today": "Network-bundled software, spreadsheets, free Notion templates, or Hektor/Apimo in agencies"
+  },
+  "use_cases": [
+   {
+    "name": "Template pack sold one-off",
+    "who_pays": "The mandataire",
+    "effort": "2-3 weeks",
+    "best": false
+   },
+   {
+    "name": "Kit sold via a network sponsor to recruits",
+    "who_pays": "The mandataire, sponsor takes a cut",
+    "effort": "1-2 months",
+    "best": true
+   },
+   {
+    "name": "Done-for-you Notion setup",
+    "who_pays": "The mandataire",
+    "effort": "hours per client",
+    "best": false
+   }
+  ],
+  "kill_shots": {
+   "free_alternative": {
+    "evidence": "Notion's official gallery has a free 'CRM for real estate agents'; Zoho CRM is free for 3 users.",
+    "source": "https://www.notion.com/templates/notion-crm-for-real-estate-agents",
+    "count": 2
+   },
+   "strong_competitor": {
+    "evidence": "La Boite Immo (Hektor) serves about 8,500 independent agencies (2024-01); 3+ French Notion templates also sell at 19-89 EUR.",
+    "source": "https://www.la-boite-immo.com/sites/default/files/2024-01/cp_rachat-protexa_202401_0.pdf",
+    "count": 4
+   },
+   "graveyard": {
+    "evidence": "Searched 'notion templates dead', Indie Hackers, Reddit: no named real-estate template seller found that quit; generic templates are called saturated.",
+    "source": "https://kupkaike.com/blog/is-selling-notion-templates-still-profitable-2026"
+   },
+   "no_distribution": {
+    "evidence": "No audience; paid CAC about 50 EUR (1 EUR CPC / 2% conversion) vs 28.6 EUR kept per sale; Notion Marketplace review may take months.",
+    "source": "https://copeps.fr/actualites/adwords-clic-comptabilise/"
+   },
+   "costs_eat_margin": {
+    "evidence": "Notion keeps 8% + 0.40 USD + 1% FX; after 20% VAT the founder keeps about 73% of 39 EUR.",
+    "source": "https://www.notion.com/help/selling-on-marketplace"
+   },
+   "weak_demand": {
+    "evidence": "Mandataire count fell an estimated 5% in 2024 (Xerfi); self-employed agents 'a fondu de 15%' in under a year (MoneyVox, 2024-06).",
+    "source": "https://www.xerfi.com/blog/le-marche-de-l-immobilier-residentiel-se-remet-en-ordre-de-marche_2174"
+   },
+   "legal_platform_risk": {
+    "evidence": "100% dependent on Notion, which 'may revise the Notion Fees at any time' and lists paid templates in USD only; cannot claim Hoguet registre compliance.",
+    "source": "https://www.notion.com/help/template-gallery-guidelines-and-terms"
+   },
+   "saturated_wave": {
+    "evidence": "20+ paid Notion real-estate templates found (Gumroad, Etsy, Payhip), but launch dates are not visible, so 10+ in 12 months is not proven.",
+    "source": "https://www.notion.com/fr/templates/collections/top-real-estate-agent-templates-in-notion",
+    "count": 20,
+    "window": "undated listings, seen 2026-11"
+   }
+  },
+  "competitors": [
+   {
+    "name": "Notion: CRM for real estate agents",
+    "url": "https://www.notion.com/templates/notion-crm-for-real-estate-agents",
+    "price_low": 0,
+    "price_high": 0,
+    "currency": "EUR",
+    "traction": 3,
+    "traction_note": "Official Notion gallery listing",
+    "gap": "English, generic, no mandate register logic",
+    "free": true,
+    "country": "US",
+    "price_source": "https://www.notion.com/templates/notion-crm-for-real-estate-agents",
+    "price_period": "one-off",
+    "price_as_of": "2026-11"
+   },
+   {
+    "name": "CRM Agent immobilier pour Notion (Payhip)",
+    "url": "https://payhip.com/b/8zt52",
+    "price_low": 19,
+    "price_high": 19,
+    "currency": "EUR",
+    "traction": 1,
+    "traction_note": "No sales count visible",
+    "gap": "Not a one-click template",
+    "free": false,
+    "country": "FR",
+    "price_source": "https://payhip.com/b/8zt52",
+    "price_period": "one-off",
+    "price_as_of": "2026-11"
+   },
+   {
+    "name": "Notion for Agents: Systeme ultime agents immobiliers",
+    "url": "https://notionforagents.gumroad.com/l/systeme-ultime-agents-immobiliers",
+    "price_low": null,
+    "price_high": null,
+    "currency": "USD",
+    "traction": 2,
+    "traction_note": "French version by a former agent; team version ~147 USD",
+    "gap": "Price not visible",
+    "free": false,
+    "country": "FR",
+    "price_source": "https://notionforagents.gumroad.com/l/systeme-ultime-agents-immobiliers",
+    "price_period": "one-off",
+    "price_as_of": "2026-11"
+   },
+   {
+    "name": "Les Heros: L'Organiseur immobilier",
+    "url": "https://lesheros.gumroad.com/l/lorganiseur-immobilier",
+    "price_low": 89,
+    "price_high": 89,
+    "currency": "EUR",
+    "traction": 1,
+    "traction_note": "Marked 'a venir', not launched",
+    "gap": "Not released",
+    "free": false,
+    "country": "FR",
+    "price_source": "https://lesheros.gumroad.com/l/lorganiseur-immobilier",
+    "price_period": "one-off",
+    "price_as_of": "2026-11"
+   },
+   {
+    "name": "maitemplates: Ultimate Real Estate Agent",
+    "url": "https://maitemplates.gumroad.com/l/UltimateAgent",
+    "price_low": 89,
+    "price_high": 89,
+    "currency": "USD",
+    "traction": 2,
+    "traction_note": "No sales count visible",
+    "gap": "English only",
+    "free": false,
+    "country": "US",
+    "price_source": "https://maitemplates.gumroad.com/l/UltimateAgent",
+    "price_period": "one-off",
+    "price_as_of": "2026-11"
+   },
+   {
+    "name": "Hektor (La Boite Immo)",
+    "url": "https://hackceleration.com/fr/labs/meilleur/crm-immobilier",
+    "price_low": 79,
+    "price_high": null,
+    "currency": "EUR",
+    "traction": 5,
+    "traction_note": "About 8,500 agencies; 25-30 MEUR revenue reported",
+    "gap": "Agency software, 12-month commitment",
+    "free": false,
+    "country": "FR",
+    "price_source": "https://hackceleration.com/fr/labs/meilleur/crm-immobilier",
+    "price_period": "month",
+    "price_as_of": "2026"
+   },
+   {
+    "name": "Apimo",
+    "url": "https://hackceleration.com/fr/labs/meilleur/crm-immobilier",
+    "price_low": 89,
+    "price_high": 139,
+    "currency": "EUR",
+    "traction": 4,
+    "traction_note": "Established FR agency CRM",
+    "gap": "Expensive for a solo mandataire",
+    "free": false,
+    "country": "FR",
+    "price_source": "https://hackceleration.com/fr/labs/meilleur/crm-immobilier",
+    "price_period": "month",
+    "price_as_of": "2026"
+   }
+  ],
+  "scenarios": [
+   {
+    "name": "Pessimistic",
+    "customers_month": 1,
+    "revenue_month": 29,
+    "costs_month": 0,
+    "note": "Organic posts only; 1 sale a month at 28.6 EUR net"
+   },
+   {
+    "name": "Base",
+    "customers_month": 3,
+    "revenue_month": 86,
+    "costs_month": 8,
+    "note": "3 sales a month; 100 EUR of ads spread over a year"
+   },
+   {
+    "name": "Optimistic",
+    "customers_month": 10,
+    "revenue_month": 286,
+    "costs_month": 0,
+    "note": "One network sponsor pushes it; still below 500 EUR/month"
+   }
+  ],
+  "risks": [
+   {
+    "risk": "Marketing it as a registre des mandats: a Notion database is editable and not tamper-evident, and mandates must be numbered without gaps",
+    "likelihood": "M",
+    "impact": "H",
+    "mitigation": "Say 'suivi des mandats, ne remplace pas votre registre legal'",
+    "source": "https://www.juritravail.com/Actualite/agent-immobilier-quels-sont-les-registres-obligatoires-que-vous-devez-obligatoirement-tenir/Id/377278"
+   },
+   {
+    "risk": "Buyers store prospect data in the US: EU hosting exists only on Notion Enterprise",
+    "likelihood": "M",
+    "impact": "M",
+    "mitigation": "Add a GDPR note; the agent stays data controller",
+    "source": "https://www.notion.com/help/data-residency"
+   },
+   {
+    "risk": "Notion changes Marketplace fees or rules",
+    "likelihood": "M",
+    "impact": "M",
+    "mitigation": "Sell on Gumroad or Lemon Squeezy too",
+    "source": "https://www.notion.com/help/template-gallery-guidelines-and-terms"
+   },
+   {
+    "risk": "Template shared freely after the first sale (Gumroad duplicate links)",
+    "likelihood": "H",
+    "impact": "M",
+    "mitigation": "Notion Marketplace locks templates to the buyer's workspace",
+    "source": "https://www.notion.com/help/selling-on-marketplace"
+   }
+  ],
+  "test_plan": [
+   {
+    "when": "Day 1",
+    "step": "Interview 5 mandataires by DM: how do they track mandates today, and what do they pay?",
+    "verify": "3 of 5 say their network tool is not enough"
+   },
+   {
+    "when": "Day 2",
+    "step": "Gumroad pre-order page at 39 EUR with 3 screenshots of a mock-up",
+    "verify": "Page live, 0 EUR spent"
+   },
+   {
+    "when": "Day 3-5",
+    "step": "Post in 5 mandataire Facebook/LinkedIn groups and send 30 DMs",
+    "verify": "100+ visits and 5+ replies"
+   },
+   {
+    "when": "Day 6",
+    "step": "Pitch 5 network sponsors (parrains) a 30% affiliate cut",
+    "verify": "1 sponsor agrees"
+   },
+   {
+    "when": "Day 7",
+    "step": "Count paid pre-orders",
+    "verify": "3+ paid pre-orders, or archive"
+   }
+  ],
+  "rescue": [
+   {
+    "change": "Sell through network sponsors (parrains/team leaders at iad or SAFTI) who onboard new recruits, with a 30% affiliate cut",
+    "why": "Fixes no_distribution and ltv_cac: CAC becomes 30% of the price, paid only on sale",
+    "score_after": 55,
+    "difficulty": "hard",
+    "effort": "20-40 cold messages, 1-2 months",
+    "cost": "0 EUR upfront, 30% per sale",
+    "requires": "One sponsor who agrees to push it to their team"
+   },
+   {
+    "change": "Turn it into a 99 EUR 'first 90 days' kit for new mandataires: prospecting scripts, pige routine and the Notion tracker",
+    "why": "Lifts pricing_power and ltv_cac above 1 (LTV ~72 EUR vs CAC ~50 EUR); escapes the 19 EUR template anchor",
+    "score_after": 51,
+    "difficulty": "hard",
+    "effort": "4-6 weeks at 5 h/week",
+    "cost": "0-50 EUR",
+    "requires": "Real-estate know-how from interviews with 5+ working mandataires"
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.notion.com/templates/notion-crm-for-real-estate-agents",
+    "title": "Notion: CRM for real estate agents template",
+    "supports": "Free official real-estate CRM template",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.notion.com/fr/templates/collections/top-real-estate-agent-templates-in-notion",
+    "title": "Notion: Top real estate agent templates collection",
+    "supports": "8 official real-estate templates",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://payhip.com/b/8zt52",
+    "title": "Payhip: CRM Agent immobilier pour Notion",
+    "supports": "French competitor at 19 EUR",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://notionforagents.gumroad.com/l/systeme-ultime-agents-immobiliers",
+    "title": "Gumroad: Systeme ultime agents immobiliers",
+    "supports": "French Notion competitor",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://lesheros.gumroad.com/l/lorganiseur-immobilier",
+    "title": "Gumroad: L'Organiseur immobilier",
+    "supports": "French competitor at 89 EUR, upcoming",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://maitemplates.gumroad.com/l/UltimateAgent",
+    "title": "Gumroad: Ultimate Real Estate Agent",
+    "supports": "English competitor at 89 USD",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://notomantra.gumroad.com/l/real-estate-agents-os",
+    "title": "Gumroad: Real Estate Agents OS",
+    "supports": "Competitor at 10 USD",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://adviceforagents.gumroad.com",
+    "title": "Gumroad: Advice for Agents, Ultimate Agent Planner",
+    "supports": "Competitor at 149 USD",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://hackceleration.com/fr/labs/meilleur/crm-immobilier",
+    "title": "Hackceleration: meilleur CRM immobilier",
+    "supports": "Hektor from 79 EUR HT/month, Apimo 89-139 EUR/month",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.la-boite-immo.com/sites/default/files/2024-01/cp_rachat-protexa_202401_0.pdf",
+    "title": "La Boite Immo press release, Protexa acquisition",
+    "supports": "About 8,500 agency clients",
+    "accessed": "2026-11-11",
+    "published": "2024-01",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.mysweetimmo.com/2026/02/19/immobilier-la-boite-immo-soffre-opinion-system-specialiste-des-avis-clients/",
+    "title": "MySweetImmo: La Boite Immo buys Opinion System",
+    "supports": "La Boite Immo size and growth",
+    "accessed": "2026-11-11",
+    "published": "2026-02-19",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.mysweetimmo.com/2025/12/11/exp-realty-sassocie-a-septeo-pour-booster-lefficacite-de-ses-conseillers-immobiliers/",
+    "title": "MySweetImmo: eXp France partners with Septeo",
+    "supports": "Networks equip agents with software (Modelo)",
+    "accessed": "2026-11-11",
+    "published": "2025-12-11",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.immomatin.com/file/28e814674108b6f416a746805b9b8838/barometre-2024.pdf",
+    "title": "La Maison des Mandataires, barometre 2024",
+    "supports": "44,000 mandataires end 2024",
+    "accessed": "2026-11-11",
+    "published": "2025",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.xerfi.com/blog/le-marche-de-l-immobilier-residentiel-se-remet-en-ordre-de-marche_2174",
+    "title": "Xerfi: le marche de l'immobilier residentiel",
+    "supports": "Mandataire count down 5% in 2024",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.moneyvox.fr/immobilier/actualites/98247/crise-de-immo-les-faillites-agences-immobilieres-explosent",
+    "title": "MoneyVox: les faillites d'agences immobilieres explosent",
+    "supports": "1,120 agency failures, self-employed agents down 15%",
+    "accessed": "2026-11-11",
+    "published": "2024-06-12",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.mysweetimmo.com/2026/01/19/immobilier-la-reprise-redistribue-les-cartes-chez-les-reseaux-de-mandataires/",
+    "title": "MySweetImmo: la reprise redistribue les cartes chez les reseaux",
+    "supports": "SAFTI and iad revenue +30% H1 2025",
+    "accessed": "2026-11-11",
+    "published": "2026-01-19",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8745266/IR47_Notaires-IPLA_4T2025.pdf",
+    "title": "INSEE-Notaires: prix et volumes des logements anciens, T4 2025",
+    "supports": "About 951,000 transactions over 12 months, end 2025",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.lalibre.be/economie/immo/2025/03/12/il-y-a-de-moins-en-moins-dagents-immobiliers-en-belgique-GGG54IKN6JBKZADKKWF6KX4NM4/",
+    "title": "La Libre: de moins en moins d'agents immobiliers en Belgique",
+    "supports": "10,922 IPI professionals end 2024, down 50",
+    "accessed": "2026-11-11",
+    "published": "2025-03-12",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.lexgo.be/fr/actualites-et-articles/15122-nouveau-code-de-deontologie-des-agents-immobiliers-bien-plus-qu-une-simple-mise-a-jour",
+    "title": "Lexgo: nouveau code de deontologie des agents immobiliers",
+    "supports": "New Belgian code in force 2026-10",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.notion.com/help/selling-on-marketplace",
+    "title": "Notion Help: Selling on Marketplace",
+    "supports": "8% + 0.40 USD fee, 1% FX, 14-day refunds, merchant of record",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.notion.com/help/template-gallery-guidelines-and-terms",
+    "title": "Notion Help: template gallery guidelines and terms",
+    "supports": "USD-only listings, fees may change",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://gumroad.com/pricing",
+    "title": "Gumroad pricing",
+    "supports": "10% + 0.50 USD, 30% via Discover, no monthly fee",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.lemonsqueezy.com/pricing",
+    "title": "Lemon Squeezy pricing",
+    "supports": "5% + 0.50 USD, merchant of record",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.notion.com/help/data-residency",
+    "title": "Notion Help: data residency",
+    "supports": "EU hosting only on Enterprise",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.juritravail.com/Actualite/agent-immobilier-quels-sont-les-registres-obligatoires-que-vous-devez-obligatoirement-tenir/Id/377278",
+    "title": "Juritravail: registres obligatoires de l'agent immobilier",
+    "supports": "Registre des mandats rules (decret 1972, art. 72)",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.mysweetimmo.com/2023/04/05/lagent-immobilier-doit-il-imprimer-ses-documents-etablis-sous-forme-electronique",
+    "title": "MySweetImmo: documents sous forme electronique",
+    "supports": "Electronic registers need integrity guarantees",
+    "accessed": "2026-11-11",
+    "published": "2023-04-05",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://copeps.fr/actualites/cout-franchise-iad/",
+    "title": "Copeps: cout franchise iad",
+    "supports": "iad Premium 199.90 EUR TTC/month",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "secondary"
+   },
+   {
+    "url": "https://kupkaike.com/blog/is-selling-notion-templates-still-profitable-2026",
+    "title": "Kupkaike: is selling Notion templates still profitable in 2026",
+    "supports": "Generic templates saturated; most earn under 100 USD in 6 months",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://theopsdesk.pages.dev/blog/notion-templates-that-sell-on-gumroad.html",
+    "title": "The Ops Desk: Notion templates that sell on Gumroad",
+    "supports": "2.3% conversion at 39 USD (self-reported)",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://copeps.fr/actualites/adwords-clic-comptabilise/",
+    "title": "Copeps: cout d'un clic Google Ads",
+    "supports": "Generic French CPC 0.50-3 EUR",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://searchengineland.com/google-ads-costs-keep-rising-but-conversion-rates-improved-in-2025-477927",
+    "title": "Search Engine Land: Google Ads costs keep rising (2025)",
+    "supports": "Average CPC 5.26 USD across industries",
+    "accessed": "2026-11-11",
+    "published": "2025",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://userjot.com/blog/notion-pricing-2025-plans-ai-costs-explained",
+    "title": "UserJot: Notion pricing 2025 explained",
+    "supports": "AI bundled into Business since 2025-05",
+    "accessed": "2026-11-11",
+    "published": "2025",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://dev.to/fermainpariz/how-to-make-money-selling-notion-templates-in-2026-realistic-guide-5g09",
+    "title": "DEV: selling Notion templates in 2026, a realistic guide",
+    "supports": "6-12 months to 500 USD/month without an audience",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.capterra.fr/software/1081283/Realty",
+    "title": "Capterra: Realty",
+    "supports": "Real-estate CRM from 20 EUR/month",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "secondary"
+   },
+   {
+    "url": "https://templatesfornotion.com/fr/notion-templates-for/immobilier",
+    "title": "Templates for Notion: templates immobilier",
+    "supports": "French SEO pages already target the niche",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.legalplace.fr/guides/renoncement-expres-droit-retractation",
+    "title": "LegalPlace: renoncement expres au droit de retractation",
+    "supports": "L221-28 13 digital content withdrawal waiver",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "secondary"
+   }
+  ]
+ }
+}

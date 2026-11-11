@@ -1,0 +1,1140 @@
+{
+ "schema_version": "1.0",
+ "idea": {
+  "schema_version": "1.0",
+  "slug": "pet-dropshipping",
+  "title": "Shopify pet-products dropshipping store advertised on TikTok",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "ecommerce",
+  "source": {
+   "type": "own-idea",
+   "text": "A Shopify dropshipping store selling pet products advertised on TikTok. Launch country US, budget $1,500, 15 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug pet-dropshipping.",
+   "url": null,
+   "author": null,
+   "posted": null
+  },
+  "problem": null,
+  "customer": "US dog and cat owners who discover and impulse-buy pet gadgets on TikTok",
+  "solution": "A Shopify store reselling trending pet products shipped directly by third-party suppliers (dropshipping), with traffic bought through TikTok ads",
+  "revenue_model": "one-off",
+  "price": null,
+  "channel": "TikTok ads",
+  "countries": [
+   "US"
+  ],
+  "claims": [],
+  "context": {
+   "budget": "USD 1,500",
+   "time_per_week": "15 h",
+   "goal": "side-income",
+   "edge": "none"
+  },
+  "assumptions": [
+   "Products are generic pet gadgets (slicker brushes, lick mats, water fountains) sourced from China-based suppliers via DSers, Zendrop or CJ",
+   "Selling price about USD 29.99 per order, i.e. 2.5-3x landed cost, the usual dropshipping markup",
+   "Landed cost about USD 16 per order: product 8 + shipping 5 + duty and brokerage 3 (de minimis ended 2025-08-29)",
+   "The founder has no prior e-commerce or paid-ads experience and no audience",
+   "Interest is stated as side income, not a passion for pets",
+   "No questions were asked (user said 'just go')"
+  ],
+  "unknowns": [
+   "problem",
+   "price",
+   "product selection",
+   "supplier",
+   "prior e-commerce or ad experience"
+  ],
+  "answers": []
+ },
+ "verdict": {
+  "schema_version": "1.0",
+  "slug": "pet-dropshipping",
+  "evaluated": "2026-11-11",
+  "as_of": null,
+  "mode": "kill",
+  "verdict": "NO-GO",
+  "score": 41,
+  "score_raw": 50.7,
+  "quick": false,
+  "confidence": {
+   "level": "high",
+   "sourced_subscores": 17,
+   "sources": 37,
+   "primary_sources": 13,
+   "note": "No US pet-specific dropshipping CPA, no CJ/AliExpress landed-cost quote and no China-US delivery-time data; a $150 paid test would settle CAC."
+  },
+  "criteria": {
+   "profit": 1.5,
+   "feasibility": 3.0,
+   "time_to_first_revenue": 4.0,
+   "demand": 3.5,
+   "competition": 1.5,
+   "risk": 2.5,
+   "fit": 1.5
+  },
+  "criteria_detail": {
+   "profit": {
+    "gross_margin": {
+     "score": 2,
+     "note": "About 43% before ads ($29.99 price, ~$17.17 landed cost and fees, estimate); R5 caps at 2 (costs_eat_margin hit).",
+     "source": "https://www.troutman.com/insights/the-800-free-pass-is-gone-cit-confirms-president-can-eliminate-de-minimis-tariff-exemption/"
+    },
+    "ltv_cac": {
+     "score": 1,
+     "note": "LTV ~$15 vs CAC ~$30 (estimate): 0.51. TikTok overall CPA $32.74 in 2025 (Triple Whale via Influee).",
+     "source": "https://influee.co/blog/tiktok-ads-benchmarks"
+    },
+    "pricing_power": {
+     "score": 1.5,
+     "note": "Walmart sells a self-cleaning slicker brush at $9.23 and fountains at $21.99: the price anchor sits below a dropship markup.",
+     "source": "https://www.walmart.com/ip/16916129"
+    }
+   },
+   "feasibility": {
+    "build_effort": {
+     "score": 4.5,
+     "note": "A one-product Shopify store with DSers (free Basic plan) can go live in a few days.",
+     "source": "https://apps.shopify.com/DSers"
+    },
+    "skills_match": {
+     "score": 2.5,
+     "note": "No stated e-commerce or paid-ads experience; creative testing and pixel optimisation are learnable but take months.",
+     "source": null
+    },
+    "capital_needed": {
+     "score": 2.5,
+     "note": "TikTok campaign budget must exceed $50/day: $1,500 buys about 28 days of one test, with no margin for a second.",
+     "source": "https://ads.tiktok.com/help/article/budget?lang=en"
+    }
+   },
+   "time_to_first_revenue": {
+    "time_to_mvp": {
+     "score": 4.5,
+     "note": "Store plus first ads in about 1 week; supplier apps from $0 (DSers) to $49/month (Zendrop Pro).",
+     "source": "https://support.zendrop.com/en/articles/9981459-zendrop-plans-pricing-and-features"
+    },
+    "sales_cycle": {
+     "score": 5,
+     "note": "Impulse purchase; 25% of pet owners use TikTok to find new products (APPA).",
+     "source": "https://americanpetproducts.org/blog/where-do-pet-owners-learn-about-new-products"
+    },
+    "channel_readiness": {
+     "score": 2,
+     "note": "No audience; paid TikTok is the only channel and costs more per buyer than the buyer is worth. R5 caps at 2 (no_distribution).",
+     "source": "https://influee.co/blog/tiktok-ads-benchmarks"
+    }
+   },
+   "demand": {
+    "search_demand": {
+     "score": 4,
+     "note": "95M US households own a pet (APPA 2025): mass-market, recurring need.",
+     "source": "https://americanpetproducts.org/news/u.s.-pet-industry-reaches-158-billion-in-2025-poised-for-continued-growth-in-2026"
+    },
+    "trend": {
+     "score": 3,
+     "note": "US pet spend $158B in 2025, +3.7%; +4.4% forecast for 2026, about 2.4% real: flat-to-slow growth.",
+     "source": "https://americanpetproducts.org/news/u.s.-pet-industry-reaches-158-billion-in-2025-poised-for-continued-growth-in-2026"
+    },
+    "willingness_to_pay": {
+     "score": 3,
+     "note": "Owners pay, but for brands and consumables: Chewy's fountain is $32.95, lick mats $4.87-$10.99.",
+     "source": "https://www.chewy.com/pet-fit-life-plastic-cat-water/dp/185750"
+    }
+   },
+   "competition": {
+    "free_alternatives": {
+     "score": 2.5,
+     "note": "Nothing free, but buyers can order the same item from Temu or Walmart; lowered from 3.5 by R3.",
+     "source": "https://www.walmart.com/ip/17662916492"
+    },
+    "competitor_density": {
+     "score": 1,
+     "note": "Chewy, Amazon, Walmart, Temu, TikTok Shop sellers plus 248 active Shopify pet stores in one tool's sample. R3.",
+     "source": "https://brandsearch.co/niches/pets-animals-pet-food-supplies"
+    },
+    "differentiation": {
+     "score": 1,
+     "note": "Generic gadgets from the same 'winning product' lists every tool pushes; no edge. R3 caps at 1.5.",
+     "source": "https://www.sellthetrend.com/blog/top-10-pet-winning-products-to-sell-in-2025"
+    }
+   },
+   "risk": {
+    "legal_regulatory": {
+     "score": 2.5,
+     "note": "FTC Mail Order Rule makes the store liable for late supplier shipping; duty on every parcel since de minimis ended.",
+     "source": "https://ftc.gov/business-guidance/resources/business-guide-ftcs-mail-internet-or-telephone-order-merchandise-rule"
+    },
+    "platform_dependency": {
+     "score": 2,
+     "note": "One ad platform; Shopify Payments can hold 10% of each sale for 120 days on slow delivery or chargebacks.",
+     "source": "https://help.shopify.com/en/manual/payments/shopify-payments/reserves"
+    },
+    "market_risk": {
+     "score": 2.5,
+     "note": "Pet need is durable, but trending gadgets are fads; TikTok Shop's top pet sellers are consumables, not gadgets.",
+     "source": "https://ecommerce.aftership.com/product-trend-list/fastest-growing-animals-pet-supplies-product-tiktok-shop-us"
+    }
+   },
+   "fit": {
+    "skills": {
+     "score": 2,
+     "note": "No stated track record in e-commerce, ad buying or video creative.",
+     "source": null
+    },
+    "assets": {
+     "score": 1,
+     "note": "No audience, data, supplier contracts or network in the pet niche.",
+     "source": null
+    },
+    "interest": {
+     "score": 1,
+     "note": "Stated goal is side income; no stated interest in pets.",
+     "source": null
+    }
+   }
+  },
+  "metrics": {
+   "tam": {
+    "value": 158000000000,
+    "unit": "USD/year",
+    "basis": "sourced",
+    "source": "https://americanpetproducts.org/news/u.s.-pet-industry-reaches-158-billion-in-2025-poised-for-continued-growth-in-2026",
+    "as_of": "2025"
+   },
+   "sam": {
+    "value": 29600000000,
+    "unit": "USD/year",
+    "basis": "sourced",
+    "source": "https://ecdb.com/resources/sample-data/market/us/pet-supplies",
+    "reasoning": "US pet supplies e-commerce (ECDB)",
+    "as_of": "2025"
+   },
+   "som": {
+    "value": 3000,
+    "unit": "USD year-1 revenue",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Budget-limited, not market-limited: ~$1,350 ad spend / ~$30 CAC = ~45 orders x $29.99 = ~$1,350, up to ~100 orders if CPA reaches the $13.46 pet median: ~$1.5k-3k",
+    "as_of": "2026-11"
+   },
+   "competitors_found": {
+    "value": 248,
+    "unit": "active Shopify pet stores (one tool's sample) plus Chewy, Amazon, Walmart, Temu, TikTok Shop",
+    "basis": "sourced",
+    "source": "https://brandsearch.co/niches/pets-animals-pet-food-supplies",
+    "as_of": "2026-11"
+   },
+   "competitor_price_range": {
+    "value": "USD 4.87-45.99 for lick mats, brushes and fountains",
+    "unit": "USD",
+    "basis": "sourced",
+    "source": "https://www.chewy.com/lickimat-catster-non-skid/dp/1349686",
+    "as_of": "2026-11"
+   },
+   "demand_trend": {
+    "value": "rising slowly: +3.7% in 2025, +4.4% forecast 2026",
+    "unit": "%/year",
+    "basis": "sourced",
+    "source": "https://americanpetproducts.org/news/u.s.-pet-industry-reaches-158-billion-in-2025-poised-for-continued-growth-in-2026",
+    "as_of": "2026-03"
+   },
+   "price": {
+    "value": 29.99,
+    "unit": "USD/order",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Assumed typical dropship price: 2.5-3x landed cost of ~$10-12 product+shipping",
+    "as_of": "2026-11"
+   },
+   "variable_cost_per_unit": {
+    "value": 17.17,
+    "unit": "USD/order",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "product 8 + China shipping 5 + duty/brokerage 3 (no de minimis since 2025-08-29) + card fee 2.9% x 29.99 + 0.30 = 1.17",
+    "as_of": "2026-11"
+   },
+   "gross_margin_pct": {
+    "value": 42.7,
+    "unit": "%",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "(29.99 - 17.17) / 29.99 = 42.7%, before ad spend and refunds",
+    "as_of": "2026-11"
+   },
+   "churn_monthly_pct": {
+    "value": null,
+    "unit": "%",
+    "basis": "unknown",
+    "source": null,
+    "reasoning": "One-off gadget purchases, no subscription",
+    "as_of": null
+   },
+   "expected_lifetime": {
+    "value": 1.2,
+    "unit": "purchases per customer",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "One-off gadget; the 72% pet-supplies repeat rate reflects food and consumables, so 1.2 purchases assumed",
+    "as_of": "2026-11"
+   },
+   "conversion_rate_pct": {
+    "value": 1.92,
+    "unit": "%",
+    "basis": "sourced",
+    "source": "https://lebesgue.io/tiktok-ads/tiktok-ads-benchmarks-for-ctr-cr-and-cpm",
+    "as_of": "2026"
+   },
+   "cac": {
+    "value": 30,
+    "unit": "USD",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "CPC = CPM $4.08-4.80 / (1000 x CTR 0.61-0.82%) = $0.50-0.79; / CVR 1.56-1.92% = $26-51; new store, no reviews: base $30. Pet median CPA $13.46 is attribution-limited",
+    "as_of": "2026-11"
+   },
+   "ltv": {
+    "value": 15.4,
+    "unit": "USD",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "29.99 x 0.427 x 1.2 purchases = 15.4",
+    "as_of": "2026-11"
+   },
+   "ltv_cac": {
+    "value": 0.51,
+    "unit": "ratio",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "15.4 / 30 = 0.51",
+    "as_of": "2026-11"
+   },
+   "payback_months": {
+    "value": "never",
+    "unit": "months",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Gross profit per order $12.82 < CAC $30, and ~1.2 purchases per customer: CAC is never recovered",
+    "as_of": "2026-11"
+   },
+   "fixed_costs_month": {
+    "value": 58.9,
+    "unit": "USD/month",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Shopify Basic $39 (monthly billing) + DSers Advanced $19.90 = $58.90",
+    "as_of": "2026-11"
+   },
+   "break_even_customers_per_month": {
+    "value": "not reachable",
+    "unit": "customers/month",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Contribution after ads = 12.82 - 30 = -$17.18 per order: every extra order deepens the loss; only 4.6 organic orders/month (58.9 / 12.82) would cover fixed costs",
+    "as_of": "2026-11"
+   },
+   "time_to_first_revenue_weeks": {
+    "value": 2,
+    "unit": "weeks",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Store live in ~1 week, first ad-driven order in the first week of spend",
+    "as_of": "2026-11"
+   }
+  },
+  "launch_country": "US",
+  "launch_reason": "Stated by the user; the largest pet market, with 95M pet-owning households.",
+  "kill_shots": {
+   "free_alternative": false,
+   "strong_competitor": true,
+   "graveyard": true,
+   "no_distribution": true,
+   "costs_eat_margin": true,
+   "weak_demand": false,
+   "legal_platform_risk": true,
+   "saturated_wave": true
+  },
+  "primary_kill_shot": "no_distribution",
+  "type_checks": [
+   {
+    "check": "contribution_margin",
+    "result": "hit",
+    "note": "Per order: $29.99 - $17.17 landed and fees = $12.82 before ads; at the $13.46 pet median CPA it is -$0.64, at $30 CAC -$17.18.",
+    "source": "https://influee.co/blog/tiktok-ads-benchmarks"
+   },
+   {
+    "check": "returns_shipping",
+    "result": "unknown",
+    "note": "Pet-supplies return rate 12% (vendor data); China-US delivery times for 2026 not verified. FTC Mail Order Rule puts late-shipping liability on the store.",
+    "source": "https://wisepim.com/ecommerce-industry-insights/pet-supplies"
+   }
+  ],
+  "rules_applied": [
+   {
+    "rule": "R5_kill_shot_coherence",
+    "effect": "costs_eat_margin hit: gross_margin 2.5 -> 2"
+   },
+   {
+    "rule": "R3_saturated_wave",
+    "effect": "competition 2.0 -> 1.5 (free_alternatives 3.5 -> 2.5, competitor_density 1.5 -> 1, differentiation 1)"
+   },
+   {
+    "rule": "R4_ltv_cac_below_1",
+    "effect": "LTV:CAC 0.51: profit already 1.5 (<= 2), no change"
+   },
+   {
+    "rule": "R7_unprofitable_model",
+    "effect": "profit 1.5 <= 2: total 51 - 10 = 41"
+   },
+   {
+    "rule": "R6_unprofitable_no_channel",
+    "effect": "no_distribution hit and LTV:CAC 0.51: capped at 49, already 41"
+   },
+   {
+    "rule": "R2_no_channel",
+    "effect": "capped at 69, already 41"
+   }
+  ],
+  "cheapest_test": "7 days, under $200: one product with a US-warehouse supplier, a $44.99 bundle, 10 organic TikToks, then $150 of ads; stop if CPA > $15.",
+  "kill_criteria": [
+   "Fewer than 5,000 total views on 10 organic TikToks by day 5 -> stop",
+   "CPA above $15 after $150 of ad spend by day 7 -> stop",
+   "Fewer than 3 orders from the first $150 of ads by day 7 -> stop",
+   "No US-warehouse supplier with landed cost under $12 found by day 2 -> stop"
+  ],
+  "rescue": [
+   {
+    "change": "Private-label one replenishable pet consumable (e.g. a lick-mat spread or dental chew) for one breed or cat niche, sold on Amazon and TikTok Shop",
+    "why": "Repeat purchases fix ltv_cac and give one real differentiation",
+    "score_after": 58,
+    "difficulty": "very-hard",
+    "effort": "3-6 months",
+    "cost": "USD 3,000-8,000 for inventory MOQ and samples",
+    "requires": "Capital beyond the $1,500 budget, a manufacturer and FDA/AAFCO checks for edible products"
+   },
+   {
+    "change": "Drop cold ads: sell a $44.99 bundle via TikTok Shop with affiliate creators paid per sale, from a US-warehouse supplier",
+    "why": "Commission-only creators cap CAC below order profit (no_distribution); bundles lift AOV (gross_margin)",
+    "score_after": 54,
+    "difficulty": "hard",
+    "effort": "4-8 weeks",
+    "cost": "USD 300-600 in samples for creators",
+    "requires": "Recruiting creators who will push a no-name seller; TikTok Shop referral fee 6-8% plus commission"
+   },
+   {
+    "change": "Run a pet TikTok account for 8-12 weeks and monetise with Amazon/Chewy affiliate links before opening any store",
+    "why": "Builds an owned audience (assets, channel_readiness) at zero ad spend",
+    "score_after": 50,
+    "difficulty": "hard",
+    "effort": "15 h/week for 3 months",
+    "cost": "USD 0-200",
+    "requires": "Video creation skill and consistency; content is a different business type"
+   }
+  ],
+  "sources": [
+   "https://www.businesswire.com/news/home/20260325770300/en/Chewy-Announces-Fiscal-Fourth-Quarter-and-Full-Year-2025-Financial-Results",
+   "https://globalpetindustry.com/news/data-us-pet-sales-shift-further-online-as-digital-channels-drive-growth/",
+   "https://netpeak.us/blog/how-concentrated-is-the-us-pet-e-commerce-market/",
+   "https://globalpetindustry.com/news/data-amazon-pet-days-generates-nearly-400m-in-us-pet-supply-sales/",
+   "https://www.yipitdata.com/resources/blog/corporate-tiktok-shop-pet-supplies-growth-category",
+   "https://ecommerce.aftership.com/product-trend-list/fastest-growing-animals-pet-supplies-product-tiktok-shop-us",
+   "https://www.walmart.com/ip/16916129",
+   "https://www.chewy.com/pet-fit-life-plastic-cat-water/dp/185750",
+   "https://www.chewy.com/lickimat-catster-non-skid/dp/1349686",
+   "https://www.walmart.com/ip/17662916492",
+   "https://www.sellthetrend.com/blog/top-10-pet-winning-products-to-sell-in-2025",
+   "https://brandsearch.co/niches/pets-animals-pet-food-supplies",
+   "https://community.shopify.com/t/help-no-sales-on-my-store-getting-frustrated/342203",
+   "https://branvas.com/blogs/news/dropshipping-store-survival-audit",
+   "https://subscribed.fyi/blog/analyzing-the-90-dropshipping-failure-rate-unraveling-the-causes",
+   "https://www.oberlo.com/blog/successful-pet-business",
+   "https://americanpetproducts.org/news/u.s.-pet-industry-reaches-158-billion-in-2025-poised-for-continued-growth-in-2026",
+   "https://ecdb.com/resources/sample-data/market/us/pet-supplies",
+   "https://www.ttnews.com/articles/end-de-minimis-rule-aug-29",
+   "https://www.china-briefing.com/news/supreme-court-tariff-ruling-china-impact/",
+   "https://axios.com/2026/01/23/tiktok-deal-trump-app-ban",
+   "https://momentum.asia/insights/detail/tiktok-shop-in-the-us-h1-2026",
+   "https://www.emarketer.com/content/tiktok-shop-growth-points-bigger-role-us-ecommerce-landscape",
+   "https://ads.tiktok.com/help/article/budget?lang=en",
+   "https://lebesgue.io/tiktok-ads/tiktok-ads-benchmarks-for-ctr-cr-and-cpm",
+   "https://www.triplewhale.com/blog/tiktok-benchmarks",
+   "https://apps.shopify.com/DSers",
+   "https://support.zendrop.com/en/articles/9981459-zendrop-plans-pricing-and-features",
+   "https://www.websitebuilderexpert.com/shopify-pricing",
+   "https://wisepim.com/ecommerce-industry-insights/pet-supplies",
+   "https://americanpetproducts.org/blog/where-do-pet-owners-learn-about-new-products",
+   "https://ftc.gov/business-guidance/resources/business-guide-ftcs-mail-internet-or-telephone-order-merchandise-rule",
+   "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+   "https://www.troutman.com/insights/the-800-free-pass-is-gone-cit-confirms-president-can-eliminate-de-minimis-tariff-exemption/",
+   "https://help.shopify.com/en/manual/payments/shopify-payments/reserves",
+   "https://influee.co/blog/tiktok-ads-benchmarks",
+   "https://www.petfoodindustry.com/business-strategy/article/15827245/tiktok-shop-and-its-influence-on-pet-owner-purchasing"
+  ],
+  "run": {
+   "started": "2026-11-11T10:33:57Z",
+   "minutes": 7,
+   "searches": 32,
+   "fetches": 8,
+   "subagents": 4
+  }
+ },
+ "narrative": {
+  "language": "en",
+  "currency": "USD",
+  "answer": "NO-GO. A generic pet dropshipping store on cold TikTok ads loses money on **every order**: break-even CPA is about $12.8 while new-store CPAs run $26-51, and Walmart already sells the same gadgets for **$9-22**.",
+  "tldr": [
+   "Each order leaves **$12.82** before ads; TikTok's 2025 overall CPA is $32.74, so the $1,500 buys about 45 orders and a loss of roughly **$650-800**.",
+   "Buyers can find the same brush at Walmart for $9.23 and Chewy owns the repeat buyer: $12.6B sales, 83.3% from Autoship.",
+   "Best rescue (private-label consumable) needs **3-5x the budget**; archive the store idea as stated."
+  ],
+  "key_findings": [
+   {
+    "title": "Ads cost more than each order earns",
+    "detail": "Break-even CPA is **~$12.8**; TikTok's 2025 overall CPA is **$32.74** (Triple Whale via Influee), so LTV:CAC is 0.51 (estimate).",
+    "source": "https://influee.co/blog/tiktok-ads-benchmarks"
+   },
+   {
+    "title": "Same gadgets cheaper at Walmart and Chewy",
+    "detail": "Self-cleaning slicker brush **$9.23** at Walmart, cat fountain $21.99: a $29.99 dropship price has no **pricing power**.",
+    "source": "https://www.walmart.com/ip/16916129"
+   },
+   {
+    "title": "Giants own the repeat pet buyer",
+    "detail": "Chewy did **$12.6B** in FY2025 with **83.3%** from Autoship; Amazon holds 21.4% of US pet-care dollars.",
+    "source": "https://www.businesswire.com/news/home/20260325770300/en/Chewy-Announces-Fiscal-Fourth-Quarter-and-Full-Year-2025-Financial-Results"
+   }
+  ],
+  "recommendation": "Do not open the store. If you want to stay in pets, spend 7 days and under $200 testing a $44.99 bundle via organic TikToks and $150 of ads, and stop if CPA exceeds $15.",
+  "steelman": "Pets are a **$158B**, growing US market and 25% of owners find products on TikTok, so a cheap store can reach buyers within a week. True, but the evidence shows reach is not the problem: **unit economics** are, at CPAs above per-order profit.",
+  "lesson": "A channel you rent at auction only works when one order earns more than the auction charges for it.",
+  "premortem": [
+   {
+    "cause": "TikTok CPA settles at $25-50 against a $12.8 break-even, and the $1,500 is gone in 4-6 weeks.",
+    "linked_to": "ltv_cac",
+    "likelihood": "H",
+    "early_signal": "CPA above $15 after the first $200 of spend"
+   },
+   {
+    "cause": "Shoppers find the same gadget cheaper on Walmart, Amazon or Temu and abandon checkout.",
+    "linked_to": "pricing_power",
+    "likelihood": "H",
+    "early_signal": "Add-to-cart to purchase under 20%; comments naming Temu or Amazon"
+   },
+   {
+    "cause": "10+ day delivery triggers refunds, chargebacks and a Shopify Payments reserve that freezes cash.",
+    "linked_to": "legal_platform_risk",
+    "likelihood": "M",
+    "early_signal": "More than 2 'where is my order' tickets per 10 orders"
+   }
+  ],
+  "why_now": {
+   "verdict": "late",
+   "changes": [
+    {
+     "what": "The $800 de minimis exemption ended for all countries, so every China parcel now pays duty.",
+     "when": "2025-08",
+     "source": "https://www.ttnews.com/articles/end-de-minimis-rule-aug-29"
+    },
+    {
+     "what": "The Court of International Trade upheld the de minimis suspension; statutory repeal follows on 2027-07-01.",
+     "when": "2026-08",
+     "source": "https://www.troutman.com/insights/the-800-free-pass-is-gone-cit-confirms-president-can-eliminate-de-minimis-tariff-exemption/"
+    },
+    {
+     "what": "Supreme Court struck down IEEPA tariffs, but Section 301 duties on China remain.",
+     "when": "2026-02",
+     "source": "https://www.china-briefing.com/news/supreme-court-tariff-ruling-china-impact/"
+    },
+    {
+     "what": "TikTok USDS joint venture closed ($14B), removing the US ban risk.",
+     "when": "2026-01",
+     "source": "https://axios.com/2026/01/23/tiktok-deal-trump-app-ban"
+    },
+    {
+     "what": "TikTok Shop US GMV reached about $11.8B in H1 2026 (+103%), pulling impulse buyers into in-app checkout.",
+     "when": "2026-07",
+     "source": "https://momentum.asia/insights/detail/tiktok-shop-in-the-us-h1-2026"
+    }
+   ],
+   "note": "Every recent change raises landed cost or moves the TikTok impulse buyer away from external Shopify stores: the window is **closing**."
+  },
+  "icp": {
+   "who": "US dog and cat owners aged roughly 25-44 who discover products on TikTok and buy small gadgets on impulse",
+   "where": [
+    "TikTok #PetTok and pet-creator feeds",
+    "TikTok Shop pet category",
+    "Reddit r/dogs and r/cats",
+    "Breed-specific Facebook groups",
+    "Instagram pet accounts"
+   ],
+   "pays_for_today": "Chewy Autoship and Amazon; slicker brush $9.23 at Walmart, cat fountain $21.99-$32.95 (2026-11)",
+   "budget": "Chewy net sales per active customer: $591/year (FY2025); budget per gadget unknown",
+   "trigger": "Seeing a product demo video on TikTok; 25% of pet owners use TikTok to find new products (APPA)"
+  },
+  "customer": {
+   "segment": "US dog and cat owners who impulse-buy pet gadgets from TikTok videos",
+   "pain": "Small grooming, feeding and boredom annoyances (shedding, drinking water, anxiety)",
+   "today": "Buy from Chewy, Amazon, Walmart, Temu or TikTok Shop, often on subscription"
+  },
+  "use_cases": [
+   {
+    "name": "Generic gadget store on cold TikTok ads (as stated)",
+    "who_pays": "Impulse buyers",
+    "effort": "1 week to launch",
+    "best": false
+   },
+   {
+    "name": "TikTok Shop listing with affiliate creators, bundled AOV",
+    "who_pays": "TikTok Shop buyers",
+    "effort": "4-8 weeks",
+    "best": true
+   },
+   {
+    "name": "Private-label replenishable consumable",
+    "who_pays": "Repeat buyers via Amazon / TikTok Shop",
+    "effort": "3-6 months",
+    "best": false
+   }
+  ],
+  "competitors": [
+   {
+    "name": "Chewy",
+    "url": "https://www.chewy.com/pet-fit-life-plastic-cat-water/dp/185750",
+    "country": "US",
+    "price_low": 4.87,
+    "price_high": 32.95,
+    "currency": "USD",
+    "price_period": "one-off",
+    "price_source": "https://www.chewy.com/lickimat-catster-non-skid/dp/1349686",
+    "price_as_of": "2026-11",
+    "traction": 5,
+    "traction_note": "$12.6B FY2025 net sales, 21.3M active customers",
+    "gap": "None for a gadget buyer; Autoship locks in repeat purchases",
+    "free": false
+   },
+   {
+    "name": "Walmart",
+    "url": "https://www.walmart.com/ip/16916129",
+    "country": "US",
+    "price_low": 9.23,
+    "price_high": 21.99,
+    "currency": "USD",
+    "price_period": "one-off",
+    "price_source": "https://www.walmart.com/ip/16916129",
+    "price_as_of": "2026-11",
+    "traction": 5,
+    "traction_note": "About 33% of US pet e-commerce (tertiary estimate)",
+    "gap": "Lower prices on the same gadgets",
+    "free": false
+   },
+   {
+    "name": "Amazon (pet category)",
+    "url": "https://globalpetindustry.com/news/data-us-pet-sales-shift-further-online-as-digital-channels-drive-growth/",
+    "country": "US",
+    "price_low": null,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "one-off",
+    "price_source": null,
+    "price_as_of": null,
+    "traction": 5,
+    "traction_note": "21.4% of all US pet-care dollars (NIQ, 2025)",
+    "gap": "Prime delivery in 1-2 days vs 7-15 from China",
+    "free": false
+   },
+   {
+    "name": "TikTok Shop pet sellers",
+    "url": "https://ecommerce.aftership.com/product-trend-list/fastest-growing-animals-pet-supplies-product-tiktok-shop-us",
+    "country": "US",
+    "price_low": null,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "one-off",
+    "price_source": null,
+    "price_as_of": null,
+    "traction": 4,
+    "traction_note": "TikTok Shop US GMV ~$11.8B in H1 2026, +103%",
+    "gap": "In-app checkout on the same feed the store would advertise in",
+    "free": false
+   },
+   {
+    "name": "Temu (pet gadgets)",
+    "url": "https://www.walmart.com/ip/17662916492",
+    "country": "CN",
+    "price_low": null,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "one-off",
+    "price_source": null,
+    "price_as_of": null,
+    "traction": 4,
+    "traction_note": "Reviewers tell buyers to order the same item from Temu directly",
+    "gap": "Sells the supplier's product at source price",
+    "free": false
+   },
+   {
+    "name": "Shopify pet stores (Brandsearch sample)",
+    "url": "https://brandsearch.co/niches/pets-animals-pet-food-supplies",
+    "country": "US",
+    "price_low": null,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "one-off",
+    "price_source": null,
+    "price_as_of": null,
+    "traction": 2,
+    "traction_note": "248 active stores tracked by one tool",
+    "gap": "Same winning-product lists, same suppliers",
+    "free": false
+   }
+  ],
+  "scenarios": [
+   {
+    "name": "Pessimistic",
+    "customers_month": 18,
+    "revenue_month": 540,
+    "costs_month": 1268,
+    "note": "CAC $51: 900 ads / 51 = 18 orders; costs = 900 ads + 18 x 17.17 + 58.9 fixed"
+   },
+   {
+    "name": "Base",
+    "customers_month": 30,
+    "revenue_month": 900,
+    "costs_month": 1474,
+    "note": "CAC $30: 30 orders x 29.99; costs = 900 ads + 30 x 17.17 + 58.9"
+   },
+   {
+    "name": "Optimistic",
+    "customers_month": 67,
+    "revenue_month": 2009,
+    "costs_month": 2109,
+    "note": "CAC $13.46 (pet median): still about -$100/month after fixed costs"
+   }
+  ],
+  "risks": [
+   {
+    "risk": "CPA stays above the $12.8 break-even",
+    "likelihood": "H",
+    "impact": "H",
+    "mitigation": "Cap test spend at $150 and stop at CPA > $15",
+    "source": "https://influee.co/blog/tiktok-ads-benchmarks"
+   },
+   {
+    "risk": "Shopify Payments reserve (10% for 120 days) on slow delivery or chargebacks",
+    "likelihood": "M",
+    "impact": "H",
+    "mitigation": "Use US-warehouse suppliers; state real delivery times",
+    "source": "https://help.shopify.com/en/manual/payments/shopify-payments/reserves"
+   },
+   {
+    "risk": "FTC Mail Order Rule breach when the supplier ships late",
+    "likelihood": "M",
+    "impact": "M",
+    "mitigation": "Advertise only shipping times you can prove; offer prompt refunds",
+    "source": "https://ftc.gov/business-guidance/resources/business-guide-ftcs-mail-internet-or-telephone-order-merchandise-rule"
+   },
+   {
+    "risk": "Fake or bought reviews to boost conversion",
+    "likelihood": "L",
+    "impact": "H",
+    "mitigation": "Never buy reviews; penalties up to $51,744 per violation",
+    "source": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials"
+   },
+   {
+    "risk": "Duty and fees rise further on China parcels",
+    "likelihood": "M",
+    "impact": "M",
+    "mitigation": "Price with a duty buffer; prefer US-stocked SKUs",
+    "source": "https://www.troutman.com/insights/the-800-free-pass-is-gone-cit-confirms-president-can-eliminate-de-minimis-tariff-exemption/"
+   }
+  ],
+  "test_plan": [
+   {
+    "when": "Day 1",
+    "step": "Pick 1 product with a US-warehouse supplier and landed cost under $12; compute the CPA ceiling",
+    "verify": "Landed cost <= $12 and break-even CPA >= $15 on a $44.99 bundle"
+   },
+   {
+    "when": "Day 2",
+    "step": "Shopify trial store, one product page, bundle at $44.99, real delivery times stated",
+    "verify": "Page live, checkout tested with 1 test order"
+   },
+   {
+    "when": "Day 3-5",
+    "step": "Post 10 organic TikToks demoing the product with your own or a friend's pet",
+    "verify": ">= 5,000 total views and >= 1% link clicks"
+   },
+   {
+    "when": "Day 5-7",
+    "step": "Spend $150 on TikTok ads ($50/day campaign floor) on the best organic video",
+    "verify": ">= 3 orders and CPA <= $15"
+   }
+  ],
+  "kill_shots": {
+   "free_alternative": {
+    "evidence": "Searched for free equivalents: none; buyers can buy the same gadget cheaper (scored under pricing power, not here).",
+    "source": "https://www.walmart.com/ip/17662916492",
+    "count": 0
+   },
+   "strong_competitor": {
+    "evidence": "Chewy: **$12.6B** FY2025 net sales, 21.3M active customers; Amazon 21.4% of US pet-care dollars (NIQ, 2025).",
+    "source": "https://www.businesswire.com/news/home/20260325770300/en/Chewy-Announces-Fiscal-Fourth-Quarter-and-Full-Year-2025-Financial-Results",
+    "count": 5
+   },
+   "graveyard": {
+    "evidence": "A pet-supplies Shopify store ran TikTok ads, got **0 orders** and its owner reported debt (Shopify Community, tertiary); the '90% fail' figure has no traceable study.",
+    "source": "https://community.shopify.com/t/help-no-sales-on-my-store-getting-frustrated/342203"
+   },
+   "no_distribution": {
+    "evidence": "Only channel is paid TikTok: estimated CAC **$26-51** vs first-year value ~$15.4; TikTok campaigns need more than $50/day.",
+    "source": "https://influee.co/blog/tiktok-ads-benchmarks"
+   },
+   "costs_eat_margin": {
+    "evidence": "Landed cost plus fees ~$17.17 on a $29.99 order: gross margin **42.7%** (estimate), with duty on every parcel since 2025-08-29.",
+    "source": "https://www.ttnews.com/articles/end-de-minimis-rule-aug-29"
+   },
+   "weak_demand": {
+    "evidence": "Clear: US pet spend **$158B** in 2025, +3.7%, forecast +4.4% in 2026 (APPA); 60%+ of pet supplies now sell online.",
+    "source": "https://americanpetproducts.org/news/u.s.-pet-industry-reaches-158-billion-in-2025-poised-for-continued-growth-in-2026"
+   },
+   "legal_platform_risk": {
+    "evidence": "Shopify Payments can hold **10% for 120 days** on slow delivery or chargebacks; FTC Mail Order Rule makes the store liable for late shipping.",
+    "source": "https://help.shopify.com/en/manual/payments/shopify-payments/reserves"
+   },
+   "saturated_wave": {
+    "evidence": "**248** active Shopify pet stores in one tool's sample, and at least 8 vendor 'winning pet products 2025/2026' lists push the same items; active stores, not dated launches.",
+    "source": "https://brandsearch.co/niches/pets-animals-pet-food-supplies",
+    "count": 248,
+    "window": "active as of 2026-11"
+   }
+  },
+  "sources": [
+   {
+    "url": "https://www.businesswire.com/news/home/20260325770300/en/Chewy-Announces-Fiscal-Fourth-Quarter-and-Full-Year-2025-Financial-Results",
+    "title": "Business Wire, Chewy FY2025 results",
+    "supports": "Chewy $12.6B sales, 83.3% Autoship, $591 per customer",
+    "tier": "primary",
+    "published": "2026-03",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://globalpetindustry.com/news/data-us-pet-sales-shift-further-online-as-digital-channels-drive-growth/",
+    "title": "Global Pet Industry, US pet sales shift further online (NIQ)",
+    "supports": "Amazon 21.4% of pet-care dollars; 62% of pet supplies online",
+    "tier": "secondary",
+    "published": "2026",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://netpeak.us/blog/how-concentrated-is-the-us-pet-e-commerce-market/",
+    "title": "Netpeak, How concentrated is US pet e-commerce",
+    "supports": "Walmart ~33% of pet e-commerce",
+    "tier": "tertiary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://globalpetindustry.com/news/data-amazon-pet-days-generates-nearly-400m-in-us-pet-supply-sales/",
+    "title": "Global Pet Industry, Amazon Pet Days ~$400M",
+    "supports": "Amazon's scale in pet supplies",
+    "tier": "secondary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.yipitdata.com/resources/blog/corporate-tiktok-shop-pet-supplies-growth-category",
+    "title": "YipitData, TikTok Shop pet supplies growth",
+    "supports": "Pet supplies a high-growth TikTok Shop category",
+    "tier": "secondary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://ecommerce.aftership.com/product-trend-list/fastest-growing-animals-pet-supplies-product-tiktok-shop-us",
+    "title": "AfterShip, Fastest-growing pet products on TikTok Shop US",
+    "supports": "Top sellers are consumables and brands",
+    "tier": "tertiary",
+    "published": "2025",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.walmart.com/ip/16916129",
+    "title": "Walmart, Vibrant Life self-cleaning slicker brush",
+    "supports": "Brush price $9.23",
+    "tier": "primary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.chewy.com/pet-fit-life-plastic-cat-water/dp/185750",
+    "title": "Chewy, Pet Fit For Life cat water fountain",
+    "supports": "Fountain price $32.95",
+    "tier": "primary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.chewy.com/lickimat-catster-non-skid/dp/1349686",
+    "title": "Chewy, LickiMat Catster",
+    "supports": "Lick mat $4.87-$10.99",
+    "tier": "primary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.walmart.com/ip/17662916492",
+    "title": "Walmart, cat fountain listing and review",
+    "supports": "Buyer tells others to order from Temu",
+    "tier": "primary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.sellthetrend.com/blog/top-10-pet-winning-products-to-sell-in-2025",
+    "title": "Sell The Trend, Top 10 pet winning products 2025",
+    "supports": "Same winning-product lists across vendors",
+    "tier": "tertiary",
+    "published": "2025",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://brandsearch.co/niches/pets-animals-pet-food-supplies",
+    "title": "Brandsearch, Pet food and supplies niche",
+    "supports": "248 active Shopify pet stores tracked",
+    "tier": "tertiary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://community.shopify.com/t/help-no-sales-on-my-store-getting-frustrated/342203",
+    "title": "Shopify Community, No sales on my store",
+    "supports": "Pet store with TikTok ads, 0 orders",
+    "tier": "tertiary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://branvas.com/blogs/news/dropshipping-store-survival-audit",
+    "title": "Branvas, Dropshipping store survival audit",
+    "supports": "Many 2019-2022 'success' stores gone",
+    "tier": "tertiary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://subscribed.fyi/blog/analyzing-the-90-dropshipping-failure-rate-unraveling-the-causes",
+    "title": "Subscribed.fyi, The 90% dropshipping failure rate",
+    "supports": "Failure-rate claim with no traceable study",
+    "tier": "tertiary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.oberlo.com/blog/successful-pet-business",
+    "title": "Oberlo, Successful pet business story",
+    "supports": "Founder failed 2 stores first (vendor-biased)",
+    "tier": "tertiary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://americanpetproducts.org/news/u.s.-pet-industry-reaches-158-billion-in-2025-poised-for-continued-growth-in-2026",
+    "title": "APPA, US pet industry reaches $158B in 2025",
+    "supports": "TAM, growth, 95M pet households",
+    "tier": "primary",
+    "published": "2026-03",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://ecdb.com/resources/sample-data/market/us/pet-supplies",
+    "title": "ECDB, US pet supplies e-commerce",
+    "supports": "SAM $29.6B; 62% cart abandonment",
+    "tier": "secondary",
+    "published": "2025",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.ttnews.com/articles/end-de-minimis-rule-aug-29",
+    "title": "Transport Topics, End of de minimis Aug 29",
+    "supports": "De minimis ended 2025-08-29",
+    "tier": "secondary",
+    "published": "2025-08",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.china-briefing.com/news/supreme-court-tariff-ruling-china-impact/",
+    "title": "China Briefing, Supreme Court tariff ruling impact",
+    "supports": "IEEPA struck down; Section 301 remains",
+    "tier": "secondary",
+    "published": "2026-02",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://axios.com/2026/01/23/tiktok-deal-trump-app-ban",
+    "title": "Axios, TikTok deal closes",
+    "supports": "USDS joint venture closed 2026-01-22",
+    "tier": "secondary",
+    "published": "2026-01",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://momentum.asia/insights/detail/tiktok-shop-in-the-us-h1-2026",
+    "title": "Momentum, TikTok Shop in the US H1 2026",
+    "supports": "TikTok Shop US GMV ~$11.8B H1 2026, +103%",
+    "tier": "secondary",
+    "published": "2026",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.emarketer.com/content/tiktok-shop-growth-points-bigger-role-us-ecommerce-landscape",
+    "title": "eMarketer, TikTok Shop growth in US e-commerce",
+    "supports": "$23.4B US TikTok Shop sales forecast 2026",
+    "tier": "secondary",
+    "published": "2026",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://ads.tiktok.com/help/article/budget?lang=en",
+    "title": "TikTok Ads Help, Budget",
+    "supports": "Campaign > $50/day, ad group > $20/day",
+    "tier": "primary",
+    "published": "2026-07",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://lebesgue.io/tiktok-ads/tiktok-ads-benchmarks-for-ctr-cr-and-cpm",
+    "title": "Lebesgue, TikTok ads benchmarks",
+    "supports": "CPM $4.80, CTR 0.61%, CVR 1.92%",
+    "tier": "secondary",
+    "published": "2026",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.triplewhale.com/blog/tiktok-benchmarks",
+    "title": "Triple Whale, TikTok benchmarks",
+    "supports": "Median CPM $4.08; CPA $17.07, ROAS 1.51",
+    "tier": "secondary",
+    "published": "2026",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://apps.shopify.com/DSers",
+    "title": "Shopify App Store, DSers",
+    "supports": "DSers free / $19.90 / $49.90 plans",
+    "tier": "primary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://support.zendrop.com/en/articles/9981459-zendrop-plans-pricing-and-features",
+    "title": "Zendrop, Plans and pricing",
+    "supports": "Zendrop Pro $49/month",
+    "tier": "primary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.websitebuilderexpert.com/shopify-pricing",
+    "title": "Website Builder Expert, Shopify pricing",
+    "supports": "Shopify Basic $39/month; 2.9% + $0.30",
+    "tier": "tertiary",
+    "published": "2026",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://wisepim.com/ecommerce-industry-insights/pet-supplies",
+    "title": "WisePIM, Pet supplies e-commerce insights",
+    "supports": "AOV $85, CVR 2.6%, returns 12%",
+    "tier": "secondary",
+    "published": "2026",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://americanpetproducts.org/blog/where-do-pet-owners-learn-about-new-products",
+    "title": "APPA, Where pet owners learn about new products",
+    "supports": "25% of owners use TikTok to find products",
+    "tier": "primary",
+    "published": "2022",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://ftc.gov/business-guidance/resources/business-guide-ftcs-mail-internet-or-telephone-order-merchandise-rule",
+    "title": "FTC, Business guide to the Mail Order Rule",
+    "supports": "Seller liable for shipping-time promises",
+    "tier": "primary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+    "title": "FTC, Final rule banning fake reviews",
+    "supports": "Fake-review ban, $51,744 per violation",
+    "tier": "primary",
+    "published": "2024-08",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.troutman.com/insights/the-800-free-pass-is-gone-cit-confirms-president-can-eliminate-de-minimis-tariff-exemption/",
+    "title": "Troutman Pepper, CIT confirms end of de minimis",
+    "supports": "De minimis suspension upheld 2026-08; repeal 2027-07",
+    "tier": "secondary",
+    "published": "2026-08",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://help.shopify.com/en/manual/payments/shopify-payments/reserves",
+    "title": "Shopify Help, Shopify Payments reserves",
+    "supports": "Reserves on chargebacks or long delivery",
+    "tier": "primary",
+    "published": null,
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://influee.co/blog/tiktok-ads-benchmarks",
+    "title": "Influee, TikTok ads benchmarks (Triple Whale data)",
+    "supports": "Overall CPA $32.74; pet CPA $13.46",
+    "tier": "secondary",
+    "published": "2026-07",
+    "accessed": "2026-11-11"
+   },
+   {
+    "url": "https://www.petfoodindustry.com/business-strategy/article/15827245/tiktok-shop-and-its-influence-on-pet-owner-purchasing",
+    "title": "Petfood Industry, TikTok Shop and pet owner purchasing",
+    "supports": "TikTok Shop takes pet purchases in-app",
+    "tier": "secondary",
+    "published": "2026",
+    "accessed": "2026-11-11"
+   }
+  ],
+  "rescue": [
+   {
+    "change": "Private-label one replenishable pet consumable (e.g. a lick-mat spread or dental chew) for one breed or cat niche, sold on Amazon and TikTok Shop",
+    "why": "Repeat purchases fix ltv_cac and give one real differentiation",
+    "score_after": 58,
+    "difficulty": "very-hard",
+    "effort": "3-6 months",
+    "cost": "USD 3,000-8,000 for inventory MOQ and samples",
+    "requires": "Capital beyond the $1,500 budget, a manufacturer and FDA/AAFCO checks for edible products"
+   },
+   {
+    "change": "Drop cold ads: sell a $44.99 bundle via TikTok Shop with affiliate creators paid per sale, from a US-warehouse supplier",
+    "why": "Commission-only creators cap CAC below order profit (no_distribution); bundles lift AOV (gross_margin)",
+    "score_after": 54,
+    "difficulty": "hard",
+    "effort": "4-8 weeks",
+    "cost": "USD 300-600 in samples for creators",
+    "requires": "Recruiting creators who will push a no-name seller; TikTok Shop referral fee 6-8% plus commission"
+   },
+   {
+    "change": "Run a pet TikTok account for 8-12 weeks and monetise with Amazon/Chewy affiliate links before opening any store",
+    "why": "Builds an owned audience (assets, channel_readiness) at zero ad spend",
+    "score_after": 50,
+    "difficulty": "hard",
+    "effort": "15 h/week for 3 months",
+    "cost": "USD 0-200",
+    "requires": "Video creation skill and consistency; content is a different business type"
+   }
+  ]
+ }
+}

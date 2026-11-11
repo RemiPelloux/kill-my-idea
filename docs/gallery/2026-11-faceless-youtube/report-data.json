@@ -1,0 +1,1110 @@
+{
+  "schema_version": "1.0",
+  "idea": {
+    "schema_version": "1.0",
+    "slug": "faceless-youtube",
+    "title": "Faceless AI history YouTube channel (AdSense)",
+    "created": "2026-11-11",
+    "language": "en",
+    "type": "content",
+    "source": {
+      "type": "own-idea",
+      "text": "A faceless YouTube channel that posts AI-generated history videos and earns from AdSense. Launch country US, budget $500, 10 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug faceless-youtube.",
+      "url": null,
+      "author": null,
+      "posted": null
+    },
+    "problem": null,
+    "customer": "US viewers of long-form YouTube history videos; advertisers pay through AdSense (implied by the input)",
+    "solution": "AI-generated history videos (AI script help, AI voice, AI visuals) posted on a faceless YouTube channel",
+    "revenue_model": "ads",
+    "price": null,
+    "channel": "YouTube search and recommendations",
+    "countries": [
+      "US"
+    ],
+    "claims": [
+      "earns from AdSense"
+    ],
+    "context": {
+      "budget": "USD 500",
+      "time_per_week": "10 h",
+      "goal": "side-income",
+      "edge": "none"
+    },
+    "assumptions": [
+      "Long-form videos: history Shorts pay about $0.04-0.10 per 1,000 views, so Shorts are not a revenue path",
+      "RPM of $6 per 1,000 US views, the midpoint of a $4-9 tertiary range for history",
+      "The channel applies to YPP after 2027-02-01, under the 8,000-watch-hour rule",
+      "Tool stack: ElevenLabs Creator + Google AI Pro + CapCut Pro, about $62/month",
+      "About 5 hours per video, so about 8 videos a month at 10 h/week; founder time valued at $15/h",
+      "Headless run: no history audience, list or channel today (the input says no special edge)"
+    ],
+    "unknowns": [
+      "problem",
+      "price"
+    ],
+    "answers": []
+  },
+  "verdict": {
+    "schema_version": "1.0",
+    "slug": "faceless-youtube",
+    "evaluated": "2026-11-11",
+    "mode": "kill",
+    "verdict": "NO-GO",
+    "score": 39,
+    "score_raw": 48.8,
+    "confidence": {
+      "level": "high",
+      "sourced_subscores": 16,
+      "sources": 37,
+      "primary_sources": 7,
+      "note": "RPM and subscriber data are vendor/tertiary; a history-specific RPM dataset and Google Trends data would raise it"
+    },
+    "criteria": {
+      "profit": 1.5,
+      "feasibility": 4.0,
+      "time_to_first_revenue": 2.5,
+      "demand": 3.0,
+      "competition": 1.5,
+      "risk": 2.5,
+      "fit": 1.5
+    },
+    "criteria_detail": {
+      "profit": {
+        "gross_margin": {
+          "score": 3,
+          "note": "YouTube keeps 45% of long-form ad revenue, so the creator margin is 55% before tool costs.",
+          "source": "https://support.google.com/youtube/answer/72902"
+        },
+        "ltv_cac": {
+          "score": 1,
+          "note": "About $6 earned per 1,000 views vs about $166 of time and tools to get them in year 1: LTV:CAC 0.04 (estimate).",
+          "source": "https://vidiq.com/research/youtube-uploads-1000-subscribers/"
+        },
+        "pricing_power": {
+          "score": 1,
+          "note": "Price taker: viewers pay $0 and the ad auction sets RPM at about $4-9 per 1,000 views (tertiary).",
+          "source": "https://fluxnote.io/guides/how-much-history-youtube-channel-makes"
+        }
+      },
+      "feasibility": {
+        "build_effort": {
+          "score": 4.5,
+          "note": "A first AI-narrated video takes days with off-the-shelf tools; guides push it as a beginner format.",
+          "source": "https://vidiq.com/blog/post/start-faceless-channel-youtube/"
+        },
+        "skills_match": {
+          "score": 3,
+          "note": "Scripting, research and editing are learnable; the user states no prior video skills.",
+          "source": null
+        },
+        "capital_needed": {
+          "score": 4,
+          "note": "About $62/month of tools fits the $500 budget for about 8 months.",
+          "source": "https://elevenlabs.io/pricing/api"
+        }
+      },
+      "time_to_first_revenue": {
+        "time_to_mvp": {
+          "score": 4,
+          "note": "First upload within 1-2 weeks at 10 h/week.",
+          "source": null
+        },
+        "sales_cycle": {
+          "score": 1,
+          "note": "No ad money until 1,000 subscribers and 8,000 watch hours (from 2027-02-01): 12+ months.",
+          "source": "https://blog.google/intl/en-mena/product-updates/connect-communicate/new-opportunities-to-earn-and-changes-to-the-youtube-partner-program/"
+        },
+        "channel_readiness": {
+          "score": 2,
+          "note": "YouTube recommendations exist, but only 30.77% of channels with 52+ uploads reach 1,000 subs in a year.",
+          "source": "https://vidiq.com/research/youtube-uploads-1000-subscribers/"
+        }
+      },
+      "demand": {
+        "search_demand": {
+          "score": 4.5,
+          "note": "Mass audience: OverSimplified alone has 9.65M subscribers (2026-10).",
+          "source": "https://creatordb.app/creatorstats/oversimplified/"
+        },
+        "trend": {
+          "score": 3,
+          "note": "No 5-year trend checked; AI sleep-history videos still reach 2.3M views (2025-09).",
+          "source": "https://www.404media.co/ai-generated-boring-history-videos-are-flooding-youtube-and-drowning-out-real-history/"
+        },
+        "willingness_to_pay": {
+          "score": 2,
+          "note": "Viewers expect it free; advertisers pay a modest RPM (Education median $10.22, tertiary).",
+          "source": "https://air.io/en/air-data-findings/which-youtube-niche-makes-the-most-money-in-2026-ranked-by-real-rpm-and-cpm"
+        }
+      },
+      "competition": {
+        "free_alternatives": {
+          "score": 1.5,
+          "note": "R1: the same videos are free from human and AI channels, and Veo makes free AI clips in Shorts.",
+          "source": "https://www.techradar.com/ai-platforms-assistants/youtube-shorts-now-lets-you-turn-text-into-8-second-videos-using-veo-3s-ai-magic"
+        },
+        "competitor_density": {
+          "score": 1.5,
+          "note": "R3: 278 AI-only channels in the top 15,000 and 6 named AI history channels (2025).",
+          "source": "https://www.kapwing.com/blog/ai-slop-report-the-global-rise-of-low-quality-ai-videos/"
+        },
+        "differentiation": {
+          "score": 1,
+          "note": "R3: no edge; Sleepless Historian already posts AI history about 4 times a week.",
+          "source": "https://outlierkit.com/channel/sleeplesshistorian"
+        }
+      },
+      "risk": {
+        "legal_regulatory": {
+          "score": 3.5,
+          "note": "No licence needed, but raw AI output is not copyrightable and realistic AI scenes need a label.",
+          "source": "https://copyright.gov/newsnet/2025/1060.html"
+        },
+        "platform_dependency": {
+          "score": 1,
+          "note": "One platform: templated AI content is not monetizable and demonetization hits the whole channel.",
+          "source": "https://support.google.com/youtube/answer/1311392"
+        },
+        "market_risk": {
+          "score": 2.5,
+          "note": "Crackdowns and viewer backlash against AI slop are growing; even human faceless channels got hit.",
+          "source": "https://thenextweb.com/news/youtube-ai-slop-crackdown-faceless-creators-collateral-damage"
+        }
+      },
+      "fit": {
+        "skills": {
+          "score": 2,
+          "note": "No stated video, scripting or history skills.",
+          "source": null
+        },
+        "assets": {
+          "score": 1,
+          "note": "No audience, data or network in the niche.",
+          "source": null
+        },
+        "interest": {
+          "score": 1,
+          "note": "Goal stated as side income, not a passion for history.",
+          "source": null
+        }
+      }
+    },
+    "metrics": {
+      "tam": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "source": null,
+        "reasoning": null,
+        "as_of": null
+      },
+      "sam": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "source": null,
+        "reasoning": null,
+        "as_of": null
+      },
+      "som": {
+        "value": 180,
+        "unit": "USD year 1",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "Optimistic: reach YPP late in year 1, then 30,000 monetized views x $6 RPM / 1,000 = $180; base case $0",
+        "as_of": "2026-11"
+      },
+      "competitors_found": {
+        "value": 10,
+        "unit": "channels",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "4 human channels (OverSimplified, Kings and Generals, Historia Civilis, History Time) + 6 AI history channels named by 404 Media",
+        "as_of": "2026-11"
+      },
+      "competitor_price_range": {
+        "value": 0,
+        "unit": "USD to the viewer",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "Every competing history channel is free to watch; revenue comes from ads",
+        "as_of": "2026-11"
+      },
+      "demand_trend": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "source": null,
+        "reasoning": null,
+        "as_of": null
+      },
+      "price": {
+        "value": 10.91,
+        "unit": "USD gross ad revenue per 1,000 views",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "Creator RPM $6 (midpoint of $4-9) / 0.55 creator share = $10.91 gross",
+        "as_of": "2026-11"
+      },
+      "variable_cost_per_unit": {
+        "value": 4.91,
+        "unit": "USD per 1,000 views",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "YouTube's 45% share of $10.91 gross = $4.91",
+        "as_of": "2026-11"
+      },
+      "gross_margin_pct": {
+        "value": 55,
+        "unit": "%",
+        "basis": "sourced",
+        "source": "https://support.google.com/youtube/answer/72902",
+        "reasoning": null,
+        "as_of": "2026-11"
+      },
+      "churn_monthly_pct": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "source": null,
+        "reasoning": null,
+        "as_of": null
+      },
+      "expected_lifetime": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "source": null,
+        "reasoning": null,
+        "as_of": null
+      },
+      "conversion_rate_pct": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "source": null,
+        "reasoning": null,
+        "as_of": null
+      },
+      "cac": {
+        "value": 166,
+        "unit": "USD per 1,000 views",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "Cost per video ($62 tools / 8 videos + 5 h x $15) = $83; ~500 views per video in year 1 (assumed) -> $83 / 0.5 = $166 per 1,000 views",
+        "as_of": "2026-11"
+      },
+      "ltv": {
+        "value": 6,
+        "unit": "USD per 1,000 views",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "Creator RPM $6 per 1,000 long-form US views (tertiary $4-9 range), and only after YPP",
+        "as_of": "2026-11"
+      },
+      "ltv_cac": {
+        "value": 0.04,
+        "unit": "ratio",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "LTV $6 / CAC $166 = 0.04; even with founder time at $0, $6 / $15.5 tool cost = 0.39",
+        "as_of": "2026-11"
+      },
+      "payback_months": {
+        "value": "never in year 1",
+        "unit": null,
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "No revenue before 1,000 subs + 8,000 watch hours; LTV:CAC below 1 after that",
+        "as_of": "2026-11"
+      },
+      "fixed_costs_month": {
+        "value": 62,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "ElevenLabs Creator $22 + Google AI Pro $19.99 + CapCut Pro $19.99 = $61.98",
+        "as_of": "2026-11"
+      },
+      "break_even_customers_per_month": {
+        "value": 10333,
+        "unit": "monetized views/month",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "$62 fixed costs / $6 per 1,000 views x 1,000 = 10,333 views a month, once in YPP",
+        "as_of": "2026-11"
+      },
+      "time_to_first_revenue_weeks": {
+        "value": 52,
+        "unit": "weeks (at least)",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "vidIQ: 30.77% of channels with 52+ uploads reach 1,000 subs in 360 days; 8,000 watch hours on top -> 52+ weeks for the lucky third",
+        "as_of": "2026-11"
+      }
+    },
+    "launch_country": "US",
+    "launch_reason": "The user's country, and US views carry the highest RPM.",
+    "kill_shots": {
+      "free_alternative": true,
+      "strong_competitor": true,
+      "graveyard": true,
+      "no_distribution": false,
+      "costs_eat_margin": false,
+      "weak_demand": false,
+      "legal_platform_risk": true,
+      "saturated_wave": true
+    },
+    "primary_kill_shot": "legal_platform_risk",
+    "rules_applied": [
+      {
+        "rule": "R1_free_equivalent",
+        "effect": "free_alternatives 2 -> 1.5; Competitive room capped at 1.5"
+      },
+      {
+        "rule": "R3_saturated_wave",
+        "effect": "competitor_density 2 -> 1.5, differentiation 1.5 -> 1; Competitive room 1.83 -> 1.33"
+      },
+      {
+        "rule": "R7_unprofitable_model",
+        "effect": "Profit potential 1.67: total 49 - 10 = 39, NO-GO"
+      }
+    ],
+    "type_checks": [
+      {
+        "check": "rpm",
+        "result": "clear",
+        "note": "History RPM is about $4-9 per 1,000 US views (tertiary), decent; but $500/month needs about 83,000 monetized views a month.",
+        "source": "https://fluxnote.io/guides/how-much-history-youtube-channel-makes"
+      },
+      {
+        "check": "platform_policy",
+        "result": "hit",
+        "note": "YouTube does not monetize AI content made with generic templates, and removes monetization from the entire channel.",
+        "source": "https://support.google.com/youtube/answer/1311392"
+      }
+    ],
+    "cheapest_test": "Pitch 50 small history channels (10K-200K subs) a $150 AI-visuals pilot within 7 days; 1+ paid pilot or archive it.",
+    "kill_criteria": [
+      "Fewer than 3 positive replies to 50 pitches by day 7 -> stop the service test",
+      "0 paid pilots ($150 or more) by day 14 -> archive the idea"
+    ],
+    "rescue": [
+      {
+        "change": "Sell AI-visual production to existing history channels (service) instead of running your own channel",
+        "why": "Fixes ltv_cac, sales_cycle and platform_dependency: clients pay per video within weeks, no YPP gate",
+        "score_after": 55,
+        "difficulty": "hard",
+        "effort": "2-4 weeks to a portfolio and 50 pitches",
+        "cost": "about $62/month in tools",
+        "requires": "A 3-video sample reel and cold outreach to 50+ creators"
+      },
+      {
+        "change": "Run a human-scripted, own-voice niche history channel (e.g. one US region) and treat year 1 as audience building",
+        "why": "Eases platform_dependency and differentiation, but ad money stays below cost in year 1, so R7 still applies",
+        "score_after": 43,
+        "difficulty": "hard",
+        "effort": "12+ months at 10 h/week",
+        "cost": "about $20-40/month",
+        "requires": "Real research and voice work; a reason to love the topic"
+      }
+    ],
+    "sources": [
+      "https://support.google.com/youtube/answer/72851",
+      "https://support.google.com/youtube/answer/1311392",
+      "https://support.google.com/youtube/answer/72902",
+      "https://support.google.com/youtube/answer/14328491",
+      "https://blog.google/intl/en-mena/product-updates/connect-communicate/new-opportunities-to-earn-and-changes-to-the-youtube-partner-program/",
+      "https://copyright.gov/newsnet/2025/1060.html",
+      "https://elevenlabs.io/pricing/api",
+      "https://www.404media.co/ai-generated-boring-history-videos-are-flooding-youtube-and-drowning-out-real-history/",
+      "https://www.kapwing.com/blog/ai-slop-report-the-global-rise-of-low-quality-ai-videos/",
+      "https://tubefilter.com/2026/01/29/youtube-ai-slop-channel-crackdown-bans/",
+      "https://thenextweb.com/news/youtube-ai-slop-crackdown-faceless-creators-collateral-damage",
+      "https://fstoppers.com/artificial-intelligence/how-google-machine-terminated-130000-ai-slop-youtube-channels-six-months-903645",
+      "https://www.musicbusinessworldwide.com/new-youtube-creators-will-need-8000-watch-hours-to-start-earning-from-ads-double-the-current-bar/",
+      "https://www.tubefilter.com/2026-07-13/youtube-inauthentic-content-monetization-policy-update/",
+      "https://www.searchenginejournal.com/youtube-targets-mass-produced-content-in-monetization-update/550337/",
+      "https://www.techradar.com/ai-platforms-assistants/youtube-shorts-now-lets-you-turn-text-into-8-second-videos-using-veo-3s-ai-magic",
+      "https://www.techspot.com/news/110735-over-21-youtube-now-ai-slop-report.html",
+      "https://www.dlapiper.com/insights/publications/2025/12/ftc-warning-letters-ai-consumer-reviews",
+      "https://betanews.com/2025/12/03/study-finds-ai-slop-videos-spreading-fast-across-youtube-and-theres-a-lot-of-money-being-made/",
+      "https://www.plagiarismtoday.com/2025/07/08/youtube-targets-inauthentic-content/",
+      "https://www.techradar.com/ai-platforms-assistants/you-wont-believe-ais-take-on-the-history-of-stonehenge-and-i-am-so-over-ai-slop",
+      "https://www.boomlive.in/decode/ai-history-videos-india-reels-youtube-viral-29514",
+      "https://vidiq.com/research/youtube-uploads-1000-subscribers/",
+      "https://creatordb.app/creatorstats/oversimplified/",
+      "https://outlierkit.com/channel/kingsandgenerals",
+      "https://socialcounts.org/youtube-live-subscriber-count/UCv_vLHiWVBh_FR9vbeuiY-A",
+      "https://outlierkit.com/channel/sleeplesshistorian",
+      "https://air.io/en/air-data-findings/which-youtube-niche-makes-the-most-money-in-2026-ranked-by-real-rpm-and-cpm",
+      "https://fluxnote.io/guides/how-much-history-youtube-channel-makes",
+      "https://fluxnote.io/guides/youtube-shorts-rpm-history-niche",
+      "https://www.digitalapplied.com/blog/google-ai-plans-free-plus-pro-ultra-2026",
+      "https://bigvu.tv/blog/de/capcut-preise-was-pro-ultra-teams-191/",
+      "https://pricingsaas.com/companies/storyblocks",
+      "https://pk.linkedin.com/in/faadixd",
+      "https://vidiq.com/blog/post/start-faceless-channel-youtube/",
+      "https://recapio.com/digest/63548-in-1-month-with-a-faceless-ai-channel-full-course-by-leo-grundstrom",
+      "https://cblevins.github.io/posts/gen-ai-history-2025"
+    ],
+    "run": {
+      "started": "2026-11-11T10:22:56Z",
+      "minutes": 8,
+      "searches": 32,
+      "fetches": 16,
+      "subagents": 4
+    }
+  },
+  "narrative": {
+    "language": "en",
+    "currency": "USD",
+    "answer": "**NO-GO**. With no edge, an AI history channel earns **nothing for 12+ months**: YouTube doubles the bar to 8,000 watch hours in February 2027, demonetizes templated AI content channel-wide, and AI sleep-history channels already flood the niche.",
+    "tldr": [
+      "Revenue is gated: 1,000 subscribers plus **8,000 watch hours** before the first cent, from 2027-02-01.",
+      "YouTube's policy names **templated AI content** as not monetizable, and enforces it on the whole channel.",
+      "At about $6 per 1,000 views, year-1 LTV:CAC is **0.04**: the $500 runs out long before the ads pay."
+    ],
+    "key_findings": [
+      {
+        "title": "The bar to earn doubles in February 2027",
+        "detail": "New YPP applicants need 1,000 subscribers and **8,000 watch hours** in 365 days from 2027-02-01, double today's 4,000 (Google, 2026).",
+        "source": "https://blog.google/intl/en-mena/product-updates/connect-communicate/new-opportunities-to-earn-and-changes-to-the-youtube-partner-program/"
+      },
+      {
+        "title": "YouTube demonetizes this exact format",
+        "detail": "Its policy bars \"AI-generated content made with generic or unoriginal templates\" and removes monetization from the **entire channel** (YouTube Help, 2025).",
+        "source": "https://support.google.com/youtube/answer/1311392"
+      },
+      {
+        "title": "The niche is already flooded",
+        "detail": "404 Media named **6 AI sleep-history channels** in 2025; Sleepless Historian alone has 702K subscribers and posts about 4 videos a week.",
+        "source": "https://www.404media.co/ai-generated-boring-history-videos-are-flooding-youtube-and-drowning-out-real-history/"
+      }
+    ],
+    "recommendation": "Don't launch the AdSense channel. If you want to use AI video skills for side income, test selling **AI visuals to existing history channels** for 7 days instead.",
+    "steelman": "AI cuts a history video to a few hours and about $62/month of tools, the audience is huge (OverSimplified has 9.65M subscribers), and AI channels like Sleepless Historian reached 702K subscribers. The evidence: those channels grew before the 2026 crackdown and the doubled bar, and earn about $1-3K/month at 702K subs.",
+    "premortem": [
+      {
+        "cause": "The channel stalls far below 1,000 subscribers and 8,000 watch hours, so it never earns.",
+        "linked_to": "channel_readiness",
+        "likelihood": "H",
+        "early_signal": "Under 200 views per video on average after the first 8 uploads"
+      },
+      {
+        "cause": "YPP rejects or later demonetizes the channel as inauthentic, templated AI content.",
+        "linked_to": "legal_platform_risk",
+        "likelihood": "H",
+        "early_signal": "Thumbnails and scripts look interchangeable with 3+ existing AI history channels; 0 comments on 8 videos"
+      },
+      {
+        "cause": "Tool costs and 10 h/week burn the $500 before any revenue arrives.",
+        "linked_to": "ltv_cac",
+        "likelihood": "M",
+        "early_signal": "Over $120 spent in month 1 with under 1,000 total views"
+      }
+    ],
+    "why_now": {
+      "verdict": "late",
+      "changes": [
+        {
+          "what": "YouTube renamed repetitious content to inauthentic content, aimed at mass-produced videos",
+          "when": "2025-07",
+          "source": "https://www.searchenginejournal.com/youtube-targets-mass-produced-content-in-monetization-update/550337/"
+        },
+        {
+          "what": "Veo 3 Fast made free AI video clips inside YouTube Shorts, flooding supply",
+          "when": "2025-09",
+          "source": "https://www.techradar.com/ai-platforms-assistants/youtube-shorts-now-lets-you-turn-text-into-8-second-videos-using-veo-3s-ai-magic"
+        },
+        {
+          "what": "YouTube removed 16-18 large AI slop channels (about 35M subscribers)",
+          "when": "2026-01",
+          "source": "https://tubefilter.com/2026/01/29/youtube-ai-slop-channel-crackdown-bans/"
+        },
+        {
+          "what": "YouTube reworked its inauthentic content guidance into 3 categories",
+          "when": "2026-07",
+          "source": "https://www.tubefilter.com/2026-07-13/youtube-inauthentic-content-monetization-policy-update/"
+        },
+        {
+          "what": "YPP entry bar for new channels doubles to 8,000 watch hours from 2027-02-01",
+          "when": "2026-08",
+          "source": "https://blog.google/intl/en-mena/product-updates/connect-communicate/new-opportunities-to-earn-and-changes-to-the-youtube-partner-program/"
+        }
+      ],
+      "note": "The cheap-AI window opened in 2025 and is closing: supply exploded, then YouTube raised the bar and started removing templated channels."
+    },
+    "icp": {
+      "who": "US adults (skewing male, 25-34) who watch long-form YouTube history to learn or to fall asleep",
+      "where": [
+        "YouTube history recommendations",
+        "Sleep-history playlists",
+        "r/history",
+        "r/AskHistorians",
+        "History podcast audiences"
+      ],
+      "pays_for_today": "$0: free channels such as OverSimplified (9.65M subs) and Kings and Generals (about 4.2M)",
+      "budget": "$0 for viewers; advertisers pay a creator RPM of about $4-9 per 1,000 US views (tertiary, 2026)",
+      "trigger": "Bedtime, a commute, or a topic in the news or a new film"
+    },
+    "customer": {
+      "segment": "US viewers of long-form history videos; advertisers buy their attention",
+      "pain": "Want engaging history to learn from or to sleep to",
+      "today": "Watch free human-made channels and a growing number of AI sleep-history channels"
+    },
+    "use_cases": [
+      {
+        "name": "AdSense AI history channel (the idea)",
+        "who_pays": "Advertisers via YouTube, after YPP",
+        "effort": "10 h/week for 12+ months before any revenue",
+        "best": false
+      },
+      {
+        "name": "AI-visual production for existing history channels",
+        "who_pays": "Creators with 10K-200K subscribers",
+        "effort": "2-4 weeks to a sample reel",
+        "best": true
+      },
+      {
+        "name": "Own-voice niche history channel",
+        "who_pays": "Advertisers and sponsors, much later",
+        "effort": "12+ months audience building",
+        "best": false
+      }
+    ],
+    "kill_shots": {
+      "free_alternative": {
+        "evidence": "Viewers already get the same history free from human channels (OverSimplified 9.65M subs) and AI ones; Veo 3 makes free AI clips inside Shorts since 2025-09.",
+        "source": "https://www.techradar.com/ai-platforms-assistants/youtube-shorts-now-lets-you-turn-text-into-8-second-videos-using-veo-3s-ai-magic",
+        "count": 2
+      },
+      "strong_competitor": {
+        "evidence": "OverSimplified has 9.65M subscribers (2026-10), Kings and Generals about 4.2M, Historia Civilis 1.09M; AI rival Sleepless Historian 702K.",
+        "source": "https://creatordb.app/creatorstats/oversimplified/",
+        "count": 10
+      },
+      "graveyard": {
+        "evidence": "YouTube removed 16-18 AI slop channels in January 2026; a solo AI faceless channel post-mortem: 6 months, 640 subscribers, failed.",
+        "source": "https://tubefilter.com/2026/01/29/youtube-ai-slop-channel-crackdown-bans/"
+      },
+      "no_distribution": {
+        "evidence": "Searched channel-growth data: YouTube recommendations are a real channel; 30.77% of small channels posting 52+ videos reached 1,000 subs within 360 days (vidIQ, 2026).",
+        "source": "https://vidiq.com/research/youtube-uploads-1000-subscribers/"
+      },
+      "costs_eat_margin": {
+        "evidence": "Checked tool prices: about $62/month fixed (ElevenLabs $22, Google AI Pro $19.99, CapCut Pro $19.99); creator keeps 55% of ad revenue, so the margin is not the problem.",
+        "source": "https://support.google.com/youtube/answer/72902"
+      },
+      "weak_demand": {
+        "evidence": "Searched for demand signals: history draws mass audiences (OverSimplified 9.65M subs; an AI sleep-history video at 2.3M views). No 5-year Google Trends check was run.",
+        "source": "https://www.404media.co/ai-generated-boring-history-videos-are-flooding-youtube-and-drowning-out-real-history/"
+      },
+      "legal_platform_risk": {
+        "evidence": "YouTube bars \"AI-generated content made with generic or unoriginal templates\" from monetization, channel-wide; the YPP bar doubles to 8,000 hours on 2027-02-01.",
+        "source": "https://support.google.com/youtube/answer/1311392"
+      },
+      "saturated_wave": {
+        "evidence": "Kapwing counted 278 AI-only channels among the top 15,000 (2025-10); 404 Media named 6 AI history ones: Sleepless Historian, Boring History Bites, History Before Sleep, The Snoozetorian, Historian Sleepy, Dreamoria.",
+        "source": "https://www.kapwing.com/blog/ai-slop-report-the-global-rise-of-low-quality-ai-videos/",
+        "count": 278,
+        "window": "2025-10 snapshot (all niches)"
+      }
+    },
+    "competitors": [
+      {
+        "name": "OverSimplified",
+        "url": "https://creatordb.app/creatorstats/oversimplified/",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "traction": 5,
+        "traction_note": "9.65M subscribers (2026-10-04)",
+        "gap": "Slow, hand-animated; leaves room only for volume, not quality",
+        "free": true,
+        "country": "US",
+        "price_source": "https://creatordb.app/creatorstats/oversimplified/",
+        "price_period": null,
+        "price_as_of": "2026-10"
+      },
+      {
+        "name": "Kings and Generals",
+        "url": "https://outlierkit.com/channel/kingsandgenerals",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "traction": 5,
+        "traction_note": "About 4.2M subscribers (2026)",
+        "gap": "Military history focus",
+        "free": true,
+        "country": "US",
+        "price_source": "https://outlierkit.com/channel/kingsandgenerals",
+        "price_period": null,
+        "price_as_of": "2026"
+      },
+      {
+        "name": "Historia Civilis",
+        "url": "https://socialcounts.org/youtube-live-subscriber-count/UCv_vLHiWVBh_FR9vbeuiY-A",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "traction": 4,
+        "traction_note": "1.09M subscribers on 89 videos",
+        "gap": "Rare uploads",
+        "free": true,
+        "country": "US",
+        "price_source": "https://socialcounts.org/youtube-live-subscriber-count/UCv_vLHiWVBh_FR9vbeuiY-A",
+        "price_period": null,
+        "price_as_of": "2026"
+      },
+      {
+        "name": "Sleepless Historian (AI)",
+        "url": "https://outlierkit.com/channel/sleeplesshistorian",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "traction": 4,
+        "traction_note": "702K subscribers, 317 uploads, est. $1-3K/month ads (2026-07)",
+        "gap": "Already owns the AI sleep-history format",
+        "free": true,
+        "country": null,
+        "price_source": "https://outlierkit.com/channel/sleeplesshistorian",
+        "price_period": null,
+        "price_as_of": "2026-07"
+      },
+      {
+        "name": "Boring History Bites, History Before Sleep, The Snoozetorian (AI)",
+        "url": "https://www.404media.co/ai-generated-boring-history-videos-are-flooding-youtube-and-drowning-out-real-history/",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "traction": 3,
+        "traction_note": "Named by 404 Media; videos up to 2.3M views (2025-09)",
+        "gap": "Same format as the idea",
+        "free": true,
+        "country": null,
+        "price_source": "https://www.404media.co/ai-generated-boring-history-videos-are-flooding-youtube-and-drowning-out-real-history/",
+        "price_period": null,
+        "price_as_of": "2025-09"
+      },
+      {
+        "name": "Veo 3 in YouTube Shorts (free tool)",
+        "url": "https://www.techradar.com/ai-platforms-assistants/youtube-shorts-now-lets-you-turn-text-into-8-second-videos-using-veo-3s-ai-magic",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "traction": 5,
+        "traction_note": "Built into YouTube Shorts since 2025-09",
+        "gap": "8-second clips only; lets anyone make the same videos",
+        "free": true,
+        "country": "US",
+        "price_source": "https://www.techradar.com/ai-platforms-assistants/youtube-shorts-now-lets-you-turn-text-into-8-second-videos-using-veo-3s-ai-magic",
+        "price_period": null,
+        "price_as_of": "2025-09"
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "customers_month": 3000,
+        "revenue_month": 0,
+        "costs_month": 62,
+        "note": "Month 12: about 3,000 views a month, far from YPP; $0 revenue, $500 gone by month 8"
+      },
+      {
+        "name": "Base",
+        "customers_month": 15000,
+        "revenue_month": 0,
+        "costs_month": 62,
+        "note": "Month 12: growing but still under 1,000 subs / 8,000 h; $0 revenue"
+      },
+      {
+        "name": "Optimistic",
+        "customers_month": 50000,
+        "revenue_month": 300,
+        "costs_month": 62,
+        "note": "Monetized by month 12: 50,000 views x $6 RPM = $300/month (estimate)"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "YPP rejection or channel-wide demonetization as inauthentic content",
+        "likelihood": "H",
+        "impact": "H",
+        "mitigation": "Human-written scripts, own voice, original analysis",
+        "source": "https://support.google.com/youtube/answer/1311392"
+      },
+      {
+        "risk": "Never reaching 1,000 subs + 8,000 watch hours",
+        "likelihood": "H",
+        "impact": "H",
+        "mitigation": "52+ uploads a year; niche topics with low competition",
+        "source": "https://vidiq.com/research/youtube-uploads-1000-subscribers/"
+      },
+      {
+        "risk": "Copycats re-upload AI visuals and narration; raw AI output is not copyrightable",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Human-authored scripts and edits",
+        "source": "https://copyright.gov/newsnet/2025/1060.html"
+      },
+      {
+        "risk": "Viewer and press backlash against inaccurate AI history",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Cite sources on screen; fact-check every script",
+        "source": "https://www.techradar.com/ai-platforms-assistants/you-wont-believe-ais-take-on-the-history-of-stonehenge-and-i-am-so-over-ai-slop"
+      },
+      {
+        "risk": "Realistic AI scenes need a synthetic-content label",
+        "likelihood": "H",
+        "impact": "L",
+        "mitigation": "Disclose; use stylized visuals",
+        "source": "https://support.google.com/youtube/answer/14328491"
+      }
+    ],
+    "test_plan": [
+      {
+        "when": "Day 1",
+        "step": "List 50 history channels with 10K-200K subscribers that post at least monthly",
+        "verify": "50 channels with a contact email"
+      },
+      {
+        "when": "Day 2-3",
+        "step": "Make a 60-second AI-visual sample for a real script from 3 of those channels",
+        "verify": "3 samples done in 6 hours or less"
+      },
+      {
+        "when": "Day 4-5",
+        "step": "Send 50 pitches offering a $150 one-video pilot",
+        "verify": "50 sent"
+      },
+      {
+        "when": "Day 7",
+        "step": "Count replies and paid pilots",
+        "verify": "3+ positive replies and 1+ paid pilot, or stop"
+      }
+    ],
+    "rescue": [
+      {
+        "change": "Sell AI-visual production to existing history channels (service) instead of running your own channel",
+        "why": "Fixes ltv_cac, sales_cycle and platform_dependency: clients pay per video within weeks, no YPP gate",
+        "score_after": 55,
+        "difficulty": "hard",
+        "effort": "2-4 weeks to a portfolio and 50 pitches",
+        "cost": "about $62/month in tools",
+        "requires": "A 3-video sample reel and cold outreach to 50+ creators"
+      },
+      {
+        "change": "Run a human-scripted, own-voice niche history channel (e.g. one US region) and treat year 1 as audience building",
+        "why": "Eases platform_dependency and differentiation, but ad money stays below cost in year 1, so R7 still applies",
+        "score_after": 43,
+        "difficulty": "hard",
+        "effort": "12+ months at 10 h/week",
+        "cost": "about $20-40/month",
+        "requires": "Real research and voice work; a reason to love the topic"
+      }
+    ],
+    "lesson": "Ad-funded channels pay after the audience, not before: without an edge, the gate is the business.",
+    "sources": [
+      {
+        "url": "https://support.google.com/youtube/answer/72851",
+        "title": "YouTube Help, YouTube Partner Program overview and eligibility",
+        "supports": "1,000 subscribers + 4,000 watch hours in 12 months, or 10M Shorts views in 90 days; new terms from 2027-02-01",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "primary"
+      },
+      {
+        "url": "https://support.google.com/youtube/answer/1311392",
+        "title": "YouTube Help, channel monetization policies (inauthentic and reused content)",
+        "supports": "Templated AI content is not monetizable; enforcement applies to the whole channel",
+        "accessed": "2026-11-11",
+        "published": "2025-07-15",
+        "tier": "primary"
+      },
+      {
+        "url": "https://support.google.com/youtube/answer/72902",
+        "title": "YouTube Help, revenue sharing for YPP creators",
+        "supports": "Creators get 55% of long-form ad revenue and 45% of their Shorts pool share",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "primary"
+      },
+      {
+        "url": "https://support.google.com/youtube/answer/14328491",
+        "title": "YouTube Help, disclosing altered or synthetic content",
+        "supports": "Realistic AI content must be labelled; YouTube may label it itself",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://blog.google/intl/en-mena/product-updates/connect-communicate/new-opportunities-to-earn-and-changes-to-the-youtube-partner-program/",
+        "title": "Google blog, changes to the YouTube Partner Program",
+        "supports": "From 2027-02-01 new applicants need 8,000 watch hours in 365 days or 20M Shorts views in 90 days",
+        "accessed": "2026-11-11",
+        "published": "2026-08-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://copyright.gov/newsnet/2025/1060.html",
+        "title": "US Copyright Office, Copyright and AI Part 2 report",
+        "supports": "AI output is protected only where a human determined sufficient expressive elements",
+        "accessed": "2026-11-11",
+        "published": "2025-01-29",
+        "tier": "primary"
+      },
+      {
+        "url": "https://elevenlabs.io/pricing/api",
+        "title": "ElevenLabs pricing",
+        "supports": "Creator plan $22/month (read via search summary, not fetched)",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.404media.co/ai-generated-boring-history-videos-are-flooding-youtube-and-drowning-out-real-history/",
+        "title": "404 Media, AI-generated boring history videos are flooding YouTube",
+        "supports": "Names 6 AI sleep-history channels; one video at 2.3M views; human historians crowded out",
+        "accessed": "2026-11-11",
+        "published": "2025-09-03",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.kapwing.com/blog/ai-slop-report-the-global-rise-of-low-quality-ai-videos/",
+        "title": "Kapwing, AI Slop Report",
+        "supports": "278 AI-only channels among 15,000 top channels; 21% of Shorts shown to new accounts are AI",
+        "accessed": "2026-11-11",
+        "published": "2025-11-28",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://tubefilter.com/2026/01/29/youtube-ai-slop-channel-crackdown-bans/",
+        "title": "Tubefilter, YouTube AI slop channel crackdown",
+        "supports": "At least 16-18 AI slop channels deleted or hidden in January 2026",
+        "accessed": "2026-11-11",
+        "published": "2026-01-29",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/youtube-ai-slop-crackdown-faceless-creators-collateral-damage",
+        "title": "The Next Web, YouTube's AI slop crackdown hits faceless creators",
+        "supports": "Human-made faceless channels demonetized as collateral; one misjudgment costs all revenue",
+        "accessed": "2026-11-11",
+        "published": "2026-06-15",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://fstoppers.com/artificial-intelligence/how-google-machine-terminated-130000-ai-slop-youtube-channels-six-months-903645",
+        "title": "Fstoppers, how Google terminated 130,000 AI slop YouTube channels in six months",
+        "supports": "Google research system clustered and terminated 130,000 templated channels (live status unconfirmed)",
+        "accessed": "2026-11-11",
+        "published": "2026-07-19",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.musicbusinessworldwide.com/new-youtube-creators-will-need-8000-watch-hours-to-start-earning-from-ads-double-the-current-bar/",
+        "title": "Music Business Worldwide, new creators need 8,000 watch hours",
+        "supports": "YPP bar doubles for new applicants on 2027-02-01",
+        "accessed": "2026-11-11",
+        "published": "2026-08-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.tubefilter.com/2026-07-13/youtube-inauthentic-content-monetization-policy-update/",
+        "title": "Tubefilter, YouTube inauthentic content guidance update",
+        "supports": "July 2026 guidance splits inauthentic content into 3 categories",
+        "accessed": "2026-11-11",
+        "published": "2026-07-13",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.searchenginejournal.com/youtube-targets-mass-produced-content-in-monetization-update/550337/",
+        "title": "Search Engine Journal, YouTube targets mass-produced content",
+        "supports": "July 2025 rename of repetitious content to inauthentic content",
+        "accessed": "2026-11-11",
+        "published": "2025-07",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.techradar.com/ai-platforms-assistants/youtube-shorts-now-lets-you-turn-text-into-8-second-videos-using-veo-3s-ai-magic",
+        "title": "TechRadar, YouTube Shorts adds Veo 3 text-to-video",
+        "supports": "Free 8-second AI clips inside YouTube Shorts from 2025-09",
+        "accessed": "2026-11-11",
+        "published": "2025-09",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.techspot.com/news/110735-over-21-youtube-now-ai-slop-report.html",
+        "title": "TechSpot, over 21% of YouTube is now AI slop",
+        "supports": "Coverage of the Kapwing report",
+        "accessed": "2026-11-11",
+        "published": "2025-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.dlapiper.com/insights/publications/2025/12/ftc-warning-letters-ai-consumer-reviews",
+        "title": "DLA Piper, FTC warning letters on AI consumer reviews",
+        "supports": "No FTC rule requires labelling AI content; fake views and reviews are banned",
+        "accessed": "2026-11-11",
+        "published": "2025-12-26",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://betanews.com/2025/12/03/study-finds-ai-slop-videos-spreading-fast-across-youtube-and-theres-a-lot-of-money-being-made/",
+        "title": "BetaNews, AI slop videos spreading fast across YouTube",
+        "supports": "AI-only channels estimated at about $117M a year combined",
+        "accessed": "2026-11-11",
+        "published": "2025-12-03",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.plagiarismtoday.com/2025/07/08/youtube-targets-inauthentic-content/",
+        "title": "Plagiarism Today, YouTube targets inauthentic content",
+        "supports": "July 2025 policy change aimed at mass-produced videos",
+        "accessed": "2026-11-11",
+        "published": "2025-07-08",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.techradar.com/ai-platforms-assistants/you-wont-believe-ais-take-on-the-history-of-stonehenge-and-i-am-so-over-ai-slop",
+        "title": "TechRadar, AI's take on the history of Stonehenge",
+        "supports": "Press backlash against AI history videos",
+        "accessed": "2026-11-11",
+        "published": "2025",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.boomlive.in/decode/ai-history-videos-india-reels-youtube-viral-29514",
+        "title": "BOOM Live, AI history videos go viral",
+        "supports": "AI history channels are monetised and run ads",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "secondary"
+      },
+      {
+        "url": "https://vidiq.com/research/youtube-uploads-1000-subscribers/",
+        "title": "vidIQ Research, uploads vs reaching 1,000 subscribers",
+        "supports": "Of 32.9M small channels, 30.77% with 52+ uploads reached 1,000 subscribers in 360 days; 8.65% with 12-51",
+        "accessed": "2026-11-11",
+        "published": "2026-09-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://creatordb.app/creatorstats/oversimplified/",
+        "title": "CreatorDB, OverSimplified stats",
+        "supports": "9.65M subscribers (2026-10-04)",
+        "accessed": "2026-11-11",
+        "published": "2026-10-04",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://outlierkit.com/channel/kingsandgenerals",
+        "title": "OutlierKit, Kings and Generals channel",
+        "supports": "About 4.2M subscribers",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://socialcounts.org/youtube-live-subscriber-count/UCv_vLHiWVBh_FR9vbeuiY-A",
+        "title": "SocialCounts, Historia Civilis subscriber count",
+        "supports": "1.09M subscribers on 89 videos",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://outlierkit.com/channel/sleeplesshistorian",
+        "title": "OutlierKit, Sleepless Historian channel",
+        "supports": "702K subscribers, 317 uploads, est. ad revenue $1K-3K/month",
+        "accessed": "2026-11-11",
+        "published": "2026-07-03",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://air.io/en/air-data-findings/which-youtube-niche-makes-the-most-money-in-2026-ranked-by-real-rpm-and-cpm",
+        "title": "air.io, YouTube niches ranked by RPM 2026",
+        "supports": "Education & Science median RPM $10.22, bottom quartile $2.31",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://fluxnote.io/guides/how-much-history-youtube-channel-makes",
+        "title": "Fluxnote, how much a history YouTube channel makes",
+        "supports": "History RPM $4-9 (no stated method)",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://fluxnote.io/guides/youtube-shorts-rpm-history-niche",
+        "title": "Fluxnote, Shorts RPM in the history niche",
+        "supports": "History Shorts RPM $0.04-0.10",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.digitalapplied.com/blog/google-ai-plans-free-plus-pro-ultra-2026",
+        "title": "Digital Applied, Google AI plans 2026",
+        "supports": "Google AI Pro with Veo at $19.99/month in the US",
+        "accessed": "2026-11-11",
+        "published": "2026-05",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://bigvu.tv/blog/de/capcut-preise-was-pro-ultra-teams-191/",
+        "title": "BIGVU, CapCut prices",
+        "supports": "CapCut Pro $19.99/month seen on 2026-11-03",
+        "accessed": "2026-11-11",
+        "published": "2026-11",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://pricingsaas.com/companies/storyblocks",
+        "title": "PricingSaaS, Storyblocks pricing",
+        "supports": "Essentials $21/month billed annually",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://pk.linkedin.com/in/faadixd",
+        "title": "LinkedIn post, AI faceless channel failure",
+        "supports": "6 months, 640 subscribers, failed (anecdote)",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://vidiq.com/blog/post/start-faceless-channel-youtube/",
+        "title": "vidIQ, how to start a faceless YouTube channel in 2026",
+        "supports": "Vendor guide pushing the faceless format",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://recapio.com/digest/63548-in-1-month-with-a-faceless-ai-channel-full-course-by-leo-grundstrom",
+        "title": "Recapio digest, $63,548 in 1 month with a faceless AI channel course",
+        "supports": "Guru course selling the faceless AI dream",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://cblevins.github.io/posts/gen-ai-history-2025",
+        "title": "Historian's blog, generative AI and history in 2025",
+        "supports": "Historians competing with a deluge of AI history slop",
+        "accessed": "2026-11-11",
+        "published": "2025",
+        "tier": "tertiary"
+      }
+    ]
+  }
+}

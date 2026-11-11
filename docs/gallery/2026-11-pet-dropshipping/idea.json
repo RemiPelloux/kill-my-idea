@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "slug": "pet-dropshipping",
+  "title": "Shopify pet-products dropshipping store advertised on TikTok",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "ecommerce",
+  "source": {
+    "type": "own-idea",
+    "text": "A Shopify dropshipping store selling pet products advertised on TikTok. Launch country US, budget $1,500, 15 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug pet-dropshipping.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": null,
+  "customer": "US dog and cat owners who discover and impulse-buy pet gadgets on TikTok",
+  "solution": "A Shopify store reselling trending pet products shipped directly by third-party suppliers (dropshipping), with traffic bought through TikTok ads",
+  "revenue_model": "one-off",
+  "price": null,
+  "channel": "TikTok ads",
+  "countries": ["US"],
+  "claims": [],
+  "context": {
+    "budget": "USD 1,500",
+    "time_per_week": "15 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Products are generic pet gadgets (slicker brushes, lick mats, water fountains) sourced from China-based suppliers via DSers, Zendrop or CJ",
+    "Selling price about USD 29.99 per order, i.e. 2.5-3x landed cost, the usual dropshipping markup",
+    "Landed cost about USD 16 per order: product 8 + shipping 5 + duty and brokerage 3 (de minimis ended 2025-08-29)",
+    "The founder has no prior e-commerce or paid-ads experience and no audience",
+    "Interest is stated as side income, not a passion for pets",
+    "No questions were asked (user said 'just go')"
+  ],
+  "unknowns": ["problem", "price", "product selection", "supplier", "prior e-commerce or ad experience"],
+  "answers": []
+}

@@ -1,0 +1,1271 @@
+{
+  "schema_version": "1.0",
+  "idea": {
+    "schema_version": "1.0",
+    "slug": "linkedin-ai-writer",
+    "title": "AI LinkedIn post writer in your voice, $19/month",
+    "created": "2026-11-11",
+    "language": "en",
+    "type": "saas",
+    "source": {
+      "type": "own-idea",
+      "text": "An AI tool that writes LinkedIn posts in your voice, $19 a month. Launch country US, budget $1,000, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions. Use the slug linkedin-ai-writer.",
+      "url": null,
+      "author": null,
+      "posted": null
+    },
+    "problem": "Writing LinkedIn posts that sound like you takes time; generic AI output sounds like AI.",
+    "customer": null,
+    "solution": "An AI tool that writes LinkedIn posts in the user's own voice.",
+    "revenue_model": "subscription",
+    "price": {
+      "amount": 19,
+      "currency": "USD",
+      "period": "month"
+    },
+    "channel": null,
+    "countries": [
+      "US"
+    ],
+    "claims": [
+      "An AI tool that writes LinkedIn posts in your voice",
+      "$19 a month"
+    ],
+    "context": {
+      "budget": "$1,000",
+      "time_per_week": "10 hours",
+      "goal": "side-income",
+      "edge": "I am a developer"
+    },
+    "assumptions": [
+      "Customer assumed: US consultants, solo founders and B2B professionals who post on LinkedIn weekly.",
+      "Channel assumed: none in hand (no audience stated); paid search or LinkedIn Ads plus organic launches.",
+      "Voice is learned from posts the user pastes or exports, not by scraping LinkedIn.",
+      "Stripe US card fee assumed at 2.9% + $0.30 (the page served was the EUR version).",
+      "Headless run: no questions asked; follow-up facts (audience size, validation) assumed to be zero."
+    ],
+    "unknowns": [
+      "customer",
+      "channel",
+      "audience size",
+      "validation done (waitlist, pre-sales)",
+      "exact CPC for 'linkedin post generator'"
+    ],
+    "answers": []
+  },
+  "verdict": {
+    "schema_version": "1.0",
+    "slug": "linkedin-ai-writer",
+    "evaluated": "2026-11-11",
+    "as_of": null,
+    "mode": "kill",
+    "verdict": "NO-GO",
+    "score": 46,
+    "score_raw": 56.2,
+    "confidence": {
+      "level": "high",
+      "sourced_subscores": 15,
+      "sources": 48,
+      "primary_sources": 21,
+      "note": "Raised by the real CPC for 'linkedin post generator' (Keyword Planner) and churn data for web AI writing tools."
+    },
+    "criteria": {
+      "profit": 2.0,
+      "feasibility": 4.0,
+      "time_to_first_revenue": 3.5,
+      "demand": 3.0,
+      "competition": 1.5,
+      "risk": 3.0,
+      "fit": 2.0
+    },
+    "criteria_detail": {
+      "profit": {
+        "gross_margin": {
+          "score": 4,
+          "note": "About 94% margin (LLM ~$0.16, Stripe ~$0.98 per user); lowered from 5 by the R4 cap.",
+          "source": "https://developers.openai.com/docs/models/gpt-5-mini"
+        },
+        "ltv_cac": {
+          "score": 1,
+          "note": "LTV ~$223 vs paid CAC ~$950: LTV:CAC 0.23 (estimate).",
+          "source": "https://searchengineland.com/linkedin-ads-cpc-benchmarks-how-costs-compare-with-google-ads-481010"
+        },
+        "pricing_power": {
+          "score": 1,
+          "note": "Free extensions and ChatGPT set the floor; Supergrow dropped its $19 tier; $15 entry plans exist.",
+          "source": "https://contentin.io/ai-linkedin-post-generator/"
+        }
+      },
+      "feasibility": {
+        "build_effort": {
+          "score": 4,
+          "note": "An LLM wrapper with voice samples: about 2-3 weeks at 10 h/week for a developer (estimate).",
+          "source": null
+        },
+        "skills_match": {
+          "score": 4,
+          "note": "Developer covers the build; prompt quality, copywriting and marketing are learnable gaps.",
+          "source": null
+        },
+        "capital_needed": {
+          "score": 4.5,
+          "note": "Fixed costs about $27/month; $1,000 budget covers a year of tooling.",
+          "source": "https://supabase.com/pricing"
+        }
+      },
+      "time_to_first_revenue": {
+        "time_to_mvp": {
+          "score": 4,
+          "note": "Working MVP in about 3 weeks at 10 h/week (estimate).",
+          "source": null
+        },
+        "sales_cycle": {
+          "score": 4.5,
+          "note": "Self-serve card purchase after a short trial; no committee.",
+          "source": "https://www.shno.co/marketing-statistics/free-trial-conversion-statistics"
+        },
+        "channel_readiness": {
+          "score": 1.5,
+          "note": "No audience; paid search ~$12.48/click non-branded; R5 cap (no_distribution).",
+          "source": "https://searchengineland.com/linkedin-ads-cpc-benchmarks-how-costs-compare-with-google-ads-481010"
+        }
+      },
+      "demand": {
+        "search_demand": {
+          "score": 3.5,
+          "note": "Heavy usage: 78% of long LinkedIn posts flagged likely AI; r/linkedin ~170k members.",
+          "source": "https://originality.ai/blog/social-media-tracker-september"
+        },
+        "trend": {
+          "score": 3,
+          "note": "AI-post usage up from 54% (2024) to 78% (2026), but LinkedIn now cuts AI-slop reach 40%.",
+          "source": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/18/even-linkedin-is-getting-tired-of-your-ai-written-posts/"
+        },
+        "willingness_to_pay": {
+          "score": 2.5,
+          "note": "Competitors charge $39-$99, but free tiers abound and AI apps churn 30% faster.",
+          "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study.md"
+        }
+      },
+      "competition": {
+        "free_alternatives": {
+          "score": 1,
+          "note": "ChatGPT with pasted samples, free style-saving extensions, ContentIn free tool: R1 cap.",
+          "source": "https://chromewebstore.google.com/detail/hnefnjlocpafjnaodllefndjkepldcfl"
+        },
+        "competitor_density": {
+          "score": 2,
+          "note": "8+ paid tools (Taplio, Supergrow, EasyGen, Kleo, ContentIn) plus 5+ PH launches in 2026.",
+          "source": "https://www.producthunt.com/products/voicemoat/launches"
+        },
+        "differentiation": {
+          "score": 1.5,
+          "note": "'In your voice' is every rival's pitch (beamio, VoiceMoat, Postking); being a developer is no edge.",
+          "source": "https://www.producthunt.com/products/beamio/launches"
+        }
+      },
+      "risk": {
+        "legal_regulatory": {
+          "score": 4,
+          "note": "CCPA thresholds out of reach; FTC fake-review rule does not cover own ghostwritten posts.",
+          "source": "https://oag.ca.gov/privacy/ccpa"
+        },
+        "platform_dependency": {
+          "score": 2,
+          "note": "LinkedIn bans scraping extensions, gates posting API and down-ranks AI slop.",
+          "source": "https://www.linkedin.com/help/linkedin/answer/a1341387"
+        },
+        "market_risk": {
+          "score": 2.5,
+          "note": "AI-slop backlash: 1M+ slop-button clicks in 2 weeks could shrink the habit.",
+          "source": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/18/even-linkedin-is-getting-tired-of-your-ai-written-posts/"
+        }
+      },
+      "fit": {
+        "skills": {
+          "score": 3,
+          "note": "Builds the product; no stated marketing, sales or writing track record.",
+          "source": null
+        },
+        "assets": {
+          "score": 1,
+          "note": "No audience, list or network stated.",
+          "source": null
+        },
+        "interest": {
+          "score": 1.5,
+          "note": "Goal stated as side income; no stated passion for LinkedIn content.",
+          "source": null
+        }
+      }
+    },
+    "rules_applied": [
+      {
+        "rule": "R1_free_equivalent",
+        "effect": "Free tools (ChatGPT with samples, style-saving extensions) do the job; no specific edge: Competitive room capped at 1.5."
+      },
+      {
+        "rule": "R4_ltv_cac_below_1",
+        "effect": "LTV:CAC 0.23 with no path at $19: Profit potential capped at 2 (gross_margin lowered 5 to 4)."
+      },
+      {
+        "rule": "R5_kill_shot_coherence",
+        "effect": "no_distribution: channel_readiness 1.5; free_alternative: free_alternatives 1; legal_platform_risk: platform_dependency 2."
+      },
+      {
+        "rule": "R6_unprofitable_no_channel",
+        "effect": "No channel and LTV:CAC below 1: total capped at 49."
+      },
+      {
+        "rule": "R7_unprofitable_model",
+        "effect": "Profit potential 2.0: 56 minus 10 = 46, at most 49."
+      }
+    ],
+    "metrics": {
+      "tam": {
+        "value": 2300000000.0,
+        "unit": "USD/year",
+        "basis": "sourced",
+        "source": "https://www.marketresearch.com/Global-Industry-Analysts-v1039/Artificial-Intelligence-Writing-Assistant-Software-40887194",
+        "reasoning": "Global AI writing assistant software, 2024; 360iResearch says $1.13B, so treat as a range.",
+        "as_of": "2025"
+      },
+      "sam": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "source": null,
+        "reasoning": "No source splits out LinkedIn post writing in the US.",
+        "as_of": null
+      },
+      "som": {
+        "value": 11400,
+        "unit": "USD/year",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "50 paying customers x $19 x 12 months = $11,400 (year 1, solo founder).",
+        "as_of": null
+      },
+      "competitors_found": {
+        "value": 9,
+        "unit": "count",
+        "basis": "sourced",
+        "source": "https://taplio.com/blog/taplio-pricing",
+        "reasoning": "Taplio, Supergrow, EasyGen, Kleo, ContentIn, Typegrow, AuthoredUp, Waalaxy (adjacent), Postiz; plus 5 dated PH launches.",
+        "as_of": null
+      },
+      "competitor_price_range": {
+        "value": "$15-$199/month",
+        "unit": "USD/month",
+        "basis": "sourced",
+        "source": "https://supergrow.ai/pricing",
+        "reasoning": null,
+        "as_of": "2026-11"
+      },
+      "demand_trend": {
+        "value": "rising usage, falling platform tolerance",
+        "unit": null,
+        "basis": "sourced",
+        "source": "https://originality.ai/blog/social-media-tracker-september",
+        "reasoning": "Likely-AI long posts 54% (Oct 2024) to 78% (Sep 2026); LinkedIn cuts AI-slop views 40%.",
+        "as_of": "2026-10"
+      },
+      "price": {
+        "value": 19.0,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "The founder's stated price; matches AuthoredUp ($19.95) and the old Supergrow Starter.",
+        "as_of": null
+      },
+      "variable_cost_per_unit": {
+        "value": 1.14,
+        "unit": "USD/customer/month",
+        "basis": "estimate",
+        "source": "https://developers.openai.com/docs/models/gpt-5-mini",
+        "reasoning": "LLM: 270k input x $0.25/M + 45k output x $2/M = $0.16; Stripe 2.9% + $0.30 = $0.85; Billing 0.7% = $0.13. Total $1.14.",
+        "as_of": null
+      },
+      "gross_margin_pct": {
+        "value": 94,
+        "unit": "%",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "(19 - 1.14) / 19 = 94%.",
+        "as_of": null
+      },
+      "churn_monthly_pct": {
+        "value": 8.0,
+        "unit": "%/month",
+        "basis": "estimate",
+        "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study.md",
+        "reasoning": "B2C SaaS 5.8%/month (Focus Digital) x 1.3 AI premium (RevenueCat) = 7.5%, rounded to 8% within a 6-10% range.",
+        "as_of": null
+      },
+      "expected_lifetime": {
+        "value": 12.5,
+        "unit": "months",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "1 / 0.08 = 12.5 months.",
+        "as_of": null
+      },
+      "conversion_rate_pct": {
+        "value": 1.3,
+        "unit": "%",
+        "basis": "estimate",
+        "source": "https://www.shno.co/marketing-statistics/free-trial-conversion-statistics",
+        "reasoning": "Visitor-to-trial 7.1% x trial-to-paid 18.5% = 1.3% visitor-to-paid.",
+        "as_of": null
+      },
+      "cac": {
+        "value": 950.0,
+        "unit": "USD",
+        "basis": "estimate",
+        "source": "https://searchengineland.com/linkedin-ads-cpc-benchmarks-how-costs-compare-with-google-ads-481010",
+        "reasoning": "Non-branded Google CPC $12.48 / 1.3% = ~$950; LinkedIn Ads $11.12 / 1.3% = ~$850; range $267-$2,200.",
+        "as_of": null
+      },
+      "ltv": {
+        "value": 223.2,
+        "unit": "USD",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "$17.86 monthly gross profit x 12.5 months = $223.",
+        "as_of": null
+      },
+      "ltv_cac": {
+        "value": 0.23,
+        "unit": "ratio",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "$223 / $950 = 0.23.",
+        "as_of": null
+      },
+      "payback_months": {
+        "value": 53.2,
+        "unit": "months",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "$950 / $17.86 per month = 53 months, longer than the 12.5-month lifetime.",
+        "as_of": null
+      },
+      "fixed_costs_month": {
+        "value": 27,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "source": "https://supabase.com/pricing",
+        "reasoning": "Supabase Pro $25 + domain ~$2; hosting on a free tier (Vercel limits unknown).",
+        "as_of": null
+      },
+      "break_even_customers_per_month": {
+        "value": 2,
+        "unit": "customers",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "$27 / $17.86 = 1.5, rounded up to 2. Side-income goal of $1,000/month needs ~56 customers.",
+        "as_of": null
+      },
+      "time_to_first_revenue_weeks": {
+        "value": 5,
+        "unit": "weeks",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "3 weeks to MVP at 10 h/week + 2 weeks of launch posts and trials.",
+        "as_of": null
+      }
+    },
+    "launch_country": "US",
+    "launch_reason": "The founder's chosen market, and the largest LinkedIn market.",
+    "kill_shots": {
+      "free_alternative": true,
+      "strong_competitor": true,
+      "graveyard": true,
+      "no_distribution": true,
+      "costs_eat_margin": false,
+      "weak_demand": false,
+      "legal_platform_risk": true,
+      "saturated_wave": false
+    },
+    "primary_kill_shot": "no_distribution",
+    "cheapest_test": "Pre-sell a $300/month done-for-you post package to 50 US consultants by LinkedIn DM in 7 days; 2 paid pilots or stop.",
+    "kill_criteria": [
+      "Fewer than 2 paid pilots ($300) from 50 DMs by day 7: stop the service path.",
+      "Fewer than 10 replies to 50 DMs by day 5: change the segment before writing anything.",
+      "If the SaaS is built anyway: fewer than 5 paying users at $19 after 60 days: archive it."
+    ],
+    "sources": [
+      "https://supergrow.ai/pricing",
+      "https://www.xpay.sh/saas-pricing/supergrow-ai/",
+      "https://taplio.com/blog/taplio-pricing",
+      "https://appviewlite.bsky.bad-example.com/@tmaker.io",
+      "https://getlatka.com/companies/taplio",
+      "https://socialrails.com/blog/easygen-pricing",
+      "https://chrome.google.com/webstore/detail/authoredup/dkkmpkpjimkollpfgbbglcikcmgmdlhn",
+      "https://www.supergrow.ai/compare/supergrow-vs-authoredup",
+      "https://contentin.io/alternatives/kleo/",
+      "https://contentin.io/ai-linkedin-post-generator/",
+      "https://www.xpay.sh/saas-pricing/contentin-io/",
+      "https://waalaxy.com/pricing/",
+      "https://chromewebstore.google.com/detail/hnefnjlocpafjnaodllefndjkepldcfl",
+      "https://chrome.google.com/webstore/detail/linkedgpt/kjffpdeflcpflmilnjgfhiheonjnalfo",
+      "https://metricool.com/linkedin-post-proofreader/",
+      "https://www.producthunt.com/products/postking/launches",
+      "https://www.producthunt.com/products/beamio/launches",
+      "https://www.producthunt.com/products/sayso/launches",
+      "https://www.producthunt.com/products/voicemoat/launches",
+      "https://www.producthunt.com/products/post-ai-2/launches",
+      "https://www.indiehackers.com/post/i-built-a-saas-in-10-days-3-weeks-live-0-paying-customers-heres-the-data-7cb6b6accf",
+      "https://www.indiehackers.com/post/linkedin-post-generator-i-generated-200-linkedin-posts-with-ai-and-it-was-all-ai-slop-but-one-tool-was-different-82d2225fd6",
+      "https://www.maginative.com/article/jasper-cuts-internal-valuation-as-ai-growth-slows/",
+      "https://investorplace.com/2023/07/ai-layoffs-alert-2-major-chatbot-companies-cutting-ai-jobs/",
+      "https://originality.ai/blog/social-media-tracker-september",
+      "https://originality.ai/pt/blog/ai-content-published-linkedin",
+      "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/18/even-linkedin-is-getting-tired-of-your-ai-written-posts/",
+      "https://siliconangle.com/2026/07/31/linkedin-cracks-users-posting-ai-slop-previously-encouraging/",
+      "https://neilpatel.com/blog/linkedin-ai-slop-crackdown-content-strategy/",
+      "https://www.marketresearch.com/Global-Industry-Analysts-v1039/Artificial-Intelligence-Writing-Assistant-Software-40887194",
+      "https://www.giiresearch.com/report/ires1718126-ai-writing-assistant-software-market-by-product.html",
+      "https://searchengineland.com/linkedin-ads-cpc-benchmarks-how-costs-compare-with-google-ads-481010",
+      "https://www.webfx.com/blog/social-media/linkedin-benchmarks/",
+      "https://www.shno.co/marketing-statistics/free-trial-conversion-statistics",
+      "https://userpilot.com/blog/free-trial-conversion-rate/",
+      "https://developers.openai.com/docs/models/gpt-5-mini",
+      "https://stripe.com/pricing",
+      "https://supabase.com/pricing",
+      "https://www.sproutworth.com/linkedin-ghostwriting-for-b2b-saas-founders/",
+      "https://linkedinpreview.com/blog/linkedin-ghostwriting-guide",
+      "https://focus-digital.co/average-churn-rate-subscription-services/",
+      "https://www.revenuecat.com/blog/growth/ai-app-retention-study.md",
+      "https://www.linkedin.com/help/linkedin/answer/a1341387",
+      "https://learn.microsoft.com/en-us/linkedin/marketing/increasing-access",
+      "https://therecord.media/linkedin-sues-data-scraping-company",
+      "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+      "https://oag.ca.gov/privacy/ccpa",
+      "https://gummysearch.com/r/linkedin"
+    ],
+    "rescue": [
+      {
+        "change": "Sell done-for-you voice-matched LinkedIn posts to US consultants at $300/month, using the tool internally, via 50 LinkedIn DMs a week.",
+        "why": "Fixes ltv_cac and pricing_power: buyers already pay ghostwriters $500-$1,500/month, so one client covers a paid CAC.",
+        "score_after": 61,
+        "difficulty": "hard",
+        "effort": "5-8 h/week per 4 clients",
+        "cost": "under $100",
+        "requires": "Editing and writing skill the founder has not shown; caps at about 4 clients at 10 h/week."
+      },
+      {
+        "change": "Sell a multi-client voice workspace to LinkedIn ghostwriters and small agencies at $79/month per writer.",
+        "why": "Fixes pricing_power and differentiation: ghostwriters manage several voices, a job ChatGPT does poorly.",
+        "score_after": 54,
+        "difficulty": "hard",
+        "effort": "6-8 weeks",
+        "cost": "under $500",
+        "requires": "Direct sales to a small, hard-to-reach niche; 20+ interviews first."
+      },
+      {
+        "change": "Niche for developers: turn GitHub commits, changelogs and blog posts into LinkedIn posts for dev advocates and engineering leads.",
+        "why": "Uses the founder's developer edge for differentiation and a free channel (Show HN, dev communities).",
+        "score_after": 50,
+        "difficulty": "doable",
+        "effort": "2-3 weeks",
+        "cost": "under $100",
+        "requires": "Proof that dev advocates will pay; $19 price still leaves LTV:CAC thin."
+      }
+    ],
+    "type_checks": [
+      {
+        "check": "churn_benchmark",
+        "result": "hit",
+        "note": "B2C SaaS 5.8%/month; AI apps churn 30% higher, only 6.1% of monthly AI subs active after a year. Estimate 6-10%/month.",
+        "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study.md"
+      },
+      {
+        "check": "switching_cost",
+        "result": "hit",
+        "note": "Lock-in is a stored voice profile and a schedule queue: a user can paste 10 old posts into ChatGPT and leave.",
+        "source": "https://chromewebstore.google.com/detail/hnefnjlocpafjnaodllefndjkepldcfl"
+      }
+    ],
+    "quick": false,
+    "run": {
+      "started": "2026-11-11T10:41:14Z",
+      "minutes": 7,
+      "searches": 32,
+      "fetches": 16,
+      "subagents": 4
+    },
+    "history": [
+      {
+        "mode": "kill",
+        "evaluated": "2026-11-11",
+        "score": 46,
+        "verdict": "NO-GO",
+        "sources": 48
+      }
+    ]
+  },
+  "narrative": {
+    "language": "en",
+    "currency": "USD",
+    "answer": "NO-GO at 46/100. **Customer acquisition** costs about $950 while a $19 customer is worth about $223, and **free tools** already write in your voice. LinkedIn is now cutting the reach of AI posts.",
+    "tldr": [
+      "The job is already free: ChatGPT with pasted samples and free extensions that save your style.",
+      "With no audience, paid CAC (~$950) is 4x the lifetime value (~$223): every customer loses money.",
+      "LinkedIn cut AI-slop views by 40% in 2026 and keeps adding detection: the platform is moving against the product."
+    ],
+    "key_findings": [
+      {
+        "title": "Every customer loses money",
+        "detail": "Non-branded clicks cost **$12.48**; at 1.3% visitor-to-paid, CAC is ~$950 against an LTV of ~**$223**.",
+        "source": "https://searchengineland.com/linkedin-ads-cpc-benchmarks-how-costs-compare-with-google-ads-481010"
+      },
+      {
+        "title": "Free tools do the core job",
+        "detail": "A free Chrome extension **saves your writing style** with 10 free posts a day; ContentIn's generator needs no login.",
+        "source": "https://chromewebstore.google.com/detail/hnefnjlocpafjnaodllefndjkepldcfl"
+      },
+      {
+        "title": "LinkedIn is turning against AI posts",
+        "detail": "LinkedIn shows AI slop **40% fewer views** and its slop button got 1M+ clicks in 2 weeks.",
+        "source": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/18/even-linkedin-is-getting-tired-of-your-ai-written-posts/"
+      }
+    ],
+    "recommendation": "Do not build the $19 SaaS. If you want this market, run the 7-day pre-sale of a $300/month done-for-you service and build only if 2 consultants pay.",
+    "steelman": "A developer can ship this in 3 weeks for under $100 at **94% gross margin**, and 78% of long LinkedIn posts are already AI-assisted. Evidence: the demand is real, but free tools serve it and paid acquisition costs 4x what a customer brings.",
+    "lesson": "A cheap wrapper on a free model needs a free channel; without an audience, $19/month cannot pay for customers.",
+    "premortem": [
+      {
+        "cause": "No channel: launch posts and a $1,000 ad test bring a handful of trials and almost no paid users.",
+        "linked_to": "no_distribution",
+        "likelihood": "H",
+        "early_signal": "Fewer than 3 paid users after spending $500 on ads (40 clicks)."
+      },
+      {
+        "cause": "Trial users go back to ChatGPT with their pasted samples once the novelty fades.",
+        "linked_to": "free_alternative",
+        "likelihood": "H",
+        "early_signal": "More than 15% of the first cohort cancel in month 1."
+      },
+      {
+        "cause": "LinkedIn's AI-slop classifiers cut reach for users' posts, so they blame and drop the tool.",
+        "linked_to": "legal_platform_risk",
+        "likelihood": "M",
+        "early_signal": "Users report impressions down 30%+ versus their own baseline."
+      }
+    ],
+    "why_now": {
+      "verdict": "late",
+      "changes": [
+        {
+          "what": "LinkedIn says posts flagged as AI slop are no longer recommended outside the poster's network.",
+          "when": "2026-05",
+          "source": "https://neilpatel.com/blog/linkedin-ai-slop-crackdown-content-strategy/"
+        },
+        {
+          "what": "LinkedIn drops its AI rewrite button, adds AI-slop classifiers and a voice-keeping proofreader.",
+          "when": "2026-07",
+          "source": "https://siliconangle.com/2026/07/31/linkedin-cracks-users-posting-ai-slop-previously-encouraging/"
+        },
+        {
+          "what": "LinkedIn reports 40% fewer views on AI-slop content; the slop button got 1M+ clicks in 2 weeks.",
+          "when": "2026-10",
+          "source": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/18/even-linkedin-is-getting-tired-of-your-ai-written-posts/"
+        },
+        {
+          "what": "LLM costs fell to $0.25/M input tokens (GPT-5 mini), making the wrapper trivially cheap for anyone.",
+          "when": "2026-11",
+          "source": "https://developers.openai.com/docs/models/gpt-5-mini"
+        },
+        {
+          "what": "5+ 'learns your voice' LinkedIn writers launched on Product Hunt in 2026 alone.",
+          "when": "2026-01 to 2026-07",
+          "source": "https://www.producthunt.com/products/voicemoat/launches"
+        }
+      ],
+      "note": "Cheap models opened the window years ago; in 2026 the platform and a crowd of clones are closing it."
+    },
+    "icp": {
+      "who": "US consultants, solo founders and B2B sellers who post on LinkedIn weekly to win clients.",
+      "where": [
+        "LinkedIn itself (creator and founder circles)",
+        "r/linkedin (~170k members)",
+        "Indie Hackers",
+        "Product Hunt"
+      ],
+      "pays_for_today": "Freelance ghostwriters at $500-$1,500/month, Taplio AI at $69/month, or ChatGPT Plus at $20/month.",
+      "budget": "Tools: $15-$99/month (competitor prices, 2026); services: $500+/month.",
+      "trigger": "unknown (not sourced; likely starting a consultancy, a fundraise or a job search)."
+    },
+    "customer": {
+      "segment": "US consultants and solo B2B founders who post weekly on LinkedIn",
+      "pain": "Writing posts that sound like them takes hours; generic AI output is recognised and penalised.",
+      "today": "ChatGPT with pasted samples, Taplio or Supergrow, or a freelance ghostwriter."
+    },
+    "use_cases": [
+      {
+        "name": "Self-serve $19 SaaS for individuals",
+        "who_pays": "Consultants, job seekers",
+        "effort": "3 weeks build, no channel",
+        "best": false
+      },
+      {
+        "name": "Done-for-you posts using the tool internally",
+        "who_pays": "Consultants, founders ($300+/month)",
+        "effort": "Manual, 1-2 h per client a week",
+        "best": true
+      },
+      {
+        "name": "Multi-voice workspace for ghostwriters",
+        "who_pays": "Ghostwriters, small agencies",
+        "effort": "6-8 weeks plus sales",
+        "best": false
+      }
+    ],
+    "kill_shots": {
+      "free_alternative": {
+        "evidence": "LinkedIn Copilot extension saves your writing style with 10 free generations a day; ContentIn has a free no-login generator; ChatGPT with pasted samples does the same.",
+        "source": "https://chromewebstore.google.com/detail/hnefnjlocpafjnaodllefndjkepldcfl"
+      },
+      "strong_competitor": {
+        "evidence": "Taplio (from $39/month) claims $8M ARR with Tweet Hunter before its sale to lempire (founder claim, tertiary; Latka estimated $420K in 2023).",
+        "source": "https://appviewlite.bsky.bad-example.com/@tmaker.io"
+      },
+      "graveyard": {
+        "evidence": "PostDew, a LinkedIn post generator, had 0 paying customers after 3 weeks; Jasper cut its ARR forecast 30%+ and laid off staff after ChatGPT.",
+        "source": "https://www.indiehackers.com/post/i-built-a-saas-in-10-days-3-weeks-live-0-paying-customers-heres-the-data-7cb6b6accf"
+      },
+      "no_distribution": {
+        "evidence": "No audience; non-branded Google clicks cost $12.48 and LinkedIn clicks $11.12, so CAC is ~$950 vs ~$223 LTV (estimate).",
+        "source": "https://searchengineland.com/linkedin-ads-cpc-benchmarks-how-costs-compare-with-google-ads-481010"
+      },
+      "costs_eat_margin": {
+        "evidence": "Clear: GPT-5 mini at $0.25/M input and $2/M output costs ~$0.16 per user a month; margin ~94%.",
+        "source": "https://developers.openai.com/docs/models/gpt-5-mini"
+      },
+      "weak_demand": {
+        "evidence": "Clear: likely-AI long LinkedIn posts rose from 54% (Oct 2024) to 78% (Sep 2026); usage is rising.",
+        "source": "https://originality.ai/blog/social-media-tracker-september"
+      },
+      "legal_platform_risk": {
+        "evidence": "LinkedIn bans scraping and automation extensions, gates its posting API, and shows AI-slop posts 40% fewer views.",
+        "source": "https://www.linkedin.com/help/linkedin/answer/a1341387"
+      },
+      "saturated_wave": {
+        "evidence": "Clear, barely: 5 dated look-alike Product Hunt launches in 2026 (Postking, Post AI, beamio, Sayso, VoiceMoat), below the 10 threshold.",
+        "source": "https://www.producthunt.com/products/postking/launches",
+        "count": 5,
+        "window": "2026-01 to 2026-07, Product Hunt"
+      }
+    },
+    "competitors": [
+      {
+        "name": "Taplio",
+        "url": "https://taplio.com/blog/taplio-pricing",
+        "price_low": 39,
+        "price_high": 199,
+        "currency": "USD",
+        "price_period": "month",
+        "price_source": "https://taplio.com/blog/taplio-pricing",
+        "price_as_of": "2026",
+        "traction": 4,
+        "traction_note": "Claimed $8M ARR with Tweet Hunter (tertiary)",
+        "gap": "AI only from the $69 tier",
+        "free": false,
+        "country": "FR"
+      },
+      {
+        "name": "Supergrow",
+        "url": "https://supergrow.ai/pricing",
+        "price_low": 39,
+        "price_high": 199,
+        "currency": "USD",
+        "price_period": "month",
+        "price_source": "https://supergrow.ai/pricing",
+        "price_as_of": "2026-11",
+        "traction": 2,
+        "traction_note": "Logos only; dropped its $19 tier",
+        "gap": "No free tier",
+        "free": false,
+        "country": null
+      },
+      {
+        "name": "EasyGen",
+        "url": null,
+        "price_low": 49.99,
+        "price_high": 59.99,
+        "currency": "USD",
+        "price_period": "month",
+        "price_source": "https://socialrails.com/blog/easygen-pricing",
+        "price_as_of": "2026",
+        "traction": 2,
+        "traction_note": "unknown",
+        "gap": "Single high-priced plan",
+        "free": false,
+        "country": null
+      },
+      {
+        "name": "Kleo",
+        "url": null,
+        "price_low": 83,
+        "price_high": 99,
+        "currency": "USD",
+        "price_period": "month",
+        "price_source": "https://contentin.io/alternatives/kleo/",
+        "price_as_of": "2026-08",
+        "traction": 2,
+        "traction_note": "unknown",
+        "gap": "Expensive single plan",
+        "free": false,
+        "country": null
+      },
+      {
+        "name": "ContentIn",
+        "url": "https://contentin.io/ai-linkedin-post-generator/",
+        "price_low": 15,
+        "price_high": null,
+        "currency": "USD",
+        "price_period": "month",
+        "price_source": "https://www.xpay.sh/saas-pricing/contentin-io/",
+        "price_as_of": "2026-05",
+        "traction": 2,
+        "traction_note": "Free generator as a funnel",
+        "gap": "Already undercuts $19",
+        "free": false,
+        "country": null
+      },
+      {
+        "name": "AuthoredUp",
+        "url": null,
+        "price_low": 14.95,
+        "price_high": 19.95,
+        "currency": "USD",
+        "price_period": "month",
+        "price_source": "https://www.supergrow.ai/compare/supergrow-vs-authoredup",
+        "price_as_of": "2026",
+        "traction": 3,
+        "traction_note": "About 30K Chrome users, 4.9 stars",
+        "gap": "Formatting and analytics, no AI writer",
+        "free": false,
+        "country": null
+      },
+      {
+        "name": "LinkedIn Copilot (extension)",
+        "url": "https://chromewebstore.google.com/detail/hnefnjlocpafjnaodllefndjkepldcfl",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "price_period": "month",
+        "price_source": "https://chromewebstore.google.com/detail/hnefnjlocpafjnaodllefndjkepldcfl",
+        "price_as_of": "2026-11",
+        "traction": 1,
+        "traction_note": "unknown",
+        "gap": "Free tier saves your style",
+        "free": true,
+        "country": null
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "customers_month": 3,
+        "revenue_month": 57,
+        "costs_month": 110,
+        "note": "$1,000 ads over 12 months buy ~1 customer; 2-3 from launches."
+      },
+      {
+        "name": "Base",
+        "customers_month": 12,
+        "revenue_month": 228,
+        "costs_month": 41,
+        "note": "Organic launches only after the budget is spent; 8% churn caps growth."
+      },
+      {
+        "name": "Optimistic",
+        "customers_month": 56,
+        "revenue_month": 1064,
+        "costs_month": 91,
+        "note": "Needs a free channel (a viral PH or HN launch); replaces 4-5 churned users a month."
+      }
+    ],
+    "risks": [
+      {
+        "risk": "No affordable channel to the first 10 customers.",
+        "likelihood": "H",
+        "impact": "H",
+        "mitigation": "Pre-sell by DM before building.",
+        "source": "https://searchengineland.com/linkedin-ads-cpc-benchmarks-how-costs-compare-with-google-ads-481010"
+      },
+      {
+        "risk": "Users churn to ChatGPT or free extensions.",
+        "likelihood": "H",
+        "impact": "H",
+        "mitigation": "Multi-voice or done-for-you angle.",
+        "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study.md"
+      },
+      {
+        "risk": "LinkedIn down-ranks AI-assisted posts.",
+        "likelihood": "M",
+        "impact": "H",
+        "mitigation": "Position as editing and voice-keeping, not generation.",
+        "source": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/18/even-linkedin-is-getting-tired-of-your-ai-written-posts/"
+      },
+      {
+        "risk": "Learning voice by scraping LinkedIn breaks its terms.",
+        "likelihood": "L",
+        "impact": "H",
+        "mitigation": "Use pasted posts or the user's own data export.",
+        "source": "https://www.linkedin.com/help/linkedin/answer/a1341387"
+      },
+      {
+        "risk": "Posting API access refused or capped.",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Copy-to-clipboard instead of auto-posting.",
+        "source": "https://learn.microsoft.com/en-us/linkedin/marketing/increasing-access"
+      }
+    ],
+    "test_plan": [
+      {
+        "when": "Day 1",
+        "step": "List 100 US consultants who post on LinkedIn 1-2 times a week with low engagement.",
+        "verify": "100 named profiles in a sheet."
+      },
+      {
+        "when": "Day 2",
+        "step": "Write 2 sample posts for each of 10 of them in their voice with ChatGPT plus manual edits.",
+        "verify": "20 samples done in under 5 hours."
+      },
+      {
+        "when": "Day 3-4",
+        "step": "DM 50 of them: free sample post, offer 8 posts a month for $300.",
+        "verify": "10+ replies out of 50."
+      },
+      {
+        "when": "Day 5-6",
+        "step": "Send a payment link to everyone who replies positively.",
+        "verify": "5+ calls or positive replies."
+      },
+      {
+        "when": "Day 7",
+        "step": "Count paid pilots.",
+        "verify": "2+ paid at $300 = continue; fewer = stop."
+      }
+    ],
+    "rescue": [
+      {
+        "change": "Sell done-for-you voice-matched LinkedIn posts to US consultants at $300/month, using the tool internally, via 50 LinkedIn DMs a week.",
+        "why": "Fixes ltv_cac and pricing_power: buyers already pay ghostwriters $500-$1,500/month, so one client covers a paid CAC.",
+        "score_after": 61,
+        "difficulty": "hard",
+        "effort": "5-8 h/week per 4 clients",
+        "cost": "under $100",
+        "requires": "Editing and writing skill the founder has not shown; caps at about 4 clients at 10 h/week."
+      },
+      {
+        "change": "Sell a multi-client voice workspace to LinkedIn ghostwriters and small agencies at $79/month per writer.",
+        "why": "Fixes pricing_power and differentiation: ghostwriters manage several voices, a job ChatGPT does poorly.",
+        "score_after": 54,
+        "difficulty": "hard",
+        "effort": "6-8 weeks",
+        "cost": "under $500",
+        "requires": "Direct sales to a small, hard-to-reach niche; 20+ interviews first."
+      },
+      {
+        "change": "Niche for developers: turn GitHub commits, changelogs and blog posts into LinkedIn posts for dev advocates and engineering leads.",
+        "why": "Uses the founder's developer edge for differentiation and a free channel (Show HN, dev communities).",
+        "score_after": 50,
+        "difficulty": "doable",
+        "effort": "2-3 weeks",
+        "cost": "under $100",
+        "requires": "Proof that dev advocates will pay; $19 price still leaves LTV:CAC thin."
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://supergrow.ai/pricing",
+        "title": "Supergrow pricing",
+        "supports": "Pro $39/mo, Teams $199/mo, no free tier, no $19 plan",
+        "accessed": "2026-11-11",
+        "published": "2026-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.xpay.sh/saas-pricing/supergrow-ai/",
+        "title": "xpay: Supergrow pricing capture",
+        "supports": "Earlier $19 Starter tier since dropped",
+        "accessed": "2026-11-11",
+        "published": "2026-05",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://taplio.com/blog/taplio-pricing",
+        "title": "Taplio pricing",
+        "supports": "Starter $39, Growth $69, Pro $199 per month",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "primary"
+      },
+      {
+        "url": "https://appviewlite.bsky.bad-example.com/@tmaker.io",
+        "title": "Founder post: Taplio + Tweet Hunter ARR",
+        "supports": "Claimed $8M ARR combined, sold to lempire",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://getlatka.com/companies/taplio",
+        "title": "Latka: Taplio revenue",
+        "supports": "Estimated $420K revenue (2023)",
+        "accessed": "2026-11-11",
+        "published": "2023",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://socialrails.com/blog/easygen-pricing",
+        "title": "SocialRails: EasyGen pricing",
+        "supports": "$59.99/mo, $49.99 yearly",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://chrome.google.com/webstore/detail/authoredup/dkkmpkpjimkollpfgbbglcikcmgmdlhn",
+        "title": "Chrome Web Store: AuthoredUp",
+        "supports": "About 30K users, 4.9 from 67 ratings",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.supergrow.ai/compare/supergrow-vs-authoredup",
+        "title": "Supergrow vs AuthoredUp",
+        "supports": "AuthoredUp $19.95/mo individual",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://contentin.io/alternatives/kleo/",
+        "title": "ContentIn: Kleo alternatives",
+        "supports": "Kleo $99/mo single plan",
+        "accessed": "2026-11-11",
+        "published": "2026-08-25",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://contentin.io/ai-linkedin-post-generator/",
+        "title": "ContentIn free LinkedIn post generator",
+        "supports": "Free generator, no login, no card",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.xpay.sh/saas-pricing/contentin-io/",
+        "title": "xpay: ContentIn pricing",
+        "supports": "Paid plans from $15/mo",
+        "accessed": "2026-11-11",
+        "published": "2026-05",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://waalaxy.com/pricing/",
+        "title": "Waalaxy pricing",
+        "supports": "EUR 19-69/user/mo, 200,000+ users claimed",
+        "accessed": "2026-11-11",
+        "published": "2026-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://chromewebstore.google.com/detail/hnefnjlocpafjnaodllefndjkepldcfl",
+        "title": "Chrome Web Store: LinkedIn Copilot extension",
+        "supports": "Saves writing style, 10 free generations a day",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://chrome.google.com/webstore/detail/linkedgpt/kjffpdeflcpflmilnjgfhiheonjnalfo",
+        "title": "Chrome Web Store: LinkedGPT",
+        "supports": "Always-free Starter plan",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://metricool.com/linkedin-post-proofreader/",
+        "title": "Metricool: LinkedIn Post Proofreader",
+        "supports": "LinkedIn replaced AI rewrite with a voice-keeping proofreader",
+        "accessed": "2026-11-11",
+        "published": "2026-10-02",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/postking/launches",
+        "title": "Product Hunt: Postking",
+        "supports": "LinkedIn ghostwriter with voice training, launched 2026-01-05",
+        "accessed": "2026-11-11",
+        "published": "2026-01-05",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/beamio/launches",
+        "title": "Product Hunt: beamio",
+        "supports": "Learns your voice, launched 2026-02-05",
+        "accessed": "2026-11-11",
+        "published": "2026-02-05",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/sayso/launches",
+        "title": "Product Hunt: Sayso",
+        "supports": "Conversations to posts, launched 2026-02-11",
+        "accessed": "2026-11-11",
+        "published": "2026-02-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/voicemoat/launches",
+        "title": "Product Hunt: VoiceMoat",
+        "supports": "Voice-match score, launched 2026-06 and 2026-07",
+        "accessed": "2026-11-11",
+        "published": "2026-07-29",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/post-ai-2/launches",
+        "title": "Product Hunt: Post AI",
+        "supports": "Blogs and voice clips to posts, launched 2026-01-07",
+        "accessed": "2026-11-11",
+        "published": "2026-01-07",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.indiehackers.com/post/i-built-a-saas-in-10-days-3-weeks-live-0-paying-customers-heres-the-data-7cb6b6accf",
+        "title": "Indie Hackers: 3 weeks live, 0 paying customers",
+        "supports": "LinkedIn post generator: 0 paid, 2 replies to cold outreach",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.indiehackers.com/post/linkedin-post-generator-i-generated-200-linkedin-posts-with-ai-and-it-was-all-ai-slop-but-one-tool-was-different-82d2225fd6",
+        "title": "Indie Hackers: 200 AI LinkedIn posts were slop",
+        "supports": "Output quality of generators judged poor",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.maginative.com/article/jasper-cuts-internal-valuation-as-ai-growth-slows/",
+        "title": "Maginative: Jasper cuts valuation",
+        "supports": "Jasper valuation cut, ARR forecast cut 30%+ after ChatGPT",
+        "accessed": "2026-11-11",
+        "published": "2023",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://investorplace.com/2023/07/ai-layoffs-alert-2-major-chatbot-companies-cutting-ai-jobs/",
+        "title": "InvestorPlace: AI layoffs",
+        "supports": "Jasper layoffs July 2023",
+        "accessed": "2026-11-11",
+        "published": "2023-07",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://originality.ai/blog/social-media-tracker-september",
+        "title": "Originality.ai social media AI tracker",
+        "supports": "78% of long LinkedIn posts likely AI (Sep 2026)",
+        "accessed": "2026-11-11",
+        "published": "2026-10-25",
+        "tier": "primary"
+      },
+      {
+        "url": "https://originality.ai/pt/blog/ai-content-published-linkedin",
+        "title": "Originality.ai: AI content on LinkedIn",
+        "supports": "54% of long posts likely AI (Oct 2024)",
+        "accessed": "2026-11-11",
+        "published": "2024-10",
+        "tier": "primary"
+      },
+      {
+        "url": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/18/even-linkedin-is-getting-tired-of-your-ai-written-posts/",
+        "title": "CNN (via KEYT): LinkedIn tired of AI posts",
+        "supports": "40% fewer views for AI slop; slop button clicked 1M+ times",
+        "accessed": "2026-11-11",
+        "published": "2026-10-18",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://siliconangle.com/2026/07/31/linkedin-cracks-users-posting-ai-slop-previously-encouraging/",
+        "title": "SiliconANGLE: LinkedIn cracks down on AI slop",
+        "supports": "Rewrite button dropped, slop classifiers added",
+        "accessed": "2026-11-11",
+        "published": "2026-07-31",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://neilpatel.com/blog/linkedin-ai-slop-crackdown-content-strategy/",
+        "title": "Neil Patel: LinkedIn AI slop crackdown",
+        "supports": "May 2026: flagged posts not recommended outside network",
+        "accessed": "2026-11-11",
+        "published": "2026-05-20",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.marketresearch.com/Global-Industry-Analysts-v1039/Artificial-Intelligence-Writing-Assistant-Software-40887194",
+        "title": "Global Industry Analysts: AI writing assistant software",
+        "supports": "$2.3B (2024) to $8.3B (2030)",
+        "accessed": "2026-11-11",
+        "published": "2025",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.giiresearch.com/report/ires1718126-ai-writing-assistant-software-market-by-product.html",
+        "title": "360iResearch: AI writing assistant market",
+        "supports": "$1.13B (2024) to $1.88B (2030)",
+        "accessed": "2026-11-11",
+        "published": "2025",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://searchengineland.com/linkedin-ads-cpc-benchmarks-how-costs-compare-with-google-ads-481010",
+        "title": "Search Engine Land: LinkedIn vs Google CPC",
+        "supports": "Non-branded Google CPC $12.48, LinkedIn CPC $11.12",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.webfx.com/blog/social-media/linkedin-benchmarks/",
+        "title": "WebFX: LinkedIn benchmarks",
+        "supports": "LinkedIn CPC $8-$10 in the US",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.shno.co/marketing-statistics/free-trial-conversion-statistics",
+        "title": "Shno: free trial conversion statistics",
+        "supports": "Visitor-to-trial 7.1%, trial-to-paid 18.5% median",
+        "accessed": "2026-11-11",
+        "published": "2025",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://userpilot.com/blog/free-trial-conversion-rate/",
+        "title": "Userpilot: free trial conversion",
+        "supports": "Trial-to-paid 8% median (200 B2B products)",
+        "accessed": "2026-11-11",
+        "published": "2026-01",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://developers.openai.com/docs/models/gpt-5-mini",
+        "title": "OpenAI: GPT-5 mini pricing",
+        "supports": "$0.25/M input, $2.00/M output",
+        "accessed": "2026-11-11",
+        "published": "2026-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://stripe.com/pricing",
+        "title": "Stripe pricing",
+        "supports": "Billing 0.7% of volume; card fee assumed 2.9% + 30c",
+        "accessed": "2026-11-11",
+        "published": "2026-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://supabase.com/pricing",
+        "title": "Supabase pricing",
+        "supports": "Free tier pauses after 1 week; Pro from $25/mo",
+        "accessed": "2026-11-11",
+        "published": "2026-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.sproutworth.com/linkedin-ghostwriting-for-b2b-saas-founders/",
+        "title": "Sproutworth: LinkedIn ghostwriting for SaaS founders",
+        "supports": "Freelancers $500-$1,500/mo; founders $2,000-$5,000/mo",
+        "accessed": "2026-11-11",
+        "published": "2025",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://linkedinpreview.com/blog/linkedin-ghostwriting-guide",
+        "title": "LinkedInPreview: ghostwriting guide",
+        "supports": "Beginners $500-$1,000/mo; experienced $3,000-$5,000+",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://focus-digital.co/average-churn-rate-subscription-services/",
+        "title": "Focus Digital: average churn",
+        "supports": "B2C SaaS 5.8% monthly churn",
+        "accessed": "2026-11-11",
+        "published": "2025",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.revenuecat.com/blog/growth/ai-app-retention-study.md",
+        "title": "RevenueCat: AI app retention study",
+        "supports": "AI apps churn 30% higher; 6.1% of monthly subs active at 1 year",
+        "accessed": "2026-11-11",
+        "published": "2026-08-18",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.linkedin.com/help/linkedin/answer/a1341387",
+        "title": "LinkedIn Help: prohibited software and extensions",
+        "supports": "Bans scraping and automation extensions; accounts risk restriction",
+        "accessed": "2026-11-11",
+        "published": "2024",
+        "tier": "primary"
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/linkedin/marketing/increasing-access",
+        "title": "Microsoft Learn: LinkedIn API access tiers",
+        "supports": "Posting scope gated; partners selected at LinkedIn's discretion",
+        "accessed": "2026-11-11",
+        "published": "2026-10-19",
+        "tier": "primary"
+      },
+      {
+        "url": "https://therecord.media/linkedin-sues-data-scraping-company",
+        "title": "The Record: LinkedIn sues ProAPIs",
+        "supports": "LinkedIn sued scraper in Oct 2025",
+        "accessed": "2026-11-11",
+        "published": "2025-10",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+        "title": "FTC: final rule on fake reviews",
+        "supports": "Covers AI fake reviews, not ghostwritten own posts",
+        "accessed": "2026-11-11",
+        "published": "2024-08-14",
+        "tier": "primary"
+      },
+      {
+        "url": "https://oag.ca.gov/privacy/ccpa",
+        "title": "California AG: CCPA",
+        "supports": "Thresholds $25M revenue or 100,000 residents",
+        "accessed": "2026-11-11",
+        "published": "2026-08-28",
+        "tier": "primary"
+      },
+      {
+        "url": "https://gummysearch.com/r/linkedin",
+        "title": "GummySearch: r/linkedin",
+        "supports": "About 170k members discussing tools",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "tertiary"
+      }
+    ]
+  }
+}

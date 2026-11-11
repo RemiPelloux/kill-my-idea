@@ -1,0 +1,407 @@
+{
+  "schema_version": "1.0",
+  "slug": "dental-ai-receptionist",
+  "evaluated": "2026-11-11",
+  "as_of": null,
+  "mode": "kill",
+  "verdict": "PIVOT",
+  "score": 51,
+  "score_raw": 51.2,
+  "confidence": {
+    "level": "high",
+    "sourced_subscores": 17,
+    "sources": 47,
+    "primary_sources": 15,
+    "note": "Most demand and churn numbers come from vendors or blogs; CAC to owner-dentists is unverified. 50 real cold contacts would raise it."
+  },
+  "criteria": {
+    "profit": 2.5,
+    "feasibility": 2.5,
+    "time_to_first_revenue": 2.0,
+    "demand": 4.0,
+    "competition": 1.5,
+    "risk": 3.0,
+    "fit": 2.0
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 3,
+        "note": "About 64% on missed-call volume: Retell ~$0.11/min plus NexHealth $0.10 per API call; heavy clinics push cost past $199.",
+        "source": "https://www.retellai.com/it/pricing"
+      },
+      "ltv_cac": {
+        "score": 2.5,
+        "note": "LTV ~$2,700 (4.7% SMB churn) vs CAC ~$1,500 (estimate) gives 1.8.",
+        "source": "https://www.lennysnewsletter.com/p/monthly-churn-benchmarks"
+      },
+      "pricing_power": {
+        "score": 2,
+        "note": "$199 equals Weave's base plan; low-end AI rivals sell at $49-99, so no premium is possible.",
+        "source": "https://www.eesel.ai/blog/ai-receptionist-for-dentists"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 2.5,
+        "note": "Voice agent on Retell takes days; booking into a PMS plus HIPAA setup takes months at 10 h/week.",
+        "source": "https://synchronizer.nexhealth.com/pricing"
+      },
+      "skills_match": {
+        "score": 3,
+        "note": "Developer covers the build; healthcare compliance and B2B sales to dentists are missing.",
+        "source": null
+      },
+      "capital_needed": {
+        "score": 2,
+        "note": "Vapi HIPAA add-on $2,000/month and Dentrix write access ~$10,000 exceed the $2,000 budget.",
+        "source": "https://support.vapi.ai/t/33180909/hippa-and-zdr"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 2.5,
+        "note": "A demo is fast, a sellable HIPAA-ready booking agent is 2-3 months at 10 h/week (estimate).",
+        "source": "https://nirmitee.io/blog/dental-practice-management-api-integration-open-dental-nexhealth/"
+      },
+      "sales_cycle": {
+        "score": 2.5,
+        "note": "Owner-dentist decides, but trust is low: commenters say dentists only trust other dentists.",
+        "source": "https://reddit.sentinel-team.org/posts/1tnyi1d/snapshots/2026-05-29T19%3A16%3A10.134322Z"
+      },
+      "channel_readiness": {
+        "score": 1.5,
+        "note": "No audience or network in dentistry; an indie founder reports 600 messages, 0 revenue (R5: no_distribution).",
+        "source": "https://www.indiehackers.com/post/im-17-mass-cold-outreaching-med-spas-with-an-ai-follow-up-system-i-built-600-messages-0-revenue-here-s-everything-i-ve-learned-13e91611a7"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 3.5,
+        "note": "205,088 active US dentists, ~135k establishments; missed calls are a known, discussed pain.",
+        "source": "https://www.ada.org/en/resources/research/health-policy-institute/dentist-workforce"
+      },
+      "trend": {
+        "score": 4,
+        "note": "Funding wave: Patientdesk $1M (2026-02), Linda EUR 2.6M (2026-02), Newton $3.8M (2025-10).",
+        "source": "https://theaiinsider.tech/2026/02/25/patientdesk-ai-raises-1m-pre-seed-backed-by-y-combinator-to-modernize-dental-front-desks/"
+      },
+      "willingness_to_pay": {
+        "score": 4,
+        "note": "Clinics pay $349-1,199/month for Viva AI and $400-1,200/month for human answering.",
+        "source": "https://www.getviva.ai/viva-ai-pricing-which-plan-is-right-for-your-dental-office/"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 2,
+        "note": "Weave plans clinics already pay include missed-call text-back; Smith.ai has a free 25-call tier.",
+        "source": "https://www.quo.com/blog/weave-pricing/"
+      },
+      "competitor_density": {
+        "score": 1,
+        "note": "12+ named rivals, 3+ YC dental front-desk startups and 10+ launches in 12 months (R3).",
+        "source": "https://www.ycombinator.com/companies/industry/Dental"
+      },
+      "differentiation": {
+        "score": 1.5,
+        "note": "Being a developer is not an edge here; AutoQuill launched at the same $199 (R3).",
+        "source": "https://www.producthunt.com/products/autoquill-ai/launches"
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 2,
+        "note": "Vendor is a HIPAA business associate: BAAs with every clinic and vendor, plus all-party recording consent in 11 states.",
+        "source": "https://www.hhs.gov/answers/business-associates/index.html"
+      },
+      "platform_dependency": {
+        "score": 2.5,
+        "note": "Booking needs PMS write access gated by Henry Schein, Patterson or NexHealth, plus a BAA-capable voice vendor.",
+        "source": "https://nirmitee.io/blog/dental-practice-management-api-integration-open-dental-nexhealth/"
+      },
+      "market_risk": {
+        "score": 4,
+        "note": "Durable need: 62% of dentists name staffing as their top obstacle (ADA HPI, 2025).",
+        "source": "https://www.drbicuspid.com/dental-practice/office-management/practice-trends/article/15712053/what-dentists-are-really-expecting-in-2025"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 3,
+        "note": "Strong on the build, no track record selling to clinics or in healthcare compliance.",
+        "source": null
+      },
+      "assets": {
+        "score": 1,
+        "note": "No audience, data, dental network or customers stated.",
+        "source": null
+      },
+      "interest": {
+        "score": 2,
+        "note": "Goal stated as side income; no stated passion for dentistry.",
+        "source": null
+      }
+    }
+  },
+  "rules_applied": [
+    {
+      "rule": "R3_saturated_wave",
+      "effect": "10+ look-alike launches, no specific edge: competition 2.0 -> 1.5 (competitor_density 2 -> 1, differentiation 2 -> 1.5)"
+    }
+  ],
+  "metrics": {
+    "tam": {
+      "value": 323175204,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "reasoning": "135,333 dental establishments (NAICS 621210, 2020) x $199 x 12",
+      "source": "https://naicslist.com/naics/621210",
+      "as_of": "2026-11"
+    },
+    "sam": {
+      "value": 161587602,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "reasoning": "TAM x 50% assumed independent (non-DSO) practices that buy without procurement",
+      "as_of": "2026-11"
+    },
+    "som": {
+      "value": 47760,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "reasoning": "20 clinics x $199 x 12 at 10 h/week, about 0.03% of SAM",
+      "as_of": "2026-11"
+    },
+    "competitors_found": {
+      "value": 12,
+      "unit": "competitors",
+      "basis": "estimate",
+      "reasoning": "Named in research: Weave, Arini, Viva, Dentina, Patientdesk, Kairos, Dodo, Peerlogic, Rondah, HelloPatient, Goodcall, Smith.ai",
+      "as_of": "2026-11"
+    },
+    "competitor_price_range": {
+      "value": "$299-1,199/month",
+      "unit": "USD/month",
+      "basis": "sourced",
+      "source": "https://www.getviva.ai/viva-ai-pricing-which-plan-is-right-for-your-dental-office/",
+      "as_of": "2026-11"
+    },
+    "demand_trend": {
+      "value": "rising",
+      "basis": "sourced",
+      "source": "https://tech.eu/2026/02/04/linda-ai-raises-eur26m-to-expand-ai-workflows-for-dental-practices/",
+      "as_of": "2026-02"
+    },
+    "price": {
+      "value": 199,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "reasoning": "The founder's stated price; equals Weave's base plan",
+      "as_of": "2026-11"
+    },
+    "variable_cost_per_unit": {
+      "value": 72,
+      "unit": "USD/month per clinic",
+      "basis": "estimate",
+      "reasoning": "120 missed calls x 3 min x $0.11/min Retell = $40 + 120 x 2 NexHealth API calls x $0.10 = $24 + $2 number + ~$6 card fees",
+      "as_of": "2026-11"
+    },
+    "gross_margin_pct": {
+      "value": 64,
+      "unit": "%",
+      "basis": "estimate",
+      "reasoning": "(199 - 72) / 199 = 63.8%",
+      "as_of": "2026-11"
+    },
+    "churn_monthly_pct": {
+      "value": 4.7,
+      "unit": "%",
+      "basis": "sourced",
+      "source": "https://www.lennysnewsletter.com/p/monthly-churn-benchmarks",
+      "as_of": "2026-11"
+    },
+    "expected_lifetime": {
+      "value": 21.3,
+      "unit": "months",
+      "basis": "estimate",
+      "reasoning": "1 / 4.7% monthly churn",
+      "as_of": "2026-11"
+    },
+    "conversion_rate_pct": {
+      "value": 0.5,
+      "unit": "%",
+      "basis": "estimate",
+      "reasoning": "Cold contact to paid clinic, assumed; one indie case had 0 of 600",
+      "as_of": "2026-11"
+    },
+    "cac": {
+      "value": 1500,
+      "unit": "USD",
+      "basis": "estimate",
+      "reasoning": "Ads: $8-15 CPC / 2-5% demo rate / 20-30% close = $530-3,750; $1,500 picked in the range",
+      "as_of": "2026-11"
+    },
+    "ltv": {
+      "value": 2705,
+      "unit": "USD",
+      "basis": "estimate",
+      "reasoning": "$127 gross profit/month x 21.3 months",
+      "as_of": "2026-11"
+    },
+    "ltv_cac": {
+      "value": 1.8,
+      "unit": "ratio",
+      "basis": "estimate",
+      "reasoning": "2,705 / 1,500",
+      "as_of": "2026-11"
+    },
+    "payback_months": {
+      "value": 11.8,
+      "unit": "months",
+      "basis": "estimate",
+      "reasoning": "1,500 / 127",
+      "as_of": "2026-11"
+    },
+    "fixed_costs_month": {
+      "value": 500,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "reasoning": "Hosting, BAA-capable tiers, compliance tooling, insurance; $2,000+ if Vapi HIPAA add-on is used",
+      "as_of": "2026-11"
+    },
+    "break_even_customers_per_month": {
+      "value": 4,
+      "unit": "customers",
+      "basis": "estimate",
+      "reasoning": "500 / 127 = 3.9, rounded up; 16 clinics on the Vapi HIPAA path",
+      "as_of": "2026-11"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 8,
+      "unit": "weeks",
+      "basis": "estimate",
+      "reasoning": "4-6 weeks to a HIPAA-ready pilot at 10 h/week + 2-4 weeks to close a first clinic",
+      "as_of": "2026-11"
+    }
+  },
+  "launch_country": "US",
+  "launch_reason": "Founder's chosen market; 135k US dental establishments and the price points found are all US.",
+  "kill_shots": {
+    "free_alternative": false,
+    "strong_competitor": true,
+    "graveyard": true,
+    "no_distribution": true,
+    "costs_eat_margin": false,
+    "weak_demand": false,
+    "legal_platform_risk": true,
+    "saturated_wave": true
+  },
+  "primary_kill_shot": "no_distribution",
+  "type_checks": [
+    {
+      "check": "churn_benchmark",
+      "result": "clear",
+      "note": "SMB SaaS monthly churn 3-7%, median 4.7%: lifetime ~21 months. Normal for the segment, not a killer.",
+      "source": "https://www.lennysnewsletter.com/p/monthly-churn-benchmarks"
+    },
+    {
+      "check": "switching_cost",
+      "result": "hit",
+      "note": "Weave locks clinics with bundled VoIP and 12-month terms, while your product sits on call forwarding: hard to win, easy to lose.",
+      "source": "https://capterra.com/p/141842/Weave/reviews/?page=4"
+    }
+  ],
+  "cheapest_test": "7-day pre-sale: contact 100 independent Open Dental practices and 10 dental marketing agencies, offer a $199 founding pilot (after-hours answer + text summary, no booking).",
+  "kill_criteria": [
+    "Fewer than 5 replies from 100 practice contacts by day 7 -> stop",
+    "0 paid pilots or signed letters of intent by day 7 -> stop",
+    "No self-serve BAA under $300/month from a voice vendor by day 14 -> stop",
+    "More than 50% of prospects already use Weave AI or a rival by day 7 -> stop"
+  ],
+  "rescue": [
+    {
+      "change": "Sell a lite after-hours answer + text summary (no PMS booking) at $99-199 to independents",
+      "why": "Cuts build_effort, capital_needed and legal surface; keeps the no-channel problem",
+      "score_after": 57,
+      "difficulty": "doable",
+      "effort": "2 weeks",
+      "cost": "~$200",
+      "requires": "Retell or similar with a BAA; 100 practice contacts"
+    },
+    {
+      "change": "Specialise in Open Dental practices only, with real booking via its open API, sold through dental IT providers",
+      "why": "Fixes platform_dependency and gives a specific edge that lifts R3",
+      "score_after": 55,
+      "difficulty": "hard",
+      "effort": "3 months",
+      "cost": "~$1,500",
+      "requires": "Open Dental vendor approval; 2-3 dental IT partners"
+    },
+    {
+      "change": "White-label the agent to dental marketing agencies that already serve dentists",
+      "why": "Borrows a distribution channel (no_distribution) at the cost of pricing power",
+      "score_after": 54,
+      "difficulty": "doable",
+      "effort": "2 weeks of outreach",
+      "cost": "~$100",
+      "requires": "3 agencies willing to resell"
+    }
+  ],
+  "sources": [
+    "https://www.indiehackers.com/post/im-17-mass-cold-outreaching-med-spas-with-an-ai-follow-up-system-i-built-600-messages-0-revenue-here-s-everything-i-ve-learned-13e91611a7",
+    "https://www.indiehackers.com/post/built-an-ai-saas-with-78-margins-but-0-customers-this-week-what-am-i-doing-wrong-d5cc2b82b8",
+    "https://www.indiehackers.com/post/ai-voice-agent-building-experience-as-a-contractor-9ee96ec7ff",
+    "https://www.eesel.ai/blog/ai-receptionist-for-dentists",
+    "https://www.quo.com/blog/weave-pricing/",
+    "https://dupple.com/learn/vapi-vs-retell-ai",
+    "https://www.beri.net/article/voice-ai-per-minute-pricing-vapi-retell-elevenlabs-bland-cost-per-resolved-call",
+    "https://www.trysignalbase.com/news/funding/arini-raises-500k-seed-funding",
+    "https://www.getviva.ai/viva-ai-pricing-which-plan-is-right-for-your-dental-office/",
+    "https://theaiinsider.tech/2026/02/25/patientdesk-ai-raises-1m-pre-seed-backed-by-y-combinator-to-modernize-dental-front-desks/",
+    "https://fondo.com/blog/kairos-health-calls-the-dental-patients-a-busy-front-desk-misses",
+    "https://www.ycombinator.com/companies/industry/Dental",
+    "https://www.keragon.com/blog/ai-receptionist-dental",
+    "https://www.stork.ai/blog/ai-receptionist-for-dentists-2026",
+    "https://www.producthunt.com/products/catch-ai/launches/catchai",
+    "https://www.producthunt.com/products/autoquill-ai/launches",
+    "https://www.producthunt.com/products/ai-recepts/launches",
+    "https://www.producthunt.com/products/0miss/makers",
+    "https://reddit.sentinel-team.org/posts/1tnyi1d/snapshots/2026-05-29T19%3A16%3A10.134322Z",
+    "https://reddit.sentinel-team.org/posts/1rzwo17/snapshots/2026-03-28T03%3A16%3A21.658064Z",
+    "https://www.peerlogic.com/post/top-ai-assistants-for-dental-patient-calls-in-2026",
+    "https://ycombinator.com/companies/arini",
+    "https://www.dentaleconomics.com/practice/article/55385634/the-economics-of-missed-calls-quantifying-revenue-loss-in-dental-practices",
+    "https://www.ada.org/en/resources/research/health-policy-institute/dentist-workforce",
+    "https://naicslist.com/naics/621210",
+    "https://www.drbicuspid.com/dental-practice/office-management/practice-trends/article/15712053/what-dentists-are-really-expecting-in-2025",
+    "https://www.dentaleconomics.com/practice/article/55368689/findings-from-the-2025-dental-economics-levin-group-annual-practice-survey",
+    "https://www.beckersdental.com/staffing-issues/how-dentists-are-faring-against-workforce-shortages/",
+    "https://www.cooley.com/news/insight/2024/2024-02-15-fcc-ai-generated-robocalls-illegal-under-the-tcpa",
+    "https://tech.eu/2026/02/04/linda-ai-raises-eur26m-to-expand-ai-workflows-for-dental-practices/",
+    "https://www.law.cornell.edu/cfr/text/45/160.103",
+    "https://www.hhs.gov/answers/business-associates/index.html",
+    "https://support.vapi.ai/t/33180909/hippa-and-zdr",
+    "https://frontdeskreview.com/guides/hipaa-ai-receptionist-hidden-cost/",
+    "https://www.retellai.com/it/pricing",
+    "https://www.twilio.com/docs/iam/twilio-editions/hippa",
+    "https://www.twilio.com/voice/pricing/us",
+    "https://help.openai.com/en/articles/20001069-hipaa-eligible-products-and-functionality",
+    "https://ktslaw.com/en/Blog/GlobalPrivacy-and-CybersecurityLaw/2024/7/Wiretap-Laws-in-the-United-States",
+    "https://dwt.com/blogs/artificial-intelligence-law-advisor/2024/04/utah-enacts-ai-and-bot-business-disclosure-law",
+    "https://nirmitee.io/blog/dental-practice-management-api-integration-open-dental-nexhealth/",
+    "https://synchronizer.nexhealth.com/pricing",
+    "https://www.lennysnewsletter.com/p/monthly-churn-benchmarks",
+    "https://capterra.com/p/141842/Weave/reviews/?page=4",
+    "https://www.getviva.ai/dental-answering-service-cost/",
+    "https://wordstream.com/blog/2026-google-ads-benchmarks",
+    "https://dialzara.com/blog/best-dental-answering-services"
+  ],
+  "run": {
+    "started": "2026-11-11T09:53:56Z",
+    "minutes": 5,
+    "searches": 32,
+    "fetches": 14,
+    "subagents": 4
+  }
+}

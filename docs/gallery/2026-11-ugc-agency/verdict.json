@@ -1,0 +1,398 @@
+{
+  "schema_version": "1.0",
+  "slug": "ugc-agency",
+  "evaluated": "2026-11-11",
+  "mode": "kill",
+  "verdict": "PIVOT",
+  "score": 56,
+  "score_raw": 56.3,
+  "confidence": {
+    "level": "high",
+    "sourced_subscores": 15,
+    "sources": 46,
+    "primary_sources": 15,
+    "note": "Real coordination hours per video and direct-rebooking rates are unknown; a 2-week pilot with 1 brand would pin them down"
+  },
+  "criteria": {
+    "profit": 2.5,
+    "feasibility": 4.0,
+    "time_to_first_revenue": 3.5,
+    "demand": 3.0,
+    "competition": 1.5,
+    "risk": 3.0,
+    "fit": 1.5
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 3,
+        "note": "Cash margin ~85% of the $35 cut after card fees, but 1.5-2 h of coordination per video eats most of it at 15 h/week (estimate)",
+        "source": "https://collabstr.com/blog/collabstr-vs-insense-ugc-campaigns"
+      },
+      "ltv_cac": {
+        "score": 2.5,
+        "note": "LTV ~$472 (4 months x $118) vs CAC ~$190 incl. outreach hours: about 2.5; repeat orders leak to direct deals (estimate)",
+        "source": "https://insense.pro/terms-of-service-for-creators"
+      },
+      "pricing_power": {
+        "score": 1.5,
+        "note": "Billo sells a video with rights from $99; JoinBrands charges 8-15%; a 20% markup has no reason to exist",
+        "source": "https://billo.app/blog/how-billo-pricing-works/"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 4.5,
+        "note": "No product to build: a one-page offer, a contract template and a Stripe link in under a week",
+        "source": null
+      },
+      "skills_match": {
+        "score": 2.5,
+        "note": "Needs B2B sales and creative direction; no stated experience, both learnable",
+        "source": null
+      },
+      "capital_needed": {
+        "score": 4.5,
+        "note": "About $86/month in tools (Instantly $47 + leads $9 + domains) fits the $1,000 budget",
+        "source": "https://instantly.ai/pricing.md"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 4.5,
+        "note": "Offer can be live in days; creators are oversupplied and easy to recruit",
+        "source": "https://hashtagpaid.com/banknotes/is-ugc-oversaturated-not-even-close"
+      },
+      "sales_cycle": {
+        "score": 3.5,
+        "note": "Small DTC founders buy a few videos within days to weeks; no procurement",
+        "source": "https://blog.xolo.io/how-to-land-your-first-ugc-client-a-step-by-step-guide"
+      },
+      "channel_readiness": {
+        "score": 2,
+        "note": "No audience; cold email replies 1.5-3.4%; brand side is the scarce side (liquidity hit)",
+        "source": "https://prospeo.io/s/cold-email-reply-rate"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 3.5,
+        "note": "'Ugc creator' ~135K searches; r/shopify ~353k members",
+        "source": "https://explodingtopics.com/marketing-regular-topics-last-2-years?page=5"
+      },
+      "trend": {
+        "score": 3,
+        "note": "TikTok Shop US GMV +68% in 2025, but UGC rates fell 44% and AI video costs $4-11",
+        "source": "https://thelowdown.momentum.asia/new-report-tiktok-shop-u-s-gmv-grew-68-to-reach-us15-1b-in-2025/"
+      },
+      "willingness_to_pay": {
+        "score": 2.5,
+        "note": "Brands pay ~$154 per video, and the price keeps falling: 44% down in 2025",
+        "source": "https://www.netinfluencer.com/influencer-collab-costs-in-decline-but-ugc-offers-bright-spot-in-2025-report-finds/"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 2,
+        "note": "TikTok Shop Find Creators is free; JoinBrands free plan; R5 cap (free_alternative hit)",
+        "source": "https://www.shortformnation.com/blog/how-to-find-and-recruit-tiktok-shop-creators-at-scale-2026-guide"
+      },
+      "competitor_density": {
+        "score": 1.5,
+        "note": "Billo, Insense, JoinBrands, Collabstr, Fiverr, AI tools and many agencies: 20+ (R5 cap <= 3)",
+        "source": "https://insense.pro/llms.txt"
+      },
+      "differentiation": {
+        "score": 1,
+        "note": "No edge: same creators, same marketplaces, higher fee",
+        "source": null
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 3.5,
+        "note": "FTC fake-review rule (up to $51,744 per violation) and usage-rights contracts: compliance work",
+        "source": "https://www.consumerfinancemonitor.com/2024/08/20/ftc-issues-final-rule-to-fight-fake-product-reviews/"
+      },
+      "platform_dependency": {
+        "score": 3,
+        "note": "Demand depends on Meta and TikTok ad spend; TikTok US ban risk ended Jan 2026",
+        "source": "https://www.searchenginejournal.com/tiktok-us-deal-closes-after-years-of-regulatory-uncertainty/565688/"
+      },
+      "market_risk": {
+        "score": 2.5,
+        "note": "AI UGC at $4-11 per video and 66% of creators offering UGC push prices down",
+        "source": "https://creatify.ai/blog/the-8-best-ai-ugc-ad-tools-in-2026"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 2,
+        "note": "No stated sales, marketing or video skills",
+        "source": null
+      },
+      "assets": {
+        "score": 1,
+        "note": "No audience, network or brand contacts",
+        "source": null
+      },
+      "interest": {
+        "score": 1,
+        "note": "Stated goal is side income only",
+        "source": null
+      }
+    }
+  },
+  "rules_applied": [
+    {
+      "rule": "R5_kill_shot_coherence",
+      "effect": "free_alternative hit: free_alternatives held at 2; strong_competitor hit: competitor_density held at 1.5 (<= 3)"
+    }
+  ],
+  "metrics": {
+    "tam": {
+      "value": 5500000000.0,
+      "unit": "USD (2023, UGC platform market, global)",
+      "basis": "sourced",
+      "as_of": "2023",
+      "source": "https://www.gii.tw/report/go1509475-user-generated-content-platform.html",
+      "reasoning": "Allied gives $4.7B for 2022; both define UGC platforms broadly"
+    },
+    "sam": {
+      "value": 443500000.0,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "80,000 US brands buying UGC (10% of 803.5k TikTok Shop US stores, assumed) x 3 videos/month x $154 x 12 months"
+    },
+    "som": {
+      "value": 13440,
+      "unit": "USD/year agency revenue",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "8 clients x $140/month commission x 12 months; capped by 15 h/week of coordination"
+    },
+    "competitors_found": {
+      "value": 11,
+      "unit": "competitors",
+      "basis": "sourced",
+      "as_of": "2026-11-11",
+      "source": "https://insense.pro/llms.txt",
+      "reasoning": "Billo, Insense, JoinBrands, Collabstr, Fiverr, TikTok Shop Find Creators, AfterShip Affiliates, Arcads, Creatify, Elev8or, Influee"
+    },
+    "competitor_price_range": {
+      "value": "$25-$200 per video; platforms $0-$499/month + 7-20% fee",
+      "unit": "USD",
+      "basis": "sourced",
+      "as_of": "2026-11-11",
+      "source": "https://joinbrands.com/pricing/"
+    },
+    "demand_trend": {
+      "value": "rising volume, falling price per video",
+      "unit": null,
+      "basis": "sourced",
+      "as_of": "2026-11-11",
+      "source": "https://www.netinfluencer.com/influencer-collab-costs-in-decline-but-ugc-offers-bright-spot-in-2025-report-finds/"
+    },
+    "price": {
+      "value": 35,
+      "unit": "USD commission per video",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "20% x $175 average video (Collabstr paid $154, calculator $185, Billo near $200)"
+    },
+    "variable_cost_per_unit": {
+      "value": 5.38,
+      "unit": "USD per video",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "card fee 2.9% x $175 + $0.30 on the full order (US Stripe rate assumed, not verified); excludes founder hours"
+    },
+    "gross_margin_pct": {
+      "value": 84.6,
+      "unit": "%",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "($35 - $5.38) / $35; with 1.5-2 h coordination valued at $15/h it falls below 25%"
+    },
+    "churn_monthly_pct": {
+      "value": 25,
+      "unit": "%",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "lifetime of 4 months assumed: project agencies lose 4.2%/month, but brands rebook creators directly after the first deal"
+    },
+    "expected_lifetime": {
+      "value": 4,
+      "unit": "months",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "1 / 25% churn"
+    },
+    "conversion_rate_pct": {
+      "value": 0.15,
+      "unit": "% of cold emails to client",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "1,000 emails x 2.5% reply x 30% positive x 20% close = 1.5 clients"
+    },
+    "cac": {
+      "value": 190,
+      "unit": "USD",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "($86 tools + 10 h outreach x $20/h) / 1.5 clients = ~$190; cash only ~$57"
+    },
+    "ltv": {
+      "value": 472,
+      "unit": "USD",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "4 videos x $35 = $140/month - $21.50 card fees = $118/month x 4 months"
+    },
+    "ltv_cac": {
+      "value": 2.5,
+      "unit": "ratio",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "$472 / $190"
+    },
+    "payback_months": {
+      "value": 1.6,
+      "unit": "months",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "$190 / $118 per month"
+    },
+    "fixed_costs_month": {
+      "value": 86,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "Instantly Growth $47 + lead finder $9 (pricing page 2026-11) + ~$30 domains and inboxes"
+    },
+    "break_even_customers_per_month": {
+      "value": 1,
+      "unit": "clients",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "$86 / $118 per client per month = 0.73, rounded up; $1,000/month side income needs 8-9 clients"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 4,
+      "unit": "weeks",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "1 week setup + 2-3 weeks of cold outreach at 1.5-3.4% reply to close the first order"
+    }
+  },
+  "launch_country": "US",
+  "launch_reason": "The user's chosen market, and the largest TikTok Shop and DTC ad market.",
+  "kill_shots": {
+    "free_alternative": true,
+    "strong_competitor": true,
+    "graveyard": false,
+    "no_distribution": false,
+    "costs_eat_margin": false,
+    "weak_demand": false,
+    "legal_platform_risk": false,
+    "saturated_wave": false
+  },
+  "primary_kill_shot": "strong_competitor",
+  "cheapest_test": "Cold-email 100 Shopify brands running Meta ads with a $799 pilot (4 videos); stop at fewer than 3 positive replies in 7 days",
+  "kill_criteria": [
+    "Fewer than 3 positive replies from 100 cold emails by day 7 -> stop",
+    "0 paid pilots by day 14 -> stop",
+    "More than 2 h of coordination per video on the first order -> stop, the hourly rate is under $20",
+    "First client rebooks a creator directly within 60 days -> drop the commission model"
+  ],
+  "sources": [
+    "https://joinbrands.com/pricing/",
+    "https://billo.app/blog/how-billo-pricing-works/",
+    "https://yespress.io/billo",
+    "https://billo.app/about-us/",
+    "https://www.cbinsights.com/company/billo",
+    "https://insense.pro/llms.txt",
+    "https://fiverr.com/videosbykaty/create-ugc-videos-for-brands",
+    "https://www.shortformnation.com/blog/how-to-find-and-recruit-tiktok-shop-creators-at-scale-2026-guide",
+    "https://www.aftership.com/en/affiliates",
+    "https://joinbrands.com/blog/ugc-creator-rates/",
+    "https://payhip.com/b/5Bp9u",
+    "https://www.skool.com/side-income-ugc-2342/classroom",
+    "https://hunted.space/product/ugcify",
+    "https://www.producthunt.com/posts/ugc-pro-hub",
+    "https://www.netinfluencer.com/creator-marketing-platform-collective-voice-announces-closure/",
+    "https://techcrunch.com/2025/02/27/tiktok-sunsets-its-creator-marketplace-for-tiktok-one-a-broader-solution-with-ai-tools",
+    "https://www.netinfluencer.com/influencer-collab-costs-in-decline-but-ugc-offers-bright-spot-in-2025-report-finds/",
+    "https://collabstr.com/blog/ugc-trends-platforms-explained",
+    "https://fluxnote.io/guides/arcads-ai-review",
+    "https://creatify.ai/blog/the-8-best-ai-ugc-ad-tools-in-2026",
+    "https://thelowdown.momentum.asia/new-report-tiktok-shop-u-s-gmv-grew-68-to-reach-us15-1b-in-2025/",
+    "https://www.searchenginejournal.com/tiktok-us-deal-closes-after-years-of-regulatory-uncertainty/565688/",
+    "https://explodingtopics.com/marketing-regular-topics-last-2-years?page=5",
+    "https://www.alliedmarketresearch.com/press-release/user-generated-content-platform-market.html",
+    "https://www.gii.tw/report/go1509475-user-generated-content-platform.html",
+    "https://collabstr.com/blog/collabstr-vs-insense-ugc-campaigns",
+    "https://collabstr.com/influencer-price-calculator/user-generated-content",
+    "https://firstsales.io/blog/cold-email-reply-rate-benchmarks-2026/",
+    "https://prospeo.io/s/cold-email-reply-rate",
+    "https://instantly.ai/pricing.md",
+    "https://gummysearch.com/r/shopify",
+    "https://www.chatterbuzzmedia.com/blog/facebook-ad-fatigue/",
+    "https://segwise.ai/blog/how-many-ads-produce-monthly",
+    "https://vantage-research-co.netlify.app/blog/agency-benchmarks-2026/",
+    "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials",
+    "https://www.consumerfinancemonitor.com/2024/08/20/ftc-issues-final-rule-to-fight-fake-product-reviews/",
+    "https://www.morganlewis.com/pubs/2023/07/ftc-updates-endorsement-guides-proposes-endorsement-related-rule",
+    "https://insense.pro/terms-of-service-for-creators",
+    "https://insense.pro/refund-policy",
+    "https://www.elev8or.io/help/creators/platform-policies",
+    "https://www.influentials.com/faq/what-are-typical-pricing-and-margin-models-for-influencer-and-ugc-services",
+    "https://superscale.ai/learn/how-much-does-ugc-cost-real-pricing-breakdown-for-2025/",
+    "https://collab-only-site.pages.dev/blog/posts/ugc-creator-platforms",
+    "https://hashtagpaid.com/banknotes/is-ugc-oversaturated-not-even-close",
+    "https://billo.app/blog/ugc-rates/",
+    "https://blog.xolo.io/how-to-land-your-first-ugc-client-a-step-by-step-guide"
+  ],
+  "rescue": [
+    {
+      "change": "Sell a fixed monthly creative package ($1,200 for 8 ad-ready videos with hooks), not a 20% commission, to Shopify brands spending $5-30K/month on Meta ads",
+      "why": "Lifts pricing_power and ltv_cac: retainers churn 1.6%/month vs 4.2%, and margin moves to the 20-40% agency norm",
+      "score_after": 60,
+      "difficulty": "doable",
+      "effort": "1-2 weeks",
+      "cost": "$86/month in tools",
+      "requires": "Writing ad hooks and briefs; 3 vetted creators on fixed rates"
+    },
+    {
+      "change": "Niche to one vertical (e.g. skincare) and sell human base videos plus AI-generated variants (20 ad variants a month)",
+      "why": "Turns AI UGC from a threat into margin and gives a specific difference (differentiation 1 -> 2.5)",
+      "score_after": 59,
+      "difficulty": "hard",
+      "effort": "1-2 months",
+      "cost": "$40-110/month for an AI UGC tool",
+      "requires": "Learning AI ad tools; FTC-safe disclosures for AI content"
+    }
+  ],
+  "type_checks": [
+    {
+      "check": "liquidity",
+      "result": "hit",
+      "note": "Creators are oversupplied (66% of creators now offer UGC); paying brands are the scarce side, so this is B2B sales against Billo at $99",
+      "source": "https://www.netinfluencer.com/influencer-collab-costs-in-decline-but-ugc-offers-bright-spot-in-2025-report-finds/"
+    },
+    {
+      "check": "disintermediation",
+      "result": "hit",
+      "note": "Insense needs 12-month exclusivity and voided refunds to stop bypass; a solo broker has no such lock after the first deal",
+      "source": "https://insense.pro/terms-of-service-for-creators"
+    }
+  ],
+  "run": {
+    "started": "2026-11-11T10:39:58Z",
+    "minutes": 8,
+    "searches": 32,
+    "fetches": 16,
+    "subagents": 4
+  }
+}

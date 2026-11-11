@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "slug": "vending-machines",
+  "title": "3 snack vending machines in US offices and gyms",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "local",
+  "source": {
+    "type": "own-idea",
+    "text": "Buying 3 snack vending machines and placing them in offices and gyms. Launch country US, budget $10,000, 8 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug vending-machines.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Office workers and gym members want a quick snack on site.",
+  "customer": "Location hosts: office managers and gym owners in the US who would let an operator place a snack machine (end buyers: their staff and members)",
+  "solution": "Buy 3 snack vending machines and place them in offices and gyms.",
+  "revenue_model": "usage",
+  "price": null,
+  "channel": null,
+  "countries": ["US"],
+  "claims": [],
+  "context": {
+    "budget": "USD 10,000",
+    "time_per_week": "8 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Used/refurbished snack machines (~USD 1,900 each) with a Nayax card reader, because new machines were not priced and the budget is USD 10,000.",
+    "Average vend ticket USD 2.01 (Cantaloupe 2026) and cost of goods ~50% of revenue (The Hustle operator survey).",
+    "Location commission 10% of gross; base gross USD 250 per machine per month (below the survivor-biased survey average of USD 309).",
+    "No location is secured yet; the founder pitches sites by walk-in and phone.",
+    "Founder time valued at USD 25/hour for CAC.",
+    "Headless run: no intake questions asked (user said just go)."
+  ],
+  "unknowns": ["price", "channel", "city or metro", "locations secured", "machine model and condition", "state sales-tax rules"],
+  "answers": [
+    {
+      "question": "Is any location already secured?",
+      "answer": null,
+      "feeds": ["channel_readiness", "location_traffic", "no_distribution"],
+      "stage": "follow_up",
+      "effect": "Headless run: assumed no location secured; channel_readiness 2."
+    }
+  ]
+}

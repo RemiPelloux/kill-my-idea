@@ -1,0 +1,389 @@
+{
+  "schema_version": "1.0",
+  "slug": "vending-machines",
+  "evaluated": "2026-11-11",
+  "as_of": null,
+  "mode": "kill",
+  "verdict": "NO-GO",
+  "score": 42,
+  "score_raw": 52.3,
+  "quick": false,
+  "launch_country": "US",
+  "launch_reason": "The founder is US-based and set the US as the only market.",
+  "criteria": {
+    "profit": 2.0,
+    "feasibility": 3.5,
+    "time_to_first_revenue": 2.5,
+    "demand": 3.0,
+    "competition": 2.0,
+    "risk": 3.5,
+    "fit": 1.5
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 2,
+        "note": "COGS ~50% + 10% commission + card fees leave ~36% per vend on a $2.01 ticket (estimate); R5 costs_eat_margin.",
+        "source": "https://thehustle.co/we-interviewed-20-vending-machine-owners-heres-how-much-they-make"
+      },
+      "ltv_cac": {
+        "score": 1.5,
+        "note": "LTV ~$2,822 vs ~$2,455 per placed machine (capex + pitching): 1.15 (estimate).",
+        "source": "https://www.candymachines.com/mdb-black-nayax-vpos-cashless-credit-card-reader"
+      },
+      "pricing_power": {
+        "score": 2.5,
+        "note": "Average vend ticket $2.01 anchors price; hosts negotiate 10-25% commission; free office snacks cap it.",
+        "source": "https://www.cantaloupe.com/wp-content/uploads/2026/07/Micropayment-Trends-Report-2026-Final.pdf"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 3.5,
+        "note": "Buying used machines takes days; landing 3 sites takes weeks (10:1 to 100+ pitches per yes).",
+        "source": "https://vendingexchange.com/vending-business-startup/how-to-find-your-first-vending-location"
+      },
+      "skills_match": {
+        "score": 3.5,
+        "note": "Needs cold sales, restocking and basic repairs: learnable, no special skill.",
+        "source": null
+      },
+      "capital_needed": {
+        "score": 3,
+        "note": "3 refurbished machines + readers + stock ~$7,600-8,000: fits the $10k budget with thin margin for repairs.",
+        "source": "https://vendingworld.com/information/links"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 3,
+        "note": "First vend in ~4-6 weeks: site hunt, purchase, move, card-reader activation (estimate).",
+        "source": null
+      },
+      "sales_cycle": {
+        "score": 3,
+        "note": "Office manager or gym owner decides in 1-4 weeks; some sites are locked by an incumbent operator contract.",
+        "source": "https://thehustle.co/we-interviewed-20-vending-machine-owners-heres-how-much-they-make"
+      },
+      "channel_readiness": {
+        "score": 2,
+        "note": "No site secured; best sites 'already saturated with machines'; some operators make 100+ calls per site.",
+        "source": "https://thehustle.co/we-interviewed-20-vending-machine-owners-heres-how-much-they-make"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 3.5,
+        "note": "Daily mass-market need; 81M US gym members (HFA 2025), but offices at ~56% of pre-2020 occupancy.",
+        "source": "https://www.kastle.com/safety-wellness/getting-america-back-to-work/"
+      },
+      "trend": {
+        "score": 2.5,
+        "note": "Industry $40.04B (+18.3%) but growth is smart coolers; IBISWorld sees operators declining over 5 years.",
+        "source": "https://www.vendingmarketwatch.com/reports/article/55381943/state-of-the-industry-2026-smart-coolers-move-mainstream-as-revenue-tops-40-billion"
+      },
+      "willingness_to_pay": {
+        "score": 3,
+        "note": "People pay ~$2 per vend, 78% cashless; 32% of employers give snacks free (SHRM 2018).",
+        "source": "https://www.shrm.org/mena/topics-tools/news/free-food-tasty-benefit-companies"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 3,
+        "note": "Free employer snacks (32% of employers, 2018) and catered lunches cover part of the job.",
+        "source": "https://www.shrm.org/mena/topics-tools/news/free-food-tasty-benefit-companies"
+      },
+      "competitor_density": {
+        "score": 2,
+        "note": "Operators over $10M take 65.2% of sales; micro-markets and a side-hustle crowd fight for the rest.",
+        "source": "https://www.vendingmarketwatch.com/home/article/55295667/technology-and-convenience-fuel-growth-2024-state-of-the-vending-and-micro-market-industry"
+      },
+      "differentiation": {
+        "score": 1,
+        "note": "Same machines, same snacks, same commission pitch as every other new operator; no edge stated.",
+        "source": null
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 4,
+        "note": "Mostly sales-tax registration and local licences ($0-500); FDA labelling only from 20 machines.",
+        "source": "https://www.fda.gov/food/labeling-nutrition/vending-machine-labeling-requirements"
+      },
+      "platform_dependency": {
+        "score": 3,
+        "note": "Each host can remove the machine at will; a big operator offering a smart cooler can take the site.",
+        "source": "https://www.vendingmarketwatch.com/reports/article/55381943/state-of-the-industry-2026-smart-coolers-move-mainstream-as-revenue-tops-40-billion"
+      },
+      "market_risk": {
+        "score": 3,
+        "note": "Durable need, but hybrid work and GLP-1 users cutting savory snacks ~10% squeeze volume.",
+        "source": "https://www.foodbusinessnews.net/articles/27485-study-glp-1-drug-users-cut-back-on-grocery-spending"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 2,
+        "note": "No vending or B2B sales track record stated.",
+        "source": null
+      },
+      "assets": {
+        "score": 1,
+        "note": "No locations, network or audience: the asset that matters in vending ('location rights') is missing.",
+        "source": null
+      },
+      "interest": {
+        "score": 1,
+        "note": "Goal stated as side income only.",
+        "source": null
+      }
+    }
+  },
+  "metrics": {
+    "tam": {
+      "value": 31.1,
+      "unit": "USD billion/year (US convenience services, 2025)",
+      "basis": "sourced",
+      "source": "https://namanow.org/new-census-reveals-shifts-in-convenience-services-industry/",
+      "as_of": "2025"
+    },
+    "sam": {
+      "value": 1.6,
+      "unit": "USD billion/year",
+      "basis": "estimate",
+      "reasoning": "$40.04B industry (VMW 2026) x 0.33 snack share x 0.124 office share of locations = ~$1.6B; gyms not split out",
+      "as_of": "2026-07"
+    },
+    "som": {
+      "value": 9000,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "reasoning": "3 machines x $250 gross/month x 12 months",
+      "as_of": "2026-11"
+    },
+    "competitors_found": {
+      "value": 8,
+      "unit": "operators and substitutes",
+      "basis": "estimate",
+      "reasoning": "Named in research: Canteen, Five Star, Avanti, 365 Retail Markets, SnackNation, free employer snacks, turnkey route sellers, local side-hustle operators",
+      "as_of": "2026-11"
+    },
+    "competitor_price_range": {
+      "value": "USD 2.01 average vend ticket",
+      "unit": "USD per vend",
+      "basis": "sourced",
+      "source": "https://www.cantaloupe.com/wp-content/uploads/2026/07/Micropayment-Trends-Report-2026-Final.pdf",
+      "as_of": "2026-07"
+    },
+    "demand_trend": {
+      "value": "flat to falling for classic snack machines; rising for smart coolers",
+      "unit": null,
+      "basis": "sourced",
+      "source": "https://www.vendingmarketwatch.com/reports/article/55381943/state-of-the-industry-2026-smart-coolers-move-mainstream-as-revenue-tops-40-billion",
+      "as_of": "2026-07"
+    },
+    "price": {
+      "value": 2.01,
+      "unit": "USD per vend",
+      "basis": "sourced",
+      "source": "https://www.cantaloupe.com/wp-content/uploads/2026/07/Micropayment-Trends-Report-2026-Final.pdf",
+      "as_of": "2026-07"
+    },
+    "variable_cost_per_unit": {
+      "value": 1.29,
+      "unit": "USD per vend",
+      "basis": "estimate",
+      "reasoning": "COGS 50% x 2.01 = 1.00 + commission 10% = 0.20 + card fee 5.95% x 78% cashless = 0.09",
+      "as_of": "2026-11"
+    },
+    "gross_margin_pct": {
+      "value": 36,
+      "unit": "%",
+      "basis": "estimate",
+      "reasoning": "(2.01 - 1.29) / 2.01",
+      "as_of": "2026-11"
+    },
+    "churn_monthly_pct": {
+      "value": "unknown",
+      "unit": "% of locations lost per month",
+      "basis": "unknown",
+      "as_of": null
+    },
+    "expected_lifetime": {
+      "value": 36,
+      "unit": "months per location",
+      "basis": "estimate",
+      "reasoning": "Assumed 3-year placement life of a refurbished machine at one host; no sourced location churn found",
+      "as_of": "2026-11"
+    },
+    "conversion_rate_pct": {
+      "value": 10,
+      "unit": "% of pitches that say yes",
+      "basis": "estimate",
+      "reasoning": "Guides cite 5-10 approaches per yes and 20-30 pitches for 2-3 yeses (~10%); The Hustle reports 100+ calls for some",
+      "as_of": "2026-11"
+    },
+    "cac": {
+      "value": 2455,
+      "unit": "USD per placed machine",
+      "basis": "estimate",
+      "reasoning": "Machine 1,900 + Nayax reader 399 + activation 30 + 5 h pitching x $25 = 125 (capex counted because each site needs its own machine)",
+      "as_of": "2026-11"
+    },
+    "ltv": {
+      "value": 2822,
+      "unit": "USD per location",
+      "basis": "estimate",
+      "reasoning": "(250 gross - 125 COGS - 25 commission - 11.6 card % - 9.99 reader fee) = 78.4/month x 36 months",
+      "as_of": "2026-11"
+    },
+    "ltv_cac": {
+      "value": 1.15,
+      "unit": "ratio",
+      "basis": "estimate",
+      "reasoning": "2,822 / 2,455",
+      "as_of": "2026-11"
+    },
+    "payback_months": {
+      "value": 31,
+      "unit": "months",
+      "basis": "estimate",
+      "reasoning": "CAC 2,455 / 78.4 monthly contribution per machine; ~39 months for the whole $7,800 setup after insurance",
+      "as_of": "2026-11"
+    },
+    "fixed_costs_month": {
+      "value": 67,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "reasoning": "General liability $37 (Insureon median) + 3 Nayax monthly fees x $9.99",
+      "as_of": "2026-11"
+    },
+    "break_even_customers_per_month": {
+      "value": 533,
+      "unit": "vends/month across 3 machines",
+      "basis": "estimate",
+      "reasoning": "(capex 7,600 / 24 months + fixed 67) / 0.72 contribution per vend = ~533 vends (~178 per machine, ~8 per business day)",
+      "as_of": "2026-11"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 5,
+      "unit": "weeks",
+      "basis": "estimate",
+      "reasoning": "2-3 weeks of walk-ins for 3 sites at 8 h/week + 1-2 weeks to buy, move and activate machines",
+      "as_of": "2026-11"
+    }
+  },
+  "kill_shots": {
+    "free_alternative": false,
+    "strong_competitor": true,
+    "graveyard": true,
+    "no_distribution": false,
+    "costs_eat_margin": true,
+    "weak_demand": false,
+    "legal_platform_risk": false,
+    "saturated_wave": false
+  },
+  "primary_kill_shot": "costs_eat_margin",
+  "rules_applied": [
+    {
+      "rule": "R7_unprofitable_model",
+      "effect": "Profit potential 2.0 (36% margin, LTV:CAC 1.15): total 52 - 10 = 42, NO-GO"
+    }
+  ],
+  "type_checks": [
+    {
+      "check": "location_traffic",
+      "result": "hit",
+      "note": "At ~56% office occupancy and ~1 vend per employee per week, an office needs ~90-100 badged staff to reach $50/week; small offices and gyms fall short.",
+      "source": "https://www.kastle.com/safety-wellness/getting-america-back-to-work/"
+    },
+    {
+      "check": "permits_capex",
+      "result": "clear",
+      "note": "Permits are cheap (state sales-tax permit $0-50, local licences $50-500); capex ~$7,600-8,000 fits the $10k budget, though payback is ~31-39 months.",
+      "source": "https://vmfsusa.com/how-much-is-a-vending-machine-permit"
+    }
+  ],
+  "confidence": {
+    "level": "high",
+    "sourced_subscores": 15,
+    "sources": 39,
+    "primary_sources": 17,
+    "note": "Per-machine sales for offices vs gyms are not split; real quotes from 30 local sites would raise it."
+  },
+  "cheapest_test": "Pitch 30 sites with 100+ on-site staff in 7 days before buying anything; need 2+ written yeses.",
+  "kill_criteria": [
+    "Fewer than 2 written placement yeses from 30 pitches by day 7 -> do not buy machines",
+    "Signed sites with fewer than 100 on-site staff per shift -> do not place there",
+    "Modelled payback above 24 months at the signed sites by day 7 -> stop"
+  ],
+  "rescue": [
+    {
+      "change": "Pitch first, buy later: sign 3 blue-collar or 24/7 sites (warehouses, plants, hospitals) with 100+ on-site staff before buying used machines.",
+      "why": "Fixes location_traffic and channel_readiness; ~$400/machine/month lifts LTV:CAC to ~2 and clears R7.",
+      "score_after": 56,
+      "difficulty": "doable",
+      "effort": "2-3 weeks of walk-ins",
+      "cost": "$0 until a site signs, then ~$2,330 per machine",
+      "requires": "30+ pitches; comfort with cold walk-ins"
+    },
+    {
+      "change": "Buy a small existing route with verified card-reader sales history instead of starting cold.",
+      "why": "Removes the placement hunt and proves revenue before paying; fixes channel_readiness and time_to_mvp.",
+      "score_after": 52,
+      "difficulty": "very-hard",
+      "effort": "1-3 months of search and diligence",
+      "cost": "Turnkey route packages start at $39,900",
+      "requires": "4x the budget or seller financing; diligence on telemetry data"
+    }
+  ],
+  "run": {
+    "started": "2026-11-11T10:41:25Z",
+    "minutes": 7,
+    "searches": 32,
+    "fetches": 16,
+    "subagents": 4
+  },
+  "sources": [
+    "https://thehustle.co/we-interviewed-20-vending-machine-owners-heres-how-much-they-make",
+    "https://www.vendingmarketwatch.com/home/article/55295667/technology-and-convenience-fuel-growth-2024-state-of-the-vending-and-micro-market-industry",
+    "https://www.vendingmarketwatch.com/reports/article/55381943/state-of-the-industry-2026-smart-coolers-move-mainstream-as-revenue-tops-40-billion",
+    "https://namanow.org/new-census-reveals-shifts-in-convenience-services-industry/",
+    "https://www.vendingmarketwatch.com/management/news/55365563/national-automatic-merchandising-association-nama-convenience-services-revenue-hits-311-billion-in-2025-nama-says",
+    "https://vendingmarketwatch.com/reports/article/55055556/2023-full-recovery-the-industry-sets-a-revenue-benchmark-high",
+    "https://www.ibisworld.com/industry/default.aspx?indid=1113",
+    "https://www.kastle.com/safety-wellness/getting-america-back-to-work/",
+    "https://www.athleticbusiness.com/facilities/fitness/article/15821794/hfa-report-reveals-81m-americans-were-fitness-club-members-in-2025",
+    "https://www.healthandfitness.org/about/media-center/press-releases/new-hfa-data-shows-how-77-million-us-fitness-members-work-out/",
+    "https://www.cantaloupe.com/wp-content/uploads/2026/07/Micropayment-Trends-Report-2026-Final.pdf",
+    "https://www.businesswire.com/news/home/20250424283171/en/self-service-goes-cash-free-cantaloupe%e2%80%99s-2025-micropayment-trends-report-reveals-cashless-payments-now-dominate-self-service-retail",
+    "https://www.candymachines.com/mdb-black-nayax-vpos-cashless-credit-card-reader",
+    "https://vmfsusa.com/nayax-vending-card-reader-guide/",
+    "https://vendingworld.com/information/links",
+    "https://www.insureon.com/retail-business-insurance/vending-machine-operators/cost",
+    "https://www.ftc.gov/bizopps",
+    "https://ftc.gov/news-events/news/press-releases/2007/10/providers-locations-business-opportunities-ordered-stop-misrepresentations",
+    "https://www.ftc.gov/news-events/press-releases/1997/09/operation-yankee-trader-targets-bogus-vending-machine-business",
+    "https://ftc.gov/system/files/ftc_gov/pdf/r511993bizoppnprm01132025.pdf",
+    "https://www.fda.gov/food/labeling-nutrition/vending-machine-labeling-requirements",
+    "https://www.law.cornell.edu/regulations/texas/34-Tex-Admin-Code-SS-3-293",
+    "https://vmfsusa.com/how-much-is-a-vending-machine-permit",
+    "https://techcrunch.com/2020/06/15/stockwell-the-ai-vending-machine-startup-formerly-known-as-bodega-is-shutting-down-july-1",
+    "https://www.aol.com/articles/spent-3-200-two-vending-160109337.html",
+    "https://www.shrm.org/mena/topics-tools/news/free-food-tasty-benefit-companies",
+    "https://snacknation.com/pricing-page-backup/",
+    "https://the-vending-locator.vercel.app/pricing/gold",
+    "https://www.bizquest.com/start-up-business/premium-vending-routes-turn-key-setup-starting-39-900/BW2395674",
+    "https://www.bizbuysell.com/business-opportunity/vending-machines-and-locations-throughout-phoenix/2084632",
+    "https://vendingexchange.com/vending-business-startup/how-to-find-your-first-vending-location",
+    "https://gusto.com/resources/articles/start-business/how-to-start-a-vending-machine-business",
+    "https://vendiscuss.net/topic/34282-average-of-vends-per-group-question/",
+    "https://www.foodbusinessnews.net/articles/27485-study-glp-1-drug-users-cut-back-on-grocery-spending",
+    "https://www.foodnavigator.com/Article/2026/03/05/snack-sales-stable-despite-glp-1-weight-loss-trends/",
+    "https://www.yahoo.com/news/making-fast-money-vending-machines-145926413.html",
+    "https://gummysearch.com/r/VendingPlacement/",
+    "https://app.govly.com/public/vendors/canteen_vending_services_compass_group",
+    "https://247wallst.com/personal-finance/2026/05/14/i-want-to-start-a-vending-machine-business-should-i-really-save-3330-in-cash-first/"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "slug": "remote-jobs-newsletter",
+  "title": "Weekly remote-jobs newsletter on beehiiv, sponsor-funded",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "content",
+  "source": {
+    "type": "own-idea",
+    "text": "A weekly newsletter of remote jobs on beehiiv, free for readers, paid by sponsors. Launch country US, budget $500, 6 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug remote-jobs-newsletter.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Job seekers want remote roles, which are scarce and scattered across many boards.",
+  "customer": "US job seekers looking for fully remote roles (readers); employers and brands targeting them (sponsors)",
+  "solution": "A free weekly email on beehiiv listing curated remote jobs, paid for by sponsors.",
+  "revenue_model": "ads",
+  "price": null,
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [],
+  "context": {
+    "budget": "USD 500",
+    "time_per_week": "6 h",
+    "goal": "side-income",
+    "edge": null
+  },
+  "assumptions": [
+    "No questions asked (user said just go); profile taken from the input.",
+    "Revenue = beehiiv Ad Network plus direct sponsors; no paid tier for readers.",
+    "Founder has no audience, list or sponsor contacts today (no special edge).",
+    "Jobs are hand-picked and linked out, not scraped from LinkedIn or Indeed.",
+    "Side-income target used for sizing: USD 500 per month."
+  ],
+  "unknowns": [
+    "price",
+    "channel",
+    "niche within remote jobs",
+    "founder's writing or recruiting experience"
+  ],
+  "answers": []
+}

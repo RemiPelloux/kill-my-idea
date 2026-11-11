@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "slug": "dental-ai-receptionist",
+  "title": "AI receptionist for missed calls at US dental clinics",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "An AI receptionist that answers missed calls for US dental clinics and books appointments, $199/month. Launch country US, budget $2,000, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions. Use the slug dental-ai-receptionist.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "US dental clinics miss inbound calls (busy front desk, after hours) and lose new-patient appointments.",
+  "customer": "Independent US dental practices (1-3 dentists, owner-operated) with a front desk that misses calls",
+  "solution": "An AI voice agent that answers missed and after-hours calls and books appointments.",
+  "revenue_model": "subscription",
+  "price": {"amount": 199, "currency": "USD", "period": "month"},
+  "channel": null,
+  "countries": ["US"],
+  "claims": [
+    "An AI receptionist that answers missed calls for US dental clinics and books appointments",
+    "$199/month"
+  ],
+  "context": {
+    "budget": "USD 2,000",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "I am a developer"
+  },
+  "assumptions": [
+    "Headless run: the founder asked not to be questioned, so no intake or follow-up questions were asked.",
+    "No existing audience, list, network or customers in dentistry (none stated).",
+    "No validation done yet (no conversations, waitlist or pre-sales stated).",
+    "Booking means writing into the practice management system (Dentrix, Eaglesoft, Open Dental) or a booking layer like NexHealth.",
+    "Target is independent practices, not DSOs, since DSOs buy through procurement."
+  ],
+  "unknowns": ["channel", "validation", "audience", "PMS integration path"],
+  "answers": []
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "slug": "freelance-invoicing-fr",
+  "title": "Invoicing app for French micro-entrepreneurs with VAT and URSSAF declarations",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "A simple invoicing app for French freelancers (auto-entrepreneurs) that handles VAT and URSSAF declarations, 9 EUR a month. Launch country FR, budget 1,000 EUR, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions. Use the slug freelance-invoicing-fr.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "French micro-entrepreneurs must issue compliant invoices, track VAT franchise thresholds and declare revenue to URSSAF monthly or quarterly.",
+  "customer": "French micro-entrepreneurs (auto-entrepreneurs), freelancers selling services",
+  "solution": "A simple invoicing app that also handles VAT and URSSAF declarations",
+  "revenue_model": "subscription",
+  "price": {"amount": 9, "currency": "EUR", "period": "month"},
+  "channel": null,
+  "countries": ["FR"],
+  "claims": [],
+  "context": {
+    "budget": "EUR 1,000",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "I am a developer"
+  },
+  "assumptions": [
+    "No existing audience, list or customers in the niche (not stated; user said 'just go').",
+    "No validation done yet (no waitlist, no pre-sales).",
+    "Paid search CPC of about EUR 3 per click for French invoicing-software keywords (no sourced French CPC found).",
+    "The app would connect to an existing plateforme agréée (PA) for e-invoicing rather than register as one.",
+    "Side-income target of about EUR 1,000/month, used for the break-even view."
+  ],
+  "unknowns": ["channel", "audience size", "validation done", "URSSAF API approval lead time", "PA partner API price"],
+  "answers": []
+}

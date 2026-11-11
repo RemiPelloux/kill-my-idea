@@ -1,0 +1,390 @@
+{
+  "schema_version": "1.0",
+  "slug": "ai-headshots",
+  "evaluated": "2026-11-11",
+  "as_of": null,
+  "mode": "kill",
+  "verdict": "NO-GO",
+  "score": 49,
+  "score_raw": 56.5,
+  "confidence": {
+    "level": "high",
+    "sourced_subscores": 15,
+    "sources": 39,
+    "primary_sources": 17,
+    "note": "A US Google Keyword Planner CPC and a real conversion rate from a 7-day test would firm up CAC"
+  },
+  "criteria": {
+    "profit": 2.0,
+    "feasibility": 4.0,
+    "time_to_first_revenue": 3.5,
+    "demand": 3.0,
+    "competition": 1.0,
+    "risk": 2.5,
+    "fit": 2.0
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 4.0,
+        "note": "About **79%**: ~$6 variable cost per $29 order (fal.ai training $2 + images + Stripe), before refunds",
+        "source": "https://www.fal.ai/models/fal-ai/flux-lora-fast-training"
+      },
+      "ltv_cac": {
+        "score": 1.0,
+        "note": "LTV ~$23 vs paid CAC ~$286: **0.08**. Fix path: affiliates at 30% ($8.70 CAC) give ~2.6, but none exist yet",
+        "source": "https://seojuice.com/keyword-research/technology/AI-&-Machine-Learning/worldwide/"
+      },
+      "pricing_power": {
+        "score": 1.5,
+        "note": "Gemini does it free; HeadshotPro already sells 30 headshots at the same $29",
+        "source": "https://www.headshotpro.com/docs/individual/getting-started/choosing-a-package"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 4.0,
+        "note": "Hosted LoRA training + generation APIs exist; a developer can ship a test in 1-2 weeks",
+        "source": "https://www.fal.ai/models/fal-ai/flux-lora-fast-training"
+      },
+      "skills_match": {
+        "score": 4.0,
+        "note": "Developer covers the build; marketing and SEO skills are missing",
+        "source": null
+      },
+      "capital_needed": {
+        "score": 4.5,
+        "note": "About $30/month fixed plus ~$6 per order: fits a $2,000 budget easily",
+        "source": "https://fal.ai/models/fal-ai/flux-lora/llms.txt"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 4.0,
+        "note": "2-3 weeks at 10 h/week to a paid checkout (estimate)",
+        "source": null
+      },
+      "sales_cycle": {
+        "score": 5.0,
+        "note": "Impulse, same-day consumer purchase; incumbents deliver in 15 min to 2 h",
+        "source": "https://www.headshotpro.com/docs/individual/getting-started/choosing-a-package"
+      },
+      "channel_readiness": {
+        "score": 1.5,
+        "note": "No audience; SEO leader entrenched (keyword difficulty 74); paid CPC $5.71 never pays back (R5)",
+        "source": "https://seojuice.com/keyword-research/technology/AI-&-Machine-Learning/worldwide/"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 3.5,
+        "note": "'ai headshot generator' ~22,200 searches/month worldwide; 270M US LinkedIn members",
+        "source": "https://seojuice.com/keyword-research/technology/AI-&-Machine-Learning/worldwide/"
+      },
+      "trend": {
+        "score": 2.0,
+        "note": "Mid-tier headshot sites lost 43-100% of traffic in Sept 2026; Lensa revenue -58% in 2023 (R5)",
+        "source": "https://onelittleweb.com/digital-market-intelligence/ai-tools/headshot-generators/"
+      },
+      "willingness_to_pay": {
+        "score": 4.0,
+        "note": "HeadshotPro reports $10M+ revenue and 200,000+ shoots; Aragon 7,429 Trustpilot reviews",
+        "source": "https://www.headshotpro.com/about"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 1.5,
+        "note": "Gemini Nano Banana turns one selfie into a LinkedIn headshot free (R1)",
+        "source": "https://www.techrepublic.com/article/news-gemini-ai-portrait-prompts/"
+      },
+      "competitor_density": {
+        "score": 1.0,
+        "note": "25+ named products, 5+ Product Hunt clones in 4 months, generic-name slugs up to '-8'",
+        "source": "https://www.producthunt.com/products/ai-headshot-generator-8/launches"
+      },
+      "differentiation": {
+        "score": 1.0,
+        "note": "Same input, output and price as HeadshotPro and Aragon; 'I am a developer' is not an edge",
+        "source": null
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 2.0,
+        "note": "Face photos fall under Illinois BIPA; Lensa was sued for the same flow in 2023",
+        "source": "https://www.privacyworld.blog/2023/02/ai-avatar-app-is-the-latest-target-of-bipa-class-action-litigation/"
+      },
+      "platform_dependency": {
+        "score": 3.0,
+        "note": "Depends on model APIs (fal, Replicate, Astria) and Stripe, but alternatives exist",
+        "source": "https://replicate.com/changelog/2025-05-23-faster-flux-trainer"
+      },
+      "market_risk": {
+        "score": 2.0,
+        "note": "Free frontier models are absorbing the category; Levels: 'BigAI is cannibalizing'",
+        "source": "https://digg.com/tech/19e8l8dn"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 3.5,
+        "note": "Strong on build, no stated marketing or distribution track record",
+        "source": null
+      },
+      "assets": {
+        "score": 1.0,
+        "note": "No audience, list, data or affiliate network stated",
+        "source": null
+      },
+      "interest": {
+        "score": 1.5,
+        "note": "Goal is side income; no stated passion for photography or careers",
+        "source": null
+      }
+    }
+  },
+  "metrics": {
+    "tam": {
+      "value": 350000000,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "Vendor estimates: >$350M in 2025 (BetterPic) and $350-500M (ProShoot); no independent analyst tracks it, so low end used"
+    },
+    "sam": {
+      "value": 140000000,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "TAM $350M x 40% assumed US share (largest LinkedIn market, 270M members)"
+    },
+    "som": {
+      "value": 140000,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "SAM $140M x 0.1% realistic solo year-1 share; requires a working channel, which is missing"
+    },
+    "competitors_found": {
+      "value": 25,
+      "unit": "products",
+      "basis": "sourced",
+      "as_of": "2026-11-11",
+      "source": "https://onelittleweb.com/digital-market-intelligence/ai-tools/headshot-generators/"
+    },
+    "competitor_price_range": {
+      "value": "0-59",
+      "unit": "USD one-off",
+      "basis": "sourced",
+      "as_of": "2026-11-11",
+      "source": "https://www.headshotpro.com/docs/individual/getting-started/choosing-a-package"
+    },
+    "demand_trend": {
+      "value": "falling for non-leaders",
+      "unit": "",
+      "basis": "sourced",
+      "as_of": "2026-11-11",
+      "source": "https://onelittleweb.com/digital-market-intelligence/ai-tools/headshot-generators/"
+    },
+    "price": {
+      "value": 29,
+      "unit": "USD one-off",
+      "basis": "sourced",
+      "as_of": "2026-11-11",
+      "source": "https://www.headshotpro.com/docs/individual/getting-started/choosing-a-package"
+    },
+    "variable_cost_per_unit": {
+      "value": 6,
+      "unit": "USD/order",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "fal.ai training $2 + 80-120 images x $0.035 ($2.80-4.20) + Stripe 2.9% x 29 + 0.30 ($1.14) = $5.94-7.34"
+    },
+    "gross_margin_pct": {
+      "value": 79,
+      "unit": "%",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "(29 - 6) / 29 = 79%, before a 3-10% refund rate"
+    },
+    "churn_monthly_pct": {
+      "value": "n/a",
+      "unit": "",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "One-off purchase, no subscription; no repeat-purchase data published"
+    },
+    "expected_lifetime": {
+      "value": 1,
+      "unit": "purchases",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "Headshots bought once per job change; no repeat-rate data found"
+    },
+    "conversion_rate_pct": {
+      "value": 2,
+      "unit": "%",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "Assumed visitor-to-purchase benchmark for a $29 one-off consumer purchase; no sourced benchmark"
+    },
+    "cac": {
+      "value": 286,
+      "unit": "USD",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "CPC $5.71 (SEOJuice, worldwide) / 2% conversion"
+    },
+    "ltv": {
+      "value": 23,
+      "unit": "USD",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "29 x 0.79 margin x 1 purchase = $22.9"
+    },
+    "ltv_cac": {
+      "value": 0.08,
+      "unit": "ratio",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "LTV $23 / CAC $286; via affiliates at 30% commission it would be ~2.6 but no affiliates exist"
+    },
+    "payback_months": {
+      "value": "never",
+      "unit": "",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "One-off margin $23 never covers a $286 paid CAC"
+    },
+    "fixed_costs_month": {
+      "value": 30,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "Domain, hosting, storage, email: ~$30/month assumed; hosting price pages not checked"
+    },
+    "break_even_customers_per_month": {
+      "value": 2,
+      "unit": "customers/month",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "$30 fixed / $23 margin = 1.3, ignoring CAC"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 4,
+      "unit": "weeks",
+      "basis": "estimate",
+      "as_of": "2026-11-11",
+      "reasoning": "2-3 weeks build at 10 h/week + 1 week of organic posting to get a first sale"
+    }
+  },
+  "launch_country": "US",
+  "launch_reason": "Set by the user; the largest LinkedIn market with 270M members.",
+  "kill_shots": {
+    "free_alternative": true,
+    "strong_competitor": true,
+    "graveyard": true,
+    "no_distribution": true,
+    "costs_eat_margin": false,
+    "weak_demand": true,
+    "legal_platform_risk": true,
+    "saturated_wave": true
+  },
+  "primary_kill_shot": "no_distribution",
+  "rules_applied": [
+    {
+      "rule": "R6_unprofitable_no_channel",
+      "effect": "no_distribution hit and LTV:CAC 0.08: total 57 capped at 49"
+    }
+  ],
+  "cheapest_test": "Fake-door B2B test: 50 cold emails to US HR/ops leads offering team headshots at $29/seat, with a pre-sale link",
+  "kill_criteria": [
+    "Fewer than 5 replies to 50 cold emails by day 7 -> stop",
+    "0 paid team orders (any size) by day 14 -> archive",
+    "Refund or redo requests above 10% of the first 20 orders -> stop"
+  ],
+  "sources": [
+    "https://www.headshotpro.com/about",
+    "https://www.headshotpro.com/docs/individual/getting-started/choosing-a-package",
+    "https://www.headshotpro.com/refund",
+    "https://www.trustpilot.com/review/headshotpro.com?page=6",
+    "https://www.trustpilot.com/review/aragon.ai",
+    "https://www.aragon.ai/affiliates",
+    "https://www.aragon.ai/refund-policy",
+    "https://www.betterpic.io/pricing.md",
+    "https://www.fal.ai/models/fal-ai/flux-lora-fast-training",
+    "https://fal.ai/models/fal-ai/flux-lora/llms.txt",
+    "https://replicate.com/changelog/2025-05-23-faster-flux-trainer",
+    "https://www.leg.colorado.gov/bills/hb24-1130",
+    "https://www.producthunt.com/products/aiproportrait/launches",
+    "https://www.producthunt.com/products/professional-headshot-ai-2/launches",
+    "https://www.producthunt.com/products/ai-headshot-generator-8/launches",
+    "https://www.producthunt.com/products/proheadshot-ai/launches",
+    "https://www.producthunt.com/products/express-headshot-ai/launches",
+    "https://www.techrepublic.com/article/news-gemini-ai-portrait-prompts/",
+    "https://www.businessofapps.com/data/lensa-ai-statistics",
+    "https://techcrunch.com/2023/02/13/the-ai-photo-app-trend-has-already-fizzled-new-data-shows",
+    "https://www.thumbtack.com/p/modeling-headshots-cost",
+    "https://www.fisherphillips.com/en/news-insights/breaking-bipa-news-illinois-curtails-massive-damage-awards-in-biometric-cases.html",
+    "https://www.privacyworld.blog/2023/02/ai-avatar-app-is-the-latest-target-of-bipa-class-action-litigation/",
+    "https://www.insideclassactions.com/2024/07/02/illinois-federal-court-dismisses-bipa-suit-against-x-holding-biometric-identifiers-must-identify-individuals/",
+    "https://therecord.media/meta-texas-facial-recognition-settlement",
+    "https://petapixel.com/2026/01/15/evoto-alienated-photographers-by-releasing-a-tool-designed-to-replace-them/",
+    "https://onelittleweb.com/digital-market-intelligence/ai-tools/headshot-generators/",
+    "https://www.proshoot.co/blog/ai-headshot-statistics",
+    "https://betterpic.io/blog/ai-headshot-generator-market-size-research",
+    "https://www.socialpilot.co/blog/linkedin-statistics",
+    "https://seojuice.com/keyword-research/technology/AI-&-Machine-Learning/worldwide/",
+    "https://supabird.io/articles/danny-postma-how-a-solo-hacker-built-an-ai-empire-from-bali",
+    "https://dev.to/gbti-network/how-to-generate-professional-linkedin-headshots-using-nano-banana-16n4",
+    "https://digg.com/tech/19e8l8dn",
+    "https://hn.svelte.dev/item/47289841",
+    "https://saascrmreview.com/best-ai-headshot-generator/",
+    "https://toolradar.com/tools/aragon-ai/pricing",
+    "https://www.indiehackers.com/post/photo-ai-by-pieter-levels-complete-deep-dive-case-study-0-to-182k-mrr-in-18-months-3a9a2b1579",
+    "https://getlatka.com/companies/headshotpro"
+  ],
+  "rescue": [
+    {
+      "change": "Sell team headshots to US companies of 10-100 staff by cold email to HR/ops, $29 per seat, with brand-matched backgrounds",
+      "why": "Fixes ltv_cac (10-50 seats per deal) and channel_readiness (direct outreach); free Gemini is not a team workflow",
+      "score_after": 56,
+      "difficulty": "hard",
+      "effort": "3-4 weeks build, 5 h/week outreach",
+      "cost": "under $300",
+      "requires": "Cold outreach skills the founder lacks; competes with BetterPic Teams at $49/seat"
+    },
+    {
+      "change": "White-label the pipeline for career coaches, resume writers and university career centers on revenue share",
+      "why": "Borrows their audience to fix no_distribution and assets; partners carry the trust",
+      "score_after": 52,
+      "difficulty": "hard",
+      "effort": "2-3 months to sign 3 partners",
+      "cost": "under $500",
+      "requires": "Partner sales; partners can use free Gemini themselves"
+    }
+  ],
+  "type_checks": [
+    {
+      "check": "churn_benchmark",
+      "result": "hit",
+      "note": "One-off purchase with no subscription; leader sells only one-time packages, so lifetime is about 1 purchase and every sale needs new acquisition",
+      "source": "https://www.headshotpro.com/docs/individual/getting-started/choosing-a-package"
+    },
+    {
+      "check": "switching_cost",
+      "result": "hit",
+      "note": "Zero switching cost: buyers compare per-shoot prices ($17-59) and a free Gemini option, with 14-30 day refunds as the norm",
+      "source": "https://www.headshotpro.com/refund"
+    }
+  ],
+  "quick": false,
+  "run": {
+    "started": "2026-11-11T10:22:56Z",
+    "minutes": 6,
+    "searches": 32,
+    "fetches": 16,
+    "subagents": 4
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "slug": "linkedin-ai-writer",
+  "title": "AI LinkedIn post writer in your voice, $19/month",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "An AI tool that writes LinkedIn posts in your voice, $19 a month. Launch country US, budget $1,000, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions. Use the slug linkedin-ai-writer.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Writing LinkedIn posts that sound like you takes time; generic AI output sounds like AI.",
+  "customer": null,
+  "solution": "An AI tool that writes LinkedIn posts in the user's own voice.",
+  "revenue_model": "subscription",
+  "price": {
+    "amount": 19,
+    "currency": "USD",
+    "period": "month"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [
+    "An AI tool that writes LinkedIn posts in your voice",
+    "$19 a month"
+  ],
+  "context": {
+    "budget": "$1,000",
+    "time_per_week": "10 hours",
+    "goal": "side-income",
+    "edge": "I am a developer"
+  },
+  "assumptions": [
+    "Customer assumed: US consultants, solo founders and B2B professionals who post on LinkedIn weekly.",
+    "Channel assumed: none in hand (no audience stated); paid search or LinkedIn Ads plus organic launches.",
+    "Voice is learned from posts the user pastes or exports, not by scraping LinkedIn.",
+    "Stripe US card fee assumed at 2.9% + $0.30 (the page served was the EUR version).",
+    "Headless run: no questions asked; follow-up facts (audience size, validation) assumed to be zero."
+  ],
+  "unknowns": [
+    "customer",
+    "channel",
+    "audience size",
+    "validation done (waitlist, pre-sales)",
+    "exact CPC for 'linkedin post generator'"
+  ],
+  "answers": []
+}

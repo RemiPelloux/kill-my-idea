@@ -1,0 +1,17 @@
+14 verdicts
+score  min 39  median 44.5  max 56  stdev 4.5
+verdicts  GO 0  PIVOT 2  NO-GO 12
+  30-39 # 1
+  40-49 ########### 11
+  50-59 ## 2
+exactly 49: 2 (capped there by R6: 9) · exactly 69: 0
+rules fired: R7_unprofitable_model 10/14, R6_unprofitable_no_channel 9/14, R1_free_equivalent 7/14, R4_ltv_cac_below_1 6/14, R3_saturated_wave 4/14, R5_kill_shot_coherence 4/14, R2_no_channel 1/14
+kill shots (hit / checked):
+  free_alternative        11/14   <- hits more than 2 in 3: no longer tells ideas apart
+  strong_competitor       13/14   <- hits more than 2 in 3: no longer tells ideas apart
+  graveyard               11/14   <- hits more than 2 in 3: no longer tells ideas apart
+  no_distribution         10/14   <- hits more than 2 in 3: no longer tells ideas apart
+  costs_eat_margin         2/14 
+  weak_demand              2/14 
+  legal_platform_risk      9/14 
+  saturated_wave           5/14 

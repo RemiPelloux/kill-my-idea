@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "slug": "etsy-planners",
+  "title": "Printable digital planners on Etsy at $9",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "ecommerce",
+  "source": {
+    "type": "own-idea",
+    "text": "Selling printable digital planners on Etsy at $9 each. Launch country US, budget $300, 8 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug etsy-planners.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": null,
+  "customer": null,
+  "solution": "Printable / digital planner files (PDF) sold as instant downloads on Etsy",
+  "revenue_model": "one-off",
+  "price": {"amount": 9, "currency": "USD", "period": "one-off"},
+  "channel": "Etsy marketplace",
+  "countries": ["US"],
+  "claims": [],
+  "context": {
+    "budget": "USD 300",
+    "time_per_week": "8 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Customer assumed to be US Etsy shoppers buying generic planners (no niche stated)",
+    "Planners designed by the founder in a free tool such as Canva; no design track record",
+    "No questions asked: the user said 'just go'",
+    "Organic Etsy search is the main channel; Etsy Ads used only if they pay back"
+  ],
+  "unknowns": ["problem", "customer", "niche", "design skills", "product format (printable vs hyperlinked GoodNotes)"],
+  "answers": []
+}

@@ -1,0 +1,1250 @@
+{
+  "schema_version": "1.0",
+  "idea": {
+    "schema_version": "1.0",
+    "slug": "youtube-summary-extension",
+    "title": "AI YouTube video summarizer Chrome extension",
+    "created": "2026-11-11",
+    "language": "en",
+    "type": "saas",
+    "source": {
+      "type": "own-idea",
+      "text": "A Chrome extension that summarizes YouTube videos with AI, $5 a month. Launch country US, budget $500, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions. Use the slug youtube-summary-extension.",
+      "url": null,
+      "author": null,
+      "posted": null
+    },
+    "problem": "Long YouTube videos take too much time to watch to get the key points.",
+    "customer": null,
+    "solution": "A Chrome extension that summarizes YouTube videos with AI.",
+    "revenue_model": "subscription",
+    "price": {
+      "amount": 5,
+      "currency": "USD",
+      "period": "month"
+    },
+    "channel": null,
+    "countries": [
+      "US"
+    ],
+    "claims": [],
+    "context": {
+      "budget": "USD 500",
+      "time_per_week": "10 h",
+      "goal": "side-income",
+      "edge": "I am a developer"
+    },
+    "assumptions": [
+      "Customer segment not stated: assumed US students and knowledge workers who watch long videos.",
+      "Channel not stated: assumed Chrome Web Store search plus free organic posts; no existing audience.",
+      "Transcripts fetched in the user's browser or via a paid transcript API, summaries via a cheap LLM API.",
+      "Headless run ('just go'): no intake or follow-up questions asked."
+    ],
+    "unknowns": [
+      "customer",
+      "channel"
+    ],
+    "answers": []
+  },
+  "verdict": {
+    "schema_version": "1.0",
+    "slug": "youtube-summary-extension",
+    "evaluated": "2026-11-11",
+    "as_of": null,
+    "mode": "kill",
+    "verdict": "NO-GO",
+    "score": 45,
+    "score_raw": 54.8,
+    "confidence": {
+      "level": "high",
+      "sourced_subscores": 14,
+      "sources": 46,
+      "primary_sources": 18,
+      "note": "Competitor install counts and real CPC for 'youtube summarizer' (Keyword Planner) are missing; most competitor prices come from third-party pages."
+    },
+    "criteria": {
+      "profit": 2.0,
+      "feasibility": 4.0,
+      "time_to_first_revenue": 3.5,
+      "demand": 3.0,
+      "competition": 1.0,
+      "risk": 2.0,
+      "fit": 2.0
+    },
+    "criteria_detail": {
+      "profit": {
+        "gross_margin": {
+          "score": 3.5,
+          "note": "About 75% after LLM, transcript API and Stripe on $5 (estimate); Stripe is the biggest cost.",
+          "source": "https://www.developersdigest.tech/models/gemini-3-1-flash-lite"
+        },
+        "ltv_cac": {
+          "score": 1.5,
+          "note": "LTV ~$18 at 21% AI-app churn vs ~$1,250 paid CAC; only unpaid channels can work, unproven (estimate).",
+          "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study"
+        },
+        "pricing_power": {
+          "score": 1,
+          "note": "Gemini in Chrome and Glasp do it free; free sets the anchor at $0.",
+          "source": "https://techcrunch.com/2025/09/18/google-brings-gemini-in-chrome-to-us-users-unveils-agentic-browsing-capabilities-and-more/"
+        }
+      },
+      "feasibility": {
+        "build_effort": {
+          "score": 4,
+          "note": "A developer can ship an MV3 extension plus Stripe in 1-2 weeks (estimate).",
+          "source": null
+        },
+        "skills_match": {
+          "score": 4,
+          "note": "Has the build skills; lacks distribution and copywriting skills.",
+          "source": null
+        },
+        "capital_needed": {
+          "score": 4.5,
+          "note": "About $27/month fixed (transcript API, hosting) fits a $500 budget.",
+          "source": "https://www.socialcrawl.dev/blog/best-youtube-data-apis-2026"
+        }
+      },
+      "time_to_first_revenue": {
+        "time_to_mvp": {
+          "score": 4,
+          "note": "MVP in 1-2 weeks at 10 h/week, plus Chrome Web Store review (estimate).",
+          "source": null
+        },
+        "sales_cycle": {
+          "score": 4.5,
+          "note": "$5/month consumer impulse buy, no committee.",
+          "source": null
+        },
+        "channel_readiness": {
+          "score": 2,
+          "note": "No audience; store search ranks by installs and ratings, led by 1M-user free incumbents.",
+          "source": "https://developer.chrome.com/docs/webstore/discovery"
+        }
+      },
+      "demand": {
+        "search_demand": {
+          "score": 3.5,
+          "note": "'youtube summarizer' shows 49.5K search volume.",
+          "source": "https://explodingtopics.com/topic/youtube-summarizer-HMc3g3XG"
+        },
+        "trend": {
+          "score": 3.5,
+          "note": "Search interest +167% (Exploding Topics); paid standalone demand eroded by free built-ins.",
+          "source": "https://explodingtopics.com/topic/youtube-summarizer-HMc3g3XG"
+        },
+        "willingness_to_pay": {
+          "score": 2,
+          "note": "Reviewers advise staying on free tiers; users expect it free.",
+          "source": "https://tldv.io/blog/notegpt-review/"
+        }
+      },
+      "competition": {
+        "free_alternatives": {
+          "score": 1,
+          "note": "Gemini in Chrome (free, US) summarizes videos with timestamps; does the whole job.",
+          "source": "https://www.techrepublic.com/article/news-google-gemini-chrome-upgrade/"
+        },
+        "competitor_density": {
+          "score": 1.5,
+          "note": "20+ direct tools: Glasp 1M users, Eightify, NoteGPT, Sider, Monica, Merlin, HARPA, Recall.",
+          "source": "https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli"
+        },
+        "differentiation": {
+          "score": 1,
+          "note": "'I am a developer' is not a product edge; no data, audience or cost advantage.",
+          "source": "https://www.producthunt.com/products/insighttube/launches"
+        }
+      },
+      "risk": {
+        "legal_regulatory": {
+          "score": 3,
+          "note": "Privacy policy and consent required by Chrome Web Store; copyright risk low for short summaries.",
+          "source": "https://developer.chrome.com/docs/webstore/program-policies/policies"
+        },
+        "platform_dependency": {
+          "score": 1.5,
+          "note": "Captions API needs edit rights; scraping is barred and blocked; YouTube ships its own Ask.",
+          "source": "https://developers.google.com/youtube/v3/docs/captions/download"
+        },
+        "market_risk": {
+          "score": 2,
+          "note": "Google is absorbing the feature into YouTube and Chrome.",
+          "source": "https://www.indiatvnews.com/technology/news/youtube-rolls-out-new-gemini-powered-ask-feature-how-it-works-2025-11-11-1017019"
+        }
+      },
+      "fit": {
+        "skills": {
+          "score": 3.5,
+          "note": "Developer skills cover the build; no marketing track record stated.",
+          "source": null
+        },
+        "assets": {
+          "score": 1,
+          "note": "No audience, list or data stated.",
+          "source": null
+        },
+        "interest": {
+          "score": 1.5,
+          "note": "Goal stated as side income, not domain passion.",
+          "source": null
+        }
+      }
+    },
+    "rules_applied": [
+      {
+        "rule": "R7_unprofitable_model",
+        "effect": "Profit potential 2.00 (2 or less): total 55 - 10 = 45, at most 49"
+      },
+      {
+        "rule": "R6_unprofitable_no_channel",
+        "effect": "no_distribution hit and LTV:CAC 0.014: total capped at 49 (no further change)"
+      }
+    ],
+    "metrics": {
+      "tam": {
+        "value": 2160000000,
+        "unit": "USD/year",
+        "basis": "estimate",
+        "source": "https://www.gii.tw/report/tbrc1994531-content-summarization-video-ai-global-market.html",
+        "reasoning": "Video AI content summarization market $2.16B in 2025 (TBRC via GII); single vendor report, broad scope, not triangulated.",
+        "as_of": "2026-11"
+      },
+      "sam": {
+        "value": 2700000,
+        "unit": "USD/year",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "About 10 paid summarizer players x ~$0.54M/yr (Eightify estimate, Starter Story) x 50% US share.",
+        "as_of": "2026-11"
+      },
+      "som": {
+        "value": 2700,
+        "unit": "USD/year",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "0.1% of SAM $2.7M = $2,700/yr, about 45 paying subscribers at $5/month.",
+        "as_of": "2026-11"
+      },
+      "competitors_found": {
+        "value": 16,
+        "unit": "competitors",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "10 named tools (Gemini in Chrome, Glasp, Eightify, NoteGPT, Monica, Sider, Merlin, HARPA, Recall, summarize.tech) + 6 recent look-alike launches.",
+        "as_of": "2026-11"
+      },
+      "competitor_price_range": {
+        "value": "0-15",
+        "unit": "USD/month",
+        "basis": "sourced",
+        "source": "https://chatyt.io/alternatives",
+        "reasoning": null,
+        "as_of": "2026-11"
+      },
+      "demand_trend": {
+        "value": "rising (search); paid standalone flat to falling",
+        "unit": null,
+        "basis": "sourced",
+        "source": "https://explodingtopics.com/topic/youtube-summarizer-HMc3g3XG",
+        "reasoning": null,
+        "as_of": "2026-11"
+      },
+      "price": {
+        "value": 5,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "The founder's stated price; matches Eightify's annual rate ($4.99).",
+        "as_of": "2026-11"
+      },
+      "variable_cost_per_unit": {
+        "value": 1.24,
+        "unit": "USD/paid user/month",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "Heavy user 100 summaries: LLM 100 x $0.0019 + transcripts 100 x $0.0057 + Stripe $0.445 = $1.24.",
+        "as_of": "2026-11"
+      },
+      "gross_margin_pct": {
+        "value": 75,
+        "unit": "%",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "(5 - 1.24) / 5 = 75%.",
+        "as_of": "2026-11"
+      },
+      "churn_monthly_pct": {
+        "value": 21,
+        "unit": "%",
+        "basis": "estimate",
+        "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study",
+        "reasoning": "1 - 0.061^(1/12) = 21%: 6.1% of AI-app monthly subs retained at 12 months (RevenueCat 2026).",
+        "as_of": "2026-11"
+      },
+      "expected_lifetime": {
+        "value": 4.8,
+        "unit": "months",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "1 / 0.21 = 4.8 months.",
+        "as_of": "2026-11"
+      },
+      "conversion_rate_pct": {
+        "value": 0.8,
+        "unit": "%",
+        "basis": "sourced",
+        "source": "https://dev.to/ktg0215/real-numbers-freemium-chrome-extension-monetization-after-6-months-5hga",
+        "reasoning": null,
+        "as_of": "2026-11"
+      },
+      "cac": {
+        "value": 1250,
+        "unit": "USD",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "Paid search: $3 CPC / (30% click-to-install x 0.8% install-to-paid) = $1,250.",
+        "as_of": "2026-11"
+      },
+      "ltv": {
+        "value": 18,
+        "unit": "USD",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "5 x 0.75 x 4.8 months = $18.",
+        "as_of": "2026-11"
+      },
+      "ltv_cac": {
+        "value": 0.014,
+        "unit": "ratio",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "18 / 1,250 = 0.014 on paid ads; unpaid channels have unknown CAC.",
+        "as_of": "2026-11"
+      },
+      "payback_months": {
+        "value": 332,
+        "unit": "months",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "1,250 / (5 - 1.24) = 332 months.",
+        "as_of": "2026-11"
+      },
+      "fixed_costs_month": {
+        "value": 27,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "Supadata Pro $17 + hosting/domain ~$10.",
+        "as_of": "2026-11"
+      },
+      "break_even_customers_per_month": {
+        "value": 8,
+        "unit": "customers",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "27 / 3.76 gross profit per customer = 7.2, rounded up to 8.",
+        "as_of": "2026-11"
+      },
+      "time_to_first_revenue_weeks": {
+        "value": 6,
+        "unit": "weeks",
+        "basis": "estimate",
+        "source": null,
+        "reasoning": "2 weeks build + 1 week store review + ~3 weeks to first organic payer.",
+        "as_of": "2026-11"
+      }
+    },
+    "launch_country": "US",
+    "launch_reason": "The founder's choice, and the market where Gemini in Chrome is free, so the hardest test.",
+    "kill_shots": {
+      "free_alternative": true,
+      "strong_competitor": true,
+      "graveyard": true,
+      "no_distribution": true,
+      "costs_eat_margin": false,
+      "weak_demand": false,
+      "legal_platform_risk": true,
+      "saturated_wave": false
+    },
+    "primary_kill_shot": "free_alternative",
+    "cheapest_test": "Rescue path 1: a landing page for YouTubers (auto chapters + show notes, $15/month pre-order) and 100 DMs to small channels in 7 days.",
+    "kill_criteria": [
+      "Fewer than 5 pre-orders at $15/month by day 7 -> stop",
+      "Fewer than 10 replies to 100 creator DMs by day 5 -> stop",
+      "Landing page visitor-to-signup below 5% on 200+ visitors by day 7 -> stop"
+    ],
+    "sources": [
+      "https://techcrunch.com/2025/09/18/google-brings-gemini-in-chrome-to-us-users-unveils-agentic-browsing-capabilities-and-more/",
+      "https://www.techrepublic.com/article/news-google-gemini-chrome-upgrade/",
+      "https://scrimba.com/articles/best-ai-video-summarizers-2026/",
+      "https://www.searchenginejournal.com/google-tests-ask-youtube-conversational-search-experiment/573175/",
+      "https://www.iphoneincanada.ca/2026/04/28/google-testing-ask-youtube-ai-search/",
+      "https://www.indiatvnews.com/technology/news/youtube-rolls-out-new-gemini-powered-ask-feature-how-it-works-2025-11-11-1017019",
+      "https://9to5google.com/2024/09/24/youtube-conversational-ai-premium-subscribers/",
+      "https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli",
+      "https://www.starterstory.com/stories/eightify-breakdown",
+      "https://notegpt.io/pricing?type=team",
+      "https://flowith.io/blog/monica-ai-pricing-2026-free-vs-pro-vs-pro-plus",
+      "https://overchat.ai/ai-hub/best-merlin-ai-alternatives",
+      "https://www.softwares.com/software/harpa-ai/pricing",
+      "https://chatyt.io/alternatives",
+      "https://www.producthunt.com/products/insighttube/launches",
+      "https://www.producthunt.com/products/youtube-summarizer-5/launches",
+      "https://www.producthunt.com/products/tubeinsights/launches",
+      "https://www.producthunt.com/products/deeptube/launches",
+      "https://www.producthunt.com/products/transcription-video/launches",
+      "https://www.producthunt.com/products/ytsummarizer/launches",
+      "https://www.chromeboard.com/extension/youtube-summary-with-chat-cmohfjnlbonnegncdgnbcfcnjageeilk",
+      "https://www.indiehackers.com/post/simple-ai-wrapper-in-auto-mode-8-months-4k-in-revenue-220-in-mrr-6d418c5a8e",
+      "https://trustmrr.com/startup/youtube-to-transcript",
+      "https://addons.mozilla.org/addon/2890360/",
+      "https://dictanote.co/youtube-summary/new/",
+      "https://tldv.io/blog/notegpt-review/",
+      "https://explodingtopics.com/topic/youtube-summarizer-HMc3g3XG",
+      "https://developers.google.com/youtube/v3/docs/captions/download",
+      "https://developers.google.com/youtube/terms/developer-policies",
+      "https://github.com/jdepoix/youtube-transcript-api/issues/592",
+      "https://developer.chrome.com/docs/webstore/program-policies/policies",
+      "https://developer.chrome.com/webstore/cws-payments-deprecation",
+      "https://developer.chrome.com/docs/webstore/discovery",
+      "https://www.revenuecat.com/blog/growth/ai-app-retention-study",
+      "https://chartmogul.com/resources/churn-cheat-sheet",
+      "https://chartmogul.com/reports/saas-conversion-report/",
+      "https://dev.to/ktg0215/real-numbers-freemium-chrome-extension-monetization-after-6-months-5hga",
+      "https://searchengineland.com/google-ads-costs-rising-but-conversion-rates-improved-in-2025-477927",
+      "https://www.developersdigest.tech/models/gemini-3-1-flash-lite",
+      "https://docs.supadata.ai/get-transcript",
+      "https://www.socialcrawl.dev/blog/best-youtube-data-apis-2026",
+      "https://www.mentalfloss.com/language/how-many-words-per-minute-do-people-speak",
+      "https://www.gii.tw/report/tbrc1994531-content-summarization-video-ai-global-market.html",
+      "https://thehackernews.com/2026/01/two-chrome-extensions-caught-stealing.html",
+      "https://www.malwarebytes.com/blog/news/2025/01/google-chrome-ai-extensions-deliver-info-stealing-malware-in-broad-attack",
+      "https://you-tldr.com/blog/youtldr-vs-eightify-comparison"
+    ],
+    "rescue": [
+      {
+        "change": "Sell to YouTubers, not viewers: auto chapters, show notes and SEO descriptions from their own videos at $15/month.",
+        "why": "Fixes legal_platform_risk (captions API allowed on own videos), pricing_power and free_alternative; channel still unproven.",
+        "score_after": 56,
+        "difficulty": "hard",
+        "effort": "2 weeks build, months of creator outreach",
+        "cost": "under $100",
+        "requires": "Reaching small creators (r/NewTubers, X) by hand; competing with vidIQ/TubeBuddy features"
+      },
+      {
+        "change": "Niche study tool: lecture videos to Anki flashcards and exam notes for med and nursing students, $8/month.",
+        "why": "Fixes differentiation and willingness_to_pay with a job Gemini does not do; channel is student communities.",
+        "score_after": 52,
+        "difficulty": "hard",
+        "effort": "2-3 weeks build, ongoing community work",
+        "cost": "under $100",
+        "requires": "Credibility in r/medicalschool-type communities; still depends on transcripts"
+      }
+    ],
+    "type_checks": [
+      {
+        "check": "churn_benchmark",
+        "result": "hit",
+        "note": "AI apps keep 6.1% of monthly subs after 12 months (~21%/month churn); ChartMogul median 8.9%/month at ARPA under $10.",
+        "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study"
+      },
+      {
+        "check": "switching_cost",
+        "result": "hit",
+        "note": "No lock-in: uninstall is one click and free Glasp, Gemini in Chrome and NoteGPT free tiers do the same job.",
+        "source": "https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli"
+      }
+    ],
+    "quick": false,
+    "run": {
+      "started": "2026-11-11T10:33:57Z",
+      "minutes": 6,
+      "searches": 32,
+      "fetches": 16,
+      "subagents": 4
+    }
+  },
+  "narrative": {
+    "language": "en",
+    "answer": "**NO-GO** (45/100). Google gives this away **free**: Gemini in Chrome summarizes YouTube videos for every US desktop user, Glasp's free extension has 1M users, and at $5/month with ~21% monthly churn no paid channel pays back.",
+    "tldr": [
+      "Gemini in Chrome (free, US, since 2025-09) and YouTube's own Ask button already do the **core job**.",
+      "LTV is about **$18** against a ~$1,250 paid CAC; only unproven unpaid channels remain.",
+      "Transcripts are a **platform risk**: the captions API only works on videos you can edit, and scraping is barred and blocked."
+    ],
+    "key_findings": [
+      {
+        "title": "Google does it free",
+        "detail": "Gemini in Chrome reached **all US desktop users** in 2025-09 and summarizes videos with timestamps, so the price anchor is **$0**.",
+        "source": "https://techcrunch.com/2025/09/18/google-brings-gemini-in-chrome-to-us-users-unveils-agentic-browsing-capabilities-and-more/"
+      },
+      {
+        "title": "Unit economics cannot pay for growth",
+        "detail": "LTV **~$18** (21%/month AI-app churn) vs paid CAC **~$1,250** at 0.8% install-to-paid (estimate).",
+        "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study"
+      },
+      {
+        "title": "No allowed transcript access",
+        "detail": "captions.download needs **edit permission** on the video; Developer Policies bar scraping, and YouTube blocks cloud IPs.",
+        "source": "https://developers.google.com/youtube/v3/docs/captions/download"
+      }
+    ],
+    "recommendation": "Do not build the $5 viewer extension. If you want to keep the skill set, test the creator-side tool (chapters + show notes from their own videos, $15/month) with a 7-day pre-order page.",
+    "steelman": "Search interest is **rising** (49.5K volume, +167%) and costs are tiny (~$0.002 per summary), so a developer can ship fast. True, but the same cheap tech lets **Google** ship it free inside Chrome and YouTube, which removes the reason to pay.",
+    "lesson": "When the platform you sit on can ship your feature as a free button, the feature is not a business.",
+    "rescue": [
+      {
+        "change": "Sell to YouTubers, not viewers: auto chapters, show notes and SEO descriptions from their own videos at $15/month.",
+        "why": "Fixes legal_platform_risk (captions API allowed on own videos), pricing_power and free_alternative; channel still unproven.",
+        "score_after": 56,
+        "difficulty": "hard",
+        "effort": "2 weeks build, months of creator outreach",
+        "cost": "under $100",
+        "requires": "Reaching small creators (r/NewTubers, X) by hand; competing with vidIQ/TubeBuddy features"
+      },
+      {
+        "change": "Niche study tool: lecture videos to Anki flashcards and exam notes for med and nursing students, $8/month.",
+        "why": "Fixes differentiation and willingness_to_pay with a job Gemini does not do; channel is student communities.",
+        "score_after": 52,
+        "difficulty": "hard",
+        "effort": "2-3 weeks build, ongoing community work",
+        "cost": "under $100",
+        "requires": "Credibility in r/medicalschool-type communities; still depends on transcripts"
+      }
+    ],
+    "premortem": [
+      {
+        "cause": "Users try it once, then use free Gemini in Chrome or Glasp; almost nobody upgrades to $5.",
+        "linked_to": "free_alternative",
+        "likelihood": "H",
+        "early_signal": "Free-to-paid below 0.5% after the first 500 installs"
+      },
+      {
+        "cause": "Store search buries a new listing under 1M-user incumbents; installs never reach the ~1,000 needed for 8 payers.",
+        "linked_to": "no_distribution",
+        "likelihood": "H",
+        "early_signal": "Under 10 installs a day by week 3"
+      },
+      {
+        "cause": "YouTube blocks transcript fetching or Chrome review rejects the extension; summaries break.",
+        "linked_to": "legal_platform_risk",
+        "likelihood": "M",
+        "early_signal": "Over 5% of summaries fail on transcript fetch in week 1"
+      }
+    ],
+    "why_now": {
+      "verdict": "late",
+      "note": "Every dated change since 2024 moves the feature into **free Google products**; cheaper LLMs help incumbents as much as you.",
+      "changes": [
+        {
+          "what": "YouTube tests a conversational AI with 'Summarize video' for US Premium on Android.",
+          "when": "2024-09",
+          "source": "https://9to5google.com/2024/09/24/youtube-conversational-ai-premium-subscribers/"
+        },
+        {
+          "what": "Gemini in Chrome rolls out free to all US Mac and Windows desktop users.",
+          "when": "2025-09",
+          "source": "https://techcrunch.com/2025/09/18/google-brings-gemini-in-chrome-to-us-users-unveils-agentic-browsing-capabilities-and-more/"
+        },
+        {
+          "what": "YouTube rolls out a Gemini-powered Ask button that summarizes videos.",
+          "when": "2025-11",
+          "source": "https://www.indiatvnews.com/technology/news/youtube-rolls-out-new-gemini-powered-ask-feature-how-it-works-2025-11-11-1017019"
+        },
+        {
+          "what": "Ask YouTube conversational search tested, then launched to US Premium.",
+          "when": "2026-04",
+          "source": "https://www.iphoneincanada.ca/2026/04/28/google-testing-ask-youtube-ai-search/"
+        },
+        {
+          "what": "Gemini 3.1 Flash-Lite at $0.25/$1.50 per 1M tokens: summaries cost ~$0.002.",
+          "when": "2026-10",
+          "source": "https://www.developersdigest.tech/models/gemini-3-1-flash-lite"
+        }
+      ]
+    },
+    "icp": {
+      "who": "US college and grad students who study from long lecture and tutorial videos",
+      "where": [
+        "r/college",
+        "r/GradSchool",
+        "r/studytips",
+        "Study TikTok",
+        "Discord study servers"
+      ],
+      "pays_for_today": "ChatGPT Plus ($20/month) or Gemini, which already summarize a pasted link or transcript",
+      "budget": "unknown (estimate $3-10/month)",
+      "trigger": "Exam week with hours of lecture video to review"
+    },
+    "kill_shots": {
+      "free_alternative": {
+        "evidence": "Gemini in Chrome (free for US desktop users since 2025-09) summarizes videos with timestamps; Glasp, NoteGPT free tier and NotebookLM also do it.",
+        "source": "https://www.techrepublic.com/article/news-google-gemini-chrome-upgrade/",
+        "count": 5
+      },
+      "strong_competitor": {
+        "evidence": "Glasp's free extension shows 1,000,000 users; Eightify est. 100,000+ users and ~$45K/month (Starter Story, 2024-05, estimate).",
+        "source": "https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli",
+        "count": 9
+      },
+      "graveyard": {
+        "evidence": "summarize.tech returned 'DEPLOYMENT_PAUSED' in 2026-08; Glasp's Firefox add-on reported broken; Summarify.me stalled at ~$220 MRR after 8 months.",
+        "source": "https://scrimba.com/articles/best-ai-video-summarizers-2026/"
+      },
+      "no_distribution": {
+        "evidence": "No audience; paid CAC ~$1,250 vs LTV ~$18 (estimate); store search ranks by installs and ratings, which favors 1M-user incumbents.",
+        "source": "https://developer.chrome.com/docs/webstore/discovery"
+      },
+      "costs_eat_margin": {
+        "evidence": "Clear: ~$1.24 variable cost per heavy paid user (LLM $0.19, transcripts $0.57, Stripe $0.445) leaves ~75% margin (estimate).",
+        "source": "https://www.developersdigest.tech/models/gemini-3-1-flash-lite"
+      },
+      "weak_demand": {
+        "evidence": "Clear: 'youtube summarizer' at 49.5K search volume, +167% growth; paid standalone demand is eroding but searches rise.",
+        "source": "https://explodingtopics.com/topic/youtube-summarizer-HMc3g3XG"
+      },
+      "legal_platform_risk": {
+        "evidence": "captions.download requires edit permission; Developer Policies bar scraping (III.E.6); YouTube blocks cloud-IP transcript requests (2025-2026).",
+        "source": "https://developers.google.com/youtube/terms/developer-policies"
+      },
+      "saturated_wave": {
+        "evidence": "7 dated look-alike launches found (InsightTube, YouTube Summarizer, Tube Insights, DeepTube, Transcription.video, 2 store listings); below the 10 threshold, but a lower bound.",
+        "source": "https://www.producthunt.com/products/insighttube/launches",
+        "count": 7,
+        "window": "2025-11 to 2026-11"
+      }
+    },
+    "customer": {
+      "segment": "US students and knowledge workers with long video backlogs (assumed)",
+      "pain": "Hours of video to get a few key points",
+      "today": "Free Gemini in Chrome, YouTube Ask, Glasp, or pasting a link into ChatGPT/Claude"
+    },
+    "use_cases": [
+      {
+        "name": "Viewer summaries, $5/month (the idea)",
+        "who_pays": "Students, knowledge workers",
+        "effort": "1-2 weeks",
+        "best": false
+      },
+      {
+        "name": "Creator tool: chapters, show notes, SEO from own videos",
+        "who_pays": "Small YouTubers",
+        "effort": "2 weeks",
+        "best": true
+      },
+      {
+        "name": "Lecture videos to flashcards for med students",
+        "who_pays": "Med and nursing students",
+        "effort": "2-3 weeks",
+        "best": false
+      }
+    ],
+    "competitors": [
+      {
+        "name": "Gemini in Chrome",
+        "url": "https://techcrunch.com/2025/09/18/google-brings-gemini-in-chrome-to-us-users-unveils-agentic-browsing-capabilities-and-more/",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "price_period": "month",
+        "free": true,
+        "traction": 5,
+        "traction_note": "Built into Chrome for all US desktop users",
+        "gap": "None for basic summaries",
+        "country": "US",
+        "price_source": "https://techcrunch.com/2025/09/18/google-brings-gemini-in-chrome-to-us-users-unveils-agentic-browsing-capabilities-and-more/",
+        "price_as_of": "2025-09"
+      },
+      {
+        "name": "Glasp YouTube Summary with ChatGPT & Claude",
+        "url": "https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "price_period": "month",
+        "free": true,
+        "traction": 5,
+        "traction_note": "1,000,000 users on Chrome Web Store",
+        "gap": "Needs a ChatGPT/Claude account",
+        "country": "US",
+        "price_source": "https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli",
+        "price_as_of": "2026-11"
+      },
+      {
+        "name": "Eightify",
+        "url": "https://www.starterstory.com/stories/eightify-breakdown",
+        "price_low": 4.99,
+        "price_high": 9.99,
+        "currency": "USD",
+        "price_period": "month",
+        "free": false,
+        "traction": 4,
+        "traction_note": "100,000+ users, ~$45K/month (Starter Story estimate, 2024-05)",
+        "gap": "Own pricing page reportedly gone",
+        "country": "US",
+        "price_source": "https://you-tldr.com/blog/youtldr-vs-eightify-comparison",
+        "price_as_of": "2026-11"
+      },
+      {
+        "name": "NoteGPT",
+        "url": "https://notegpt.io/pricing?type=team",
+        "price_low": 9,
+        "price_high": 69,
+        "currency": "USD",
+        "price_period": "month",
+        "free": false,
+        "traction": 3,
+        "traction_note": "Called most popular in comparisons; no count found",
+        "gap": "Free tier capped at 15 summaries/month",
+        "country": null,
+        "price_source": "https://notegpt.io/pricing?type=team",
+        "price_as_of": "2026-11"
+      },
+      {
+        "name": "Monica",
+        "url": "https://flowith.io/blog/monica-ai-pricing-2026-free-vs-pro-vs-pro-plus",
+        "price_low": 8.3,
+        "price_high": 82.9,
+        "currency": "USD",
+        "price_period": "month",
+        "free": false,
+        "traction": 3,
+        "traction_note": "All-in-one AI assistant; count unknown",
+        "gap": "YouTube is one feature of many",
+        "country": null,
+        "price_source": "https://flowith.io/blog/monica-ai-pricing-2026-free-vs-pro-vs-pro-plus",
+        "price_as_of": "2026-03"
+      },
+      {
+        "name": "Sider",
+        "url": "https://overchat.ai/ai-hub/best-merlin-ai-alternatives",
+        "price_low": 4.99,
+        "price_high": 10,
+        "currency": "USD",
+        "price_period": "month",
+        "free": false,
+        "traction": 3,
+        "traction_note": "All-in-one sidebar; count unknown",
+        "gap": "Generalist",
+        "country": null,
+        "price_source": "https://overchat.ai/ai-hub/best-merlin-ai-alternatives",
+        "price_as_of": "2026-11"
+      },
+      {
+        "name": "Merlin",
+        "url": "https://overchat.ai/ai-hub/best-merlin-ai-alternatives",
+        "price_low": 15,
+        "price_high": 29,
+        "currency": "USD",
+        "price_period": "month",
+        "free": false,
+        "traction": 3,
+        "traction_note": "Free tier ~51-100 queries/day; count unknown",
+        "gap": "Pricier",
+        "country": null,
+        "price_source": "https://overchat.ai/ai-hub/best-merlin-ai-alternatives",
+        "price_as_of": "2026-11"
+      },
+      {
+        "name": "HARPA AI",
+        "url": "https://www.softwares.com/software/harpa-ai/pricing",
+        "price_low": 0,
+        "price_high": 15,
+        "currency": "USD",
+        "price_period": "month",
+        "free": false,
+        "traction": 2,
+        "traction_note": "Count unknown",
+        "gap": "Automation focus",
+        "country": null,
+        "price_source": "https://www.softwares.com/software/harpa-ai/pricing",
+        "price_as_of": "2026-11"
+      },
+      {
+        "name": "Recall",
+        "url": "https://chatyt.io/alternatives",
+        "price_low": 0,
+        "price_high": 7,
+        "currency": "USD",
+        "price_period": "month",
+        "free": false,
+        "traction": 2,
+        "traction_note": "Count unknown",
+        "gap": "Knowledge base angle",
+        "country": null,
+        "price_source": "https://chatyt.io/alternatives",
+        "price_as_of": "2026-11"
+      },
+      {
+        "name": "summarize.tech",
+        "url": "https://scrimba.com/articles/best-ai-video-summarizers-2026/",
+        "price_low": 9.99,
+        "price_high": 14.99,
+        "currency": "USD",
+        "price_period": "month",
+        "free": false,
+        "traction": 1,
+        "traction_note": "Deployment paused (HTTP 503) 2026-08",
+        "gap": "Apparently dead",
+        "country": null,
+        "price_source": "https://chatyt.io/alternatives",
+        "price_as_of": "2026-11"
+      }
+    ],
+    "currency": "USD",
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "customers_month": 3,
+        "revenue_month": 15,
+        "costs_month": 31,
+        "note": "Store listing buried; 3 payers"
+      },
+      {
+        "name": "Base",
+        "customers_month": 15,
+        "revenue_month": 75,
+        "costs_month": 46,
+        "note": "~1,900 installs x 0.8%; $27 fixed + 15 x $1.24"
+      },
+      {
+        "name": "Optimistic",
+        "customers_month": 80,
+        "revenue_month": 400,
+        "costs_month": 126,
+        "note": "One viral Reddit/TikTok post; still under $300/month profit"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Free Google features (Gemini in Chrome, YouTube Ask) cap willingness to pay",
+        "likelihood": "H",
+        "impact": "H",
+        "mitigation": "Pick a job Google does not do (creator tools, flashcards)",
+        "source": "https://techcrunch.com/2025/09/18/google-brings-gemini-in-chrome-to-us-users-unveils-agentic-browsing-capabilities-and-more/"
+      },
+      {
+        "risk": "YouTube blocks transcript access",
+        "likelihood": "M",
+        "impact": "H",
+        "mitigation": "Fetch in the user's browser, or use own-channel captions API",
+        "source": "https://github.com/jdepoix/youtube-transcript-api/issues/592"
+      },
+      {
+        "risk": "Breach of YouTube Developer Policies (scraping, derived data, UI changes)",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Avoid the API for third-party videos; legal review",
+        "source": "https://developers.google.com/youtube/terms/developer-policies"
+      },
+      {
+        "risk": "Chrome Web Store rejection or user distrust of new AI extensions",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Minimal permissions, clear privacy policy",
+        "source": "https://thehackernews.com/2026/01/two-chrome-extensions-caught-stealing.html"
+      },
+      {
+        "risk": "High churn (~21%/month) erases MRR growth",
+        "likelihood": "H",
+        "impact": "M",
+        "mitigation": "Annual plans; saved summary library",
+        "source": "https://www.revenuecat.com/blog/growth/ai-app-retention-study"
+      }
+    ],
+    "test_plan": [
+      {
+        "when": "Day 1",
+        "step": "One-page site for the creator tool: auto chapters + show notes, $15/month pre-order via Stripe link",
+        "verify": "Page live, checkout works"
+      },
+      {
+        "when": "Day 2-3",
+        "step": "Hand-make chapters + show notes for 10 small channels' latest videos and DM them",
+        "verify": "10+ replies from 100 DMs"
+      },
+      {
+        "when": "Day 4-5",
+        "step": "Post a before/after in r/NewTubers and creator Discords",
+        "verify": "200+ visitors, 5%+ sign up"
+      },
+      {
+        "when": "Day 6-7",
+        "step": "Ask every warm lead to pre-order",
+        "verify": "5+ paid pre-orders at $15/month"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://techcrunch.com/2025/09/18/google-brings-gemini-in-chrome-to-us-users-unveils-agentic-browsing-capabilities-and-more/",
+        "title": "TechCrunch, Gemini in Chrome rolls out to all US users",
+        "supports": "Gemini in Chrome free for US Mac/Windows desktop users",
+        "accessed": "2026-11-11",
+        "published": "2025-09",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.techrepublic.com/article/news-google-gemini-chrome-upgrade/",
+        "title": "TechRepublic, Gemini Chrome upgrade",
+        "supports": "Gemini in Chrome summarizes YouTube videos with key points and timestamps",
+        "accessed": "2026-11-11",
+        "published": "2025-09",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://scrimba.com/articles/best-ai-video-summarizers-2026/",
+        "title": "Scrimba, Best AI video summarizers 2026",
+        "supports": "Free alternatives; Eightify pricing; summarize.tech paused deployment",
+        "accessed": "2026-11-11",
+        "published": "2026-08",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.searchenginejournal.com/google-tests-ask-youtube-conversational-search-experiment/573175/",
+        "title": "Search Engine Journal, Google tests Ask YouTube",
+        "supports": "YouTube conversational AI search test",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.iphoneincanada.ca/2026/04/28/google-testing-ask-youtube-ai-search/",
+        "title": "iPhone in Canada, Google testing Ask YouTube AI search",
+        "supports": "Ask YouTube tested April 2026",
+        "accessed": "2026-11-11",
+        "published": "2026-04",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.indiatvnews.com/technology/news/youtube-rolls-out-new-gemini-powered-ask-feature-how-it-works-2025-11-11-1017019",
+        "title": "India TV News, YouTube rolls out Gemini-powered Ask feature",
+        "supports": "YouTube Ask button summarizes videos",
+        "accessed": "2026-11-11",
+        "published": "2025-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://9to5google.com/2024/09/24/youtube-conversational-ai-premium-subscribers/",
+        "title": "9to5Google, YouTube conversational AI for Premium",
+        "supports": "YouTube 'Summarize video' for US Premium on Android",
+        "accessed": "2026-11-11",
+        "published": "2024-09",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://chromewebstore.google.com/detail/youtube-summary-with-chat/nmmicjeknamkfloonkhhcjmomieiodli",
+        "title": "Chrome Web Store, YouTube Summary with ChatGPT & Claude (Glasp)",
+        "supports": "Free extension, 1,000,000 users",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.starterstory.com/stories/eightify-breakdown",
+        "title": "Starter Story, Eightify breakdown",
+        "supports": "Eightify est. $45K/month, 100,000+ users, $4.95/month (estimate, not founder-reported)",
+        "accessed": "2026-11-11",
+        "published": "2024-05",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://notegpt.io/pricing?type=team",
+        "title": "NoteGPT, pricing",
+        "supports": "NoteGPT from $9/month annual",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "primary"
+      },
+      {
+        "url": "https://flowith.io/blog/monica-ai-pricing-2026-free-vs-pro-vs-pro-plus",
+        "title": "Flowith, Monica AI pricing 2026",
+        "supports": "Monica $8.3-82.9/month",
+        "accessed": "2026-11-11",
+        "published": "2026-03",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://overchat.ai/ai-hub/best-merlin-ai-alternatives",
+        "title": "Overchat, Merlin AI alternatives",
+        "supports": "Sider $4.99, Merlin ~$15/month",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.softwares.com/software/harpa-ai/pricing",
+        "title": "Softwares.com, HARPA AI pricing",
+        "supports": "HARPA AI free / ~$15 premium",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://chatyt.io/alternatives",
+        "title": "ChatYT, alternatives comparison",
+        "supports": "Recall free/$7; summarize.tech $9.99-14.99",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/insighttube/launches",
+        "title": "Product Hunt, InsightTube launch",
+        "supports": "Look-alike launch 2026-01-22",
+        "accessed": "2026-11-11",
+        "published": "2026-01",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/youtube-summarizer-5/launches",
+        "title": "Product Hunt, YouTube Summarizer launch",
+        "supports": "Look-alike launch 2026-01-20",
+        "accessed": "2026-11-11",
+        "published": "2026-01",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/tubeinsights/launches",
+        "title": "Product Hunt, Tube Insights launch",
+        "supports": "Look-alike launch 2026-01-28",
+        "accessed": "2026-11-11",
+        "published": "2026-01",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/deeptube/launches",
+        "title": "Product Hunt, DeepTube launch",
+        "supports": "Look-alike launch 2026-01-05",
+        "accessed": "2026-11-11",
+        "published": "2026-01",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/transcription-video/launches",
+        "title": "Product Hunt, Transcription.video launch",
+        "supports": "Look-alike launch 2026-02-10",
+        "accessed": "2026-11-11",
+        "published": "2026-02",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/ytsummarizer/launches",
+        "title": "Product Hunt, YTSummarizer",
+        "supports": "YTSummarizer $29 one-time",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.chromeboard.com/extension/youtube-summary-with-chat-cmohfjnlbonnegncdgnbcfcnjageeilk",
+        "title": "Chromeboard, 'Youtube Summary With Chat' listing",
+        "supports": "New look-alike listed 2026-04-13 with 83 users",
+        "accessed": "2026-11-11",
+        "published": "2026-04",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.indiehackers.com/post/simple-ai-wrapper-in-auto-mode-8-months-4k-in-revenue-220-in-mrr-6d418c5a8e",
+        "title": "Indie Hackers, AI wrapper: 8 months, $4K revenue, $220 MRR",
+        "supports": "Summarify.me ~$220 MRR after 8 months",
+        "accessed": "2026-11-11",
+        "published": "2024",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://trustmrr.com/startup/youtube-to-transcript",
+        "title": "TrustMRR, YouTube to Transcript listing",
+        "supports": "$200 MRR with 10k+ active users",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://addons.mozilla.org/addon/2890360/",
+        "title": "Mozilla Add-ons, Glasp YouTube Summary (Firefox)",
+        "supports": "Reviews report it stopped working; 4,908 users",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://dictanote.co/youtube-summary/new/",
+        "title": "Dictanote, YouTube Summary changelog",
+        "supports": "Removed transcript display citing YouTube API restrictions",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://tldv.io/blog/notegpt-review/",
+        "title": "tl;dv, NoteGPT review",
+        "supports": "Free tier is enough; advises not paying",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://explodingtopics.com/topic/youtube-summarizer-HMc3g3XG",
+        "title": "Exploding Topics, 'youtube summarizer'",
+        "supports": "49.5K search volume, +167% growth",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://developers.google.com/youtube/v3/docs/captions/download",
+        "title": "Google for Developers, YouTube Data API captions.download",
+        "supports": "Requires permission to edit the video; 200 quota units",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://developers.google.com/youtube/terms/developer-policies",
+        "title": "Google for Developers, YouTube API Services Developer Policies",
+        "supports": "No scraping; no derived data; no UI interference",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://github.com/jdepoix/youtube-transcript-api/issues/592",
+        "title": "GitHub, youtube-transcript-api issue #592",
+        "supports": "YouTube blocks cloud-IP transcript requests",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://developer.chrome.com/docs/webstore/program-policies/policies",
+        "title": "Chrome for Developers, Web Store program policies",
+        "supports": "Single purpose, user-data disclosure, no unauthorized access",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://developer.chrome.com/webstore/cws-payments-deprecation",
+        "title": "Chrome for Developers, CWS payments deprecation",
+        "supports": "Must bring own payment processor",
+        "accessed": "2026-11-11",
+        "published": "2020-09",
+        "tier": "primary"
+      },
+      {
+        "url": "https://developer.chrome.com/docs/webstore/discovery",
+        "title": "Chrome for Developers, Web Store discovery",
+        "supports": "Store ranking uses popularity, ratings, installs vs uninstalls",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.revenuecat.com/blog/growth/ai-app-retention-study",
+        "title": "RevenueCat, AI app retention study",
+        "supports": "6.1% of AI monthly subs retained at 12 months",
+        "accessed": "2026-11-11",
+        "published": "2026-08",
+        "tier": "primary"
+      },
+      {
+        "url": "https://chartmogul.com/resources/churn-cheat-sheet",
+        "title": "ChartMogul, churn cheat sheet",
+        "supports": "8.9% median monthly churn for ARPA $0-10",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://chartmogul.com/reports/saas-conversion-report/",
+        "title": "ChartMogul, SaaS conversion report",
+        "supports": "Freemium conversion 3-5% good",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "secondary"
+      },
+      {
+        "url": "https://dev.to/ktg0215/real-numbers-freemium-chrome-extension-monetization-after-6-months-5hga",
+        "title": "DEV, freemium Chrome extension monetization after 6 months",
+        "supports": "0.8% install-to-paid on 5 extensions",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://searchengineland.com/google-ads-costs-rising-but-conversion-rates-improved-in-2025-477927",
+        "title": "Search Engine Land, Google Ads costs rising 2025",
+        "supports": "Average CPC about $5.42",
+        "accessed": "2026-11-11",
+        "published": "2025",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.developersdigest.tech/models/gemini-3-1-flash-lite",
+        "title": "Developers Digest, Gemini 3.1 Flash-Lite pricing",
+        "supports": "$0.25 / $1.50 per 1M tokens",
+        "accessed": "2026-11-11",
+        "published": "2026-10",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://docs.supadata.ai/get-transcript",
+        "title": "Supadata docs, get transcript",
+        "supports": "1 credit per existing transcript",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.socialcrawl.dev/blog/best-youtube-data-apis-2026",
+        "title": "SocialCrawl, best YouTube data APIs 2026",
+        "supports": "Supadata Pro $17 for 3,000 credits",
+        "accessed": "2026-11-11",
+        "published": "2026-07",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.mentalfloss.com/language/how-many-words-per-minute-do-people-speak",
+        "title": "Mental Floss, words per minute people speak",
+        "supports": "~150 spoken words per minute",
+        "accessed": "2026-11-11",
+        "published": null,
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.gii.tw/report/tbrc1994531-content-summarization-video-ai-global-market.html",
+        "title": "The Business Research Company via GII, video AI content summarization market",
+        "supports": "$2.16B (2025) to $6.54B (2030)",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thehackernews.com/2026/01/two-chrome-extensions-caught-stealing.html",
+        "title": "The Hacker News, Chrome extensions caught stealing AI chats",
+        "supports": "AI-extension trust climate",
+        "accessed": "2026-11-11",
+        "published": "2026-01",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.malwarebytes.com/blog/news/2025/01/google-chrome-ai-extensions-deliver-info-stealing-malware-in-broad-attack",
+        "title": "Malwarebytes, fake AI Chrome extensions",
+        "supports": "Google removed fake AI-assistant extensions",
+        "accessed": "2026-11-11",
+        "published": "2025-01",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://you-tldr.com/blog/youtldr-vs-eightify-comparison",
+        "title": "YouTLDR, YouTLDR vs Eightify",
+        "supports": "Eightify $4.99/month on annual billing",
+        "accessed": "2026-11-11",
+        "published": "2026",
+        "tier": "tertiary"
+      }
+    ]
+  }
+}

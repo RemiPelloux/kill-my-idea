@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "slug": "ai-headshots",
+  "title": "AI headshot generator: 10 selfies to 40 LinkedIn headshots for $29",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "An AI headshot generator: upload 10 selfies, get 40 professional LinkedIn headshots for $29. Launch country US, budget $2,000, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions. Use the slug ai-headshots.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Professionals need a polished LinkedIn headshot without paying for a photographer.",
+  "customer": "US professionals and job seekers updating their LinkedIn profile",
+  "solution": "Web app: upload 10 selfies, a fine-tuned image model returns 40 professional headshots.",
+  "revenue_model": "one-off",
+  "price": {
+    "amount": 29,
+    "currency": "USD",
+    "period": "one-off"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [
+    "upload 10 selfies, get 40 professional LinkedIn headshots for $29"
+  ],
+  "context": {
+    "budget": "USD 2,000",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "developer"
+  },
+  "assumptions": [
+    "No existing audience, list or customers in the niche (not stated; user said 'just go')",
+    "No validation done yet (no waitlist, no pre-sales)",
+    "Generation runs on a hosted model API (fal.ai / Replicate / Astria), not own GPUs",
+    "Stripe for payments at US standard fees (2.9% + $0.30, not verified on a US page)"
+  ],
+  "unknowns": [
+    "channel",
+    "validation",
+    "audience"
+  ],
+  "answers": []
+}

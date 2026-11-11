@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "slug": "youtube-summary-extension",
+  "title": "AI YouTube video summarizer Chrome extension",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "A Chrome extension that summarizes YouTube videos with AI, $5 a month. Launch country US, budget $500, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions. Use the slug youtube-summary-extension.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Long YouTube videos take too much time to watch to get the key points.",
+  "customer": null,
+  "solution": "A Chrome extension that summarizes YouTube videos with AI.",
+  "revenue_model": "subscription",
+  "price": {
+    "amount": 5,
+    "currency": "USD",
+    "period": "month"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [],
+  "context": {
+    "budget": "USD 500",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "I am a developer"
+  },
+  "assumptions": [
+    "Customer segment not stated: assumed US students and knowledge workers who watch long videos.",
+    "Channel not stated: assumed Chrome Web Store search plus free organic posts; no existing audience.",
+    "Transcripts fetched in the user's browser or via a paid transcript API, summaries via a cheap LLM API.",
+    "Headless run ('just go'): no intake or follow-up questions asked."
+  ],
+  "unknowns": [
+    "customer",
+    "channel"
+  ],
+  "answers": []
+}

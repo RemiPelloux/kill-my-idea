@@ -1,0 +1,1139 @@
+{
+ "schema_version": "1.0",
+ "idea": {
+  "schema_version": "1.0",
+  "slug": "dog-walking-app",
+  "title": "Uber-style on-demand dog walking app (GB)",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "marketplace",
+  "source": {
+   "type": "own-idea",
+   "text": "An Uber-style app for on-demand dog walking that takes 20% of each walk. Launch country GB, budget 5,000 GBP, 15 hours a week, goal startup, edge: I am a developer. Just go: do not ask questions. Use the slug dog-walking-app.",
+   "url": null,
+   "author": null,
+   "posted": null
+  },
+  "problem": "Dog owners need a walker at short notice and want to book one instantly.",
+  "customer": null,
+  "solution": "An Uber-style mobile app that matches dog owners with nearby walkers on demand.",
+  "revenue_model": "marketplace",
+  "price": null,
+  "channel": null,
+  "countries": [
+   "GB"
+  ],
+  "claims": [
+   "An Uber-style app for on-demand dog walking",
+   "takes 20% of each walk"
+  ],
+  "context": {
+   "budget": "GBP 5,000",
+   "time_per_week": "15 h",
+   "goal": "startup",
+   "edge": "I am a developer"
+  },
+  "assumptions": [
+   "Customer assumed to be working dog owners in dense UK cities, London first, because the input names no segment.",
+   "Walk price assumed at the Rover London 30-minute average of GBP 14.19; the 20% take is the user's.",
+   "Launch in one London area first; the user gave GB only.",
+   "No existing audience, walker network or validation, since the input mentions none (headless run, no questions asked).",
+   "Interest in the domain assumed neutral: the stated goal is a startup and no pet-care background is given."
+  ],
+  "unknowns": [
+   "customer",
+   "price",
+   "channel"
+  ],
+  "answers": []
+ },
+ "verdict": {
+  "schema_version": "1.0",
+  "slug": "dog-walking-app",
+  "evaluated": "2026-11-11",
+  "as_of": null,
+  "mode": "kill",
+  "verdict": "NO-GO",
+  "score": 41,
+  "score_raw": 50.5,
+  "quick": false,
+  "confidence": {
+   "level": "high",
+   "sourced_subscores": 15,
+   "sources": 39,
+   "primary_sources": 22,
+   "note": "Raise it with real UK CPC for 'dog walker near me' (Keyword Planner) and on-demand repeat-booking data; both are estimates here."
+  },
+  "criteria": {
+   "profit": 2.0,
+   "feasibility": 2.5,
+   "time_to_first_revenue": 2.5,
+   "demand": 3.0,
+   "competition": 2.0,
+   "risk": 3.0,
+   "fit": 2.0
+  },
+  "criteria_detail": {
+   "profit": {
+    "gross_margin": {
+     "score": 4,
+     "note": "20% of a GBP 14.19 walk = GBP 2.84; Stripe card, Connect payout and account fees leave about 77% margin (estimate).",
+     "source": "https://stripe.com/gb/connect/pricing"
+    },
+    "ltv_cac": {
+     "score": 1,
+     "note": "LTV about GBP 26 vs CAC about GBP 40 per owner (estimate): 0.65. R4: regulars who would fix it leave the platform.",
+     "source": "https://www.wordstream.com/blog/facebook-ads-benchmarks-2026"
+    },
+    "pricing_power": {
+     "score": 1,
+     "note": "Rover UK takes 15%, and 5% on recurring care; 20% is above the leader and off-app the take is zero. Lowered by R4.",
+     "source": "https://support-uk.rover.com/hc/en-gb/articles/360000909143"
+    }
+   },
+   "feasibility": {
+    "build_effort": {
+     "score": 2,
+     "note": "Two-sided app with live GPS, Stripe Connect, vetting and dispatch: 2-4 months at 15 h/week (estimate).",
+     "source": "https://miracuves.com/dog-walk-clone.md"
+    },
+    "skills_match": {
+     "score": 3,
+     "note": "Developer covers the build; walker recruitment, vetting and local ops are new skills.",
+     "source": null
+    },
+    "capital_needed": {
+     "score": 3,
+     "note": "GBP 5,000 covers app fees, DBS checks at GBP 20 each and one area's launch, with little margin for paid acquisition.",
+     "source": "https://www.gov.uk/government/news/dbs-reduces-fees-for-checks-and-update-service-from-5-october-2026"
+    }
+   },
+   "time_to_first_revenue": {
+    "time_to_mvp": {
+     "score": 2,
+     "note": "About 12 weeks to a working two-sided app plus vetted walkers in one area (estimate).",
+     "source": null
+    },
+    "sales_cycle": {
+     "score": 4,
+     "note": "Owners book same-day; walker onboarding (DBS, insurance) takes weeks.",
+     "source": null
+    },
+    "channel_readiness": {
+     "score": 2,
+     "note": "No audience or walker network; liquidity type check hit: on-demand needs idle walkers within minutes in every district.",
+     "source": "https://builtin.com/operations/gig-economy-apps-covid-wag"
+    }
+   },
+   "demand": {
+    "search_demand": {
+     "score": 3.5,
+     "note": "10.2M-15.5M UK dogs and 49% of London households own one; demand for walks is large, for on-demand walks unproven.",
+     "source": "https://www.ukpetfood.org/resource/britain-s-dog-ownership-boom-as-15-5-million-dogs-now-live-in-uk-homes.html"
+    },
+    "trend": {
+     "score": 3,
+     "note": "Mixed: UK Pet Food says a record 15.5M dogs (2026), PDSA says 10.2M, down from 11.1M (2025).",
+     "source": "https://www.pdsa.org.uk/what-we-do/pdsa-animal-wellbeing-report/uk-pet-populations-of-dogs-cats-and-rabbits"
+    },
+    "willingness_to_pay": {
+     "score": 3,
+     "note": "Owners pay GBP 12-15 per London walk on Rover; they pay the walker, not for on-demand speed.",
+     "source": "https://www.rover.com/uk/blog/london-uk-dog-walking-price/"
+    }
+   },
+   "competition": {
+    "free_alternatives": {
+     "score": 2,
+     "note": "Local Facebook groups, Nextdoor and BorrowMyDoggy's free tier cover matching; payment and trust are not free.",
+     "source": "https://www.mumsnet.com/talk/the_doghouse/4202132-Stuggling-to-find-dog-walker"
+    },
+    "competitor_density": {
+     "score": 2.5,
+     "note": "Rover (27k UK App Store ratings), Tailster, BorrowMyDoggy, Airtasker, Pawshake; one dominant leader.",
+     "source": "https://apps.apple.com/gb/app/id547320928"
+    },
+    "differentiation": {
+     "score": 1.5,
+     "note": "'On-demand' is the only difference, and the best-funded on-demand player (Wag, USD 300M raised) went bankrupt.",
+     "source": "https://chapter11cases.com/blogs/news/pet-services-platform-wag-files-for-prepackaged-bankruptcy-secured-lender-to-take-ownership"
+    }
+   },
+   "risk": {
+    "legal_regulatory": {
+     "score": 2.5,
+     "note": "Council licences and 4-6 dog caps vary by borough; Uber-style control raises worker-status risk (Uber v Aslam, 2021).",
+     "source": "https://www.towerhamlets.gov.uk/lgnl/environment_and_waste/animal_welfare/Professional-Dog-Walkers-License-FAQs.aspx"
+    },
+    "platform_dependency": {
+     "score": 3.5,
+     "note": "Needs App Store and Play, but guideline 3.1.3(e) exempts physical services from in-app purchase fees.",
+     "source": "https://developer.apple.com/app-store/review/guidelines/"
+    },
+    "market_risk": {
+     "score": 3.5,
+     "note": "Walking is a durable, recurring need; the on-demand format is the fragile part.",
+     "source": "https://www.ukpetfood.org/resource/britain-s-dog-ownership-boom-as-15-5-million-dogs-now-live-in-uk-homes.html"
+    }
+   },
+   "fit": {
+    "skills": {
+     "score": 3,
+     "note": "Strong on the build, no stated marketplace or pet-care operations track record.",
+     "source": null
+    },
+    "assets": {
+     "score": 1,
+     "note": "No audience, walker network or local partnerships stated.",
+     "source": null
+    },
+    "interest": {
+     "score": 2,
+     "note": "Goal is a startup; no domain interest stated (assumption).",
+     "source": null
+    }
+   }
+  },
+  "rules_applied": [
+   {
+    "rule": "R4_ltv_cac_below_1",
+    "effect": "LTV:CAC 0.65, regulars disintermediate: profit 2.5 -> 2.0 (ltv_cac 1.5 -> 1, pricing_power 1.5 -> 1)"
+   },
+   {
+    "rule": "R7_unprofitable_model",
+    "effect": "profit 2.0: total 51 - 10 = 41, capped at 49"
+   }
+  ],
+  "metrics": {
+   "tam": {
+    "value": "690M-3.6bn",
+    "unit": "GBP/year",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "UK paid dog walking spend: low 10.2M dogs x 5% walked x 2 walks/wk x 52 x GBP 13; high 15.5M x 10% x 3 x 52 x GBP 15",
+    "as_of": "2026-11"
+   },
+   "sam": {
+    "value": 20700000,
+    "unit": "GBP/year",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Platform-takeable London share: TAM low GBP 690M x 15% London share (assumed) x 20% take",
+    "as_of": "2026-11"
+   },
+   "som": {
+    "value": 20700,
+    "unit": "GBP/year",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "0.1% of SAM GBP 20.7M for a solo founder in year 1",
+    "as_of": "2026-11"
+   },
+   "competitors_found": {
+    "value": 6,
+    "unit": "competitors",
+    "basis": "sourced",
+    "source": "https://apps.apple.com/gb/app/id547320928",
+    "reasoning": "Rover, Wag (US), Tailster, BorrowMyDoggy, Airtasker, Pawshake, plus free Facebook groups and Nextdoor",
+    "as_of": "2026-11"
+   },
+   "competitor_price_range": {
+    "value": "12-22.52",
+    "unit": "GBP per walk",
+    "basis": "sourced",
+    "source": "https://www.rover.com/uk/blog/london-uk-dog-walking-price/",
+    "reasoning": null,
+    "as_of": "2026-11"
+   },
+   "demand_trend": {
+    "value": "flat to mixed",
+    "unit": null,
+    "basis": "sourced",
+    "source": "https://www.pdsa.org.uk/what-we-do/pdsa-animal-wellbeing-report/uk-pet-populations-of-dogs-cats-and-rabbits",
+    "reasoning": null,
+    "as_of": "2026"
+   },
+   "price": {
+    "value": 2.84,
+    "unit": "GBP platform take per walk",
+    "basis": "estimate",
+    "source": "https://www.rover.com/uk/blog/london-uk-dog-walking-price/",
+    "reasoning": "20% take x GBP 14.19 Rover London 30-min average walk (sourced)",
+    "as_of": "2026-11"
+   },
+   "variable_cost_per_unit": {
+    "value": 0.66,
+    "unit": "GBP per walk",
+    "basis": "estimate",
+    "source": "https://stripe.com/gb/connect/pricing",
+    "reasoning": "Card 1.5% x 14.19 + 0.20 = 0.41; payout 0.25% x 11.35 + 0.10 = 0.13; GBP 2 account fee / 20 walks = 0.10; maps 0.02",
+    "as_of": "2026-11"
+   },
+   "gross_margin_pct": {
+    "value": 77,
+    "unit": "%",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "(take 2.84 - variable cost 0.66) / 2.84 = 77%",
+    "as_of": "2026-11"
+   },
+   "churn_monthly_pct": {
+    "value": 12.5,
+    "unit": "%",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Assumed: occasional on-demand users plus regulars moving off-platform; lifetime 1 / 0.125 = 8 months",
+    "as_of": "2026-11"
+   },
+   "expected_lifetime": {
+    "value": 8,
+    "unit": "months",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "1 / 12.5% monthly churn",
+    "as_of": "2026-11"
+   },
+   "conversion_rate_pct": {
+    "value": 2,
+    "unit": "%",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Assumed click to first booking for an unknown brand on Meta; no UK marketplace benchmark found",
+    "as_of": "2026-11"
+   },
+   "cac": {
+    "value": 40,
+    "unit": "GBP per active owner",
+    "basis": "estimate",
+    "source": "https://www.wordstream.com/blog/facebook-ads-benchmarks-2026",
+    "reasoning": "Owner: Meta ~GBP 0.50/click / 2% = GBP 25; plus GBP 15 share of walker acquisition and vetting",
+    "as_of": "2026-11"
+   },
+   "ltv": {
+    "value": 26.2,
+    "unit": "GBP",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Net take GBP 2.18 x 1.5 walks/month x 8 months",
+    "as_of": "2026-11"
+   },
+   "ltv_cac": {
+    "value": 0.65,
+    "unit": "ratio",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "LTV GBP 26.2 / CAC GBP 40 = 0.65",
+    "as_of": "2026-11"
+   },
+   "payback_months": {
+    "value": 12.2,
+    "unit": "months",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "CAC 40 / (2.18 x 1.5 = 3.27 gross profit per month); longer than the 8-month lifetime",
+    "as_of": "2026-11"
+   },
+   "fixed_costs_month": {
+    "value": 50,
+    "unit": "GBP/month",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "Apple developer GBP 79/yr ~6.6 + hosting ~20 + tools and domain ~23; excludes founder time and ads",
+    "as_of": "2026-11"
+   },
+   "break_even_customers_per_month": {
+    "value": 16,
+    "unit": "active owners",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "50 / 3.27 = 15.3, rounded up; ignores acquisition spend, which never pays back",
+    "as_of": "2026-11"
+   },
+   "time_to_first_revenue_weeks": {
+    "value": 12,
+    "unit": "weeks",
+    "basis": "estimate",
+    "source": null,
+    "reasoning": "~150 h build at 15 h/week = 10 weeks, plus 2 weeks to vet the first walkers",
+    "as_of": "2026-11"
+   }
+  },
+  "launch_country": "GB",
+  "launch_reason": "The user's country; London has the highest share of dog-owning households (49%) and the densest demand.",
+  "kill_shots": {
+   "free_alternative": true,
+   "strong_competitor": true,
+   "graveyard": true,
+   "no_distribution": false,
+   "costs_eat_margin": false,
+   "weak_demand": false,
+   "legal_platform_risk": false,
+   "saturated_wave": false
+  },
+  "primary_kill_shot": "strong_competitor",
+  "type_checks": [
+   {
+    "check": "liquidity",
+    "result": "hit",
+    "note": "On-demand needs idle walkers within ~15 minutes in every district; a Wag executive called finding one nearby hard. Supply must come first.",
+    "source": "https://builtin.com/operations/gig-economy-apps-covid-wag"
+   },
+   {
+    "check": "disintermediation",
+    "result": "hit",
+    "note": "Rover UK cut its fee to 5% on weekly recurring care; sitters openly take clients off-platform.",
+    "source": "https://www.rover.com/community/question/33215/why-are-sitters-screwing-rover"
+   }
+  ],
+  "cheapest_test": "Landing page and 20 DMs offering existing UK walkers a GBP 19/month booking-and-payments tool; pre-sell founding seats in 7 days.",
+  "kill_criteria": [
+   "Fewer than 5 walker calls booked from 40 messages by day 5 -> stop",
+   "Fewer than 3 paid founding seats at GBP 19/month by day 7 -> stop",
+   "Fewer than 10 waitlist sign-ups from walker groups by day 7 -> stop"
+  ],
+  "rescue": [
+   {
+    "change": "Sell a GBP 19/month booking, payments and walk-report tool to existing UK walkers instead of a marketplace.",
+    "why": "Removes liquidity and disintermediation; fixes ltv_cac and pricing_power with a subscription the walker keeps.",
+    "score_after": 54,
+    "difficulty": "doable",
+    "effort": "1 week to a pre-sale page",
+    "cost": "under GBP 100",
+    "requires": "Access to walker groups such as the NarpsUK Sitters Forum on Facebook"
+   },
+   {
+    "change": "Run a managed walking service in one London postcode: recruit 3-5 walkers, sell recurring weekly packages yourself.",
+    "why": "Fixes channel_readiness and disintermediation by owning the client; becomes a service, not a startup.",
+    "score_after": 50,
+    "difficulty": "doable",
+    "effort": "2 weeks to first clients",
+    "cost": "GBP 500-1,000 (insurance, DBS, flyers)",
+    "requires": "Time for local operations beyond 15 h/week once it grows"
+   },
+   {
+    "change": "Build a cover network where walkers hand off clients when sick or on holiday, taking a fee per covered walk.",
+    "why": "Uses walkers as supply and demand at once; partly fixes liquidity, but volume per walker is low.",
+    "score_after": 46,
+    "difficulty": "hard",
+    "effort": "2-3 months",
+    "cost": "GBP 1,000-2,000",
+    "requires": "A dense walker community in one city"
+   }
+  ],
+  "sources": [
+   "https://support-uk.rover.com/hc/en-gb/articles/360000909143",
+   "https://apps.apple.com/gb/app/id547320928",
+   "https://www.blackstone.com/news/press/blackstone-completes-acquisition-of-rover/",
+   "https://www.sec.gov/Archives/edgar/data/1842356/000184235625000029/pet-20241231.htm",
+   "https://chapter11cases.com/blogs/news/pet-services-platform-wag-files-for-prepackaged-bankruptcy-secured-lender-to-take-ownership",
+   "https://www.sfnet.com/home/chapters/canada/news-detail/2025/09/02/wag!-group-co.-successfully-completes-pre-packaged-chapter-11-plan-of-reorganization",
+   "https://tech.eu/2018/10/31/rover-dogbuddy/",
+   "https://www.rover.com/welcome-dogbuddy-customers",
+   "https://uk.trustpilot.com/review/tailster.com?page=2",
+   "https://support.borrowmydoggy.com/en/article/ca209c",
+   "https://borrowmydoggy.com/about",
+   "https://www.airtasker.com/uk/dog-walkers",
+   "https://www.mumsnet.com/talk/the_doghouse/4202132-Stuggling-to-find-dog-walker",
+   "https://www.rover.com/uk/blog/london-uk-dog-walking-price/",
+   "https://www.rover.com/uk/blog/dog-sitting-rates-national/",
+   "https://www.nimblefins.co.uk/average-cost-dog-walk-uk",
+   "https://stripe.com/gb/pricing",
+   "https://stripe.com/gb/connect/pricing",
+   "https://developer.apple.com/app-store/review/guidelines/",
+   "https://www.gov.uk/government/news/dbs-reduces-fees-for-checks-and-update-service-from-5-october-2026",
+   "https://www.simplybusiness.co.uk/insurance/dog-walkers/",
+   "https://localiq.co.uk/wp-content/uploads/2025/04/2025-UK-Paid-Advertising-Benchmark-Report.pdf",
+   "https://www.wordstream.com/blog/facebook-ads-benchmarks-2026",
+   "https://www.narpsuk.co.uk/blog/back-to-office-pet-sitting-dog-walking-demand-uk",
+   "https://www.narpsuk.co.uk/about-us",
+   "https://www.ukpetfood.org/resource/britain-s-dog-ownership-boom-as-15-5-million-dogs-now-live-in-uk-homes.html",
+   "https://www.pdsa.org.uk/what-we-do/pdsa-animal-wellbeing-report/uk-pet-populations-of-dogs-cats-and-rabbits",
+   "https://www.towerhamlets.gov.uk/lgnl/environment_and_waste/animal_welfare/Professional-Dog-Walkers-License-FAQs.aspx",
+   "https://royalparks.org.uk/commercial-licences/dog-walking-licences/professional-dog-walking-licence-tcs",
+   "https://richmond.gov.uk/media/kebaunxr/professional_dog_walking_application_form.pdf",
+   "https://cms.law/en/gbr/legal-updates/the-supreme-court-rules-that-uber-drivers-are-workers",
+   "https://builtin.com/operations/gig-economy-apps-covid-wag",
+   "https://www.rover.com/community/question/33215/why-are-sitters-screwing-rover",
+   "https://www.producthunt.com/products/petmeet/launches",
+   "https://miracuves.com/dog-walk-clone.md",
+   "https://www.ibisworld.com/united-kingdom/industry/dog-walking-services/5170/",
+   "https://www.bloomberg.com/news/articles/2017-10-16/wag-the-uber-for-dog-walking-is-drawing-uber-like-scrutiny",
+   "https://www.pdsa.org.uk/press-office/latest-news/pet-owners-fear-having-to-choose-between-heating-eating-and-caring-for-their-pets",
+   "https://www.rhyljournal.co.uk/news/19752196.uber-dogs---new-dog-walking-app-gowalkies-aims-solve-owner-worries/"
+  ],
+  "run": {
+   "started": "2026-11-11T10:48:00Z",
+   "minutes": 8,
+   "searches": 32,
+   "fetches": 16,
+   "subagents": 4
+  }
+ },
+ "narrative": {
+  "language": "en",
+  "currency": "GBP",
+  "answer": "**NO-GO**. Rover already owns UK dog walking at a 15% fee, 5% on recurring walks, so a 20% on-demand app is undercut on price and loses its regulars off-platform. **LTV:CAC of 0.65** means every customer costs more than they bring.",
+  "tldr": [
+   "Rover dominates UK walking with 27k App Store ratings and charges less than your 20%.",
+   "On-demand walking was tried at scale: Wag raised USD 300M and went through Chapter 11 in 2025.",
+   "The demand is recurring and trust-based, so walkers and owners skip the platform after the first walk."
+  ],
+  "key_findings": [
+   {
+    "title": "Rover undercuts the 20% take",
+    "detail": "Rover UK charges **15%** on one-off bookings and **5%** on weekly recurring care, so your fee is the highest in the market.",
+    "source": "https://support-uk.rover.com/hc/en-gb/articles/360000909143"
+   },
+   {
+    "title": "On-demand dog walking already failed",
+    "detail": "Wag, the original 'Uber for dog walking', filed a prepackaged **Chapter 11** in July 2025 after net losses every year.",
+    "source": "https://chapter11cases.com/blogs/news/pet-services-platform-wag-files-for-prepackaged-bankruptcy-secured-lender-to-take-ownership"
+   },
+   {
+    "title": "Customers cost more than they earn",
+    "detail": "Net take of GBP 2.18 per walk at 1.5 walks a month gives an LTV of about GBP 26 against a CAC of about GBP 40: **LTV:CAC 0.65** (estimate).",
+    "source": "https://stripe.com/gb/connect/pricing"
+   }
+  ],
+  "recommendation": "Do not build the on-demand app. Spend 7 days pre-selling a GBP 19/month booking and payments tool to existing UK dog walkers; build only if 3 pay.",
+  "steelman": "UK dog ownership is near a record (**15.5M dogs**, 2026) and hybrid work creates short-notice gaps a developer could fill cheaply. Evidence: owners want a trusted regular walker, not speed, and Rover already serves short-notice bookings.",
+  "lesson": "In trust-based local services, the relationship belongs to the provider, so a per-transaction cut only survives on the first booking.",
+  "premortem": [
+   {
+    "cause": "Walkers and owners met on the app, then moved regular walks to bank transfer to dodge the 20% fee.",
+    "linked_to": "pricing_power",
+    "likelihood": "H",
+    "early_signal": "Fewer than 30% of first-time owners book a second walk in-app within 30 days"
+   },
+   {
+    "cause": "Too few idle walkers per district, so on-demand requests went unfilled and owners churned.",
+    "linked_to": "channel_readiness",
+    "likelihood": "H",
+    "early_signal": "Under 70% of requests filled within 60 minutes in the launch area"
+   },
+   {
+    "cause": "Owners already on Rover saw no reason to switch to a pricier, emptier app.",
+    "linked_to": "strong_competitor",
+    "likelihood": "M",
+    "early_signal": "Fewer than 20 owner sign-ups from 1,000 local ad clicks"
+   }
+  ],
+  "why_now": {
+   "verdict": "late",
+   "changes": [
+    {
+     "what": "Wag, the flagship on-demand walking app, filed for Chapter 11 and was taken private by its lender.",
+     "when": "2025-07",
+     "source": "https://chapter11cases.com/blogs/news/pet-services-platform-wag-files-for-prepackaged-bankruptcy-secured-lender-to-take-ownership"
+    },
+    {
+     "what": "Blackstone took Rover private for about USD 2.3bn, consolidating the category leader.",
+     "when": "2024-02",
+     "source": "https://www.blackstone.com/news/press/blackstone-completes-acquisition-of-rover/"
+    },
+    {
+     "what": "Tower Hamlets set a GBP 240 professional dog walker licence with a 4-6 dog cap.",
+     "when": "2026-04",
+     "source": "https://www.towerhamlets.gov.uk/lgnl/environment_and_waste/animal_welfare/Professional-Dog-Walkers-License-FAQs.aspx"
+    },
+    {
+     "what": "UK Pet Food reported a record 15.5M dogs, while PDSA reported a fall to 10.2M.",
+     "when": "2026-03",
+     "source": "https://www.ukpetfood.org/resource/britain-s-dog-ownership-boom-as-15-5-million-dogs-now-live-in-uk-homes.html"
+    },
+    {
+     "what": "NarpsUK says hybrid work puts more pressure on short-notice walks, without figures.",
+     "when": "2025-10",
+     "source": "https://www.narpsuk.co.uk/blog/back-to-office-pet-sitting-dog-walking-demand-uk"
+    }
+   ],
+   "note": "The on-demand wave peaked in 2015-2019; its leader went bankrupt and the category consolidated, so the window is closed."
+  },
+  "icp": {
+   "who": "Working dog owners aged 25-44 in inner London on hybrid schedules, with one dog and no regular walker",
+   "where": [
+    "Local Facebook dog groups",
+    "Nextdoor",
+    "Mumsnet The Doghouse",
+    "Rover UK",
+    "Local parks and vets' noticeboards"
+   ],
+   "pays_for_today": "A regular walker at GBP 12-15 per 30-min walk on Rover in London, or about GBP 450/month for 5 walks a week",
+   "budget": "GBP 50-450/month on walks (Rover London prices)",
+   "trigger": "Back to the office on set days, or the regular walker cancels or goes on holiday"
+  },
+  "kill_shots": {
+   "free_alternative": {
+    "evidence": "UK owners are told to find walkers via local Facebook groups and a free meet-and-greet; BorrowMyDoggy offers free volunteer walks with a free basic tier.",
+    "source": "https://www.mumsnet.com/talk/the_doghouse/4202132-Stuggling-to-find-dog-walker",
+    "count": 3
+   },
+   "strong_competitor": {
+    "evidence": "Rover UK has 27k ratings at 4.9 on the UK App Store and was bought by Blackstone for about USD 2.3bn in 2024; Tailster, BorrowMyDoggy and Airtasker also serve UK walks.",
+    "source": "https://apps.apple.com/gb/app/id547320928",
+    "count": 5
+   },
+   "graveyard": {
+    "evidence": "Wag filed Chapter 11 in July 2025 after net losses of USD 17.6M (2024); London's DogBuddy was absorbed by Rover in October 2018.",
+    "source": "https://chapter11cases.com/blogs/news/pet-services-platform-wag-files-for-prepackaged-bankruptcy-secured-lender-to-take-ownership"
+   },
+   "no_distribution": {
+    "evidence": "Clear for the first 10: local Facebook groups and Nextdoor reach owners at near-zero cost; paid CAC of GBP 30-150 on Google (GBP 1.50-3 CPC) exceeds occasional-user value.",
+    "source": "https://localiq.co.uk/wp-content/uploads/2025/04/2025-UK-Paid-Advertising-Benchmark-Report.pdf"
+   },
+   "costs_eat_margin": {
+    "evidence": "Clear: Stripe UK 1.5% + 20p and Connect 0.25% + 10p payouts leave about 77% of the GBP 2.84 take; Apple 3.1.3(e) exempts physical services from IAP.",
+    "source": "https://stripe.com/gb/pricing"
+   },
+   "weak_demand": {
+    "evidence": "Clear but mixed: 15.5M dogs and 41% of households (UK Pet Food, 2026) against 10.2M (PDSA, 2026); demand for walks holds, for on-demand it is unproven.",
+    "source": "https://www.pdsa.org.uk/what-we-do/pdsa-animal-wellbeing-report/uk-pet-populations-of-dogs-cats-and-rabbits"
+   },
+   "legal_platform_risk": {
+    "evidence": "Clear with friction: no national licence, but borough licences (Richmond, Tower Hamlets, Royal Parks) cap dogs at 4-6, and Uber v Aslam (2021) raises worker-status risk.",
+    "source": "https://www.towerhamlets.gov.uk/lgnl/environment_and_waste/animal_welfare/Professional-Dog-Walkers-License-FAQs.aspx"
+   },
+   "saturated_wave": {
+    "evidence": "About 9 dog-walking-related launches in 2026 (e.g. PetMeet on Product Hunt), but only 2-4 are walker marketplaces; under the 10 threshold.",
+    "source": "https://www.producthunt.com/products/petmeet/launches",
+    "count": 9,
+    "window": "2025-11 to 2026-11"
+   }
+  },
+  "customer": {
+   "segment": "Working dog owners in inner London on hybrid schedules",
+   "pain": "Needing a walk on office days or when the regular walker cancels",
+   "today": "A regular local walker found via Facebook groups, Nextdoor or Rover, at GBP 12-15 per 30-min walk"
+  },
+  "use_cases": [
+   {
+    "name": "Last-minute walk when the regular walker cancels",
+    "who_pays": "Owner, per walk",
+    "effort": "High: needs dense idle supply",
+    "best": false
+   },
+   {
+    "name": "Recurring weekday walks for office days",
+    "who_pays": "Owner, weekly",
+    "effort": "Medium, but walkers take it off-platform",
+    "best": false
+   },
+   {
+    "name": "Booking, payments and walk reports for walkers",
+    "who_pays": "Walker, monthly subscription",
+    "effort": "Low: one side only",
+    "best": true
+   }
+  ],
+  "competitors": [
+   {
+    "name": "Rover UK",
+    "url": "https://www.rover.com/uk/blog/london-uk-dog-walking-price/",
+    "price_low": 12,
+    "price_high": 22.52,
+    "currency": "GBP",
+    "price_period": "per-use",
+    "price_source": "https://www.rover.com/uk/blog/london-uk-dog-walking-price/",
+    "price_as_of": "2026-11",
+    "traction": 5,
+    "traction_note": "27k UK App Store ratings; Blackstone bought it for about USD 2.3bn",
+    "gap": "Not instant dispatch; takes 15%, 5% on recurring",
+    "free": false,
+    "country": "GB"
+   },
+   {
+    "name": "Wag!",
+    "url": "https://www.sec.gov/Archives/edgar/data/1842356/000184235625000029/pet-20241231.htm",
+    "price_low": null,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "per-use",
+    "price_source": null,
+    "price_as_of": null,
+    "traction": 4,
+    "traction_note": "USD 70.5M revenue 2024; Chapter 11 in July 2025",
+    "gap": "US only; the on-demand model failed",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "Tailster",
+    "url": "https://uk.trustpilot.com/review/tailster.com?page=2",
+    "price_low": null,
+    "price_high": null,
+    "currency": "GBP",
+    "price_period": "per-use",
+    "price_source": null,
+    "price_as_of": null,
+    "traction": 3,
+    "traction_note": "About 1,050 Trustpilot reviews at 3.5; carer non-payment complaints",
+    "gap": "Trust and payout problems",
+    "free": false,
+    "country": "GB"
+   },
+   {
+    "name": "BorrowMyDoggy",
+    "url": "https://support.borrowmydoggy.com/en/article/ca209c",
+    "price_low": 12.99,
+    "price_high": 48.99,
+    "currency": "GBP",
+    "price_period": "year",
+    "price_source": "https://support.borrowmydoggy.com/en/article/ca209c",
+    "price_as_of": "2026-11",
+    "traction": 3,
+    "traction_note": "Founded 2012; member count not disclosed",
+    "gap": "Volunteers, not reliable paid walks",
+    "free": true,
+    "country": "GB"
+   },
+   {
+    "name": "Airtasker UK",
+    "url": "https://www.airtasker.com/uk/dog-walkers",
+    "price_low": 5,
+    "price_high": 25,
+    "currency": "GBP",
+    "price_period": "per-use",
+    "price_source": "https://www.airtasker.com/uk/dog-walkers",
+    "price_as_of": "2026-11",
+    "traction": 3,
+    "traction_note": "General task marketplace with a dog-walking category",
+    "gap": "Not specialised, no vetting focus",
+    "free": false,
+    "country": "GB"
+   },
+   {
+    "name": "Local Facebook groups and Nextdoor",
+    "url": "https://www.mumsnet.com/talk/the_doghouse/4202132-Stuggling-to-find-dog-walker",
+    "price_low": 0,
+    "price_high": 0,
+    "currency": "GBP",
+    "price_period": null,
+    "price_source": null,
+    "price_as_of": null,
+    "traction": 4,
+    "traction_note": "The default route recommended by UK owners on Mumsnet",
+    "gap": "No payments, vetting or tracking",
+    "free": true,
+    "country": "GB"
+   }
+  ],
+  "scenarios": [
+   {
+    "name": "Pessimistic",
+    "customers_month": 10,
+    "revenue_month": 43,
+    "costs_month": 450,
+    "note": "10 owners x 1.5 walks x GBP 2.84; GBP 400/month ads; liquidity never reached"
+   },
+   {
+    "name": "Base",
+    "customers_month": 40,
+    "revenue_month": 170,
+    "costs_month": 650,
+    "note": "40 owners x 1.5 walks x GBP 2.84; ads GBP 600/month; budget gone in about 10 months"
+   },
+   {
+    "name": "Optimistic",
+    "customers_month": 150,
+    "revenue_month": 639,
+    "costs_month": 1050,
+    "note": "150 owners x 1.5 walks x GBP 2.84; still loss-making before founder time"
+   }
+  ],
+  "risks": [
+   {
+    "risk": "Walkers and owners move recurring walks off-platform",
+    "likelihood": "H",
+    "impact": "H",
+    "mitigation": "Charge walkers a subscription instead of a per-walk cut",
+    "source": "https://www.rover.com/community/question/33215/why-are-sitters-screwing-rover"
+   },
+   {
+    "risk": "Worker-status claim if the app sets prices and dispatches like Uber",
+    "likelihood": "M",
+    "impact": "H",
+    "mitigation": "Let walkers set prices and accept jobs freely",
+    "source": "https://cms.law/en/gbr/legal-updates/the-supreme-court-rules-that-uber-drivers-are-workers"
+   },
+   {
+    "risk": "A lost or injured dog during a booked walk damages trust",
+    "likelihood": "M",
+    "impact": "H",
+    "mitigation": "Require walkers to hold care, custody and control cover",
+    "source": "https://www.simplybusiness.co.uk/insurance/dog-walkers/"
+   },
+   {
+    "risk": "Borough licences and dog caps differ across London",
+    "likelihood": "H",
+    "impact": "M",
+    "mitigation": "Launch in one borough and check walker licences",
+    "source": "https://royalparks.org.uk/commercial-licences/dog-walking-licences/professional-dog-walking-licence-tcs"
+   }
+  ],
+  "test_plan": [
+   {
+    "when": "Day 1",
+    "step": "Write a one-page offer: booking, Stripe payments and GPS walk reports for walkers at GBP 19/month, with a pre-sale button",
+    "verify": "Page live with a working Stripe payment link"
+   },
+   {
+    "when": "Day 2-3",
+    "step": "Post in the NarpsUK Sitters Forum and 5 local walker Facebook groups; DM 40 London walkers",
+    "verify": "At least 5 replies asking for a call"
+   },
+   {
+    "when": "Day 4-5",
+    "step": "Run 5 calls: what they use today for bookings and payments, and what it costs",
+    "verify": "At least 3 of 5 name a paid tool or a pain they would pay to remove"
+   },
+   {
+    "when": "Day 6-7",
+    "step": "Ask each interested walker to pay for a founding seat",
+    "verify": "At least 3 paid seats at GBP 19/month"
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://support-uk.rover.com/hc/en-gb/articles/360000909143",
+    "title": "Rover UK Help Centre, service fees",
+    "supports": "15% fee, 5% on recurring care",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://apps.apple.com/gb/app/id547320928",
+    "title": "Apple App Store UK, Rover app listing",
+    "supports": "4.9 rating from 27k ratings",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.blackstone.com/news/press/blackstone-completes-acquisition-of-rover/",
+    "title": "Blackstone, completes acquisition of Rover",
+    "supports": "About USD 2.3bn take-private",
+    "accessed": "2026-11-11",
+    "published": "2024-02",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.sec.gov/Archives/edgar/data/1842356/000184235625000029/pet-20241231.htm",
+    "title": "Wag! Group, 10-K FY2024 (SEC)",
+    "supports": "Net losses, going-concern doubt",
+    "accessed": "2026-11-11",
+    "published": "2025-03",
+    "tier": "primary"
+   },
+   {
+    "url": "https://chapter11cases.com/blogs/news/pet-services-platform-wag-files-for-prepackaged-bankruptcy-secured-lender-to-take-ownership",
+    "title": "Chapter11Cases, Wag files prepackaged bankruptcy",
+    "supports": "Wag Chapter 11, July 2025",
+    "accessed": "2026-11-11",
+    "published": "2025-07",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.sfnet.com/home/chapters/canada/news-detail/2025/09/02/wag!-group-co.-successfully-completes-pre-packaged-chapter-11-plan-of-reorganization",
+    "title": "SFNet, Wag completes Chapter 11 reorganisation",
+    "supports": "Wag taken private by lender",
+    "accessed": "2026-11-11",
+    "published": "2025-09",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://tech.eu/2018/10/31/rover-dogbuddy/",
+    "title": "Tech.eu, Rover acquires DogBuddy",
+    "supports": "London walking platform absorbed",
+    "accessed": "2026-11-11",
+    "published": "2018-10",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.rover.com/welcome-dogbuddy-customers",
+    "title": "Rover, welcome DogBuddy customers",
+    "supports": "DogBuddy app shut, users moved",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://uk.trustpilot.com/review/tailster.com?page=2",
+    "title": "Trustpilot UK, Tailster reviews",
+    "supports": "About 1,050 reviews, 3.5 score",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://support.borrowmydoggy.com/en/article/ca209c",
+    "title": "BorrowMyDoggy support, membership prices",
+    "supports": "GBP 12.99-48.99 a year",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://borrowmydoggy.com/about",
+    "title": "BorrowMyDoggy, about",
+    "supports": "Founded 2012, free volunteer walks",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.airtasker.com/uk/dog-walkers",
+    "title": "Airtasker UK, dog walkers",
+    "supports": "General marketplace competitor",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.mumsnet.com/talk/the_doghouse/4202132-Stuggling-to-find-dog-walker",
+    "title": "Mumsnet, struggling to find a dog walker",
+    "supports": "Owners use local Facebook groups",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.rover.com/uk/blog/london-uk-dog-walking-price/",
+    "title": "Rover UK, London dog walking prices",
+    "supports": "GBP 14.19 average 30-min walk",
+    "accessed": "2026-11-11",
+    "published": "2025-09",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.rover.com/uk/blog/dog-sitting-rates-national/",
+    "title": "Rover UK, national rates",
+    "supports": "National 30-min average GBP 21.45",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.nimblefins.co.uk/average-cost-dog-walk-uk",
+    "title": "NimbleFins, average cost of a dog walk UK",
+    "supports": "GBP 13.48 national average",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://stripe.com/gb/pricing",
+    "title": "Stripe UK pricing",
+    "supports": "1.5% + 20p UK cards",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://stripe.com/gb/connect/pricing",
+    "title": "Stripe Connect UK pricing",
+    "supports": "GBP 2 per active account, 0.25% + 10p payouts",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://developer.apple.com/app-store/review/guidelines/",
+    "title": "Apple, App Store Review Guidelines 3.1.3(e)",
+    "supports": "No IAP fee on physical services",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.gov.uk/government/news/dbs-reduces-fees-for-checks-and-update-service-from-5-october-2026",
+    "title": "GOV.UK, DBS reduces fees from 5 October 2026",
+    "supports": "Basic DBS check GBP 20",
+    "accessed": "2026-11-11",
+    "published": "2026-10",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.simplybusiness.co.uk/insurance/dog-walkers/",
+    "title": "Simply Business, dog walker insurance",
+    "supports": "Cover from GBP 5.05/month",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "secondary"
+   },
+   {
+    "url": "https://localiq.co.uk/wp-content/uploads/2025/04/2025-UK-Paid-Advertising-Benchmark-Report.pdf",
+    "title": "LOCALiQ UK, 2025 paid advertising benchmarks",
+    "supports": "UK average CPC GBP 2.01",
+    "accessed": "2026-11-11",
+    "published": "2025-04",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.wordstream.com/blog/facebook-ads-benchmarks-2026",
+    "title": "WordStream, Facebook ads benchmarks 2026",
+    "supports": "Animals and pets CPC USD 0.51",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.narpsuk.co.uk/blog/back-to-office-pet-sitting-dog-walking-demand-uk",
+    "title": "NarpsUK, back-to-office dog walking demand",
+    "supports": "Hybrid work and short-notice walks",
+    "accessed": "2026-11-11",
+    "published": "2025-10",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.narpsuk.co.uk/about-us",
+    "title": "NarpsUK, about us",
+    "supports": "UK walker trade body and forum",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.ukpetfood.org/resource/britain-s-dog-ownership-boom-as-15-5-million-dogs-now-live-in-uk-homes.html",
+    "title": "UK Pet Food, dog ownership boom 2026",
+    "supports": "15.5M dogs, 41% of households, London 49%",
+    "accessed": "2026-11-11",
+    "published": "2026-03",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.pdsa.org.uk/what-we-do/pdsa-animal-wellbeing-report/uk-pet-populations-of-dogs-cats-and-rabbits",
+    "title": "PDSA, PAW Report UK pet populations",
+    "supports": "10.2M dogs in 2026, down from 11.1M",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.towerhamlets.gov.uk/lgnl/environment_and_waste/animal_welfare/Professional-Dog-Walkers-License-FAQs.aspx",
+    "title": "Tower Hamlets Council, professional dog walker licence FAQs",
+    "supports": "GBP 240 licence, 4-6 dog cap",
+    "accessed": "2026-11-11",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://royalparks.org.uk/commercial-licences/dog-walking-licences/professional-dog-walking-licence-tcs",
+    "title": "The Royal Parks, professional dog walking licence T&Cs",
+    "supports": "Licence and GBP 2M liability cover",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://richmond.gov.uk/media/kebaunxr/professional_dog_walking_application_form.pdf",
+    "title": "Richmond Council, professional dog walking application",
+    "supports": "Licence scheme, limited places",
+    "accessed": "2026-11-11",
+    "published": "2023",
+    "tier": "primary"
+   },
+   {
+    "url": "https://cms.law/en/gbr/legal-updates/the-supreme-court-rules-that-uber-drivers-are-workers",
+    "title": "CMS, Supreme Court rules Uber drivers are workers",
+    "supports": "Worker-status risk",
+    "accessed": "2026-11-11",
+    "published": "2021-02",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://builtin.com/operations/gig-economy-apps-covid-wag",
+    "title": "Built In, gig economy apps and Wag",
+    "supports": "Hard to find a walker nearby fast",
+    "accessed": "2026-11-11",
+    "published": "2020",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.rover.com/community/question/33215/why-are-sitters-screwing-rover",
+    "title": "Rover Community, sitters taking clients off-platform",
+    "supports": "Disintermediation",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.producthunt.com/products/petmeet/launches",
+    "title": "Product Hunt, PetMeet launch",
+    "supports": "2026 look-alike launch",
+    "accessed": "2026-11-11",
+    "published": "2026-02",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://miracuves.com/dog-walk-clone.md",
+    "title": "Miracuves, dog walk clone script",
+    "supports": "White-label clones on sale",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.ibisworld.com/united-kingdom/industry/dog-walking-services/5170/",
+    "title": "IBISWorld, UK dog walking services",
+    "supports": "Market report exists, size paywalled",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.bloomberg.com/news/articles/2017-10-16/wag-the-uber-for-dog-walking-is-drawing-uber-like-scrutiny",
+    "title": "Bloomberg, Wag draws Uber-like scrutiny",
+    "supports": "Lost dogs and contractor issues",
+    "accessed": "2026-11-11",
+    "published": "2017-10",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.pdsa.org.uk/press-office/latest-news/pet-owners-fear-having-to-choose-between-heating-eating-and-caring-for-their-pets",
+    "title": "PDSA, owners fear choosing between heating, eating and pets",
+    "supports": "Cost-of-living pressure",
+    "accessed": "2026-11-11",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.rhyljournal.co.uk/news/19752196.uber-dogs---new-dog-walking-app-gowalkies-aims-solve-owner-worries/",
+    "title": "Rhyl Journal, GoWalkies 'Uber for dogs'",
+    "supports": "UK on-demand attempt, 2022",
+    "accessed": "2026-11-11",
+    "published": "2022",
+    "tier": "secondary"
+   }
+  ],
+  "rescue": [
+   {
+    "change": "Sell a GBP 19/month booking, payments and walk-report tool to existing UK walkers instead of a marketplace.",
+    "why": "Removes liquidity and disintermediation; fixes ltv_cac and pricing_power with a subscription the walker keeps.",
+    "score_after": 54,
+    "difficulty": "doable",
+    "effort": "1 week to a pre-sale page",
+    "cost": "under GBP 100",
+    "requires": "Access to walker groups such as the NarpsUK Sitters Forum on Facebook"
+   },
+   {
+    "change": "Run a managed walking service in one London postcode: recruit 3-5 walkers, sell recurring weekly packages yourself.",
+    "why": "Fixes channel_readiness and disintermediation by owning the client; becomes a service, not a startup.",
+    "score_after": 50,
+    "difficulty": "doable",
+    "effort": "2 weeks to first clients",
+    "cost": "GBP 500-1,000 (insurance, DBS, flyers)",
+    "requires": "Time for local operations beyond 15 h/week once it grows"
+   },
+   {
+    "change": "Build a cover network where walkers hand off clients when sick or on holiday, taking a fee per covered walk.",
+    "why": "Uses walkers as supply and demand at once; partly fixes liquidity, but volume per walker is low.",
+    "score_after": 46,
+    "difficulty": "hard",
+    "effort": "2-3 months",
+    "cost": "GBP 1,000-2,000",
+    "requires": "A dense walker community in one city"
+   }
+  ]
+ }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "slug": "notion-real-estate",
+  "title": "Notion template pack for French real-estate agents",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "ecommerce",
+  "source": {
+    "type": "own-idea",
+    "text": "A paid Notion template pack for French real-estate agents (agents immobiliers and independent mandataires) to manage leads, visits and mandates, 39 EUR one-off. Countries FR then BE. Budget 100 EUR, 5 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug notion-real-estate.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "French agents and independent mandataires need to track leads, visits and mandates",
+  "customer": "French agents immobiliers and independent mandataires (iad, SAFTI, Capifrance, eXp networks), then Belgian agents",
+  "solution": "A paid pack of Notion templates for leads, visits and mandates",
+  "revenue_model": "one-off",
+  "price": {"amount": 39, "currency": "EUR", "period": "one-off"},
+  "channel": null,
+  "countries": ["FR", "BE"],
+  "claims": [],
+  "context": {
+    "budget": "EUR 100",
+    "time_per_week": "5 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "The 39 EUR price includes 20% French VAT",
+    "Sold through a merchant-of-record platform (Gumroad, Lemon Squeezy or Notion Marketplace) that collects VAT",
+    "The founder has no audience in real estate and no real-estate background",
+    "Channel not stated: assumed organic posts in agent communities, plus small paid ads within the 100 EUR budget"
+  ],
+  "unknowns": ["channel", "claims"],
+  "answers": []
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "slug": "dog-walking-app",
+  "title": "Uber-style on-demand dog walking app (GB)",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "marketplace",
+  "source": {
+    "type": "own-idea",
+    "text": "An Uber-style app for on-demand dog walking that takes 20% of each walk. Launch country GB, budget 5,000 GBP, 15 hours a week, goal startup, edge: I am a developer. Just go: do not ask questions. Use the slug dog-walking-app.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Dog owners need a walker at short notice and want to book one instantly.",
+  "customer": null,
+  "solution": "An Uber-style mobile app that matches dog owners with nearby walkers on demand.",
+  "revenue_model": "marketplace",
+  "price": null,
+  "channel": null,
+  "countries": ["GB"],
+  "claims": [
+    "An Uber-style app for on-demand dog walking",
+    "takes 20% of each walk"
+  ],
+  "context": {
+    "budget": "GBP 5,000",
+    "time_per_week": "15 h",
+    "goal": "startup",
+    "edge": "I am a developer"
+  },
+  "assumptions": [
+    "Customer assumed to be working dog owners in dense UK cities, London first, because the input names no segment.",
+    "Walk price assumed at the Rover London 30-minute average of GBP 14.19; the 20% take is the user's.",
+    "Launch in one London area first; the user gave GB only.",
+    "No existing audience, walker network or validation, since the input mentions none (headless run, no questions asked).",
+    "Interest in the domain assumed neutral: the stated goal is a startup and no pet-care background is given."
+  ],
+  "unknowns": ["customer", "price", "channel"],
+  "answers": []
+}

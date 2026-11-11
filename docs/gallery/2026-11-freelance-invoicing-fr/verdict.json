@@ -1,0 +1,411 @@
+{
+ "schema_version": "1.0",
+ "slug": "freelance-invoicing-fr",
+ "evaluated": "2026-11-11",
+ "as_of": null,
+ "mode": "kill",
+ "quick": false,
+ "verdict": "NO-GO",
+ "score": 41,
+ "score_raw": 50.5,
+ "confidence": {
+  "level": "high",
+  "sourced_subscores": 16,
+  "sources": 48,
+  "primary_sources": 20,
+  "note": "Several facts come from search snippets; a sourced French CPC and a written PA partner API quote would raise it further."
+ },
+ "criteria": {
+  "profit": 2.0,
+  "feasibility": 3.0,
+  "time_to_first_revenue": 2.5,
+  "demand": 3.5,
+  "competition": 1.0,
+  "risk": 3.0,
+  "fit": 2.0
+ },
+ "criteria_detail": {
+  "profit": {
+   "gross_margin": {
+    "score": 4,
+    "note": "About 84% after Stripe (~0.45 EUR) and PA per-invoice fees (~1 EUR/user/month), estimate.",
+    "source": "https://stripe.com/fr/pricing"
+   },
+   "ltv_cac": {
+    "score": 1,
+    "note": "LTV ~100 EUR vs paid CAC ~460 EUR: LTV:CAC ~0.2, no organic channel to fix it (R4).",
+    "source": "https://techcrunch.com/2022/04/20/study-up-on-churn-rate-basics-to-set-customer-and-revenue-benchmarks/"
+   },
+   "pricing_power": {
+    "score": 1,
+    "note": "Abby, Indy, Tiime, Shine invoice for 0 EUR; Abby sells URSSAF filing at the same 9 EUR. Lowered by R4.",
+    "source": "https://abby.fr/tarifs/?aedrop=bot_detected"
+   }
+  },
+  "feasibility": {
+   "build_effort": {
+    "score": 2.5,
+    "note": "Invoicing MVP 6-10 weeks at 10 h/week, plus URSSAF API approval and PA integration of unknown length.",
+    "source": "https://www.data.gouv.fr/dataservices/api-tierce-declaration-auto-entrepreneur"
+   },
+   "skills_match": {
+    "score": 3.5,
+    "note": "Developer: the build is in reach; French tax, e-invoicing and marketing skills are missing.",
+    "source": null
+   },
+   "capital_needed": {
+    "score": 3,
+    "note": "Hosting is cheap, but PA vendor API access is quoted on request (one claim: 2,450 EUR, unverified).",
+    "source": "https://ma-facture-electronique.org/plateforme-agreee/prix-tarifs/"
+   }
+  },
+  "time_to_first_revenue": {
+   "time_to_mvp": {
+    "score": 2.5,
+    "note": "About 8-10 weeks to a usable product with declarations, if URSSAF grants API access in time.",
+    "source": "https://espace-autoentrepreneur.com/simplifiez-toutes-vos-demarches-urssaf"
+   },
+   "sales_cycle": {
+    "score": 4,
+    "note": "Self-serve purchase by the freelancer, same day, no committee.",
+    "source": null
+   },
+   "channel_readiness": {
+    "score": 1.5,
+    "note": "No audience; SEO owned by Abby, Indy, Qonto and comparators; top Facebook groups run by competitors.",
+    "source": "https://tool-advisor.fr/blog/groupe-facebook-entrepreneur/"
+   }
+  },
+  "demand": {
+   "search_demand": {
+    "score": 4.5,
+    "note": "1.66M economically active micro-entrepreneurs end-2025; 758,600 new ones in 2025.",
+    "source": "https://tpeactu.fr/2026/07/24/auto-entrepreneurs-55-pourcent-chiffre-affaires-fin-2025/"
+   },
+   "trend": {
+    "score": 4,
+    "note": "Micro-entreprise creations at a record, +7% in 2024 and +6% in 2025 (INSEE).",
+    "source": "https://www.insee.fr/fr/statistiques/fichier/8721354/IP2092.pdf"
+   },
+   "willingness_to_pay": {
+    "score": 2,
+    "note": "Free tiers cover invoicing and e-invoicing; paid share of Abby's 150k users is unknown.",
+    "source": "https://ma-facture-electronique.org/logiciels/auto-entrepreneur/"
+   }
+  },
+  "competition": {
+   "free_alternatives": {
+    "score": 1,
+    "note": "Free tools invoice and estimate URSSAF; the URSSAF site files for free. R1 applied.",
+    "source": "https://abby.fr/tarifs/?aedrop=bot_detected"
+   },
+   "competitor_density": {
+    "score": 1,
+    "note": "12+ named tools, 149 registered PAs; Indy raised 86 MEUR and claims 700k users.",
+    "source": "https://www.lejournaldesentreprises.com/article/indy-leve-40-millions-deuros-pour-accompagner-les-independants-dans-la-gestion-de-leurs-activites-2074853"
+   },
+   "differentiation": {
+    "score": 1,
+    "note": "Same job, same price as Abby Start (9 EUR); 'simple' is not a difference. R1 applied.",
+    "source": "https://abby.fr/declarations-urssaf-tva"
+   }
+  },
+  "risk": {
+   "legal_regulatory": {
+    "score": 2,
+    "note": "From 2027-09 B2B invoices must go through a plateforme agréée; filing for users needs a URSSAF mandate.",
+    "source": "https://www.impots.gouv.fr/node/25455"
+   },
+   "platform_dependency": {
+    "score": 2,
+    "note": "Depends on one PA partner and on URSSAF granting restricted API access.",
+    "source": "https://www.data.gouv.fr/dataservices/api-tierce-declaration-auto-entrepreneur"
+   },
+   "market_risk": {
+    "score": 5,
+    "note": "Invoicing and declarations are a legal, recurring obligation for every active micro-entrepreneur.",
+    "source": "https://www.journaldunet.com/fintech/1557199-facture-electronique-ce-que-les-auto-entrepreneurs-devront-vraiment-faire-en-septembre-2027/"
+   }
+  },
+  "fit": {
+   "skills": {
+    "score": 3.5,
+    "note": "Strong on building software, no stated track record in French accounting or SaaS growth.",
+    "source": null
+   },
+   "assets": {
+    "score": 1,
+    "note": "No audience, list, data or accountant network stated.",
+    "source": null
+   },
+   "interest": {
+    "score": 1.5,
+    "note": "Stated goal is side income; no stated domain passion.",
+    "source": null
+   }
+  }
+ },
+ "rules_applied": [
+  {
+   "rule": "R1_free_equivalent",
+   "effect": "competition capped at 1.5: free_alternatives 1, differentiation 1 (developer skill is not a specific edge)"
+  },
+  {
+   "rule": "R4_ltv_cac_below_1",
+   "effect": "LTV:CAC ~0.2, no channel to fix it: pricing_power 1.5 -> 1, profit 2.17 -> 2.0"
+  },
+  {
+   "rule": "R7_unprofitable_model",
+   "effect": "profit 2.0: total 51 - 10 = 41"
+  },
+  {
+   "rule": "R6_unprofitable_no_channel",
+   "effect": "no_distribution hit and LTV:CAC < 1: total capped at 49 (already 41)"
+  }
+ ],
+ "metrics": {
+  "tam": {
+   "value": 179000000,
+   "unit": "EUR/year",
+   "basis": "estimate",
+   "reasoning": "1.66M economically active micro-entrepreneurs (URSSAF via tpeactu, 2026-07) x 108 EUR/year",
+   "as_of": "2026-11"
+  },
+  "sam": {
+   "value": 93000000,
+   "unit": "EUR/year",
+   "basis": "estimate",
+   "reasoning": "assumed 52% service sellers: 1.66M x 0.52 = 863k x 108 EUR/year",
+   "as_of": "2026-11"
+  },
+  "som": {
+   "value": 93000,
+   "unit": "EUR/year",
+   "basis": "estimate",
+   "reasoning": "0.1% of SAM for a solo founder in year 1 = ~860 paying users; optimistic given no channel",
+   "as_of": "2026-11"
+  },
+  "competitors_found": {
+   "value": 12,
+   "unit": "products",
+   "basis": "sourced",
+   "source": "https://ma-facture-electronique.org/logiciels/auto-entrepreneur/",
+   "as_of": "2026-10"
+  },
+  "competitor_price_range": {
+   "value": "0-15 EUR/month",
+   "unit": "EUR/month",
+   "basis": "sourced",
+   "source": "https://tool-advisor.fr/logiciel-facturation/comparatif/autoentrepreneur/",
+   "as_of": "2026-10"
+  },
+  "demand_trend": {
+   "value": "rising",
+   "unit": null,
+   "basis": "sourced",
+   "source": "https://www.insee.fr/fr/statistiques/fichier/8721354/IP2092.pdf",
+   "as_of": "2026-01"
+  },
+  "price": {
+   "value": 9,
+   "unit": "EUR/month",
+   "basis": "estimate",
+   "reasoning": "founder's stated price; equals Abby Start list price of 9 EUR HT",
+   "as_of": "2026-11"
+  },
+  "variable_cost_per_unit": {
+   "value": 1.45,
+   "unit": "EUR/month",
+   "basis": "estimate",
+   "reasoning": "Stripe 9 x (1.5% + 0.7% Billing) + 0.25 = 0.45 + PA fees 5 invoices x 0.20 = 1.00",
+   "as_of": "2026-11"
+  },
+  "gross_margin_pct": {
+   "value": 84,
+   "unit": "%",
+   "basis": "estimate",
+   "reasoning": "(9 - 1.45) / 9 = 0.84",
+   "as_of": "2026-11"
+  },
+  "churn_monthly_pct": {
+   "value": 7.5,
+   "unit": "%",
+   "basis": "estimate",
+   "reasoning": "midpoint of 6.8% logo churn and 8.9% MRR churn for 0-10 USD ARPA SaaS; ~2%/month from micro-business closures alone (INSEE 28% 5-year survival)",
+   "as_of": "2026-11"
+  },
+  "expected_lifetime": {
+   "value": 13.3,
+   "unit": "months",
+   "basis": "estimate",
+   "reasoning": "1 / 0.075 monthly churn = 13.3 months",
+   "as_of": "2026-11"
+  },
+  "conversion_rate_pct": {
+   "value": 0.65,
+   "unit": "%",
+   "basis": "estimate",
+   "reasoning": "visitor-to-trial 3.5% (2-5% benchmark) x trial-to-paid 18.5% (B2B median)",
+   "as_of": "2026-11"
+  },
+  "cac": {
+   "value": 460,
+   "unit": "EUR",
+   "basis": "estimate",
+   "reasoning": "assumed CPC 3 EUR / 0.0065 conversion = 462 EUR",
+   "as_of": "2026-11"
+  },
+  "ltv": {
+   "value": 100,
+   "unit": "EUR",
+   "basis": "estimate",
+   "reasoning": "9 x 0.84 x 13.3 months = 100.5",
+   "as_of": "2026-11"
+  },
+  "ltv_cac": {
+   "value": 0.22,
+   "unit": "ratio",
+   "basis": "estimate",
+   "reasoning": "LTV 100 EUR / CAC 460 EUR = 0.22",
+   "as_of": "2026-11"
+  },
+  "payback_months": {
+   "value": 61,
+   "unit": "months",
+   "basis": "estimate",
+   "reasoning": "460 / (9 x 0.84 = 7.56 EUR gross profit per month)",
+   "as_of": "2026-11"
+  },
+  "fixed_costs_month": {
+   "value": 20,
+   "unit": "EUR/month",
+   "basis": "estimate",
+   "reasoning": "small VPS ~10 + transactional email ~5 + domain ~1 + misc; not from price pages",
+   "as_of": "2026-11"
+  },
+  "break_even_customers_per_month": {
+   "value": 3,
+   "unit": "customers",
+   "basis": "estimate",
+   "reasoning": "20 / 7.56 = 2.6 to cover costs; a 1,000 EUR/month side income needs (1000 + 20) / 7.56 = 135 paying users",
+   "as_of": "2026-11"
+  },
+  "time_to_first_revenue_weeks": {
+   "value": 10,
+   "unit": "weeks",
+   "basis": "estimate",
+   "reasoning": "8 weeks build at 10 h/week + 2 weeks to first paid user; URSSAF API approval may add more",
+   "as_of": "2026-11"
+  }
+ },
+ "launch_country": "FR",
+ "launch_reason": "The product is built around French URSSAF and DGFiP rules; it has no market outside France.",
+ "kill_shots": {
+  "free_alternative": true,
+  "strong_competitor": true,
+  "graveyard": false,
+  "no_distribution": true,
+  "costs_eat_margin": false,
+  "weak_demand": false,
+  "legal_platform_risk": true,
+  "saturated_wave": false
+ },
+ "primary_kill_shot": "free_alternative",
+ "type_checks": [
+  {
+   "check": "churn_benchmark",
+   "result": "hit",
+   "note": "Monthly churn of 6.8-8.9% for 0-10 USD ARPA SaaS; INSEE: only 28% of micro-entrepreneurs still active after 5 years.",
+   "source": "https://www.insee.fr/fr/statistiques/9022618"
+  },
+  {
+   "check": "switching_cost",
+   "result": "clear",
+   "note": "Switching is cheap (numbering just continues), which helps you win users but also lets them leave; bank-bundled invoicing locks some in.",
+   "source": "https://www.indy.fr/blog/passage-monae-indy/"
+  }
+ ],
+ "cheapest_test": "7-day pre-sale of a 79 EUR done-for-you e-invoicing switch (PA account, templates, URSSAF setup) posted in 3 micro-entrepreneur communities; 3 paid pre-sales or stop.",
+ "kill_criteria": [
+  "fewer than 100 landing-page visitors by day 5 -> the channel is dead, stop",
+  "fewer than 3 paid pre-sales at 79 EUR by day 7 -> stop",
+  "fewer than 10 replies to 40 direct messages by day 6 -> stop"
+ ],
+ "rescue": [
+  {
+   "change": "Sell a done-for-you e-invoicing switch service (79 EUR one-off) to micro-entrepreneurs before the 2027-09 deadline, on top of a free PA tool",
+   "why": "Fixes ltv_cac and pricing_power: people pay for done-for-you help, not for a 13th invoicing app",
+   "score_after": 61,
+   "difficulty": "doable",
+   "effort": "1 week to test, 1 h per client",
+   "cost": "under 100 EUR",
+   "requires": "Learning the PA onboarding of 1-2 free tools; posting in communities"
+  },
+  {
+   "change": "Build for one profession the free tools ignore (e.g. trades quotes with deposits and progress invoices) where you can reach a community",
+   "why": "Fixes differentiation and channel_readiness, if the niche has a reachable group",
+   "score_after": 57,
+   "difficulty": "hard",
+   "effort": "3 months",
+   "cost": "under 1,000 EUR",
+   "requires": "Access to a niche community and a written PA partner API quote"
+  }
+ ],
+ "sources": [
+  "https://abby.fr/tarifs/?aedrop=bot_detected",
+  "https://www.indy.fr/guide/comptabilite-en-ligne/logiciel/comparatif/auto-entrepreneur/facturation/",
+  "https://ma-facture-electronique.org/logiciels/auto-entrepreneur/",
+  "https://ma-facture-electronique.org/plateforme-agreee/prix-tarifs/",
+  "https://www.capterra.fr/software/215774/abby",
+  "https://abby.fr/guide/facturation-electronique/facture-electronique-septembre-2026",
+  "https://www.lejournaldesentreprises.com/article/indy-leve-40-millions-deuros-pour-accompagner-les-independants-dans-la-gestion-de-leurs-activites-2074853",
+  "https://www.maddyness.com/2026/05/19/apres-le-logiciel-de-facturation-de-coover-indy-soffre-une-legaltech/",
+  "https://indy.fr/wp-content/uploads/2024-07-04-Indy-passe-les-100-000-utilisateurs.pdf",
+  "https://www.frenchweb.fr/indy-soffre-la-facturation-de-coover-pour-accelerer-avant-la-reforme-de-2026/456697",
+  "https://www.freelance-solution.fr/outils-freelance/freebe-avis/",
+  "https://www.producthunt.com/products/fiftie-invoice-in-12s/launches/fiftie",
+  "https://www.producthunt.com/products/facturons",
+  "https://www.producthunt.com/posts/facture-relax",
+  "https://espace-autoentrepreneur.com/blog/facturation-auto-entrepreneur-ce-qui-change-au-1er-septembre-2026",
+  "https://www.lejournaldesentreprises.com/article/apres-le-rachat-des-parts-dardian-rivalis-henrri-signe-sa-premiere-croissance-externe-2145828",
+  "https://siecledigital.fr/2024/03/08/la-fintech-francaise-qonto-rachete-regate/",
+  "https://banque.meilleurtaux.com/banque-en-ligne/actualites/2025-aout/kard-application-paiement-dediee-jeunes-cesse-activites.html",
+  "https://tpeactu.fr/2026/07/24/auto-entrepreneurs-55-pourcent-chiffre-affaires-fin-2025/",
+  "https://www.insee.fr/fr/statistiques/fichier/8721354/IP2092.pdf",
+  "https://www.insee.fr/fr/statistiques/fichier/version-html/9025111/IR170_CreaE_juin26.pdf",
+  "https://www.economie.gouv.fr/actualites/facturation-electronique-entre-entreprises-coup-denvoi-de-la-reforme",
+  "https://entreprendre.service-public.gouv.fr/actualites/A17450",
+  "https://www.legifiscal.fr/actualites-fiscales/4028-eric-lombard-abandon-abaissement-25000-seuil-exoneration-tva.html",
+  "https://www.legifiscal.fr/actualites-fiscales/4141-vote-unanime-deputes-abandon-seuil-franchise-tva-25000.html",
+  "https://lamicrobyflo.fr/cotisations-sociales-micro-entreprise",
+  "https://stripe.com/fr/pricing",
+  "https://www.data.gouv.fr/dataservices/api-tierce-declaration-auto-entrepreneur",
+  "https://espace-autoentrepreneur.com/simplifiez-toutes-vos-demarches-urssaf",
+  "https://tool-advisor.fr/logiciel-facturation/comparatif/autoentrepreneur/",
+  "https://tool-advisor.fr/blog/groupe-facebook-entrepreneur/",
+  "https://userpilot.com/blog/free-trial-conversion-rate/",
+  "https://www.getmonetizely.com/articles/freemium-conversion-rate-the-key-metric-that-drives-saas-growth-3588c",
+  "https://www.impots.gouv.fr/node/25455",
+  "https://www.impots.gouv.fr/je-consulte-la-liste-des-plateformes-agreees?category=Invoicing",
+  "https://www.journaldunet.com/fintech/1557199-facture-electronique-ce-que-les-auto-entrepreneurs-devront-vraiment-faire-en-septembre-2027/",
+  "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000032364676",
+  "https://abby.fr/declarations-urssaf-tva",
+  "https://www.indy.fr/blog/passage-monae-indy/",
+  "https://qonto.com/fr/invoicing/freelance",
+  "https://techcrunch.com/2022/04/20/study-up-on-churn-rate-basics-to-set-customer-and-revenue-benchmarks/",
+  "https://recurly.com/research/churn-rate-benchmarks",
+  "https://www.insee.fr/fr/statistiques/9022618",
+  "https://www.legalstart.fr/fiches-pratiques/facturation/numerotation-facture/",
+  "https://tool-advisor.fr/logiciel-facturation/prix-plateforme-agreee/",
+  "https://www.legifiscal.fr/actualites-fiscales/4536-facturation-electronique-137-plateformes-agreees.html",
+  "https://www.clementine.fr/solutions/micro-entreprise",
+  "https://www.lafabriquedunet.fr/logiciels/gestion/facturation/facturation-usage-gratuit"
+ ],
+ "run": {
+  "started": "2026-11-11T10:46:41Z",
+  "minutes": 9,
+  "searches": 32,
+  "fetches": 16,
+  "subagents": 4
+ }
+}
