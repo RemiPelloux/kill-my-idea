@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.0.0 — 2026-11-11
+
+The 1.0 quality bar from the [roadmap](ROADMAP.md) is met: a calibrated score, versioned formats,
+tests in CI, no model-written code in the default report, and a go-to-market plan in deepdive.
+From here, 1.x reads every 1.x file, and a breaking format change needs 2.0.
+
+- **Gallery re-run with the 1.0 rules:** all 14 ideas were re-run on Opus with 4 parallel research
+  agents. 12 are NO-GO and 2 are PIVOT (UGC agency 56, dental AI receptionist 51), from 39 to 56.
+  Every report passes the checker. `calibrate.py`'s output is published next to the gallery as
+  `docs/gallery/calibration.txt`.
+- **Examples regenerated:** the Notion and wedding-speech reports are fresh 1.0 runs that pass the
+  checker without `--legacy`. Notion moves from PIVOT 55 to **NO-GO 43** and wedding speeches from
+  48 to **NO-GO 44**: R6 and R7 now catch models that lose money on every customer. The README,
+  the verdict wall, the hero image and the report screenshots follow. CI no longer needs the
+  legacy step.
+- **"Full verdict" badge:** a normal kill run was labelled "Quick verdict", easy to confuse with
+  `--quick` mode. It now reads "Full verdict" ("Verdict complet" in French). The CSP hash is
+  re-pinned.
+- **Strong competitor is information:** even with a traction number required, it hits 13 of 14
+  gallery ideas and 8 of 10 calibration ideas, successes included. It keeps its mild cap
+  (competitor density ≤ 3) and [How scoring works](docs/scoring.md) says why. The worked example
+  there uses the new pet-dropshipping run (51 raw, R7, **41**).
+- **Run time:** parallel research raised the minimum sources per run from 4 to 36, but the median
+  run takes 7 minutes (6 before). The speed target moves to after 1.0.
+
 ## 0.11.1 — 2026-11-11
 
 - **Research agents run in the foreground:** kill and deepdive wait for their research subagents
