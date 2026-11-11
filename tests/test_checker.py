@@ -145,6 +145,54 @@ class Hindsight(unittest.TestCase):
         c.close()
 
 
+class TypesAndAnswers(unittest.TestCase):
+    def _typed(self, checks=None, answers=None):
+        import json as _j
+        c = IdeaCopy("pet")
+        p = c.dir / "report-data.js"
+        text = p.read_text()
+        data = _j.loads(text[text.index("{"):text.rindex("}") + 1])
+        idea, v = data["idea"], data["verdict"]
+        idea["type"] = "ecommerce"
+        if answers is not None:
+            idea["answers"] = answers
+        v["type_checks"] = checks if checks is not None else [
+            {"check": "contribution_margin", "result": "hit", "note": "loses money per order", "source": "https://example.com/a"},
+            {"check": "returns_shipping", "result": "unknown", "note": "not found"}]
+        (c.dir / "idea.json").write_text(_j.dumps(idea))
+        c.save(v)
+        p.write_text("window.KMI_DATA = " + _j.dumps(data) + ";")
+        return c
+
+    def test_typed_idea_passes(self):
+        c = self._typed(answers=[{"question": "Average order?", "answer": "$35", "feeds": ["contribution_margin"], "stage": "intake"}])
+        self.assertEqual(errors(c.dir), [])
+        c.close()
+
+    def test_wrong_type_checks_fail(self):
+        c = self._typed(checks=[{"check": "liquidity", "result": "clear", "note": "x"}])
+        self.assertTrue(any("needs exactly" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_hit_needs_a_source(self):
+        c = self._typed(checks=[{"check": "contribution_margin", "result": "hit", "note": "x"},
+                                {"check": "returns_shipping", "result": "clear", "note": "y"}])
+        self.assertTrue(any("source" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_answers_rules(self):
+        bad = [{"question": f"q{i}", "answer": "a", "feeds": ["trend"], "stage": "intake"} for i in range(9)]
+        c = self._typed(answers=bad)
+        self.assertTrue(any("at most 8" in e for e in errors(c.dir)))
+        c.close()
+        c = self._typed(answers=[{"question": "q", "answer": "a", "feeds": ["made_up"], "stage": "intake"}])
+        self.assertTrue(any("unknown feeds" in e for e in errors(c.dir)))
+        c.close()
+        c = self._typed(answers=[{"question": "q", "answer": "a", "feeds": ["no_distribution"], "stage": "follow_up"}])
+        self.assertTrue(any("needs an effect" in e for e in errors(c.dir)))
+        c.close()
+
+
 class Safety(unittest.TestCase):
     def test_code_in_report_data_is_refused(self):
         c = IdeaCopy("dental")

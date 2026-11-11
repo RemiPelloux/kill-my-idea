@@ -21,6 +21,15 @@
 - **Hindsight guard:** `verdict.as_of` scores an idea as it looked on a past date (for example a
   famous company at launch). Only sources published by then may be used; the checker fails later
   ones and warns when most sources have no date. (#8)
+- **Idea types:** every idea is classified as SaaS, marketplace, mobile app, e-commerce, content,
+  service or local, and gets the 2 checks that kill that kind of business (liquidity for a
+  marketplace, revenue per 1,000 views for content, permits and upfront cost for a local business…),
+  stored in `verdict.type_checks` and shown in the report. (#23)
+- **Smarter questions:** up to 8 questions instead of 4, picked from a bank by type, and only when the
+  answer could move a sub-score by a point or flip a kill shot. Answers are saved in `idea.answers`
+  with the sub-scores they feed, and the report shows them. (#24)
+- **Follow-up after research:** at most 2 targeted questions when a kill shot hinges on a fact only
+  the founder knows, with what each answer changed. Headless runs write them as assumptions. (#25)
 
 ## 0.9.1 — 2026-11-11
 

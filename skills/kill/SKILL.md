@@ -59,6 +59,20 @@ Write `idea.json`, following `${CLAUDE_PLUGIN_ROOT}/skills/kill/idea.schema.json
 - the country or countries (ISO codes, launch country first);
 - the unknowns.
 
+**Type.** Classify the idea as one `type`. Each type fails in its own ways, and §2 and §3 adapt to it:
+
+| `type` | It is… | Type checks (§3) | Metrics that matter |
+|---|---|---|---|
+| `saas` | software sold by subscription | `churn_benchmark` (monthly churn for this segment), `switching_cost` (what keeps customers on the incumbent) | ARPA, monthly churn |
+| `marketplace` | it takes a cut between two sides | `liquidity` (which side comes first, how many listings before it is useful), `disintermediation` (can both sides skip you after the first deal) | take rate, transactions per user |
+| `mobile_app` | an iOS or Android app | `store_search_demand` (keyword popularity; Apple's floor is 5), `platform_fees` (15–30% store cut, review risk) | cost per install, day-30 retention |
+| `ecommerce` | physical or digital products sold online | `contribution_margin` (per order after ads, fees, shipping), `returns_shipping` | average order value, repeat rate |
+| `content` | an audience paid by ads, sponsors or subscriptions | `rpm` (revenue per 1,000 views in this niche), `platform_policy` (demonetization, AI-content rules) | RPM, views needed to break even |
+| `service` | the founder or a team sells time or work | `founder_time_ceiling` (hours sellable per month), `client_concentration` | effective hourly rate, utilization |
+| `local` | it depends on a place: a shop, machines, a route | `location_traffic` (foot traffic, placement deals), `permits_capex` (licences and upfront cost) | capex, payback in months |
+
+Pick the closest one; a hybrid takes the type of its main revenue.
+
 Set `language` to the user's language (ISO 639-1; the HTML report has labels for `en` and `fr`).
 Copy each field from the input. A field that is not in the input is `null`, and its name goes
 in `unknowns`. Never invent a value.
@@ -71,16 +85,31 @@ section. A field filled in Me is an answer: don't ask it again, copy it into `id
 (`context`) and say "Using your profile from ideas/BRAIN.md". Ask only when this idea clearly
 differs (another country, a much bigger budget).
 
-Ask **at most 4 questions, in one round** (use AskUserQuestion when available, with likely
-answers as options; otherwise a numbered list in chat). Ask only about fields that are still
-`null` and would change the verdict. Priority:
+Ask **at most 8 questions, in one round** (use AskUserQuestion when available, up to 4 per
+call with likely answers as options; otherwise a numbered list in chat). **Ask a question only
+if its answer could move a sub-score by 1 point or more, or flip a kill shot.** Skip anything the
+input, `idea.json` or BRAIN.md already answers. Pick them by impact from this bank:
 
-1. **Country / market**: where it sells first. This changes competitors, prices, laws and channels.
-2. **Budget and time**: money available and hours per week.
-3. **Goal**: side income, a startup, an audience, or learning.
-4. **Edge**: the user's skills, audience, network or assets that matter here.
+| Asked for | Question | Feeds |
+|---|---|---|
+| every idea | Where do you sell first? | `country` (changes every kill shot) |
+| every idea | Budget and hours per week? | `capital_needed`, `time_to_mvp` |
+| every idea | Goal: side income, a startup, an audience, learning? | `interest`, `rescue` |
+| every idea | Your edge: skills, audience, network, assets? | `skills_match`, `assets`, `differentiation` |
+| every idea | Who exactly pays, and how much? | `pricing_power`, `willingness_to_pay` |
+| every idea | Do you already have an audience, a list or customers in this niche? How many? | `no_distribution`, `channel_readiness` |
+| every idea | What have you validated: conversations, a waitlist, pre-sales? | `willingness_to_pay`, `confidence` |
+| `saas` | Who signs the purchase, and what tool does it replace? | `sales_cycle`, `switching_cost` |
+| `marketplace` | Which side can you bring first, and how many before it is useful? | `liquidity`, `channel_readiness` |
+| `mobile_app` | iOS, Android or both? Subscription, ads or one-off? | `store_search_demand`, `gross_margin` |
+| `ecommerce` | Where do the products come from, and what is the average order? | `contribution_margin`, `gross_margin` |
+| `content` | Which platform and niche, and how often can you publish? | `rpm`, `time_to_mvp` |
+| `service` | Price per client, and hours of delivery per client? | `founder_time_ceiling`, `gross_margin` |
+| `local` | Do you have a location or placement deal? Permits needed? | `location_traffic`, `permits_capex` |
 
-If the user says "just go", or the input already answers these, skip the questions.
+Save every question asked and its answer in `idea.json` `answers`:
+`{"question", "answer", "feeds": [sub-score or kill-shot keys], "stage": "intake"}`.
+If the user says "just go", or nothing is unknown, skip the questions.
 Write every assumption into `idea.json` (`assumptions`) and into the report's header.
 
 **Save the answers.** Write each answer the user gave about themselves (not about this idea)
@@ -154,6 +183,17 @@ they start looking for a solution). Write "unknown" for a field you found no evi
 | Numbers | Every number has a source, or is **(estimate)** with its formula and inputs. Unknown is written as "unknown". Never fill a gap with a guess. Local currency, dated. |
 
 Keep facts and opinions apart.
+
+**Type checks.** Run the 2 checks of the idea's `type` (§1 table) like kill shots, and save
+them in `verdict.type_checks`: `{"check", "result": "hit" | "clear" | "unknown", "note", "source"}`.
+A hit needs a source and must show in the matching sub-score (for example `liquidity` hit →
+`channel_readiness` ≤ 2.5).
+
+**Follow-up after research.** When a kill shot or a capped rule depends on one fact only the
+founder knows ("do you already have 1,000 followers in this niche?", "is the location
+secured?"), ask **at most 2** targeted questions before scoring. Save each in `answers` with
+`"stage": "follow_up"` and an `effect` saying what it changed ("no channel → clear, +6") or
+"no change". In headless runs (no one to ask), write them as explicit assumptions instead.
 
 ## 4. Metrics
 

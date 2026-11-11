@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-xgMq3zQBDDBotu2V2cQOi15bP2UQWTTGbaxxnphTXh0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-j5DT4AI34KcRzPwcbi1oSYGN0Dn+4luND8TOnpt3bhY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,6 +194,12 @@ td.r,th.r{text-align:right}
 .tl.wn li{padding-bottom:14px}
 .icp{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:12px 16px;margin:0;font-size:15px}
 .icp dt{display:flex;gap:8px;align-items:flex-start;color:var(--muted-fg);font-weight:500;font-size:14px} .icp dt .ic{margin-top:4px;color:var(--primary)}
+.qa{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.qa li{display:grid;gap:4px;padding-bottom:12px;border-bottom:1px solid var(--line)} .qa li:last-child{border-bottom:0;padding-bottom:0}
+.qa-q{font-weight:600} .qa-v{color:var(--fg)} .qa-f{display:flex;flex-wrap:wrap;gap:6px;font:400 12px var(--mono);color:var(--muted-fg)} .qa-f span{padding:1px 7px;border-radius:6px;background:var(--muted)}
+.qa-e{font:500 13px var(--mono);color:var(--primary)}
+.tc{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)} .tc:last-child{border-bottom:0}
+.tc-k{font-weight:600} .tc-n{grid-column:2;color:var(--muted-fg);font-size:15px}
 .icp dd{margin:0;min-width:0} .chips{display:flex;flex-wrap:wrap;gap:6px}
 /* what-if sliders */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -293,6 +299,9 @@ if (ICP) ICP.where = Array.isArray(ICP.where) ? ICP.where.filter(w => typeof w =
 /* language: UI labels follow the idea's language (en, fr) */
 const LANG = String(I.language || N.language || "en").slice(0, 2).toLowerCase() === "fr" ? "fr" : "en";
 const FR = {
+  "Answers and checks": "Réponses et vérifications", "What you told us, and the checks for this kind of business.": "Ce que vous avez dit, et les vérifications propres à ce type d'activité.",
+  "Your answers": "Vos réponses", "After the research": "Après la recherche", "Checks for this type": "Vérifications pour ce type", "Hit": "Touché", "Clear": "Écarté", "Not checked": "Non vérifié", "Still assumed": "Encore supposé",
+  "SaaS": "SaaS", "Marketplace": "Place de marché", "Mobile app": "Appli mobile", "E-commerce": "E-commerce", "Content": "Contenu", "Service": "Service", "Local business": "Commerce local",
   "Executive summary": "Synthèse", "Could it be saved?": "Peut-on la sauver ?", "How to make it stronger": "Comment la renforcer", "Next step: 7-day test": "Prochaine étape : test de 7 jours",
   "Evidence": "Preuves", "Market": "Marché", "Competition": "Concurrence", "What customers say": "Ce que disent les clients", "Unit economics": "Économie unitaire", "Countries": "Pays",
   "Risks": "Risques", "Scoring": "Notation", "Sources": "Sources", "Recommendation": "Recommandation", "Lesson:": "Leçon :", "Plan": "Plan", "Stop if": "Arrêter si",
@@ -340,7 +349,7 @@ const FR_RX = [[/^As pitched it scores (\d+)\. Each option fixes at least one ki
   [/^What a customer is worth, what one costs, and how many you need\.$/, "Ce que vaut un client, ce qu'il coûte, et combien il en faut."]];
 const T = k => (LANG === "fr" && FR[k]) || k;
 const translateUI = root => { if (LANG !== "fr") return; const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
-  for (const n of nodes) { if (n.parentElement && n.parentElement.closest(".answer,.kf p,.rx .ch,.rx .why,.e,.snote,.quote,ol.src,.tl,.stop ul,td,.pm-c,.pm-d,.icp-v,.wn-n,.chip,.chips")) continue;
+  for (const n of nodes) { if (n.parentElement && n.parentElement.closest(".answer,.kf p,.rx .ch,.rx .why,.e,.snote,.quote,ol.src,.tl,.stop ul,td,.pm-c,.pm-d,.icp-v,.wn-n,.chip,.chips,.qa-v,.tc-n")) continue;
     const raw = n.textContent, t = raw.trim(); if (!t) continue; let out = FR[t];
     if (!out) for (const [rx, rep] of FR_RX) if (rx.test(t)) { out = t.replace(rx, rep); break; }
     if (out) n.textContent = raw.replace(t, out); }
@@ -362,7 +371,7 @@ const tipA = (title, body) => `${title ? `data-tip-t="${esc(title)}" ` : ""}data
 document.title = `${V.verdict || ""} ${V.score ?? ""}/100 · ${I.title || "kill-my-idea report"}`;
 
 /* Lucide icons, stroke 2 */
-const L = { check: '<path d="M20 6 9 17l-5-5"/>', x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>', rotate: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
+const L = { check: '<path d="M20 6 9 17l-5-5"/>', layers: '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>', search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>', x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>', rotate: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
   alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>', arrow: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
   printer: '<path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>',
   info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>', target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
@@ -430,8 +439,14 @@ const modeLabel = { kill: "Quick verdict", deepdive: "Deep dive", roast: "Roast"
 const toBand = s => s >= 70 ? null : s >= 50 ? ["GO", 70 - s] : ["PIVOT", 50 - s];
 const nb = toBand(V.score);
 const nextBand = nb ? `<div class="nb">${nb[1]} ${nb[1] === 1 ? "point" : "points"} from ${nb[0]}</div>` : V.score > 70 ? `<div class="nb">${V.score - 70} ${V.score - 70 === 1 ? "point" : "points"} above the GO line</div>` : "";
+const TYPE_L = { saas: "SaaS", marketplace: "Marketplace", mobile_app: "Mobile app", ecommerce: "E-commerce", content: "Content", service: "Service", local: "Local business" };
+const TC_L = { churn_benchmark: "Churn for this segment", switching_cost: "Switching cost", liquidity: "Liquidity (which side first)", disintermediation: "Sides skipping you",
+  store_search_demand: "App Store search demand", platform_fees: "Store fees and review", contribution_margin: "Margin per order", returns_shipping: "Returns and shipping",
+  rpm: "Revenue per 1,000 views", platform_policy: "Platform policy", founder_time_ceiling: "Your time ceiling", client_concentration: "Client concentration",
+  location_traffic: "Location and traffic", permits_capex: "Permits and upfront cost" };
+const ITYPE = TYPE_L[I.type] ? I.type : null;
 const hero = `<div class="card hero">
-  <div><div class="meta"><span class="badge b-neutral">${ic("clock", 14)}${esc(niceDate(V.evaluated || I.created))}</span>${modeLabel ? `<span class="badge b-neutral">${esc(modeLabel)}</span>` : ""}${(I.countries || []).map(c => `<span class="badge b-neutral">${ic("flag", 14)}${esc(CN[c] || c)}</span>`).join("")}${CF ? `<span class="badge ${CFC[CF.level]}" ${tipA("Confidence", cfTip)} tabindex="0">${ic("info", 14)}${CFL[CF.level]}</span>` : ""}${prevScore !== null && prevScore !== V.score ? `<span class="badge b-neutral" ${tipA("Previous verdict", `${prev.verdict || ""} ${prevScore} (${prev.mode || ""}, ${niceDate(prev.evaluated)})`)} tabindex="0">${prevScore} ${ic("arrow", 12)} ${V.score}</span>` : ""}</div>
+  <div><div class="meta"><span class="badge b-neutral">${ic("clock", 14)}${esc(niceDate(V.evaluated || I.created))}</span>${modeLabel ? `<span class="badge b-neutral">${esc(modeLabel)}</span>` : ""}${ITYPE ? `<span class="badge b-neutral">${ic("layers", 14)}${TYPE_L[ITYPE]}</span>` : ""}${(I.countries || []).map(c => `<span class="badge b-neutral">${ic("flag", 14)}${esc(CN[c] || c)}</span>`).join("")}${CF ? `<span class="badge ${CFC[CF.level]}" ${tipA("Confidence", cfTip)} tabindex="0">${ic("info", 14)}${CFL[CF.level]}</span>` : ""}${prevScore !== null && prevScore !== V.score ? `<span class="badge b-neutral" ${tipA("Previous verdict", `${prev.verdict || ""} ${prevScore} (${prev.mode || ""}, ${niceDate(prev.evaluated)})`)} tabindex="0">${prevScore} ${ic("arrow", 12)} ${V.score}</span>` : ""}</div>
   <h1>${esc(I.title || "Untitled idea")}</h1>${I.solution ? `<p class="pitch">${esc(I.solution)}</p>` : ""}<p class="answer">${rt(N.answer || "")}</p></div>
   <div class="score">${ring(V.score ?? 0, V.verdict)}<div class="verdict b-${esc(V.verdict)}">${ic(VICON[V.verdict], 20)}${esc(V.verdict || "")}</div>${nextBand}</div></div>`;
 
@@ -676,11 +691,20 @@ const sTest = (has(N.test_plan) || V.cheapest_test || kc.length) ? section("test
 /* pre-mortem (narrative.premortem) */
 const PML = { H: ["NO-GO", "High likelihood"], M: ["PIVOT", "Medium likelihood"], L: ["neutral", "Low likelihood"] };
 const linkLabel = k => { const s = String(k || ""); return KS[s] || SUB[s] || LB[s] || s.replace(/_/g, " "); };
+/* answers and type checks (1.0): what the founder said, what it fed, and the 2 checks of the idea's type */
+const ANS = Array.isArray(I.answers) ? I.answers.filter(a => a && typeof a === "object" && a.question).slice(0, 10) : [];
+const TCS = Array.isArray(V.type_checks) ? V.type_checks.filter(c => c && typeof c === "object" && TC_L[c.check]).slice(0, 2) : [];
+const TCR = { hit: ["b-NO-GO", "x", "Hit"], clear: ["b-GO", "check", "Clear"], unknown: ["b-neutral", "alert", "Not checked"] };
+const qaList = list => `<ul class="qa">${list.map(a => `<li><span class="qa-q">${esc(a.question)}</span><span class="qa-v">${a.answer ? esc(a.answer) : `<span class="unk">${T("Still assumed")}</span>`}</span>${a.effect ? `<span class="qa-e">${esc(a.effect)}</span>` : ""}${Array.isArray(a.feeds) && a.feeds.length ? `<span class="qa-f">${a.feeds.slice(0, 6).map(f => `<span>${esc(String(f).replace(/_/g, " "))}</span>`).join("")}</span>` : ""}</li>`).join("")}</ul>`;
+const intake = ANS.filter(a => a.stage !== "follow_up"), follow = ANS.filter(a => a.stage === "follow_up");
+const sAbout = (ANS.length || TCS.length) ? section("about", "Answers and checks", "What you told us, and the checks for this kind of business.",
+  `<div class="grid ${(ANS.length && TCS.length) ? "g2" : ""}">${ANS.length ? card(`${intake.length ? `<h3>${ic("users")} Your answers</h3>${qaList(intake)}` : ""}${follow.length ? `<h3 style="margin-top:var(--s3)">${ic("search")} After the research</h3>${qaList(follow)}` : ""}`) : ""}
+   ${TCS.length ? card(`<h3>${ic("layers")} Checks for this type${ITYPE ? `: ${TYPE_L[ITYPE]}` : ""}</h3>${TCS.map(c => { const r = TCR[c.result] || TCR.unknown; return `<div class="tc"><span class="tc-k">${esc(TC_L[c.check])}</span><span><span class="badge ${r[0]}">${ic(r[1], 13)}${r[2]}</span></span><span class="tc-n">${rt(c.note || "")}${fn(c.source)}</span></div>`; }).join("")}`, 80) : ""}</div>`) : "";
 const sPremortem = N.premortem.length ? section("premortem", "Pre-mortem", "It's 12 months later and it failed. The most likely reasons.",
   `<div class="grid g3">${N.premortem.map((p, n) => { const [b, l] = PML[p.likelihood]; return `<div class="card rv pm" style="--d:${n * 80}ms"><div class="pm-top"><span class="kf-n">${n + 1}</span><span class="badge b-${b}">${ic("alert", 13)}${l}</span></div>
     <div class="pm-c">${rt(p.cause)}</div>${p.early_signal ? `<div class="pm-s">${ic("flag", 14)}<span><strong>Early signal:</strong> <span class="pm-d">${rt(p.early_signal)}</span></span></div>` : ""}
     ${p.linked_to ? `<div><span class="chip">${ic("target", 12)}${esc(T("linked to"))} ${esc(T(linkLabel(p.linked_to)))}</span></div>` : ""}</div>`; }).join("")}</div>`) : "";
-const body = [sSummary, sRescue, sPremortem, sTest, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
+const body = [sSummary, sRescue, sPremortem, sTest, sAbout, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
 const TIER = { primary: "primary", secondary: "secondary", tertiary: "tertiary" };
 const tiers = SRC.reduce((a, s) => { if (TIER[s.tier]) a[s.tier] = (a[s.tier] || 0) + 1; return a; }, {});
 const tierSub = Object.keys(tiers).length ? ` ${["primary", "secondary", "tertiary"].filter(t => tiers[t]).map(t => `${tiers[t]} ${t}`).join(", ")}.` : "";

@@ -738,6 +738,57 @@
           }
         }
       }
+    },
+    "type_checks": {
+      "type": "array",
+      "maxItems": 2,
+      "description": "The 2 checks of idea.type (SKILL.md §1 table), run like kill shots.",
+      "items": {
+        "type": "object",
+        "required": [
+          "check",
+          "result",
+          "note"
+        ],
+        "properties": {
+          "check": {
+            "enum": [
+              "churn_benchmark",
+              "client_concentration",
+              "contribution_margin",
+              "disintermediation",
+              "founder_time_ceiling",
+              "liquidity",
+              "location_traffic",
+              "permits_capex",
+              "platform_fees",
+              "platform_policy",
+              "returns_shipping",
+              "rpm",
+              "store_search_demand",
+              "switching_cost"
+            ]
+          },
+          "result": {
+            "enum": [
+              "hit",
+              "clear",
+              "unknown"
+            ]
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 240
+          },
+          "source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^https?://"
+          }
+        }
+      }
     }
   }
 }

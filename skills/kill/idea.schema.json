@@ -225,6 +225,63 @@
       "pattern": "^[a-z]{2}$",
       "default": "en",
       "description": "The user's language, ISO 639-1. The HTML report has labels for en and fr; other languages fall back to en labels with the narrative in the user's language."
+    },
+    "type": {
+      "enum": [
+        "saas",
+        "marketplace",
+        "mobile_app",
+        "ecommerce",
+        "content",
+        "service",
+        "local"
+      ],
+      "description": "The kind of business; it picks the type checks and the question bank (SKILL.md §1-§3)."
+    },
+    "answers": {
+      "type": "array",
+      "maxItems": 10,
+      "description": "Questions asked and the founder's answers. intake: before research (§2, at most 8). follow_up: after research (§3, at most 2).",
+      "items": {
+        "type": "object",
+        "required": [
+          "question",
+          "answer",
+          "feeds",
+          "stage"
+        ],
+        "properties": {
+          "question": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "answer": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 300
+          },
+          "feeds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Sub-score, kill-shot or type-check keys this answer feeds, or country / confidence / rescue"
+          },
+          "stage": {
+            "enum": [
+              "intake",
+              "follow_up"
+            ]
+          },
+          "effect": {
+            "type": "string",
+            "maxLength": 160,
+            "description": "follow_up only: what the answer changed, e.g. 'no channel -> clear, +6', or 'no change'"
+          }
+        }
+      }
     }
   }
 }

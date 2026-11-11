@@ -38,6 +38,10 @@ COHERENCE = {"free_alternative": [("competition", "free_alternatives", 2)],
              "saturated_wave": [("competition", "competitor_density", 2)],
              "strong_competitor": [("competition", "competitor_density", 3)]}
 MIN_SOURCES = {"kill": (20, 10), "deepdive": (40, 15), "roast": (10, 6), "check-tweet": (20, 10)}
+TYPES = {"saas": ["churn_benchmark", "switching_cost"], "marketplace": ["liquidity", "disintermediation"],
+         "mobile_app": ["store_search_demand", "platform_fees"], "ecommerce": ["contribution_margin", "returns_shipping"],
+         "content": ["rpm", "platform_policy"], "service": ["founder_time_ceiling", "client_concentration"],
+         "local": ["location_traffic", "permits_capex"]}
 SCHEMA_VERSION = "1.0"  # the file format; 1.x readers accept every 1.x file
 DIFF_ORDER = {"doable": 0, "hard": 1, "very-hard": 2}
 URL_RX = re.compile(r"^https?://", re.I)
@@ -97,6 +101,65 @@ def check_url(rep, where, url, required=False):
         return
     if not isinstance(url, str) or not URL_RX.match(url):
         rep.error(f"{where}: not an http(s) URL: {str(url)[:80]!r}")
+
+
+def check_type_and_answers(rep, idea, v):
+    """1.0: idea.type picks 2 type checks; answers record the questions asked and what they fed."""
+    if not isinstance(idea, dict):
+        return
+    t = idea.get("type")
+    if t is None:
+        rep.legacy("idea.type (and verdict.type_checks)", since="1.0")
+    elif t not in TYPES:
+        rep.error(f"idea.json: type {t!r} must be one of {', '.join(TYPES)}")
+    else:
+        tc = v.get("type_checks")
+        if not isinstance(tc, list):
+            rep.error(f"verdict.json: type_checks is required for a {t} idea: {', '.join(TYPES[t])}")
+        else:
+            got = [c.get("check") for c in tc if isinstance(c, dict)]
+            if sorted(got) != sorted(TYPES[t]):
+                rep.error(f"verdict.json: type_checks are {got}; a {t} idea needs exactly {TYPES[t]}")
+            for c in tc:
+                if not isinstance(c, dict):
+                    continue
+                if c.get("result") not in ("hit", "clear", "unknown"):
+                    rep.error(f"verdict.json: type check {c.get('check')} result {c.get('result')!r} must be hit, clear or unknown")
+                if not c.get("note"):
+                    rep.error(f"verdict.json: type check {c.get('check')} needs a note")
+                if c.get("result") == "hit":
+                    check_url(rep, f"verdict.json type check {c.get('check')}.source", c.get("source"), required=True)
+    ans = idea.get("answers")
+    if ans is None:
+        return
+    if not isinstance(ans, list) or len(ans) > 10:
+        rep.error("idea.json: answers must be a list of at most 10")
+        return
+    keys = {s for subs in SUBS.values() for s in subs} | set(KILL_SHOTS) | {c for cs in TYPES.values() for c in cs} | {"country", "confidence", "rescue"}
+    stages = {"intake": 0, "follow_up": 0}
+    for i, a in enumerate(ans):
+        w = f"idea.json answers[{i}]"
+        if not isinstance(a, dict) or not a.get("question"):
+            rep.error(f"{w}: needs a question")
+            continue
+        st = a.get("stage")
+        if st not in stages:
+            rep.error(f"{w}: stage {st!r} must be intake or follow_up")
+            continue
+        stages[st] += 1
+        feeds = a.get("feeds")
+        if not isinstance(feeds, list) or not feeds:
+            rep.error(f"{w}: feeds must list the sub-scores or kill shots the answer changes")
+        else:
+            bad = [f for f in feeds if f not in keys]
+            if bad:
+                rep.error(f"{w}: unknown feeds {bad}; use sub-score, kill-shot or type-check keys")
+        if st == "follow_up" and not a.get("effect"):
+            rep.error(f"{w}: a follow-up needs an effect (what the answer changed, or 'no change')")
+    if stages["intake"] > 8:
+        rep.error(f"idea.json: {stages['intake']} intake questions; ask at most 8")
+    if stages["follow_up"] > 2:
+        rep.error(f"idea.json: {stages['follow_up']} follow-up questions; ask at most 2")
 
 
 def check_version(rep, where, obj):
@@ -843,6 +906,7 @@ def check_folder(folder, legacy=False):
     check_idea(rep, idea)
     check_version(rep, "idea.json", idea)
     check_version(rep, "verdict.json", v)
+    check_type_and_answers(rep, idea, v)
     scores = check_scores(rep, v)
     check_metrics(rep, v)
     check_kill_shots(rep, v)
