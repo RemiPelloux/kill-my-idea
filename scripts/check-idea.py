@@ -322,6 +322,39 @@ def check_kill_shots(rep, v):
         rep.error("verdict.json: kill shots hit but primary_kill_shot is null")
 
 
+def _pub_key(p):
+    """'2025', '2025-03' or '2025-03-14' -> the last day it can stand for, as YYYY-MM-DD, or None."""
+    m = re.match(r"^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$", str(p or "").strip())
+    if not m:
+        return None
+    y, mo, d = m.group(1), m.group(2), m.group(3)
+    return f"{y}-{mo or '01'}-{d or '01'}"
+
+
+def check_as_of(rep, v, narrative):
+    """Hindsight guard: with as_of set, no source may be published after it."""
+    as_of = v.get("as_of")
+    if as_of is None:
+        return
+    if not DATE_RX.match(str(as_of)):
+        rep.error(f"verdict.json: as_of {as_of!r} is not YYYY-MM-DD")
+        return
+    srcs = (narrative or {}).get("sources") or []
+    later, undated = [], 0
+    for s in srcs:
+        if not isinstance(s, dict):
+            continue
+        k = _pub_key(s.get("published"))
+        if k is None:
+            undated += 1
+        elif k > as_of:
+            later.append(f"{s.get('published')} {str(s.get('url'))[:60]}")
+    if later:
+        rep.error(f"verdict.json: as_of {as_of} but {len(later)} source(s) were published after it (hindsight): {'; '.join(later[:3])}")
+    if srcs and undated * 2 > len(srcs):
+        rep.warn(f"verdict.json: as_of {as_of} but {undated} of {len(srcs)} sources have no published date, so hindsight can't be ruled out; add published dates")
+
+
 def check_sources_and_confidence(rep, v, narrative, scores):
     mode = v.get("mode")
     if mode is None:
@@ -818,6 +851,7 @@ def check_folder(folder, legacy=False):
     rep.lenient = legacy
     narrative = check_report_data(rep, data, idea, v)
     check_sources_and_confidence(rep, v, narrative, scores)
+    check_as_of(rep, v, narrative)
     check_rescue_and_test(rep, v)
     bc = v.get("by_country")
     if isinstance(bc, dict):

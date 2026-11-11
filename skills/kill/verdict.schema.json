@@ -244,6 +244,14 @@
       "format": "date",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
+    "as_of": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Optional. Score the idea as it looked on this date (e.g. a famous company's launch day, for calibration). Only evidence published on or before it may be used; the checker flags later sources."
+    },
     "mode": {
       "enum": [
         "kill",

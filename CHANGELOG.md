@@ -18,6 +18,9 @@
   (`--outcomes`) and rescores with other weights (`--weights`). CI prints it for the gallery. On the
   gallery today: 43–58, stdev 3.4, no GO; free alternative, strong competitor and no channel are
   flagged. (#5)
+- **Hindsight guard:** `verdict.as_of` scores an idea as it looked on a past date (for example a
+  famous company at launch). Only sources published by then may be used; the checker fails later
+  ones and warns when most sources have no date. (#8)
 
 ## 0.9.1 — 2026-11-11
 

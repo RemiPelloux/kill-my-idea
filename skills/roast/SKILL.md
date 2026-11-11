@@ -17,6 +17,9 @@ A roast is the kill-my-idea verdict told as stand-up. It is shareable on purpose
 2. **Write the data files** so `compare` can rank the idea: `idea.json` and `verdict.json`
    (`mode: "roast"`) in `ideas/<YYYY-MM>-<slug>/`, following the kill skill's schemas.
    The HTML report is optional for a roast; write it (kill skill §6) if the user asks.
+   For a famous company, the roast may use hindsight (that's the joke), but if the user asks
+   "would it have worked?", score it as of its launch date (`as_of`, kill skill §3) and keep the
+   hindsight in the roast lines only.
 3. **Write the roast** to `roast.md` in the same folder, in this order:
    - the **verdict card** (kill skill §6), then the badge;
    - **5 burns**: one line each, one fact each, one source link each. Funny comes from the

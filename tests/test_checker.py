@@ -118,6 +118,33 @@ class Versions(unittest.TestCase):
         c.close()
 
 
+class Hindsight(unittest.TestCase):
+    def _with_as_of(self, as_of, published):
+        c = IdeaCopy("pet")
+        v = c.verdict()
+        v["as_of"] = as_of
+        c.save(v)
+        p = c.dir / "report-data.js"
+        text = p.read_text()
+        import json as _j
+        data = _j.loads(text[text.index("{"):text.rindex("}") + 1])
+        data["verdict"] = v
+        for s in data["narrative"]["sources"]:
+            s["published"] = published
+        p.write_text("window.KMI_DATA = " + _j.dumps(data) + ";")
+        return c
+
+    def test_later_source_fails(self):
+        c = self._with_as_of("2016-03-01", "2026-05")
+        self.assertTrue(any("hindsight" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_earlier_sources_pass(self):
+        c = self._with_as_of("2026-11-01", "2025-06")
+        self.assertFalse(any("hindsight" in e for e in errors(c.dir)))
+        c.close()
+
+
 class Safety(unittest.TestCase):
     def test_code_in_report_data_is_refused(self):
         c = IdeaCopy("dental")

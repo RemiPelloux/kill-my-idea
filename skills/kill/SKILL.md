@@ -112,6 +112,11 @@ this kill-shot checklist and record evidence for every item, hit or clear:
   means buyers have seen 10 versions: differentiation must be specific, not "better UX" or
   "privacy-first".
 - A kill shot you did not have time to check is `null` in `verdict.json`, never `false`.
+- **Scoring as of a past date** (the user says "as of 2016", "at launch", or a calibration run):
+  set `verdict.as_of` to that date and use only evidence published on or before it. Search
+  with the date in mind ("<idea> 2015", archived pricing pages), give every source its
+  `published` date, and don't let what happened later leak into a sub-score, a kill shot or the
+  narrative. The checker fails any source published after `as_of`.
 - **Mobile apps** (suggested by a Reddit user): App Store search is often the only free
   channel. Apple's Search Ads popularity score goes from 5 to 100 and 5 is the floor. If every
   keyword the app would target sits at that floor, App Store search brings almost no one:
