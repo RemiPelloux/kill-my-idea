@@ -9,7 +9,9 @@ Report data comes from web research, so the templates must treat it as hostile. 
     Convention: mark each sink with a /* safe-render */ comment on the same line. Files in
     MARKER_REQUIRED must carry the marker on every sink; adding a sink means reviewing it,
     adding the marker and raising the count below in the same change.
-  - eval(, new Function, document.write, setTimeout/setInterval with a string argument
+  - dynamic code: the e-v-a-l builtin, the Function constructor, document.write and
+    setTimeout/setInterval with a string argument (patterns below are written with
+    character classes so this file does not match its own rules)
   - href="${...}" that is not esc(<safe value>), where the safe value is a safeUrl()/safeRel()
     call or a variable assigned from one
   - inline event-handler attributes (on<event>=) inside HTML in the script
@@ -26,8 +28,8 @@ MARKER_REQUIRED = {"skills/compare/board.html"}
 MARKER = "/* safe-render */"
 
 SINK_RX = re.compile(r"\.(?:innerHTML|outerHTML)\s*\+?=(?!=)|\.insertAdjacentHTML\s*\(")
-BANNED = [(re.compile(r"\beval\s*\("), "eval("),
-          (re.compile(r"\bnew\s+Function\b"), "new Function"),
+BANNED = [(re.compile(r"\be[v]al\s*\("), "dynamic code call (e-v-a-l)"),
+          (re.compile(r"\bnew\s+Functio[n]\b"), "Function constructor"),
           (re.compile(r"\bdocument\.write(?:ln)?\s*\("), "document.write"),
           (re.compile(r"\bset(?:Timeout|Interval)\s*\(\s*[\"'`]"), "string timer")]
 HREF_RX = re.compile(r'href="\$\{([^}]*)\}')
