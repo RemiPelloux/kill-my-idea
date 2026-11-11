@@ -1,6 +1,6 @@
 # Roadmap to 1.0.0
 
-1.0.0 is a quality bar, not a date. All the work happens in **one sprint**, the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) milestone (26 issues), and 1.0.0 ships when it is closed.
+1.0.0 is a quality bar, not a date. **Status (2026-11-11):** 22 of 26 done; the calibration set passes all three targets (see [calibration](calibration/README.md)). All the work happens in **one sprint**, the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) milestone (26 issues), and 1.0.0 ships when it is closed.
 
 **What 1.0 means**
 
@@ -21,43 +21,43 @@ set, the regenerated examples and the gallery re-run) are real runs: at most 3 a
 
 **Foundations: build what everything else needs**
 
-1. [#10](https://github.com/RemiPelloux/kill-my-idea/issues/10) Test suite
-2. [#9](https://github.com/RemiPelloux/kill-my-idea/issues/9) Add schema_version to every file
-3. [#12](https://github.com/RemiPelloux/kill-my-idea/issues/12) No executable data by default
-4. [#5](https://github.com/RemiPelloux/kill-my-idea/issues/5) Add scripts/calibrate.py
-5. [#8](https://github.com/RemiPelloux/kill-my-idea/issues/8) Hindsight guard
+1. ✅ [#10](https://github.com/RemiPelloux/kill-my-idea/issues/10) Test suite
+2. ✅ [#9](https://github.com/RemiPelloux/kill-my-idea/issues/9) Add schema_version to every file
+3. ✅ [#12](https://github.com/RemiPelloux/kill-my-idea/issues/12) No executable data by default
+4. ✅ [#5](https://github.com/RemiPelloux/kill-my-idea/issues/5) Add scripts/calibrate.py
+5. ✅ [#8](https://github.com/RemiPelloux/kill-my-idea/issues/8) Hindsight guard
 
 **The score: better input, then calibrate and freeze it**
 
-6. [#23](https://github.com/RemiPelloux/kill-my-idea/issues/23) Idea types
-7. [#24](https://github.com/RemiPelloux/kill-my-idea/issues/24) Smarter questions
-8. [#25](https://github.com/RemiPelloux/kill-my-idea/issues/25) Follow-up after research
-9. [#4](https://github.com/RemiPelloux/kill-my-idea/issues/4) Calibration set
+6. ✅ [#23](https://github.com/RemiPelloux/kill-my-idea/issues/23) Idea types
+7. ✅ [#24](https://github.com/RemiPelloux/kill-my-idea/issues/24) Smarter questions
+8. ✅ [#25](https://github.com/RemiPelloux/kill-my-idea/issues/25) Follow-up after research
+9. ✅ [#4](https://github.com/RemiPelloux/kill-my-idea/issues/4) Calibration set
 10. [#6](https://github.com/RemiPelloux/kill-my-idea/issues/6) Strong competitor threshold
-11. [#7](https://github.com/RemiPelloux/kill-my-idea/issues/7) Weights review
-12. [#11](https://github.com/RemiPelloux/kill-my-idea/issues/11) Golden runs
+11. ✅ [#7](https://github.com/RemiPelloux/kill-my-idea/issues/7) Weights review
+12. ✅ [#11](https://github.com/RemiPelloux/kill-my-idea/issues/11) Golden runs
 13. [#13](https://github.com/RemiPelloux/kill-my-idea/issues/13) Regenerate the examples
 
 **Go to market (deepdive)**
 
-14. [#26](https://github.com/RemiPelloux/kill-my-idea/issues/26) Deepdive: personas
-15. [#27](https://github.com/RemiPelloux/kill-my-idea/issues/27) Deepdive: market strategy options
-16. [#28](https://github.com/RemiPelloux/kill-my-idea/issues/28) Deepdive: promotion axes
-17. [#29](https://github.com/RemiPelloux/kill-my-idea/issues/29) Deepdive: branding
+14. ✅ [#26](https://github.com/RemiPelloux/kill-my-idea/issues/26) Deepdive: personas
+15. ✅ [#27](https://github.com/RemiPelloux/kill-my-idea/issues/27) Deepdive: market strategy options
+16. ✅ [#28](https://github.com/RemiPelloux/kill-my-idea/issues/28) Deepdive: promotion axes
+17. ✅ [#29](https://github.com/RemiPelloux/kill-my-idea/issues/29) Deepdive: branding
 
 **Speed and docs**
 
-18. [#14](https://github.com/RemiPelloux/kill-my-idea/issues/14) Cost and time in the report
+18. ✅ [#14](https://github.com/RemiPelloux/kill-my-idea/issues/14) Cost and time in the report
 19. [#16](https://github.com/RemiPelloux/kill-my-idea/issues/16) Parallel research by default
-20. [#15](https://github.com/RemiPelloux/kill-my-idea/issues/15) Quick mode
-21. [#17](https://github.com/RemiPelloux/kill-my-idea/issues/17) Write a "How scoring works" page
-22. [#18](https://github.com/RemiPelloux/kill-my-idea/issues/18) Rubric-change process
+20. ✅ [#15](https://github.com/RemiPelloux/kill-my-idea/issues/15) Quick mode
+21. ✅ [#17](https://github.com/RemiPelloux/kill-my-idea/issues/17) Write a "How scoring works" page
+22. ✅ [#18](https://github.com/RemiPelloux/kill-my-idea/issues/18) Rubric-change process
 
 **Freeze**
 
-23. [#21](https://github.com/RemiPelloux/kill-my-idea/issues/21) Release checklist
-24. [#19](https://github.com/RemiPelloux/kill-my-idea/issues/19) Compatibility promise
-25. [#20](https://github.com/RemiPelloux/kill-my-idea/issues/20) Security review
+23. ✅ [#21](https://github.com/RemiPelloux/kill-my-idea/issues/21) Release checklist
+24. ✅ [#19](https://github.com/RemiPelloux/kill-my-idea/issues/19) Compatibility promise
+25. ✅ [#20](https://github.com/RemiPelloux/kill-my-idea/issues/20) Security review
 26. [#22](https://github.com/RemiPelloux/kill-my-idea/issues/22) Gallery re-run
 
 ---
