@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Listed in [Awesome AI Plugins](https://github.com/hashgraph-online/awesome-ai-plugins) and the HOL Registry.
+- CI: every action pinned to a commit SHA, Dependabot for actions, and the HOL plugin scanner on each push (100/100).
+- `scan-report.py` no longer matches its own banned-pattern text (a false positive in external scanners). Its checks are unchanged.
+
 ## 0.9.0 — 2026-11-11
 
 A dashboard for all your ideas, and a brain note that remembers you.

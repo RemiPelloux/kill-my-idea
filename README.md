@@ -11,6 +11,8 @@
 
 [![MIT license](https://img.shields.io/badge/license-MIT-EFE8DC?labelColor=15120F)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/RemiPelloux/kill-my-idea?style=flat&color=E5383B&labelColor=15120F)](https://github.com/RemiPelloux/kill-my-idea/stargazers)
+[![Listed in Awesome AI Plugins](https://img.shields.io/badge/listed-Awesome%20AI%20Plugins-EFE8DC?labelColor=15120F)](https://github.com/hashgraph-online/awesome-ai-plugins)
+[![HOL plugin scan](https://img.shields.io/badge/HOL%20scan-100%2F100-00a67e?labelColor=15120F)](https://github.com/RemiPelloux/kill-my-idea/actions/workflows/hol-plugin-scanner.yml)
 
 </div>
 
@@ -221,6 +223,12 @@ checker that recomputes the score, and tests run on real ideas. You can read all
 **Does it cost anything?**
 No. It's MIT-licensed and runs on your own Claude Code plan. It never publishes anything, spends
 money or contacts anyone for you.
+
+**Is it safe to install?**
+It's listed in [Awesome AI Plugins](https://github.com/hashgraph-online/awesome-ai-plugins) and the
+[HOL Registry](https://hol.org/registry/plugins) after their security review. Every push runs the
+[HOL plugin scanner](.github/workflows/hol-plugin-scanner.yml) (100/100, no findings) and a
+[template safety scan](scripts/scan-report.py). All GitHub Actions are pinned to commit SHAs. See [SECURITY.md](SECURITY.md).
 
 **Can I share my verdict?**
 Yes. Paste the badge it gives you into your README, or post the card in the
