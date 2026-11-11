@@ -194,7 +194,7 @@ Everything goes into `ideas/<YYYY-MM>-<slug>/` in your current folder.
 
 | File | Contents |
 |---|---|
-| `report.html` + `report-data.js` | The designed report. Works offline and prints to PDF |
+| `report.html` + `report-data.json` | The designed report, one self-contained file built by `scripts/build-report.py` (the data is embedded as inert JSON, so the page runs no model-written code). Works offline and prints to PDF |
 | `report.md` | The same report as plain text |
 | `idea.json` | The extracted brief ([schema](skills/kill/idea.schema.json)) |
 | `verdict.json` | Score, 21 sub-scores, rules applied, confidence, metrics with their sources, countries, rescue paths ([schema](skills/kill/verdict.schema.json)) |

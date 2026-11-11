@@ -66,17 +66,21 @@ def read_json(path):
 def load_folder(folder):
     """(verdict, idea, narrative) from the JSON files, or from report-data.js when they are missing."""
     v, idea, narrative = read_json(folder / "verdict.json"), read_json(folder / "idea.json"), {}
-    rd = folder / "report-data.js"
-    if rd.exists():
+    rd, rj = folder / "report-data.js", folder / "report-data.json"
+    data = None
+    if rj.exists():
+        data = read_json(rj) or {}
+    elif rd.exists():
         m = DATA_RX.match(rd.read_text(encoding="utf-8").lstrip("\ufeff"))
         if m:
             try:
                 data = json.loads(m.group(1))
             except json.JSONDecodeError:
                 data = {}
-            v = v or data.get("verdict")
-            idea = idea or data.get("idea")
-            narrative = data.get("narrative") or {}
+    if isinstance(data, dict):
+        v = v or data.get("verdict")
+        idea = idea or data.get("idea")
+        narrative = data.get("narrative") or {}
     if not isinstance(v, dict) or not isinstance(v.get("score"), int):
         return None
     return v, idea if isinstance(idea, dict) else {}, narrative if isinstance(narrative, dict) else {}

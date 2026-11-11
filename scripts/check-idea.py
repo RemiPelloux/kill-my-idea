@@ -479,7 +479,16 @@ def load_js_literal(rep, path, var):
 
 
 def load_report_data(rep, path):
-    """report-data.js must be exactly one statement: window.KMI_DATA = {...};"""
+    """report-data.json (1.0+, strict JSON) or report-data.js (exactly one statement: window.KMI_DATA = {...};)."""
+    jf = path.with_suffix(".json")
+    if jf.exists():
+        data = load_json(rep, jf)
+        if data is not None and not isinstance(data, dict):
+            rep.error("report-data.json: must be a JSON object")
+            return None
+        return data
+    if path.exists():
+        rep.warn("report-data.js is JavaScript the browser runs; since 1.0 write report-data.json and run scripts/build-report.py")
     return load_js_literal(rep, path, "KMI_DATA")
 
 
@@ -487,13 +496,13 @@ def check_text(rep, where, val, max_len, required=True):
     """A non-empty string of at most max_len characters. Returns True when it is one."""
     if val is None or val == "":
         if required:
-            rep.error(f"report-data.js: {where} is required")
+            rep.error(f"report-data: {where} is required")
         return False
     if not isinstance(val, str):
-        rep.error(f"report-data.js: {where} must be a string")
+        rep.error(f"report-data: {where} must be a string")
         return False
     if len(val) > max_len:
-        rep.error(f"report-data.js: {where} is {len(val)} chars; max {max_len}")
+        rep.error(f"report-data: {where} is {len(val)} chars; max {max_len}")
     return True
 
 
@@ -504,12 +513,12 @@ def check_premortem(rep, n, v):
         rep.legacy("narrative.premortem", "0.8")
         return
     if not isinstance(pm, list):
-        rep.error("report-data.js: narrative.premortem must be a list")
+        rep.error("report-data: narrative.premortem must be a list")
         return
     if len(pm) > 3:
-        rep.error(f"report-data.js: narrative.premortem has {len(pm)} causes; at most 3")
+        rep.error(f"report-data: narrative.premortem has {len(pm)} causes; at most 3")
     if not pm:
-        rep.warn("report-data.js: narrative.premortem is empty; write the 3 most likely causes of failure")
+        rep.warn("report-data: narrative.premortem is empty; write the 3 most likely causes of failure")
     ks = v.get("kill_shots") if isinstance(v.get("kill_shots"), dict) else {}
     cd = v.get("criteria_detail") if isinstance(v.get("criteria_detail"), dict) else {}
     subs = {s for block in cd.values() if isinstance(block, dict) for s in block}
@@ -517,23 +526,23 @@ def check_premortem(rep, n, v):
     for i, p in enumerate(pm):
         where = f"premortem[{i}]"
         if not isinstance(p, dict):
-            rep.error(f"report-data.js: {where} must be an object")
+            rep.error(f"report-data: {where} must be an object")
             continue
         check_text(rep, f"{where}.cause", p.get("cause"), 160)
         check_text(rep, f"{where}.early_signal", p.get("early_signal"), 160)
         if p.get("likelihood") not in ("L", "M", "H"):
-            rep.error(f"report-data.js: {where}.likelihood {p.get('likelihood')!r} must be L, M or H")
+            rep.error(f"report-data: {where}.likelihood {p.get('likelihood')!r} must be L, M or H")
         link = p.get("linked_to")
         if not isinstance(link, str) or not link:
-            rep.error(f"report-data.js: {where}.linked_to is required (a kill shot or sub-score key)")
+            rep.error(f"report-data: {where}.linked_to is required (a kill shot or sub-score key)")
         elif link not in ks and link not in subs:
-            rep.error(f"report-data.js: {where}.linked_to {link!r} is not a kill shot in verdict.kill_shots or a sub-score in verdict.criteria_detail")
+            rep.error(f"report-data: {where}.linked_to {link!r} is not a kill shot in verdict.kill_shots or a sub-score in verdict.criteria_detail")
         elif link in ks and ks[link] is None:
-            rep.warn(f"report-data.js: {where} links to kill shot {link}, which was not checked")
+            rep.warn(f"report-data: {where} links to kill shot {link}, which was not checked")
     order = {"H": 0, "M": 1, "L": 2}
     lk = [order[p["likelihood"]] for p in pm if isinstance(p, dict) and p.get("likelihood") in order]
     if lk != sorted(lk):
-        rep.warn("report-data.js: premortem causes should be sorted most likely first")
+        rep.warn("report-data: premortem causes should be sorted most likely first")
 
 
 def check_why_now(rep, n):
@@ -542,30 +551,30 @@ def check_why_now(rep, n):
         rep.legacy("narrative.why_now", "0.8")
         return
     if not isinstance(wn, dict):
-        rep.error("report-data.js: narrative.why_now must be an object")
+        rep.error("report-data: narrative.why_now must be an object")
         return
     verdict = wn.get("verdict")
     if verdict not in ("now", "early", "late", "unclear"):
-        rep.error(f"report-data.js: why_now.verdict {verdict!r} must be now, early, late or unclear")
+        rep.error(f"report-data: why_now.verdict {verdict!r} must be now, early, late or unclear")
     changes = wn.get("changes")
     if changes is None:
         changes = []
     if not isinstance(changes, list):
-        rep.error("report-data.js: why_now.changes must be a list")
+        rep.error("report-data: why_now.changes must be a list")
         changes = []
     if len(changes) > 5:
-        rep.error(f"report-data.js: why_now.changes has {len(changes)} entries; at most 5")
+        rep.error(f"report-data: why_now.changes has {len(changes)} entries; at most 5")
     for i, c in enumerate(changes):
         where = f"why_now.changes[{i}]"
         if not isinstance(c, dict):
-            rep.error(f"report-data.js: {where} must be an object")
+            rep.error(f"report-data: {where} must be an object")
             continue
         check_text(rep, f"{where}.what", c.get("what"), 200)
         check_text(rep, f"{where}.when", c.get("when"), 40)
         check_url(rep, f"report-data.js {where}.source", c.get("source"))
     sourced = sum(1 for c in changes if isinstance(c, dict) and c.get("source"))
     if verdict in ("now", "early", "late") and not sourced:
-        rep.error(f"report-data.js: why_now.verdict is {verdict} but no change has a source; cite one or use unclear")
+        rep.error(f"report-data: why_now.verdict is {verdict} but no change has a source; cite one or use unclear")
     check_text(rep, "why_now.note", wn.get("note"), 200, required=False)
 
 
@@ -575,25 +584,25 @@ def check_icp(rep, n):
         rep.legacy("narrative.icp", "0.8")
         return
     if not isinstance(icp, dict):
-        rep.error("report-data.js: narrative.icp must be an object")
+        rep.error("report-data: narrative.icp must be an object")
         return
     check_text(rep, "icp.who", icp.get("who"), 200)
     for k in ("pays_for_today", "budget", "trigger"):
         if icp.get(k) in (None, ""):
-            rep.warn(f"report-data.js: icp.{k} is empty; write unknown if not found")
+            rep.warn(f"report-data: icp.{k} is empty; write unknown if not found")
         else:
             check_text(rep, f"icp.{k}", icp.get(k), 200)
     where = icp.get("where")
     if where is None or where == []:
-        rep.warn("report-data.js: icp.where is empty; name where this customer can be reached")
+        rep.warn("report-data: icp.where is empty; name where this customer can be reached")
     elif not isinstance(where, list) or not all(isinstance(w, str) and w for w in where):
-        rep.error("report-data.js: icp.where must be a list of strings")
+        rep.error("report-data: icp.where must be a list of strings")
     else:
         if len(where) > 5:
-            rep.error(f"report-data.js: icp.where has {len(where)} entries; at most 5")
+            rep.error(f"report-data: icp.where has {len(where)} entries; at most 5")
         for i, w in enumerate(where):
             if len(w) > 120:
-                rep.error(f"report-data.js: icp.where[{i}] is {len(w)} chars; max 120")
+                rep.error(f"report-data: icp.where[{i}] is {len(w)} chars; max 120")
 
 
 def check_report_data(rep, data, idea, v):
@@ -601,35 +610,35 @@ def check_report_data(rep, data, idea, v):
         return None
     for k in ("idea", "verdict", "narrative"):
         if not isinstance(data.get(k), dict):
-            rep.error(f"report-data.js: {k} object is required")
+            rep.error(f"report-data: {k} object is required")
     if idea is not None and data.get("idea") != idea:
-        rep.error("report-data.js: idea differs from idea.json; copy idea.json into it")
+        rep.error("report-data: idea differs from idea.json; copy idea.json into it")
     if data.get("verdict") != v:
-        rep.error("report-data.js: verdict differs from verdict.json; copy verdict.json into it")
+        rep.error("report-data: verdict differs from verdict.json; copy verdict.json into it")
     n = data.get("narrative") or {}
     ans = n.get("answer")
     if not ans or not isinstance(ans, str):
-        rep.error("report-data.js: narrative.answer is required")
+        rep.error("report-data: narrative.answer is required")
     elif len(ans.split()) > 45:
-        rep.warn(f"report-data.js: narrative.answer is {len(ans.split())} words; the standard is 45 at most")
+        rep.warn(f"report-data: narrative.answer is {len(ans.split())} words; the standard is 45 at most")
     kf = n.get("key_findings")
     if not isinstance(kf, list) or len(kf) != 3:
-        rep.error(f"report-data.js: narrative.key_findings must have exactly 3 entries (found {len(kf) if isinstance(kf, list) else 0})")
+        rep.error(f"report-data: narrative.key_findings must have exactly 3 entries (found {len(kf) if isinstance(kf, list) else 0})")
     else:
         for i, f in enumerate(kf):
             if not isinstance(f, dict) or not f.get("title") or not f.get("detail"):
-                rep.error(f"report-data.js: key_findings[{i}] needs title and detail")
+                rep.error(f"report-data: key_findings[{i}] needs title and detail")
                 continue
             if len(f["title"]) > 70:
-                rep.error(f"report-data.js: key_findings[{i}].title is {len(f['title'])} chars; max 70")
+                rep.error(f"report-data: key_findings[{i}].title is {len(f['title'])} chars; max 70")
             if len(f["detail"]) > 220:
-                rep.error(f"report-data.js: key_findings[{i}].detail is {len(f['detail'])} chars; max 220")
+                rep.error(f"report-data: key_findings[{i}].detail is {len(f['detail'])} chars; max 220")
             if f.get("source"):
                 check_url(rep, f"report-data.js key_findings[{i}].source", f["source"])
             else:
-                rep.warn(f"report-data.js: key_findings[{i}] has no source")
+                rep.warn(f"report-data: key_findings[{i}] has no source")
     if not n.get("recommendation"):
-        rep.error("report-data.js: narrative.recommendation (one action, stated as a decision) is required")
+        rep.error("report-data: narrative.recommendation (one action, stated as a decision) is required")
     if "steelman" not in n:
         rep.legacy("narrative.steelman")
     check_premortem(rep, n, v)
@@ -641,85 +650,85 @@ def check_report_data(rep, data, idea, v):
         if ks.get(k) is True:
             ev = nks.get(k) if isinstance(nks, dict) else None
             if not isinstance(ev, dict) or not ev.get("evidence"):
-                rep.error(f"report-data.js: kill shot {k} is a hit but narrative.kill_shots.{k}.evidence is missing")
+                rep.error(f"report-data: kill shot {k} is a hit but narrative.kill_shots.{k}.evidence is missing")
             elif not ev.get("source"):
-                rep.error(f"report-data.js: kill shot {k} is a hit without a source")
+                rep.error(f"report-data: kill shot {k} is a hit without a source")
             else:
                 check_url(rep, f"report-data.js kill_shots.{k}.source", ev["source"])
         elif ks.get(k) is False and isinstance(nks, dict) and not (nks.get(k) or {}).get("evidence"):
-            rep.warn(f"report-data.js: kill shot {k} is clear; say what was searched in narrative.kill_shots.{k}.evidence")
+            rep.warn(f"report-data: kill shot {k} is clear; say what was searched in narrative.kill_shots.{k}.evidence")
     if ks.get("saturated_wave") is True and isinstance(nks, dict):
         ev = nks.get("saturated_wave") or {}
         if not isinstance(ev.get("count"), int) and not re.search(r"\d", str(ev.get("evidence", ""))):
-            rep.error("report-data.js: saturated_wave is a hit but no launch count is given")
+            rep.error("report-data: saturated_wave is a hit but no launch count is given")
     comps = n.get("competitors") or []
     min_c = 10 if v.get("mode") == "deepdive" else 5
     if len(comps) < min_c:
-        rep.warn(f"report-data.js: {len(comps)} competitors; a {v.get('mode') or 'kill'} should list at least {min_c}")
+        rep.warn(f"report-data: {len(comps)} competitors; a {v.get('mode') or 'kill'} should list at least {min_c}")
     for i, c in enumerate(comps):
         if not isinstance(c, dict) or not c.get("name"):
-            rep.error(f"report-data.js: competitors[{i}] needs a name")
+            rep.error(f"report-data: competitors[{i}] needs a name")
             continue
         for f in ("url", "price_source"):
             check_url(rep, f"report-data.js competitors[{i}].{f}", c.get(f))
         tr = c.get("traction")
         if tr is not None and (not isinstance(tr, int) or not 1 <= tr <= 5):
-            rep.error(f"report-data.js: competitors[{i}].traction {tr!r} must be an integer 1-5 or null")
+            rep.error(f"report-data: competitors[{i}].traction {tr!r} must be an integer 1-5 or null")
         if isinstance(c.get("price_low"), (int, float)) and c["price_low"] > 0 and not c.get("price_source") and not c.get("url"):
-            rep.warn(f"report-data.js: competitors[{i}] ({c['name']}) has a price but no url or price_source")
+            rep.warn(f"report-data: competitors[{i}] ({c['name']}) has a price but no url or price_source")
     for i, q in enumerate(n.get("customer_voice") or []):
         if not isinstance(q, dict) or not q.get("quote") or not q.get("source"):
-            rep.error(f"report-data.js: customer_voice[{i}] needs quote and source")
+            rep.error(f"report-data: customer_voice[{i}] needs quote and source")
         else:
             check_url(rep, f"report-data.js customer_voice[{i}].source", q["source"], required=True)
     if v.get("mode") == "deepdive" and len(n.get("customer_voice") or []) < 15:
-        rep.error(f"report-data.js: a deepdive needs 15 or more customer quotes (found {len(n.get('customer_voice') or [])})")
+        rep.error(f"report-data: a deepdive needs 15 or more customer quotes (found {len(n.get('customer_voice') or [])})")
     sc = n.get("scenarios") or []
     if sc and len(sc) != 3:
-        rep.warn(f"report-data.js: {len(sc)} scenarios; the standard is pessimistic, base and optimistic")
+        rep.warn(f"report-data: {len(sc)} scenarios; the standard is pessimistic, base and optimistic")
     for i, f in enumerate(n.get("fact_checks") or []):
         if not isinstance(f, dict) or f.get("status") not in ("true", "partly", "false", "unverified"):
-            rep.error(f"report-data.js: fact_checks[{i}].status must be true, partly, false or unverified")
+            rep.error(f"report-data: fact_checks[{i}].status must be true, partly, false or unverified")
         elif f.get("source"):
             check_url(rep, f"report-data.js fact_checks[{i}].source", f["source"])
     for i, r in enumerate(n.get("risks") or []):
         if not isinstance(r, dict) or r.get("likelihood") not in ("L", "M", "H") or r.get("impact") not in ("L", "M", "H"):
-            rep.error(f"report-data.js: risks[{i}] needs likelihood and impact in L / M / H")
+            rep.error(f"report-data: risks[{i}] needs likelihood and impact in L / M / H")
     for i, t in enumerate(n.get("test_plan") or []):
         if not isinstance(t, dict) or not t.get("step") or not t.get("when"):
-            rep.error(f"report-data.js: test_plan[{i}] needs when and step")
+            rep.error(f"report-data: test_plan[{i}] needs when and step")
         elif not t.get("verify"):
-            rep.warn(f"report-data.js: test_plan[{i}] has no verify signal")
+            rep.warn(f"report-data: test_plan[{i}] has no verify signal")
     srcs = n.get("sources")
     if not isinstance(srcs, list) or not srcs:
-        rep.error("report-data.js: narrative.sources is required (every URL cited, with title, tier and access date)")
+        rep.error("report-data: narrative.sources is required (every URL cited, with title, tier and access date)")
         return n
     seen = set()
     missing_tier = 0
     for i, s in enumerate(srcs):
         if not isinstance(s, dict) or not s.get("url"):
-            rep.error(f"report-data.js: sources[{i}] needs a url")
+            rep.error(f"report-data: sources[{i}] needs a url")
             continue
         check_url(rep, f"report-data.js sources[{i}].url", s["url"], required=True)
         if s["url"] in seen:
-            rep.warn(f"report-data.js: duplicate source {s['url'][:80]}")
+            rep.warn(f"report-data: duplicate source {s['url'][:80]}")
         seen.add(s["url"])
         if not s.get("title"):
-            rep.warn(f"report-data.js: sources[{i}] has no title")
+            rep.warn(f"report-data: sources[{i}] has no title")
         if not s.get("accessed"):
-            rep.warn(f"report-data.js: sources[{i}] has no accessed date")
+            rep.warn(f"report-data: sources[{i}] has no accessed date")
         elif not DATE_RX.match(str(s["accessed"])):
-            rep.error(f"report-data.js: sources[{i}].accessed {s['accessed']!r} is not YYYY-MM-DD")
+            rep.error(f"report-data: sources[{i}].accessed {s['accessed']!r} is not YYYY-MM-DD")
         if s.get("tier") not in ("primary", "secondary", "tertiary"):
             missing_tier += 1
     if missing_tier == len(srcs):
         rep.legacy("source tiers (primary / secondary / tertiary)")
     elif missing_tier:
-        rep.error(f"report-data.js: {missing_tier} sources have no tier (primary / secondary / tertiary)")
+        rep.error(f"report-data: {missing_tier} sources have no tier (primary / secondary / tertiary)")
     vs = set(v.get("sources") or [])
     only_narrative = seen - vs
     if only_narrative and len(only_narrative) > len(seen) // 2:
-        rep.warn(f"report-data.js: {len(only_narrative)} narrative sources are not in verdict.sources; verdict.sources should list every URL cited")
+        rep.warn(f"report-data: {len(only_narrative)} narrative sources are not in verdict.sources; verdict.sources should list every URL cited")
     # every URL used anywhere must be in the sources list
     cited = set()
     def walk(o):
@@ -741,21 +750,47 @@ def check_report_data(rep, data, idea, v):
     return n
 
 
-def check_html(rep, folder, has_data):
+def check_html(rep, folder, data):
     html = folder / "report.html"
+    built = (folder / "report-data.json").exists()
     if not html.exists():
-        if has_data:
-            rep.error("report.html is missing: copy it from skills/kill/report.html")
+        if data is not None:
+            rep.error("report.html is missing: run scripts/build-report.py" if built else "report.html is missing: copy it from skills/kill/report.html")
+        return
+    if built:
+        br = _build_report()
+        text = html.read_text(encoding="utf-8")
+        if 'src="report-data.js"' in text:
+            rep.error("report.html still loads report-data.js; rebuild it with scripts/build-report.py")
+        try:
+            emb = br.embedded(text)
+        except json.JSONDecodeError:
+            emb = None
+            rep.error("report.html: the embedded #kmi-data block is not valid JSON; rebuild it with scripts/build-report.py")
+        if emb is None:
+            rep.error("report.html has no embedded data; rebuild it with scripts/build-report.py")
+        elif data is not None and emb != data:
+            rep.error("report.html embeds different data than report-data.json; rebuild it with scripts/build-report.py")
+        elif data is not None and TEMPLATE.exists() and text != br.build(TEMPLATE.read_text(encoding="utf-8"), data):
+            rep.warn("report.html was built from an older or edited template; rebuild it with scripts/build-report.py")
         return
     if TEMPLATE.exists() and html.read_bytes() != TEMPLATE.read_bytes():
         rep.warn("report.html differs from the plugin template (older version or edited). Copy skills/kill/report.html again to update it.")
+
+
+def _build_report():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("build_report", pathlib.Path(__file__).resolve().parent / "build-report.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 def check_folder(folder, legacy=False):
     rep = Report(folder)
     idea = load_json(rep, folder / "idea.json")
     v = load_json(rep, folder / "verdict.json")
-    if v is None and not (folder / "verdict.json").exists() and (folder / "report-data.js").exists():
+    if v is None and not (folder / "verdict.json").exists() and ((folder / "report-data.js").exists() or (folder / "report-data.json").exists()):
         # a report folder shared without its JSON files: check the copies embedded in report-data.js
         embedded = load_report_data(rep, folder / "report-data.js")
         if isinstance(embedded, dict) and isinstance(embedded.get("verdict"), dict):
@@ -794,7 +829,7 @@ def check_folder(folder, legacy=False):
     if idea and len(idea.get("countries") or []) > 1 and not isinstance(bc, dict):
         rep.warn("verdict.json: the idea targets several countries but by_country is missing")
     rep.lenient = False
-    check_html(rep, folder, data is not None)
+    check_html(rep, folder, data)
     return rep
 
 

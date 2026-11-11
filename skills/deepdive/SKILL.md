@@ -55,11 +55,13 @@ rubric and fixed rules §5) with higher minimums.
    - In `verdict.json`: append the previous evaluation to `history`, set `mode` to
      `"deepdive"` and `evaluated` to today, and refresh the metrics, sub-scores, score,
      rules, confidence, rescue paths and sources.
-   - Rewrite `report-data.js` (kill skill §6). Add `customer_voice`, the full competitor list
+   - Rewrite `report-data.json` (kill skill §6). Add `customer_voice`, the full competitor list
      with `price_low`, `price_source` and `traction`, the `by_country` breakdown, and the
      updated `premortem`, `why_now` and `icp`.
-   - Copy `report.html` from `${CLAUDE_PLUGIN_ROOT}/skills/kill/` if it isn't there yet.
-     The HTML then shows the deep-dive version, with the score history.
+   - Rebuild `report.html` with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-report.py" ideas/<folder>`
+     (kill skill §6). An older folder with `report-data.js` is moved to JSON first with
+     `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/migrate.py" --json ideas/<folder>`. The HTML then shows
+     the deep-dive version, with the score history.
 6. **Update the brain**: `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-brain.py" ideas`
    when Bash is available (kill skill §8).
 7. **Self-check** with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>`

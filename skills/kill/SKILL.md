@@ -31,17 +31,16 @@ lowercase ASCII, 2–4 words. `${CLAUDE_PLUGIN_ROOT}` below is the plugin folder
   available:
   `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>`
   It recomputes the score, applies the fixed rules, and checks sources, counts, kill-shot
-  coherence and the shape of `report-data.js`. Fix every error it reports, rerun until it
+  coherence, the report data and that `report.html` embeds it. Fix every error it reports, rerun until it
   passes, then answer. Without Bash, check these by hand:
   1. The total recomputes from the 21 sub-scores (§5 formula), and `rules_applied` lists every
      rule that changed a score.
   2. Every metric with `basis: "sourced"` has a URL; every estimate has its formula.
   3. Kill shots and sub-scores agree (§5, rule R5), and the verdict matches the score band.
   4. Source minimums are met (§3), quotes are verbatim, every URL starts with `http`.
-  5. `report-data.js` is one statement, `window.KMI_DATA = {...};`, and the object is a strict
-     JSON literal: double quotes, no functions, no arrow functions, no template literals
-     (backticks), no comments, no `<script>` tags. The HTML loads it as a script, so anything
-     else would run as code.
+  5. The report data is strict JSON: double quotes, no functions, no comments, no template
+     literals. Without Bash it goes in `report-data.js` (see §6), which the browser runs as a
+     script, so anything but one data statement would run as code.
   6. `narrative.premortem` has at most 3 causes, and each `linked_to` is a key that exists in
      `verdict.kill_shots` or a sub-score key in `verdict.criteria_detail`.
   7. `narrative.why_now` cites a source for every change it uses; with no evidence, its verdict
@@ -259,11 +258,7 @@ Write three things in the idea folder:
 
 1. **`report.md`**: the full report, structured like
    `${CLAUDE_PLUGIN_ROOT}/skills/kill/report-template.md`.
-2. **`report.html`**: copy the template as-is. Never rewrite it.
-   - With Bash: `cp "${CLAUDE_PLUGIN_ROOT}/skills/kill/report.html" ideas/<folder>/report.html`
-   - If Bash isn't available or the copy is refused, Read the file and Write it unchanged.
-     Never skip this step: the HTML report is the main deliverable.
-3. **`report-data.js`**: one line, `window.KMI_DATA = {...};`
+2. **`report-data.json`**: the report data as one strict JSON object (no `window.` prefix).
    - Follow `${CLAUDE_PLUGIN_ROOT}/skills/kill/report-data.schema.json`.
    - `idea` = the content of idea.json, `verdict` = the content of verdict.json,
      `narrative` = what the report says.
@@ -276,6 +271,14 @@ Write three things in the idea folder:
    - Leave out what you don't have. The HTML hides empty sections.
    - Write it directly, as data only: never a function, a comment or a template literal.
      Don't leave temporary files in the idea folder.
+3. **`report.html`**: build it, never write it by hand.
+   - With Bash: `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-report.py" ideas/<folder>`. It
+     embeds the data in the template as inert JSON, so the page runs no code you wrote, opens
+     offline and can be sent as one file. Rebuild it every time the data changes.
+   - Without Bash (the fallback): save the same object as `report-data.js`, one line,
+     `window.KMI_DATA = {...};`, instead of `report-data.json`, then Read the template
+     `${CLAUDE_PLUGIN_ROOT}/skills/kill/report.html` and Write it unchanged as `report.html`.
+     Never skip this step: the HTML report is the main deliverable.
 
 The HTML is a consultant-grade dossier: a cover with a gauge and a stamp, a rescue plan,
 charts, every number's evidence marker, numbered footnotes, a sticky table of contents, and
@@ -331,7 +334,7 @@ For each path, give:
 Sort the paths by `score_after` descending, then `doable` before `hard` before `very-hard`.
 Be honest. If nothing gets it to 50, say so: "no rescue path above 50, archive it".
 For a GO, give the 1–2 changes that would make it stronger.
-Save the paths in `verdict.json` as `rescue`, and copy them to `report-data.js` as `narrative.rescue`.
+Save the paths in `verdict.json` as `rescue`, and copy them to the report data as `narrative.rescue`.
 
 **GO / PIVOT (or the best rescue path):**
 - Plan the smallest test that brings real proof in 7 days or less: a landing page,

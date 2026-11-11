@@ -8,6 +8,7 @@ import unittest
 from helpers import FIXTURES, ROOT, load
 
 brain = load("build-brain")
+build = load("build-report")
 chk = load("check-idea")
 export = load("export-standalone")
 csp = load("update-csp")
@@ -100,6 +101,40 @@ class Export(unittest.TestCase):
             p.write_text("window.KMI_DATA = {\"a\": alert(1)};")
             with self.assertRaises(SystemExit):
                 export.load_data(p)
+
+
+class BuildReport(unittest.TestCase):
+    """1.0 default: report-data.json embedded in report.html as inert JSON."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = pathlib.Path(self.tmp.name) / "pet"
+        shutil.copytree(FIXTURES / "pet", self.dir)
+        text = (self.dir / "report-data.js").read_text()
+        (self.dir / "report-data.json").write_text(text[text.index("{"):text.rindex("}") + 1])
+        (self.dir / "report-data.js").unlink()
+        build.main([str(self.dir)])
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_built_folder_passes(self):
+        self.assertEqual(chk.check_folder(self.dir).errors, [])
+        html = (self.dir / "report.html").read_text()
+        self.assertNotIn('src="report-data.js"', html)
+        self.assertEqual(build.embedded(html), json.loads((self.dir / "report-data.json").read_text()))
+
+    def test_stale_html_is_caught(self):
+        p = self.dir / "report-data.json"
+        d = json.loads(p.read_text())
+        d["narrative"]["answer"] = "changed after the build"
+        p.write_text(json.dumps(d))
+        self.assertTrue(any("rebuild" in e for e in chk.check_folder(self.dir).errors))
+
+    def test_code_cannot_hide_in_json(self):
+        (self.dir / "report-data.json").write_text('{"idea": alert(1)}')
+        with self.assertRaises(SystemExit):
+            build.load_data(self.dir)
 
 
 class Csp(unittest.TestCase):

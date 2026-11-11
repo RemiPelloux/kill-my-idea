@@ -3,7 +3,8 @@
 
     python3 scripts/export-standalone.py ideas/2026-11-my-idea [-o out.html]
 
-Reads <idea>/report.html and <idea>/report-data.js, embeds the data as
+Since 1.0, report.html built by build-report.py is already self-contained and is copied as is.
+For an older folder, reads <idea>/report.html and <idea>/report-data.js, embeds the data as
 <script type="application/json" id="kmi-data"> (which the report template reads first)
 and drops the <script src="report-data.js"> tag. Default output:
 <idea>/report-standalone.html. The data file must be a pure JSON literal assigned to
@@ -59,10 +60,15 @@ def main(argv):
     a = ap.parse_args(argv)
     folder = a.idea_folder
     report, data_js = folder / "report.html", folder / "report-data.js"
-    for p in (report, data_js):
-        if not p.is_file():
-            raise SystemExit(f"missing {p}")
-    out_html = build(report.read_text(encoding="utf-8"), load_data(data_js))
+    if not report.is_file():
+        raise SystemExit(f"missing {report}")
+    html = report.read_text(encoding="utf-8")
+    if '<script type="application/json" id="kmi-data">' in html and 'src="report-data.js"' not in html:
+        out_html = html  # built by build-report.py (1.0+): already one self-contained file
+    else:
+        if not data_js.is_file():
+            raise SystemExit(f"missing {data_js}")
+        out_html = build(html, load_data(data_js))
     out = a.output or folder / "report-standalone.html"
     out.write_text(out_html, encoding="utf-8")
     print(f"{out}  {out.stat().st_size / 1024:.1f} KB")

@@ -31,9 +31,9 @@ description: Rank all the ideas evaluated with kill-my-idea in this project, fro
       minimums. Keep `idea.json` as it is; the user's answers still hold.
    3. Update `verdict.json`: `evaluated` = today, the metrics, sub-scores, score, rules,
       confidence, kill shots, rescue paths and sources. Keep `mode`.
-   4. Rewrite `report-data.js` (kill skill §6) with the new verdict and narrative, including
-      `premortem`, `why_now` and `icp`, and copy `report.html` again from
-      `${CLAUDE_PLUGIN_ROOT}/skills/kill/`.
+   4. Rewrite `report-data.json` (kill skill §6) with the new verdict and narrative, including
+      `premortem`, `why_now` and `icp`, then rebuild `report.html` with
+      `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-report.py" ideas/<folder>`.
    5. Run `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>` when Bash is
       available, and fix every error.
    Tell the user which ideas were refreshed and how each score moved ("42 → 47").

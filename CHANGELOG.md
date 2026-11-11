@@ -7,6 +7,12 @@
 - **File format 1.0:** `idea.json`, `verdict.json`, `report-data` and `board-data.js` carry
   `schema_version`. `scripts/migrate.py` upgrades a folder that passes today's rules and lists the
   ones that need a re-run. The gallery is upgraded. (#9)
+- **No executable data by default:** the skills write `report-data.json` (plain data) and
+  `scripts/build-report.py` embeds it in `report.html` as an inert JSON block. The page runs no code
+  written by the model, and one file is the whole report. The checker verifies that the page embeds
+  exactly the data file. `report-data.js` stays only as the no-Bash fallback and for old reports
+  (`migrate.py --json` converts them). The gallery is converted. SECURITY.md's known limitation is now
+  limited to that fallback. (#12)
 
 ## 0.9.1 — 2026-11-11
 

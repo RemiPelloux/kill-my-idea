@@ -27,7 +27,7 @@ A roast is the kill-my-idea verdict told as stand-up. It is shareable on purpose
      with its projected score;
    - one closing tagline, at most 12 words.
 4. **Self-check** with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>`
-   when Bash is available (it accepts a folder without `report-data.js`).
+   when Bash is available (it accepts a folder without report data).
 5. **Answer in chat** with the full roast. It must fit in one screenshot: no extra
    sections, no preamble.
 
