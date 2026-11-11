@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.2.0 — 2026-11-11
+
+- **New skill, `/kill-my-idea:fix`:** the path to GO. It finds where the points are lost (sub-scores
+  and the fixed rules that cut the total), then picks the smallest set of changes, each with its
+  evidence: a price set against at least 3 competitors' price pages (undercut, match or premium),
+  the must-have features, the one difference, and changes of customer, channel, model or country.
+  Every change lists its prerequisites (skill, money, time, partner, legal, data, audience), marked
+  as something you have, need or must check, and the sub-scores it moves.
+- **Re-scored with the real rules, never inflated:** `scripts/fix-kit.py` re-scores the fixed idea
+  with `check-idea.py`'s own formula and rules, refuses any sub-score that changed without a lever
+  or a move that doesn't start from the verdict, and checks the price position against the
+  competitors. When no honest set of changes reaches 70 it says so, with the blockers. The fixed
+  score is a projection: `verdict.json` never changes.
+- **"Path to GO" in the report:** points lost per sub-score, a card per change with its points and
+  prerequisites, the rules it lifts, the price table, the features, the plan and the stop rule.
+  Example on the live gallery: [Notion templates for real-estate agents](https://remipelloux.github.io/kill-my-idea/gallery/2026-11-notion-real-estate/report.html#fix),
+  43 NO-GO → 60 PIVOT projected, GO out of reach (one Opus run, 3.5 minutes, $1.34).
+- **`/kill-my-idea:build --fix`** builds the fixed idea.
+- 11 new tests (80 in all). Every report was rebuilt with the new template.
+
 ## 1.1.0 — 2026-11-11
 
 - **New skill, `/kill-my-idea:build`:** turns an idea that has a verdict (or one of its rescue paths)
