@@ -1,32 +1,41 @@
-> ## ☠️ NO-GO · 48/100
+> ## ☠️ NO-GO · 44/100
 > **AI wedding speeches for best men, $19**
 >
-> `█████░░░░░` 48 / 100
+> `████░░░░░░` 44 / 100 · confidence high, 40 sources
 >
-> - ❌ At least 14 AI tools already sell this for $0–$34 ([My Wedding Toast $34](https://www.capterra.com/p/10046108/My-Wedding-Toast/), [AI Wedding Toast $19.99](https://creati.ai/ai-tools/ai-wedding-toast/)), and ChatGPT does it for free
-> - ❌ One competitor that's still running made $32.75 in 30 days ([TrustMRR](https://trustmrr.com/startup/wedding-speech-ai)), so few people are paying for this
-> - ✅ About 95% gross margin and about 2M US weddings a year ([The Knot](https://www.mediapost.com/publications/article/412927/weddings-hold-steady-at-34000-as-gen-z-drives-la.html)): people really do need help with these speeches
+> - ❌ Free ChatGPT, with 900M+ weekly users ([eWeek](https://www.eweek.com/news/chatgpt-hits-900m-weekly-users/)), and free generators like [InsertChat's](https://insertchat.com/free-tools/wedding-speech-generator) already write the whole speech, so $19 buys only convenience
+> - ❌ The look-alike Wedding Speech AI has $311 of Stripe-verified revenue all-time and $9.98 in the last 30 days ([TrustMRR](https://trustmrr.com/startup/wedding-speech-ai), 2026-11)
+> - ✅ The need is real: 2.13M US marriages in 2024, about 2 speeches each ([CDC](https://www.cdc.gov/nchs/data/dvs/marriage-divorce/national-marriage-divorce-rates-00-24.pdf)), at a 94% gross margin
 >
-> **Cheapest test:** Only for a different version: a $49 "human-polished AI speech" listing on Fiverr or Etsy. If you get fewer than 3 paid orders in 7 days, archive it.
+> **Could be saved:** sell a $59 AI-drafted, human-edited speech on Fiverr instead of a $19 app → 58/100 (doable)
+> **Cheapest test:** a $59 Fiverr gig for a human-edited best man speech in 48 h; stop at fewer than 3 inquiries by day 7.
 >
 > <sub>Killed by [kill-my-idea](https://github.com/RemiPelloux/kill-my-idea)</sub>
 
-![kill-my-idea: NO-GO 48/100](https://img.shields.io/badge/kill--my--idea-NO--GO%2048%2F100-red)
+![kill-my-idea: NO-GO 44/100](https://img.shields.io/badge/kill--my--idea-NO--GO%2044%2F100-red)
 
 **TL;DR**
-- What you'd be selling is a ChatGPT prompt with a checkout page. At least 14 tools already do it, and people can get the same thing free.
-- The margins are great, but with no budget and no audience you have no way to reach buyers. Paid ads lose money, and getting found on Google against The Knot and a dozen AI tools would take months.
-- **US vs France:** the US market is about 8× bigger but crowded. France has fewer competitors, but it's small: 251k weddings in 2025 ([INSEE](https://www.insee.fr/fr/statistiques/8719824)). My guess is that French best men and maids of honor more often put on group sketches or videos than give a single toast. Free French speech templates, and packs selling for €4.90, also set people's price expectations low. If you launch anywhere, launch in the US.
+- Free ChatGPT and free generators already write a personalized speech, so $19 buys only convenience.
+- The look-alikes with verified revenue earn almost nothing: Wedding Speech AI made $311 all-time, LoveLetterLab $5 ([TrustMRR](https://trustmrr.com/startup/loveletterlab)).
+- One purchase per lifetime and a paid CAC of about $35 give LTV:CAC 0.56: every paid customer loses money.
 
-**Key metrics** (most are my estimates; the report shows the reasoning for each)
-| | 🇺🇸 US | 🇫🇷 FR |
-|---|---|---|
-| Lifetime value vs. cost to get a customer | ~0.5 with paid search (a $35 customer brings in $18 once) | unknown, probably below 1 |
-| Sales needed per month to break even | 1 (running costs are about $1–5/month) | 1 |
-| Time to first sale | 4–12 weeks | 6–16 weeks |
-| Competitors found | 14+, priced $0–$34 | few French AI tools; free templates win |
+**Key metrics** (estimates; the report shows the reasoning for each)
+| | Value |
+|---|---|
+| LTV : CAC | 0.56 (LTV $19.7 from one purchase vs CAC ~$35 at a $0.70 CPC and 2% conversion) |
+| Break-even | 1 sale a month (running costs about $1/month); the problem is reach, not cost |
+| Time to first revenue | about 8 weeks (3 to build at 5 h/week, then organic posts or SEO) |
+| Competitors found | 11: AI tools at $0.99–65 a speech, human writers at $100–655 |
 
-**Lesson:** when the product is a prompt, reaching customers is the whole business, and you don't have a way to do that yet. The one version worth testing is the Fiverr or Etsy listing ($49–99): the marketplace brings the visitors, and the human editing gives people a reason to pay over free ChatGPT.
+**US vs France:** launch in the US, which has about 8× more marriages (2.13M vs 251k, [INSEE](https://insee.fr/fr/statistiques/2381498)); France anchors at €4.90 template packs, and no French CPC was found.
+
+**Rescue paths**
+- $59 AI-drafted, human-edited speech on Fiverr → 58/100 (doable)
+- Ceremony-script subscription for wedding officiants → 50/100 (hard)
+
+**Confidence:** high (14 sourced sub-scores, 40 sources, 20 primary). Exact search volume and CPC for "best man speech" and "discours témoin" would firm up the CAC.
+
+**Recommendation:** archive the $19 AI app. If you want one test, run the 7-day Fiverr test of a $59 human-edited speech, and stop at fewer than 3 inquiries.
 
 ---
-<sub>Generated by `kill my idea: … Compare France and the US. just go` on 2026-11-09 (country mode). The full report, idea.json and verdict.json were produced in the same run.</sub>
+<sub>Generated by `kill my idea: An AI app that writes a personalized wedding speech for best men and maids of honor, $19 per speech. Countries US then FR. … Just go` on 2026-11-11 with plugin 0.11.0. The full report, idea.json and verdict.json are in [wedding-speeches-report/](wedding-speeches-report/) ([live report](https://remipelloux.github.io/kill-my-idea/reports/wedding-speeches/)).</sub>

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hero.svg" alt="Your idea, checked against the evidence. An AI wedding-speech app scored 48 out of 100, stamped NO-GO, with 18 sources." width="100%">
+<img src="assets/hero.svg" alt="Your idea, checked against the evidence. An AI wedding-speech app scored 44 out of 100, stamped NO-GO, with 40 sources." width="100%">
 
 ```text
 /plugin marketplace add RemiPelloux/kill-my-idea
@@ -49,17 +49,17 @@ We asked plain Claude and kill-my-idea about the same idea: an AI app that write
 
 | | Claude, no plugin | kill-my-idea |
 |---|---|---|
-| Verdict | "It's a decent small business." | **NO-GO, 48/100** |
-| Sources | None | 18, linked |
-| Competition | "Several AI speech tools exist." | 14 named, priced $0–34. One live competitor made **$32.75 in 30 days** |
-| Unit economics | "Margins are almost entirely marketing." | LTV $18 vs CAC $35 on paid search (estimates, reasoning shown). Every sale loses money |
-| What to do next | Spend about $200 on ads and see | Don't build the app. List a human-polished speech on Fiverr at $49–99. Fewer than 3 paid orders in 7 days: archive it |
+| Verdict | "It's a decent small business." | **NO-GO, 44/100**, confidence high |
+| Sources | None | 40, linked |
+| Competition | "Several AI speech tools exist." | 11 named: AI tools at $0.99–65 a speech, human writers at $100–655, and free ChatGPT does the job. A look-alike app made **$9.98 in the last 30 days** ($311 all-time, Stripe-verified) |
+| Unit economics | "Margins are almost entirely marketing." | LTV $19.7 vs CAC ~$35 on paid search: LTV:CAC 0.56 (estimates, reasoning shown). Every paid sale loses money |
+| What to do next | Spend about $200 on ads and see | Archive the $19 app. If you want one test: a 7-day Fiverr gig for a $59 human-edited speech. Fewer than 3 inquiries: stop |
 
 Plain Claude's full answer is [here, unedited](examples/plain-claude-wedding.md). The kill-my-idea version is a [live report](https://remipelloux.github.io/kill-my-idea/reports/wedding-speeches/).
 
 ## Seven ideas it has checked
 
-<a href="https://remipelloux.github.io/kill-my-idea/"><img src="assets/verdict-wall.svg" alt="Seven real verdicts: Juicero 27, a travel blog 41, a coloring book 42, wedding speeches 48, KDP paperbacks 52, Notion templates 55, and kill-my-idea itself 63" width="100%"></a>
+<a href="https://remipelloux.github.io/kill-my-idea/"><img src="assets/verdict-wall.svg" alt="Seven real verdicts: Juicero 27, a travel blog 41, a coloring book 42, wedding speeches 44, KDP paperbacks 52, Notion templates 43, and kill-my-idea itself 63" width="100%"></a>
 
 All seven are real runs, mostly ideas we were about to spend time or money on. The coloring book is
 why this exists: we built it first, three versions and a day of work, and a five-minute search then
@@ -74,11 +74,11 @@ vending machines…), with every report one click away.
 
 Every run writes `report.html`, a report you open in a browser and can print as an A4 PDF.
 
-<a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/"><img src="assets/report-cover.png" alt="Report cover for Notion templates for French real-estate agents: the answer, a score ring at 55, a PIVOT badge, and Share card and Save PDF buttons" width="100%"></a>
+<a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/"><img src="assets/report-cover.png" alt="Report cover for Notion templates for French real-estate agents: the answer, a score ring at 43, a NO-GO badge, and Share card and Save PDF buttons" width="100%"></a>
 
 It opens with the answer, then shows what would change it:
 
-<a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/#rescue"><img src="assets/report-rescue.png" alt="Could it be saved: three changes to the Notion-template idea, each with a projected score, a difficulty, the effort and the cost" width="100%"></a>
+<a href="https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/#rescue"><img src="assets/report-rescue.png" alt="Could it be saved: two changes to the Notion-template idea, each with a projected score, a difficulty, the effort and the cost" width="100%"></a>
 
 It goes on to cover:
 - the score breakdown: 21 sub-scores you can expand, the raw total, and which fixed rules capped it;

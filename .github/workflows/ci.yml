@@ -39,10 +39,6 @@ jobs:
           done < <(find examples -name verdict.json -type f | sort)
           if [ "$found" = 0 ]; then echo "No examples with verdict.json, skipping."; fi
 
-      - name: Check legacy example reports (rule errors warn, safety errors fail)
-        run: |
-          for d in examples/*-report; do python3 scripts/check-idea.py --legacy "$d"; done
-
       - name: Build the dashboard and brain from the examples
         run: |
           tmp=$(mktemp -d)

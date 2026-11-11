@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "slug": "wedding-speeches",
+  "title": "AI wedding speech writer for best men and maids of honor",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "An AI app that writes a personalized wedding speech for best men and maids of honor, $19 per speech. Countries US then FR. Budget 0, 5 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug wedding-speeches.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Best men and maids of honor must give a personal, funny, moving speech and most dread writing it.",
+  "customer": "Best men and maids of honor (US, mostly aged 25-35) with a wedding 1-6 weeks away",
+  "solution": "A web app that interviews the user about the couple and generates a personalized speech with AI",
+  "revenue_model": "one-off",
+  "price": {"amount": 19, "currency": "USD", "period": "per-use"},
+  "channel": null,
+  "countries": ["US", "FR"],
+  "claims": [],
+  "context": {
+    "budget": "USD 0",
+    "time_per_week": "5 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Budget USD 0: no paid ads, only free tiers and organic channels",
+    "5 hours a week, solo founder, side income goal",
+    "No audience, network or wedding-industry asset (stated: no special edge)",
+    "Founder can build a simple web app with an LLM API (not stated; assumed from the idea)",
+    "Type saas: an AI web app, sold one-off per speech",
+    "US first, France second, as stated"
+  ],
+  "unknowns": ["channel", "founder technical skills"],
+  "answers": [
+    {
+      "question": "Do you already have an audience, a list or a wedding-industry partner?",
+      "answer": "Not asked (headless run, user said just go). Assumed no: the user stated no special edge.",
+      "feeds": ["no_distribution", "channel_readiness", "assets"],
+      "stage": "follow_up",
+      "effect": "no change: no_distribution stays a hit"
+    }
+  ]
+}
