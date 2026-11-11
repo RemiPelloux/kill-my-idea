@@ -1,6 +1,10 @@
 # Changelog
 
-## Unreleased (1.0.0 sprint)
+## 0.10.0 — 2026-11-11
+
+The code half of the 1.0.0 sprint: a versioned file format, reports with no executable data, idea
+types and smarter questions, go to market in deepdive, calibration tooling, 48 tests and a security
+review. 1.0.0 follows once the calibration set passes its targets.
 
 - **Tests:** 25 stdlib unit tests for the checker rules (R1–R6, rounding, tampering, unsafe data),
   build-brain, the board check, the export and the CSP pins. CI runs them. (#10)
