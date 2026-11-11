@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- `build-brain.py --no-brain <dir>` builds the dashboard without writing `BRAIN.md`, for public galleries.
 - Listed in [Awesome AI Plugins](https://github.com/hashgraph-online/awesome-ai-plugins) and the HOL Registry.
 - CI: every action pinned to a commit SHA, Dependabot for actions, and the HOL plugin scanner on each push (100/100).
 - `scan-report.py` no longer matches its own banned-pattern text (a false positive in external scanners). Its checks are unchanged.

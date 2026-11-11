@@ -2,6 +2,7 @@
 """Build the idea dashboard and the brain note from every verdict in ideas/.
 
     python3 scripts/build-brain.py [ideas]
+    python3 scripts/build-brain.py --no-brain docs/gallery   # dashboard only, e.g. a public gallery
 
 Reads ideas/*/verdict.json and idea.json (or the copies embedded in report-data.js), plus
 the optional ideas/focus.json written by compare, then writes:
@@ -217,6 +218,8 @@ def main(argv):
     if argv and argv[0] in ("-h", "--help"):
         print(__doc__)
         return 0
+    brain = "--no-brain" not in argv
+    argv = [a for a in argv if a != "--no-brain"]
     ideas_dir = pathlib.Path(argv[0]) if argv else pathlib.Path("ideas")
     if not ideas_dir.is_dir():
         print(f"{ideas_dir}: not a folder")
@@ -228,13 +231,14 @@ def main(argv):
         return 1
     pats = patterns(ideas)
     focus = load_focus(ideas_dir, {x["slug"] for x in ideas})
-    board = {"generated": today.isoformat(), "brain": True, "focus": focus, "patterns": pats,
+    board = {"generated": today.isoformat(), "brain": brain, "focus": focus, "patterns": pats,
              "ideas": [{k: v for k, v in x.items() if not k.startswith("_")} for x in ideas]}
     payload = json.dumps(board, ensure_ascii=False).replace("<", "\\u003c")
     (ideas_dir / "board-data.js").write_text(f"window.KMI_BOARD = {payload};\n", encoding="utf-8")
     shutil.copyfile(BOARD_HTML, ideas_dir / "board.html")
-    write_brain(ideas_dir / "BRAIN.md", brain_block(ideas, pats, focus, today.isoformat()))
-    print(f"{len(ideas)} ideas -> {ideas_dir}/board.html, board-data.js, BRAIN.md"
+    if brain:
+        write_brain(ideas_dir / "BRAIN.md", brain_block(ideas, pats, focus, today.isoformat()))
+    print(f"{len(ideas)} ideas -> {ideas_dir}/board.html, board-data.js" + (", BRAIN.md" if brain else "")
           + (f" (focus: {focus['slug']})" if focus else " (no focus.json yet)"))
     return 0
 
