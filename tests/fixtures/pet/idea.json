@@ -1,0 +1,42 @@
+{
+  "slug": "pet-dropshipping-tiktok",
+  "title": "Shopify pet-products dropshipping store, TikTok ads (US)",
+  "created": "2026-11-11",
+  "language": "en",
+  "source": {
+    "type": "own-idea",
+    "text": "A Shopify dropshipping store selling pet products advertised on TikTok. Launch country US, budget $1,500, 15 hours a week, goal side income, no special edge. Just go: do not ask questions.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": null,
+  "customer": null,
+  "solution": "A Shopify dropshipping store selling pet products",
+  "revenue_model": "one-off",
+  "price": null,
+  "channel": "TikTok ads",
+  "countries": [
+    "US"
+  ],
+  "claims": [],
+  "context": {
+    "budget": "USD 1,500",
+    "time_per_week": "15 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Average order $34.99, one item per order (no price given)",
+    "Products sourced from CJdropshipping US warehouse to avoid China shipping times",
+    "Customer: US dog and cat owners reached through TikTok ads",
+    "About $600/month of the $1,500 goes to ads; the rest to store, apps and samples"
+  ],
+  "unknowns": [
+    "problem",
+    "customer",
+    "price",
+    "specific products",
+    "supplier"
+  ]
+}

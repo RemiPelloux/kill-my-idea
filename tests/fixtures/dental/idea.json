@@ -1,0 +1,48 @@
+{
+  "slug": "dental-ai-receptionist",
+  "title": "AI receptionist for US dental clinics' missed calls",
+  "created": "2026-11-11",
+  "language": "en",
+  "source": {
+    "type": "own-idea",
+    "text": "An AI receptionist that answers missed calls for US dental clinics and books appointments, $199/month. Just go: launch country US, budget $2,000, 10 hours a week, goal side income, edge: I am a developer. Do not ask questions.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "US dental clinics miss calls and lose appointments",
+  "customer": "US dental clinics",
+  "solution": "An AI receptionist that answers missed calls and books appointments",
+  "revenue_model": "subscription",
+  "price": {
+    "amount": 199,
+    "currency": "USD",
+    "period": "month"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [
+    "answers missed calls for US dental clinics",
+    "books appointments",
+    "$199/month"
+  ],
+  "context": {
+    "budget": "USD 2,000",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "I am a developer"
+  },
+  "assumptions": [
+    "Customer narrowed to independent 1-3 location general practices (not DSOs)",
+    "Booking means writing into the practice management system (PMS), starting with Open Dental",
+    "Founder time valued at $50/hour for CAC",
+    "~200 handled calls x 2.5 minutes per clinic per month"
+  ],
+  "unknowns": [
+    "channel",
+    "practice management system integrations",
+    "call volume per clinic"
+  ]
+}

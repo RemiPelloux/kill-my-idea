@@ -18,6 +18,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Unit tests
+        run: cd tests && python3 -m unittest -q
+
       - name: CSP hashes are pinned
         run: python3 scripts/update-csp.py --check
 
