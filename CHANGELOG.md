@@ -52,6 +52,14 @@
   confidence, never a GO (capped at 69), labelled in the report. (#15)
 - **Parallel research by default:** kill now starts 4 research subagents in one message instead of
   searching one query at a time. 16 of the 18 gallery runs had used none. (#16, measured at the gallery re-run)
+- **[How scoring works](docs/scoring.md):** one page from sub-scores to rules to verdict, with a worked
+  example (the pet store: raw 53.2 → R6 → 49), linked from the report. (#17)
+- **Changing the scoring:** CONTRIBUTING explains how to propose a rubric or rule change: evidence
+  from runs, calibrate.py before and after, golden runs updated on purpose. (#18)
+- **Compatibility promise:** every 1.x release reads every 1.x file; pre-1.0 verdicts upgrade with
+  migrate.py. (#19)
+- **`scripts/release.py --check <version>`:** version, changelog, CSP, scan, tests, examples, git
+  state and a free tag, checked before anything is tagged. It never tags itself. (#21)
 
 ## 0.9.1 — 2026-11-11
 

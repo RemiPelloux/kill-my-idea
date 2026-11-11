@@ -245,6 +245,13 @@ It's listed in [Awesome AI Plugins](https://github.com/hashgraph-online/awesome-
 Yes. Paste the badge it gives you into your README, or post the card in the
 [verdict gallery](https://github.com/RemiPelloux/kill-my-idea/issues/new?template=share-verdict.yml).
 
+**Will my old verdicts still work after an update?**
+Yes. From 1.0 on, every file says which format wrote it (`schema_version`), and every 1.x release
+reads every 1.x file. A change that breaks that needs a new major version (2.0). Verdicts from
+before 1.0 upgrade with `python3 scripts/migrate.py --all ideas`. Ones made under older scoring
+rules are listed as "re-run needed" rather than silently rescored. How the score is computed:
+[docs/scoring.md](docs/scoring.md).
+
 **Does it work outside Claude Code?**
 The skills follow the open [Agent Skills](https://agentskills.io) format. The `/plugin` install is Claude Code only.
 
