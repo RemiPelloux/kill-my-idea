@@ -11,7 +11,7 @@
 
 <sub>▶ <a href="https://remipelloux.github.io/kill-my-idea/demo.mp4">Watch a real run (50 s)</a>: 19 searches, 34 sources, the verdict, the report and the dashboard.</sub>
 
-[Live reports](https://remipelloux.github.io/kill-my-idea/) &nbsp;·&nbsp; [Gallery](https://remipelloux.github.io/kill-my-idea/gallery/board.html) &nbsp;·&nbsp; [Examples](examples/README.md) &nbsp;·&nbsp; [Security](SECURITY.md) &nbsp;·&nbsp; [Changelog](CHANGELOG.md) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/RemiPelloux)
+[Live reports](https://remipelloux.github.io/kill-my-idea/) &nbsp;·&nbsp; [Gallery](https://remipelloux.github.io/kill-my-idea/gallery/board.html) &nbsp;·&nbsp; [Examples](examples/README.md) &nbsp;·&nbsp; [Security](SECURITY.md) &nbsp;·&nbsp; [Changelog](CHANGELOG.md) &nbsp;·&nbsp; [Roadmap](ROADMAP.md) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/RemiPelloux)
 
 [![MIT license](https://img.shields.io/badge/license-MIT-EFE8DC?labelColor=15120F)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/RemiPelloux/kill-my-idea?style=flat&color=E5383B&labelColor=15120F)](https://github.com/RemiPelloux/kill-my-idea/stargazers)
