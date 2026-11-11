@@ -30,6 +30,9 @@
   with the sub-scores they feed, and the report shows them. (#24)
 - **Follow-up after research:** at most 2 targeted questions when a kill shot hinges on a fact only
   the founder knows, with what each answer changed. Headless runs write them as assumptions. (#25)
+- **"Strong competitor" needs proof of traction:** $1M+ revenue, 500+ reviews, $5M+ raised, 100k+
+  users or a top-10 rank, with the number in the evidence. A crowded field without that proof lowers
+  `competitor_density` instead. It hit 13 of 14 gallery ideas before. (#6, checked again at the gallery re-run)
 
 ## 0.9.1 — 2026-11-11
 

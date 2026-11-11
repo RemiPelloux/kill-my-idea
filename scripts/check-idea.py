@@ -751,6 +751,11 @@ def check_report_data(rep, data, idea, v):
                 rep.error(f"report-data: kill shot {k} is a hit without a source")
             else:
                 check_url(rep, f"report-data.js kill_shots.{k}.source", ev["source"])
+                if k == "strong_competitor" and not re.search(r"\d", str(ev.get("evidence"))):
+                    # 1.0: a hit needs a traction number (revenue, reviews, funding, users or rank)
+                    (rep.error if (idea or {}).get("type") else rep.warn)(
+                        "report-data: strong_competitor is a hit but its evidence has no traction number "
+                        "(revenue, reviews, funding, users or rank, SKILL.md §3)")
         elif ks.get(k) is False and isinstance(nks, dict) and not (nks.get(k) or {}).get("evidence"):
             rep.warn(f"report-data: kill shot {k} is clear; say what was searched in narrative.kill_shots.{k}.evidence")
     if ks.get("saturated_wave") is True and isinstance(nks, dict):
