@@ -126,6 +126,7 @@ The evidence: across the gallery runs, a kill run took a median of 6 minutes and
 
 ## After 1.0
 
+- ✅ **Build kit (1.1.0):** `/kill-my-idea:build` turns a verdict into the files to start building: stories, sprints, Definition of Done, a computed business plan, a Remotion video and ads.
 - **Faster runs:** the 30% speed target from #16. Measure where the 7 minutes go (subagent start-up, the research budget, report writing) before cutting.
 
 ## Not before 1.0

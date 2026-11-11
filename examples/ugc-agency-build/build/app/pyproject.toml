@@ -1,0 +1,5 @@
+[project]
+name = "hookline-ops"
+version = "0.1.0"
+description = "Hookline Studio operations: tracker and kill-criteria checks"
+requires-python = ">=3.9"

@@ -1,0 +1,21 @@
+{
+  "color": {
+    "bg": {
+      "value": "#0f1115"
+    },
+    "fg": {
+      "value": "#f5f5f0"
+    },
+    "accent": {
+      "value": "#ff6b35"
+    },
+    "muted": {
+      "value": "#a0a4ab"
+    }
+  },
+  "font": {
+    "family": {
+      "value": "Inter, 'Helvetica Neue', Arial, sans-serif"
+    }
+  }
+}

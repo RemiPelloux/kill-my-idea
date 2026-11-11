@@ -125,6 +125,7 @@ Both are rebuilt from the verdicts by `scripts/build-brain.py`, so nothing on th
 | `/kill-my-idea:check-tweet` | Fact-checks a viral "make money" post: every claim, the real math, what the author sells, then a verdict |
 | `/kill-my-idea:roast` | The same verdict as five sourced one-liners, sized for a screenshot ([Juicero](examples/juicero-roast.md)). Also saved for `compare` |
 | `/kill-my-idea:compare` | Ranks every idea you've checked by score, speed and confidence, picks the one to work on this week, and updates the dashboard and the brain note. `--refresh` re-checks the stale ones |
+| `/kill-my-idea:build` | The starter kit for building an idea (or one of its rescue paths): README, `.env.example`, folder structure, PRD, architecture, user stories, sprints, Definition of Done, a 12-month business plan with 3 scenarios, brand tokens, a storyboard with a ready [Remotion](https://www.remotion.dev) video project, and creative ads with a target cost per customer ([example](examples/ugc-agency-build/BUILD.md)) |
 
 You can also just write "kill my idea: …", "is this worth building?" or "which idea should I do?".
 
@@ -202,6 +203,7 @@ Everything goes into `ideas/<YYYY-MM>-<slug>/` in your current folder.
 | `roast.md` | The roast (`roast` only) |
 | `ideas/board.html` + `ideas/BRAIN.md` | The dashboard and the brain note for all your ideas, rebuilt after every run |
 | `ideas/RANKING.md` + `ideas/focus.json` | The ranking and this week's focus (`compare`) |
+| `build/` | The starter kit (`build` only): start with `build/BUILD.md`. `build/plan.json` is the data ([schema](skills/build/build-plan.schema.json)); `scripts/build-kit.py` checks it against the verdict, does the business-plan math and renders the docs, `.env.example`, design tokens and the video props |
 
 Check any run yourself:
 

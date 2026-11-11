@@ -1,0 +1,95 @@
+{
+  "brand": {
+    "name": "Hookline Studio",
+    "tagline": "Fresh ad videos every month, hooks included",
+    "colors": {
+      "bg": "#0f1115",
+      "fg": "#f5f5f0",
+      "accent": "#ff6b35",
+      "muted": "#a0a4ab"
+    }
+  },
+  "motion": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "scenes": [
+      {
+        "kind": "hook",
+        "duration_s": 3,
+        "text": "Your Meta ads are getting tired.",
+        "sub": "Rising CPA? It is the creative."
+      },
+      {
+        "kind": "problem",
+        "duration_s": 4,
+        "text": "You need 3-5 new ads a month",
+        "sub": "And no time to brief creators"
+      },
+      {
+        "kind": "stat",
+        "duration_s": 4,
+        "text": "creators now offer UGC",
+        "sub": "Footage is easy. Good hooks are not.",
+        "stat": 66,
+        "stat_suffix": "%"
+      },
+      {
+        "kind": "product",
+        "duration_s": 5,
+        "text": "8 ad-ready videos a month",
+        "sub": "Briefs, hooks, creators and edits handled. $1,200."
+      },
+      {
+        "kind": "proof",
+        "duration_s": 4,
+        "text": "Real creators. Your real product.",
+        "sub": "Usage rights and disclosure in writing"
+      },
+      {
+        "kind": "cta",
+        "duration_s": 4,
+        "text": "Start with a $799 pilot",
+        "sub": "4 videos in 10 days"
+      }
+    ]
+  },
+  "ads": [
+    {
+      "id": "AD-1",
+      "width": 1080,
+      "height": 1920,
+      "hook": "Your best ad is dying. Here are 8 new ones a month.",
+      "headline": "8 ad-ready UGC videos a month for $1,200",
+      "cta": "Book a pilot",
+      "proof": "Brands under $10K/month in ad spend need 3-5 new ads a month"
+    },
+    {
+      "id": "AD-2",
+      "width": 1080,
+      "height": 1080,
+      "hook": "66% of creators sell UGC. Few write hooks that sell.",
+      "headline": "We write the hooks. Creators film them.",
+      "cta": "See the pilot",
+      "proof": "The share of creators offering UGC rose from 26% to 66% in 2025"
+    },
+    {
+      "id": "AD-3",
+      "width": 1200,
+      "height": 628,
+      "hook": "Stop managing creators at 11pm.",
+      "headline": "One brief. 8 videos. Every month.",
+      "cta": "Get the offer",
+      "proof": "Brands paid UGC creators $154 per video on average on Collabstr"
+    },
+    {
+      "id": "AD-4",
+      "width": 1080,
+      "height": 1920,
+      "hook": "TikTok Shop US grew 68%. Is your creative keeping up?",
+      "headline": "Fresh product videos for TikTok and Meta",
+      "cta": "Start a pilot",
+      "proof": "TikTok Shop US GMV grew 68% to $15.1B in 2025"
+    }
+  ]
+}

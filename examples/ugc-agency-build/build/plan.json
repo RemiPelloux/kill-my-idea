@@ -1,0 +1,616 @@
+{
+  "schema_version": "1.0",
+  "slug": "ugc-agency",
+  "generated": "2026-11-11",
+  "based_on": {
+    "verdict": "PIVOT",
+    "score": 56,
+    "path": "rescue-1",
+    "change": "Sell a fixed monthly creative package ($1,200 for 8 ad-ready videos with hooks), not a 20% commission, to Shopify brands spending $5-30K/month on Meta ads"
+  },
+  "product": {
+    "name": "Hookline Studio",
+    "one_liner": "8 ad-ready UGC videos a month, with the hooks written for you, for a fixed $1,200. Start with a $799 pilot of 4 videos.",
+    "customer": "US Shopify brands spending $5-30K a month on Meta or TikTok ads, with no in-house creative team",
+    "problem": "Ad creative fatigue raises their CPA, so they need 3-5 fresh product videos a month, and self-serve platforms leave the brief, the hooks and the creator management to the founder",
+    "key_metric": {
+      "name": "Paid $799 pilots",
+      "target": "1 or more paid pilot by day 14",
+      "deadline": "2026-11-25"
+    }
+  },
+  "stack": {
+    "choice": "Static one-page offer + Stripe Payment Links + Instantly cold email + a Python stdlib ops tracker (CSV)",
+    "why": "This is a service, not software: the only things to build are an offer page, a way to get paid and a way to measure hours per video against the kill criteria. Static HTML hosts for free, Stripe has no monthly fee, the tracker needs no install, and the whole thing fits the verdict's $86/month tool budget and 15 hours a week.",
+    "components": [
+      {
+        "name": "Cold email sending",
+        "tool": "Instantly Growth",
+        "cost_month": 47,
+        "source": "https://instantly.ai/pricing.md"
+      },
+      {
+        "name": "Lead finder",
+        "tool": "Instantly lead finder",
+        "cost_month": 9,
+        "source": "https://instantly.ai/pricing.md"
+      },
+      {
+        "name": "Sending domains and inboxes",
+        "tool": "2 secondary domains + 3 Google Workspace inboxes",
+        "cost_month": 30,
+        "source": "https://www.emailvendorselection.com/google-workspace-pricing/"
+      },
+      {
+        "name": "Payments",
+        "tool": "Stripe Payment Links (2.9% + 30c per charge, no monthly fee)",
+        "cost_month": 0
+      },
+      {
+        "name": "Offer page hosting",
+        "tool": "Static HTML on any free static host",
+        "cost_month": 0
+      },
+      {
+        "name": "Ops tracker",
+        "tool": "Python 3 standard library, CSV files",
+        "cost_month": 0
+      }
+    ],
+    "alternatives": [
+      {
+        "name": "Self-serve UGC platform as the back office (Insense, JoinBrands)",
+        "why_not": "Insense starts near $400/month and JoinBrands charges 8-15% per order: that eats the margin, and the brand can see the same platform and go direct."
+      },
+      {
+        "name": "No-code client portal (Airtable or Notion with forms)",
+        "why_not": "Useful at 5+ clients, but a portal for 1-2 pilot clients is time the verdict says goes to sales; a CSV tracker answers the only question that matters now: hours per video."
+      }
+    ]
+  },
+  "env": [
+    {
+      "name": "TRACKER_DATA_DIR",
+      "purpose": "Folder where ops/tracker.py keeps its CSV files (default ops/data, which is gitignored)",
+      "required": false
+    },
+    {
+      "name": "HOURLY_FLOOR_USD",
+      "purpose": "Effective hourly rate under which the tracker flags the kill criterion (default 20)",
+      "required": false
+    }
+  ],
+  "structure": [
+    {
+      "path": "site/",
+      "purpose": "The one-page offer: $799 pilot and $1,200/month package"
+    },
+    {
+      "path": "site/index.html",
+      "purpose": "Offer page with the two Stripe Payment Link buttons (paste the links in)"
+    },
+    {
+      "path": "site/styles.css",
+      "purpose": "Brand colours and type from design-tokens.css"
+    },
+    {
+      "path": "templates/",
+      "purpose": "Documents used on every order"
+    },
+    {
+      "path": "templates/cold-email.md",
+      "purpose": "Cold email and LinkedIn message templates with the personalisation slots"
+    },
+    {
+      "path": "templates/creative-brief.md",
+      "purpose": "Brief per video: product, angle, 3 hooks, shot list, deadline"
+    },
+    {
+      "path": "templates/creator-agreement.md",
+      "purpose": "Fixed-rate creator agreement: usage rights scope, FTC disclosure, payment terms"
+    },
+    {
+      "path": "templates/client-agreement.md",
+      "purpose": "Pilot and monthly package terms: deliverables, revisions, notice, no direct hire of creators"
+    },
+    {
+      "path": "ops/",
+      "purpose": "Founder tooling"
+    },
+    {
+      "path": "ops/tracker.py",
+      "purpose": "Logs outreach, orders, videos and hours; reports the kill criteria"
+    },
+    {
+      "path": "ops/data/",
+      "purpose": "CSV data written by the tracker (never committed)"
+    },
+    {
+      "path": "ops/data/.gitignore",
+      "purpose": "Keeps client and creator data out of git"
+    },
+    {
+      "path": "tests/",
+      "purpose": "Unit tests"
+    },
+    {
+      "path": "tests/test_tracker.py",
+      "purpose": "Tests for the tracker's math and kill-criteria flags"
+    }
+  ],
+  "personas": [
+    {
+      "name": "Maya, DTC founder",
+      "role": "Founder of a US Shopify brand spending $5-30K a month on Meta ads, no creative team",
+      "pain": "Her ads fatigue every 4-8 weeks; she needs 3-5 new videos a month and has no time to brief and chase creators"
+    },
+    {
+      "name": "Jordan, UGC creator",
+      "role": "US creator filming product videos at a fixed $100-150 per video",
+      "pain": "UGC rates fell 44% in 2025 and work is irregular; wants steady, clearly briefed orders paid on time"
+    },
+    {
+      "name": "Sam, studio operator",
+      "role": "The founder running the studio solo, 15 hours a week, $1,000 budget",
+      "pain": "Every hour of coordination lowers the hourly rate; needs to know fast whether the model pays"
+    }
+  ],
+  "stories": [
+    {
+      "id": "US-01",
+      "persona": "Maya, DTC founder",
+      "want": "a one-page offer that states the $799 pilot (4 videos with hooks) and the $1,200/month package, with a pay button",
+      "so_that": "I can decide and pay without a call",
+      "priority": "must",
+      "points": 2,
+      "sprint": 0,
+      "acceptance": [
+        "The page shows both prices, the number of videos, revisions (2) and turnaround (10 days)",
+        "The pilot button opens a Stripe Payment Link for $799 and a test payment succeeds"
+      ]
+    },
+    {
+      "id": "US-02",
+      "persona": "Sam, studio operator",
+      "want": "a list of 100 Shopify brands in one vertical running Meta ads, each with a founder email",
+      "so_that": "the 7-day test has a real audience",
+      "priority": "must",
+      "points": 3,
+      "sprint": 0,
+      "acceptance": [
+        "100 rows with brand, Meta Ad Library link and founder email",
+        "Every brand has an ad active in the last 30 days"
+      ]
+    },
+    {
+      "id": "US-03",
+      "persona": "Jordan, UGC creator",
+      "want": "a fixed-rate agreement that states pay, usage rights and disclosure rules",
+      "so_that": "I know what I am paid and how my video will be used",
+      "priority": "must",
+      "points": 2,
+      "sprint": 0,
+      "acceptance": [
+        "3 creators accept a fixed rate between $100 and $150 per video in writing",
+        "The agreement states licence scope and duration and an FTC disclosure clause"
+      ]
+    },
+    {
+      "id": "US-04",
+      "persona": "Sam, studio operator",
+      "want": "to send 100 personalised cold emails and 30 LinkedIn messages and log every reply",
+      "so_that": "I can apply the day-7 kill rule on real numbers",
+      "priority": "must",
+      "points": 3,
+      "sprint": 0,
+      "acceptance": [
+        "tracker.py shows 100 emails and 30 LinkedIn messages sent",
+        "tracker.py report prints positive replies and flags fewer than 3 as STOP"
+      ]
+    },
+    {
+      "id": "US-05",
+      "persona": "Maya, DTC founder",
+      "want": "a short creative brief per video with 3 hooks to approve before anything is filmed",
+      "so_that": "the videos test angles I believe in",
+      "priority": "must",
+      "points": 3,
+      "sprint": 1,
+      "acceptance": [
+        "4 briefs filled from the template, each with product, angle, 3 hooks and a shot list",
+        "Maya approves the briefs in writing before the product ships to creators"
+      ]
+    },
+    {
+      "id": "US-06",
+      "persona": "Sam, studio operator",
+      "want": "to log hours per order and see hours per video and my effective hourly rate",
+      "so_that": "I know if I hit the 2-hours-per-video kill criterion",
+      "priority": "must",
+      "points": 3,
+      "sprint": 1,
+      "acceptance": [
+        "tracker.py report prints hours per video and USD per hour for each order",
+        "An order above 2 hours per video or under HOURLY_FLOOR_USD is flagged STOP",
+        "Unit tests cover both flags"
+      ]
+    },
+    {
+      "id": "US-07",
+      "persona": "Maya, DTC founder",
+      "want": "4 ad-ready vertical videos with captions within 10 days of the creators receiving the product",
+      "so_that": "I can launch them in Ads Manager right away",
+      "priority": "must",
+      "points": 5,
+      "sprint": 1,
+      "acceptance": [
+        "4 files at 1080x1920 with captions and the hook in the first 3 seconds",
+        "Delivered within 10 days of product receipt, with up to 2 revisions done"
+      ]
+    },
+    {
+      "id": "US-08",
+      "persona": "Maya, DTC founder",
+      "want": "a proposal to continue at $1,200/month for 8 videos, sent right after the pilot",
+      "so_that": "I keep a steady flow of new ads without re-briefing a new vendor",
+      "priority": "must",
+      "points": 3,
+      "sprint": 2,
+      "acceptance": [
+        "Proposal sent within 3 days of pilot delivery",
+        "A $1,200/month Stripe subscription link works in test mode"
+      ]
+    },
+    {
+      "id": "US-09",
+      "persona": "Maya, DTC founder",
+      "want": "a monthly recap of which hooks won, from the numbers I share from Ads Manager",
+      "so_that": "next month's videos build on what worked",
+      "priority": "should",
+      "points": 3,
+      "sprint": 2,
+      "acceptance": [
+        "The recap lists spend, CTR and CPA per video from client-shared numbers",
+        "It names the 8 hooks for next month"
+      ]
+    },
+    {
+      "id": "US-10",
+      "persona": "Sam, studio operator",
+      "want": "a client agreement with a 30-day notice and a no-direct-hire clause for 12 months",
+      "so_that": "a client cannot take my creators after the first order",
+      "priority": "should",
+      "points": 2,
+      "sprint": 2,
+      "acceptance": [
+        "The agreement states deliverables, revisions, 30-day notice and the no-direct-hire term",
+        "Every paying client has signed it before production starts"
+      ]
+    },
+    {
+      "id": "US-11",
+      "persona": "Sam, studio operator",
+      "want": "a monthly production calendar for 2 package clients (16 videos)",
+      "so_that": "production stays inside 15 hours a week",
+      "priority": "must",
+      "points": 5,
+      "sprint": 3,
+      "acceptance": [
+        "16 videos scheduled with brief, ship, film and delivery dates",
+        "tracker.py shows 2 hours or less per video for the month"
+      ]
+    },
+    {
+      "id": "US-12",
+      "persona": "Jordan, UGC creator",
+      "want": "to be paid within 7 days of the brand approving my video",
+      "so_that": "I keep taking the studio's orders",
+      "priority": "should",
+      "points": 2,
+      "sprint": 3,
+      "acceptance": [
+        "tracker.py records approval and payment dates per video",
+        "Every creator payment of the month is 7 days or less after approval"
+      ]
+    },
+    {
+      "id": "US-13",
+      "persona": "Maya, DTC founder",
+      "want": "a short case study from the pilot results on the offer page",
+      "so_that": "I can trust the studio before paying",
+      "priority": "could",
+      "points": 2,
+      "sprint": 3,
+      "acceptance": [
+        "The case study uses numbers the client approved in writing",
+        "The page shows it with the client's permission"
+      ]
+    }
+  ],
+  "sprints": [
+    {
+      "number": 0,
+      "name": "The 7-day test",
+      "goal": "Run the verdict's 7-day test: 100 brands listed, 3 creators signed, offer page and payment link live, 100 cold emails sent, every positive reply asked for a paid pilot",
+      "weeks": 1,
+      "exit": "3 or more positive replies from 100 emails by day 7 and 1 or more paid $799 deposit by day 14; otherwise stop"
+    },
+    {
+      "number": 1,
+      "name": "Deliver the pilot",
+      "goal": "Brief, film and deliver the first 4 videos while logging every hour",
+      "weeks": 2,
+      "exit": "4 videos delivered within 10 days of product receipt, at 2 hours or less per video (8 hours total)"
+    },
+    {
+      "number": 2,
+      "name": "Convert to the package",
+      "goal": "Turn the pilot into the $1,200/month package with a results recap and a signed agreement",
+      "weeks": 2,
+      "exit": "1 client signed on the $1,200/month package and paid the first month"
+    },
+    {
+      "number": 3,
+      "name": "Repeatable month",
+      "goal": "Run a full month for 2 package clients inside 15 hours a week",
+      "weeks": 2,
+      "exit": "2 active package clients, 16 videos scheduled, 2 hours or less per video and creators paid within 7 days"
+    }
+  ],
+  "dod": [
+    "In app/, python3 -m unittest discover -s tests passes",
+    "Every acceptance criterion was checked on the real thing (real brand, real email, real payment link, real video), not a mock",
+    "The README Run commands still work from a clean clone",
+    "No secrets, client data or creator personal data in git (.env and ops/data are ignored)",
+    "The hours spent on the story are logged in ops/tracker.py",
+    "The customer (brand or creator) saw the result and answered"
+  ],
+  "business_plan": {
+    "currency": "USD",
+    "inputs": {
+      "revenue_per_customer_month": {
+        "value": 1200,
+        "basis": "estimate",
+        "reasoning": "The rescue path's fixed package: $1,200 a month for 8 ad-ready videos (verdict rescue 1)"
+      },
+      "variable_cost_per_customer_month": {
+        "value": 835.1,
+        "basis": "estimate",
+        "reasoning": "8 videos x $100 creator fixed rate (low end of the verdict's $100-150) = $800, plus card fee 2.9% x $1,200 + $0.30 = $35.10; product shipping paid by the brand; founder hours excluded"
+      },
+      "cac": {
+        "value": 300,
+        "basis": "estimate",
+        "reasoning": "($86 tools + 15 h outreach x $20/h) / about 1.3 clients per 100 emails; a $1,200 retainer closes less often than the verdict's $190 commission CAC"
+      },
+      "churn_monthly_pct": {
+        "value": 8,
+        "basis": "estimate",
+        "reasoning": "Retainers lose 1.6% a month per the verdict's benchmark, but small brands and a new solo studio churn more: assumed 12-month lifetime"
+      },
+      "fixed_costs_month": {
+        "value": 86,
+        "basis": "verdict",
+        "reasoning": "Instantly $47 + lead finder $9 + ~$30 domains and inboxes"
+      },
+      "start_cash": {
+        "value": 1000,
+        "basis": "estimate",
+        "reasoning": "The founder's stated budget in idea.context: USD 1,000"
+      }
+    },
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "new_customers": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "note": "Billo at $99 makes most brands say no: a client every 4-5 months, the kill shots partly hit"
+      },
+      {
+        "name": "Base",
+        "new_customers": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "note": "Month 1 is the test and the pilot; then a new package client every 2 months, about 3 active by month 12 after churn, inside 15 h a week"
+      },
+      {
+        "name": "Optimistic",
+        "new_customers": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0
+        ],
+        "note": "Pilot case studies lift replies; 7 clients signed, which needs a part-time helper beyond 4 active clients"
+      }
+    ],
+    "milestones": [
+      {
+        "month": 1,
+        "what": "7-day test passed and the first $799 pilot delivered"
+      },
+      {
+        "month": 2,
+        "what": "First $1,200/month package client"
+      },
+      {
+        "month": 4,
+        "what": "2 package clients at 2 hours or less per video"
+      },
+      {
+        "month": 8,
+        "what": "3-4 package clients: decide whether to hire a part-time editor"
+      },
+      {
+        "month": 12,
+        "what": "About 4 active clients, the 15 h/week ceiling"
+      }
+    ]
+  },
+  "brand": {
+    "name": "Hookline Studio",
+    "tagline": "Fresh ad videos every month, hooks included",
+    "tone": [
+      "direct",
+      "practical",
+      "proof-first",
+      "calm"
+    ],
+    "colors": {
+      "bg": "#0f1115",
+      "fg": "#f5f5f0",
+      "accent": "#ff6b35",
+      "muted": "#a0a4ab"
+    }
+  },
+  "motion": {
+    "format": "1080x1920",
+    "fps": 30,
+    "music": "Upbeat, minimal electronic loop around 110 BPM from a royalty-free library, ducked under the voiceover",
+    "scenes": [
+      {
+        "kind": "hook",
+        "duration_s": 3,
+        "text": "Your Meta ads are getting tired.",
+        "sub": "Rising CPA? It is the creative.",
+        "voiceover": "Your Meta ads are getting tired."
+      },
+      {
+        "kind": "problem",
+        "duration_s": 4,
+        "text": "You need 3-5 new ads a month",
+        "sub": "And no time to brief creators",
+        "voiceover": "Brands under ten thousand a month in ad spend need three to five new ads every month."
+      },
+      {
+        "kind": "stat",
+        "duration_s": 4,
+        "text": "creators now offer UGC",
+        "sub": "Footage is easy. Good hooks are not.",
+        "voiceover": "Two thirds of creators now offer UGC. Footage is easy to find. Hooks that sell are not.",
+        "stat": 66,
+        "stat_suffix": "%",
+        "source": "https://www.netinfluencer.com/influencer-collab-costs-in-decline-but-ugc-offers-bright-spot-in-2025-report-finds/"
+      },
+      {
+        "kind": "product",
+        "duration_s": 5,
+        "text": "8 ad-ready videos a month",
+        "sub": "Briefs, hooks, creators and edits handled. $1,200.",
+        "voiceover": "Hookline Studio sends you eight ad-ready videos a month. We write the hooks, brief the creators and handle the edits."
+      },
+      {
+        "kind": "proof",
+        "duration_s": 4,
+        "text": "Real creators. Your real product.",
+        "sub": "Usage rights and disclosure in writing",
+        "voiceover": "Real creators with your real product, usage rights in writing."
+      },
+      {
+        "kind": "cta",
+        "duration_s": 4,
+        "text": "Start with a $799 pilot",
+        "sub": "4 videos in 10 days",
+        "voiceover": "Start with a pilot: four videos in ten days."
+      }
+    ]
+  },
+  "ads": [
+    {
+      "id": "AD-1",
+      "channel": "meta",
+      "persona": "Maya, DTC founder",
+      "angle": "Ad fatigue",
+      "hook": "Your best ad is dying. Here are 8 new ones a month.",
+      "headline": "8 ad-ready UGC videos a month for $1,200",
+      "primary_text": "Brands under $10K a month in ad spend need 3-5 new ads every month. We write the hooks, brief vetted creators and deliver 8 ad-ready videos a month. Try it with a 4-video pilot first.",
+      "cta": "Book a pilot",
+      "format": "1080x1920",
+      "visual": "Split screen: a Meta ad with a falling CTR line on the left, a stack of 8 fresh vertical videos on the right, brand accent on the price",
+      "proof": "Brands under $10K/month in ad spend need 3-5 new ads a month",
+      "proof_source": "https://www.chatterbuzzmedia.com/blog/facebook-ad-fatigue/",
+      "target_cpa": 400
+    },
+    {
+      "id": "AD-2",
+      "channel": "meta",
+      "persona": "Maya, DTC founder",
+      "angle": "Hooks, not just footage",
+      "hook": "66% of creators sell UGC. Few write hooks that sell.",
+      "headline": "We write the hooks. Creators film them.",
+      "primary_text": "Footage is cheap now. What moves CPA is the first 3 seconds. Every video comes with 3 hook options you approve before filming. 4-video pilot for $799.",
+      "cta": "See the pilot",
+      "format": "1080x1080",
+      "visual": "Big 66% in accent colour, under it three hook lines crossed out and one circled",
+      "proof": "The share of creators offering UGC rose from 26% to 66% in 2025",
+      "proof_source": "https://www.netinfluencer.com/influencer-collab-costs-in-decline-but-ugc-offers-bright-spot-in-2025-report-finds/",
+      "target_cpa": 400
+    },
+    {
+      "id": "AD-3",
+      "channel": "linkedin",
+      "persona": "Maya, DTC founder",
+      "angle": "Your time, not just the price",
+      "hook": "Stop managing creators at 11pm.",
+      "headline": "One brief. 8 videos. Every month.",
+      "primary_text": "Self-serve UGC platforms still leave the brief, the hooks and the chasing to you. We handle all three for a fixed $1,200 a month and send you the recap of which hooks won.",
+      "cta": "Get the offer",
+      "format": "1200x628",
+      "visual": "A founder's calendar packed with creator calls, then the same week empty with one line: videos delivered",
+      "proof": "Brands paid UGC creators $154 per video on average on Collabstr",
+      "proof_source": "https://collabstr.com/blog/collabstr-vs-insense-ugc-campaigns",
+      "target_cpa": 500
+    },
+    {
+      "id": "AD-4",
+      "channel": "tiktok",
+      "persona": "Maya, DTC founder",
+      "angle": "Ride the TikTok Shop wave",
+      "hook": "TikTok Shop US grew 68%. Is your creative keeping up?",
+      "headline": "Fresh product videos for TikTok and Meta",
+      "primary_text": "More sellers, more ads, faster fatigue. Get 8 vertical videos a month from real creators with your real product, hooks written for you.",
+      "cta": "Start a pilot",
+      "format": "1080x1920",
+      "visual": "Creator unboxing the product, bold 68% overlay, end card with the $799 pilot",
+      "proof": "TikTok Shop US GMV grew 68% to $15.1B in 2025",
+      "proof_source": "https://thelowdown.momentum.asia/new-report-tiktok-shop-u-s-gmv-grew-68-to-reach-us15-1b-in-2025/",
+      "target_cpa": 400
+    }
+  ],
+  "ad_test": {
+    "budget": 300,
+    "days": 14,
+    "kill_rule": "Run only after 1 pilot case study exists; stop any ad with 0 booked calls after $100, and stop all ads if $300 brings fewer than 2 booked calls"
+  }
+}

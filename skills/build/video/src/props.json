@@ -1,0 +1,77 @@
+{
+  "brand": {
+    "name": "FrontDesk Fill",
+    "tagline": "No new patient goes to voicemail",
+    "colors": {
+      "bg": "#0b1220",
+      "fg": "#f4f7fb",
+      "accent": "#38bdf8",
+      "muted": "#9fb0c8"
+    }
+  },
+  "motion": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "scenes": [
+      {
+        "kind": "hook",
+        "duration_s": 3,
+        "text": "Your phone rang at lunch."
+      },
+      {
+        "kind": "problem",
+        "duration_s": 4,
+        "text": "Nobody answered.",
+        "sub": "That patient booked elsewhere."
+      },
+      {
+        "kind": "stat",
+        "duration_s": 4,
+        "text": "of dental calls go unanswered",
+        "stat": 35,
+        "stat_suffix": "%"
+      },
+      {
+        "kind": "product",
+        "duration_s": 4,
+        "text": "An AI receptionist that books into Open Dental"
+      },
+      {
+        "kind": "cta",
+        "duration_s": 4,
+        "text": "Try it free for 7 days",
+        "sub": "Book a 15-min call"
+      }
+    ]
+  },
+  "ads": [
+    {
+      "id": "AD-1",
+      "width": 1080,
+      "height": 1080,
+      "hook": "Every missed call is a lost patient",
+      "headline": "Answer every call, 24/7",
+      "cta": "Book a demo",
+      "proof": "35% of dental calls go unanswered"
+    },
+    {
+      "id": "AD-2",
+      "width": 1200,
+      "height": 628,
+      "hook": "Stop retyping voicemail bookings",
+      "headline": "Bookings land in Open Dental",
+      "cta": "See how",
+      "proof": "Books in under a minute"
+    },
+    {
+      "id": "AD-3",
+      "width": 1080,
+      "height": 1920,
+      "hook": "7 days free on your real line",
+      "headline": "Decide on numbers",
+      "cta": "Start pilot",
+      "proof": "Setup in under 2 hours"
+    }
+  ]
+}

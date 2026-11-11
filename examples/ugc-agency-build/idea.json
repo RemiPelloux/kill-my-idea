@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "slug": "ugc-agency",
+  "title": "UGC agency for small DTC brands, 20% commission",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "marketplace",
+  "source": {
+    "type": "own-idea",
+    "text": "A UGC agency that connects small DTC brands with creators who film product videos, 20% commission. Launch country US, budget $1,000, 15 hours a week, goal side income, no special edge. Just go: do not ask questions. Use the slug ugc-agency.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Small DTC brands need a steady flow of product videos for ads and struggle to find and manage creators",
+  "customer": "Small US direct-to-consumer brands",
+  "solution": "An agency that matches brands with creators who film product videos",
+  "revenue_model": "marketplace",
+  "price": {
+    "amount": 20,
+    "currency": "USD",
+    "period": "per-use"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [],
+  "context": {
+    "budget": "USD 1,000",
+    "time_per_week": "15 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Price is 20% commission on the creator fee, about $175 per video, so about $35 per video",
+    "A small DTC brand buys 3-5 videos a month",
+    "Main channel is cold email (no channel was named)",
+    "Coordination takes 1.5-2 h per video (brief, product shipping, 2 revisions)",
+    "US card fee assumed at 2.9% + $0.30 (not verified on the US Stripe page)"
+  ],
+  "unknowns": [
+    "channel",
+    "claims"
+  ],
+  "answers": []
+}

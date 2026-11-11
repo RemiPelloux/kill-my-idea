@@ -39,6 +39,12 @@ jobs:
           done < <(find examples -name verdict.json -type f | sort)
           if [ "$found" = 0 ]; then echo "No examples with verdict.json, skipping."; fi
 
+      - name: Check example build kits
+        run: |
+          while IFS= read -r p; do
+            python3 scripts/build-kit.py --check "$(dirname "$(dirname "$p")")"
+          done < <(find examples -path '*/build/plan.json' -type f | sort)
+
       - name: Build the dashboard and brain from the examples
         run: |
           tmp=$(mktemp -d)

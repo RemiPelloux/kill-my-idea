@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "slug": "dental-ai-receptionist",
+  "generated": "2026-11-11",
+  "based_on": {
+    "verdict": "NO-GO",
+    "score": 41,
+    "path": "rescue-2",
+    "change": "Done-for-you service: set up and tune an AI receptionist for Open Dental practices, $500 setup + $299/month."
+  },
+  "product": {
+    "name": "FrontDesk Fill",
+    "one_liner": "We set up and tune an AI receptionist for Open Dental practices, so no new-patient call goes to voicemail.",
+    "customer": "Independent US dental practices on Open Dental with 1-3 dentists and no full-time call handler",
+    "problem": "Calls missed at lunch and after hours are lost new patients worth hundreds of dollars each",
+    "key_metric": {"name": "paying practices", "target": "3 practices at $299/month", "deadline": "2027-01-31"}
+  },
+  "stack": {
+    "choice": "Retell AI voice agent + Open Dental API + a small Python service on Fly.io",
+    "why": "A service business needs setup speed, not a platform: Retell handles telephony and voice, Open Dental's API books the appointment, a 200-line Python service glues them.",
+    "components": [
+      {"name": "Voice agent", "tool": "Retell AI", "cost_month": 0, "source": "https://www.retellai.com/pricing"},
+      {"name": "Glue service", "tool": "Fly.io", "cost_month": 5, "source": "https://fly.io/docs/about/pricing/"}
+    ],
+    "alternatives": [
+      {"name": "Build our own voice stack (Twilio + STT + TTS)", "why_not": "Weeks of latency tuning before the first sale"},
+      {"name": "Resell an existing dental AI receptionist", "why_not": "No margin and no control over the Open Dental integration"}
+    ]
+  },
+  "env": [
+    {"name": "RETELL_API_KEY", "purpose": "Create and update voice agents", "required": true, "where": "https://www.retellai.com/"},
+    {"name": "OPEN_DENTAL_API_KEY", "purpose": "Read schedules and book appointments", "required": true}
+  ],
+  "structure": [
+    {"path": "service/", "purpose": "The Python glue service"},
+    {"path": "service/main.py", "purpose": "Webhook from Retell to Open Dental"},
+    {"path": "playbooks/", "purpose": "Per-practice call scripts and FAQ"},
+    {"path": "tests/", "purpose": "Tests for the booking flow"}
+  ],
+  "personas": [
+    {"name": "The office manager", "role": "Runs the front desk of a 2-dentist practice", "pain": "Lunch-hour and after-hours calls go to voicemail and never call back"},
+    {"name": "The owner dentist", "role": "Owns the practice and signs the checks", "pain": "Pays for marketing that brings calls nobody answers"}
+  ],
+  "stories": [
+    {"id": "US-01", "persona": "The office manager", "want": "missed calls answered by a voice that knows our hours and services", "so_that": "new patients book instead of calling the next practice", "priority": "must", "points": 5, "sprint": 1, "acceptance": ["A call outside hours is answered in under 2 rings", "The agent answers the 10 FAQ from the playbook correctly"]},
+    {"id": "US-02", "persona": "The office manager", "want": "the agent to book into Open Dental", "so_that": "I don't retype bookings", "priority": "must", "points": 8, "sprint": 1, "acceptance": ["A booked slot appears in Open Dental within 1 minute", "Double bookings are refused"]},
+    {"id": "US-03", "persona": "The owner dentist", "want": "a weekly email with calls answered and bookings made", "so_that": "I can see what I pay for", "priority": "must", "points": 3, "sprint": 2, "acceptance": ["Sent every Monday 8:00 local time", "Counts match the call log"]},
+    {"id": "US-04", "persona": "The owner dentist", "want": "a 7-day free pilot on my real line", "so_that": "I decide on numbers, not a demo", "priority": "must", "points": 3, "sprint": 0, "acceptance": ["Pilot set up in under 2 hours", "Pilot ends automatically after 7 days"]},
+    {"id": "US-05", "persona": "The office manager", "want": "urgent calls forwarded to a human", "so_that": "emergencies never wait", "priority": "should", "points": 2, "sprint": 2, "acceptance": ["Calls with 'pain' or 'emergency' are forwarded", "Forwarding works after hours to the on-call phone"]},
+    {"id": "US-06", "persona": "The office manager", "want": "to edit the FAQ myself", "so_that": "I don't wait on the agency for a holiday change", "priority": "could", "points": 5, "sprint": 2, "acceptance": ["A changed answer is live in under 5 minutes", "Every change is logged"]}
+  ],
+  "sprints": [
+    {"number": 0, "name": "Sell before build", "goal": "Run the 7-day test: 30 practices contacted, pilots offered", "weeks": 1, "exit": "2 practices agree to a pilot"},
+    {"number": 1, "name": "Pilot", "goal": "Answer and book on 2 pilot lines", "weeks": 2, "exit": "20 calls answered, 3 bookings made"},
+    {"number": 2, "name": "First invoice", "goal": "Turn pilots into paying practices", "weeks": 2, "exit": "1 practice pays $299"}
+  ],
+  "dod": [
+    "Acceptance criteria all pass on a real test call",
+    "Tests pass in CI",
+    "No patient data in logs",
+    "README Run section still works from a clean clone",
+    "The office manager has seen it and said yes"
+  ],
+  "business_plan": {
+    "currency": "USD",
+    "inputs": {
+      "revenue_per_customer_month": {"value": 299, "basis": "estimate", "reasoning": "Rescue path price, $299/month; setup fee left out to stay conservative"},
+      "variable_cost_per_customer_month": {"value": 101, "basis": "verdict"},
+      "cac": {"value": 900, "basis": "estimate", "reasoning": "Done-for-you sold by cold calls and local referrals: about 15 h of selling per practice at $60/h"},
+      "churn_monthly_pct": {"value": 5, "basis": "verdict"},
+      "fixed_costs_month": {"value": 100, "basis": "verdict"},
+      "start_cash": {"value": 1000, "basis": "estimate", "reasoning": "The budget given in the brief"}
+    },
+    "scenarios": [
+      {"name": "Pessimistic", "new_customers": [0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], "note": "One practice every two months from month 3"},
+      {"name": "Base", "new_customers": [0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2], "note": "Referrals add a second practice a month from month 8"},
+      {"name": "Optimistic", "new_customers": [1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4], "note": "An agency partner resells from month 6"}
+    ],
+    "milestones": [{"month": 2, "what": "First paying practice"}, {"month": 8, "what": "10 practices"}]
+  },
+  "brand": {
+    "name": "FrontDesk Fill",
+    "tagline": "No new patient goes to voicemail",
+    "tone": ["calm", "practical", "friendly"],
+    "colors": {"bg": "#0b1220", "fg": "#f4f7fb", "accent": "#38bdf8", "muted": "#9fb0c8"}
+  },
+  "motion": {
+    "format": "1080x1920",
+    "fps": 30,
+    "music": "Light, upbeat corporate track from the YouTube Audio Library",
+    "scenes": [
+      {"kind": "hook", "duration_s": 3, "text": "Your phone rang at lunch.", "voiceover": "Your phone rang at lunch."},
+      {"kind": "problem", "duration_s": 4, "text": "Nobody answered.", "sub": "That patient booked elsewhere."},
+      {"kind": "stat", "duration_s": 4, "stat": 35, "stat_suffix": "%", "text": "of dental calls go unanswered", "source": "https://www.example.com/dental-calls-study"},
+      {"kind": "product", "duration_s": 4, "text": "An AI receptionist that books into Open Dental"},
+      {"kind": "cta", "duration_s": 4, "text": "Try it free for 7 days", "sub": "Book a 15-min call"}
+    ]
+  },
+  "ads": [
+    {"id": "AD-1", "channel": "meta", "persona": "The owner dentist", "angle": "Lost revenue", "hook": "Every missed call is a lost patient", "headline": "Answer every call, 24/7", "primary_text": "Lunch and after-hours calls go to voicemail. Ours books them into Open Dental.", "cta": "Book a demo", "format": "1080x1080", "visual": "Phone ringing on an empty front desk at 12:30", "proof": "35% of dental calls go unanswered", "proof_source": "https://www.example.com/dental-calls-study", "target_cpa": 600},
+    {"id": "AD-2", "channel": "linkedin", "persona": "The office manager", "angle": "Less admin", "hook": "Stop retyping voicemail bookings", "headline": "Bookings land in Open Dental", "primary_text": "The agent books the slot, you check it.", "cta": "See how", "format": "1200x628", "visual": "Open Dental calendar filling up", "proof": "Books in under a minute", "proof_source": "https://www.example.com/demo", "target_cpa": 600},
+    {"id": "AD-3", "channel": "meta", "persona": "The owner dentist", "angle": "Risk-free pilot", "hook": "7 days free on your real line", "headline": "Decide on numbers", "primary_text": "We set it up in 2 hours. Keep it if it books.", "cta": "Start pilot", "format": "1080x1920", "visual": "Weekly report email showing bookings", "proof": "Setup in under 2 hours", "proof_source": "https://www.example.com/pilot", "target_cpa": 900}
+  ],
+  "ad_test": {"budget": 300, "days": 7, "kill_rule": "Fewer than 2 demo bookings for $300 spent: stop the ads"}
+}
