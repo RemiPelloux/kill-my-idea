@@ -1,6 +1,6 @@
 # Roadmap to 1.0.0
 
-1.0.0 is a quality bar, not a date. All the work happens in **one sprint**, the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) milestone (19 issues), and 1.0.0 ships when it is closed.
+1.0.0 is a quality bar, not a date. All the work happens in **one sprint**, the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) milestone (22 issues), and 1.0.0 ships when it is closed.
 
 **What 1.0 means**
 
@@ -26,28 +26,31 @@ set, the regenerated examples and the gallery re-run) are real runs: at most 3 a
 4. [#5](https://github.com/RemiPelloux/kill-my-idea/issues/5) Add scripts/calibrate.py
 5. [#8](https://github.com/RemiPelloux/kill-my-idea/issues/8) Hindsight guard
 
-**The score: calibrate it, then freeze it**
+**The score: better input, then calibrate and freeze it**
 
-6. [#4](https://github.com/RemiPelloux/kill-my-idea/issues/4) Calibration set
-7. [#6](https://github.com/RemiPelloux/kill-my-idea/issues/6) Strong competitor threshold
-8. [#7](https://github.com/RemiPelloux/kill-my-idea/issues/7) Weights review
-9. [#11](https://github.com/RemiPelloux/kill-my-idea/issues/11) Golden runs
-10. [#13](https://github.com/RemiPelloux/kill-my-idea/issues/13) Regenerate the examples
+6. [#23](https://github.com/RemiPelloux/kill-my-idea/issues/23) Idea types
+7. [#24](https://github.com/RemiPelloux/kill-my-idea/issues/24) Smarter questions
+8. [#25](https://github.com/RemiPelloux/kill-my-idea/issues/25) Follow-up after research
+9. [#4](https://github.com/RemiPelloux/kill-my-idea/issues/4) Calibration set
+10. [#6](https://github.com/RemiPelloux/kill-my-idea/issues/6) Strong competitor threshold
+11. [#7](https://github.com/RemiPelloux/kill-my-idea/issues/7) Weights review
+12. [#11](https://github.com/RemiPelloux/kill-my-idea/issues/11) Golden runs
+13. [#13](https://github.com/RemiPelloux/kill-my-idea/issues/13) Regenerate the examples
 
 **Speed and docs**
 
-11. [#14](https://github.com/RemiPelloux/kill-my-idea/issues/14) Cost and time in the report
-12. [#16](https://github.com/RemiPelloux/kill-my-idea/issues/16) Parallel research by default
-13. [#15](https://github.com/RemiPelloux/kill-my-idea/issues/15) Quick mode
-14. [#17](https://github.com/RemiPelloux/kill-my-idea/issues/17) Write a "How scoring works" page
-15. [#18](https://github.com/RemiPelloux/kill-my-idea/issues/18) Rubric-change process
+14. [#14](https://github.com/RemiPelloux/kill-my-idea/issues/14) Cost and time in the report
+15. [#16](https://github.com/RemiPelloux/kill-my-idea/issues/16) Parallel research by default
+16. [#15](https://github.com/RemiPelloux/kill-my-idea/issues/15) Quick mode
+17. [#17](https://github.com/RemiPelloux/kill-my-idea/issues/17) Write a "How scoring works" page
+18. [#18](https://github.com/RemiPelloux/kill-my-idea/issues/18) Rubric-change process
 
 **Freeze**
 
-16. [#21](https://github.com/RemiPelloux/kill-my-idea/issues/21) Release checklist
-17. [#19](https://github.com/RemiPelloux/kill-my-idea/issues/19) Compatibility promise
-18. [#20](https://github.com/RemiPelloux/kill-my-idea/issues/20) Security review
-19. [#22](https://github.com/RemiPelloux/kill-my-idea/issues/22) Gallery re-run
+19. [#21](https://github.com/RemiPelloux/kill-my-idea/issues/21) Release checklist
+20. [#19](https://github.com/RemiPelloux/kill-my-idea/issues/19) Compatibility promise
+21. [#20](https://github.com/RemiPelloux/kill-my-idea/issues/20) Security review
+22. [#22](https://github.com/RemiPelloux/kill-my-idea/issues/22) Gallery re-run
 
 ---
 
@@ -59,6 +62,9 @@ those because of the R6 cap. A score that never leaves 43–58 is not telling id
 
 | Item | Why | Effort | Done when |
 |---|---|---|---|
+| **Idea types** | Ideas fail in different ways: a marketplace dies on liquidity, an app on App Store discovery, a content business on revenue per 1,000 views, a local business on location and permits. Today every idea gets the same 8 kill shots and metrics. | M | The skill classifies each idea as one of 7 types (SaaS, marketplace, mobile app, e-commerce, content or creator, service or agency, physical or local) and stores it as `idea.type`. Each type adds 1–2 type-specific checks and the metrics that matter for it (liquidity for a marketplace, RPM for content, a location's foot traffic for local). The checker validates the type and its checks. |
+| **Smarter questions** | The verdict depends on facts only the founder knows: who pays and how much, an existing audience or customers, demand already validated, how fast they can ship. Today the skill asks at most 4 generic questions (country, budget, goal, edge), and headless runs asked none. | M | A question bank per idea type, chosen by impact: ask up to 8 questions, only those whose answer could move a sub-score by 1 point or more, or flip a kill shot, with likely answers as options. Answers go to `idea.answers`, each linked to the sub-scores it feeds. The report shows "Your answers" and the assumptions still open. The founder profile (BRAIN.md) still skips anything already known. |
+| **Follow-up after research** | Some kill shots hinge on one fact the research can't find, like "do you already have 1,000 followers in this niche?". Today that becomes a silent assumption. | S | After research, when a kill shot or a capped rule depends on a founder fact, the skill asks at most 2 targeted follow-ups before scoring, then records which answer changed what ("no channel → channel clear, +6"). In headless mode they become explicit assumptions in the report. |
 | **Calibration set** | Without known answers, nobody can tell whether a score is too harsh or too soft. | L | 10 ideas with a known outcome: 5 that clearly worked and 5 that clearly failed (Juicero, Quibi…). Each is scored "as of" its launch date, using only sources from before that date. The 5 that worked score a median of 60 or more, the 5 failures under 50, and at least one reaches GO. |
 | **`scripts/calibrate.py`** | Clustering is only visible once you look at all runs together. | S | It prints the score distribution, how often each rule fired, and how often each kill shot hit, across any set of verdicts. CI runs it on the gallery. |
 | **"Strong competitor" threshold** | It hit 13 of 14 gallery ideas. A kill shot that hits nearly everything tells you nothing. | M | The rubric defines "clear traction" with numbers (revenue, reviews or funding). On the gallery it hits at most 2 of every 3 ideas. |
