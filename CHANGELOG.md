@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.11.0 — 2026-11-11
 
 - **Calibration set:** 10 ideas with a known outcome, scored as of their launch date. Calendly,
   ConvertKit, Carrd, Plausible and Tally worked; Juicero, Quibi, Homejoy, Shyp and Washio failed. (#4)
@@ -108,7 +108,7 @@ LTV:CAC below 1 caps the total at 49, a NO-GO. The checker and the report enforc
 - **Demo video** (50 s) of a real run: every line in the terminal part comes from the run's log.
 - On a shared board (`build-brain.py --no-brain`), the dashboard hides the empty "Focus this week" panel.
 
-## Unreleased
+## 0.11.0 — 2026-11-11
 
 - `build-brain.py --no-brain <dir>` builds the dashboard without writing `BRAIN.md`, for public galleries.
 - Listed in [Awesome AI Plugins](https://github.com/hashgraph-online/awesome-ai-plugins) and the HOL Registry.
