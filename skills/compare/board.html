@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-1OpuU/q9av5r62wCPQzpgpwFjBj0KV4dhnuhT36SkV4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-imWQwu2K/LgxHt/veDwhYfFrO0v8HLtmBR3xEmnv/Io='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea board</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,7 +150,10 @@ h1{font:700 clamp(30px,4vw,44px)/1.12 var(--sans);letter-spacing:-.02em;margin:0
 .spark svg{width:96px;height:26px;flex:none;overflow:visible}
 .top .blink{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:10px;border:1px solid var(--border);color:var(--primary);font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
 .top .blink:hover{background:var(--muted)}
+.dash.one{grid-template-columns:minmax(0,1fr)}
+.dash.one .pats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 24px}
 @media (max-width:1024px){.dash{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.dash.one .pats{grid-template-columns:minmax(0,1fr)}}
 footer{max-width:1280px;margin:0 auto;padding:0 var(--s3) var(--s5);color:var(--muted-fg);font-size:13px}
 
 @media (prefers-reduced-motion:no-preference){
@@ -280,6 +283,8 @@ const dashHtml = () => {
       <div class="fhead">${ring(fIdea.score, fIdea.verdict)}<div style="min-width:0"><h3 class="fttl">${esc(fIdea.title)}</h3><div class="tags"><span class="badge b-${fIdea.verdict}">${ic(VICON[fIdea.verdict], 13)}${fIdea.verdict}</span>${conf(fIdea.confidence)}</div></div></div>
       ${rows.length ? `<dl class="fl">${rows.map(r => `<dt>${r[0]}</dt><dd${r[0] === "Deadline" ? ' class="dl"' : ""}>${esc(r[1].slice(0, 300))}</dd>`).join("")}</dl>` : ""}
       ${fIdea.href ? `<div><a class="open" href="${esc(fIdea.href)}">Open report ${ic("arrow", 14)}</a></div>` : ""}</section>`;
+  } else if (D.brain !== true) {
+    focus = ""; /* a shared board (e.g. a public gallery) has no owner, so no focus */
   } else {
     focus = `<section class="card panel focus" aria-label="Focus this week"><h2>${ic("target", 14)}Focus this week</h2><p class="hint">No focus picked yet. Run /kill-my-idea:compare to choose the one idea to work on.</p></section>`;
   }
@@ -291,7 +296,7 @@ const dashHtml = () => {
       <ul class="pats">${pats.map(p => `<li><button class="pat${p.hits ? "" : " zero"}" type="button" data-ks="${p.k}" aria-pressed="false" title="Show the ideas this hit"><span class="pl">${esc(KS[p.k])}</span><span class="pn">${p.hits}/${p.checked}</span><span class="pb"><span style="width:${(p.hits / max * 100).toFixed(1)}%"></span></span></button></li>`).join("")}</ul>
       <p class="hint">${top.hits >= 2 ? `Check ${esc(KS[top.k].toLowerCase())} first on your next idea. ` : ""}Click a row to see the ideas it hit.</p></section>`;
   }
-  return `<div class="dash">${focus}${pat}</div>`;
+  return `<div class="dash${focus && pat ? "" : " one"}">${focus}${pat}</div>`;
 };
 const total = ideas.length, gen = typeof D.generated === "string" ? D.generated.slice(0, 40) : "";
 const stat = (cls, label, n) => `<div class="card stat ${cls}"><div class="k"><span class="dot d-${cls === "all" ? "all" : cls}"></span>${label}</div><div class="v">${n}</div></div>`;

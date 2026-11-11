@@ -1,0 +1,45 @@
+{
+  "slug": "freelance-invoicing-fr",
+  "title": "Simple invoicing + VAT/URSSAF app for French auto-entrepreneurs",
+  "created": "2026-11-11",
+  "language": "en",
+  "source": {
+    "type": "own-idea",
+    "text": "A simple invoicing app for French freelancers (auto-entrepreneurs) that handles VAT and URSSAF declarations, 9 EUR a month. Launch country FR, budget 1,000 EUR, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Auto-entrepreneurs must invoice and handle VAT and URSSAF declarations",
+  "customer": "French freelancers (auto-entrepreneurs / micro-entrepreneurs)",
+  "solution": "A simple invoicing app that handles VAT and URSSAF declarations",
+  "revenue_model": "subscription",
+  "price": {
+    "amount": 9,
+    "currency": "EUR",
+    "period": "month"
+  },
+  "channel": null,
+  "countries": [
+    "FR"
+  ],
+  "claims": [
+    "handles VAT and URSSAF declarations",
+    "9 EUR a month"
+  ],
+  "context": {
+    "budget": "EUR 1,000",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "I am a developer"
+  },
+  "assumptions": [
+    "Price read as EUR 9/month excl. VAT",
+    "Target = service micro-entrepreneurs (BNC), the largest segment",
+    "No existing audience (none stated)",
+    "User asked to skip questions"
+  ],
+  "unknowns": [
+    "channel"
+  ]
+}

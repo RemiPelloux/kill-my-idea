@@ -1,0 +1,42 @@
+{
+  "slug": "etsy-printable-planners",
+  "title": "Printable digital planners on Etsy at $9",
+  "created": "2026-11-11",
+  "language": "en",
+  "source": {
+    "type": "own-idea",
+    "text": "Selling printable digital planners on Etsy at $9 each. Launch country US, budget $300, 8 hours a week, goal side income, no special edge. Just go: do not ask questions.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": null,
+  "customer": null,
+  "solution": "Printable digital planners (PDF downloads) sold on Etsy",
+  "revenue_model": "one-off",
+  "price": {
+    "amount": 9,
+    "currency": "USD",
+    "period": "one-off"
+  },
+  "channel": "Etsy",
+  "countries": [
+    "US"
+  ],
+  "claims": [],
+  "context": {
+    "budget": "USD 300",
+    "time_per_week": "8 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Customer assumed to be US Etsy shoppers looking for planners (not stated)",
+    "No paid design tools; Canva free plan",
+    "Organic Etsy search plus optional Etsy Ads as the channel"
+  ],
+  "unknowns": [
+    "problem",
+    "customer"
+  ]
+}

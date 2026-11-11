@@ -7,6 +7,12 @@ channel to customers that loses money on each one (LTV:CAC 0.11 to 0.95) still s
 easy feasibility and fast first revenue lifted the average. New fixed rule **R6**: no channel **and**
 LTV:CAC below 1 caps the total at 49, a NO-GO. The checker and the report enforce it.
 
+**New**
+- **Gallery:** 14 real runs on popular side hustles, ranked on the dashboard
+  (https://remipelloux.github.io/kill-my-idea/gallery/board.html). The 6 ideas R6 changed were re-run.
+- **Demo video** (50 s) of a real run: every line in the terminal part comes from the run's log.
+- On a shared board (`build-brain.py --no-brain`), the dashboard hides the empty "Focus this week" panel.
+
 ## Unreleased
 
 - `build-brain.py --no-brain <dir>` builds the dashboard without writing `BRAIN.md`, for public galleries.

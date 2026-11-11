@@ -7,7 +7,11 @@
 /plugin install kill-my-idea@kill-my-idea
 ```
 
-[Live reports](https://remipelloux.github.io/kill-my-idea/) &nbsp;·&nbsp; [Examples](examples/README.md) &nbsp;·&nbsp; [Security](SECURITY.md) &nbsp;·&nbsp; [Changelog](CHANGELOG.md) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/RemiPelloux)
+<a href="https://remipelloux.github.io/kill-my-idea/demo.mp4"><img src="assets/demo-poster.png" alt="A real run, sped up: the verdict card for an AI receptionist for US dentists, PIVOT 51/100 with 34 sources. Click to watch the 50-second video" width="100%"></a>
+
+<sub>▶ <a href="https://remipelloux.github.io/kill-my-idea/demo.mp4">Watch a real run (50 s)</a>: 19 searches, 34 sources, the verdict, the report and the dashboard.</sub>
+
+[Live reports](https://remipelloux.github.io/kill-my-idea/) &nbsp;·&nbsp; [Gallery](https://remipelloux.github.io/kill-my-idea/gallery/board.html) &nbsp;·&nbsp; [Examples](examples/README.md) &nbsp;·&nbsp; [Security](SECURITY.md) &nbsp;·&nbsp; [Changelog](CHANGELOG.md) &nbsp;·&nbsp; [Sponsor](https://github.com/sponsors/RemiPelloux)
 
 [![MIT license](https://img.shields.io/badge/license-MIT-EFE8DC?labelColor=15120F)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/RemiPelloux/kill-my-idea?style=flat&color=E5383B&labelColor=15120F)](https://github.com/RemiPelloux/kill-my-idea/stargazers)
@@ -61,6 +65,10 @@ All seven are real runs, mostly ideas we were about to spend time or money on. T
 why this exists: we built it first, three versions and a day of work, and a five-minute search then
 found the same book for free. The plugin also checked itself: 63, because fifteen open-source idea
 validators already exist.
+
+**[The gallery](https://remipelloux.github.io/kill-my-idea/gallery/board.html)** ranks 14 more real
+runs on popular side hustles (dropshipping, Etsy planners, AI headshots, a faceless YouTube channel,
+vending machines…), with every report one click away.
 
 ## The report
 
@@ -157,12 +165,14 @@ You can also just write "kill my idea: …", "is this worth building?" or "which
 
    Each criterion is the mean of three sub-scores (21 in all), each scored 1–5 against a fixed
    rubric with numeric anchors (a gross margin under 30% is a 1, over 85% a 5). The total is
-   rounded half up, then five fixed rules stop it from rescuing a bad idea:
+   rounded half up, then six fixed rules stop it from rescuing a bad idea:
    - a free equivalent with no edge caps Competitive room at 1.5;
    - no channel caps the total at 69, so no GO;
    - a saturated wave of look-alike launches caps Competitive room and differentiation at 1.5;
    - an LTV:CAC below 1 caps Profit at 2;
-   - every kill shot that hit must show in the sub-scores.
+   - every kill shot that hit must show in the sub-scores;
+   - no channel **and** an LTV:CAC below 1 caps the total at 49: an idea that loses money on every
+     customer and can't reach them is a NO-GO, however easy it is to build.
 
    GO at 70 and above, PIVOT from 50 to 69, NO-GO below 50. Every verdict carries a
    confidence level (high, medium or low) computed from how many sub-scores and sources back it.

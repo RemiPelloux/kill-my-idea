@@ -1,0 +1,34 @@
+{
+  "slug": "youtube-summary-extension",
+  "title": "AI YouTube summary Chrome extension at $5/month",
+  "created": "2026-11-11",
+  "language": "en",
+  "source": {
+    "type": "own-idea",
+    "text": "A Chrome extension that summarizes YouTube videos with AI, $5 a month. Launch country US, budget $500, 10 hours a week, goal side income, edge: I am a developer. Just go: do not ask questions.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Watching long YouTube videos takes time; viewers want the content without watching all of it.",
+  "customer": null,
+  "solution": "A Chrome extension that summarizes YouTube videos with AI.",
+  "revenue_model": "subscription",
+  "price": {"amount": 5, "currency": "USD", "period": "month"},
+  "channel": null,
+  "countries": ["US"],
+  "claims": [],
+  "context": {
+    "budget": "USD 500",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "I am a developer"
+  },
+  "assumptions": [
+    "Customer segment not stated: assumed US students and knowledge workers who watch long educational or podcast videos.",
+    "Channel not stated: assumed Chrome Web Store search plus organic posts (Reddit, Product Hunt), no paid ads.",
+    "Founder time valued at USD 25/hour for the organic CAC estimate.",
+    "Freemium model (a few free summaries, then USD 5/month) assumed, like the competitors."
+  ],
+  "unknowns": ["customer", "channel"]
+}

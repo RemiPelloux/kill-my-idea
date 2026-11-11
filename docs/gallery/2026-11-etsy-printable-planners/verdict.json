@@ -1,0 +1,392 @@
+{
+  "slug": "etsy-printable-planners",
+  "evaluated": "2026-11-11",
+  "mode": "kill",
+  "verdict": "NO-GO",
+  "score": 49,
+  "score_raw": 59.2,
+  "confidence": {
+    "level": "high",
+    "sourced_subscores": 15,
+    "sources": 37,
+    "primary_sources": 11,
+    "note": "Most demand and ad numbers come from seller-tool blogs; real Etsy Ads data from a 14-day test would raise it."
+  },
+  "criteria": {
+    "profit": 2.0,
+    "feasibility": 4.5,
+    "time_to_first_revenue": 4.0,
+    "demand": 3.5,
+    "competition": 1.0,
+    "risk": 3.0,
+    "fit": 1.5
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 4,
+        "note": "About 85% at $9 after Etsy fees ($1.31/sale); capped from 4.5 by R4 because LTV:CAC is below 1.",
+        "source": "https://www.etsy.com/legal/fees/"
+      },
+      "ltv_cac": {
+        "score": 1,
+        "note": "Paid CAC about $15 ($0.30 CPC / 2% conversion) vs LTV about $9.2: 0.62.",
+        "source": "https://insightagent.app/guides/etsy-ads-cost-alternatives"
+      },
+      "pricing_power": {
+        "score": 1,
+        "note": "Comparable printables sell at $2.79-$6.01 and full-year planners are free.",
+        "source": "https://www.etsy.com/listing/4463483569/momentum-planner-minimalist-daily-weekly"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 5,
+        "note": "Canva plus AI builds a sellable planner in 2-3 hours.",
+        "source": "https://theopsdesk.pages.dev/blog/create-and-sell-digital-planners-with-ai-2026.html"
+      },
+      "skills_match": {
+        "score": 3,
+        "note": "No stated design or Etsy SEO experience; both learnable in weeks.",
+        "source": null
+      },
+      "capital_needed": {
+        "score": 5,
+        "note": "$0.20 per listing; the $300 budget is barely touched.",
+        "source": "https://www.etsy.com/sell"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 5,
+        "note": "A listing can be live in under a week.",
+        "source": "https://theopsdesk.pages.dev/blog/create-and-sell-digital-planners-with-ai-2026.html"
+      },
+      "sales_cycle": {
+        "score": 5,
+        "note": "Impulse purchase, instant download.",
+        "source": null
+      },
+      "channel_readiness": {
+        "score": 2,
+        "note": "No audience; Etsy page 1 is 55% paid and held by shops with thousands of reviews (R5: no_distribution).",
+        "source": "https://www.listifyai.net/keyword/digital-planner"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 4.5,
+        "note": "Over 1M listings target 'digital planner': buyers search it at scale.",
+        "source": "https://www.listifyai.net/keyword/digital-planner"
+      },
+      "trend": {
+        "score": 3,
+        "note": "Planner searches strong in 2025, but Etsy marketplace buyers fell 3.4% in 2025.",
+        "source": "https://www.sec.gov/Archives/edgar/data/1370637/000137063726000019/etsy-20251231.htm"
+      },
+      "willingness_to_pay": {
+        "score": 2.5,
+        "note": "Buyers pay, but only $2-$7 per printable, and free versions abound.",
+        "source": "https://etsy.com/listing/4426293395"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 1.5,
+        "note": "Passion Planner gives a full 2026 printable free; Canva has free templates (R1).",
+        "source": "https://passionplanner.com/products/weekly-2026-planner-printable-pdf"
+      },
+      "competitor_density": {
+        "score": 1,
+        "note": "866k-1.04M Etsy listings target the keyword (R3).",
+        "source": "https://www.rankhero.com/keywords/digital-planners"
+      },
+      "differentiation": {
+        "score": 1,
+        "note": "No stated edge; any layout is copied within days (R3).",
+        "source": null
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 4,
+        "note": "Basic business law plus font and template licensing and AI disclosure.",
+        "source": "https://www.outfy.com/blog/etsy-copyright-infringement-explained/"
+      },
+      "platform_dependency": {
+        "score": 1.5,
+        "note": "100% Etsy: search, payments and AI rules changed again in 2026-10.",
+        "source": "https://www.inkfluenceai.com/blog/etsy-ai-rules-update-october-2026"
+      },
+      "market_risk": {
+        "score": 3.5,
+        "note": "Planning is a recurring yearly need with a January peak.",
+        "source": "https://www.fortunebusinessinsights.com/daily-planner-products-market-115916"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 2,
+        "note": "No design, SEO or marketing track record stated.",
+        "source": null
+      },
+      "assets": {
+        "score": 1,
+        "note": "No audience, email list or network stated.",
+        "source": null
+      },
+      "interest": {
+        "score": 1.5,
+        "note": "Stated goal is side income; no stated passion for planning.",
+        "source": null
+      }
+    }
+  },
+  "metrics": {
+    "tam": {
+      "value": 85.5,
+      "unit": "USD million/year",
+      "basis": "estimate",
+      "source": "https://www.fortunebusinessinsights.com/daily-planner-products-market-115916",
+      "reasoning": "US daily planner products $85.5M in 2025 (Fortune Business Insights); one source only, digital share unknown, so treated as an estimate",
+      "as_of": "2026-11"
+    },
+    "sam": {
+      "value": "unknown",
+      "unit": null,
+      "basis": "unknown",
+      "source": null,
+      "reasoning": null,
+      "as_of": "2026-11"
+    },
+    "som": {
+      "value": 1620,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "base case 15 sales/month x $9 x 12 months",
+      "as_of": "2026-11"
+    },
+    "competitors_found": {
+      "value": 1044640,
+      "unit": "Etsy listings",
+      "basis": "sourced",
+      "source": "https://www.listifyai.net/keyword/digital-planner",
+      "reasoning": null,
+      "as_of": "2026-11"
+    },
+    "competitor_price_range": {
+      "value": "2.79-6.01",
+      "unit": "USD one-off",
+      "basis": "sourced",
+      "source": "https://www.etsy.com/listing/4463483569/momentum-planner-minimalist-daily-weekly",
+      "reasoning": null,
+      "as_of": "2026-11"
+    },
+    "demand_trend": {
+      "value": "flat",
+      "unit": null,
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "planner searches high in 2025 (Accio) vs Etsy marketplace active buyers -3.4% in 2025 (10-K)",
+      "as_of": "2026-11"
+    },
+    "price": {
+      "value": 9,
+      "unit": "USD one-off",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "user's stated price",
+      "as_of": "2026-11"
+    },
+    "variable_cost_per_unit": {
+      "value": 1.31,
+      "unit": "USD",
+      "basis": "sourced",
+      "source": "https://www.etsy.com/sell",
+      "reasoning": null,
+      "as_of": "2026-11"
+    },
+    "gross_margin_pct": {
+      "value": 85.5,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "(9 - 1.31) / 9; fees = 6.5% x 9 + 3% x 9 + 0.25 + 0.20 listing",
+      "as_of": "2026-11"
+    },
+    "churn_monthly_pct": {
+      "value": null,
+      "unit": null,
+      "basis": "unknown",
+      "source": null,
+      "reasoning": null,
+      "as_of": "2026-11"
+    },
+    "expected_lifetime": {
+      "value": 1.2,
+      "unit": "purchases per customer",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "one-off download; assume 20% buy a second item",
+      "as_of": "2026-11"
+    },
+    "conversion_rate_pct": {
+      "value": 2,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "midpoint of the 1-3% Etsy benchmark (Listify AI, 2026); a new shop with no reviews likely converts lower",
+      "as_of": "2026-11"
+    },
+    "cac": {
+      "value": 15,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Etsy Ads CPC $0.30 (midpoint of $0.10-$0.50, InsightAgent 2026) / 2% conversion",
+      "as_of": "2026-11"
+    },
+    "ltv": {
+      "value": 9.23,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "price 9 x margin 0.855 x 1.2 purchases",
+      "as_of": "2026-11"
+    },
+    "ltv_cac": {
+      "value": 0.62,
+      "unit": "ratio",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "LTV 9.23 / CAC 15",
+      "as_of": "2026-11"
+    },
+    "payback_months": {
+      "value": "never",
+      "unit": null,
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "lifetime gross profit $9.23 is below CAC $15 on paid ads: it never pays back",
+      "as_of": "2026-11"
+    },
+    "fixed_costs_month": {
+      "value": 1,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "20 listings x $0.20 renewed every 4 months = $1/month; no paid tools",
+      "as_of": "2026-11"
+    },
+    "break_even_customers_per_month": {
+      "value": 1,
+      "unit": "customers/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$1 fixed / $7.69 gross profit per sale = 0.13, rounded up to 1 (organic only; paid sales lose money)",
+      "as_of": "2026-11"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 4,
+      "unit": "weeks",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "1 week to build and list, 2-6 weeks for a new listing's first organic sale (Etsy community reports)",
+      "as_of": "2026-11"
+    }
+  },
+  "launch_country": "US",
+  "launch_reason": "Only target market given; Etsy's largest buyer base.",
+  "kill_shots": {
+    "free_alternative": true,
+    "strong_competitor": true,
+    "graveyard": false,
+    "no_distribution": true,
+    "costs_eat_margin": false,
+    "weak_demand": false,
+    "legal_platform_risk": true,
+    "saturated_wave": true
+  },
+  "primary_kill_shot": "no_distribution",
+  "rules_applied": [
+    {
+      "rule": "R4_ltv_cac_below_1",
+      "effect": "profit 2.17 -> 2.0 (gross_margin 4.5 -> 4)"
+    },
+    {
+      "rule": "R5_kill_shot_coherence",
+      "effect": "no_distribution hit: channel_readiness 3 -> 2"
+    },
+    {
+      "rule": "R6_unprofitable_no_channel",
+      "effect": "total 59 capped at 49"
+    }
+  ],
+  "cheapest_test": "List one $19 niche bundle and post 20 Pinterest pins in 7 days; stop if under 150 listing views.",
+  "kill_criteria": [
+    "Fewer than 150 listing views by day 7 -> stop",
+    "0 sales after 500 listing views by day 30 -> stop",
+    "Fewer than 3 sales by day 60 -> archive the shop",
+    "Etsy Ads ROAS below 1.0 after $30 spent -> turn ads off"
+  ],
+  "sources": [
+    "https://www.etsy.com/legal/fees/",
+    "https://www.etsy.com/sell",
+    "https://help.etsy.com/hc/en-us/articles/360035902374-Etsy-Fee-Basics",
+    "https://www.etsy.com/news/delivering-value-to-etsy-sellers",
+    "https://www.sec.gov/Archives/edgar/data/1370637/000137063726000019/etsy-20251231.htm",
+    "https://insideretail.us/etsy-vows-sustained-growth-after-revenue-lift/",
+    "https://www.listifyai.net/keyword/digital-planner",
+    "https://www.listifyai.net/keyword/digital-planner-pdf",
+    "https://www.listifyai.net/keyword/printable-planner",
+    "https://www.rankhero.com/keywords/digital-planners",
+    "https://www.listifyai.net/blog/is-my-etsy-niche-too-saturated",
+    "https://www.listifyai.net/blog/why-etsy-digital-downloads-not-selling",
+    "https://www.listifyai.net/blog/etsy-ads-worth-it-2026",
+    "https://insightagent.app/guides/etsy-ads-cost-alternatives",
+    "https://growingyourcraft.com/blog/are-etsy-ads-worth-it",
+    "https://checkoutpage.com/blog/etsy-fees",
+    "https://passionplanner.com/products/weekly-2026-planner-printable-pdf",
+    "https://www.canva.com/create/graphic-organizers/",
+    "https://www.etsy.com/listing/4463483569/momentum-planner-minimalist-daily-weekly",
+    "https://etsy.com/listing/4426293395",
+    "https://www.etsy.com/listing/1639453781/bestseller-digital-planner-2026-and",
+    "https://toekziedigital.gumroad.com/l/canva-planner-bright",
+    "https://www.inkfluenceai.com/blog/etsy-ai-rules-update-october-2026",
+    "https://www.valueaddedresource.net/etsy-creativity-standards-update-june-2025/",
+    "https://www.valueaddedresource.net/etsy-bans-ai-patterns/",
+    "https://www.outfy.com/blog/etsy-copyright-infringement-explained/",
+    "https://www.fortunebusinessinsights.com/daily-planner-products-market-115916",
+    "https://www.accio.com/business/trending-planner-diary-2025",
+    "https://sapulpatimes.com/newsletter/why-is-nostalgia-tech-trending",
+    "https://theopsdesk.pages.dev/blog/create-and-sell-digital-planners-with-ai-2026.html",
+    "https://viral-valet.beehiiv.com/p/cozy-planner",
+    "https://community.etsy.com/forum/etseo-live-listing-critique-panel-holiday-edition-316/topic/lots-of-views-but-no-sales-need-help-with-digital-planner-listings-160874/",
+    "https://community.etsy.com/t5/Planner-Obsessed/Starting-planner-shop-for-the-first-time/td-p/137761246",
+    "https://www.indiehackers.com/post/how-i-made-7500-income-in-less-than-10-months-from-a-digital-planners-spending-less-than-2-hrs-a-week-792f3939a5",
+    "https://www.nichepursuits.com/emily-mcdermott-pretty-arrow/",
+    "https://printify.com/knowledge-hub/pinterest-etsy-traffic-playbook/",
+    "https://www.panstag.com/2026/06/pinterest-traffic-digital-products.html"
+  ],
+  "rescue": [
+    {
+      "change": "Pick one narrow ICP (e.g. homeschool parents), sell a $19 bundle, and drive traffic with Pinterest instead of Etsy Ads.",
+      "why": "Lifts pricing_power and ltv_cac above 1 and gives a free channel; fixes R6, not R2 or the saturated wave.",
+      "score_after": 58,
+      "difficulty": "doable",
+      "effort": "2 weeks to launch, 3-6 months of pinning",
+      "cost": "under $50",
+      "requires": "8 h/week of Pinterest pins and one niche you can describe in the buyer's words"
+    },
+    {
+      "change": "Sell custom-branded planner templates as a done-for-you service to coaches and therapists at $150+.",
+      "why": "Breaks the $2-$7 price anchor and the Etsy dependency; LTV:CAC well above 3 with direct outreach.",
+      "score_after": 54,
+      "difficulty": "hard",
+      "effort": "1-2 months",
+      "cost": "under $100",
+      "requires": "Cold outreach and design skills the user has not shown yet"
+    }
+  ]
+}

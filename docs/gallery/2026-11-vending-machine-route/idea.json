@@ -1,0 +1,44 @@
+{
+  "slug": "vending-machine-route",
+  "title": "3 snack vending machines in offices and gyms",
+  "created": "2026-11-11",
+  "language": "en",
+  "source": {
+    "type": "own-idea",
+    "text": "Buying 3 snack vending machines and placing them in offices and gyms. Launch country US, budget $10,000, 8 hours a week, goal side income, no special edge. Just go: do not ask questions.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": null,
+  "customer": "Office workers and gym members (via office and gym hosts)",
+  "solution": "Buy 3 snack vending machines and place them in offices and gyms",
+  "revenue_model": "one-off",
+  "price": null,
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [],
+  "context": {
+    "budget": "USD 10,000",
+    "time_per_week": "8 h",
+    "goal": "side-income",
+    "edge": "none"
+  },
+  "assumptions": [
+    "Used machines (~$2,645 each) with cashless readers, not new",
+    "Hosts take a 10% commission",
+    "Snacks bought at warehouse clubs, sold at ~2x cost",
+    "80% of sales by card",
+    "No prior vending, sales or repair experience",
+    "Single US metro area, owner restocks weekly by car"
+  ],
+  "unknowns": [
+    "problem",
+    "price",
+    "channel",
+    "city or state",
+    "specific locations"
+  ]
+}
