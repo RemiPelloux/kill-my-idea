@@ -288,6 +288,7 @@ rounded to 0.5. Never round before summing.
 | R3 saturated wave | 10+ near-identical launches in 12 months and no specific edge | Competitive room ≤ 1.5 and `differentiation` ≤ 1.5 |
 | R4 LTV : CAC < 1 | Below 1 with no path to fix it | Profit potential ≤ 2 |
 | R6 loses money, no channel | `no_distribution` is a hit **and** LTV : CAC is below 1 | Total capped at 49: NO-GO. Every customer costs more than they bring and there is no cheap way to reach them, so no average of the other criteria can make it a PIVOT |
+| R7 unprofitable model | Profit potential (the mean of gross margin, LTV : CAC and pricing power) is 2 or less | Total minus 10 points, and at most 49: NO-GO. On the 10-idea calibration set, all 5 failures scored Profit 2.0 or less and all 5 successes 3.0 or more; without this rule, easy feasibility lifted the failures to 58–60 |
 | R5 coherence | A kill shot hit must show in the sub-scores | `free_alternative` → free_alternatives ≤ 2 · `no_distribution` → channel_readiness ≤ 2 · `costs_eat_margin` → gross_margin ≤ 2 · `weak_demand` → trend ≤ 2.5 · `legal_platform_risk` → min(legal_regulatory, platform_dependency) ≤ 2.5 · `saturated_wave` → competitor_density ≤ 2 · `strong_competitor` → competitor_density ≤ 3 |
 
 When a rule caps a criterion, lower its sub-scores to match (the mean must equal the display

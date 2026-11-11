@@ -527,7 +527,8 @@
               "R3_saturated_wave",
               "R4_ltv_cac_below_1",
               "R5_kill_shot_coherence",
-              "R6_unprofitable_no_channel"
+              "R6_unprofitable_no_channel",
+              "R7_unprofitable_model"
             ]
           },
           "effect": {

@@ -1,0 +1,366 @@
+{
+ "schema_version": "1.0",
+ "slug": "convertkit",
+ "evaluated": "2026-11-11",
+ "as_of": "2013-06-01",
+ "mode": "kill",
+ "verdict": "PIVOT",
+ "score": 68,
+ "score_raw": 68.2,
+ "confidence": {
+  "level": "high",
+  "sourced_subscores": 15,
+  "sources": 27,
+  "primary_sources": 8,
+  "note": "Archived 2013 pricing pages (AWeber, MailChimp) and a pre-2013 SMB churn benchmark could not be read; CAC and churn are estimates."
+ },
+ "criteria": {
+  "profit": 3.5,
+  "feasibility": 3.5,
+  "time_to_first_revenue": 3.5,
+  "demand": 4.0,
+  "competition": 2.5,
+  "risk": 3.5,
+  "fit": 3.5
+ },
+ "criteria_detail": {
+  "profit": {
+   "gross_margin": {
+    "score": 4.5,
+    "note": "About **86%**: Stripe $1.14 + SES ~$3.00 per $29 account (estimate, 5,000 subs x 6 sends).",
+    "source": "https://press.aboutamazon.com/2011/1/amazon-web-services-launches-amazon-simple-email-service"
+   },
+   "ltv_cac": {
+    "score": 3.5,
+    "note": "LTV ~$497 vs organic CAC ~$120 = 4.1 (estimate); paid CAC unknown, churn assumed 5%/month.",
+    "source": "https://forentrepreneurs.com/saas-survey"
+   },
+   "pricing_power": {
+    "score": 2.5,
+    "note": "$29 sits above AWeber's ~$19 entry tier and MailChimp free; Sendy undercuts at $40 one-off.",
+    "source": "https://thenextweb.com/news/this-self-hosted-newsletter-app-is-100x-cheaper-than-mailchimp-and-campaign-monitor"
+   }
+  },
+  "feasibility": {
+   "build_effort": {
+    "score": 2.5,
+    "note": "An ESP with forms, sequences and sending on SES: 2-3 months solo to a usable beta (estimate).",
+    "source": "https://thenextweb.com/news/this-self-hosted-newsletter-app-is-100x-cheaper-than-mailchimp-and-campaign-monitor"
+   },
+   "skills_match": {
+    "score": 4.0,
+    "note": "Blogger-developer: can build the app and is the customer; deliverability ops are new."
+   },
+   "capital_needed": {
+    "score": 3.5,
+    "note": "$5,000 covers hosting and SES; Stripe has no setup or monthly fees. No salary runway.",
+    "source": "https://techcrunch.com/2011/09/30/sequoia-backed-stripe-launches-to-disrupt-the-online-payments-industry-with-a-developer-friendly-platform"
+   }
+  },
+  "time_to_first_revenue": {
+   "time_to_mvp": {
+    "score": 2.5,
+    "note": "About 8-12 weeks to a product a blogger will move a list onto (estimate)."
+   },
+   "sales_cycle": {
+    "score": 4.0,
+    "note": "Self-serve monthly card purchase by one decision maker; migration adds a few days."
+   },
+   "channel_readiness": {
+    "score": 3.5,
+    "note": "Own blog plus blogger peers who launch ebooks to their lists; reach size assumed modest.",
+    "source": "https://thenextweb.com/news/designers-share-tips-tricks-writing-selling-ebooks"
+   }
+  },
+  "demand": {
+   "search_demand": {
+    "score": 4.0,
+    "note": "US email marketing spend forecast at $2.4B by 2016 (Forrester, 2011); active blogger communities.",
+    "source": "https://www.marketingprofs.com/charts/2011/5820/forrester-interactive-spending-to-reach-766b-by-2016"
+   },
+   "trend": {
+    "score": 4.0,
+    "note": "Info-product economy rising: Udemy $12M Series B (2012), Gumroad (2011), $20k ebook launches.",
+    "source": "https://thenextweb.com/news/education-marketplace-udemy-raises-12-million-to-expand-its-content-and-explore-new-platforms"
+   },
+   "willingness_to_pay": {
+    "score": 4.0,
+    "note": "Small businesses already pay: Constant Contact has **555,000** paying customers (10-K, 2012).",
+    "source": "https://www.sec.gov/Archives/edgar/data/0001405277/000119312513084678/d442306d10k.htm"
+   }
+  },
+  "competition": {
+   "free_alternatives": {
+    "score": 2.5,
+    "note": "MailChimp free covers broadcasts for small lists; course-sales sequences are only partly covered.",
+    "source": "https://my-guarava-prya.blogspot.com/2012/01/mailchimp-do-it-yourself-email-provider.html"
+   },
+   "competitor_density": {
+    "score": 1.5,
+    "note": "20+ ESPs: MailChimp, AWeber, Constant Contact, Infusionsoft ($71M raised), GetResponse, iContact.",
+    "source": "https://techcrunch.com/?p=731324"
+   },
+   "differentiation": {
+    "score": 3.0,
+    "note": "One real angle: built for info-product sellers; MailChimp turns away affiliate marketers. Copyable.",
+    "source": "https://businesscard-size.blogspot.com/2011/10/war-against-affiliate-marketing.html"
+   }
+  },
+  "risk": {
+   "legal_regulatory": {
+    "score": 3.5,
+    "note": "CAN-SPAM compliance (unsubscribe, address, opt-out honoured) is routine but shared with senders.",
+    "source": "https://webarchive.library.unt.edu/web/20130214054537/http://business.ftc.gov/documents/bus61-can-spam-act-compliance-guide-business"
+   },
+   "platform_dependency": {
+    "score": 3.0,
+    "note": "Relies on SES and inbox providers; Gmail's Promotions tab (2013-05) may cut launch-email opens.",
+    "source": "https://alltopstartups.com/2013/05/29/gmail-users-are-getting-a-brand-new-inbox-with-a-social-tab/"
+   },
+   "market_risk": {
+    "score": 4.0,
+    "note": "Email is a durable channel: spend forecast growing at 10% a year.",
+    "source": "https://www.marketingprofs.com/charts/2011/5820/forrester-interactive-spending-to-reach-766b-by-2016"
+   }
+  },
+  "fit": {
+   "skills": {
+    "score": 4.0,
+    "note": "Builds software and runs a blog that sells products: both halves of the job."
+   },
+   "assets": {
+    "score": 3.0,
+    "note": "A blog audience and peer network help; size unknown, assumed under 10k readers."
+   },
+   "interest": {
+    "score": 4.0,
+    "note": "Founder is his own customer: sells ebooks and feels the pain of current tools (assumption)."
+   }
+  }
+ },
+ "rules_applied": [],
+ "metrics": {
+  "tam": {
+   "value": 2400000000.0,
+   "unit": "USD/year (US email marketing spend, 2016 forecast)",
+   "basis": "sourced",
+   "source": "https://www.marketingprofs.com/charts/2011/5820/forrester-interactive-spending-to-reach-766b-by-2016",
+   "as_of": "2011"
+  },
+  "sam": {
+   "value": 10440000,
+   "unit": "USD/year",
+   "basis": "estimate",
+   "reasoning": "30,000 US bloggers selling ebooks/courses (assumed, unsourced) x $29 x 12",
+   "as_of": "2013-06"
+  },
+  "som": {
+   "value": 52200,
+   "unit": "USD/year",
+   "basis": "estimate",
+   "reasoning": "0.5% of SAM $10.44M = 150 paying accounts x $29 x 12",
+   "as_of": "2013-06"
+  },
+  "competitors_found": {
+   "value": 9,
+   "unit": "competitors",
+   "basis": "estimate",
+   "reasoning": "MailChimp, AWeber, Constant Contact, Infusionsoft, GetResponse, Campaign Monitor, Mad Mimi, iContact, Sendy, from research",
+   "as_of": "2013-06"
+  },
+  "competitor_price_range": {
+   "value": "0-199",
+   "unit": "USD/month",
+   "basis": "estimate",
+   "reasoning": "MailChimp free tier to Infusionsoft entry; 2013 pricing pages not archived-verified",
+   "as_of": "2013-06"
+  },
+  "demand_trend": {
+   "value": "rising",
+   "unit": null,
+   "basis": "sourced",
+   "source": "https://thenextweb.com/news/education-marketplace-udemy-raises-12-million-to-expand-its-content-and-explore-new-platforms",
+   "as_of": "2012-12"
+  },
+  "price": {
+   "value": 29,
+   "unit": "USD/month",
+   "basis": "estimate",
+   "reasoning": "price set by the founder in the brief",
+   "as_of": "2013-06"
+  },
+  "variable_cost_per_unit": {
+   "value": 4.14,
+   "unit": "USD/month",
+   "basis": "estimate",
+   "reasoning": "Stripe 0.029 x 29 + 0.30 = 1.14; SES 5,000 subs x 6 sends = 30,000 emails x $0.10/1,000 = 3.00",
+   "as_of": "2013-06"
+  },
+  "gross_margin_pct": {
+   "value": 85.7,
+   "unit": "%",
+   "basis": "estimate",
+   "reasoning": "(29 - 4.14) / 29",
+   "as_of": "2013-06"
+  },
+  "churn_monthly_pct": {
+   "value": 5,
+   "unit": "%",
+   "basis": "estimate",
+   "reasoning": "assumed for no-contract very-small-business SaaS; Skok: above 2%/month signals trouble; no pre-2013 benchmark for this segment",
+   "as_of": "2013-06"
+  },
+  "expected_lifetime": {
+   "value": 20,
+   "unit": "months",
+   "basis": "estimate",
+   "reasoning": "lifetime = 1 / monthly churn 0.05",
+   "as_of": "2013-06"
+  },
+  "conversion_rate_pct": {
+   "value": 2,
+   "unit": "%",
+   "basis": "estimate",
+   "reasoning": "blog visitor or peer intro to paid account; benchmark assumed, unsourced",
+   "as_of": "2013-06"
+  },
+  "cac": {
+   "value": 120,
+   "unit": "USD",
+   "basis": "estimate",
+   "reasoning": "organic: 8 hours of content, outreach and migration help per customer x $15/hour",
+   "as_of": "2013-06"
+  },
+  "ltv": {
+   "value": 497,
+   "unit": "USD",
+   "basis": "estimate",
+   "reasoning": "29 x 0.857 x 20 months",
+   "as_of": "2013-06"
+  },
+  "ltv_cac": {
+   "value": 4.14,
+   "unit": "ratio",
+   "basis": "estimate",
+   "reasoning": "LTV 497 / CAC 120",
+   "as_of": "2013-06"
+  },
+  "payback_months": {
+   "value": 4.8,
+   "unit": "months",
+   "basis": "estimate",
+   "reasoning": "120 / (29 x 0.857 = 24.86)",
+   "as_of": "2013-06"
+  },
+  "fixed_costs_month": {
+   "value": 150,
+   "unit": "USD/month",
+   "basis": "estimate",
+   "reasoning": "hosting ~$100 + tools ~$50; 2013 hosting price pages not verified",
+   "as_of": "2013-06"
+  },
+  "break_even_customers_per_month": {
+   "value": 7,
+   "unit": "customers",
+   "basis": "estimate",
+   "reasoning": "150 / 24.86 = 6.03, rounded up; a $5,000/month founder salary needs ~207 customers",
+   "as_of": "2013-06"
+  },
+  "time_to_first_revenue_weeks": {
+   "value": 12,
+   "unit": "weeks",
+   "basis": "estimate",
+   "reasoning": "8-12 weeks build + beta with blogger peers",
+   "as_of": "2013-06"
+  }
+ },
+ "launch_country": "US",
+ "launch_reason": "The founder's blog audience and the info-product economy (Gumroad, Udemy, Stripe) are US-centred.",
+ "kill_shots": {
+  "free_alternative": false,
+  "strong_competitor": true,
+  "graveyard": true,
+  "no_distribution": false,
+  "costs_eat_margin": false,
+  "weak_demand": false,
+  "legal_platform_risk": false,
+  "saturated_wave": false
+ },
+ "primary_kill_shot": "strong_competitor",
+ "cheapest_test": "Email 30 blogger peers who sell ebooks: offer a $29/month founding plan with hands-on list migration; count pre-payments in 7 days.",
+ "kill_criteria": [
+  "fewer than 5 of 30 blogger peers commit to pay $29/month by day 7 -> stop",
+  "fewer than 3 lists over 1,000 subscribers migrated by day 30 -> rethink the segment",
+  "under $1,000 MRR by month 6 -> rethink price or segment"
+ ],
+ "sources": [
+  "https://www.wildbit.com/blog/2011/11/08/a-difficult-day",
+  "https://capedge.com/filing/1329919/0001299933-12-000493/8K/file/6",
+  "https://thenextweb.com/news/designers-share-tips-tricks-writing-selling-ebooks",
+  "https://thenextweb.com/news/education-marketplace-udemy-raises-12-million-to-expand-its-content-and-explore-new-platforms",
+  "https://www.smartpassiveincome.com/blog/my-december-2012-monthly-income-report/",
+  "https://www.marketingprofs.com/charts/2011/5820/forrester-interactive-spending-to-reach-766b-by-2016",
+  "https://thenextweb.com/news/gumroad-sell-digital-goods-with-a-link-no-storefront-needed",
+  "https://businesscard-size.blogspot.com/2011/10/war-against-affiliate-marketing.html",
+  "https://techcrunch.com/?p=731324",
+  "https://prnewswire.com/news-releases/goldman-sachs-leads-54-million-investment-in-infusionsoft-185857522.html",
+  "https://fortune.com/2013/01/08/venture-capital-deals-270/",
+  "https://thenextweb.com/news/this-self-hosted-newsletter-app-is-100x-cheaper-than-mailchimp-and-campaign-monitor",
+  "https://news.ycombinator.com/item?id=4715237",
+  "https://news.ycombinator.com/item?id=4493746",
+  "https://press.aboutamazon.com/2011/1/amazon-web-services-launches-amazon-simple-email-service",
+  "https://techcrunch.com/2011/09/30/sequoia-backed-stripe-launches-to-disrupt-the-online-payments-industry-with-a-developer-friendly-platform",
+  "https://techcrunch.com/2011/12/14/gumroad-lets-you-sell-anything-you-make/amp/",
+  "https://alltopstartups.com/2013/05/29/gmail-users-are-getting-a-brand-new-inbox-with-a-social-tab/",
+  "https://forentrepreneurs.com/saas-survey",
+  "https://www.sec.gov/Archives/edgar/data/0001405277/000119312513084678/d442306d10k.htm",
+  "https://news.constantcontact.com/press-release-constant-contact-announces-fourth-quarter-and-full-year-2012-financial-results",
+  "https://news.ycombinator.com/item?id=5773360",
+  "https://minimalistwordpressthemes.blogspot.com/2013/02/mailchimp-announces-1-million.html",
+  "https://chaotic-flow.com/?p=4525",
+  "https://marketingprofs.com/chirp/2012/9431/google-adwords-cpc-ctr-ad-impressions-conversion-rates-infographic",
+  "https://my-guarava-prya.blogspot.com/2012/01/mailchimp-do-it-yourself-email-provider.html",
+  "https://webarchive.library.unt.edu/web/20130214054537/http://business.ftc.gov/documents/bus61-can-spam-act-compliance-guide-business"
+ ],
+ "rescue": [
+  {
+   "change": "Pre-sell 10 blogger peers at $29 and migrate their lists by hand before building the full app",
+   "why": "Raises channel_readiness and time_to_mvp; proves differentiation before code",
+   "score_after": 71,
+   "difficulty": "doable",
+   "effort": "2 weeks",
+   "cost": "under $200",
+   "requires": "10 blogger peers with lists over 1,000 and a product to sell"
+  },
+  {
+   "change": "Narrow to course sellers: tagging plus sales sequences at $49+/month, priced against Infusionsoft not AWeber",
+   "why": "Raises pricing_power and differentiation against generic ESPs",
+   "score_after": 70,
+   "difficulty": "hard",
+   "effort": "3-4 months",
+   "cost": "about $1,000",
+   "requires": "Building automation and checkout integrations (Gumroad, Stripe)"
+  }
+ ],
+ "type_checks": [
+  {
+   "check": "churn_benchmark",
+   "result": "unknown",
+   "note": "No pre-2013 monthly churn benchmark for $29 no-contract SMB SaaS; Skok flags >2%/month as trouble and says very small customers churn more.",
+   "source": "https://forentrepreneurs.com/saas-survey"
+  },
+  {
+   "check": "switching_cost",
+   "result": "unknown",
+   "note": "Bloggers on AWeber or MailChimp must move lists and rebuild sequences; no dated source on import re-confirmation rules.",
+   "source": null
+  }
+ ],
+ "run": {
+  "started": "2026-11-11T09:37:22Z",
+  "minutes": 6,
+  "searches": 38,
+  "fetches": 16,
+  "subagents": 4
+ }
+}

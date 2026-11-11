@@ -3,8 +3,8 @@
   "slug": "youtube-summary-extension",
   "evaluated": "2026-11-11",
   "mode": "kill",
-  "verdict": "PIVOT",
-  "score": 58,
+  "verdict": "NO-GO",
+  "score": 48,
   "score_raw": 57.5,
   "confidence": {
     "level": "high",
@@ -322,6 +322,10 @@
     {
       "rule": "R4_ltv_cac_below_1",
       "effect": "LTV:CAC 0.56; profit 2.33 -> 2.0 (gross_margin 4.5 -> 4, pricing_power 1.5 -> 1)"
+    },
+    {
+      "rule": "R7_unprofitable_model",
+      "effect": "Profit potential 2.00 (2 or less): 58 - 10 = 48, capped at 49 -> 48 (was 58)"
     }
   ],
   "cheapest_test": "Fake-door landing page for a weekly YouTube channel digest for B2B marketers at USD 19/month; 50 cold DMs plus 2 subreddit posts; count pre-orders in 7 days.",

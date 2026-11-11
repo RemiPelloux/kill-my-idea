@@ -1,0 +1,389 @@
+{
+ "schema_version": "1.0",
+ "slug": "homejoy",
+ "evaluated": "2026-11-11",
+ "as_of": "2012-07-01",
+ "mode": "kill",
+ "verdict": "PIVOT",
+ "score": 58,
+ "score_raw": 58.0,
+ "confidence": {
+  "level": "high",
+  "sourced_subscores": 14,
+  "sources": 34,
+  "primary_sources": 8,
+  "note": "No 2012 source for client cleaning prices, cleaning-keyword CPC or rebooking rates; a dated price survey and CPC data would raise it."
+ },
+ "criteria": {
+  "profit": 2.0,
+  "feasibility": 3.0,
+  "time_to_first_revenue": 3.5,
+  "demand": 3.5,
+  "competition": 2.5,
+  "risk": 3.5,
+  "fit": 3.0
+ },
+ "criteria_detail": {
+  "profit": {
+   "gross_margin": {
+    "score": 2,
+    "note": "$60 job − $45.60 SF cleaner pay − $2.04 Stripe = 20.6% of the booking (estimate). R5: costs kill shot holds it at 2.",
+    "source": "https://webarchive.library.unt.edu/web/20120926112148/http:/www.bls.gov/oes/current/oes372012.htm"
+   },
+   "ltv_cac": {
+    "score": 2,
+    "note": "LTV $74 vs CAC ~$61 = 1.2 (estimate): thin, but repeat cleans could lift it.",
+    "source": "https://blog.agrawals.org/2011/06/07/an-analysis-of-the-groupon-merchant-agreement/"
+   },
+   "pricing_power": {
+    "score": 1.5,
+    "note": "Positioned as the cheapest: $20/h under Exec's $25/h. Competes on price, no premium.",
+    "source": "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/"
+   }
+  },
+  "feasibility": {
+   "build_effort": {
+    "score": 3.5,
+    "note": "A booking page plus manual dispatch is weeks of work; the real build is cleaner ops.",
+    "source": null
+   },
+   "skills_match": {
+    "score": 3,
+    "note": "Seed-funded tech team assumed; field ops and labour-law skills not stated.",
+    "source": null
+   },
+   "capital_needed": {
+    "score": 3,
+    "note": "Seed covers a 1-city test; peers needed $3.3M-$24.5M to scale.",
+    "source": "https://techcrunch.com/2011/12/13/taskrabbit-gets-17-8m-for-aggressive-expansion-wants-to-grow-internationally-and-beyond"
+   }
+  },
+  "time_to_first_revenue": {
+   "time_to_mvp": {
+    "score": 4,
+    "note": "Landing page, Stripe and 10 cleaners can go live in 2-3 weeks (estimate).",
+    "source": "https://techcrunch.com/2011/09/30/sequoia-backed-stripe-launches-to-disrupt-the-online-payments-industry-with-a-developer-friendly-platform"
+   },
+   "sales_cycle": {
+    "score": 4.5,
+    "note": "Consumer, same-day purchase of a $60 clean.",
+    "source": null
+   },
+   "channel_readiness": {
+    "score": 2.5,
+    "note": "Paid search and Groupon exist, costs unproven; no owned audience. Liquidity hit caps at 2.5.",
+    "source": "https://blog.agrawals.org/2011/06/07/an-analysis-of-the-groupon-merchant-agreement/"
+   }
+  },
+  "demand": {
+   "search_demand": {
+    "score": 4,
+    "note": "877,980 maids employed in the US (BLS, May 2011): a mass, recurring need.",
+    "source": "https://webarchive.library.unt.edu/web/20120926112148/http:/www.bls.gov/oes/current/oes372012.htm"
+   },
+   "trend": {
+    "score": 3.5,
+    "note": "Smartphones 35% to 46% of adults in a year; TaskRabbit at 9,000 tasks/month.",
+    "source": "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners/"
+   },
+   "willingness_to_pay": {
+    "score": 3.5,
+    "note": "People already pay Exec $25/h and agencies; demand is proven but price-sensitive.",
+    "source": "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/"
+   }
+  },
+  "competition": {
+   "free_alternatives": {
+    "score": 2.5,
+    "note": "Craigslist, forums and word of mouth find cheap cleaners free; no vetting or booking.",
+    "source": "https://www.brownstoner.com/forum-archive/2010/08/great-cleaners"
+   },
+   "competitor_density": {
+    "score": 2.5,
+    "note": "TaskRabbit ($24.5M), Exec, Zaarly, Redbeacon (Home Depot), franchises. R5 ≤ 3.",
+    "source": "https://techcrunch.com/2011/12/13/taskrabbit-gets-17-8m-for-aggressive-expansion-wants-to-grow-internationally-and-beyond"
+   },
+   "differentiation": {
+    "score": 2,
+    "note": "Lowest price + 60-second booking: easy to copy, no data or cost moat.",
+    "source": "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/"
+   }
+  },
+  "risk": {
+   "legal_regulatory": {
+    "score": 2,
+    "note": "1099 cleaners face the 2011 DOL/IRS misclassification push; CA AB 889 pending.",
+    "source": "https://www.dol.gov/newsroom/releases/whd/whd20110919?lang=ko"
+   },
+   "platform_dependency": {
+    "score": 4,
+    "note": "Owns the site and customer data; paid channels have alternatives.",
+    "source": null
+   },
+   "market_risk": {
+    "score": 4,
+    "note": "Cleaning is a durable, recurring household need, not a fad.",
+    "source": "https://webarchive.library.unt.edu/web/20120926112148/http:/www.bls.gov/oes/current/oes372012.htm"
+   }
+  },
+  "fit": {
+   "skills": {
+    "score": 3,
+    "note": "Startup skills assumed; no stated cleaning or marketplace ops track record.",
+    "source": null
+   },
+   "assets": {
+    "score": 2.5,
+    "note": "Seed capital; no audience, cleaner network or contracts stated.",
+    "source": null
+   },
+   "interest": {
+    "score": 3,
+    "note": "Founder motivation not stated; scored neutral.",
+    "source": null
+   }
+  }
+ },
+ "metrics": {
+  "tam": {
+   "value": 3500000000,
+   "unit": "USD/year",
+   "basis": "sourced",
+   "as_of": "2012-07",
+   "source": "https://india.franchising.com/news/20090119_the_cleanest_sector_of_the_us_economy.html"
+  },
+  "sam": {
+   "value": 350000000,
+   "unit": "USD/year",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "TAM $3.5B × ~10% share for the SF Bay Area + NYC metros (dense, high-wage, high smartphone use)"
+  },
+  "som": {
+   "value": 3500000,
+   "unit": "USD GMV/year",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "1% of SAM $350M in year 1"
+  },
+  "competitors_found": {
+   "value": 8,
+   "unit": "count",
+   "basis": "sourced",
+   "as_of": "2012-07",
+   "source": "https://techcrunch.com/2011/12/13/taskrabbit-gets-17-8m-for-aggressive-expansion-wants-to-grow-internationally-and-beyond"
+  },
+  "competitor_price_range": {
+   "value": "$25/hour (Exec); TaskRabbit fee 13-30% on top of task price",
+   "unit": "USD",
+   "basis": "sourced",
+   "as_of": "2012-07",
+   "source": "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/"
+  },
+  "demand_trend": {
+   "value": "rising",
+   "unit": "trend",
+   "basis": "sourced",
+   "as_of": "2012-07",
+   "source": "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners/"
+  },
+  "price": {
+   "value": 60,
+   "unit": "USD/job",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "Founder's stated $20/hour × typical job of 3 hours (assumed) = $60"
+  },
+  "variable_cost_per_unit": {
+   "value": 47.64,
+   "unit": "USD/job",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "3 h × $15.20 SF mean cleaner wage (BLS May 2011) = $45.60 + Stripe 2.9% × $60 + $0.30 = $2.04"
+  },
+  "gross_margin_pct": {
+   "value": 20.6,
+   "unit": "%",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "($60 − $47.64) ÷ $60 = 20.6% of booking value, before insurance, background checks and support"
+  },
+  "churn_monthly_pct": {
+   "value": 36,
+   "unit": "%",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "1 ÷ lifetime 2.77 months (6 jobs at 2.17 biweekly jobs/month)"
+  },
+  "expected_lifetime": {
+   "value": 6,
+   "unit": "jobs per customer",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "Assumed: an average customer books 6 cleans; no 2012 benchmark found"
+  },
+  "conversion_rate_pct": {
+   "value": 50,
+   "unit": "% deal buyers who rebook",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "Assumed half of Groupon first-time buyers book a second clean"
+  },
+  "cac": {
+   "value": 61.2,
+   "unit": "USD",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "Groupon: $60 clean sold at $30, Groupon keeps 50% → $15 in; cleaner paid $45.60 → $30.60 loss; ÷ 50% rebook = $61.20 per retained customer"
+  },
+  "ltv": {
+   "value": 74.16,
+   "unit": "USD",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "6 jobs × $12.36 contribution per job"
+  },
+  "ltv_cac": {
+   "value": 1.21,
+   "unit": "ratio",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "$74.16 ÷ $61.20"
+  },
+  "payback_months": {
+   "value": 2.3,
+   "unit": "months",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "$61.20 ÷ ($12.36 × 2.17 jobs/month = $26.78)"
+  },
+  "fixed_costs_month": {
+   "value": 50000,
+   "unit": "USD/month",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "Seed team of ~5 in SF at ~$8k/month each + $10k ops, insurance, tools"
+  },
+  "break_even_customers_per_month": {
+   "value": 1867,
+   "unit": "active customers",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "$50,000 ÷ $26.78 monthly contribution per active customer"
+  },
+  "time_to_first_revenue_weeks": {
+   "value": 3,
+   "unit": "weeks",
+   "basis": "estimate",
+   "as_of": "2012-07",
+   "reasoning": "2 weeks to build a booking page and recruit 10 cleaners, 1 week to the first paid clean"
+  }
+ },
+ "launch_country": "US",
+ "launch_reason": "Founder's stated launch country; SF and NYC have the highest cleaner wages and smartphone use.",
+ "kill_shots": {
+  "free_alternative": false,
+  "strong_competitor": true,
+  "graveyard": false,
+  "no_distribution": false,
+  "costs_eat_margin": true,
+  "weak_demand": false,
+  "legal_platform_risk": true,
+  "saturated_wave": false
+ },
+ "primary_kill_shot": "costs_eat_margin",
+ "cheapest_test": "7-day fake-door booking page for one SF zip cluster at $20 vs $28/hour, $1,000 of ads plus a deal, 10 vetted cleaners on call; measure bookings, contribution and 14-day rebooking.",
+ "kill_criteria": [
+  "Fewer than 20 paid bookings from $1,000 of ads and deals by day 7 -> stop",
+  "Fewer than 30% of first-time customers rebook within 14 days -> stop",
+  "Contribution per job below $10 after cleaner pay and fees by day 7 -> raise price or stop",
+  "Fewer than 10 vetted cleaners willing to work at the offered pay by day 5 -> stop"
+ ],
+ "sources": [
+  "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/",
+  "https://techcrunch.com/2012/02/29/exec-justin-tv/",
+  "https://thenextweb.com/news/giving-a-nod-to-uber-exec-aims-to-be-the-outsourcing-app-for-busy-professionals",
+  "https://thenextweb.com/news/errand-running-service-exec-launches-company-accounts-to-offer-employee-perks",
+  "https://techcrunch.com/2011/12/13/taskrabbit-gets-17-8m-for-aggressive-expansion-wants-to-grow-internationally-and-beyond",
+  "https://siliconprairienews.com/2011/10/zaarly-raises-14-1m-series-a-adds-former-ebay-exec-whitman-to-board",
+  "https://www.globenewswire.com/news-release/2011/12/02/1303487/0/en/Mayor-Michael-Bloomberg-Welcomes-Zaarly-to-New-York.html",
+  "https://ir.homedepot.com/news-releases/2012/01-20-2012",
+  "https://money.cnn.com/2001/04/12/technology/kozmo/index.htm",
+  "https://georgetownvoice.com/2001/04/19/kozmo-delivery-service-closes/",
+  "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners/",
+  "https://webarchive.library.unt.edu/web/20120926112148/http:/www.bls.gov/oes/current/oes372012.htm",
+  "https://webarchive.library.unt.edu/web/20120925124456/http:/www.bls.gov/oes/current/naics4_561700.htm",
+  "https://techcrunch.com/2011/09/30/sequoia-backed-stripe-launches-to-disrupt-the-online-payments-industry-with-a-developer-friendly-platform",
+  "https://blog.agrawals.org/2011/06/07/an-analysis-of-the-groupon-merchant-agreement/",
+  "https://arxiv.org/pdf/1105.0903.pdf",
+  "https://www.wordstream.com/blog/ws/2011/07/18/most-expensive-keywords-google-adwords",
+  "https://www.searchenginewatch.com/2011/07/19/how-google-makes-its-billions-the-20-most-expensive-adwords-keyword-categories/",
+  "https://info.homeworksolutions.com/blog/bid/60122/Nanny-Taxes-and-the-Weekly-Cleaning-Lady",
+  "https://info.homeworksolutions.com/blog/bid/76871/IRS-and-DOL-Worker-Misclassification-Enforcement-Steps-Up",
+  "https://www.dol.gov/newsroom/releases/whd/whd20110919?lang=ko",
+  "https://wislawjournal.com/2011/09/23/u-s-labor-dept-irs-states-join-to-combat-worker-misclassifications/",
+  "https://www.hklaw.com/en/insights/publications/2011/10/dol-and-irs-join-forces-to-combat-worker-misclassification",
+  "https://www.stblaw.com/about-us/publications/view/2010/09/02/new-york-state-enacts-the-domestic-workers-bill-of-rights",
+  "https://www.cbsnews.com/newyork/news/paterson-signs-domestic-worker-rights-bill",
+  "https://thegrio.com/2010/09/01/paterson-signs-historic-domestic-worker-rights-bill/",
+  "https://www.leginfo.ca.gov/pub/11-12/bill/asm/ab_0851-0900/ab_889_cfa_20110510_150633_asm_comm.html",
+  "https://www.leginfo.ca.gov/pub/11-12/bill/asm/ab_0851-0900/ab_889_cfa_20110815_140841_sen_comm.html",
+  "https://ww2.kqed.org/forum/2011/08/12/a-domestic-worker-bill-of-rights/",
+  "https://www.cleanlink.com/cp/article/Finders-Keepers--10917",
+  "https://www.studicata.com/summaries/united-states-district-court-northern-district-of-illinois/janice-doty-unlimited-inc-v-stoecker-1988-dry3hw/",
+  "https://india.franchising.com/news/20090119_the_cleanest_sector_of_the_us_economy.html",
+  "https://www.franchising.com/news/20110118_molly_maid_ranked_in_top_100_franchises_by_allbusi.html",
+  "https://www.brownstoner.com/forum-archive/2010/08/great-cleaners"
+ ],
+ "rescue": [
+  {
+   "change": "Price at $25-30/hour on a recurring biweekly plan with the same insured cleaner, instead of 'cheapest from $20'",
+   "why": "Fixes gross_margin and pricing_power (costs_eat_margin): contribution rises from ~$12 to ~$25 per job, and the plan gives a reason not to go direct",
+   "score_after": 63,
+   "difficulty": "doable",
+   "effort": "1-2 weeks: new pricing page and plan",
+   "cost": "near zero",
+   "requires": "Retention data showing customers keep a $25+/h plan"
+  },
+  {
+   "change": "Make cleaners W-2 employees (or a staffing partner's) in one city, sold as the only insured, employed-staff option",
+   "why": "Defuses legal_platform_risk (2011 misclassification push, AB 889) and creates a real difference",
+   "score_after": 61,
+   "difficulty": "hard",
+   "effort": "2-3 months: payroll, insurance, hiring",
+   "cost": "payroll taxes ~10% + workers' comp",
+   "requires": "Employment counsel, workers' comp, a price that carries employer costs"
+  },
+  {
+   "change": "Sell to employers as a perk (company accounts), like Exec's corporate offer",
+   "why": "Fixes channel_readiness and CAC: one contract brings dozens of households",
+   "score_after": 61,
+   "difficulty": "hard",
+   "effort": "months of B2B sales",
+   "cost": "sales time",
+   "requires": "Pilot with 2-3 SF companies"
+  }
+ ],
+ "rules_applied": [],
+ "type_checks": [
+  {
+   "check": "liquidity",
+   "result": "hit",
+   "note": "Supply first: cleaners must be recruited and vetted before demand spend, and 75% annual turnover (up to 400%) means recruiting never stops.",
+   "source": "https://www.cleanlink.com/cp/article/Finders-Keepers--10917"
+  },
+  {
+   "check": "disintermediation",
+   "result": "hit",
+   "note": "Recurring same-cleaner jobs: at a 20% cut a weekly client pays ~$624/year in fees, a strong reason to go direct; agencies rely on non-hire clauses.",
+   "source": "https://www.studicata.com/summaries/united-states-district-court-northern-district-of-illinois/janice-doty-unlimited-inc-v-stoecker-1988-dry3hw/"
+  }
+ ],
+ "run": {
+  "started": "2026-11-11T09:30:14Z",
+  "minutes": 12,
+  "searches": 35,
+  "fetches": 16,
+  "subagents": 4
+ }
+}

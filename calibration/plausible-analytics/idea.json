@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "slug": "plausible-analytics",
+  "title": "Plausible Analytics: privacy-friendly, cookie-free website analytics",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "Plausible Analytics: privacy-friendly, cookie-free website analytics, $6 per month, launch country EE (Estonia, selling worldwide online). Score it as of 2019-06-01: use only evidence published on or before that date (set verdict.as_of). Founder: two developers bootstrapping, side project. Just go: do not ask questions. Use the slug plausible-analytics.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Google Analytics is heavy, tracks visitors with cookies and personal data, and creates GDPR and cookie-consent burden for site owners.",
+  "customer": "Privacy-conscious indie developers, bloggers and small SaaS / agency site owners, mostly EU, who want simple traffic stats without cookie banners.",
+  "solution": "A lightweight, cookie-free hosted analytics script and one-page dashboard that collects no personal data.",
+  "revenue_model": "subscription",
+  "price": {"amount": 6, "currency": "USD", "period": "month"},
+  "channel": null,
+  "countries": ["EE"],
+  "claims": [
+    "privacy-friendly",
+    "cookie-free"
+  ],
+  "context": {
+    "budget": null,
+    "time_per_week": null,
+    "goal": "side-income",
+    "edge": "two developers who can build the product themselves"
+  },
+  "assumptions": [
+    "Evaluated as of 2019-06-01 with evidence published on or before that date.",
+    "Budget assumed near zero (bootstrapped, under USD 1,000), hosting paid from pocket.",
+    "Time assumed 10-15 h per week per founder (side project).",
+    "Goal assumed side income first, with an option to go full-time.",
+    "No existing audience, mailing list or customers assumed.",
+    "Selling worldwide in English; Estonia is the legal base, not the main market."
+  ],
+  "unknowns": ["channel", "budget", "time_per_week", "audience"],
+  "answers": []
+}

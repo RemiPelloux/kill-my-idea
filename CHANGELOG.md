@@ -1,5 +1,20 @@
 # Changelog
 
+## Unreleased
+
+- **Calibration set:** 10 ideas with a known outcome, scored as of their launch date. Calendly,
+  ConvertKit, Carrd, Plausible and Tally worked; Juicero, Quibi, Homejoy, Shyp and Washio failed. (#4)
+- **New rule R7, an unprofitable model:** when Profit potential is 2 or less, the total loses 10
+  points and is at most 49 (NO-GO). The calibration showed why: all 5 failures scored Profit 2.0 or
+  less and all 5 successes 3.0 or more, but easy feasibility lifted the failures to 58–60. With R7
+  the successes stay at 64–71 (Tally GO 71) and the failures drop to 39–49. All 3 calibration targets
+  pass. Chosen over re-weighting, which moved the successes too. (#7)
+- `calibrate.py` recomputes every score under today's rules, so older verdicts are judged by the
+  current rules.
+- The checker refuses a negative LTV:CAC (one calibration run wrote −0.68).
+- Golden runs updated on purpose (all 5 have Profit 2 or less): 58 → 48, 49 → 39, 43 → 33, 53 → 43,
+  49 → 47.
+
 ## 0.10.1 — 2026-11-11
 
 - **Research budget:** each of the 4 research subagents runs at most 8 searches and 4 page fetches,

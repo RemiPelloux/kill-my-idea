@@ -3,8 +3,8 @@
   "slug": "dental-ai-receptionist",
   "evaluated": "2026-11-11",
   "mode": "kill",
-  "verdict": "PIVOT",
-  "score": 51,
+  "verdict": "NO-GO",
+  "score": 41,
   "score_raw": 51.0,
   "confidence": {
     "level": "high",
@@ -281,6 +281,10 @@
     {
       "rule": "R5_kill_shot_coherence",
       "effect": "costs_eat_margin hit: gross_margin 2.5 -> 2 (profit mean 1.83)"
+    },
+    {
+      "rule": "R7_unprofitable_model",
+      "effect": "Profit potential 1.83 (2 or less): 51 - 10 = 41, capped at 49 -> 41 (was 51)"
     }
   ],
   "cheapest_test": "Call 40 local dental offices at lunch and after 5 pm to measure voicemail rate, then pitch 20 dental marketing agencies a white-label pilot; stop below 2 paid pilots by day 7.",

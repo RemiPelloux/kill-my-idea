@@ -60,8 +60,10 @@ class Rules(unittest.TestCase):
     def test_r6_required_when_no_channel_and_ltv_cac_below_1(self):
         c = IdeaCopy("pet")
         v = c.verdict()
-        v["rules_applied"] = [r for r in v["rules_applied"] if r["rule"] != "R6_unprofitable_no_channel"]
-        v["score"], v["verdict"] = 53, "PIVOT"
+        v["rules_applied"] = [r for r in v["rules_applied"] if r["rule"] not in ("R6_unprofitable_no_channel", "R7_unprofitable_model")]
+        for sub in v["criteria_detail"]["profit"].values():
+            sub["score"] = 3  # keep R7 out of the way: this tests R6 alone
+        v["score"], v["verdict"] = 59, "PIVOT"
         c.save(v)
         errs = errors(c.dir)
         self.assertTrue(any("R6_unprofitable_no_channel" in e for e in errs), errs)
@@ -269,6 +271,24 @@ class QuickAndRun(unittest.TestCase):
         v["run"] = {"minutes": -3, "searches": 19}
         c.save(v)
         self.assertTrue(any("run.minutes" in e for e in errors(c.dir)))
+        c.close()
+
+
+class R7(unittest.TestCase):
+    def test_r7_required_when_profit_is_2_or_less(self):
+        c = IdeaCopy("dental")
+        v = c.verdict()
+        v["rules_applied"] = [r for r in v["rules_applied"] if r["rule"] != "R7_unprofitable_model"]
+        c.save(v)
+        self.assertTrue(any("R7_unprofitable_model" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_negative_ltv_cac_is_refused(self):
+        c = IdeaCopy("dental")
+        v = c.verdict()
+        v["metrics"]["ltv_cac"]["value"] = -0.68
+        c.save(v)
+        self.assertTrue(any("can't be negative" in e for e in errors(c.dir)))
         c.close()
 
 

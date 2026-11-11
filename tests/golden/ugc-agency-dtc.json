@@ -3,8 +3,8 @@
   "slug": "ugc-agency-dtc",
   "evaluated": "2026-11-11",
   "mode": "kill",
-  "verdict": "PIVOT",
-  "score": 53,
+  "verdict": "NO-GO",
+  "score": 43,
   "score_raw": 52.5,
   "confidence": {
     "level": "medium",
@@ -155,6 +155,10 @@
     {
       "rule": "R5_kill_shot_coherence",
       "effect": "costs_eat_margin hit: gross_margin 2.5 -> 2"
+    },
+    {
+      "rule": "R7_unprofitable_model",
+      "effect": "Profit potential 1.50 (2 or less): 53 - 10 = 43, capped at 49 -> 43 (was 53)"
     }
   ],
   "metrics": {

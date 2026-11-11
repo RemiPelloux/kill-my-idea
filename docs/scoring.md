@@ -40,6 +40,7 @@ Applied after the total, recorded in `rules_applied` with their effect:
 | R4 LTV:CAC < 1 | Below 1 with no path to fix it | Profit potential ≤ 2 |
 | R5 coherence | A kill shot hit must show in its sub-scores | e.g. no channel → channel readiness ≤ 2 |
 | R6 loses money, no channel | No channel **and** LTV:CAC below 1 | Total capped at 49: NO-GO |
+| R7 unprofitable model | Profit potential is 2 or less | Total minus 10, and at most 49: NO-GO |
 
 A quick run (`--quick`) is also capped at 69, because 10 sources are not enough for a GO.
 
@@ -64,13 +65,21 @@ Shopify pet-products dropshipping store with TikTok ads, in the US.
 1. The raw total rounds to **53**, which would be a PIVOT.
 2. **R3** already lowered competition: 30,000+ Shopify pet stores sell the same catalogs.
 3. **R5** lowered channel readiness to 2, because no channel was found.
-4. **R6** then applies: there is no channel, and LTV:CAC is **0.32** (a customer costs about $57
-   on TikTok and brings $18 of lifetime profit). The total is capped at **49: NO-GO**.
+4. **R7**: Profit potential is **1.50** (a customer costs about $57 on TikTok and brings $18 of
+   lifetime profit, LTV:CAC **0.32**). The model doesn't make money: 53 − 10 = **43**.
+5. **R6** would also cap it at 49 (no channel and LTV:CAC below 1). The final score is **43: NO-GO**.
 
-Easy to start and fast to first revenue lifted the average above 50. R6 exists so that can't happen
-when every customer loses money and there is no cheap way to reach them.
+Easy to start and fast to first revenue lifted the average above 50. R6 and R7 exist so that can't
+happen when the model loses money.
 
-## 5. Confidence
+## 5. Calibration
+
+The rules are checked against [10 ideas with a known outcome](../calibration/README.md), each scored
+as of its launch date. With R7, the 5 that worked score 64–71 (median 68, Tally reaches GO) and the
+5 that failed score 39–49 (median 49). Without R7, the failures scored 49–60: their pre-mortems named
+the real causes, but easy feasibility averaged the weak profit away.
+
+## 6. Confidence
 
 Separate from the score, every verdict says how much evidence backs it:
 

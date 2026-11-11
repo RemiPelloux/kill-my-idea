@@ -289,6 +289,12 @@ def check_scores(rep, v):
     if ks.get("no_distribution") is True and "R2_no_channel" not in rule_ids and expected > 69:
         if v.get("rules_applied") is not None:
             rep.error("verdict.json: kill_shots.no_distribution is true and the raw total is above 69, so rules_applied must contain R2_no_channel")
+    r7 = means.get("profit", 5) <= 2 + 1e-9
+    if r7:
+        # R7: a model that doesn't make money loses 10 points and is never better than NO-GO
+        if "R7_unprofitable_model" not in rule_ids and v.get("rules_applied") is not None:
+            rep.error(f"verdict.json: Profit potential is {means['profit']:.2f} (2 or less): rules_applied must contain R7_unprofitable_model (-10 points, at most 49)")
+        expected = min(expected - 10, 49)
     if capped:
         expected = min(expected, 69)
     if v.get("quick") is True:
@@ -308,7 +314,7 @@ def check_scores(rep, v):
     if not isinstance(score, int):
         rep.error(f"verdict.json: score {score!r} must be an integer")
     elif score != expected:
-        how = f"raw {raw1} rounds half up to {round_half_up(raw)}" + (", capped at 49 (R6: loses money, no channel)" if r6 else ", capped at 69 (R2: no channel)" if capped else "")
+        how = f"raw {raw1} rounds half up to {round_half_up(raw)}" + (", minus 10 and at most 49 (R7: unprofitable model)" if r7 else "") + (", capped at 49 (R6: loses money, no channel)" if r6 else ", capped at 69 (R2: no channel)" if capped else "")
         rep.error(f"verdict.json: score is {score} but recomputes to {expected} ({how})")
     verdict = v.get("verdict")
     if isinstance(score, int) and verdict != band(score):
@@ -322,6 +328,8 @@ def check_scores(rep, v):
         rep.error("verdict.json: R1 applied but free_alternatives is above 1.5")
     if "R4_ltv_cac_below_1" in rule_ids and means.get("profit", 0) > 2 + 1e-9:
         rep.error("verdict.json: R4 applied but Profit potential mean is above 2")
+    if isinstance(lc, (int, float)) and not isinstance(lc, bool) and lc < 0:
+        rep.error(f"verdict.json: LTV:CAC is {lc}; a ratio of two costs can't be negative (a loss per customer means LTV is 0 or the margin is negative: write 0)")
     if isinstance(lc, (int, float)) and lc < 1 and "R4_ltv_cac_below_1" not in rule_ids and means.get("profit", 0) > 2:
         rep.warn(f"verdict.json: LTV:CAC is {lc} (below 1) and Profit potential is {means['profit']:.2f}: apply R4, or state the path that fixes it in the ltv_cac note")
     # R5 coherence

@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "slug": "tally-forms",
+  "title": "Tally: a form builder that works like a doc",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "Tally: a form builder that works like a doc, free with a paid Pro plan, launch country BE (Belgium, selling worldwide online). Score it as of 2020-06-01: use only evidence published on or before that date (set verdict.as_of). Founder: two bootstrapped developers. Just go: do not ask questions. Use the slug tally-forms.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Building a good-looking online form takes a drag-and-drop builder, and the polished ones (Typeform) charge for basics like responses and logic.",
+  "customer": "Makers, indie founders, no-code builders and small teams who need forms (waitlists, surveys, applications) and already work in doc-style tools like Notion",
+  "solution": "A web form builder you type into like a document (no drag-and-drop), with a generous free plan and a paid Pro plan for advanced features",
+  "revenue_model": "subscription",
+  "price": null,
+  "channel": null,
+  "countries": [
+    "BE"
+  ],
+  "claims": [
+    "a form builder that works like a doc",
+    "free with a paid Pro plan"
+  ],
+  "context": {
+    "budget": null,
+    "time_per_week": null,
+    "goal": null,
+    "edge": "two developers who can build the product themselves"
+  },
+  "assumptions": [
+    "Pro price assumed at $29/month (USD, worldwide), in the range of Typeform's ~$40 average price (2018)",
+    "Bootstrapped: budget near zero beyond hosting and tools; founders' own time unpaid at first",
+    "Goal assumed to be a bootstrapped startup replacing two salaries",
+    "No existing audience assumed (none stated)",
+    "Main channel assumed organic: Product Hunt, maker communities and a 'Made with Tally' badge on free forms",
+    "Scored as of 2020-06-01 with evidence published on or before that date"
+  ],
+  "unknowns": [
+    "price",
+    "channel",
+    "budget",
+    "time_per_week",
+    "goal",
+    "audience"
+  ],
+  "answers": []
+}

@@ -4,7 +4,7 @@
   "evaluated": "2026-11-11",
   "mode": "kill",
   "verdict": "NO-GO",
-  "score": 43,
+  "score": 33,
   "score_raw": 42.7,
   "confidence": {
     "level": "high",
@@ -310,7 +310,12 @@
     "saturated_wave": true
   },
   "primary_kill_shot": "legal_platform_risk",
-  "rules_applied": [],
+  "rules_applied": [
+    {
+      "rule": "R7_unprofitable_model",
+      "effect": "Profit potential 1.00 (2 or less): 43 - 10 = 33, capped at 49 -> 33 (was 43)"
+    }
+  ],
   "cheapest_test": "Pitch AI-assisted script or edit samples to 30 US history channels in 7 days; stop unless 3 reply and 1 pays.",
   "kill_criteria": [
     "Fewer than 3 replies from 30 pitches by day 7 -> stop",

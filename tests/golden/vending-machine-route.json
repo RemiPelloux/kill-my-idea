@@ -4,7 +4,7 @@
   "evaluated": "2026-11-11",
   "mode": "kill",
   "verdict": "NO-GO",
-  "score": 49,
+  "score": 39,
   "score_raw": 48.7,
   "confidence": {
     "level": "high",
@@ -143,7 +143,12 @@
       }
     }
   },
-  "rules_applied": [],
+  "rules_applied": [
+    {
+      "rule": "R7_unprofitable_model",
+      "effect": "Profit potential 1.67 (2 or less): 49 - 10 = 39, capped at 49 -> 39 (was 49)"
+    }
+  ],
   "metrics": {
     "tam": {
       "value": 7700000000.0,

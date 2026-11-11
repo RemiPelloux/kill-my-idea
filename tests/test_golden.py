@@ -9,8 +9,11 @@ from helpers import load
 
 chk = load("check-idea")
 GOLDEN = pathlib.Path(__file__).resolve().parent / "golden"
-EXPECTED = {"youtube-summary-extension": 58, "vending-machine-route": 49, "ai-history-channel": 43,
-            "ugc-agency-dtc": 53, "ai-headshot-generator": 49}
+# R7 (0.11): every golden verdict has Profit potential 2 or less, so each lost 10 points, capped at 49:
+# youtube-summary-extension 58 -> 48, vending-machine-route 49 -> 39, ai-history-channel 43 -> 33,
+# ugc-agency-dtc 53 -> 43, ai-headshot-generator 49 -> 47.
+EXPECTED = {"youtube-summary-extension": 48, "vending-machine-route": 39, "ai-history-channel": 33,
+            "ugc-agency-dtc": 43, "ai-headshot-generator": 47}
 
 
 class Golden(unittest.TestCase):

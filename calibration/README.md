@@ -26,6 +26,28 @@ python3 scripts/calibrate.py calibration --outcomes calibration/outcomes.json
 **1.0 targets:** the ideas that worked score a median of 60 or more, the failures a median under 50,
 and at least one idea reaches GO.
 
+## Results (2026-11-11)
+
+Runs made with 0.10.1; `calibrate.py` recomputes every score from the sub-scores under today's rules.
+
+| Idea | Outcome | Score as written | With R7 (0.11) |
+|---|---|---|---|
+| tally-forms | worked | GO 71 | GO 71 |
+| plausible-analytics | worked | 69 | 69 |
+| calendly | worked | 68 | 68 |
+| convertkit | worked | 68 | 68 |
+| carrd | worked | 64 | 64 |
+| quibi | failed | 60 | 49 |
+| shyp | failed | 59 | 49 |
+| washio | failed | 59 | 49 |
+| homejoy | failed | 58 | 48 |
+| juicero | failed | 49 | 39 |
+
+Targets: worked median 68 (≥ 60) **pass**, failed median 49 (< 50) **pass**, one GO **pass**.
+Before R7 the failures' median was 59: the score ranked every success above every failure, but
+didn't push the failures below 50. The verdicts here were written before R7, so their own files
+show the older score; the checker would ask them for R7.
+
 **Known limit:** the model may already know how these companies ended. `as_of` stops later sources
 from being used, and the checker fails any source published after it, but it can't erase what the
 model remembers. Treat a pass as necessary, not as proof.

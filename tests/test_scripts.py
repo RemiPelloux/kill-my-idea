@@ -177,7 +177,7 @@ class Calibrate(unittest.TestCase):
         with contextlib.redirect_stdout(io.StringIO()):
             res = cal.report(cal.verdicts([w.ideas]))
             ok = cal.targets(res, {"pet-dropshipping-tiktok": "failed", "dental-ai-receptionist": "worked"})
-        self.assertEqual(sorted(res["scores"].values()), [49, 51])
+        self.assertEqual(sorted(res["scores"].values()), [41, 43])
         self.assertFalse(ok)
         w.tmp.cleanup()
 

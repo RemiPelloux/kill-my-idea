@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "slug": "quibi",
+  "title": "Quibi: premium 10-minute shows made for phones",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "content",
+  "source": {
+    "type": "own-idea",
+    "text": "Quibi: premium 10-minute shows made for phones, $4.99 per month with ads or $7.99 without, launch country US. Score it as of 2020-03-01: use only evidence published on or before that date (set verdict.as_of). Founder: a funded media startup. Just go: do not ask questions. Use the slug quibi.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Premium TV-quality entertainment does not fit the short, in-between moments people spend on their phones",
+  "customer": "US smartphone users aged 18-34 who watch video in short idle moments (assumption: the brief names no segment)",
+  "solution": "Premium scripted and unscripted shows in episodes of about 10 minutes, made for phones",
+  "revenue_model": "subscription",
+  "price": {
+    "amount": 4.99,
+    "currency": "USD",
+    "period": "month"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [
+    "premium 10-minute shows made for phones",
+    "$4.99 per month with ads or $7.99 without"
+  ],
+  "context": {
+    "budget": "Funded media startup (about USD 1.4B raised by 2020-02 per VideoWeek)",
+    "time_per_week": null,
+    "goal": "startup",
+    "edge": "Funded media startup"
+  },
+  "assumptions": [
+    "Scored as of 2020-03-01 with only evidence published on or before that date",
+    "Blended price ~$6/month (60% ad tier, 40% ad-free)",
+    "Monthly churn 8% (no dated benchmark found)",
+    "Year-1 marketing $450M (midpoint of the reported $400-500M)",
+    "Target customer US 18-34 mobile viewers (not stated in the brief)",
+    "Headless run: no questions asked; follow-ups written as assumptions"
+  ],
+  "unknowns": [
+    "channel",
+    "customer",
+    "time_per_week",
+    "churn",
+    "trial-to-paid conversion"
+  ],
+  "answers": []
+}

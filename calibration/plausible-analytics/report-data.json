@@ -1,0 +1,1019 @@
+{
+  "schema_version": "1.0",
+  "idea": {
+    "schema_version": "1.0",
+    "slug": "plausible-analytics",
+    "title": "Plausible Analytics: privacy-friendly, cookie-free website analytics",
+    "created": "2026-11-11",
+    "language": "en",
+    "type": "saas",
+    "source": {
+      "type": "own-idea",
+      "text": "Plausible Analytics: privacy-friendly, cookie-free website analytics, $6 per month, launch country EE (Estonia, selling worldwide online). Score it as of 2019-06-01: use only evidence published on or before that date (set verdict.as_of). Founder: two developers bootstrapping, side project. Just go: do not ask questions. Use the slug plausible-analytics.",
+      "url": null,
+      "author": null,
+      "posted": null
+    },
+    "problem": "Google Analytics is heavy, tracks visitors with cookies and personal data, and creates GDPR and cookie-consent burden for site owners.",
+    "customer": "Privacy-conscious indie developers, bloggers and small SaaS / agency site owners, mostly EU, who want simple traffic stats without cookie banners.",
+    "solution": "A lightweight, cookie-free hosted analytics script and one-page dashboard that collects no personal data.",
+    "revenue_model": "subscription",
+    "price": {
+      "amount": 6,
+      "currency": "USD",
+      "period": "month"
+    },
+    "channel": null,
+    "countries": [
+      "EE"
+    ],
+    "claims": [
+      "privacy-friendly",
+      "cookie-free"
+    ],
+    "context": {
+      "budget": null,
+      "time_per_week": null,
+      "goal": "side-income",
+      "edge": "two developers who can build the product themselves"
+    },
+    "assumptions": [
+      "Evaluated as of 2019-06-01 with evidence published on or before that date.",
+      "Budget assumed near zero (bootstrapped, under USD 1,000), hosting paid from pocket.",
+      "Time assumed 10-15 h per week per founder (side project).",
+      "Goal assumed side income first, with an option to go full-time.",
+      "No existing audience, mailing list or customers assumed.",
+      "Selling worldwide in English; Estonia is the legal base, not the main market."
+    ],
+    "unknowns": [
+      "channel",
+      "budget",
+      "time_per_week",
+      "audience"
+    ],
+    "answers": []
+  },
+  "verdict": {
+    "schema_version": "1.0",
+    "slug": "plausible-analytics",
+    "evaluated": "2026-11-11",
+    "as_of": "2019-06-01",
+    "mode": "kill",
+    "verdict": "PIVOT",
+    "score": 69,
+    "score_raw": 68.5,
+    "confidence": {
+      "level": "high",
+      "sourced_subscores": 21,
+      "sources": 29,
+      "primary_sources": 10,
+      "note": "Many numbers are estimates: no pre-2019-06 pricing pages for Fathom/Simple Analytics, no churn or CPC data. Archived pricing would raise it."
+    },
+    "criteria": {
+      "profit": 3.0,
+      "feasibility": 4.5,
+      "time_to_first_revenue": 4.0,
+      "demand": 3.5,
+      "competition": 2.0,
+      "risk": 3.5,
+      "fit": 3.0
+    },
+    "criteria_detail": {
+      "profit": {
+        "gross_margin": {
+          "score": 4.5,
+          "note": "About **90%**: EUR 3.79/mo server and ~7% Stripe fee on a $6 plan; storage grows with pageviews.",
+          "source": "https://www.vpsbenchmarks.com/trials/hetzner_performance_trial_25Feb2019"
+        },
+        "ltv_cac": {
+          "score": 2.5,
+          "note": "(estimate) LTV ~$90 vs organic CAC ~$40 = **2.25**; lifetime ~17 months at 6% churn.",
+          "source": "https://recurly.com/blog/new-subscriber-churn-benchmarks-and-why-managing-churn-is-critical"
+        },
+        "pricing_power": {
+          "score": 2,
+          "note": "GA is free on **55.7%** of sites; $6 undercuts paid peers, so price is set by the free anchor.",
+          "source": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y"
+        }
+      },
+      "feasibility": {
+        "build_effort": {
+          "score": 4,
+          "note": "Beta already live with 60+ users after ~2 months of building; paid plans only need billing.",
+          "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+        },
+        "skills_match": {
+          "score": 4.5,
+          "note": "Developers building a developer tool; scaling event storage is the only hard part.",
+          "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+        },
+        "capital_needed": {
+          "score": 5,
+          "note": "Near zero: a Hetzner CX11 costs EUR 3.79/month; no free tier keeps support cost down.",
+          "source": "https://www.vpsbenchmarks.com/trials/hetzner_performance_trial_25Feb2019"
+        }
+      },
+      "time_to_first_revenue": {
+        "time_to_mvp": {
+          "score": 4,
+          "note": "MVP exists (beta since Feb 2019); paid launch announced with pricing in April 2019.",
+          "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+        },
+        "sales_cycle": {
+          "score": 4.5,
+          "note": "Self-serve card checkout; one person decides and pastes a script, same day.",
+          "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+        },
+        "channel_readiness": {
+          "score": 3,
+          "note": "HN/Product Hunt launches proven for peers (Simple Analytics 40+ payers); no own audience.",
+          "source": "https://www.indiehackers.com/interview/how-i-started-a-business-with-two-lines-of-code-37f3d5348e"
+        }
+      },
+      "demand": {
+        "search_demand": {
+          "score": 3,
+          "note": "Active community demand: 'Migrating from Google Analytics' hit **352** HN points in Jan 2019.",
+          "source": "https://news.ycombinator.com/item?id=18810035"
+        },
+        "trend": {
+          "score": 4,
+          "note": "Rising: GDPR 2018, Safari ITP 2.1 (Feb 2019), 2 funded-by-customers peers launched in 2018.",
+          "source": "https://webkit.org/blog/8613/intelligent-tracking-prevention-2-1/"
+        },
+        "willingness_to_pay": {
+          "score": 3,
+          "note": "Peers charge, but proof is thin: Simple Analytics had ~$400 MRR from 40 customers.",
+          "source": "https://www.indiehackers.com/interview/how-i-started-a-business-with-two-lines-of-code-37f3d5348e"
+        }
+      },
+      "competition": {
+        "free_alternatives": {
+          "score": 2,
+          "note": "GA free, Matomo and Fathom open source; hosted convenience is the only paid gap. R5 cap.",
+          "source": "https://www.dannyvankooten.com/blog/2018/reviving-ana-as-fathom/"
+        },
+        "competitor_density": {
+          "score": 2.5,
+          "note": "Fathom and Simple Analytics launched 2018 for the same buyer, plus Matomo, GA, Clicky.",
+          "source": "https://www.producthunt.com/products/simple-analytics/launches"
+        },
+        "differentiation": {
+          "score": 2,
+          "note": "Same pitch as Fathom and Simple Analytics (simple, private); only edge is a **lower price**.",
+          "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+        }
+      },
+      "risk": {
+        "legal_regulatory": {
+          "score": 3,
+          "note": "IP is personal data (Breyer 2016); cookie-free avoids ePrivacy consent, but DPA work needed.",
+          "source": "https://curia.europa.eu/jcms/jcms/p1_236867/cs"
+        },
+        "platform_dependency": {
+          "score": 3,
+          "note": "Owns infra and data, but ad blockers (11% of users) may list the script and undercount.",
+          "source": "https://businesswire.com/news/home/20170131005878/en/PageFair-Reports-615-Million-Devices-World-Block"
+        },
+        "market_risk": {
+          "score": 4,
+          "note": "Durable, recurring need; privacy regulation is tightening, not a fad.",
+          "source": "https://www.orrick.com/en/Insights/2018/06/California-Governor-Signs-Significant-Data-Privacy-Bill-into-Law"
+        }
+      },
+      "fit": {
+        "skills": {
+          "score": 4,
+          "note": "Strong engineering; no marketing or sales track record in the evidence.",
+          "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+        },
+        "assets": {
+          "score": 1.5,
+          "note": "No audience, list or network; 60 beta users are the only asset.",
+          "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+        },
+        "interest": {
+          "score": 3.5,
+          "note": "Founder frames it as a privacy mission, but it runs as a side project.",
+          "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+        }
+      }
+    },
+    "metrics": {
+      "tam": {
+        "value": 720000000,
+        "unit": "USD/year",
+        "basis": "estimate",
+        "reasoning": "10M actively maintained small sites using an analytics tool x $72/year (12 x $6). Site count is an assumption; W3Techs gives shares, not counts."
+      },
+      "sam": {
+        "value": 7200000,
+        "unit": "USD/year",
+        "basis": "estimate",
+        "reasoning": "1% of TAM: privacy-conscious owners willing to pay for hosted analytics (assumption, anchored on Matomo's 1.2% share of sites)."
+      },
+      "som": {
+        "value": 72000,
+        "unit": "USD/year",
+        "basis": "estimate",
+        "reasoning": "1% of SAM in year 1 = ~1,000 customers at $6/month."
+      },
+      "competitors_found": {
+        "value": 5,
+        "unit": "competitors",
+        "basis": "sourced",
+        "source": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+        "as_of": "2019-01"
+      },
+      "competitor_price_range": {
+        "value": "about 10",
+        "unit": "USD/month",
+        "basis": "estimate",
+        "reasoning": "Simple Analytics $400 MRR / 40 customers = ~$10 per customer; Fathom hosted price before 2019-06 not found."
+      },
+      "demand_trend": {
+        "value": "rising",
+        "unit": null,
+        "basis": "sourced",
+        "source": "https://news.ycombinator.com/item?id=18810035",
+        "as_of": "2019-01"
+      },
+      "price": {
+        "value": 6,
+        "unit": "USD/month",
+        "basis": "sourced",
+        "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8",
+        "as_of": "2019-04"
+      },
+      "variable_cost_per_unit": {
+        "value": 0.55,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "reasoning": "Stripe 2.9% x 6 + EUR 0.25 (~$0.45) + hosting share ~$0.10 (EUR 3.79 box shared by ~40 small sites)."
+      },
+      "gross_margin_pct": {
+        "value": 90.8,
+        "unit": "%",
+        "basis": "estimate",
+        "reasoning": "(6 - 0.55) / 6 = 90.8%."
+      },
+      "churn_monthly_pct": {
+        "value": 6,
+        "unit": "%",
+        "basis": "estimate",
+        "reasoning": "Low-price subscription churn benchmark range ~5-7%/month (Recurly 2018 study); midpoint 6%."
+      },
+      "expected_lifetime": {
+        "value": 16.7,
+        "unit": "months",
+        "basis": "estimate",
+        "reasoning": "1 / 0.06 = 16.7 months."
+      },
+      "conversion_rate_pct": {
+        "value": 0.1,
+        "unit": "%",
+        "basis": "estimate",
+        "reasoning": "Launch-day visitors to paying: ~30-40 payers from ~30k HN visitors for a peer launch; assumed 0.1%."
+      },
+      "cac": {
+        "value": 40,
+        "unit": "USD",
+        "basis": "estimate",
+        "reasoning": "Organic: ~40 founder hours of launch posts and content for ~30 customers = 1.3 h x $30/h value = ~$40."
+      },
+      "ltv": {
+        "value": 90,
+        "unit": "USD",
+        "basis": "estimate",
+        "reasoning": "6 x 0.908 x 16.7 = $91, rounded to $90."
+      },
+      "ltv_cac": {
+        "value": 2.25,
+        "unit": null,
+        "basis": "estimate",
+        "reasoning": "90 / 40 = 2.25."
+      },
+      "payback_months": {
+        "value": 7.3,
+        "unit": "months",
+        "basis": "estimate",
+        "reasoning": "40 / (6 x 0.908 = 5.45) = 7.3 months."
+      },
+      "fixed_costs_month": {
+        "value": 50,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "reasoning": "2-3 servers (EUR 3.79 each), backups, email and domain, accounting for an Estonian OU: ~$50/month."
+      },
+      "break_even_customers_per_month": {
+        "value": 10,
+        "unit": "customers",
+        "basis": "estimate",
+        "reasoning": "50 / 5.45 = 9.2, rounded up to 10 paying customers (costs only; no founder salary)."
+      },
+      "time_to_first_revenue_weeks": {
+        "value": 4,
+        "unit": "weeks",
+        "basis": "estimate",
+        "reasoning": "Beta live with 60+ users and pricing announced (2019-04); converting beta users takes ~4 weeks."
+      }
+    },
+    "launch_country": "EE",
+    "launch_reason": "Estonia is the legal base (0% tax on retained profits, EU company for GDPR trust); customers are sold worldwide in English.",
+    "kill_shots": {
+      "free_alternative": true,
+      "strong_competitor": true,
+      "graveyard": false,
+      "no_distribution": false,
+      "costs_eat_margin": false,
+      "weak_demand": false,
+      "legal_platform_risk": false,
+      "saturated_wave": false
+    },
+    "primary_kill_shot": "strong_competitor",
+    "rules_applied": [
+      {
+        "rule": "R5_kill_shot_coherence",
+        "effect": "free_alternative hit: free_alternatives 2.5 -> 2; strong_competitor hit: competitor_density kept at 2.5 (<= 3)"
+      }
+    ],
+    "type_checks": [
+      {
+        "check": "churn_benchmark",
+        "result": "hit",
+        "note": "Low-price subscriptions churn ~5-7%/month (Recurly 2018 benchmarks, estimate range); a $6 plan needs volume to outrun churn. Shown in ltv_cac 2.5.",
+        "source": "https://recurly.com/blog/new-subscriber-churn-benchmarks-and-why-managing-churn-is-critical"
+      },
+      {
+        "check": "switching_cost",
+        "result": "hit",
+        "note": "GA is free, on 55.7% of all sites, and its history is not portable; many users will run both tools before paying. Shown in pricing_power 2.",
+        "source": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y"
+      }
+    ],
+    "cheapest_test": "Switch on paid plans for the 60+ beta users and post a Show HN the same week; count paying customers after 7 days.",
+    "kill_criteria": [
+      "Fewer than 10 paying customers 7 days after paid launch and Show HN -> rework positioning before more building",
+      "Under $300 MRR by day 90 -> stop or change price/segment",
+      "Monthly churn above 10% in the first 3 months -> fix onboarding before marketing"
+    ],
+    "rescue": [
+      {
+        "change": "Open-source the code (self-host free, hosted paid) and pitch it as transparent, EU-hosted analytics.",
+        "why": "Fixes differentiation (2 -> 3) and turns GitHub into a channel (channel_readiness 3 -> 3.5, assets 1.5 -> 2).",
+        "score_after": 70,
+        "difficulty": "doable",
+        "effort": "1-2 weeks",
+        "cost": "near zero",
+        "requires": "A licence choice (e.g. AGPL) and docs for self-hosting"
+      },
+      {
+        "change": "Add a multi-site agency plan at $12-36/month and sell to EU web agencies needing GDPR-safe analytics.",
+        "why": "Lifts pricing_power (2 -> 2.5) and willingness_to_pay (3 -> 3.5) with a higher ARPA buyer.",
+        "score_after": 70,
+        "difficulty": "hard",
+        "effort": "2-3 months",
+        "cost": "under $500",
+        "requires": "Outbound sales time, a DPA template and agency features (client reports)"
+      },
+      {
+        "change": "Make one founder full-time on content and SEO around 'Google Analytics alternative' and GDPR.",
+        "why": "Builds an owned channel (channel_readiness 3 -> 3.5, assets 1.5 -> 2.5) instead of one launch spike.",
+        "score_after": 69,
+        "difficulty": "hard",
+        "effort": "6+ months",
+        "cost": "a founder's time",
+        "requires": "Writing skill and patience; savings to cover the income gap"
+      }
+    ],
+    "sources": [
+      "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+      "https://w3techs.com/blog/entry/web_technologies_of_the_year_2018",
+      "https://www.dannyvankooten.com/blog/2018/reviving-ana-as-fathom/",
+      "https://www.producthunt.com/products/fathom-analytics/launches",
+      "https://www.producthunt.com/products/simple-analytics/launches",
+      "https://hunted.space/product/fathom-analytics/launches/fathom-analytics-pro",
+      "https://www.indiehackers.com/interview/how-i-started-a-business-with-two-lines-of-code-37f3d5348e",
+      "https://dev.to/ukutaht/i-m-launching-plausible-17f8",
+      "https://www.indiehackers.com/post/show-ih-plausible-simple-privacy-focused-web-analytics-e0d8e20622",
+      "https://news.ycombinator.com/item?id=18810035",
+      "https://news.ycombinator.com/item?id=19388489",
+      "https://businesswire.com/news/home/20170131005878/en/PageFair-Reports-615-Million-Devices-World-Block",
+      "https://www.hoganlovells.com/en/publications/article-29-working-party-publishes-opinion-on-cookie-consent-exemptions",
+      "https://webkit.org/blog/8613/intelligent-tracking-prevention-2-1/",
+      "https://www.macrumors.com/2019/02/21/safari-ios-12-2-intelligent-tracking-prevention/",
+      "https://www.orrick.com/en/Insights/2018/06/California-Governor-Signs-Significant-Data-Privacy-Bill-into-Law",
+      "https://www.vpsbenchmarks.com/trials/hetzner_performance_trial_25Feb2019",
+      "https://bankinnovation.net/2015/12/adyen-might-be-to-blame-for-stripe-pricing-cuts-in-europe/",
+      "https://curia.europa.eu/jcms/jcms/p1_236867/cs",
+      "https://twobirds.com/en/insights/2016/global/cjeu-decision-on-dynamic-ip-addresses-touches-fundamental-dp-law-questions",
+      "https://www.insideprivacy.com/international/cjeu-confirms-dynamic-ip-addresses-to-be-personal-data/",
+      "https://twobirds.com/en/insights/2017/global/eprivacy-regulation-alert",
+      "https://www.dataprotectionreport.com/?p=3283",
+      "https://iapp.org/news/a/the-top-5-contested-issues-in-the-eus-developing-eprivacy-regulation",
+      "https://www.edps.europa.eu/sites/default/files/publication/17-04-24_eprivacy_en.pdf",
+      "https://recurly.com/blog/new-subscriber-churn-benchmarks-and-why-managing-churn-is-critical",
+      "https://www.pwc.com/ee/en/insights/assets/maksuteave/PwC_Tax_Alert_Issue35_January2018.pdf",
+      "https://ehrl.ee/wp-content/uploads/2018/06/Andmekaitseteemaline-info-andmekaitseinspektsioon.pdf",
+      "https://assets.kpmg.com/content/dam/kpmg/xx/pdf/2018/06/country-profile-estonia-2018.pdf"
+    ],
+    "run": {
+      "started": "2026-11-11T09:30:16Z",
+      "minutes": 8,
+      "searches": 38,
+      "fetches": 17,
+      "subagents": 4
+    }
+  },
+  "narrative": {
+    "language": "en",
+    "answer": "**PIVOT, 69/100**, one point short of GO. Cheap to build and run with ~90% margins and rising privacy demand, but Fathom and Simple Analytics launched the **same pitch** in 2018 and GA is free.",
+    "tldr": [
+      "Unit economics work: ~90% gross margin, near-zero capital, self-serve sales.",
+      "Demand is real and rising (GDPR, Safari ITP 2.1, 352-point HN thread), but willingness to pay is barely proven.",
+      "Late third entrant with no edge but price; open-sourcing it is the cheapest way to stand out."
+    ],
+    "key_findings": [
+      {
+        "title": "Two look-alikes launched first in 2018",
+        "detail": "Fathom (Product Hunt #2, **2018-06**) and Simple Analytics (#3, 2018-09) sell the same simple, private analytics to the same indie buyers.",
+        "source": "https://www.producthunt.com/products/fathom-analytics/launches"
+      },
+      {
+        "title": "Free Google Analytics anchors price at zero",
+        "detail": "GA runs on **55.7%** of all websites (W3Techs, 2019-01); Matomo and Fathom are free to self-host.",
+        "source": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y"
+      },
+      {
+        "title": "Privacy demand is rising, proof of payment thin",
+        "detail": "A 'Migrating from Google Analytics' thread drew **352** HN points (2019-01), yet the best peer had ~$400 MRR from 40 customers.",
+        "source": "https://news.ycombinator.com/item?id=18810035"
+      }
+    ],
+    "recommendation": "Launch paid plans now, but open-source the code and position it as transparent EU analytics; drop it if fewer than 10 beta users pay within 7 days.",
+    "steelman": "Regulation (GDPR, ITP 2.1, CCPA) is pushing site owners off GA, the product is already built with 60+ beta users, and costs are so low that a few hundred customers is a profitable business. Evidence supports the tailwind and margins; it does not yet show demand beyond a few hundred dollars of MRR per player.",
+    "premortem": [
+      {
+        "cause": "Fathom and Simple Analytics own the niche; a cheaper copy gets no word of mouth.",
+        "linked_to": "differentiation",
+        "likelihood": "H",
+        "early_signal": "Fewer than 20 paying customers 30 days after the paid launch and Show HN."
+      },
+      {
+        "cause": "Free GA keeps buyers: users install it alongside GA, never pay, and leave after the trial.",
+        "linked_to": "free_alternative",
+        "likelihood": "M",
+        "early_signal": "Trial-to-paid below 10% of the 60 beta users by day 30."
+      },
+      {
+        "cause": "Side-project hours stall marketing after the launch spike; MRR plateaus at a hobby level.",
+        "linked_to": "channel_readiness",
+        "likelihood": "M",
+        "early_signal": "New sign-ups fall under 5 per week after launch week."
+      }
+    ],
+    "why_now": {
+      "verdict": "now",
+      "changes": [
+        {
+          "what": "Safari ITP 2.1 caps client-side cookies at 7 days, breaking GA's returning-visitor counts; cookie-free tools are unaffected.",
+          "when": "2019-02",
+          "source": "https://webkit.org/blog/8613/intelligent-tracking-prevention-2-1/"
+        },
+        {
+          "what": "California signs CCPA, a second big privacy law after GDPR (2018-05), effective 2020.",
+          "when": "2018-06",
+          "source": "https://www.orrick.com/en/Insights/2018/06/California-Governor-Signs-Significant-Data-Privacy-Bill-into-Law"
+        },
+        {
+          "what": "The proposed ePrivacy Regulation would exempt only first-party audience measurement from consent.",
+          "when": "2017-01",
+          "source": "https://twobirds.com/en/insights/2017/global/eprivacy-regulation-alert"
+        },
+        {
+          "what": "CJEU Breyer: dynamic IP addresses can be personal data, raising GA's compliance burden.",
+          "when": "2016-10",
+          "source": "https://curia.europa.eu/jcms/jcms/p1_236867/cs"
+        },
+        {
+          "what": "Developers publicly migrate off GA, citing ad blockers and GDPR (352-point HN thread).",
+          "when": "2019-01",
+          "source": "https://news.ycombinator.com/item?id=18810035"
+        }
+      ],
+      "note": "Regulation and browser changes in 2016-2019 opened the window, but 2 peers entered in 2018, so it is closing fast."
+    },
+    "icp": {
+      "who": "Indie developers, bloggers and small SaaS founders (1-10 people), often in the EU, running 1-5 sites under 100k pageviews/month.",
+      "where": [
+        "Hacker News (Show HN)",
+        "Indie Hackers",
+        "Product Hunt",
+        "dev.to",
+        "Developer Twitter"
+      ],
+      "pays_for_today": "Mostly nothing (Google Analytics free); a few pay Fathom or Simple Analytics (~$10/month, estimate).",
+      "budget": "About $5-15/month per site (estimate from peer ARPA of ~$10).",
+      "trigger": "GDPR cookie-banner work, an ad blocker hiding their traffic, or a privacy stance on their own product."
+    },
+    "kill_shots": {
+      "free_alternative": {
+        "evidence": "Google Analytics is free on 55.7% of all sites (2019-01); Matomo (1.2%) and Fathom v1 (2018-05) are free open source.",
+        "source": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+        "count": 3
+      },
+      "strong_competitor": {
+        "evidence": "3+ paid tools for the same buyer: Fathom (Product Hunt #2 of the day, 2018-06), Simple Analytics (#3, 2018-09; 40+ payers), Matomo (1.2% of all websites).",
+        "source": "https://www.producthunt.com/products/fathom-analytics/launches",
+        "count": 3
+      },
+      "graveyard": {
+        "evidence": "Searched analytics shut-downs and post-mortems before 2019-06; no dated SaaS failure in this niche found.",
+        "source": null
+      },
+      "no_distribution": {
+        "evidence": "Clear: HN and Product Hunt launches gave Simple Analytics 40+ paying customers; Plausible already has 60+ beta users from Indie Hackers.",
+        "source": "https://www.indiehackers.com/interview/how-i-started-a-business-with-two-lines-of-code-37f3d5348e"
+      },
+      "costs_eat_margin": {
+        "evidence": "Clear: EUR 3.79/month server and ~7.5% Stripe fees leave ~90% gross margin on $6.",
+        "source": "https://www.vpsbenchmarks.com/trials/hetzner_performance_trial_25Feb2019"
+      },
+      "weak_demand": {
+        "evidence": "Clear: 352-point HN thread on leaving GA (2019-01) and a 284-point thread (2019-03) show rising demand.",
+        "source": "https://news.ycombinator.com/item?id=18810035"
+      },
+      "legal_platform_risk": {
+        "evidence": "Clear with work: cookie-free avoids ePrivacy consent, but IPs are personal data (Breyer, 2016) and ad blockers (11% of users) may block the script.",
+        "source": "https://curia.europa.eu/jcms/jcms/p1_236867/cs"
+      },
+      "saturated_wave": {
+        "evidence": "Clear: 3 near-identical launches found (Fathom, Fathom PRO, Simple Analytics) in 2018-06 to 2019-06, under the 10 threshold.",
+        "source": "https://hunted.space/product/fathom-analytics/launches/fathom-analytics-pro",
+        "count": 3,
+        "window": "2018-06 to 2019-06"
+      }
+    },
+    "customer": {
+      "segment": "Privacy-minded indie developers and small site owners",
+      "pain": "GA is heavy, needs a cookie banner under EU rules and is blocked by ad blockers.",
+      "today": "Google Analytics for free, self-hosted Matomo, or ~$10/month Fathom / Simple Analytics."
+    },
+    "use_cases": [
+      {
+        "name": "Indie blog and SaaS landing-page stats without a cookie banner",
+        "who_pays": "Indie founder, $6/month",
+        "effort": "Paste one script",
+        "best": true
+      },
+      {
+        "name": "Agency running GDPR-safe analytics for many client sites",
+        "who_pays": "Web agency, $12-36/month",
+        "effort": "Multi-site dashboard and reports",
+        "best": false
+      },
+      {
+        "name": "Open-source projects and docs sites",
+        "who_pays": "Maintainers, often unpaid",
+        "effort": "Low",
+        "best": false
+      }
+    ],
+    "competitors": [
+      {
+        "name": "Google Analytics",
+        "url": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "free": true,
+        "traction": 5,
+        "traction_note": "55.7% of all websites (W3Techs, 2019-01)",
+        "gap": "Cookies, consent banner, heavy UI, blocked by ad blockers",
+        "country": "US",
+        "price_source": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+        "price_period": "month",
+        "price_as_of": "2019-01"
+      },
+      {
+        "name": "Matomo (Piwik)",
+        "url": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "free": true,
+        "traction": 4,
+        "traction_note": "1.2% of all websites, flat (W3Techs, 2019-01)",
+        "gap": "Self-hosting effort; GA-like complexity",
+        "country": "NZ",
+        "price_source": null,
+        "price_period": null,
+        "price_as_of": null
+      },
+      {
+        "name": "Fathom Analytics",
+        "url": "https://www.dannyvankooten.com/blog/2018/reviving-ana-as-fathom/",
+        "price_low": null,
+        "price_high": null,
+        "currency": "USD",
+        "free": true,
+        "traction": 3,
+        "traction_note": "Product Hunt #2 of the day (2018-06); open source v1 + hosted PRO (2018-09)",
+        "gap": "Founder change in 2019-03; same pitch",
+        "country": "CA",
+        "price_source": null,
+        "price_period": "month",
+        "price_as_of": null
+      },
+      {
+        "name": "Simple Analytics",
+        "url": "https://www.indiehackers.com/interview/how-i-started-a-business-with-two-lines-of-code-37f3d5348e",
+        "price_low": 10,
+        "price_high": null,
+        "currency": "USD",
+        "free": false,
+        "traction": 2,
+        "traction_note": "40+ paying, ~$400 MRR after HN #1 launch (2018)",
+        "gap": "Closed source; price ~$10 (estimate from MRR / customers)",
+        "country": "NL",
+        "price_source": null,
+        "price_period": "month",
+        "price_as_of": "2018"
+      },
+      {
+        "name": "Yandex.Metrica",
+        "url": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+        "price_low": 0,
+        "price_high": 0,
+        "currency": "USD",
+        "free": true,
+        "traction": 4,
+        "traction_note": "5.1% of all websites (W3Techs, 2019-01)",
+        "gap": "Session recording and tracking, worse on privacy than GA",
+        "country": "RU",
+        "price_source": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+        "price_period": "month",
+        "price_as_of": "2019-01"
+      }
+    ],
+    "fact_checks": [
+      {
+        "claim": "privacy-friendly",
+        "status": "partly",
+        "evidence": "True if raw IPs are never stored: under Breyer (2016) a dynamic IP can be personal data.",
+        "source": "https://curia.europa.eu/jcms/jcms/p1_236867/cs"
+      },
+      {
+        "claim": "cookie-free",
+        "status": "true",
+        "evidence": "No cookies means ePrivacy art. 5(3) consent should not apply; WP194 says analytics cookies do need consent.",
+        "source": "https://www.hoganlovells.com/en/publications/article-29-working-party-publishes-opinion-on-cookie-consent-exemptions"
+      },
+      {
+        "claim": "Founder: two developers",
+        "status": "partly",
+        "evidence": "The April 2019 launch post describes a solo founder; a second person is not in evidence before 2019-06.",
+        "source": "https://dev.to/ukutaht/i-m-launching-plausible-17f8"
+      }
+    ],
+    "currency": "USD",
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "customers_month": 30,
+        "revenue_month": 180,
+        "costs_month": 67,
+        "note": "Only part of the beta converts; churn 8%"
+      },
+      {
+        "name": "Base",
+        "customers_month": 150,
+        "revenue_month": 900,
+        "costs_month": 133,
+        "note": "Show HN + content; 6% churn; $0.55 variable + $50 fixed"
+      },
+      {
+        "name": "Optimistic",
+        "customers_month": 600,
+        "revenue_month": 4800,
+        "costs_month": 500,
+        "note": "Mix shifts to $12 plans after open-sourcing; HN front page"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Ad-block lists (EasyPrivacy) add the script domain, undercounting customers' traffic",
+        "likelihood": "M",
+        "impact": "H",
+        "mitigation": "Custom-domain proxy option for the script",
+        "source": "https://businesswire.com/news/home/20170131005878/en/PageFair-Reports-615-Million-Devices-World-Block"
+      },
+      {
+        "risk": "ePrivacy Regulation final text drops or narrows the analytics exemption",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Stay cookie-free, store no IPs, offer a DPA",
+        "source": "https://iapp.org/news/a/the-top-5-contested-issues-in-the-eus-developing-eprivacy-regulation"
+      },
+      {
+        "risk": "Fathom or Simple Analytics cuts price to $5 or adds a free tier",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Compete on openness and EU hosting, not price",
+        "source": "https://www.dannyvankooten.com/blog/2018/reviving-ana-as-fathom/"
+      },
+      {
+        "risk": "Side-project time stalls support and features",
+        "likelihood": "H",
+        "impact": "M",
+        "mitigation": "Set a revenue target that triggers going full-time",
+        "source": null
+      }
+    ],
+    "test_plan": [
+      {
+        "when": "Day 1",
+        "step": "Turn on billing and email the 60+ beta users with the 1/3 beta discount",
+        "verify": "At least 60 emails sent, 20+ opened"
+      },
+      {
+        "when": "Day 2",
+        "step": "Post a Show HN and an Indie Hackers update with the open-source repo",
+        "verify": "50+ HN points or 500+ landing visits"
+      },
+      {
+        "when": "Day 3-5",
+        "step": "Reply to every comment; collect objections versus Fathom and Simple Analytics",
+        "verify": "At least 10 written objections logged"
+      },
+      {
+        "when": "Day 7",
+        "step": "Count paying customers and trial starts",
+        "verify": "10+ paying customers -> keep going; fewer -> rework positioning"
+      }
+    ],
+    "rescue": [
+      {
+        "change": "Open-source the code (self-host free, hosted paid) and pitch it as transparent, EU-hosted analytics.",
+        "why": "Fixes differentiation (2 -> 3) and turns GitHub into a channel (channel_readiness 3 -> 3.5, assets 1.5 -> 2).",
+        "score_after": 70,
+        "difficulty": "doable",
+        "effort": "1-2 weeks",
+        "cost": "near zero",
+        "requires": "A licence choice (e.g. AGPL) and docs for self-hosting"
+      },
+      {
+        "change": "Add a multi-site agency plan at $12-36/month and sell to EU web agencies needing GDPR-safe analytics.",
+        "why": "Lifts pricing_power (2 -> 2.5) and willingness_to_pay (3 -> 3.5) with a higher ARPA buyer.",
+        "score_after": 70,
+        "difficulty": "hard",
+        "effort": "2-3 months",
+        "cost": "under $500",
+        "requires": "Outbound sales time, a DPA template and agency features (client reports)"
+      },
+      {
+        "change": "Make one founder full-time on content and SEO around 'Google Analytics alternative' and GDPR.",
+        "why": "Builds an owned channel (channel_readiness 3 -> 3.5, assets 1.5 -> 2.5) instead of one launch spike.",
+        "score_after": 69,
+        "difficulty": "hard",
+        "effort": "6+ months",
+        "cost": "a founder's time",
+        "requires": "Writing skill and patience; savings to cover the income gap"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://w3techs.com/technologies/history_overview/traffic_analysis/all/y",
+        "title": "W3Techs, Usage history of traffic analysis tools (1 Jan 2019 row)",
+        "supports": "GA 55.7% of all websites, Matomo 1.2%, none 35.1% (2019-01-01)",
+        "published": "2019-01",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://w3techs.com/blog/entry/web_technologies_of_the_year_2018",
+        "title": "W3Techs, Web technologies of the year 2018",
+        "supports": "GA wins traffic analysis category 7th time in 9 years",
+        "published": "2019-01",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.dannyvankooten.com/blog/2018/reviving-ana-as-fathom/",
+        "title": "Danny van Kooten, Reviving Ana as Fathom",
+        "supports": "Fathom open source + hosted offering, May 2018",
+        "published": "2018-05-12",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.producthunt.com/products/fathom-analytics/launches",
+        "title": "Product Hunt, Fathom Analytics launches",
+        "supports": "Fathom launch 2018-06-12, #2 Product of the Day",
+        "published": "2018-06",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.producthunt.com/products/simple-analytics/launches",
+        "title": "Product Hunt, Simple Analytics launches",
+        "supports": "Simple Analytics launch 2018-09, #3 of the day",
+        "published": "2018-09",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://hunted.space/product/fathom-analytics/launches/fathom-analytics-pro",
+        "title": "Hunted.space, Fathom Analytics PRO launch",
+        "supports": "Fathom PRO hosted launch 2018-09-18",
+        "published": "2018-09",
+        "tier": "tertiary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.indiehackers.com/interview/how-i-started-a-business-with-two-lines-of-code-37f3d5348e",
+        "title": "Indie Hackers, How I started a business with two lines of code (Simple Analytics)",
+        "supports": "40+ paying customers, MRR over $400 after HN #1 launch",
+        "published": "2018",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://dev.to/ukutaht/i-m-launching-plausible-17f8",
+        "title": "Uku Taht, I'm launching Plausible (dev.to repost)",
+        "supports": "$6/mo to 10k pageviews; 60+ beta users; solo founder; no free tier",
+        "published": "2019-05-09",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.indiehackers.com/post/show-ih-plausible-simple-privacy-focused-web-analytics-e0d8e20622",
+        "title": "Indie Hackers, Show IH: Plausible, simple privacy-focused web analytics",
+        "supports": "Public beta shown to Indie Hackers, Jan 2019",
+        "published": "2019-01-24",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=18810035",
+        "title": "Hacker News, Migrating from Google Analytics",
+        "supports": "352 points, 104 comments; adblock and GDPR complaints about GA",
+        "published": "2019-01-02",
+        "tier": "tertiary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=19388489",
+        "title": "Hacker News, Roll Your Own Analytics",
+        "supports": "284 points; Fathom recommended; companies switching off GA",
+        "published": "2019-03-14",
+        "tier": "tertiary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://businesswire.com/news/home/20170131005878/en/PageFair-Reports-615-Million-Devices-World-Block",
+        "title": "PageFair via Business Wire, 615 million devices block ads",
+        "supports": "Ad blocking on 11% of the online population, +30% y/y (2016)",
+        "published": "2017-01-31",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.hoganlovells.com/en/publications/article-29-working-party-publishes-opinion-on-cookie-consent-exemptions",
+        "title": "Hogan Lovells, Article 29 WP opinion on cookie consent exemptions",
+        "supports": "First-party analytics cookies not exempt from consent (WP194)",
+        "published": "2012-06",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://webkit.org/blog/8613/intelligent-tracking-prevention-2-1/",
+        "title": "WebKit, Intelligent Tracking Prevention 2.1",
+        "supports": "Client-side cookies capped at 7 days in Safari, Feb 2019",
+        "published": "2019-02-21",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.macrumors.com/2019/02/21/safari-ios-12-2-intelligent-tracking-prevention/",
+        "title": "MacRumors, Safari ITP in iOS 12.2",
+        "supports": "ITP 2.1 coverage",
+        "published": "2019-02-21",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.orrick.com/en/Insights/2018/06/California-Governor-Signs-Significant-Data-Privacy-Bill-into-Law",
+        "title": "Orrick, California Governor signs data privacy bill (CCPA)",
+        "supports": "CCPA signed 2018-06-28, effective 2020",
+        "published": "2018-06",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.vpsbenchmarks.com/trials/hetzner_performance_trial_25Feb2019",
+        "title": "VPSBenchmarks, Hetzner performance trial",
+        "supports": "Hetzner CX11 EUR 3.79 / USD 4.43 per month",
+        "published": "2019-02-25",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://bankinnovation.net/2015/12/adyen-might-be-to-blame-for-stripe-pricing-cuts-in-europe/",
+        "title": "Bank Innovation, Stripe pricing cuts in Europe",
+        "supports": "Stripe EU cards 1.4% + EUR 0.25",
+        "published": "2015-12",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://curia.europa.eu/jcms/jcms/p1_236867/cs",
+        "title": "CJEU press release, Breyer C-582/14",
+        "supports": "Dynamic IP address can be personal data",
+        "published": "2016-10-19",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://twobirds.com/en/insights/2016/global/cjeu-decision-on-dynamic-ip-addresses-touches-fundamental-dp-law-questions",
+        "title": "Bird & Bird, CJEU decision on dynamic IP addresses",
+        "supports": "Breyer commentary",
+        "published": "2016-10",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.insideprivacy.com/international/cjeu-confirms-dynamic-ip-addresses-to-be-personal-data/",
+        "title": "Covington Inside Privacy, CJEU confirms dynamic IP addresses are personal data",
+        "supports": "Breyer commentary",
+        "published": "2016-10",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://twobirds.com/en/insights/2017/global/eprivacy-regulation-alert",
+        "title": "Bird & Bird, ePrivacy Regulation alert",
+        "supports": "Proposal art. 8(1)(d) exempts first-party web audience measuring",
+        "published": "2017-01",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.dataprotectionreport.com/?p=3283",
+        "title": "Data Protection Report, ePrivacy Regulation proposal",
+        "supports": "Exemption covers only first-party analytics",
+        "published": "2017",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://iapp.org/news/a/the-top-5-contested-issues-in-the-eus-developing-eprivacy-regulation",
+        "title": "IAPP, Top 5 contested issues in the ePrivacy Regulation",
+        "supports": "Analytics exemption still contested in 2017 drafts",
+        "published": "2017",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.edps.europa.eu/sites/default/files/publication/17-04-24_eprivacy_en.pdf",
+        "title": "EDPS, Opinion 6/2017 on the ePrivacy Regulation",
+        "supports": "Primary text on the analytics exception",
+        "published": "2017-04-24",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://recurly.com/blog/new-subscriber-churn-benchmarks-and-why-managing-churn-is-critical",
+        "title": "Recurly Research, New subscriber churn benchmarks",
+        "supports": "2017 churn benchmarks across subscription businesses",
+        "published": "2018-09-05",
+        "tier": "primary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://www.pwc.com/ee/en/insights/assets/maksuteave/PwC_Tax_Alert_Issue35_January2018.pdf",
+        "title": "PwC Estonia, Tax Alert Issue 35 (January 2018)",
+        "supports": "Estonian 0% tax on retained profits; 20/80 and 14/86 on distributions from 2018",
+        "published": "2018-01",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://ehrl.ee/wp-content/uploads/2018/06/Andmekaitseteemaline-info-andmekaitseinspektsioon.pdf",
+        "title": "Andmekaitse Inspektsioon, data protection info (Estonia, June 2018)",
+        "supports": "Estonian DPA guidance on applying GDPR from 2018-05-25",
+        "published": "2018-06",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      },
+      {
+        "url": "https://assets.kpmg.com/content/dam/kpmg/xx/pdf/2018/06/country-profile-estonia-2018.pdf",
+        "title": "KPMG, Estonia country profile 2018",
+        "supports": "Estonian corporate tax regime 2018",
+        "published": "2018-06",
+        "tier": "secondary",
+        "accessed": "2026-11-11"
+      }
+    ]
+  }
+}

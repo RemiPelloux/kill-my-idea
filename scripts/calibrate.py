@@ -47,7 +47,7 @@ def verdicts(roots):
 
 
 def rescore(v, weights):
-    """The score with other weights, the same rounding and the same total caps (R2, R6)."""
+    """The score under today's rules (R2, R6, R7, quick), optionally with other weights."""
     cd = v.get("criteria_detail")
     if not isinstance(cd, dict):
         return None
@@ -59,6 +59,11 @@ def rescore(v, weights):
         total += w * (sum(subs) / 3) / 5
     total = total * 100 / sum(weights.values())
     score = chk.round_half_up(total)
+    profit = sum(cd["profit"][s]["score"] for s in chk.SUBS["profit"]) / 3
+    if profit <= 2 + 1e-9:
+        score = min(score - 10, 49)  # R7
+    if v.get("quick") is True:
+        score = min(score, 69)
     ks = v.get("kill_shots") or {}
     lc = ((v.get("metrics") or {}).get("ltv_cac") or {}).get("value")
     if ks.get("no_distribution") is True:
@@ -69,7 +74,12 @@ def rescore(v, weights):
 
 
 def report(vs, weights=None):
-    scores = [rescore(v, weights) if weights else v["score"] for v in vs]
+    """Scores are always recomputed from the sub-scores under today's rules, so verdicts written
+    by an older version are judged by the current rules."""
+    scores = [rescore(v, weights or dict(chk.WEIGHTS)) for v in vs]
+    older = sum(1 for v, s in zip(vs, scores) if s is not None and s != v.get("score"))
+    if older and not weights:
+        print(f"{older} verdict(s) were written under older rules: their scores are recomputed here")
     pairs = [(v, s) for v, s in zip(vs, scores) if s is not None]
     scores = [s for _, s in pairs]
     if not scores:

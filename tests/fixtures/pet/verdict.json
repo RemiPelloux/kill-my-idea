@@ -4,7 +4,7 @@
   "evaluated": "2026-11-11",
   "mode": "kill",
   "verdict": "NO-GO",
-  "score": 49,
+  "score": 43,
   "score_raw": 53.2,
   "confidence": {
     "level": "high",
@@ -290,6 +290,10 @@
     {
       "rule": "R6_unprofitable_no_channel",
       "effect": "total 53 capped at 49: LTV:CAC 0.32 and paid TikTok costs more than a customer brings"
+    },
+    {
+      "rule": "R7_unprofitable_model",
+      "effect": "Profit potential 1.50 (2 or less): 53 - 10 = 43, capped at 49 -> 43 (was 49)"
     }
   ],
   "cheapest_test": "7 days on a new pet TikTok account, 2 videos/day reviewing pet products, $0 spent: proves whether you can earn attention before paying for it.",

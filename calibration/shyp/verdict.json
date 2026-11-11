@@ -1,0 +1,377 @@
+{
+  "schema_version": "1.0",
+  "slug": "shyp",
+  "evaluated": "2026-11-11",
+  "as_of": "2014-03-01",
+  "mode": "kill",
+  "verdict": "PIVOT",
+  "score": 59,
+  "score_raw": 59.0,
+  "confidence": {
+    "level": "high",
+    "sourced_subscores": 18,
+    "sources": 25,
+    "primary_sources": 7,
+    "note": "Unit costs are estimates: no pre-2014 source for SF courier wages, packing costs or Shyp order density"
+  },
+  "criteria": {
+    "profit": 1.5,
+    "feasibility": 3.5,
+    "time_to_first_revenue": 4.5,
+    "demand": 3.0,
+    "competition": 3.5,
+    "risk": 3.0,
+    "fit": 3.0
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 1,
+        "note": "Est. -$3.4/order: $6.32 revenue vs ~$9.70 courier, packing and card cost; costs_eat_margin hit (R5 <=2)",
+        "source": "https://www.govinfo.gov/content/pkg/FR-2013-11-20/html/2013-27728.htm"
+      },
+      "ltv_cac": {
+        "score": 1,
+        "note": "Negative contribution per order makes LTV negative against an est. $30 CAC",
+        "source": "https://www.globenewswire.com/news-release/2013/06/27/1033422/0/en/Mobile-App-Downloads-Climb-While-Costs-Drop-Find-New-Fiksu-Indexes.html?print=1"
+      },
+      "pricing_power": {
+        "score": 2.5,
+        "note": "Free USPS pickup anchors pickup at $0; Shyp itself waives the $5 fee for 2+ items",
+        "source": "https://about.usps.com/news/state-releases/ny/2013/ny_2013_1226d.htm"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 3,
+        "note": "App plus courier ops plus packing hub; private beta already running with ~10 couriers",
+        "source": "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/"
+      },
+      "skills_match": {
+        "score": 3.5,
+        "note": "Seed-funded team already operating a beta in SF; ops scaling skill unproven",
+        "source": "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/"
+      },
+      "capital_needed": {
+        "score": 3.5,
+        "note": "$2.1M seed covers a one-city launch; multi-city ops need far more",
+        "source": "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 4.5,
+        "note": "Paid private beta live in SF by 2013-09",
+        "source": "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/"
+      },
+      "sales_cycle": {
+        "score": 5,
+        "note": "Consumer impulse purchase: tap, pickup, pay the same day",
+        "source": null
+      },
+      "channel_readiness": {
+        "score": 3.5,
+        "note": "SF tech press and investor audience; iPhone loyal-user cost $1.33-1.90 in 2013",
+        "source": "https://www.globenewswire.com/news-release/2013/10/01/1033525/0/en/Fiksu-Indexes-Mobile-App-Marketing-Costs-Hit-Record-High-in-August.html?print=1"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 3,
+        "note": "USPS ships ~3.7B parcels a year (est.); no app keyword data found",
+        "source": "https://about.usps.com/news/national-releases/2013/pr13_087.pdf"
+      },
+      "trend": {
+        "score": 4,
+        "note": "USPS package volume +6% FY2013; US e-commerce +16.9% in 2013",
+        "source": "https://www2.census.gov/historical/ecomm/13q4.pdf"
+      },
+      "willingness_to_pay": {
+        "score": 2.5,
+        "note": "Pickup is free from USPS; no evidence of a paid waitlist or price rises",
+        "source": "https://about.usps.com/news/state-releases/ny/2013/ny_2013_1226d.htm"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 3,
+        "note": "USPS free pickup and boxes cover part of the job; the user still packs and prints",
+        "source": "https://about.usps.com/news/state-releases/ny/2013/ny_2013_1226d.htm"
+      },
+      "competitor_density": {
+        "score": 4,
+        "note": "No direct pickup-pack-ship rival found; Postmates and TaskRabbit are adjacent",
+        "source": "https://techcrunch.com/2012/06/21/taskrabbit-on-demand-deliver-now-service/amp/"
+      },
+      "differentiation": {
+        "score": 3,
+        "note": "Packing plus pickup bundle is specific, but Postmates has ~900 SF couriers to copy it",
+        "source": "https://www.theregister.co.uk/2014/02/18/postmates_funding/"
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 2,
+        "note": "Per-pickup contractors in CA amid driver class actions; packer owns hazmat screening",
+        "source": "https://www.sommerspc.com/blog/2013/10/sommers-schwartz-attorneys-obtain-nationwide-class-certification-for-delivery-drivers/"
+      },
+      "platform_dependency": {
+        "score": 3.5,
+        "note": "Relies on carrier rates and terms (UPS +4.9% in 2014); no Apple cut on services",
+        "source": "https://blog.ordoro.com/2013/11/22/ups-2014-rate-increase/"
+      },
+      "market_risk": {
+        "score": 3.5,
+        "note": "Shipping is a durable need; on-demand errands like Exec stalled outside SF",
+        "source": "https://techcrunch.com/2013/09/10/rip-lazy-times"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 3,
+        "note": "Seed-funded founding team; no prior logistics track record found",
+        "source": null
+      },
+      "assets": {
+        "score": 3,
+        "note": "Investor network (Homebrew, Tim Ferriss) gives press and reach",
+        "source": "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/"
+      },
+      "interest": {
+        "score": 3,
+        "note": "Founder motivation not documented in sources",
+        "source": null
+      }
+    }
+  },
+  "metrics": {
+    "tam": {
+      "value": 12.5,
+      "unit": "USD bn/year",
+      "basis": "sourced",
+      "as_of": "2013-09",
+      "source": "https://about.usps.com/news/national-releases/2013/pr13_087.pdf"
+    },
+    "sam": {
+      "value": 28,
+      "unit": "USD m/year",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "SF ~840k residents x 56% smartphone = 470k x 1 parcel/month x $5 fee x 12 = $28M fee revenue"
+    },
+    "som": {
+      "value": 0.5,
+      "unit": "USD m/year",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "4.7k-14k early users (1-3% of SF smartphone adults) x 1 order/month x $5 x 12 = $0.3-0.84M, midpoint ~$0.5M"
+    },
+    "competitors_found": {
+      "value": 0,
+      "unit": "direct competitors (7 adjacent)",
+      "basis": "sourced",
+      "as_of": "2014-03",
+      "source": "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/"
+    },
+    "competitor_price_range": {
+      "value": "USD 0 (USPS pickup) to 10 (TaskRabbit Deliver Now flat)",
+      "unit": "USD per pickup",
+      "basis": "sourced",
+      "as_of": "2014-03",
+      "source": "https://techcrunch.com/2012/06/21/taskrabbit-on-demand-deliver-now-service/amp/"
+    },
+    "demand_trend": {
+      "value": "rising",
+      "unit": null,
+      "basis": "sourced",
+      "as_of": "2013-09",
+      "source": "https://about.usps.com/news/national-releases/2013/pr13_087.pdf"
+    },
+    "price": {
+      "value": 5,
+      "unit": "USD per pickup + postage",
+      "basis": "sourced",
+      "as_of": "2013-09",
+      "source": "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/"
+    },
+    "variable_cost_per_unit": {
+      "value": 8.38,
+      "unit": "USD/order",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "courier batched mid $4.9 + packing mid ~$4 + card fee $0.79 = $9.70, minus $1.32 postage spread kept (11% Commercial Base x $12) = $8.38 net"
+    },
+    "gross_margin_pct": {
+      "value": -68,
+      "unit": "%",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "($5 fee - $8.38 net variable cost) / $5 = -68%; contribution -$3.38 per order"
+    },
+    "churn_monthly_pct": {
+      "value": "unknown",
+      "unit": "%",
+      "basis": "unknown",
+      "as_of": "2014-03"
+    },
+    "expected_lifetime": {
+      "value": 6,
+      "unit": "purchases per customer (year 1)",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "Localytics 2013: 34% of users open an app 11+ times, 22% once; assume ~6 paid shipments per retained customer per year"
+    },
+    "conversion_rate_pct": {
+      "value": "unknown",
+      "unit": "%",
+      "basis": "unknown",
+      "as_of": "2014-03"
+    },
+    "cac": {
+      "value": 30,
+      "unit": "USD",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "Fiksu cost per loyal iPhone user $1.33-1.90 (2013) x ~15-20 to reach a paying, repeat customer = $20-38, midpoint ~$30"
+    },
+    "ltv": {
+      "value": -20,
+      "unit": "USD",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "6 orders x contribution -$3.38 per order = -$20"
+    },
+    "ltv_cac": {
+      "value": -0.68,
+      "unit": "ratio",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "LTV -$20 / CAC $30 = -0.68: every customer loses money until route density lowers courier cost"
+    },
+    "payback_months": {
+      "value": "never at current unit economics",
+      "unit": "months",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "Monthly gross profit per customer is negative (-$3.38 x 0.5 orders/month), so CAC is never paid back"
+    },
+    "fixed_costs_month": {
+      "value": 100000,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "$2.1M seed / ~21 months runway = ~$100k/month (team, SF packing hub, insurance)"
+    },
+    "break_even_customers_per_month": {
+      "value": 50000,
+      "unit": "orders/month",
+      "basis": "estimate",
+      "as_of": "2014-03",
+      "reasoning": "Only if contribution reaches +$2/order via density and pricing: $100k fixed / $2 = 50,000 orders/month"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 0,
+      "unit": "weeks",
+      "basis": "sourced",
+      "as_of": "2013-09",
+      "source": "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/"
+    }
+  },
+  "launch_country": "US",
+  "launch_reason": "Shyp's private beta runs in San Francisco, with dense demand and its investor network.",
+  "kill_shots": {
+    "free_alternative": false,
+    "strong_competitor": false,
+    "graveyard": true,
+    "no_distribution": false,
+    "costs_eat_margin": true,
+    "weak_demand": false,
+    "legal_platform_risk": true,
+    "saturated_wave": false
+  },
+  "primary_kill_shot": "costs_eat_margin",
+  "rules_applied": [],
+  "cheapest_test": "Run 7 days of batched 1-hour pickup windows at a per-item fee on 200 beta orders and measure contribution per order and pickups per courier-hour.",
+  "kill_criteria": [
+    "Fewer than 3 pickups per courier-hour by day 7 -> stop expansion and rework routing",
+    "Contribution per order below USD 0 after 200 orders -> do not raise more for consumer on-demand",
+    "Under 20% of first-time users order again within 30 days -> stop paid acquisition"
+  ],
+  "sources": [
+    "https://techcrunch.com/2013/09/27/shyp-raises-2-1m-to-pick-up-and-ship-your-stuff/",
+    "https://about.usps.com/news/state-releases/ny/2013/ny_2013_1226d.htm",
+    "https://about.usps.com/news/electronic-press-kits/holidaynews/2013/pdf/simpler.pdf",
+    "https://techcrunch.com/2012/05/17/postmates-debuts-get-it-now-on-demand-courier-service-to-the-public",
+    "https://www.washingtonian.com/2013/12/10/delivery-service-postmates-launches-in-dc-today",
+    "https://techcrunch.com/2012/06/21/taskrabbit-on-demand-deliver-now-service/amp/",
+    "https://techcrunch.com/2013/09/16/zipments-closes-2-5-million-seed-round-to-speed-up-same-day-deliveries",
+    "https://pymnts.com/news/2013/ebay-tests-home-drop-off-pick-up-service-same-day-delivery",
+    "https://www.govinfo.gov/content/pkg/FR-2013-11-20/html/2013-27728.htm",
+    "https://blog.ordoro.com/2013/11/22/ups-2014-rate-increase/",
+    "https://www.theregister.co.uk/2014/02/18/postmates_funding/",
+    "https://www.globenewswire.com/news-release/2013/06/27/1033422/0/en/Mobile-App-Downloads-Climb-While-Costs-Drop-Find-New-Fiksu-Indexes.html?print=1",
+    "https://www.globenewswire.com/news-release/2013/08/29/1033479/0/en/Mobile-App-Marketing-Costs-Reach-Highest-Peak-Since-2011-Find-New-Fiksu-Indexes.html",
+    "https://www.globenewswire.com/news-release/2013/10/01/1033525/0/en/Fiksu-Indexes-Mobile-App-Marketing-Costs-Hit-Record-High-in-August.html?print=1",
+    "https://money.cnn.com/2001/04/12/technology/kozmo/index.htm",
+    "https://www.theregister.co.uk/2001/04/12/kozmo_com_makes_its_last/",
+    "https://techcrunch.com/2012/12/23/cherry-car-wash-shut-down",
+    "https://techcrunch.com/2013/09/10/rip-lazy-times",
+    "https://about.usps.com/news/national-releases/2013/pr13_087.pdf",
+    "https://www2.census.gov/historical/ecomm/13q4.pdf",
+    "https://www.pewresearch.org/internet/2013/06/05/smartphone-ownership-2013/",
+    "https://techcrunch.com/2014/02/18/postmates-16m-spark-capital",
+    "https://about.usps.com/postal-bulletin/2012/pb22336/html/updt_012.htm",
+    "https://www.sommerspc.com/blog/2013/10/sommers-schwartz-attorneys-obtain-nationwide-class-certification-for-delivery-drivers/",
+    "https://appsmansion.blogspot.com/2013/08/localytics-finds-user-retention-numbers.html"
+  ],
+  "rescue": [
+    {
+      "change": "Sell to SF eBay/Etsy sellers and small shops with scheduled daily pickups instead of on-demand consumers",
+      "why": "Fixes costs_eat_margin and ltv_cac: dense, recurring routes lift contribution and repeat rate",
+      "score_after": 67,
+      "difficulty": "hard",
+      "effort": "2-3 months",
+      "cost": "USD 50-100k sales and ops",
+      "requires": "B2B sales motion and seller-community partnerships"
+    },
+    {
+      "change": "Charge per item (drop the 2+ item waiver), add a packing fee and batch pickups into 1-hour windows",
+      "why": "Fixes gross_margin: est. contribution moves from -$3.4 to about +$1 per order",
+      "score_after": 62,
+      "difficulty": "doable",
+      "effort": "2 weeks",
+      "cost": "near zero",
+      "requires": "Routing logic and a price test on beta users"
+    },
+    {
+      "change": "Hire couriers as part-time W-2 employees from launch",
+      "why": "Fixes legal_platform_risk: removes CA misclassification exposure before scale",
+      "score_after": 60,
+      "difficulty": "hard",
+      "effort": "1-2 months",
+      "cost": "+20-30% courier cost",
+      "requires": "Payroll, workers' comp and higher density to absorb cost"
+    }
+  ],
+  "type_checks": [
+    {
+      "check": "store_search_demand",
+      "result": "unknown",
+      "note": "No pre-2014 App Store keyword popularity data found for shipping apps; first users come from press and word of mouth",
+      "source": null
+    },
+    {
+      "check": "platform_fees",
+      "result": "clear",
+      "note": "Apple's in-app purchase cut applied to digital goods, not physical services; Shyp charges cards directly (no dated pre-2014 guideline copy found)",
+      "source": null
+    }
+  ],
+  "run": {
+    "started": "2026-11-11T09:37:20Z",
+    "minutes": 5,
+    "searches": 32,
+    "fetches": 16,
+    "subagents": 4
+  }
+}

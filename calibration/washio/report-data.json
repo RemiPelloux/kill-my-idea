@@ -1,0 +1,981 @@
+{
+  "schema_version": "1.0",
+  "idea": {
+    "schema_version": "1.0",
+    "slug": "washio",
+    "title": "Washio: on-demand laundry and dry-cleaning pickup by app",
+    "created": "2026-11-11",
+    "language": "en",
+    "source": {
+      "type": "own-idea",
+      "text": "Washio: on-demand laundry and dry-cleaning pickup and delivery ordered by app, launch country US. Score it as of 2013-06-01: use only evidence published on or before that date (set verdict.as_of). Founder: a seed-funded startup. Just go: do not ask questions. Use the slug washio.",
+      "url": null,
+      "author": null,
+      "posted": null
+    },
+    "problem": "Doing laundry and getting to a dry cleaner during opening hours takes time busy urban people don't have.",
+    "customer": null,
+    "solution": "A smartphone app to order on-demand pickup and delivery of laundry and dry cleaning.",
+    "revenue_model": "service",
+    "price": null,
+    "channel": null,
+    "countries": [
+      "US"
+    ],
+    "claims": [
+      "on-demand laundry and dry-cleaning pickup and delivery ordered by app"
+    ],
+    "context": {
+      "budget": null,
+      "time_per_week": null,
+      "goal": "startup",
+      "edge": null
+    },
+    "assumptions": [
+      "Founder is a seed-funded team (stated); budget assumed to be a typical 2013 seed round, about USD 0.5-1.5M.",
+      "Launch city assumed to be Los Angeles; target customer assumed to be urban professionals without in-unit washers.",
+      "Operating model assumed outsourced: partner cleaners do the cleaning, contractor drivers do pickup and delivery.",
+      "Price assumed $1.75/lb wash & fold, 15-lb orders, $0.85/lb wholesale, 0.5 driver-hour per order (no dated 2012 LA prices found).",
+      "Scored as of 2013-06-01 with no questions asked (headless run): sources published after that date were excluded."
+    ],
+    "unknowns": [
+      "customer",
+      "price",
+      "channel",
+      "budget",
+      "time_per_week",
+      "edge"
+    ],
+    "type": "marketplace",
+    "answers": []
+  },
+  "verdict": {
+    "schema_version": "1.0",
+    "slug": "washio",
+    "evaluated": "2026-11-11",
+    "as_of": "2013-06-01",
+    "mode": "kill",
+    "verdict": "PIVOT",
+    "score": 59,
+    "score_raw": 59.3,
+    "confidence": {
+      "level": "medium",
+      "sourced_subscores": 13,
+      "sources": 27,
+      "primary_sources": 5,
+      "note": "Unit economics rest on assumed price/lb, wholesale cost and route density; a dated 2012 LA price list and pilot data would raise it."
+    },
+    "criteria": {
+      "profit": 2.0,
+      "feasibility": 3.0,
+      "time_to_first_revenue": 3.5,
+      "demand": 3.5,
+      "competition": 3.0,
+      "risk": 3.5,
+      "fit": 2.5
+    },
+    "criteria_detail": {
+      "profit": {
+        "gross_margin": {
+          "score": 1.5,
+          "note": "Est. 17% gross margin per 15-lb order after partner wholesale, LA driver wage and card fees; kill shot costs_eat_margin (R5 <= 2).",
+          "source": "https://webarchive.library.unt.edu/web/20120921092933/http:/www.bls.gov/oes/current/oes435021.htm"
+        },
+        "ltv_cac": {
+          "score": 2.5,
+          "note": "Est. LTV $54 (12 orders x $4.51) vs CAC ~$27.50 from Facebook CPC: ~2.0, thin but positive.",
+          "source": "https://www.globenewswire.com/news-release/2013/01/29/1146983/0/en/In-Advance-of-Facebook-s-Q4-2012-Earnings-Call-Spruce-Media-Releases-State-of-Facebook-Advertising-Report-2012.html?print=1"
+        },
+        "pricing_power": {
+          "score": 2,
+          "note": "Cleaners like 1-800-DryClean already deliver free, so a convenience premium is hard to charge.",
+          "source": "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html"
+        }
+      },
+      "feasibility": {
+        "build_effort": {
+          "score": 3.5,
+          "note": "Booking app plus one partner cleaner; a concierge SMS version can run in about a week."
+        },
+        "skills_match": {
+          "score": 3,
+          "note": "Seed team assumed to cover app build; logistics and dispatch ops are the unproven half."
+        },
+        "capital_needed": {
+          "score": 3,
+          "note": "Seed round covers a city pilot, but MyLackey burned $8M in 16 months on errand logistics.",
+          "source": "https://www.heraldnet.com/news/seattle-based-mylackey-com-to-shut-down/"
+        }
+      },
+      "time_to_first_revenue": {
+        "time_to_mvp": {
+          "score": 3.5,
+          "note": "Manual pickups with one partner cleaner can take paid orders in 1-2 weeks."
+        },
+        "sales_cycle": {
+          "score": 4.5,
+          "note": "Consumer impulse purchase: order tonight, pay by card, no committee."
+        },
+        "channel_readiness": {
+          "score": 2.5,
+          "note": "Channels exist (Facebook, give-get referrals like Uber) but no audience yet and real CAC unknown.",
+          "source": "https://www.uber.com/us/en/newsroom/personal-promo-code"
+        }
+      },
+      "demand": {
+        "search_demand": {
+          "score": 4,
+          "note": "~42,000 US cleaning establishments and ~$20.4B receipts (2002 Census): a mass, weekly need.",
+          "source": "https://americanlaundrynews.com/node/66017"
+        },
+        "trend": {
+          "score": 3,
+          "note": "No pre-2013 dated trend found for cleaning spend; treated as flat. Smartphone adoption rising."
+        },
+        "willingness_to_pay": {
+          "score": 3.5,
+          "note": "People already pay for cleaning ($22B est.); paying extra for delivery is unproven.",
+          "source": "https://webarchive.library.unt.edu/web/20120916202359/http://www.census.gov/prod/2011pubs/12statab/services.pdf"
+        }
+      },
+      "competition": {
+        "free_alternatives": {
+          "score": 2.5,
+          "note": "Home washers and cleaners' free delivery cover part of the job; dry cleaning still needs a pro.",
+          "source": "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html"
+        },
+        "competitor_density": {
+          "score": 4,
+          "note": "Few direct players pre-June 2013: SpotlessCity ($200k seed, NYC), Laundry Locker, Exec.",
+          "source": "https://techcrunch.com/2012/05/22/spotlesscity-just-brought-the-dry-cleaning-industry-online"
+        },
+        "differentiation": {
+          "score": 2.5,
+          "note": "App-first on-demand timing is real but copyable; cleaners already deliver free.",
+          "source": "https://www.franchising.com/amp/news/20110110_1800drycleanr_franchise_ranks_among_the_2011_franc.html"
+        }
+      },
+      "risk": {
+        "legal_regulatory": {
+          "score": 2.5,
+          "note": "Estrada v. FedEx (CA, 2007): contractor drivers held employees; 'ninja' drivers carry that risk.",
+          "source": "https://calemploymentlawupdate.proskauer.com/2007/09/fedex-drivers-were-employees-for-purposes-of-obtaining-reimbursement-for-expenses/"
+        },
+        "platform_dependency": {
+          "score": 3.5,
+          "note": "iOS app, but services are paid outside Apple IAP (no 30% cut); web booking is an alternative.",
+          "source": "https://techcrunch.com/?p=217671"
+        },
+        "market_risk": {
+          "score": 4.5,
+          "note": "Laundry is a durable, recurring weekly need, not a fad.",
+          "source": "https://americanlaundrynews.com/node/66017"
+        }
+      },
+      "fit": {
+        "skills": {
+          "score": 3,
+          "note": "Seed-funded team; operating track record in logistics unknown (assumption)."
+        },
+        "assets": {
+          "score": 2,
+          "note": "Capital is the only stated asset: no audience, data or cleaner contracts."
+        },
+        "interest": {
+          "score": 3,
+          "note": "Motivation not stated; assumed curious, not domain passion."
+        }
+      }
+    },
+    "rules_applied": [],
+    "metrics": {
+      "tam": {
+        "value": 22.4,
+        "unit": "USD bn/year",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "$20.4B employer receipts (2002 Census via American Laundry News) + ~$2.0B nonemployer receipts (2007, Statistical Abstract 2012); different years, rough sum"
+      },
+      "sam": {
+        "value": 2.2,
+        "unit": "USD bn/year",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "10% of TAM: urban smartphone-owning households in dense metros (assumption; 46% of adults own smartphones, Pew 2012)"
+      },
+      "som": {
+        "value": 2.2,
+        "unit": "USD m/year",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "0.1% of SAM in year 1 for one-city launch (LA)"
+      },
+      "competitors_found": {
+        "value": 5,
+        "unit": "competitors",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Named pre-June-2013: SpotlessCity, Laundry Locker, 1-800-DryClean, Exec, plus local cleaners with delivery"
+      },
+      "competitor_price_range": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "as_of": "2013-06"
+      },
+      "demand_trend": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "as_of": "2013-06"
+      },
+      "price": {
+        "value": 26.25,
+        "unit": "USD/order",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "15 lb wash & fold x $1.75/lb (assumed order size and price; no dated 2012 LA price found)"
+      },
+      "variable_cost_per_unit": {
+        "value": 21.74,
+        "unit": "USD/order",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "partner wholesale 15 x $0.85 = 12.75 + driver 0.5 h x $15.85 (BLS $13.21 x 1.2) = 7.93 + card 2.9% + $0.30 = 1.06"
+      },
+      "gross_margin_pct": {
+        "value": 17,
+        "unit": "%",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "(26.25 - 21.74) / 26.25 = 17%; 2% at 1 order per driver-hour, 27% at $2.00/lb"
+      },
+      "churn_monthly_pct": {
+        "value": "unknown",
+        "unit": null,
+        "basis": "unknown",
+        "as_of": "2013-06"
+      },
+      "expected_lifetime": {
+        "value": 12,
+        "unit": "orders per customer",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "assumption: ~6 months at 2 orders/month before churn; no pre-2013 benchmark"
+      },
+      "conversion_rate_pct": {
+        "value": 2,
+        "unit": "%",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "assumed click-to-first-order rate for a local consumer service"
+      },
+      "cac": {
+        "value": 27.5,
+        "unit": "USD",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Facebook CPC $0.55 (Spruce Media, Q4 2012) / 2% conversion"
+      },
+      "ltv": {
+        "value": 54.1,
+        "unit": "USD",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "12 orders x $4.51 gross profit per order"
+      },
+      "ltv_cac": {
+        "value": 1.97,
+        "unit": "ratio",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "LTV 54.1 / CAC 27.5"
+      },
+      "payback_months": {
+        "value": 3.0,
+        "unit": "months",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "CAC 27.5 / (2 orders/month x $4.51)"
+      },
+      "fixed_costs_month": {
+        "value": 40000,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "assumption: 4-person seed team at ~$8k loaded each + $8k tools, insurance, office"
+      },
+      "break_even_customers_per_month": {
+        "value": 4435,
+        "unit": "active customers",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "40,000 / (2 orders x $4.51) per active customer per month"
+      },
+      "time_to_first_revenue_weeks": {
+        "value": 2,
+        "unit": "weeks",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "concierge pilot: landing page + SMS ordering + one partner cleaner"
+      }
+    },
+    "launch_country": "US",
+    "launch_reason": "Stated launch country; LA density and smartphone adoption (46% of US adults, 2012) support a one-city pilot.",
+    "kill_shots": {
+      "free_alternative": false,
+      "strong_competitor": false,
+      "graveyard": true,
+      "no_distribution": false,
+      "costs_eat_margin": true,
+      "weak_demand": null,
+      "legal_platform_risk": true,
+      "saturated_wave": false
+    },
+    "primary_kill_shot": "costs_eat_margin",
+    "cheapest_test": "7-day concierge pilot in one dense LA zip code: landing page, SMS ordering, one partner cleaner, founders drive; measure orders per driver-hour and margin.",
+    "kill_criteria": [
+      "Fewer than 30 paid orders in the pilot zip code by day 7 -> stop",
+      "Fewer than 2 orders per driver-hour by day 14 -> stop scaling, redesign routes",
+      "Repeat rate under 30% of first-time customers by day 30 -> stop",
+      "Gross profit under USD 6 per order by day 30 -> raise price or stop"
+    ],
+    "sources": [
+      "https://www.heraldnet.com/news/seattle-based-mylackey-com-to-shut-down/",
+      "https://salon.com/2000/06/05/mylackey",
+      "https://money.cnn.com/2001/04/12/technology/kozmo/index.htm",
+      "https://georgetownvoice.com/2001/04/19/kozmo-delivery-service-closes/",
+      "https://www.supermarketnews.com/archive/streamline-close-victim-losses-tight-capital",
+      "https://supermarketnews.com/grocery-operations/funding-woes-abruptly-shut-down-shoplink",
+      "https://americanlaundrynews.com/node/66017",
+      "https://webarchive.library.unt.edu/web/20120916202359/http://www.census.gov/prod/2011pubs/12statab/services.pdf",
+      "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners/",
+      "https://www.pewresearch.org/internet/2012/09/11/smartphone-ownership-update-september-2012/markdown",
+      "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/",
+      "https://techcrunch.com/2013/02/05/exec-redesign-san-diego-launch",
+      "https://tech.co/news/execs-expands-on-demand-cleaning-2013-03",
+      "https://thenextweb.com/news/errand-running-service-exec-launches-company-accounts-to-offer-employee-perks",
+      "https://techcrunch.com/2012/05/22/spotlesscity-just-brought-the-dry-cleaning-industry-online",
+      "https://techcrunch.com/2012/03/28/spotlesscity-will-pick-up-your-soiled-dirty-laundry/amp/",
+      "https://www.crunchbase.com/organization/laundry-locker",
+      "https://calemploymentlawupdate.proskauer.com/2007/09/fedex-drivers-were-employees-for-purposes-of-obtaining-reimbursement-for-expenses/",
+      "https://law.com/corpcounsel/2007/11/29/california-supreme-court-denies-fedex-appeal",
+      "https://techcrunch.com/?p=217671",
+      "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html",
+      "https://www.franchising.com/amp/news/20110110_1800drycleanr_franchise_ranks_among_the_2011_franc.html",
+      "https://prnewswire.com/news-releases/mobile-marketing-costs-spiked-in-november-while-app-downloads-dropped-report-fiksu-indexes-185042751.html",
+      "https://prnewswire.com/news-releases/mobile-app-marketing-costs-continued-their-upward-climb-report-the-fiksu-july-indexes-168134916.html",
+      "https://www.globenewswire.com/news-release/2013/01/29/1146983/0/en/In-Advance-of-Facebook-s-Q4-2012-Earnings-Call-Spruce-Media-Releases-State-of-Facebook-Advertising-Report-2012.html?print=1",
+      "https://www.uber.com/us/en/newsroom/personal-promo-code",
+      "https://webarchive.library.unt.edu/web/20120921092933/http:/www.bls.gov/oes/current/oes435021.htm"
+    ],
+    "rescue": [
+      {
+        "change": "Lead with dry cleaning in 2-3 dense LA zip codes, add a flat $5.99 delivery fee and batch pickups into fixed time windows.",
+        "why": "Raises gross_margin and ltv_cac (costs_eat_margin): est. 3 orders per driver-hour lifts margin toward 35-40%.",
+        "score_after": 64,
+        "difficulty": "hard",
+        "effort": "2-3 months of route and pricing tests",
+        "cost": "within seed budget",
+        "requires": "Dispatch software, density data, a partner cleaner with volume pricing"
+      },
+      {
+        "change": "Sell through luxury apartment buildings and office perk programs (Exec-style company accounts) instead of paid ads.",
+        "why": "Fixes channel_readiness and route density (liquidity): one building = many orders per stop, lower CAC.",
+        "score_after": 63,
+        "difficulty": "doable",
+        "effort": "2 weeks to sign 2 pilot buildings",
+        "cost": "under USD 5k",
+        "requires": "Property-manager intros, a concierge drop box"
+      },
+      {
+        "change": "Own a small processing plant instead of paying partner wholesale.",
+        "why": "Captures the cleaner's margin (gross_margin), but raises capital_needed and execution risk.",
+        "score_after": 61,
+        "difficulty": "very-hard",
+        "effort": "6+ months",
+        "cost": "USD 250k+ equipment and lease",
+        "requires": "Plant operator, permits, environmental compliance"
+      }
+    ],
+    "type_checks": [
+      {
+        "check": "liquidity",
+        "result": "unknown",
+        "note": "Supply (cleaners with spare capacity) is easy; no pre-2013 benchmark for orders per neighborhood needed to make routes pay.",
+        "source": null
+      },
+      {
+        "check": "disintermediation",
+        "result": "hit",
+        "note": "Cleaners already offered free pickup and delivery (1-800-DryClean, 2008); customers can go direct once they know the cleaner.",
+        "source": "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html"
+      }
+    ],
+    "run": {
+      "started": "2026-11-11T09:43:10Z",
+      "minutes": 6,
+      "searches": 35,
+      "fetches": 15,
+      "subagents": 4
+    }
+  },
+  "narrative": {
+    "language": "en",
+    "currency": "USD",
+    "answer": "PIVOT at **59**. Demand is real and the field is nearly empty, but outsourced cleaning plus a paid driver leaves about **17%** gross margin. Prove route density and pricing in one zip code before spending the seed round.",
+    "tldr": [
+      "Mass, recurring need (~$22B US cleaning spend) and almost no app-first competitor before June 2013.",
+      "Outsourced model nets ~$4.51 per $26 order (estimate): margin dies if drivers do under 2 orders an hour.",
+      "Errand-delivery graveyard (MyLackey, Kozmo) and contractor-driver law (Estrada v. FedEx) are the warnings."
+    ],
+    "key_findings": [
+      {
+        "title": "Margin is thin after the driver",
+        "detail": "Est. **17%** gross margin per 15-lb order ($4.51 of $26.25) with LA couriers at $13.21/hr (BLS, 2011); at 1 order per driver-hour it falls to 2%.",
+        "source": "https://webarchive.library.unt.edu/web/20120921092933/http:/www.bls.gov/oes/current/oes435021.htm"
+      },
+      {
+        "title": "The errand-delivery graveyard is real",
+        "detail": "MyLackey, which picked up dry cleaning, burned **$8M in 16 months** and laid off 85 in 2000; Kozmo closed 9 markets in 2001.",
+        "source": "https://www.heraldnet.com/news/seattle-based-mylackey-com-to-shut-down/"
+      },
+      {
+        "title": "Open field, and smartphones are here",
+        "detail": "Only SpotlessCity ($200k seed, 3 NYC neighborhoods) found as a direct player, while **46%** of US adults owned a smartphone (Pew, 2012).",
+        "source": "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners/"
+      }
+    ],
+    "recommendation": "Run a 7-day concierge pilot in one dense LA zip code; only build the full app and spend on ads if drivers hit **2+ orders per hour** at $6+ gross profit per order.",
+    "steelman": "A $20B+ weekly need, 46% smartphone penetration and no funded app-first competitor in LA: an impulse purchase with Uber-style referral loops could own a city. The evidence backs demand and timing; it does not yet back the unit economics.",
+    "premortem": [
+      {
+        "cause": "Driver time per order kept contribution margin near zero, so growth burned the seed round.",
+        "linked_to": "costs_eat_margin",
+        "likelihood": "H",
+        "early_signal": "Fewer than 2 orders per driver-hour by week 3"
+      },
+      {
+        "cause": "Customers went back to their cleaner's free delivery or their own washer after promo credits ran out.",
+        "linked_to": "differentiation",
+        "likelihood": "M",
+        "early_signal": "Under 30% of first-time customers reorder within 30 days"
+      },
+      {
+        "cause": "A driver misclassification claim forced employee costs onto every order.",
+        "linked_to": "legal_platform_risk",
+        "likelihood": "M",
+        "early_signal": "Drivers working 30+ hours a week only for the platform, in branded gear"
+      }
+    ],
+    "why_now": {
+      "verdict": "now",
+      "changes": [
+        {
+          "what": "US smartphone ownership rose from 35% to **46%** of adults in 9 months.",
+          "when": "2011-05 to 2012-02",
+          "source": "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners/"
+        },
+        {
+          "what": "On-demand errand apps got venture funding (Exec, round led by Sam Altman).",
+          "when": "2012-05",
+          "source": "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/"
+        },
+        {
+          "what": "Give-get referral credits became a proven launch channel (Uber personal promo codes).",
+          "when": "2012-06",
+          "source": "https://www.uber.com/us/en/newsroom/personal-promo-code"
+        },
+        {
+          "what": "Facebook ad clicks got cheaper: ~$0.55 average CPC in Q4 2012.",
+          "when": "2013-01",
+          "source": "https://www.globenewswire.com/news-release/2013/01/29/1146983/0/en/In-Advance-of-Facebook-s-Q4-2012-Earnings-Call-Spruce-Media-Releases-State-of-Facebook-Advertising-Report-2012.html?print=1"
+        }
+      ],
+      "note": "In 2000, MyLackey had no smartphones or cheap mobile ads; in 2013, both exist. The cost of a driver has not changed."
+    },
+    "icp": {
+      "who": "Professionals aged 25-40 in dense LA neighborhoods (Santa Monica, West Hollywood, Downtown) who rent without in-unit washers and own smartphones (assumption)",
+      "where": [
+        "Facebook ads targeted by zip code",
+        "Luxury apartment buildings and concierges",
+        "Office perk programs (Exec-style company accounts)",
+        "Yelp",
+        "iPhone App Store"
+      ],
+      "pays_for_today": "Drop-off dry cleaning and wash & fold at local cleaners; dated 2012 LA prices unknown",
+      "budget": "unknown",
+      "trigger": "A busy week, a trip, or a suit needed for Monday morning"
+    },
+    "kill_shots": {
+      "free_alternative": {
+        "hit": false,
+        "evidence": "Searched DIY laundry, laundromats and cleaners' free delivery: they cover part of the job, but dry cleaning still needs a paid pro.",
+        "source": "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html"
+      },
+      "strong_competitor": {
+        "hit": false,
+        "evidence": "Searched US laundry and dry-cleaning delivery players before June 2013: SpotlessCity raised only $200k; none showed $5M+ raised or 100k users.",
+        "source": "https://techcrunch.com/2012/05/22/spotlesscity-just-brought-the-dry-cleaning-industry-online"
+      },
+      "graveyard": {
+        "hit": true,
+        "evidence": "MyLackey (errands incl. dry-cleaning pickup) burned $8M in 16 months and laid off 85 (2000-10); Kozmo shut 9 markets (2001-04); Streamline closed.",
+        "source": "https://www.heraldnet.com/news/seattle-based-mylackey-com-to-shut-down/"
+      },
+      "no_distribution": {
+        "hit": false,
+        "evidence": "Facebook CPC ~$0.55 (Q4 2012) / 2% conversion = ~$27.50 CAC, below est. first-year gross profit (~$108 at 2 orders/month); referrals work too.",
+        "source": "https://www.globenewswire.com/news-release/2013/01/29/1146983/0/en/In-Advance-of-Facebook-s-Q4-2012-Earnings-Call-Spruce-Media-Releases-State-of-Facebook-Advertising-Report-2012.html?print=1"
+      },
+      "costs_eat_margin": {
+        "hit": true,
+        "evidence": "Est. 17% gross margin: $26.25 order - $12.75 wholesale - $7.93 driver (LA courier $13.21/hr, BLS) - $1.06 card fees.",
+        "source": "https://webarchive.library.unt.edu/web/20120921092933/http:/www.bls.gov/oes/current/oes435021.htm"
+      },
+      "weak_demand": {
+        "hit": null,
+        "evidence": "No dated pre-2013 trend for cleaning spend found; casual-dress decline sources were all published after 2013 and excluded."
+      },
+      "legal_platform_risk": {
+        "hit": true,
+        "evidence": "Estrada v. FedEx Ground (CA Court of Appeal, 2007): contractor drivers held employees; review denied 2007-11. Contractor 'ninja' drivers face the same test.",
+        "source": "https://calemploymentlawupdate.proskauer.com/2007/09/fedex-drivers-were-employees-for-purposes-of-obtaining-reimbursement-for-expenses/"
+      },
+      "saturated_wave": {
+        "hit": false,
+        "evidence": "Searched look-alike launches 2012-06 to 2013-06: 0 confirmed (SpotlessCity launched 2012-01, before the window).",
+        "source": "https://techcrunch.com/2012/03/28/spotlesscity-will-pick-up-your-soiled-dirty-laundry/amp/"
+      }
+    },
+    "customer": {
+      "segment": "Urban professionals without in-unit washers in dense LA neighborhoods (assumption)",
+      "pain": "Cleaners' opening hours clash with work; laundry takes hours each week",
+      "today": "Drop-off at a local cleaner or laundromat, or own washer"
+    },
+    "use_cases": [
+      {
+        "name": "Consumer on-demand wash & fold and dry cleaning",
+        "who_pays": "Individual renters",
+        "effort": "Medium: app + driver network",
+        "best": false
+      },
+      {
+        "name": "Building amenity: pickup from apartment concierge",
+        "who_pays": "Residents (building promotes it)",
+        "effort": "Low: one stop, many orders",
+        "best": true
+      },
+      {
+        "name": "Employee perk at offices",
+        "who_pays": "Employees or employer",
+        "effort": "Medium: B2B sales",
+        "best": false
+      }
+    ],
+    "competitors": [
+      {
+        "name": "SpotlessCity",
+        "url": "https://techcrunch.com/2012/05/22/spotlesscity-just-brought-the-dry-cleaning-industry-online",
+        "country": "US",
+        "price_low": null,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 2,
+        "traction_note": "$200k friends-and-family seed; 3 NYC neighborhoods (2012-05)",
+        "gap": "NYC only, web-first, takes ~10% from cleaners",
+        "free": false,
+        "price_source": null,
+        "price_period": null,
+        "price_as_of": null
+      },
+      {
+        "name": "1-800-DryClean",
+        "url": "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html",
+        "country": "US",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 3,
+        "traction_note": "Franchise expanding to Atlanta, Chicago, Dallas, Houston, DC (2011)",
+        "gap": "Scheduled routes, not on-demand; no app",
+        "free": false,
+        "price_source": "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html",
+        "price_period": "per-use",
+        "price_as_of": "2008-12"
+      },
+      {
+        "name": "Exec",
+        "url": "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/",
+        "country": "US",
+        "price_low": null,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 3,
+        "traction_note": "YC W12, round led by Sam Altman; expanded into on-demand cleaning (2013-03)",
+        "gap": "General errands, not laundry-specialized",
+        "free": false,
+        "price_source": null,
+        "price_period": null,
+        "price_as_of": null
+      },
+      {
+        "name": "Laundry Locker",
+        "url": "https://www.crunchbase.com/organization/laundry-locker",
+        "country": "US",
+        "price_low": null,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 2,
+        "traction_note": "SF 24/7 locker drop-off; funding unknown",
+        "gap": "Self drop-off at lockers, no door pickup on demand",
+        "free": false,
+        "price_source": null,
+        "price_period": null,
+        "price_as_of": null
+      },
+      {
+        "name": "Do it yourself (own washer or laundromat)",
+        "url": null,
+        "country": "US",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 5,
+        "traction_note": "Default behaviour for most households",
+        "gap": "Costs hours; cannot dry clean",
+        "free": true,
+        "price_source": null,
+        "price_period": null,
+        "price_as_of": null
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "customers_month": 500,
+        "revenue_month": 26250,
+        "costs_month": 61740,
+        "note": "2 orders/customer at 1 order per driver-hour: margin ~2%, burn ~$35k/month"
+      },
+      {
+        "name": "Base",
+        "customers_month": 1500,
+        "revenue_month": 78750,
+        "costs_month": 105220,
+        "note": "2 orders/customer, 17% margin: burn ~$26k/month"
+      },
+      {
+        "name": "Optimistic",
+        "customers_month": 4500,
+        "revenue_month": 270000,
+        "costs_month": 237000,
+        "note": "Dry-cleaning mix, $2/lb, 3 orders/driver-hour: ~27% margin, small profit"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Route density too low: driver time eats the margin",
+        "likelihood": "H",
+        "impact": "H",
+        "mitigation": "Fixed pickup windows, one zip code at a time",
+        "source": "https://webarchive.library.unt.edu/web/20120921092933/http:/www.bls.gov/oes/current/oes435021.htm"
+      },
+      {
+        "risk": "Contractor drivers reclassified as employees in California",
+        "likelihood": "M",
+        "impact": "H",
+        "mitigation": "Use courier firms or W-2 drivers; budget payroll costs",
+        "source": "https://calemploymentlawupdate.proskauer.com/2007/09/fedex-drivers-were-employees-for-purposes-of-obtaining-reimbursement-for-expenses/"
+      },
+      {
+        "risk": "Customers bypass the app and use the partner cleaner's own delivery",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Unbranded partner bags, exclusive partner deals",
+        "source": "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html"
+      },
+      {
+        "risk": "Lost or damaged garments with unclear liability between app and partner",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Written partner liability terms and insurance",
+        "source": null
+      }
+    ],
+    "test_plan": [
+      {
+        "when": "Day 1",
+        "step": "Sign one partner cleaner in a dense LA zip code at a fixed wholesale rate per lb and per item",
+        "verify": "Signed rate sheet at or below $0.85/lb"
+      },
+      {
+        "when": "Day 2",
+        "step": "Launch a landing page with SMS ordering and a $5.99 delivery fee",
+        "verify": "Page live, payments working"
+      },
+      {
+        "when": "Day 3",
+        "step": "Spend $300 on Facebook ads targeted at the zip code; flyer 2 apartment buildings",
+        "verify": "CAC under $30 per first order"
+      },
+      {
+        "when": "Day 4-6",
+        "step": "Founders run pickups in two fixed evening windows and log every minute",
+        "verify": "2+ orders per driver-hour"
+      },
+      {
+        "when": "Day 7",
+        "step": "Compute gross profit per order and repeat intent",
+        "verify": "30+ paid orders, $6+ gross profit per order"
+      }
+    ],
+    "rescue": [
+      {
+        "change": "Lead with dry cleaning in 2-3 dense LA zip codes, add a flat $5.99 delivery fee and batch pickups into fixed time windows.",
+        "why": "Raises gross_margin and ltv_cac (costs_eat_margin): est. 3 orders per driver-hour lifts margin toward 35-40%.",
+        "score_after": 64,
+        "difficulty": "hard",
+        "effort": "2-3 months of route and pricing tests",
+        "cost": "within seed budget",
+        "requires": "Dispatch software, density data, a partner cleaner with volume pricing"
+      },
+      {
+        "change": "Sell through luxury apartment buildings and office perk programs (Exec-style company accounts) instead of paid ads.",
+        "why": "Fixes channel_readiness and route density (liquidity): one building = many orders per stop, lower CAC.",
+        "score_after": 63,
+        "difficulty": "doable",
+        "effort": "2 weeks to sign 2 pilot buildings",
+        "cost": "under USD 5k",
+        "requires": "Property-manager intros, a concierge drop box"
+      },
+      {
+        "change": "Own a small processing plant instead of paying partner wholesale.",
+        "why": "Captures the cleaner's margin (gross_margin), but raises capital_needed and execution risk.",
+        "score_after": 61,
+        "difficulty": "very-hard",
+        "effort": "6+ months",
+        "cost": "USD 250k+ equipment and lease",
+        "requires": "Plant operator, permits, environmental compliance"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.heraldnet.com/news/seattle-based-mylackey-com-to-shut-down/",
+        "title": "Everett Herald: Seattle-based MyLackey.com to shut down",
+        "supports": "Errand/dry-cleaning pickup startup burned $8M in 16 months, laid off 85",
+        "published": "2000-10-23",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://salon.com/2000/06/05/mylackey",
+        "title": "Salon: MyLackey",
+        "supports": "Errand delivery compared to Kozmo/Webvan losing money per sale",
+        "published": "2000-06-05",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://money.cnn.com/2001/04/12/technology/kozmo/index.htm",
+        "title": "CNNMoney: Kozmo shuts down",
+        "supports": "Kozmo ceased operations in 9 markets, 1,100 layoffs",
+        "published": "2001-04-12",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://georgetownvoice.com/2001/04/19/kozmo-delivery-service-closes/",
+        "title": "Georgetown Voice: Kozmo delivery service closes",
+        "supports": "Local confirmation of Kozmo closure",
+        "published": "2001-04-19",
+        "accessed": "2026-11-11",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.supermarketnews.com/archive/streamline-close-victim-losses-tight-capital",
+        "title": "Supermarket News: Streamline to close",
+        "supports": "Bundled delivery incl. dry cleaning closed on losses",
+        "published": null,
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://supermarketnews.com/grocery-operations/funding-woes-abruptly-shut-down-shoplink",
+        "title": "Supermarket News: Funding woes shut down ShopLink",
+        "supports": "Home-delivery service closed for lack of funding",
+        "published": null,
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://americanlaundrynews.com/node/66017",
+        "title": "American Laundry News: Census mails forms to 42,000 laundry businesses",
+        "supports": "2002 Economic Census: 41,906 establishments, ~$20.4B receipts",
+        "published": "2007-10-18",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://webarchive.library.unt.edu/web/20120916202359/http://www.census.gov/prod/2011pubs/12statab/services.pdf",
+        "title": "US Census, Statistical Abstract 2012: Services",
+        "supports": "~35k nonemployer dry-cleaning/laundry firms, ~$2.0B receipts (2007)",
+        "published": "2011",
+        "accessed": "2026-11-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners/",
+        "title": "Pew: Nearly half of American adults are smartphone owners",
+        "supports": "46% of US adults own a smartphone (Feb 2012), up from 35%",
+        "published": "2012-03-01",
+        "accessed": "2026-11-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.pewresearch.org/internet/2012/09/11/smartphone-ownership-update-september-2012/markdown",
+        "title": "Pew: Smartphone ownership update, September 2012",
+        "supports": "45% smartphone ownership (Sep 2012)",
+        "published": "2012-09-11",
+        "accessed": "2026-11-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://techcrunch.com/2012/05/31/exec-the-mobile-app-for-errands-adds-messaging-oh-and-sam-altman-led-their-round/amp/",
+        "title": "TechCrunch: Exec, the mobile app for errands, raises round led by Sam Altman",
+        "supports": "On-demand errand apps funded in 2012",
+        "published": "2012-05-31",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2013/02/05/exec-redesign-san-diego-launch",
+        "title": "TechCrunch: Exec redesign and San Diego launch",
+        "supports": "Exec expanding on-demand services",
+        "published": "2013-02-05",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://tech.co/news/execs-expands-on-demand-cleaning-2013-03",
+        "title": "Tech.co: Exec expands on-demand cleaning",
+        "supports": "Adjacent on-demand cleaning competitor",
+        "published": "2013-03",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/errand-running-service-exec-launches-company-accounts-to-offer-employee-perks",
+        "title": "The Next Web: Exec launches company accounts",
+        "supports": "B2B employee-perk channel for errand services",
+        "published": "2012-03-26",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2012/05/22/spotlesscity-just-brought-the-dry-cleaning-industry-online",
+        "title": "TechCrunch: SpotlessCity brought the dry-cleaning industry online",
+        "supports": "Direct competitor: $200k seed, ~10% take rate, 3 NYC neighborhoods",
+        "published": "2012-05-22",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2012/03/28/spotlesscity-will-pick-up-your-soiled-dirty-laundry/amp/",
+        "title": "TechCrunch: SpotlessCity will pick up your laundry",
+        "supports": "SpotlessCity launched Jan 2012, takes no cut from customer",
+        "published": "2012-03-28",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.crunchbase.com/organization/laundry-locker",
+        "title": "Crunchbase: Laundry Locker",
+        "supports": "SF locker-based laundry and dry-cleaning service",
+        "published": null,
+        "accessed": "2026-11-11",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://calemploymentlawupdate.proskauer.com/2007/09/fedex-drivers-were-employees-for-purposes-of-obtaining-reimbursement-for-expenses/",
+        "title": "Proskauer: FedEx drivers were employees (Estrada)",
+        "supports": "California court held contractor drivers were employees",
+        "published": "2007-09-01",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://law.com/corpcounsel/2007/11/29/california-supreme-court-denies-fedex-appeal",
+        "title": "Law.com: California Supreme Court denies FedEx appeal",
+        "supports": "Estrada misclassification ruling stands",
+        "published": "2007-11-29",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/?p=217671",
+        "title": "TechCrunch: Apple publishes App Store Review Guidelines",
+        "supports": "Physical goods/services must not use IAP: no 30% cut on orders",
+        "published": "2010-09-09",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://franchisors.franchising.com/news/20081212_1800dryclean_franchise_adds_free_office_pick_up_an.html",
+        "title": "1-800-DryClean adds free office pickup and delivery",
+        "supports": "Dry cleaners already offered free pickup and delivery",
+        "published": "2008-12-12",
+        "accessed": "2026-11-11",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.franchising.com/amp/news/20110110_1800drycleanr_franchise_ranks_among_the_2011_franc.html",
+        "title": "1-800-DryClean franchise ranks among 2011 franchises",
+        "supports": "Free-delivery franchise expanding in US metros",
+        "published": "2011-01-10",
+        "accessed": "2026-11-11",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://prnewswire.com/news-releases/mobile-marketing-costs-spiked-in-november-while-app-downloads-dropped-report-fiksu-indexes-185042751.html",
+        "title": "Fiksu indexes, November 2012",
+        "supports": "Cost per loyal app user $1.38 (Nov 2012)",
+        "published": "2012-12-28",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://prnewswire.com/news-releases/mobile-app-marketing-costs-continued-their-upward-climb-report-the-fiksu-july-indexes-168134916.html",
+        "title": "Fiksu indexes, July 2012",
+        "supports": "Cost per loyal user ~$1.54 (Jul 2012)",
+        "published": "2012-08",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.globenewswire.com/news-release/2013/01/29/1146983/0/en/In-Advance-of-Facebook-s-Q4-2012-Earnings-Call-Spruce-Media-Releases-State-of-Facebook-Advertising-Report-2012.html?print=1",
+        "title": "Spruce Media: State of Facebook Advertising 2012",
+        "supports": "Facebook CPC ~$0.55 (Q4 2012)",
+        "published": "2013-01-29",
+        "accessed": "2026-11-11",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.uber.com/us/en/newsroom/personal-promo-code",
+        "title": "Uber newsroom: personal promo codes",
+        "supports": "Give-get referral credits as a launch channel",
+        "published": "2012-06-06",
+        "accessed": "2026-11-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://webarchive.library.unt.edu/web/20120921092933/http:/www.bls.gov/oes/current/oes435021.htm",
+        "title": "BLS OES May 2011: Couriers and messengers",
+        "supports": "LA courier mean wage $13.21/hr",
+        "published": "2012-09-21",
+        "accessed": "2026-11-11",
+        "tier": "primary"
+      }
+    ]
+  }
+}

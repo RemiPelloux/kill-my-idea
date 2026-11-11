@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "slug": "shyp",
+  "title": "Shyp: tap an app, a courier picks up, packs and ships",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "mobile_app",
+  "source": {
+    "type": "own-idea",
+    "text": "Shyp: tap an app and a courier picks up, packs and ships any item for $5 plus postage, launch country US. Score it as of 2014-03-01: use only evidence published on or before that date (set verdict.as_of). Founder: a seed-funded startup. Just go: do not ask questions. Use the slug shyp.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Shipping an item means finding a box, packing it, printing a label and queuing at a post office or carrier store.",
+  "customer": "San Francisco smartphone owners (25-34 professionals) and small online sellers shipping a few parcels a month",
+  "solution": "iPhone app: a courier picks up any item at your door, Shyp packs it and ships it with the best carrier rate.",
+  "revenue_model": "service",
+  "price": {
+    "amount": 5,
+    "currency": "USD",
+    "period": "per-use"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [
+    "a courier picks up, packs and ships any item for $5 plus postage"
+  ],
+  "context": {
+    "budget": "seed round (USD 2.1M per TechCrunch, 2013-09)",
+    "time_per_week": null,
+    "goal": "startup",
+    "edge": null
+  },
+  "assumptions": [
+    "Launch city is San Francisco, where the private beta runs",
+    "Full-time seed-funded team",
+    "Average postage about USD 12 per shipment",
+    "Couriers are per-pickup contractors, as reported in 2013"
+  ],
+  "unknowns": [
+    "channel",
+    "edge",
+    "time_per_week",
+    "pickup time claim",
+    "order density",
+    "repeat rate"
+  ],
+  "answers": []
+}

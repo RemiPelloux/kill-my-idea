@@ -1,0 +1,408 @@
+{
+  "schema_version": "1.0",
+  "slug": "quibi",
+  "evaluated": "2026-11-11",
+  "as_of": "2020-03-01",
+  "mode": "kill",
+  "verdict": "PIVOT",
+  "score": 60,
+  "score_raw": 59.8,
+  "confidence": {
+    "level": "medium",
+    "sourced_subscores": 21,
+    "sources": 34,
+    "primary_sources": 3,
+    "note": "Raised by a pre-launch paid-intent poll and a dated churn benchmark for new SVODs; only 3 primary sources"
+  },
+  "criteria": {
+    "profit": 2.0,
+    "feasibility": 3.5,
+    "time_to_first_revenue": 4.0,
+    "demand": 3.0,
+    "competition": 2.5,
+    "risk": 3.0,
+    "fit": 4.5
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 3,
+        "note": "About **65%** after a 30% App Store cut and delivery (estimate); content is a fixed $1B/year on top.",
+        "source": "https://www.iclarified.com/55534/apple-to-drop-its-cut-of-app-store-subscription-revenue-to-15-after-the-first-year"
+      },
+      "ltv_cac": {
+        "score": 1.5,
+        "note": "LTV ~$70 vs CAC ~$60 even at the **7.5M** target: ~1.2; at half the target it falls to ~0.6 (estimate).",
+        "source": "https://digiday.com/future-of-tv/king-kong-jumping-off-empire-state-building-quibis-400m-marketing-push-spans-tv-person-screenings"
+      },
+      "pricing_power": {
+        "score": 1.5,
+        "note": "Free YouTube, TikTok and Snapchat set the anchor; analysts call **$5** the upper end of the sweet spot.",
+        "source": "https://videoweek.com/2020/02/24/analysts-are-still-spilt-on-quibi-two-months-from-launch/"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 4,
+        "note": "App, Turnstyle tech and 175 shows are already built; launch set for **2020-04-06**.",
+        "source": "https://techcrunch.com/2020/01/08/quibi-ces/"
+      },
+      "skills_match": {
+        "score": 4.5,
+        "note": "Katzenberg (DreamWorks) and Whitman (eBay, HP) have run studios and consumer tech at scale.",
+        "source": "https://tubefilter.com/2019/06/11/quibi-too-big-to-fail-katzenberg-mobile-video-billion-dollars/"
+      },
+      "capital_needed": {
+        "score": 2.5,
+        "note": "About **$1.4B** raised, yet Whitman says more is needed to reach break-even.",
+        "source": "https://videoweek.com/2020/02/24/analysts-are-still-spilt-on-quibi-two-months-from-launch/"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 4,
+        "note": "Launch is about **5 weeks** after the scoring date.",
+        "source": "https://techcrunch.com/2020/01/08/quibi-ces/"
+      },
+      "sales_cycle": {
+        "score": 4,
+        "note": "Consumer app subscription: same-day purchase, ads already pre-sold.",
+        "source": "https://techcrunch.com/2019/10/23/streaming-service-quibi-sells-out-of-its-150m-in-first-year-ad-inventory"
+      },
+      "channel_readiness": {
+        "score": 3.5,
+        "note": "**$400-500M** marketing, Super Bowl ad, T-Mobile partner; but no owned audience yet.",
+        "source": "https://digiday.com/future-of-tv/king-kong-jumping-off-empire-state-building-quibis-400m-marketing-push-spans-tv-person-screenings"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 3,
+        "note": "Brand unknown: Whitman says **no one has heard of Quibi**; Super Bowl coverage asks what it is.",
+        "source": "https://www.washingtontimes.com/news/2020/feb/2/super-bowl-ads-whats-a-quibi-again/"
+      },
+      "trend": {
+        "score": 4,
+        "note": "US mobile time passed TV in 2019 (**3:43 vs 3:35** a day, eMarketer).",
+        "source": "https://www.mactech.com/2019/06/14/mobile-time-surpasses-tv-time-in-the-u-s/?noamp=mobile"
+      },
+      "willingness_to_pay": {
+        "score": 2,
+        "note": "Only **39%** interested in paid mobile-first short shows; 47% have subscription fatigue.",
+        "source": "https://thewrap.com/before-quibi-mobile-video-fumbles"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 2,
+        "note": "Free socials fill the same in-between moments: Snapchat alone has **218M** daily users (R5 cap 2).",
+        "source": "https://www.sec.gov/Archives/edgar/data/0001564408/000156459020003264/snap-ex991_6.htm"
+      },
+      "competitor_density": {
+        "score": 2,
+        "note": "Netflix 167M, Disney+ 26.5M, Apple TV+, Peacock (free tier), HBO Max all fight for the wallet.",
+        "source": "https://www.broadbandtvnews.com/2020/01/22/netflix-ready-for-new-competitors/"
+      },
+      "differentiation": {
+        "score": 3,
+        "note": "One real difference: Hollywood-grade shows cut for phones, with **Turnstyle** portrait/landscape.",
+        "source": "https://techcrunch.com/2020/01/08/quibi-ces/"
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 4,
+        "note": "No licence needed; Turnstyle is patent-pending, no public IP dispute by 2020-03-01.",
+        "source": "https://techcrunch.com/2020/01/08/quibi-ces/"
+      },
+      "platform_dependency": {
+        "score": 2.5,
+        "note": "App-only: Apple and Google take **30%** of in-app subscriptions in year one.",
+        "source": "https://www.iclarified.com/55534/apple-to-drop-its-cut-of-app-store-subscription-revenue-to-15-after-the-first-year"
+      },
+      "market_risk": {
+        "score": 2,
+        "note": "Unproven format: Go90, Vessel and YouTube paid originals all failed or retreated.",
+        "source": "https://thewrap.com/before-quibi-mobile-video-fumbles"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 4.5,
+        "note": "Founders have long track records in film and consumer tech at scale.",
+        "source": "https://tubefilter.com/2019/06/11/quibi-too-big-to-fail-katzenberg-mobile-video-billion-dollars/"
+      },
+      "assets": {
+        "score": 4.5,
+        "note": "Hollywood talent network, **$150M** pre-sold ads, T-Mobile distribution deal.",
+        "source": "https://techcrunch.com/2019/10/23/streaming-service-quibi-sells-out-of-its-150m-in-first-year-ad-inventory"
+      },
+      "interest": {
+        "score": 4,
+        "note": "Katzenberg has pitched mobile short-form for years; a multi-decade media career.",
+        "source": "https://tubefilter.com/2019/06/11/quibi-too-big-to-fail-katzenberg-mobile-video-billion-dollars/"
+      }
+    }
+  },
+  "rules_applied": [],
+  "metrics": {
+    "tam": {
+      "value": 191000000,
+      "unit": "US mobile video viewers",
+      "basis": "sourced",
+      "source": "https://www.mactech.com/2019/06/14/mobile-time-surpasses-tv-time-in-the-u-s/?noamp=mobile",
+      "reasoning": null,
+      "as_of": "2019-06"
+    },
+    "sam": {
+      "value": 38000000,
+      "unit": "heavy mobile video viewers (1h+/day)",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "191M viewers x 20% assumed heavy (1h+/day) share = ~38M",
+      "as_of": "2020-03"
+    },
+    "som": {
+      "value": "800000-1500000",
+      "unit": "paid subscribers",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "38M heavy viewers x 2-4% conversion cited by Digiday sources (2019-06) = 0.8-1.5M",
+      "as_of": "2020-03"
+    },
+    "competitors_found": {
+      "value": 10,
+      "unit": "competitors",
+      "basis": "sourced",
+      "source": "https://www.lightreading.com/video/quibi-faces-struggle-against-free-social-media/a/d-id/756820",
+      "reasoning": null,
+      "as_of": "2020-03"
+    },
+    "competitor_price_range": {
+      "value": "0-15.99",
+      "unit": "USD/month",
+      "basis": "sourced",
+      "source": "https://corporate.comcast.com/press/releases/nbcuniversal-unveils-peacock-streaming-service-subscription-tiers",
+      "reasoning": null,
+      "as_of": "2020-01"
+    },
+    "demand_trend": {
+      "value": "rising",
+      "unit": "mobile time vs TV",
+      "basis": "sourced",
+      "source": "https://www.mactech.com/2019/06/14/mobile-time-surpasses-tv-time-in-the-u-s/?noamp=mobile",
+      "reasoning": null,
+      "as_of": "2019-06"
+    },
+    "price": {
+      "value": 6,
+      "unit": "USD/month blended",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$4.99 ad tier and $7.99 ad-free (TechCrunch, 2020-01) blended at ~60/40 = ~$6",
+      "as_of": "2020-03"
+    },
+    "variable_cost_per_unit": {
+      "value": 2.1,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "App Store 30% x $6 = $1.80 (iClarified, 2016) + ~$0.30 streaming delivery (assumption)",
+      "as_of": "2020-03"
+    },
+    "gross_margin_pct": {
+      "value": 65,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "($6 - $2.10) / $6 = 65%, before the $1B/year content slate",
+      "as_of": "2020-03"
+    },
+    "churn_monthly_pct": {
+      "value": 8,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Assumption: new library-light SVOD with no habit; no pre-2020-03 benchmark found; 8%/month",
+      "as_of": "2020-03"
+    },
+    "expected_lifetime": {
+      "value": 12.5,
+      "unit": "months",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "1 / 8% monthly churn = 12.5 months",
+      "as_of": "2020-03"
+    },
+    "conversion_rate_pct": {
+      "value": 3,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Midpoint of 2-4% conversion of heavy mobile viewers cited in Digiday (2019-06)",
+      "as_of": "2020-03"
+    },
+    "cac": {
+      "value": 60,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$450M 2020 marketing (Digiday, 2020-02, $400-500M) / 7.5M year-1 target subs (Light Reading, 2020-01) = $60; at half target $120",
+      "as_of": "2020-03"
+    },
+    "ltv": {
+      "value": 70,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "($6 x 65% + $1.67 ads/sub/month [$150M / 7.5M / 12]) x 12.5 months = ~$70",
+      "as_of": "2020-03"
+    },
+    "ltv_cac": {
+      "value": 1.2,
+      "unit": "ratio",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$70 / $60 = 1.17 at Quibi's own target; $70 / $120 = 0.58 at half the target",
+      "as_of": "2020-03"
+    },
+    "payback_months": {
+      "value": 10.8,
+      "unit": "months",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$60 CAC / $5.57 monthly gross profit incl. ads = 10.8 months",
+      "as_of": "2020-03"
+    },
+    "fixed_costs_month": {
+      "value": 83300000,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$1B year-1 content spend (Tubefilter, 2019-06) / 12 = $83.3M, before marketing and staff",
+      "as_of": "2020-03"
+    },
+    "break_even_customers_per_month": {
+      "value": 15000000,
+      "unit": "paying subscribers",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$83.3M content / $5.57 gross profit per sub per month = ~15M subs, vs a 7.5M year-1 target",
+      "as_of": "2020-03"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 5,
+      "unit": "weeks",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Launch 2020-04-06 (TechCrunch, 2020-01) minus scoring date 2020-03-01 = 5 weeks; ads pre-sold",
+      "as_of": "2020-03"
+    }
+  },
+  "launch_country": "US",
+  "launch_reason": "Founder's choice; the largest SVOD market with a carrier launch partner (T-Mobile).",
+  "kill_shots": {
+    "free_alternative": true,
+    "strong_competitor": true,
+    "graveyard": true,
+    "no_distribution": false,
+    "costs_eat_margin": false,
+    "weak_demand": false,
+    "legal_platform_risk": false,
+    "saturated_wave": false
+  },
+  "primary_kill_shot": "free_alternative",
+  "cheapest_test": "7-day pricing fake door: card-on-file pre-orders at $4.99 / $7.99 from $200k of social ads to US 18-34; need >= 2% of visitors.",
+  "kill_criteria": [
+    "Fewer than 20 card-on-file pre-orders per 1,000 visitors (2%) by day 7 -> add a free tier before paid launch",
+    "Episode completion under 50% on free platforms by day 7 -> cut the slate by half",
+    "Fewer than 2M app downloads in the first 30 days after 2020-04-06 -> freeze new content commissioning"
+  ],
+  "sources": [
+    "https://tubefilter.com/2019/06/11/quibi-too-big-to-fail-katzenberg-mobile-video-billion-dollars/",
+    "https://www.lightreading.com/video/mobile-video/t-mobile-strikes-exclusive-mobile-video-pact-with-katzenbergs-quibi/d/d-id/754974",
+    "https://techcrunch.com/2019/10/23/streaming-service-quibi-sells-out-of-its-150m-in-first-year-ad-inventory",
+    "https://www.thedrum.com/news/2019/10/24/short-form-video-platform-quibi-sells-out-first-year-ad-inventory-worth-150m",
+    "https://digitaltveurope.com/2019/10/24/quibi-sells-out-us150-million-first-year-ad-inventory-six-months-ahead-of-launch",
+    "https://www.bloomberg.com/news/articles/2020-01-08/moguls-whitman-katzenberg-raise-400-million-for-quibi-service",
+    "https://globalventuring.com/blog/2020/01/09/quibi-cribs-another-400m",
+    "https://www.washingtontimes.com/news/2020/feb/2/super-bowl-ads-whats-a-quibi-again/",
+    "https://digiday.com/future-of-tv/king-kong-jumping-off-empire-state-building-quibis-400m-marketing-push-spans-tv-person-screenings",
+    "https://www.sec.gov/Archives/edgar/data/0001564408/000156459020003264/snap-ex991_6.htm",
+    "https://www.businesswire.com/news/home/20200204005999/en",
+    "https://www.androidpolice.com/2020/02/03/youtube-tv-premium-music-numbers/",
+    "https://fortune.com/2019/02/04/youtube-google-subscriptions-q4-2018/",
+    "https://www.lightreading.com/video/quibi-faces-struggle-against-free-social-media/a/d-id/756820",
+    "https://videoweek.com/2020/02/24/analysts-are-still-spilt-on-quibi-two-months-from-launch/",
+    "https://www.broadbandtvnews.com/2020/01/22/netflix-ready-for-new-competitors/",
+    "https://www.bnnbloomberg.ca/disney-soars-to-26-5m-subscribers-topping-estimates-1.1384852",
+    "https://techcrunch.com/2020/02/04/disney-plus-subscribers",
+    "https://www.cnbc.com/2019/09/10/apple-tv-pricing-vs-disney-hulu-cbs-and-others.html",
+    "https://corporate.comcast.com/press/releases/nbcuniversal-unveils-peacock-streaming-service-subscription-tiers",
+    "https://www.axios.com/2020/01/16/nbc-peacock-cost-advertising-streaming",
+    "https://techcrunch.com/2018/06/29/verizon-is-shutting-down-go90",
+    "https://thewrap.com/before-quibi-mobile-video-fumbles",
+    "https://techcrunch.com/2016/10/26/verizon-acquires-vessel",
+    "https://www.engadget.com/2016/10/27/verizon-buys-a-video-startup-for-its-tech-kills-the-service/",
+    "https://techcrunch.com/2019/08/19/youtube-originals-become-ad-supported-and-free-after-september-24th",
+    "https://tubefilter.com/2017/05/23/blackpills-app-12-scripted-originals/",
+    "https://digiday.com/media/the-case-for-and-against-quibi/",
+    "https://www.advanced-television.com/2019/03/20/survey-42-of-us-say-no-ads-top-reason-for-svod/",
+    "https://www.mactech.com/2019/06/14/mobile-time-surpasses-tv-time-in-the-u-s/?noamp=mobile",
+    "https://techcrunch.com/2020/01/08/quibi-ces/",
+    "https://www.iclarified.com/55534/apple-to-drop-its-cut-of-app-store-subscription-revenue-to-15-after-the-first-year",
+    "https://tubefilter.com/2019/05/02/quibi-wants-expensive-commitments-from-advertisers-ahead-of-2020-launch/",
+    "https://techcrunch.com/2019/06/19/jeffrey-katzenbergs-streaming-service-quibi-books-100m-in-ad-sales-ahead-of-launch"
+  ],
+  "rescue": [
+    {
+      "change": "Sell through carrier bundles (T-Mobile, others) at a wholesale fee per subscriber instead of paid retail acquisition",
+      "why": "Cuts CAC and fixes ltv_cac; sidesteps the 30% store cut on platform_dependency",
+      "score_after": 65,
+      "difficulty": "very-hard",
+      "effort": "3-6 months of carrier deals",
+      "cost": "Discounted wholesale price",
+      "requires": "Carrier contracts beyond the undisclosed T-Mobile launch deal"
+    },
+    {
+      "change": "Add a free ad-supported tier (like Peacock Free) and keep $4.99 / $7.99 as upgrades",
+      "why": "Meets free_alternative head-on and lifts willingness_to_pay and search_demand via reach",
+      "score_after": 64,
+      "difficulty": "hard",
+      "effort": "Pricing and ad-load rework, 1-2 months",
+      "cost": "Lower ARPU per user",
+      "requires": "Advertisers accepting renegotiated audience guarantees"
+    },
+    {
+      "change": "Halve the year-1 slate and pilot 10 shows on free platforms before going exclusive",
+      "why": "Cuts the $1B fixed cost behind capital_needed and break-even; tests market_risk cheaply",
+      "score_after": 62,
+      "difficulty": "hard",
+      "effort": "Re-plan release schedule",
+      "cost": "Talent contract renegotiation",
+      "requires": "Creator and advertiser consent"
+    }
+  ],
+  "type_checks": [
+    {
+      "check": "rpm",
+      "result": "clear",
+      "note": "Ads pre-sold at premium rates: $150M first-year inventory sold out to 10 brands ($15M+ each), six months before launch.",
+      "source": "https://techcrunch.com/2019/10/23/streaming-service-quibi-sells-out-of-its-150m-in-first-year-ad-inventory"
+    },
+    {
+      "check": "platform_policy",
+      "result": "hit",
+      "note": "App-only service: Apple takes 30% of in-app subscriptions in year one, 15% after; reflected in platform_dependency 2.5.",
+      "source": "https://www.iclarified.com/55534/apple-to-drop-its-cut-of-app-store-subscription-revenue-to-15-after-the-first-year"
+    }
+  ],
+  "quick": false,
+  "run": {
+    "started": "2026-11-11T09:30:15Z",
+    "minutes": 7,
+    "searches": 32,
+    "fetches": 15,
+    "subagents": 4
+  }
+}

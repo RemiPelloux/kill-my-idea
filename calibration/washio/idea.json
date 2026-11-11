@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "slug": "washio",
+  "title": "Washio: on-demand laundry and dry-cleaning pickup by app",
+  "created": "2026-11-11",
+  "language": "en",
+  "source": {
+    "type": "own-idea",
+    "text": "Washio: on-demand laundry and dry-cleaning pickup and delivery ordered by app, launch country US. Score it as of 2013-06-01: use only evidence published on or before that date (set verdict.as_of). Founder: a seed-funded startup. Just go: do not ask questions. Use the slug washio.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Doing laundry and getting to a dry cleaner during opening hours takes time busy urban people don't have.",
+  "customer": null,
+  "solution": "A smartphone app to order on-demand pickup and delivery of laundry and dry cleaning.",
+  "revenue_model": "service",
+  "price": null,
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [
+    "on-demand laundry and dry-cleaning pickup and delivery ordered by app"
+  ],
+  "context": {
+    "budget": null,
+    "time_per_week": null,
+    "goal": "startup",
+    "edge": null
+  },
+  "assumptions": [
+    "Founder is a seed-funded team (stated); budget assumed to be a typical 2013 seed round, about USD 0.5-1.5M.",
+    "Launch city assumed to be Los Angeles; target customer assumed to be urban professionals without in-unit washers.",
+    "Operating model assumed outsourced: partner cleaners do the cleaning, contractor drivers do pickup and delivery.",
+    "Price assumed $1.75/lb wash & fold, 15-lb orders, $0.85/lb wholesale, 0.5 driver-hour per order (no dated 2012 LA prices found).",
+    "Scored as of 2013-06-01 with no questions asked (headless run): sources published after that date were excluded."
+  ],
+  "unknowns": [
+    "customer",
+    "price",
+    "channel",
+    "budget",
+    "time_per_week",
+    "edge"
+  ],
+  "type": "marketplace",
+  "answers": []
+}

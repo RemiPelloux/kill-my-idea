@@ -1,0 +1,403 @@
+{
+  "schema_version": "1.0",
+  "slug": "tally-forms",
+  "evaluated": "2026-11-11",
+  "as_of": "2020-06-01",
+  "mode": "kill",
+  "verdict": "GO",
+  "score": 71,
+  "score_raw": 71.2,
+  "confidence": {
+    "level": "medium",
+    "sourced_subscores": 12,
+    "sources": 34,
+    "primary_sources": 13,
+    "note": "No dated 2020 pricing pages, no form-specific free-to-paid benchmark, and no TAM report; archived pricing pages would raise it"
+  },
+  "criteria": {
+    "profit": 3.5,
+    "feasibility": 4.0,
+    "time_to_first_revenue": 3.5,
+    "demand": 4.0,
+    "competition": 2.0,
+    "risk": 3.5,
+    "fit": 3.0
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 4.5,
+        "note": "Software: Stripe ~3% plus hosting; free users are a fixed hosting cost. ~93% (estimate).",
+        "source": "https://fortune.com/2016/06/08/stripe-payments-france/"
+      },
+      "ltv_cac": {
+        "score": 3.5,
+        "note": "Organic CAC ~$60 gives LTV:CAC ~7.5 (estimate), but paid search would sink it; only the organic loop works.",
+        "source": "https://thenextweb.com/news/why-typeform-is-awesome"
+      },
+      "pricing_power": {
+        "score": 2.5,
+        "note": "Google Forms free and a generous own free plan anchor low; Pro must undercut Typeform's ~$40 ASP.",
+        "source": "https://getlatka.com/companies/typeform/interviews/typeform-david-okuniev-2018"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 3,
+        "note": "A doc-style block editor plus logic, embeds and payments: about 2 months to a usable beta for two devs.",
+        "source": null
+      },
+      "skills_match": {
+        "score": 4.5,
+        "note": "Two developers: the build is their core skill; marketing and support are learnable.",
+        "source": null
+      },
+      "capital_needed": {
+        "score": 5,
+        "note": "Hosting from $7-25 per dyno per month; near-zero capital, fits a bootstrapped budget.",
+        "source": "https://www.heroku.com/blog/dynos-pricing-ga/"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 2.5,
+        "note": "8-10 weeks to a launchable editor (estimate); slower than a no-code test.",
+        "source": null
+      },
+      "sales_cycle": {
+        "score": 4.5,
+        "note": "Self-serve card checkout: a maker upgrades the day they hit a Pro feature.",
+        "source": null
+      },
+      "channel_readiness": {
+        "score": 3,
+        "note": "Channel exists: Typeform's 'powered by' badge was its top traffic source; no Tally audience yet.",
+        "source": "https://thenextweb.com/news/why-typeform-is-awesome"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 4.5,
+        "note": "Mass need: Jotform 5M users (2019-07), SurveyMonkey 720,921 paying users (FY2019).",
+        "source": "https://prnewswire.com/news-releases/jotform-reaches-5-millionth-user-after-major-launch-300883163.html"
+      },
+      "trend": {
+        "score": 4,
+        "note": "Rising: SurveyMonkey revenue +21% (FY2019), Typeform revenue ~2x mid-2017 to mid-2018.",
+        "source": "https://surveymonkey.com/newsroom/fourth-quarter-fiscal-year-2019-financial-results"
+      },
+      "willingness_to_pay": {
+        "score": 4,
+        "note": "Typeform ~40k paying customers at ~$40/month while users complain of rising prices.",
+        "source": "https://getlatka.com/companies/typeform/interviews/typeform-david-okuniev-2018"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 2,
+        "note": "Google Forms is free with unlimited responses for basic forms (R5: free_alternative hit).",
+        "source": "https://julie-young.squarespace.com/blog/2017/1/4/market-research-tools-using-google-forms-for-surveys-screeners"
+      },
+      "competitor_density": {
+        "score": 2,
+        "note": "10+ competitors incl. Typeform, Jotform, SurveyMonkey/Wufoo; strong leaders (R5 cap 3).",
+        "source": "https://www.sec.gov/Archives/edgar/data/1739936/000156459020007349/svmk-10k_20191231.htm"
+      },
+      "differentiation": {
+        "score": 2.5,
+        "note": "Doc-style editing is a real but copyable UX difference; unlimited free is a pricing choice, not a moat.",
+        "source": null
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 3,
+        "note": "GDPR processor duties (Art. 28 DPA) and EU VAT MOSS: compliance work, not a licence.",
+        "source": "https://www.autoriteprotectiondonnees.be/publications/avis-n-98-2019.pdf"
+      },
+      "platform_dependency": {
+        "score": 4,
+        "note": "Owns its product and badge channel; depends only on swappable Stripe and hosting.",
+        "source": null
+      },
+      "market_risk": {
+        "score": 4,
+        "note": "Forms are a durable, recurring business need, not a fad.",
+        "source": "https://www.sec.gov/Archives/edgar/data/1739936/000156459020007349/svmk-10k_20191231.htm"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 4,
+        "note": "Strong build skills; no stated track record selling SaaS.",
+        "source": null
+      },
+      "assets": {
+        "score": 1.5,
+        "note": "No audience, list or network stated.",
+        "source": null
+      },
+      "interest": {
+        "score": 3,
+        "note": "Motivation not stated; assumed curious builders.",
+        "source": null
+      }
+    }
+  },
+  "metrics": {
+    "tam": {
+      "value": 380000000,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Visible leaders' revenue: SurveyMonkey $307M (FY2019) + Jotform ~$54M ARR (2019) + Typeform ~$19M run rate (2018) = ~$380M, a lower bound",
+      "as_of": "2020-06"
+    },
+    "sam": {
+      "value": 100000000,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Self-serve form builders for makers and SMBs (Typeform + Jotform ~$73M plus Paperform, Wufoo, Formstack etc.), excluding enterprise survey spend: ~$100M",
+      "as_of": "2020-06"
+    },
+    "som": {
+      "value": 100000,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "0.1% of SAM $100M in year 1 for two founders = $100k ARR",
+      "as_of": "2020-06"
+    },
+    "competitors_found": {
+      "value": 11,
+      "unit": "competitors",
+      "basis": "sourced",
+      "source": "https://www.producthunt.com/products/wispform/launches",
+      "reasoning": null,
+      "as_of": "2020-06"
+    },
+    "competitor_price_range": {
+      "value": "free to ~$40",
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Google Forms free; Typeform average price ~$40/month (2018 founder interview); no dated pricing pages for others",
+      "as_of": "2020-06"
+    },
+    "demand_trend": {
+      "value": "rising",
+      "unit": null,
+      "basis": "sourced",
+      "source": "https://surveymonkey.com/newsroom/fourth-quarter-fiscal-year-2019-financial-results",
+      "reasoning": null,
+      "as_of": "2020-02"
+    },
+    "price": {
+      "value": 29,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Assumed Pro price below Typeform's ~$40 average price",
+      "as_of": "2020-06"
+    },
+    "variable_cost_per_unit": {
+      "value": 1.9,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Stripe ~3.1% blended (1.4%+€0.25 EU, 2.9%+€0.25 non-EU) = $0.9 + ~$1 infra and support per paying user",
+      "as_of": "2020-06"
+    },
+    "gross_margin_pct": {
+      "value": 93,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "(29 - 1.9) / 29 = 93%",
+      "as_of": "2020-06"
+    },
+    "churn_monthly_pct": {
+      "value": 6,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Between Baremetrics' 7.7% SMB user churn (2017) and ProfitWell's 3-4% for larger plans (2019); low-priced self-serve plan",
+      "as_of": "2020-06"
+    },
+    "expected_lifetime": {
+      "value": 16.7,
+      "unit": "months",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "1 / monthly churn 0.06 = 16.7 months",
+      "as_of": "2020-06"
+    },
+    "conversion_rate_pct": {
+      "value": 0.2,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Visitor to sign-up 10% x free to paid 2% (Jotform implied <3%: $54M ARR / $360 per year / 5M users)",
+      "as_of": "2020-06"
+    },
+    "cac": {
+      "value": 60,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Organic: ~200 founder hours x $30/h per 100 paying customers (Product Hunt, communities, badge loop). Paid search would be ~$9.88 CPC / 0.2% = ~$4,900",
+      "as_of": "2020-06"
+    },
+    "ltv": {
+      "value": 452,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "29 x 0.93 x 16.7 months",
+      "as_of": "2020-06"
+    },
+    "ltv_cac": {
+      "value": 7.5,
+      "unit": "ratio",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "452 / 60 on the organic channel only; below 0.1 on paid search",
+      "as_of": "2020-06"
+    },
+    "payback_months": {
+      "value": 2.2,
+      "unit": "months",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "60 / (29 x 0.93)",
+      "as_of": "2020-06"
+    },
+    "fixed_costs_month": {
+      "value": 150,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Hosting 2 x $25 standard dynos + ~$50 database (Heroku pricing) + ~$50 tools; founders unpaid",
+      "as_of": "2020-06"
+    },
+    "break_even_customers_per_month": {
+      "value": 6,
+      "unit": "customers",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "150 / 27 = 6 paying customers for costs; ~220 to pay two modest salaries (€6k/month)",
+      "as_of": "2020-06"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 14,
+      "unit": "weeks",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "8-10 weeks build + launch + first upgrades within ~4 weeks",
+      "as_of": "2020-06"
+    }
+  },
+  "launch_country": "BE",
+  "launch_reason": "The founders are in Belgium, but the product sells online worldwide in English from day one; Belgium only sets the legal and VAT base.",
+  "kill_shots": {
+    "free_alternative": true,
+    "strong_competitor": true,
+    "graveyard": false,
+    "no_distribution": false,
+    "costs_eat_margin": false,
+    "weak_demand": false,
+    "legal_platform_risk": false,
+    "saturated_wave": false
+  },
+  "primary_kill_shot": "strong_competitor",
+  "rules_applied": [
+    {
+      "rule": "R5_kill_shot_coherence",
+      "effect": "free_alternative hit: free_alternatives held at 2; strong_competitor hit: competitor_density held at 2 (cap 3); no score change"
+    }
+  ],
+  "type_checks": [
+    {
+      "check": "churn_benchmark",
+      "result": "hit",
+      "note": "SMB self-serve SaaS churns 5-8% a month (Baremetrics 7.7%, 2017); at $29/month, lifetime is ~17 months, so retention must be built in",
+      "source": "https://baremetrics.com/blog/most-startups-are-not-crushing-it"
+    },
+    {
+      "check": "switching_cost",
+      "result": "clear",
+      "note": "A new form takes minutes to rebuild, so incumbents hold users mainly through existing embeds and integrations, not lock-in (estimate, no dated source)",
+      "source": null
+    }
+  ],
+  "cheapest_test": "Landing page with a 60-second doc-style demo video, posted to Indie Hackers, r/nocode and Makerpad: 300 waitlist sign-ups and 10 annual Pro pre-orders in 7 days",
+  "kill_criteria": [
+    "fewer than 150 waitlist sign-ups by day 7 -> rework the pitch before building",
+    "fewer than 5 Pro pre-orders at $29/month by day 14 -> rethink the paid plan",
+    "free-to-paid conversion below 1% after 90 days of launch -> change the Pro gate"
+  ],
+  "sources": [
+    "https://techcrunch.com/2011/04/25/wufoo-35-million-surveymonkey",
+    "https://vator.tv/2011-04-25-surveymonkey-buys-wufoo-for-35-million/",
+    "https://techcrunch.com/2017/09/11/typeform-a-platform-for-conversational-data-collection-raises-35m/embed/",
+    "https://www.indexventures.com/perspectives/typeform-secures-35-million-in-series-b/",
+    "https://www.generalatlantic.com/media-article/typeform-secures-35-million-series-b-funding-led-general-atlantic/",
+    "https://getlatka.com/companies/typeform/interviews/typeform-david-okuniev-2018",
+    "https://thenextweb.com/news/why-typeform-is-awesome",
+    "https://www.questionscout.com/blog/typeform-alternatives-for-2020-top-10-typeform-alternatives",
+    "https://techcrunch.com/2020/04/01/notion-hits-2-billion-valuation-in-new-raise/embed/",
+    "https://www.axios.com/2020/04/02/notes-app-notion-raises-money-at-2-billion-valuation",
+    "https://appmaster.io/news/webflow-secures-whopping-72m-series-a-funding-no-code-movement-gains-momentum",
+    "https://writing.pointnine.com/p/saas-metrics-benchmarking-your-churn",
+    "https://prnewswire.com/news-releases/jotform-reaches-5-millionth-user-after-major-launch-300883163.html",
+    "https://www.tmcnet.com/usubmit/2019/07/11/8984936.htm",
+    "https://getlatka.com/blog/why-new-jotform-cmo-has-them-growing-fast-north-of-4-5m-in-mrr/",
+    "https://www.sec.gov/Archives/edgar/data/1739936/000156459020007349/svmk-10k_20191231.htm",
+    "https://surveymonkey.com/newsroom/fourth-quarter-fiscal-year-2019-financial-results",
+    "https://www.producthunt.com/products/wispform/launches",
+    "https://www.producthunt.com/products/tripetto/launches/tripetto-for-wordpress",
+    "https://www.producthunt.com/products/form-builder/launches",
+    "https://hunted.space/product/webiny/launches/form-builder-by-webiny",
+    "https://www.producthunt.com/products/tellform/launches",
+    "https://www.autoriteprotectiondonnees.be/publications/avis-n-98-2019.pdf",
+    "https://www.hunton.com/privacy-and-cybersecurity-law-blog/2019/12/20/advocate-general-upholds-validity-of-standard-contractual-clauses-in-schrems-ii-case/",
+    "https://www.burges-salmon.com/news-and-insight/legal-updates/data-protection/attorney-general-issues-opinion-on-validity-of-privacy-shield-and-model-clauses",
+    "https://blog.forumforthefuture.be/fr/article/tva-sur-les-services-electroniques-transfrontaliers-le-mini-guichet-unique-moss/6138",
+    "https://baremetrics.com/blog/most-startups-are-not-crushing-it",
+    "https://profitwell.com/blog/average-revenue-churn-rate-benchmarks",
+    "https://fortune.com/2016/06/08/stripe-payments-france/",
+    "https://bankinnovation.net/2015/12/adyen-might-be-to-blame-for-stripe-pricing-cuts-in-europe/",
+    "https://www.heroku.com/blog/dynos-pricing-ga/",
+    "https://julie-young.squarespace.com/blog/2017/1/4/market-research-tools-using-google-forms-for-surveys-screeners",
+    "https://www.trustradius.com/reviews/typeform-2019-02-19-23-49-18",
+    "https://orbisresearch.com/reports/index/global-form-builder-software-market-growth-status-and-outlook-2019-2024"
+  ],
+  "rescue": [
+    {
+      "change": "Put a 'Made with Tally' badge on every free form and launch on Product Hunt, Indie Hackers and Notion/no-code communities",
+      "why": "Turns the free plan into the channel (channel_readiness, ltv_cac), as Typeform's badge did",
+      "score_after": 74,
+      "difficulty": "doable",
+      "effort": "1-2 weeks",
+      "cost": "~$0",
+      "requires": "A shipped free plan and a launch post"
+    },
+    {
+      "change": "Gate a few high-value features (remove branding, custom domain, file uploads, team) in Pro and keep the rest free",
+      "why": "Lifts free-to-paid conversion and pricing_power without killing the free hook",
+      "score_after": 73,
+      "difficulty": "doable",
+      "effort": "1 week",
+      "cost": "~$0",
+      "requires": "Usage data on which features free users hit"
+    }
+  ],
+  "run": {
+    "started": "2026-11-11T09:37:21Z",
+    "minutes": 6,
+    "searches": 38,
+    "fetches": 16,
+    "subagents": 4
+  }
+}

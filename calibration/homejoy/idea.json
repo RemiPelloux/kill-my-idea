@@ -1,0 +1,54 @@
+{
+ "schema_version": "1.0",
+ "slug": "homejoy",
+ "title": "Homejoy: book a vetted home cleaner online in 60 seconds",
+ "created": "2026-11-11",
+ "language": "en",
+ "type": "marketplace",
+ "source": {
+  "type": "own-idea",
+  "text": "Homejoy: book a vetted home cleaner online in 60 seconds, from $20 per hour, the platform takes a cut of each booking, launch country US. Score it as of 2012-07-01: use only evidence published on or before that date (set verdict.as_of). Founder: a seed-funded startup. Just go: do not ask questions. Use the slug homejoy.",
+  "url": null,
+  "author": null,
+  "posted": null
+ },
+ "problem": "Finding, vetting and booking a trustworthy home cleaner is slow and uncertain.",
+ "customer": "Busy urban households in US metros (assumed: young professionals in SF and NYC)",
+ "solution": "An online booking site: pick a time, get a vetted cleaner, pay online, in 60 seconds.",
+ "revenue_model": "marketplace",
+ "price": {
+  "amount": 20,
+  "currency": "USD",
+  "period": "per-use"
+ },
+ "channel": null,
+ "countries": [
+  "US"
+ ],
+ "claims": [
+  "book a vetted home cleaner online in 60 seconds",
+  "from $20 per hour",
+  "the platform takes a cut of each booking"
+ ],
+ "context": {
+  "budget": "seed funding (amount not stated)",
+  "time_per_week": "full-time team (assumed)",
+  "goal": "startup",
+  "edge": null
+ },
+ "assumptions": [
+  "Scored as of 2012-07-01 with evidence published on or before that date",
+  "Seed round of roughly $1-2M, full-time team (not stated)",
+  "Launch metros SF Bay Area and NYC",
+  "Typical job 3 hours ($60); platform pays cleaners near the local mean wage",
+  "Take rate not stated; modelled from price minus cleaner pay",
+  "Headless run: no questions asked"
+ ],
+ "unknowns": [
+  "channel",
+  "take rate",
+  "founder edge",
+  "cleaner employment model"
+ ],
+ "answers": []
+}

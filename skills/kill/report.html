@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-OoggM6WwuOVxQaq5KHEPv+RSu81D6fxTCNc5/7H1J8w='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-RSGuzWPKlozlnLvNgEYFjxOOqa+fErplx7N70FUff18='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -337,7 +337,7 @@ const FR = {
   "Not checked": "Non vérifié", "Not checked in this run.": "Non vérifié lors de cette analyse.", "Primary": "Principal", "The case for it": "Ce qui plaide pour", "Time to first revenue": "Délai avant le 1er revenu",
   "primary": "primaire", "secondary": "secondaire", "tertiary": "tertiaire", "Variable cost per unit": "Coût variable unitaire", "Monthly churn": "Attrition mensuelle", "Customer lifetime": "Durée de vie client", "Conversion rate": "Taux de conversion", "Fixed costs / month": "Coûts fixes / mois",
   "Time to first revenue (weeks)": "Délai avant le 1er revenu (semaines)", "Payback (months)": "Retour sur CAC (mois)", "Break-even (customers/month)": "Point mort (clients/mois)", "Competitor prices": "Prix des concurrents", "SOM (year 1)": "SOM (année 1)",
-  "R1 · free equivalent, no edge": "R1 · équivalent gratuit, pas d'avantage", "R2 · no channel: capped at 69": "R2 · pas de canal : plafonné à 69", "R3 · saturated wave": "R3 · vague saturée", "R4 · LTV : CAC below 1": "R4 · LTV : CAC sous 1", "R5 · kill-shot coherence": "R5 · cohérence des points de rupture", "R6 · loses money, no channel: capped at 49": "R6 · perd de l'argent, pas de canal : plafonné à 49",
+  "R1 · free equivalent, no edge": "R1 · équivalent gratuit, pas d'avantage", "R2 · no channel: capped at 69": "R2 · pas de canal : plafonné à 69", "R3 · saturated wave": "R3 · vague saturée", "R4 · LTV : CAC below 1": "R4 · LTV : CAC sous 1", "R5 · kill-shot coherence": "R5 · cohérence des points de rupture", "R6 · loses money, no channel: capped at 49": "R6 · perd de l'argent, pas de canal : plafonné à 49", "R7 · unprofitable model: −10, at most 49": "R7 · modèle non rentable : −10, au plus 49",
   "Pre-mortem": "Pré-mortem", "It's 12 months later and it failed. The most likely reasons.": "Douze mois plus tard, l'idée a échoué. Voici les raisons les plus probables.",
   "High likelihood": "Probabilité élevée", "Medium likelihood": "Probabilité moyenne", "Low likelihood": "Probabilité faible", "Early signal:": "Signal précurseur :", "linked to": "lié à",
   "Why now?": "Pourquoi maintenant ?", "Good timing": "Bon timing", "Too early": "Trop tôt", "Window closing": "Fenêtre qui se referme", "Unclear": "Incertain",
@@ -503,7 +503,7 @@ const SUB = { gross_margin: "Gross margin", ltv_cac: "LTV : CAC", pricing_power:
 const CD = V.criteria_detail || {};
 const bar = (v, max, color) => `<span class="sbar"><span class="bar" style="width:${Math.max(v / max * 100, 2)}%;background:${color}"></span></span>`;
 /* fixed rules (SKILL.md section 5), recorded in verdict.rules_applied */
-const RULES = { R1_free_equivalent: "R1 · free equivalent, no edge", R2_no_channel: "R2 · no channel: capped at 69", R3_saturated_wave: "R3 · saturated wave", R4_ltv_cac_below_1: "R4 · LTV : CAC below 1", R5_kill_shot_coherence: "R5 · kill-shot coherence", R6_unprofitable_no_channel: "R6 · loses money, no channel: capped at 49" };
+const RULES = { R1_free_equivalent: "R1 · free equivalent, no edge", R2_no_channel: "R2 · no channel: capped at 69", R3_saturated_wave: "R3 · saturated wave", R4_ltv_cac_below_1: "R4 · LTV : CAC below 1", R5_kill_shot_coherence: "R5 · kill-shot coherence", R6_unprofitable_no_channel: "R6 · loses money, no channel: capped at 49", R7_unprofitable_model: "R7 · unprofitable model: −10, at most 49" };
 const rules = Array.isArray(V.rules_applied) ? V.rules_applied.filter(r => r && typeof r === "object" && RULES[r.rule]) : [];
 const scoring = () => { const c = V.criteria || {}; let total = 0, raw = 0, haveSubs = true;
   const rows = Object.keys(W8).map(k => { const s5 = +(c[k] ?? 0), w = W8[k], subs = CD[k] && typeof CD[k] === "object" ? Object.entries(CD[k]) : [];
@@ -518,13 +518,16 @@ const scoring = () => { const c = V.criteria || {}; let total = 0, raw = 0, have
   const rawShown = num(V.score_raw) ?? (haveSubs ? Math.round(raw * 10) / 10 : null);
   const expected = Math.floor(raw + 0.5), capped = rules.some(r => r.rule === "R2_no_channel") || (V.kill_shots && V.kill_shots.no_distribution === true);
   const lc = num(V.metrics && V.metrics.ltv_cac && V.metrics.ltv_cac.value), r6 = rules.some(r => r.rule === "R6_unprofitable_no_channel") || (V.kill_shots && V.kill_shots.no_distribution === true && lc !== null && lc < 1);
-  const cap = r6 ? 49 : capped ? 69 : 100;
-  const mismatch = haveSubs && V.score !== Math.min(expected, cap) && V.score !== Math.round(total);
+  const pm = haveSubs && CD.profit ? Object.values(CD.profit).reduce((a, x) => a + (+(x && typeof x === "object" ? x.score : x) || 0), 0) / 3 : null;
+  const r7 = pm !== null && pm <= 2 + 1e-9;
+  const cap = r6 || r7 ? 49 : capped || V.quick === true ? 69 : 100;
+  const want = Math.min(r7 ? expected - 10 : expected, cap);
+  const mismatch = haveSubs && V.score !== want && V.score !== Math.round(total);
   return `<div class="card rv"><div class="crit-h"><span>Criterion</span><span></span><span>Score</span><span>Points</span></div>${rows}
     <div class="crit-t"><span>Total</span><span class="num">${V.score}<span class="u"> / 100</span>${rawShown !== null && rawShown !== V.score ? `<span class="u"> (raw ${rawShown})</span>` : ""}</span></div>
     ${rules.length ? `<div class="rules">${rules.map(r => `<span class="badge b-PIVOT" ${tipA(RULES[r.rule], r.effect || "")} tabindex="0">${ic("alert", 13)}${esc(RULES[r.rule])}</span>`).join("")}</div>` : ""}
-    ${mismatch ? `<p class="note warn">${ic("alert", 13)} The sub-scores recompute to ${Math.min(expected, cap)}, not ${V.score}. Run /kill-my-idea:kill again to fix the score.</p>` : ""}
-    <p class="note">Each criterion is the mean of three sub-scores from 1 to 5, scored against a fixed rubric. Points = mean ÷ 5 × weight; the total is the sum, rounded half up. Fixed rules then apply: a free equivalent with no edge caps Competitive room at 1.5 (R1), no distribution channel caps the total at 69 (R2), a saturated wave caps Competitive room and differentiation at 1.5 (R3), LTV : CAC below 1 caps Profit potential at 2 (R4), every kill shot hit must show in the sub-scores (R5), and an idea with no channel that loses money on each customer (LTV : CAC below 1) is capped at 49, a NO-GO (R6). ${Object.keys(CD).length ? "Open a criterion to see its sub-scores." : ""} <a href="https://github.com/RemiPelloux/kill-my-idea/blob/main/docs/scoring.md" target="_blank" rel="noopener noreferrer">How scoring works</a></p></div>`; };
+    ${mismatch ? `<p class="note warn">${ic("alert", 13)} The sub-scores recompute to ${want}, not ${V.score}. Run /kill-my-idea:kill again to fix the score.</p>` : ""}
+    <p class="note">Each criterion is the mean of three sub-scores from 1 to 5, scored against a fixed rubric. Points = mean ÷ 5 × weight; the total is the sum, rounded half up. Fixed rules then apply: a free equivalent with no edge caps Competitive room at 1.5 (R1), no distribution channel caps the total at 69 (R2), a saturated wave caps Competitive room and differentiation at 1.5 (R3), LTV : CAC below 1 caps Profit potential at 2 (R4), every kill shot hit must show in the sub-scores (R5), and an idea with no channel that loses money on each customer (LTV : CAC below 1) is capped at 49, a NO-GO (R6), and a model whose Profit potential is 2 or less loses 10 points and is at most 49 (R7). ${Object.keys(CD).length ? "Open a criterion to see its sub-scores." : ""} <a href="https://github.com/RemiPelloux/kill-my-idea/blob/main/docs/scoring.md" target="_blank" rel="noopener noreferrer">How scoring works</a></p></div>`; };
 const KSL = Object.keys(KS).filter(k => V.kill_shots && k in V.kill_shots);
 const PK = V.primary_kill_shot && KS[V.primary_kill_shot] && V.kill_shots && V.kill_shots[V.primary_kill_shot] === true ? V.primary_kill_shot : null;
 const ksList = KSL.length ? `<ul class="ks">${KSL.map(k => { const st = V.kill_shots[k], hit = st === true, unk = st === null || st === undefined, ev = (N.kill_shots || {})[k] || {};

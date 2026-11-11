@@ -4,7 +4,7 @@
   "evaluated": "2026-11-11",
   "mode": "kill",
   "verdict": "NO-GO",
-  "score": 49,
+  "score": 47,
   "score_raw": 57.2,
   "confidence": {
     "level": "high",
@@ -163,6 +163,10 @@
     {
       "rule": "R6_unprofitable_no_channel",
       "effect": "total 57 capped at 49: NO-GO"
+    },
+    {
+      "rule": "R7_unprofitable_model",
+      "effect": "Profit potential 2.00 (2 or less): 57 - 10 = 47, capped at 49 -> 47 (was 49)"
     }
   ],
   "metrics": {
