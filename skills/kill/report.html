@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-RSGuzWPKlozlnLvNgEYFjxOOqa+fErplx7N70FUff18='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-BphK1DCULeEvymnamc/jJ+zM1qB9TZBllP0xgGbcP0Y='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -333,7 +333,7 @@ const FR = {
   "Time to MVP": "Délai avant MVP", "Sales cycle": "Cycle de vente", "Channel readiness": "Canal prêt", "Search demand": "Demande en recherche", "Trend": "Tendance", "Willingness to pay": "Disposition à payer",
   "Free alternatives": "Alternatives gratuites", "Competitor density": "Densité concurrentielle", "Differentiation": "Différenciation", "Legal and regulatory": "Juridique et réglementaire",
   "Platform dependency": "Dépendance aux plateformes", "Market risk": "Risque de marché", "Skills": "Compétences", "Assets and network": "Actifs et réseau", "Interest": "Intérêt",
-  "High confidence": "Confiance élevée", "Medium confidence": "Confiance moyenne", "Low confidence": "Confiance faible", "Quick verdict": "Verdict rapide", "Deep dive": "Analyse approfondie", "Roast": "Roast", "Fact-check": "Vérification",
+  "High confidence": "Confiance élevée", "Medium confidence": "Confiance moyenne", "Low confidence": "Confiance faible", "Full verdict": "Verdict complet", "Deep dive": "Analyse approfondie", "Roast": "Roast", "Fact-check": "Vérification",
   "Not checked": "Non vérifié", "Not checked in this run.": "Non vérifié lors de cette analyse.", "Primary": "Principal", "The case for it": "Ce qui plaide pour", "Time to first revenue": "Délai avant le 1er revenu",
   "primary": "primaire", "secondary": "secondaire", "tertiary": "tertiaire", "Variable cost per unit": "Coût variable unitaire", "Monthly churn": "Attrition mensuelle", "Customer lifetime": "Durée de vie client", "Conversion rate": "Taux de conversion", "Fixed costs / month": "Coûts fixes / mois",
   "Time to first revenue (weeks)": "Délai avant le 1er revenu (semaines)", "Payback (months)": "Retour sur CAC (mois)", "Break-even (customers/month)": "Point mort (clients/mois)", "Competitor prices": "Prix des concurrents", "SOM (year 1)": "SOM (année 1)",
@@ -445,7 +445,7 @@ const CFL = { high: "High confidence", medium: "Medium confidence", low: "Low co
 const cfTip = CF ? `${num(CF.sourced_subscores) ?? "?"} of 21 sub-scores sourced, ${num(CF.sources) ?? "?"} sources, ${num(CF.primary_sources) ?? "?"} primary${CF.note ? "\n" + CF.note : ""}` : "";
 const prev = Array.isArray(V.history) && V.history.length ? V.history[V.history.length - 1] : null;
 const prevScore = prev ? num(prev.score) : null;
-const modeLabel = { kill: "Quick verdict", deepdive: "Deep dive", roast: "Roast", "check-tweet": "Fact-check" }[V.mode] || "";
+const modeLabel = { kill: "Full verdict", deepdive: "Deep dive", roast: "Roast", "check-tweet": "Fact-check" }[V.mode] || "";
 const toBand = s => s >= 70 ? null : s >= 50 ? ["GO", 70 - s] : ["PIVOT", 50 - s];
 const nb = toBand(V.score);
 const nextBand = nb ? `<div class="nb">${nb[1]} ${nb[1] === 1 ? "point" : "points"} from ${nb[0]}</div>` : V.score > 70 ? `<div class="nb">${V.score - 70} ${V.score - 70 === 1 ? "point" : "points"} above the GO line</div>` : "";
