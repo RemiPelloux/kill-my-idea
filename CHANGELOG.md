@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.9.0 — 2026-11-11
+
+A dashboard for all your ideas, and a brain note that remembers you.
+
+**New**
+- **Idea dashboard.** `ideas/board.html` now opens with **Focus this week** (the idea `compare`
+  picked, why, the first action and a deadline) and **What keeps killing your ideas** (how often each
+  kill shot hit, across all ideas; click a row to filter). Cards show the score history when an idea
+  was re-checked.
+- **Brain note.** `ideas/BRAIN.md` is one Markdown note for all your ideas: your profile (country,
+  budget, time, goal, edge), the focus, the ranking, your kill-shot patterns, score changes and the
+  lessons from killed ideas. `kill` reads the profile before asking questions and saves your answers
+  there, so you answer once. Your own notes outside the generated block are kept.
+- **`scripts/build-brain.py`** rebuilds the dashboard data and the brain from the verdicts, so every
+  number on them comes from a verdict. `kill`, `deepdive` and `compare` run it at the end.
+- **Mobile apps:** the demand check now looks at App Store keyword popularity. If every target
+  keyword sits at Apple's floor of 5, search brings almost no one and the first users must come from
+  another channel (suggested on Reddit).
+- **Your patterns first:** a kill shot that hit 2 or more of your earlier ideas is checked first.
+
+**Harder**
+- `check-idea.py --board` validates the new fields and recomputes the patterns from the ideas.
+- `check-idea.py --legacy` checks reports written before the current rules: rule errors become
+  warnings, but data-file safety errors still fail. CI now checks the example reports with it and
+  builds a dashboard from them.
+
 ## 0.8.0 — 2026-11-10
 
 Smarter verdicts, a board for all your ideas, and a harder report.

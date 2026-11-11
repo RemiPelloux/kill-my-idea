@@ -89,6 +89,23 @@ Every number shows whether it was sourced, estimated (hover for the formula) or 
 After a deep dive, the report shows how the score moved since the quick verdict.
 One click on **Share card** downloads a PNG verdict card for social media, and reports follow your language (English or French).
 
+## All your ideas in one place
+
+Every run updates `ideas/board.html`, a dashboard of every idea you've checked, and
+`ideas/BRAIN.md`, one note that remembers you and your ideas.
+
+<img src="assets/dashboard.png" alt="Idea dashboard: the focus for this week with its why, first action and deadline, a chart of the kill shots that hit the most ideas, and a card per idea with its score, verdict and best rescue path" width="100%">
+
+- **Focus this week:** the one idea `compare` picked, with why, a first action and a deadline.
+- **What keeps killing your ideas:** how often each kill shot hit across all your ideas. Click a
+  row to see which ideas it hit. Your next run checks your most frequent killer first.
+- **Score history** on each card when an idea was re-checked (`deepdive`, `compare --refresh`).
+- **The brain note** (`BRAIN.md`): your profile (country, budget, time, goal, edge), so the
+  skill stops asking the same questions, then the ranking, your patterns and the lessons from
+  killed ideas. Plain Markdown: it opens in Obsidian or any editor, and your own notes are kept.
+
+Both are rebuilt from the verdicts by `scripts/build-brain.py`, so nothing on them is made up.
+
 ## Commands
 
 | Command | What it does |
@@ -97,7 +114,7 @@ One click on **Share card** downloads a PNG verdict card for social media, and r
 | `/kill-my-idea:deepdive` | Six research tracks in parallel, 40+ sources: market size, competitor teardown, real customer quotes, pricing, channels, regulation per country |
 | `/kill-my-idea:check-tweet` | Fact-checks a viral "make money" post: every claim, the real math, what the author sells, then a verdict |
 | `/kill-my-idea:roast` | The same verdict as five sourced one-liners, sized for a screenshot ([Juicero](examples/juicero-roast.md)). Also saved for `compare` |
-| `/kill-my-idea:compare` | Ranks every idea you've checked by score, speed and confidence, picks the one to work on this week, and writes `ideas/board.html`, a filterable board of all your verdicts. `--refresh` re-checks the stale ones |
+| `/kill-my-idea:compare` | Ranks every idea you've checked by score, speed and confidence, picks the one to work on this week, and updates the dashboard and the brain note. `--refresh` re-checks the stale ones |
 
 You can also just write "kill my idea: …", "is this worth building?" or "which idea should I do?".
 
@@ -171,12 +188,14 @@ Everything goes into `ideas/<YYYY-MM>-<slug>/` in your current folder.
 | `verdict.json` | Score, 21 sub-scores, rules applied, confidence, metrics with their sources, countries, rescue paths ([schema](skills/kill/verdict.schema.json)) |
 | `deepdive.md` | The deep-dive write-up (`deepdive` only) |
 | `roast.md` | The roast (`roast` only) |
-| `ideas/RANKING.md` + `ideas/board.html` | The ranking of all your ideas, as text and as a board (`compare`) |
+| `ideas/board.html` + `ideas/BRAIN.md` | The dashboard and the brain note for all your ideas, rebuilt after every run |
+| `ideas/RANKING.md` + `ideas/focus.json` | The ranking and this week's focus (`compare`) |
 
 Check any run yourself:
 
 ```sh
 python3 scripts/check-idea.py ideas/<folder>   # or --all for every idea
+python3 scripts/build-brain.py ideas           # rebuild the dashboard and BRAIN.md by hand
 ```
 
 It recomputes the score from the sub-scores, applies the fixed rules, and checks every source and

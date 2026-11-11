@@ -65,6 +65,12 @@ in `unknowns`. Never invent a value.
 
 ## 2. Ask once
 
+**Read the brain first.** If `ideas/BRAIN.md` exists, read its **Me** section (country,
+budget, time per week, goal, edge, languages) and its **What keeps killing your ideas**
+section. A field filled in Me is an answer: don't ask it again, copy it into `idea.json`
+(`context`) and say "Using your profile from ideas/BRAIN.md". Ask only when this idea clearly
+differs (another country, a much bigger budget).
+
 Ask **at most 4 questions, in one round** (use AskUserQuestion when available, with likely
 answers as options; otherwise a numbered list in chat). Ask only about fields that are still
 `null` and would change the verdict. Priority:
@@ -76,6 +82,11 @@ answers as options; otherwise a numbered list in chat). Ask only about fields th
 
 If the user says "just go", or the input already answers these, skip the questions.
 Write every assumption into `idea.json` (`assumptions`) and into the report's header.
+
+**Save the answers.** Write each answer the user gave about themselves (not about this idea)
+into an empty field of the Me section of `ideas/BRAIN.md`, so the next idea skips the
+question. Never overwrite a field the user already filled; if an answer differs, mention it
+instead. If `BRAIN.md` doesn't exist yet, `build-brain.py` (§8) creates it; then fill in Me.
 
 ## 3. Try to kill it: research
 
@@ -90,7 +101,7 @@ this kill-shot checklist and record evidence for every item, hit or clear:
 | 3 | **Graveyard** | A named company tried this and closed, pivoted or stalled | `<idea> shut down`, `<idea> post-mortem`, `<idea> "we failed"`, `<idea> site:indiehackers.com` |
 | 4 | **Distribution** | No channel brings the first 10 customers at a cost below the first-year value | `<category> CPC`, `<customer> site:reddit.com`, `<idea> site:producthunt.com`, where the customer already gathers |
 | 5 | **Real costs** | Variable costs from actual price pages leave a gross margin under 50% | the API, hosting, tool and ad price pages the idea depends on |
-| 6 | **Demand** | Searches, communities or competitor revenue show demand flat or falling | Google Trends (5 years), `<idea> site:reddit.com`, job posts, competitor review counts over time |
+| 6 | **Demand** | Searches, communities or competitor revenue show demand flat or falling. For a mobile app: the keywords it would rank for have no App Store / Google Play search volume | Google Trends (5 years), `<idea> site:reddit.com`, job posts, competitor review counts over time; for an app, `<keyword> app store keyword popularity` and top-chart competitors' rating counts |
 | 7 | **Legal and platform** | A licence, privacy law, regulated sector, terms of service or single-platform dependency can stop it | `<idea> <country> regulation`, `<platform> terms of service <activity>`, GDPR / local privacy law |
 | 8 | **Saturated wave** | 10+ near-identical launches in the last 12 months | `<idea> site:producthunt.com`, `"Show HN" <idea>`, `<idea> site:reddit.com/r/SideProject`, `<idea> github` |
 
@@ -101,6 +112,14 @@ this kill-shot checklist and record evidence for every item, hit or clear:
   means buyers have seen 10 versions: differentiation must be specific, not "better UX" or
   "privacy-first".
 - A kill shot you did not have time to check is `null` in `verdict.json`, never `false`.
+- **Mobile apps** (suggested by a Reddit user): App Store search is often the only free
+  channel. Apple's Search Ads popularity score goes from 5 to 100 and 5 is the floor. If every
+  keyword the app would target sits at that floor, App Store search brings almost no one:
+  count it as a hit on **weak demand** and look hard at **distribution**, because the first
+  users must come from somewhere else. Quote the popularity values only from a source you
+  read (Apple Search Ads or an ASO tool page); otherwise write "unknown".
+- **Your patterns.** If BRAIN.md shows a kill shot that hit 2 or more of the user's earlier
+  ideas, check that one first and say so in the report ("no channel hit 3 of your 4 ideas").
 
 **Why now.** Find what changed recently (tech, regulation, platform, price, behaviour) that
 makes this possible now: `<category> 2026`, `<platform> new API`, `<law> <country> 2025`,
@@ -331,7 +350,12 @@ Save the paths in `verdict.json` as `rescue`, and copy them to `report-data.js` 
 5. The confidence level, and the one thing that would raise it.
 6. Where the report is: "Open `ideas/<folder>/report.html` in your browser (it prints to PDF)",
    with `report.md` as the text version.
-7. One line offering the next moves:
+7. **Update the brain and the dashboard.** With Bash, run
+   `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-brain.py" ideas`. It rebuilds
+   `ideas/BRAIN.md` (keeping Me and the user's notes), `ideas/board-data.js` and
+   `ideas/board.html` from every verdict. Say "Your dashboard: open `ideas/board.html`".
+   Without Bash, skip this and suggest `/kill-my-idea:compare`.
+8. One line offering the next moves:
    `/kill-my-idea:deepdive` (more evidence) · `/kill-my-idea:roast` (shareable) ·
    `/kill-my-idea:compare` (rank all your ideas).
 

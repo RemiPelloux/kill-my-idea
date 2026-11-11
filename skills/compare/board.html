@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-aHmrQoO2qFSOLZHySn2KbjiKVGH8ehf3Dt/Z8vwumno='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-1OpuU/q9av5r62wCPQzpgpwFjBj0KV4dhnuhT36SkV4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea board</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,6 +124,33 @@ h1{font:700 clamp(30px,4vw,44px)/1.12 var(--sans);letter-spacing:-.02em;margin:0
 .empty h2,.err h2{font:600 20px var(--sans);margin:0 0 6px}
 .empty p,.err p{color:var(--muted-fg);margin:0 auto 14px}
 .reset{min-height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);font-weight:500}
+/* dashboard: focus + patterns */
+.dash{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--s3);margin-bottom:var(--s3);align-items:start}
+.panel{padding:var(--s3);display:flex;flex-direction:column;gap:14px}
+.panel h2{display:flex;align-items:center;gap:8px;font:600 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted-fg);margin:0}
+.focus{position:relative;overflow:hidden}
+.focus::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--vc,var(--primary))}
+.fhead{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:center}
+.fttl{font:600 22px/1.25 var(--sans);margin:0 0 6px;overflow-wrap:anywhere}
+.fl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 14px;margin:0;font-size:15px}
+.fl dt{color:var(--muted-fg);font-weight:500}
+.fl dd{margin:0;overflow-wrap:anywhere}
+.fl dd.dl{font:600 15px var(--mono);color:var(--fg)}
+.pats{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.pat{display:grid;grid-template-columns:minmax(0,1fr) 56px;align-items:center;gap:6px 12px;width:100%;text-align:left;border:1px solid transparent;background:transparent;border-radius:10px;padding:8px 10px;transition:background .2s,border-color .2s}
+.pat:hover{background:var(--muted)}
+.pat[aria-pressed="true"]{background:var(--muted);border-color:var(--border)}
+.pat .pl{font-size:14px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pat .pn{font:500 13px var(--mono);color:var(--muted-fg);text-align:right}
+.pat .pb{grid-column:1/-1;height:6px;border-radius:99px;background:var(--muted);overflow:hidden}
+.pat .pb span{display:block;height:100%;border-radius:99px;background:var(--nogo-fill)}
+.pat.zero .pb span{background:var(--go-fill)}
+.hint{font-size:13px;color:var(--muted-fg);margin:0}
+.spark{display:flex;align-items:center;gap:10px;font:500 13px var(--mono);color:var(--muted-fg)}
+.spark svg{width:96px;height:26px;flex:none;overflow:visible}
+.top .blink{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:10px;border:1px solid var(--border);color:var(--primary);font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+.top .blink:hover{background:var(--muted)}
+@media (max-width:1024px){.dash{grid-template-columns:minmax(0,1fr)}}
 footer{max-width:1280px;margin:0 auto;padding:0 var(--s3) var(--s5);color:var(--muted-fg);font-size:13px}
 
 @media (prefers-reduced-motion:no-preference){
@@ -169,6 +196,7 @@ const DIFF = { doable: "Doable", hard: "Hard", "very-hard": "Very hard" };
 const L = { check: '<path d="M20 6 9 17l-5-5"/>', x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>', rotate: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
   alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>', arrow: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
   life: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/>',
+  target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>', note: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h6"/><path d="M8 13h8"/><path d="M8 17h5"/>',
   clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>', layers: '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>' };
 const ic = (n, sz = 16) => `<svg class="ic" width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${L[n]}</svg>`;
 const VICON = { "GO": "check", "PIVOT": "rotate", "NO-GO": "x" };
@@ -185,12 +213,18 @@ const ideas = D.ideas.slice(0, 300).filter(x => x && typeof x === "object").map(
     kill: typeof x.primary_kill_shot === "string" && x.primary_kill_shot ? x.primary_kill_shot : null,
     rescue: r ? { change: String(r.change || ""), after: num(r.score_after) === null ? null : clamp(Math.round(num(r.score_after)), 0, 100), diff: pick(r.difficulty, ["doable", "hard", "very-hard"], "hard") } : null,
     countries: Array.isArray(x.countries) ? x.countries.filter(c => typeof c === "string" && c).slice(0, 8) : [],
-    href: safeRel(x.report), stale: x.stale === true };
+    href: safeRel(x.report), stale: x.stale === true,
+    hist: Array.isArray(x.history) ? x.history.slice(-10).map(h => num(h && h.score)).filter(v => v !== null).map(v => clamp(Math.round(v), 0, 100)) : [],
+    hits: Array.isArray(x.hits) ? x.hits.filter(k => Object.prototype.hasOwnProperty.call(KS, k)) : [] };
 });
+const pats = Array.isArray(D.patterns) ? D.patterns.filter(p => p && Object.prototype.hasOwnProperty.call(KS, p.kill_shot)).slice(0, 8)
+  .map(p => ({ k: p.kill_shot, hits: clamp(Math.round(num(p.hits) ?? 0), 0, 300), checked: clamp(Math.round(num(p.checked) ?? 0), 0, 300) })) : null;
+const F = D.focus && typeof D.focus === "object" ? D.focus : null;
+const fIdea = F ? ideas.find(x => x.slug === String(F.slug || "")) : null;
 
 const COUNT = { "GO": 0, "PIVOT": 0, "NO-GO": 0 };
 ideas.forEach(x => COUNT[x.verdict]++);
-const S = { sort: "score", show: new Set(["GO", "PIVOT", "NO-GO"]), hideStale: false };
+const S = { sort: "score", show: new Set(["GO", "PIVOT", "NO-GO"]), hideStale: false, ks: null };
 const SORTS = { score: "Score", confidence: "Confidence", ttfr: "Time to revenue", newest: "Newest" };
 const byScore = (a, b) => b.score - a.score || (a.ttfr ?? 1e9) - (b.ttfr ?? 1e9) || (CONF[b.confidence] || 0) - (CONF[a.confidence] || 0);
 const CMP = { score: byScore,
@@ -208,6 +242,11 @@ const fmtN = v => v === null ? '<span class="unk">unknown</span>' : (Number.isIn
 const track = (from, to) => { const lo = Math.min(from, to), hi = Math.max(from, to);
   return `<div class="track" aria-hidden="true"><span style="left:0;width:${lo}%;background:${VC[vlabel(from)]};opacity:.55"></span><span style="left:${lo}%;width:${hi - lo}%;background:${VC[vlabel(to)]}"></span><i style="left:50%"></i><i style="left:70%"></i></div>`; };
 
+const spark = h => { if (h.length < 2) return "";
+  const W = 96, H = 26, step = (W - 6) / (h.length - 1), lo = Math.min(...h) - 2, span = Math.max(4, Math.max(...h) + 2 - lo);
+  const pts = h.map((v, i) => `${(3 + i * step).toFixed(1)},${(H - 3 - (v - lo) / span * (H - 6)).toFixed(1)}`).join(" ");
+  const last = h[h.length - 1], first = h[0];
+  return `<div class="spark" title="Score history"><svg viewBox="0 0 ${W} ${H}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="${VC[vlabel(last)]}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><span>${h.join(" → ")}</span><span class="badge ${last >= first ? "b-GO" : "b-NO-GO"}">${last >= first ? "+" : ""}${last - first}</span></div>`; };
 const cardHtml = (x, rank, d) => {
   const ks = x.kill ? esc(KS[x.kill] || x.kill.replace(/_/g, " ")) : null;
   const rx = x.rescue;
@@ -217,6 +256,7 @@ const cardHtml = (x, rank, d) => {
     <h3 class="ttl">${esc(x.title)}</h3>
     <div class="tags"><span class="badge b-${x.verdict}">${ic(VICON[x.verdict], 13)}${x.verdict}</span>${conf(x.confidence)}${x.stale ? `<span class="badge b-stale">${ic("clock", 12)}Stale</span>` : ""}</div>
   </div></div>
+  ${spark(x.hist)}
   <dl class="facts" style="margin:0">
     <div><dt>First revenue</dt><dd>${x.ttfr === null ? fmtN(null) : `${fmtN(x.ttfr)}<span class="u">wk</span>`}</dd></div>
     <div><dt>LTV : CAC</dt><dd>${x.ltv === null ? fmtN(null) : `${fmtN(x.ltv)}<span class="u">×</span>`}</dd></div>
@@ -231,13 +271,36 @@ const cardHtml = (x, rank, d) => {
 </article>`; };
 
 const logo = `<svg viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#1E40AF"/><path d="M512 150c-150 0-262 112-262 258 0 92 44 160 100 214 30 29 46 62 46 98v38h232v-38c0-36 16-69 46-98 56-54 100-122 100-214 0-146-112-258-262-258z" fill="#fff"/><g stroke="#1E40AF" stroke-width="44" stroke-linecap="round"><path d="M380 340l80 80M460 340l-80 80M564 340l80 80M644 340l-80 80"/></g><rect x="396" y="776" width="232" height="60" rx="26" fill="#BFDBFE"/></svg>`;
+const dashHtml = () => {
+  if (!F && !pats) return "";
+  let focus;
+  if (fIdea) {
+    const rows = [["Why", F.why], ["First action", F.first_action], ["Deadline", F.deadline]].filter(r => typeof r[1] === "string" && r[1]);
+    focus = `<section class="card panel focus" style="--vc:${VC[fIdea.verdict]}" aria-label="Focus this week"><h2>${ic("target", 14)}Focus this week</h2>
+      <div class="fhead">${ring(fIdea.score, fIdea.verdict)}<div style="min-width:0"><h3 class="fttl">${esc(fIdea.title)}</h3><div class="tags"><span class="badge b-${fIdea.verdict}">${ic(VICON[fIdea.verdict], 13)}${fIdea.verdict}</span>${conf(fIdea.confidence)}</div></div></div>
+      ${rows.length ? `<dl class="fl">${rows.map(r => `<dt>${r[0]}</dt><dd${r[0] === "Deadline" ? ' class="dl"' : ""}>${esc(r[1].slice(0, 300))}</dd>`).join("")}</dl>` : ""}
+      ${fIdea.href ? `<div><a class="open" href="${esc(fIdea.href)}">Open report ${ic("arrow", 14)}</a></div>` : ""}</section>`;
+  } else {
+    focus = `<section class="card panel focus" aria-label="Focus this week"><h2>${ic("target", 14)}Focus this week</h2><p class="hint">No focus picked yet. Run /kill-my-idea:compare to choose the one idea to work on.</p></section>`;
+  }
+  let pat = "";
+  if (pats && pats.length) {
+    const max = Math.max(1, ...pats.map(p => p.checked));
+    const top = pats[0];
+    pat = `<section class="card panel" aria-label="What keeps killing your ideas"><h2>${ic("alert", 14)}What keeps killing your ideas</h2>
+      <ul class="pats">${pats.map(p => `<li><button class="pat${p.hits ? "" : " zero"}" type="button" data-ks="${p.k}" aria-pressed="false" title="Show the ideas this hit"><span class="pl">${esc(KS[p.k])}</span><span class="pn">${p.hits}/${p.checked}</span><span class="pb"><span style="width:${(p.hits / max * 100).toFixed(1)}%"></span></span></button></li>`).join("")}</ul>
+      <p class="hint">${top.hits >= 2 ? `Check ${esc(KS[top.k].toLowerCase())} first on your next idea. ` : ""}Click a row to see the ideas it hit.</p></section>`;
+  }
+  return `<div class="dash">${focus}${pat}</div>`;
+};
 const total = ideas.length, gen = typeof D.generated === "string" ? D.generated.slice(0, 40) : "";
 const stat = (cls, label, n) => `<div class="card stat ${cls}"><div class="k"><span class="dot d-${cls === "all" ? "all" : cls}"></span>${label}</div><div class="v">${n}</div></div>`;
 const dist = total ? ["GO", "PIVOT", "NO-GO"].filter(v => COUNT[v]).map(v => `<span style="width:${(COUNT[v] / total * 100).toFixed(2)}%;background:${VC[v]}" title="${v}: ${COUNT[v]}"></span>`).join("") : "";
-app.innerHTML = /* safe-render */ `<header class="top"><div class="topbar"><a class="brand" href="https://github.com/RemiPelloux/kill-my-idea" target="_blank" rel="noopener noreferrer">${logo}kill-my-idea</a><span class="t">Idea board</span>${gen ? `<span class="gen">${esc(gen)}</span>` : ""}</div></header>
+app.innerHTML = /* safe-render */ `<header class="top"><div class="topbar"><a class="brand" href="https://github.com/RemiPelloux/kill-my-idea" target="_blank" rel="noopener noreferrer">${logo}kill-my-idea</a><span class="t">Idea dashboard</span>${gen ? `<span class="gen">${esc(gen)}</span>` : ""}${D.brain === true ? `<a class="blink" href="BRAIN.md">${ic("note", 14)}Brain note</a>` : ""}</div></header>
 <main>
-  <div class="head"><div><h1>Idea board</h1><p class="sub">${total} idea${total === 1 ? "" : "s"} ranked from their verdicts. Focus on one; park or kill the rest.</p></div>
+  <div class="head"><div><h1>Idea dashboard</h1><p class="sub">${total} idea${total === 1 ? "" : "s"} ranked from their verdicts. Focus on one; park or kill the rest.</p></div>
     <div class="stats">${stat("all", "Ideas", total)}${stat("GO", "GO", COUNT.GO)}${stat("PIVOT", "PIVOT", COUNT.PIVOT)}${stat("NO-GO", "NO-GO", COUNT["NO-GO"])}<div class="dist" aria-hidden="true">${dist}</div></div></div>
+  ${dashHtml()}
   <div class="card bar" role="toolbar" aria-label="Filter and sort">
     <div class="grp"><span class="lbl">Show</span>${["GO", "PIVOT", "NO-GO"].map(v => `<button class="chip" type="button" data-v="${v}" aria-pressed="true"><span class="dot d-${v}"></span>${v}<span class="n">${COUNT[v]}</span></button>`).join("")}<button class="chip" type="button" data-stale="1" aria-pressed="false">${ic("clock", 14)}Hide stale</button></div>
     <div class="grp"><span class="lbl">Sort</span><div class="seg">${Object.keys(SORTS).map(k => `<button type="button" data-sort="${k}" aria-pressed="${k === S.sort}">${SORTS[k]}</button>`).join("")}</div></div>
@@ -249,8 +312,8 @@ app.innerHTML = /* safe-render */ `<header class="top"><div class="topbar"><a cl
 
 const grid = document.getElementById("grid"), count = document.getElementById("count");
 const render = () => {
-  const list = ideas.filter(x => S.show.has(x.verdict) && !(S.hideStale && x.stale)).sort(CMP[S.sort]);
-  count.textContent = `Showing ${list.length} of ${total}`;
+  const list = ideas.filter(x => S.show.has(x.verdict) && !(S.hideStale && x.stale) && (!S.ks || x.hits.includes(S.ks))).sort(CMP[S.sort]);
+  count.textContent = `Showing ${list.length} of ${total}` + (S.ks ? ` · hit by ${KS[S.ks].toLowerCase()}` : "");
   grid.innerHTML = list.length ? list.map((x, n) => cardHtml(x, n + 1, Math.min(n, 12) * 50)).join("") /* safe-render */
     : `<div class="card empty" style="grid-column:1/-1"><h2>No ideas match these filters</h2><p>Turn a verdict back on or show stale ideas.</p><button class="reset" type="button" data-reset="1">Reset filters</button></div>`;
 };
@@ -259,11 +322,12 @@ app.addEventListener("click", ev => {
   if (b.dataset.v) { const v = b.dataset.v; S.show.has(v) ? S.show.delete(v) : S.show.add(v); b.setAttribute("aria-pressed", String(S.show.has(v))); }
   else if (b.dataset.stale) { S.hideStale = !S.hideStale; b.setAttribute("aria-pressed", String(S.hideStale)); }
   else if (b.dataset.sort && SORTS[b.dataset.sort]) { S.sort = b.dataset.sort; app.querySelectorAll("[data-sort]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); }
-  else if (b.dataset.reset) { S.show = new Set(["GO", "PIVOT", "NO-GO"]); S.hideStale = false; app.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", "true")); app.querySelector("[data-stale]").setAttribute("aria-pressed", "false"); }
+  else if (b.dataset.ks && KS[b.dataset.ks]) { S.ks = S.ks === b.dataset.ks ? null : b.dataset.ks; app.querySelectorAll("[data-ks]").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.ks === S.ks))); }
+  else if (b.dataset.reset) { S.ks = null; app.querySelectorAll("[data-ks]").forEach(x => x.setAttribute("aria-pressed", "false")); S.show = new Set(["GO", "PIVOT", "NO-GO"]); S.hideStale = false; app.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", "true")); app.querySelector("[data-stale]").setAttribute("aria-pressed", "false"); }
   else return;
   render();
 });
-document.title = `Idea board · ${total} idea${total === 1 ? "" : "s"} · kill-my-idea`;
+document.title = `Idea dashboard · ${total} idea${total === 1 ? "" : "s"} · kill-my-idea`;
 if (!total) { grid.innerHTML = '<div class="card empty" style="grid-column:1/-1"><h2>No ideas yet</h2><p>Evaluate an idea with /kill-my-idea:kill, then run /kill-my-idea:compare.</p></div>'; /* safe-render */ count.textContent = ""; }
 else render();
 } catch (e) { fail("This board could not be displayed", "The board data has an unexpected shape (" + (e && e.message || e) + "). Run /kill-my-idea:compare again."); }

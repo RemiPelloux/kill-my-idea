@@ -28,7 +28,7 @@ rubric and fixed rules §5) with higher minimums.
    | Competitor teardown | Top 10 (global + local): offer, price tiers from the pricing page (dated), traction (traffic, reviews, funding, headcount), positioning, weakest point |
    | Customer voice | 15 or more verbatim quotes or complaints from reviews (G2, Trustpilot, app stores, Amazon), Reddit or forums, grouped by pain and ranked by frequency. Exact words only, each with a link and a date |
    | Pricing | The price ladder in the market, willingness to pay, the most common model, and the price elasticity signals (discounts, churn complaints about price) |
-   | Channels | 3 acquisition channels with a cost estimate (CPC, CPM, creator rates, from sourced benchmarks) and real examples of companies using them. Where the ICP gathers (communities, platforms, events) |
+   | Channels | 3 acquisition channels with a cost estimate (CPC, CPM, creator rates, from sourced benchmarks) and real examples of companies using them. Where the ICP gathers (communities, platforms, events). For a mobile app: App Store / Google Play keyword popularity for the target keywords (Apple's floor is 5: all keywords at 5 means search brings almost no one) |
    | Regulation & platform | Per-country laws, licences, taxes (VAT, OSS), terms-of-service risks, dependency on one platform, with links to the legal text or the platform page. Recent changes (tech, law, platform, price) for why now |
 
 3. **Update the numbers.**
@@ -60,9 +60,11 @@ rubric and fixed rules §5) with higher minimums.
      updated `premortem`, `why_now` and `icp`.
    - Copy `report.html` from `${CLAUDE_PLUGIN_ROOT}/skills/kill/` if it isn't there yet.
      The HTML then shows the deep-dive version, with the score history.
-6. **Self-check** with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>`
+6. **Update the brain**: `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-brain.py" ideas`
+   when Bash is available (kill skill §8).
+7. **Self-check** with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>`
    when Bash is available; fix every error before answering.
-7. **Answer in chat**:
+8. **Answer in chat**:
    - the updated card;
    - the score change ("42 → 47, because…") and the confidence level;
    - the 3 most surprising findings;

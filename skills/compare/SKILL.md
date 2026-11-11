@@ -1,6 +1,6 @@
 ---
 name: compare
-description: Rank all the ideas evaluated with kill-my-idea in this project, from their verdict.json files, recommend which ONE to focus on this week, and write a visual board (ideas/board.html). With --refresh, re-research stale verdicts before ranking. Use when the user says "compare my ideas", "which idea should I do", "rank my ideas", "what should I focus on", "refresh", "update the ranking", or has evaluated 2 or more ideas.
+description: Rank all the ideas evaluated with kill-my-idea in this project, from their verdict.json files, recommend which ONE to focus on this week, and write the idea dashboard (ideas/board.html) and the brain note (ideas/BRAIN.md). With --refresh, re-research stale verdicts before ranking. Use when the user says "compare my ideas", "which idea should I do", "rank my ideas", "what should I focus on", "refresh", "update the ranking", or has evaluated 2 or more ideas.
 ---
 
 # Compare Ideas
@@ -57,21 +57,34 @@ description: Rank all the ideas evaluated with kill-my-idea in this project, fro
      pause, not a kill.
    - **Kill:** NO-GOs that are still in `ideas/` and should be archived.
    - **Opportunity cost:** what the focus idea beats the others on, in one line.
+   - Read `ideas/BRAIN.md` when it exists: the user's Me profile (budget, time, goal) and the
+     kill-shot patterns weigh in the choice.
+   - Save the focus as `ideas/focus.json`, a strict JSON object:
+     `{"slug": "<verdict slug>", "why": "<one line>", "first_action": "<one action>", "deadline": "YYYY-MM-DD", "decided": "<today>"}`.
+     Each value is at most 300 characters.
 5. **Write `ideas/RANKING.md`** with the table, the decision and today's date.
-6. **Write the board.**
+6. **Write the dashboard and the brain.** With Bash, run
+   `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-brain.py" ideas`, then
+   `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" --board ideas`. The script computes
+   everything from the verdicts and `focus.json`: `ideas/board-data.js`, a fresh copy of
+   `ideas/board.html`, and the generated block of `ideas/BRAIN.md` (focus, all ideas, what keeps
+   killing your ideas, score changes, lessons). It keeps the Me section and the user's notes.
+   Without Bash, do it by hand:
    - Write `ideas/board-data.js` in the format below, ideas in ranking order.
    - Copy the board page as-is. Never rewrite it.
      With Bash: `cp "${CLAUDE_PLUGIN_ROOT}/skills/compare/board.html" ideas/board.html`.
      Otherwise Read it and Write it unchanged.
    - Check it with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" --board ideas` when
      Bash is available, and fix every error.
-7. **Answer in chat** with the table and the decision. Keep it short. End with
-   "Open `ideas/board.html` in your browser."
+7. **Answer in chat** with the table and the decision. Keep it short. Name the kill shot that
+   hit the most ideas, if it hit 2 or more. End with "Open `ideas/board.html` in your browser.
+   Your notes: `ideas/BRAIN.md`."
 
 Without `--refresh`, do not re-research the ideas. Only compare what the verdicts contain.
 
 ## Board data
 
+`build-brain.py` writes this file; the format is here for the no-Bash case.
 `ideas/board-data.js` is one statement, a strict JSON literal (double quotes, no functions,
 no comments, no template literals), following
 `${CLAUDE_PLUGIN_ROOT}/skills/compare/board-data.schema.json`:
@@ -90,5 +103,10 @@ window.KMI_BOARD = { "generated": "YYYY-MM-DD", "ideas": [ { "slug", "title", "v
 | `best_rescue` | `rescue[0]` with only `change`, `score_after`, `difficulty`, or `null` |
 | `report` | the idea's folder name + `/report.html`, relative to `ideas/` |
 | `stale` | `true` when `evaluated` is more than 90 days before `generated` |
+| `history` (optional) | `verdict.history` + the current evaluation, as `{evaluated, score}`, oldest first, at most 10 |
+| `hits` (optional) | the `verdict.kill_shots` keys that are `true` |
+| top-level `focus` (optional) | the content of `ideas/focus.json`, or `null` |
+| top-level `patterns` (optional) | per kill shot: `{kill_shot, hits, checked}` counted over all ideas, most hits first |
+| top-level `brain` (optional) | `true` when `ideas/BRAIN.md` exists (shows a link to it) |
 
 Never put a value in the board that is not in the verdict or the idea brief.

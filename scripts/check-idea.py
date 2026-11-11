@@ -3,7 +3,8 @@
 
     python3 scripts/check-idea.py ideas/2026-11-my-idea
     python3 scripts/check-idea.py --all [ideas]    # every ideas/*/ folder with a verdict.json
-    python3 scripts/check-idea.py --board [ideas]  # ideas/board-data.js, written by compare
+    python3 scripts/check-idea.py --board [ideas]  # ideas/board-data.js, written by build-brain.py
+    python3 scripts/check-idea.py --legacy examples/x-report  # an old report: rule errors become warnings
 
 No dependencies. Exit code 1 when any ERROR is found. It recomputes the score from the 21
 sub-scores, applies the fixed rules R1-R5, and checks sources, counts, kill-shot coherence,
@@ -63,9 +64,13 @@ class Report:
     def __init__(self, folder):
         self.folder = folder
         self.errors, self.warnings = [], []
+        self.lenient = False  # --legacy: rules added after a report was written only warn
 
     def error(self, msg):
-        self.errors.append(msg)
+        if self.lenient:
+            self.warnings.append(f"legacy: {msg}")
+        else:
+            self.errors.append(msg)
 
     def warn(self, msg):
         self.warnings.append(msg)
@@ -729,7 +734,7 @@ def check_html(rep, folder, has_data):
         rep.warn("report.html differs from the plugin template (older version or edited). Copy skills/kill/report.html again to update it.")
 
 
-def check_folder(folder):
+def check_folder(folder, legacy=False):
     rep = Report(folder)
     idea = load_json(rep, folder / "idea.json")
     v = load_json(rep, folder / "verdict.json")
@@ -742,6 +747,7 @@ def check_folder(folder):
     if v is None:
         rep.error("verdict.json: missing or invalid")
         return rep
+    rep.lenient = legacy
     for k in ("slug", "evaluated", "verdict", "score", "criteria", "metrics", "kill_shots"):
         if k not in v:
             rep.error(f"verdict.json: missing required field {k!r}")
@@ -753,7 +759,9 @@ def check_folder(folder):
     scores = check_scores(rep, v)
     check_metrics(rep, v)
     check_kill_shots(rep, v)
+    rep.lenient = False  # the data file is code the browser loads: safety errors are never relaxed
     data = load_report_data(rep, folder / "report-data.js")
+    rep.lenient = legacy
     narrative = check_report_data(rep, data, idea, v)
     check_sources_and_confidence(rep, v, narrative, scores)
     check_rescue_and_test(rep, v)
@@ -766,10 +774,12 @@ def check_folder(folder):
             rep.error("verdict.json: several countries but no launch_country")
     if idea and len(idea.get("countries") or []) > 1 and not isinstance(bc, dict):
         rep.warn("verdict.json: the idea targets several countries but by_country is missing")
+    rep.lenient = False
     check_html(rep, folder, data is not None)
     return rep
 
 
+BOARD_OPTIONAL = {"history", "hits"}  # 0.9, written by build-brain.py
 BOARD_KEYS = {"slug", "title", "verdict", "score", "confidence", "evaluated", "time_to_first_revenue_weeks",
               "ltv_cac", "primary_kill_shot", "best_rescue", "countries", "report", "stale"}
 
@@ -784,8 +794,11 @@ def check_board(ideas_dir):
     board = load_js_literal(rep, path, "KMI_BOARD")
     if board is None:
         return rep
-    if set(board) - {"generated", "ideas"}:
-        rep.error(f"board-data.js: unknown top-level keys {sorted(set(board) - {'generated', 'ideas'})}")
+    top = {"generated", "ideas", "brain", "focus", "patterns"}
+    if set(board) - top:
+        rep.error(f"board-data.js: unknown top-level keys {sorted(set(board) - top)}")
+    if "brain" in board and not isinstance(board["brain"], bool):
+        rep.error("board-data.js: brain must be true or false")
     gen = board.get("generated")
     if not DATE_RX.match(str(gen)):
         rep.error(f"board-data.js: generated {gen!r} is not YYYY-MM-DD")
@@ -803,7 +816,7 @@ def check_board(ideas_dir):
         if not isinstance(it, dict):
             rep.error(f"{w} must be an object")
             continue
-        missing, extra = BOARD_KEYS - set(it), set(it) - BOARD_KEYS
+        missing, extra = BOARD_KEYS - set(it), set(it) - BOARD_KEYS - BOARD_OPTIONAL
         if missing:
             rep.error(f"{w} is missing {sorted(missing)}")
         if extra:
@@ -850,6 +863,7 @@ def check_board(ideas_dir):
         if not isinstance(cs, list) or not all(isinstance(c, str) and re.match(r"^[A-Z]{2}$", c) for c in cs):
             rep.error(f"{w}.countries must be a list of ISO 3166-1 alpha-2 codes")
         rp = it.get("report")
+        vj_ks = None
         if not isinstance(rp, str) or not re.match(r"^[A-Za-z0-9._-]+/report\.html$", rp) or rp.startswith("."):
             rep.error(f"{w}.report {rp!r} must be '<folder>/report.html', relative to ideas/")
         else:
@@ -857,10 +871,26 @@ def check_board(ideas_dir):
             if not (folder / "report.html").exists():
                 rep.warn(f"{w}.report {rp} does not exist")
             vj = load_json(rep, folder / "verdict.json")
+            if vj is None and (folder / "report-data.js").exists():
+                emb = load_js_literal(Report(folder), folder / "report-data.js", "KMI_DATA")
+                vj = emb.get("verdict") if isinstance(emb, dict) else None
+            vj_ks = vj.get("kill_shots") if isinstance(vj, dict) else None
             if isinstance(vj, dict):
                 for k in ("slug", "verdict", "score", "evaluated", "primary_kill_shot"):
                     if k in vj and k in it and vj[k] != it[k]:
                         rep.error(f"{w}.{k} = {it[k]!r} but {folder.name}/verdict.json says {vj[k]!r}; rerun compare")
+        hist = it.get("history", [])
+        if not isinstance(hist, list) or len(hist) > 10 or not all(
+                isinstance(h, dict) and set(h) == {"evaluated", "score"} and DATE_RX.match(str(h["evaluated"]))
+                and isinstance(h["score"], int) and 0 <= h["score"] <= 100 for h in hist):
+            rep.error(f"{w}.history must be at most 10 {{evaluated, score}} entries")
+        elif hist and (hist[-1]["score"] != sc or hist[-1]["evaluated"] != ev):
+            rep.error(f"{w}.history must end with the current evaluation ({ev}, {sc})")
+        hits = it.get("hits", [])
+        if not isinstance(hits, list) or not all(h in KILL_SHOTS for h in hits):
+            rep.error(f"{w}.hits must be a list of kill shot keys")
+        elif isinstance(vj_ks, dict) and "hits" in it and sorted(hits) != sorted(k for k in KILL_SHOTS if vj_ks.get(k) is True):
+            rep.error(f"{w}.hits {hits} differ from the kill shots hit in verdict.json; rerun build-brain.py")
         st = it.get("stale")
         if not isinstance(st, bool):
             rep.error(f"{w}.stale must be true or false")
@@ -868,6 +898,25 @@ def check_board(ideas_dir):
             age = (datetime.date.fromisoformat(gen) - datetime.date.fromisoformat(ev)).days
             if st != (age > 90):
                 rep.error(f"{w}.stale is {st} but the verdict is {age} days old (stale = older than 90 days)")
+    slugs_ok = {x.get("slug") for x in ideas if isinstance(x, dict)}
+    fo = board.get("focus")
+    if fo is not None:
+        if not isinstance(fo, dict) or set(fo) - {"slug", "why", "first_action", "deadline", "decided"}:
+            rep.error("board-data.js: focus must be null or {slug, why, first_action, deadline, decided}")
+        elif fo.get("slug") not in slugs_ok:
+            rep.error(f"board-data.js: focus.slug {fo.get('slug')!r} is not one of the ideas")
+        elif not all(isinstance(v, str) and len(v) <= 300 for v in fo.values()):
+            rep.error("board-data.js: focus values must be strings of at most 300 characters")
+    pats = board.get("patterns")
+    if pats is not None:
+        if not isinstance(pats, list) or not all(isinstance(p, dict) and set(p) == {"kill_shot", "hits", "checked"}
+                                                 and p["kill_shot"] in KILL_SHOTS for p in pats):
+            rep.error("board-data.js: patterns must be a list of {kill_shot, hits, checked}")
+        elif all(isinstance(x, dict) and isinstance(x.get("hits"), list) for x in ideas):
+            want = {k: sum(k in x["hits"] for x in ideas) for k in KILL_SHOTS}
+            for p in pats:
+                if p["hits"] != want[p["kill_shot"]] or not isinstance(p["checked"], int) or p["checked"] < p["hits"]:
+                    rep.error(f"board-data.js: patterns {p['kill_shot']} says {p['hits']} hits, the ideas say {want[p['kill_shot']]}; rerun build-brain.py")
     return rep
 
 
@@ -891,6 +940,12 @@ def main(argv):
         rep = check_board(root)
         print_report(root.name or str(root), rep)
         return 1 if rep.errors else 0
+    legacy = argv[0] == "--legacy"
+    if legacy:
+        argv = argv[1:]
+        if not argv:
+            print("--legacy needs at least one folder")
+            return 1
     if argv[0] == "--all":
         root = pathlib.Path(argv[1]) if len(argv) > 1 else pathlib.Path("ideas")
         folders = sorted(p.parent for p in root.glob("*/verdict.json"))
@@ -905,7 +960,7 @@ def main(argv):
             print(f"{f}: not a folder")
             failed += 1
             continue
-        rep = check_folder(f)
+        rep = check_folder(f, legacy)
         print_report(f.name, rep)
         failed += bool(rep.errors)
     return 1 if failed else 0

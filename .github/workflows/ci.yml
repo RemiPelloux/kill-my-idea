@@ -34,6 +34,18 @@ jobs:
           done < <(find examples -name verdict.json -type f | sort)
           if [ "$found" = 0 ]; then echo "No examples with verdict.json, skipping."; fi
 
+      - name: Check legacy example reports (rule errors warn, safety errors fail)
+        run: |
+          for d in examples/*-report; do python3 scripts/check-idea.py --legacy "$d"; done
+
+      - name: Build the dashboard and brain from the examples
+        run: |
+          tmp=$(mktemp -d)
+          for d in examples/*-report; do cp -r "$d" "$tmp/$(basename "$d" -report)"; done
+          python3 scripts/build-brain.py "$tmp"
+          python3 scripts/check-idea.py --board "$tmp"
+          grep -q "kmi:auto:end" "$tmp/BRAIN.md"
+
       - name: Schemas are valid JSON
         run: |
           find . -name '*.schema.json' -not -path './.git/*' -print0 \
