@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.1 — 2026-11-11
+
+- **Research budget:** each of the 4 research subagents runs at most 8 searches and 4 page fetches,
+  and the main thread at most 8 more. Without it, the first calibration runs used 65–110 searches and
+  cost about twice as much as a 0.9 run.
+- **Calibration batch 1** (scored as of launch): Calendly 68, Carrd 64 (both worked), Juicero 49
+  (failed).
+
 ## 0.10.0 — 2026-11-11
 
 The code half of the 1.0.0 sprint: a versioned file format, reports with no executable data, idea
