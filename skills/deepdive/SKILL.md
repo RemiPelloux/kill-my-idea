@@ -17,7 +17,8 @@ rubric and fixed rules §5) with higher minimums.
      `score`, `verdict`, `mode`, `evaluated` and source count: they go into `history`.
    - Otherwise run sections 1–2 of the kill skill first: the brief extraction and the
      questions. Country matters even more here.
-2. **Run 6 research tracks in parallel**, one subagent each when available.
+2. **Run 6 research tracks in parallel**, one subagent each when available, in the foreground
+   (`run_in_background: false` when the tool offers it), and wait for all of them.
    - Every track returns its facts with source links (URL, title, publisher, date, tier),
      its estimates with their formula, and its unknowns.
    - Search in the language of each target country, on local sites.

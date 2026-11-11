@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- **Research agents run in the foreground:** kill and deepdive wait for their research subagents
+  instead of starting them in the background. In the background, a run ended its turn and was woken
+  once per agent (5 stops in one calibration run), which looked like the session closing and
+  reopening and cost extra tokens.
+
 ## 0.11.0 — 2026-11-11
 
 - **Calibration set:** 10 ideas with a known outcome, scored as of their launch date. Calendly,

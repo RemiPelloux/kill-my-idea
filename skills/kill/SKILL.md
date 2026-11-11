@@ -125,7 +125,10 @@ as `verdict.run.started`. At the end, set `run.minutes` (rounded), `run.searches
 `run.subagents`. The report footer shows them.
 
 **Research in parallel.** When the Agent tool is available, start **4 research subagents in one
-message**, and don't search one query at a time in the main thread:
+message**, and don't search one query at a time in the main thread. Run them **in the foreground**
+(`run_in_background: false` when the tool offers it) and wait for all 4 before going on: in the
+background, the run ends its turn and is woken once per agent, which looks like the session closing
+and reopening and costs extra tokens.
 1. free alternatives, direct competitors with their traction and prices, the saturated wave;
 2. the graveyard, demand and trend, why now;
 3. distribution, the ICP and where it gathers, real costs from price pages;
