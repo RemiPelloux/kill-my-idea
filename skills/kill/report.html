@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-BphK1DCULeEvymnamc/jJ+zM1qB9TZBllP0xgGbcP0Y='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-WtDpnxQloaWOihHyWY2fkUsrGyIV+UoAiYVdeVgrrl8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,6 +107,7 @@ sup.fn a{font:600 11px var(--mono);text-decoration:none;margin-left:2px}
 .track span{position:absolute;top:0;bottom:0;left:0;border-radius:99px}
 .facts{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:0;font-size:14px}
 .facts dt{color:var(--muted-fg)} .facts dd{margin:0}
+.fx-pre{list-style:none;padding:0;margin:8px 0 0;font-size:14px}.fx-pre li{display:flex;gap:8px;align-items:baseline;padding:2px 0}.fx-have{font-size:12px;font-weight:600;border-radius:999px;padding:1px 8px;background:var(--muted)}.fx-have.yes{color:var(--go-fg,inherit)}.fx-have.no{color:var(--nogo-fg,inherit)}.fx-pts{font-weight:700}
 
 /* kill shots */
 .ks{list-style:none;margin:0;padding:0}
@@ -288,6 +289,20 @@ V.score = num(V.score) ?? 0;
 if (!["GO", "PIVOT", "NO-GO"].includes(V.verdict)) V.verdict = V.score >= 70 ? "GO" : V.score >= 50 ? "PIVOT" : "NO-GO";
 if (V.criteria) for (const k in V.criteria) V.criteria[k] = num(V.criteria[k]) ?? 0;
 const LMH = v => ["L", "M", "H"].includes(v) ? v : "M";
+const FX = N.fix && typeof N.fix === "object" && !Array.isArray(N.fix) ? N.fix : null;
+if (FX) { FX.score_after = num(FX.score_after) ?? 0; FX.score_before = num(FX.score_before) ?? V.score; FX.reachable = FX.reachable === true;
+  FX.levers = Array.isArray(FX.levers) ? FX.levers.filter(l => l && typeof l === "object").slice(0, 6) : [];
+  FX.levers.forEach(l => { l.points = num(l.points) ?? 0; if (!["doable", "hard", "very-hard"].includes(l.difficulty)) l.difficulty = "hard";
+    l.prerequisites = Array.isArray(l.prerequisites) ? l.prerequisites.filter(x => x && typeof x === "object").slice(0, 8) : [];
+    l.prerequisites.forEach(x => { if (!["yes", "no", "unknown"].includes(x.have)) x.have = "unknown"; });
+    l.moves = Array.isArray(l.moves) ? l.moves.filter(m => m && typeof m === "object").slice(0, 21) : []; l.moves.forEach(m => { m.from = num(m.from) ?? 0; m.to = num(m.to) ?? 0; }); });
+  ["blockers", "plan", "kill_criteria", "gaps", "rules_lifted"].forEach(k => { FX[k] = Array.isArray(FX[k]) ? FX[k].slice(0, 8) : []; });
+  FX.gaps.forEach(g => { g.score = num(g.score) ?? 0; g.points_lost = num(g.points_lost) ?? 0; });
+  const P = FX.pricing && typeof FX.pricing === "object" ? FX.pricing : {}; P.competitors = Array.isArray(P.competitors) ? P.competitors.slice(0, 10) : [];
+  P.competitors.forEach(c => { c.amount = num(c.amount); }); if (P.recommended && typeof P.recommended === "object") P.recommended.amount = num(P.recommended.amount); else P.recommended = null;
+  if (P.current && typeof P.current === "object") P.current.amount = num(P.current.amount); else P.current = null; FX.pricing = P;
+  const F = FX.features && typeof FX.features === "object" ? FX.features : {}; F.must = Array.isArray(F.must) ? F.must.slice(0, 8) : []; F.cut = Array.isArray(F.cut) ? F.cut.slice(0, 8) : [];
+  F.differentiator = F.differentiator && typeof F.differentiator === "object" ? F.differentiator : null; FX.features = F; }
 (N.rescue || []).forEach(r => { r.score_after = num(r.score_after) ?? 0; if (!["doable", "hard", "very-hard"].includes(r.difficulty)) r.difficulty = "hard"; });
 (N.competitors || []).forEach(c => { c.traction = num(c.traction); c.price_low = num(c.price_low); c.price_high = num(c.price_high); });
 (N.scenarios || []).forEach(sc => { ["customers_month", "revenue_month", "costs_month"].forEach(k => { sc[k] = num(sc[k]); }); });
@@ -750,7 +765,26 @@ const sPremortem = N.premortem.length ? section("premortem", "Pre-mortem", "It's
   `<div class="grid g3">${N.premortem.map((p, n) => { const [b, l] = PML[p.likelihood]; return `<div class="card rv pm" style="--d:${n * 80}ms"><div class="pm-top"><span class="kf-n">${n + 1}</span><span class="badge b-${b}">${ic("alert", 13)}${l}</span></div>
     <div class="pm-c">${rt(p.cause)}</div>${p.early_signal ? `<div class="pm-s">${ic("flag", 14)}<span><strong>Early signal:</strong> <span class="pm-d">${rt(p.early_signal)}</span></span></div>` : ""}
     ${p.linked_to ? `<div><span class="chip">${ic("target", 12)}${esc(T("linked to"))} ${esc(T(linkLabel(p.linked_to)))}</span></div>` : ""}</div>`; }).join("")}</div>`) : "";
-const body = [sSummary, sRescue, sPremortem, sTest, sGtm, sAbout, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
+/* path to GO (fix skill): a projection, never a verdict */
+const HAVE = { yes: "You have it", no: "Needed", unknown: "To check" };
+const sFix = FX ? section("fix", FX.reachable ? "Path to GO" : "How close it can get",
+  `As pitched it scores ${FX.score_before}. With these changes it projects to ${FX.score_after}${FX.reachable ? "" : `: GO (70) is out of reach`}. Projected with the same rubric and rules; it is an estimate, not a new verdict.`,
+  `<div class="card rv reco"><div class="reco-k">${ic("target")}The fixed idea</div><p>${rt(FX.summary)}</p><div class="delta">${vbadge(FX.score_before)}<span style="color:var(--muted-fg)">${ic("arrow")}</span>${vbadge(FX.score_after)}</div>
+    ${FX.rules_lifted.length ? `<p style="margin:12px 0 0" class="why">Fixed rules no longer triggered: ${FX.rules_lifted.map(r => esc(RULES[r] || r)).join(" · ")}</p>` : ""}
+    ${FX.blockers.length ? `<p style="margin:12px 0 0"><strong>What still blocks GO:</strong></p><ul class="tldr">${FX.blockers.map(b => `<li>${ic("alert")}<span>${rt(b)}</span></li>`).join("")}</ul>` : ""}</div>
+  ${FX.gaps.length ? `<h3 style="margin:var(--s3) 0 8px">Where the points were lost</h3><table><thead><tr><th>Sub-score</th><th class="num">Score</th><th class="num">Points lost</th></tr></thead><tbody>${FX.gaps.map(g => `<tr><td>${esc(SUB[g.sub] || String(g.sub || "").replace(/_/g, " "))}</td><td class="num">${g.score.toFixed(1)}</td><td class="num">${g.points_lost.toFixed(1)}</td></tr>`).join("")}</tbody></table>` : ""}
+  <h3 style="margin:var(--s3) 0 8px">The changes</h3><div class="grid g3">${FX.levers.map((l, n) => `<div class="card rv rx" style="--d:${n * 80}ms">
+    <div><span class="fx-pts num">+${l.points.toFixed(1)} pts</span> <span class="badge b-${esc(l.difficulty)}">${ic(l.difficulty === "doable" ? "check" : "alert", 14)}${DIFF[l.difficulty]}</span></div>
+    <div class="ch">${rt(l.change)}</div><div class="why">${rt(l.evidence || "")}${fn(l.source)}</div>
+    ${l.moves.length ? `<dl class="facts">${l.moves.map(m => `<dt>${esc(SUB[m.sub] || String(m.sub || "").replace(/_/g, " "))}</dt><dd><span class="num">${m.from.toFixed(1)} → ${m.to.toFixed(1)}</span></dd>`).join("")}</dl>` : ""}
+    <dl class="facts">${l.effort ? `<dt>Effort</dt><dd>${esc(l.effort)}</dd>` : ""}${l.cost ? `<dt>Cost</dt><dd>${esc(l.cost)}</dd>` : ""}</dl>
+    ${l.prerequisites.length ? `<ul class="fx-pre">${l.prerequisites.map(x => `<li><span class="fx-have ${x.have}">${HAVE[x.have]}</span><span>${rt(x.what)}${x.cost ? ` · ${esc(x.cost)}` : ""}</span></li>`).join("")}</ul>` : ""}</div>`).join("")}</div>
+  ${FX.pricing.recommended ? `<h3 style="margin:var(--s3) 0 8px">Price against the competition</h3><table><thead><tr><th>Who</th><th class="num">Price</th><th>Per</th></tr></thead><tbody>${FX.pricing.competitors.map(c => `<tr><td>${esc(c.name)}${fn(c.source)}</td><td class="num">${c.amount ?? ""}</td><td>${esc(c.period)}</td></tr>`).join("")}${FX.pricing.current ? `<tr><td>Your price today</td><td class="num">${FX.pricing.current.amount ?? ""}</td><td>${esc(FX.pricing.current.period)}</td></tr>` : ""}<tr><td><strong>Recommended (${esc(FX.pricing.recommended.position)})</strong></td><td class="num"><strong>${FX.pricing.recommended.amount ?? ""}</strong></td><td>${esc(FX.pricing.recommended.period)}</td></tr></tbody></table><p class="why">${rt(FX.pricing.recommended.why || "")}</p>` : ""}
+  ${FX.features.must.length ? `<h3 style="margin:var(--s3) 0 8px">Features</h3><div class="grid g3">${card(`<div class="kpi"><div class="k">${ic("check")}Must have</div><ul class="tldr">${FX.features.must.map(f => `<li>${ic("chevron")}<span>${rt(f.feature)}: ${rt(f.why || "")}${fn(f.source)}</span></li>`).join("")}</ul></div>`)}${FX.features.cut.length ? card(`<div class="kpi"><div class="k">${ic("alert")}Cut</div><ul class="tldr">${FX.features.cut.map(f => `<li>${ic("chevron")}<span>${rt(f.feature)}: ${rt(f.why || "")}</span></li>`).join("")}</ul></div>`) : ""}${FX.features.differentiator ? card(`<div class="kpi"><div class="k">${ic("target")}The difference</div><p style="margin:8px 0 0">${rt(FX.features.differentiator.feature)}: ${rt(FX.features.differentiator.why || "")}${fn(FX.features.differentiator.source)}</p></div>`) : ""}</div>` : ""}
+  ${FX.plan.length ? `<h3 style="margin:var(--s3) 0 8px">In order</h3><table><thead><tr><th>When</th><th>Step</th><th>Proof it worked</th></tr></thead><tbody>${FX.plan.map(s => `<tr><td>${esc(s.when)}</td><td>${rt(s.step)}</td><td>${rt(s.verify)}</td></tr>`).join("")}</tbody></table>` : ""}
+  ${FX.kill_criteria.length ? `<div class="card rv" style="margin-top:var(--s3)"><p style="margin:0"><strong>Stop if:</strong> ${FX.kill_criteria.map(rt).join(" · ")}</p></div>` : ""}`) : "";
+
+const body = [sSummary, sRescue, sFix, sPremortem, sTest, sGtm, sAbout, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
 const TIER = { primary: "primary", secondary: "secondary", tertiary: "tertiary" };
 const tiers = SRC.reduce((a, s) => { if (TIER[s.tier]) a[s.tier] = (a[s.tier] || 0) + 1; return a; }, {});
 const tierSub = Object.keys(tiers).length ? ` ${["primary", "secondary", "tertiary"].filter(t => tiers[t]).map(t => `${tiers[t]} ${t}`).join(", ")}.` : "";

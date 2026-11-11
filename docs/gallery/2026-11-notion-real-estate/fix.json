@@ -1,0 +1,428 @@
+{
+ "schema_version": "1.0",
+ "slug": "notion-real-estate",
+ "generated": "2026-11-11",
+ "based_on": {
+  "verdict": "NO-GO",
+  "score": 43
+ },
+ "summary": "A 59 EUR first-90-days Notion kit for new French mandataires, sold by network sponsors to their recruits for a 30% cut",
+ "pricing": {
+  "current": {
+   "amount": 39,
+   "currency": "EUR",
+   "period": "one-off"
+  },
+  "competitors": [
+   {
+    "name": "CRM Agent immobilier pour Notion (Payhip)",
+    "amount": 19,
+    "currency": "EUR",
+    "period": "one-off",
+    "source": "https://payhip.com/b/8zt52",
+    "as_of": "2026-11-11"
+   },
+   {
+    "name": "Les Heros: L'Organiseur immobilier (not released)",
+    "amount": 89,
+    "currency": "EUR",
+    "period": "one-off",
+    "source": "https://lesheros.gumroad.com/l/lorganiseur-immobilier",
+    "as_of": "2026-11-11"
+   },
+   {
+    "name": "maitemplates: Ultimate Real Estate Agent",
+    "amount": 89,
+    "currency": "USD",
+    "period": "one-off",
+    "source": "https://maitemplates.gumroad.com/l/UltimateAgent",
+    "as_of": "2026-11-11"
+   },
+   {
+    "name": "Notion: CRM for real estate agents (free)",
+    "amount": 0,
+    "currency": "EUR",
+    "period": "one-off",
+    "source": "https://www.notion.com/templates/notion-crm-for-real-estate-agents",
+    "as_of": "2026-11-11"
+   }
+  ],
+  "recommended": {
+   "amount": 59,
+   "period": "one-off",
+   "position": "match",
+   "why": "Inside the 19-89 one-off range. At 59 EUR TTC about 45.75 EUR is kept after VAT and Lemon Squeezy 5% + 0.50 USD; a 30% sponsor cut (14.75) still leaves LTV:CAC 3.1"
+  }
+ },
+ "features": {
+  "must": [
+   {
+    "feature": "One-click duplicate, working in 5 minutes",
+    "why": "The 19 EUR French template needs 20-40 minutes of manual columns and relations after import",
+    "source": "https://payhip.com/b/8zt52"
+   },
+   {
+    "feature": "Weekly pige and prospecting planner",
+    "why": "The closest French rival lists prospecting planning as 'a venir' (not built)",
+    "source": "https://lesheros.gumroad.com/l/lorganiseur-immobilier"
+   },
+   {
+    "feature": "Leads, visits and mandates linked to owner and buyer",
+    "why": "The core job every rival covers; missing it fails the comparison",
+    "source": "https://www.notion.com/templates/notion-crm-for-real-estate-agents"
+   },
+   {
+    "feature": "First-90-days playbook: call scripts and a daily routine",
+    "why": "75% of 2024 recruits in mandataire networks had never worked in real estate",
+    "source": "https://www.mysweetimmo.com/2025/05/05/immobilier-les-reseaux-de-mandataires-detiennent-desormais-27-du-marche-vincent-pavanello/"
+   }
+  ],
+  "cut": [
+   {
+    "feature": "Registre des mandats",
+    "why": "Cannot be sold as Hoguet-compliant; the network holds the register"
+   },
+   {
+    "feature": "Portal listing sync",
+    "why": "Notion cannot push to portals; Hektor and Apimo already do it"
+   },
+   {
+    "feature": "Belgian and Dutch versions",
+    "why": "Wait for 50 French sales first; BE is a quarter of the market and needs a translation"
+   }
+  ],
+  "differentiator": {
+   "feature": "Sponsor view: the parrain sees each recruit's weekly calls, estimates and mandates",
+   "why": "Networks already coach recruits monthly; this gives the sponsor numbers for that meeting and a reason to push the kit",
+   "source": "https://www.mysweetimmo.com/2026/07/04/conseiller-immobilier-independant-pourquoi-laccompagnement-fait-la-difference/"
+  }
+ },
+ "levers": [
+  {
+   "id": "L1",
+   "kind": "channel",
+   "change": "Sell through iad/SAFTI/Capifrance sponsors and team leaders with a 30% affiliate link, paid only on sale",
+   "evidence": "Mandataire networks grow by recruiting and sponsoring, and 75% of 2024 recruits were new to real estate; commission-only CAC is 14.75 EUR against 45.75 EUR kept",
+   "source": "https://www.mysweetimmo.com/2025/05/05/immobilier-les-reseaux-de-mandataires-detiennent-desormais-27-du-marche-vincent-pavanello/",
+   "difficulty": "hard",
+   "effort": "30 messages to team leaders, 2-4 weeks",
+   "cost": "0 EUR upfront, 30% per sale",
+   "moves": [
+    {
+     "sub": "ltv_cac",
+     "from": 1.0,
+     "to": 3.0,
+     "why": "CAC becomes the commission: 45.75 / 14.75 = 3.1, inside the 2-3 anchor"
+    },
+    {
+     "sub": "channel_readiness",
+     "from": 1.5,
+     "to": 2.5,
+     "why": "A channel with a known cost exists, but no sponsor has agreed yet"
+    }
+   ],
+   "clears": [
+    "no_distribution"
+   ],
+   "prerequisites": [
+    {
+     "what": "At least 2 sponsors with 10+ recruits each who agree to share the link",
+     "kind": "partner",
+     "cost": "30% per sale",
+     "have": "no"
+    },
+    {
+     "what": "A merchant-of-record shop with affiliate links (Lemon Squeezy)",
+     "kind": "money",
+     "cost": "5% + 0.50 USD per sale",
+     "have": "yes"
+    }
+   ]
+  },
+  {
+   "id": "L2",
+   "kind": "features",
+   "change": "Turn the 39 EUR template pack into a 59 EUR first-90-days kit: one-click tracker, pige planner, call scripts, sponsor view",
+   "evidence": "French rivals sell 19-89 EUR; the 19 EUR one needs 20-40 min of manual setup and the 89 EUR one has not shipped its prospecting planner",
+   "source": "https://payhip.com/b/8zt52",
+   "difficulty": "doable",
+   "effort": "4-6 weeks at 5 h/week",
+   "cost": "0-50 EUR",
+   "moves": [
+    {
+     "sub": "pricing_power",
+     "from": 1.5,
+     "to": 2.5,
+     "why": "A method for beginners is priced against coaching, not against the 19 EUR template"
+    },
+    {
+     "sub": "free_alternatives",
+     "from": 1.5,
+     "to": 2.0,
+     "why": "Free covers the tracker but not the routine and scripts; the free_alternative hit stays"
+    },
+    {
+     "sub": "differentiation",
+     "from": 1.5,
+     "to": 2.5,
+     "why": "One specific difference (sponsor view plus beginner routine), easy to copy"
+    },
+    {
+     "sub": "build_effort",
+     "from": 4.5,
+     "to": 4.0,
+     "why": "More content to write: 4-6 weeks instead of 1-2"
+    },
+    {
+     "sub": "time_to_mvp",
+     "from": 4.0,
+     "to": 3.5,
+     "why": "Full kit later; a pre-sale page still ships in 2 weeks"
+    }
+   ],
+   "clears": [],
+   "prerequisites": [
+    {
+     "what": "Interviews with 5 mandataires in their first year",
+     "kind": "data",
+     "cost": "5 h",
+     "have": "no"
+    },
+    {
+     "what": "Notion database and relation skills",
+     "kind": "skill",
+     "cost": "10 h of learning",
+     "have": "unknown"
+    }
+   ]
+  },
+  {
+   "id": "L3",
+   "kind": "other",
+   "change": "Co-author the scripts and routine with one working mandataire, ideally the first sponsor, for a revenue share",
+   "evidence": "The verdict scored skills and assets low for no real-estate know-how and no network; one insider fixes part of both",
+   "source": "https://www.immomatin.com/file/28e814674108b6f416a746805b9b8838/barometre-2024.pdf",
+   "difficulty": "hard",
+   "effort": "2-4 weeks to find, then 2 h/week",
+   "cost": "10-20% revenue share",
+   "moves": [
+    {
+     "sub": "skills_match",
+     "from": 3.0,
+     "to": 3.5,
+     "why": "The co-author brings pige, mandate and compromis know-how"
+    },
+    {
+     "sub": "skills",
+     "from": 2.0,
+     "to": 2.5,
+     "why": "Domain gap covered by a partner, founder still without a track record"
+    },
+    {
+     "sub": "assets",
+     "from": 1.0,
+     "to": 2.0,
+     "why": "A partner with a team is one asset, not yet secured"
+    }
+   ],
+   "clears": [],
+   "prerequisites": [
+    {
+     "what": "One mandataire with 3+ years in a network willing to co-author",
+     "kind": "partner",
+     "cost": "10-20% revenue share",
+     "have": "no"
+    }
+   ]
+  }
+ ],
+ "fixed": {
+  "criteria_detail": {
+   "profit": {
+    "gross_margin": {
+     "score": 3.5,
+     "note": "About 28.6 EUR kept of 39 EUR after VAT and Notion's 8% + 0.40 USD + 1% FX: 73% margin",
+     "source": "https://www.notion.com/help/selling-on-marketplace"
+    },
+    "ltv_cac": {
+     "score": 3.0,
+     "note": "Sponsor sales: LTV 45.75 EUR vs 30% commission 14.75 EUR = 3.1 (projected, excludes founder outreach hours)",
+     "source": "https://www.lemonsqueezy.com/pricing"
+    },
+    "pricing_power": {
+     "score": 2.5,
+     "note": "59 EUR kit with a 90-day method escapes the 19 EUR template anchor; free Notion CRM still caps it",
+     "source": "https://www.mysweetimmo.com/2025/05/05/immobilier-les-reseaux-de-mandataires-detiennent-desormais-27-du-marche-vincent-pavanello/"
+    }
+   },
+   "feasibility": {
+    "build_effort": {
+     "score": 4.0,
+     "note": "Tracker plus playbook and scripts: 4-6 weeks at 5 h/week instead of 1-2",
+     "source": null
+    },
+    "skills_match": {
+     "score": 3.5,
+     "note": "A working mandataire co-designs the pige routine and scripts; Notion skills learnable",
+     "source": null
+    },
+    "capital_needed": {
+     "score": 5.0,
+     "note": "Gumroad and Notion Marketplace charge no monthly fee; 100 EUR covers it",
+     "source": "https://gumroad.com/pricing"
+    }
+   },
+   "time_to_first_revenue": {
+    "time_to_mvp": {
+     "score": 3.5,
+     "note": "Pre-sale in 2 weeks, full kit in 4-6 weeks",
+     "source": null
+    },
+    "sales_cycle": {
+     "score": 4.5,
+     "note": "39 EUR is an impulse buy for an individual agent, no committee",
+     "source": null
+    },
+    "channel_readiness": {
+     "score": 2.5,
+     "note": "Sponsors push to recruits for a 30% cut, paid only on sale; no sponsor signed yet",
+     "source": "https://www.mysweetimmo.com/2025/05/05/immobilier-les-reseaux-de-mandataires-detiennent-desormais-27-du-marche-vincent-pavanello/"
+    }
+   },
+   "demand": {
+    "search_demand": {
+     "score": 2.5,
+     "note": "44,000 mandataires in France (end 2024) but no measured search volume for Notion real-estate templates",
+     "source": "https://www.immomatin.com/file/28e814674108b6f416a746805b9b8838/barometre-2024.pdf"
+    },
+    "trend": {
+     "score": 2.0,
+     "note": "Mandataire count fell 5% in 2024; only 4 of the top 10 networks still growing in H1 2026 (R5: max 2.5)",
+     "source": "https://www.xerfi.com/blog/le-marche-de-l-immobilier-residentiel-se-remet-en-ordre-de-marche_2174"
+    },
+    "willingness_to_pay": {
+     "score": 2.0,
+     "note": "Agents already pay 159-200 EUR/month network packs that bundle tools; templates sell at 7-45 USD",
+     "source": "https://copeps.fr/actualites/cout-franchise-iad/"
+    }
+   },
+   "competition": {
+    "free_alternatives": {
+     "score": 2.0,
+     "note": "Free Notion CRM covers the tracker, not a 90-day prospecting routine for beginners",
+     "source": "https://www.notion.com/templates/notion-crm-for-real-estate-agents"
+    },
+    "competitor_density": {
+     "score": 1.5,
+     "note": "20+ paid Notion real-estate templates, 3+ in French, plus Hektor at 8,500 agencies",
+     "source": "https://www.la-boite-immo.com/sites/default/files/2024-01/cp_rachat-protexa_202401_0.pdf"
+    },
+    "differentiation": {
+     "score": 2.5,
+     "note": "One real difference: sponsor view of recruits' weekly prospecting plus a beginner routine; copyable",
+     "source": "https://www.mysweetimmo.com/2026/07/04/conseiller-immobilier-independant-pourquoi-laccompagnement-fait-la-difference/"
+    }
+   },
+   "risk": {
+    "legal_regulatory": {
+     "score": 3.0,
+     "note": "Cannot be sold as a Hoguet-compliant registre des mandats; prospect data sits in the US outside Enterprise",
+     "source": "https://www.notion.com/help/data-residency"
+    },
+    "platform_dependency": {
+     "score": 2.5,
+     "note": "100% Notion-dependent; Marketplace lists in USD only and Notion may revise fees at any time",
+     "source": "https://www.notion.com/help/template-gallery-guidelines-and-terms"
+    },
+    "market_risk": {
+     "score": 3.0,
+     "note": "Real estate is cyclical: 1,120 agency failures May 2023-Apr 2024, rebound in 2025",
+     "source": "https://www.moneyvox.fr/immobilier/actualites/98247/crise-de-immo-les-faillites-agences-immobilieres-explosent"
+    }
+   },
+   "fit": {
+    "skills": {
+     "score": 2.5,
+     "note": "Domain gap covered by a mandataire co-author; founder still has no track record",
+     "source": null
+    },
+    "assets": {
+     "score": 2.0,
+     "note": "One sponsor partner with a team would be the only asset; none signed yet",
+     "source": null
+    },
+    "interest": {
+     "score": 1.5,
+     "note": "Stated goal is side income, no domain passion",
+     "source": null
+    }
+   }
+  },
+  "kill_shots": {
+   "free_alternative": true,
+   "strong_competitor": true,
+   "graveyard": false,
+   "no_distribution": false,
+   "costs_eat_margin": false,
+   "weak_demand": true,
+   "legal_platform_risk": true,
+   "saturated_wave": false
+  },
+  "rules_applied": [
+   {
+    "rule": "R5_coherence",
+    "effect": "free_alternative hit: free_alternatives 2 <= 2; weak_demand: trend 2 <= 2.5; legal_platform_risk: min 2.5 <= 2.5; strong_competitor: density 1.5 <= 3"
+   }
+  ],
+  "metrics": {
+   "ltv_cac": {
+    "value": 3.1,
+    "basis": "estimate",
+    "reasoning": "LTV 59/1.2 = 49.17 - Lemon Squeezy 5% x 59 (2.95) - 0.47 = 45.75 EUR; CAC = 30% x 49.17 = 14.75; 45.75/14.75 = 3.1"
+   }
+  },
+  "score": 60,
+  "score_raw": 60.3,
+  "verdict": "PIVOT"
+ },
+ "reachable": false,
+ "blockers": [
+  "A free Notion CRM and 20+ paid templates keep Competitive room at 2.0 whatever the kit adds",
+  "Mandataire numbers fell 5% in 2024 and no search volume is measured: Demand stays at 2.2",
+  "Networks bundle tools and coaches into 159-200 EUR/month packs, so willingness to pay a third party stays low",
+  "Founder fit: no domain know-how, no audience and a money-only motive; a partner covers only part of it",
+  "Even a fully proven sponsor channel (channel_readiness 5) adds 2.5 points: the ceiling is about 63"
+ ],
+ "plan": [
+  {
+   "when": "Week 1",
+   "step": "Interview 5 mandataires in their first year about how they track leads and pige",
+   "verify": "3 of 5 name follow-up or pige as a weekly pain"
+  },
+  {
+   "when": "Week 2",
+   "step": "Message 30 iad, SAFTI and Capifrance team leaders offering the 30% link and a free sponsor view",
+   "verify": "2 sponsors with 10+ recruits each agree"
+  },
+  {
+   "when": "Weeks 2-3",
+   "step": "Pre-sale page at 59 EUR on Lemon Squeezy with affiliate links, shared by the sponsors",
+   "verify": "5 paid pre-orders in 14 days"
+  },
+  {
+   "when": "Weeks 4-7",
+   "step": "Build the kit with the co-author and deliver it to pre-buyers",
+   "verify": "4 of 5 buyers log 10+ leads in their first week"
+  },
+  {
+   "when": "Weeks 8-12",
+   "step": "Add sponsors from buyers' networks; track sales per sponsor",
+   "verify": "16 sales a month = 500 EUR net side income"
+  }
+ ],
+ "kill_criteria": [
+  "Fewer than 2 sponsors agree by 2026-11-25 -> archive",
+  "Fewer than 5 paid pre-orders at 59 EUR by 2026-12-09 -> archive",
+  "Fewer than 10 sales a month by 2027-02-28 -> stop building, keep it as a passive listing"
+ ]
+}

@@ -125,7 +125,7 @@ def lifetime_profit(inputs):
     return (rev - var) * months
 
 
-def check_plan(plan, verdict, rep):
+def check_plan(plan, verdict, rep, fix=None):
     if plan.get("schema_version") != "1.0":
         rep.err('schema_version: must be "1.0"')
     if plan.get("slug") != verdict.get("slug"):
@@ -148,8 +148,13 @@ def check_plan(plan, verdict, rep):
             rep.err(f"based_on.path: {path} but the verdict has {len(rescue)} rescue path(s)")
         elif b.get("change") != rescue[n - 1].get("change"):
             rep.err(f"based_on.change: must copy rescue[{n - 1}].change exactly")
+    elif path == "fix":
+        if fix is None:
+            rep.err("based_on.path: fix, but there is no fix.json (run /kill-my-idea:fix first)")
+        elif b.get("change") != fix.get("summary"):
+            rep.err("based_on.change: must copy fix.json summary exactly")
     else:
-        rep.err('based_on.path: "original" or "rescue-N"')
+        rep.err('based_on.path: "original", "rescue-N" or "fix"')
     if verdict.get("verdict") == "NO-GO":
         rep.warn("the verdict is NO-GO: BUILD.md and README.md must say so at the top")
 
@@ -743,6 +748,8 @@ def render(folder, plan):
 
 def load(folder, rep):
     out = {}
+    if (folder / "fix.json").exists():
+        out["fix"] = json.loads((folder / "fix.json").read_text(encoding="utf-8"))
     for name, p in (("plan", folder / "build" / "plan.json"), ("verdict", folder / "verdict.json")):
         try:
             out[name] = json.loads(p.read_text(encoding="utf-8"))
@@ -750,7 +757,7 @@ def load(folder, rep):
             rep.err(f"{p}: not found")
         except json.JSONDecodeError as e:
             rep.err(f"{p}: not valid JSON ({e})")
-    return out.get("plan"), out.get("verdict")
+    return out.get("plan"), out.get("verdict"), out.get("fix")
 
 
 def check_files(folder, plan, rep):
@@ -792,9 +799,9 @@ def main(argv):
         return 2
     folder = pathlib.Path(args[0])
     rep = Report()
-    plan, verdict = load(folder, rep)
+    plan, verdict, fix = load(folder, rep)
     if plan is not None and verdict is not None:
-        check_plan(plan, verdict, rep)
+        check_plan(plan, verdict, rep, fix)
         if only_check:
             check_files(folder, plan, rep)
     for w in rep.warnings:

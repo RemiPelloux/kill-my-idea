@@ -39,6 +39,12 @@ jobs:
           done < <(find examples -name verdict.json -type f | sort)
           if [ "$found" = 0 ]; then echo "No examples with verdict.json, skipping."; fi
 
+      - name: Check paths to GO
+        run: |
+          while IFS= read -r f; do
+            python3 scripts/fix-kit.py --check "$(dirname "$f")"
+          done < <(find examples docs/gallery -name fix.json -type f | sort)
+
       - name: Check example build kits
         run: |
           while IFS= read -r p; do

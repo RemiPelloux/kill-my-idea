@@ -16,6 +16,7 @@ kill-my-idea reads web pages by design, so **everything in a report is treated a
 | Content-Security-Policy | Only the pinned inline script (sha256) can run (plus `report-data.js` in the no-Bash fallback and in pre-1.0 reports). No network calls except fonts, no forms, no `<base>`. |
 | Errors | Malformed data shows an error card, never a blank page. |
 | `scripts/check-idea.py` | Checks that `report.html` embeds exactly `report-data.json` and no longer loads `report-data.js`. In the fallback, refuses a `report-data.js` that is not a single `window.KMI_DATA = {...};` literal in strict JSON or that contains a `<script` tag. Rejects any non-`http(s)` URL. |
+| `fix` skill (1.2+) | The model writes `fix.json`, plain data. `scripts/fix-kit.py` re-scores it with the checker's own rules, rejects markup and script URLs, and copies a summary into `report-data.json`; the report renders it with the same escaping as every other section. `verdict.json` is never modified. |
 | `build` skill (1.1+) | The model writes `build/plan.json`, plain data. `scripts/build-kit.py` rejects markup and script URLs in its strings, values in `env` (names only, never a key), and `..` or absolute paths in `structure`, then renders Markdown from it. The video project is a fixed template: only `src/props.json` changes, and React renders its strings as text. The skill never runs `npm install`, deploys or spends; you do. |
 
 ### Known limitation (build kit)

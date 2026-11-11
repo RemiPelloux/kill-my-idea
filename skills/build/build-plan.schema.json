@@ -58,7 +58,7 @@
         },
         "path": {
           "type": "string",
-          "pattern": "^(original|rescue-\\d)$"
+          "pattern": "^(original|rescue-\\d|fix)$"
         },
         "change": {
           "type": [

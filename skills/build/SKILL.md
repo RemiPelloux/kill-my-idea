@@ -18,6 +18,10 @@ read, never invent a URL, no secrets.
 
 - `--original`: build the idea as it was scored.
 - `--rescue N`: build rescue path N from `verdict.rescue` (1 = the first).
+- `--fix`: build the fixed idea from `fix.json` (run `/kill-my-idea:fix` first). Use its
+  recommended price, must-have features, levers and plan; `based_on.path` is `"fix"` and
+  `based_on.change` copies `fix.json` `summary`. Business-plan inputs that a lever changed are
+  `sourced` or `estimate`, never `verdict`.
 - `--stack "<stack>"`: use this stack instead of choosing one.
 
 ## Steps
@@ -98,7 +102,7 @@ All text is plain text (no HTML, no Markdown links inside strings). Lengths are 
   "schema_version": "1.0",
   "slug": "<verdict.slug>",
   "generated": "YYYY-MM-DD",
-  "based_on": {"verdict": "<copied>", "score": 0, "path": "original | rescue-N", "change": "<rescue[N-1].change copied exactly, or null>"},
+  "based_on": {"verdict": "<copied>", "score": 0, "path": "original | rescue-N | fix", "change": "<rescue[N-1].change or fix.json summary, copied exactly, or null>"},
   "product": {"name": "", "one_liner": "", "customer": "", "problem": "",
               "key_metric": {"name": "", "target": "", "deadline": "YYYY-MM-DD"}},
   "stack": {"choice": "", "why": "",
