@@ -977,7 +977,7 @@ def check_html(rep, folder, data):
         elif data is not None and emb != data:
             rep.error("report.html embeds different data than report-data.json; rebuild it with scripts/build-report.py")
         elif data is not None and TEMPLATE.exists() and text != br.build(TEMPLATE.read_text(encoding="utf-8"), data):
-            rep.warn("report.html was built from an older or edited template; rebuild it with scripts/build-report.py")
+            rep.error("report.html is not the plugin template plus its data (edited, or built from an older template); rebuild it with scripts/build-report.py")
         return
     if TEMPLATE.exists() and html.read_bytes() != TEMPLATE.read_bytes():
         rep.warn("report.html differs from the plugin template (older version or edited). Copy skills/kill/report.html again to update it.")

@@ -60,6 +60,13 @@
   migrate.py. (#19)
 - **`scripts/release.py --check <version>`:** version, changelog, CSP, scan, tests, examples, git
   state and a free tag, checked before anything is tagged. It never tags itself. (#21)
+- **Security review** of every 1.0 change (no XSS found in the new sections; 3 findings, fixed): (#20)
+  - a hand-edited `report.html` is now a checker error, and a built report's CSP allows no script
+    file at all (only the pinned inline script);
+  - an idea title can no longer break or inject into `BRAIN.md` (markers, HTML and links are
+    neutralised, and verdict/confidence are whitelisted);
+  - `NaN`, `Infinity` and broken Unicode in report data are refused instead of producing a page the
+    browser can't read.
 
 ## 0.9.1 — 2026-11-11
 

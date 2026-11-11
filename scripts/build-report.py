@@ -20,7 +20,12 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "skills" / "kill" / "report.html"
 PREFIX_RX = re.compile(r"^﻿?\s*window\.KMI_DATA\s*=\s*")
 SRC_TAG_RX = re.compile(r'<script src="report-data\.js"></script>\n?')
+CSP_SRC_RX = re.compile(r"script-src 'self' file: '")
 BLOCK_OPEN = '<script type="application/json" id="kmi-data">'
+
+
+def _reject(name):
+    raise ValueError(f"{name} is not valid JSON for a browser")
 
 
 def load_data(folder):
@@ -40,8 +45,8 @@ def load_data(folder):
         raise SystemExit(f"{folder}: no report-data.json or report-data.js")
     try:
         # json.loads rejects anything that is not a pure JSON literal (code, comments, calls)
-        data = json.loads(text)
-    except json.JSONDecodeError as e:
+        data = json.loads(text, parse_constant=_reject)
+    except (json.JSONDecodeError, ValueError) as e:
         raise SystemExit(f"{path}: not a pure JSON literal ({e})")
     if not isinstance(data, dict):
         raise SystemExit(f"{path}: the report data must be a JSON object")
@@ -58,7 +63,15 @@ def build(html, data):
     if n != 1:
         raise SystemExit('report.html: expected one <script src="report-data.js"></script> tag')
     # every "<" (only ever inside JSON strings) becomes <: no "</script" or "<!--" can end the block early
-    payload = json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")
+    try:
+        payload = json.dumps(data, ensure_ascii=False, allow_nan=False).replace("<", "\\u003c")
+        payload.encode("utf-8")
+    except (ValueError, UnicodeEncodeError) as e:
+        raise SystemExit(f"report data can't be embedded: {e}")
+    # a built report loads no script file, so the CSP drops 'self' and file: and keeps only the pinned hash
+    html, n = CSP_SRC_RX.subn("script-src '", html)
+    if n != 1:
+        raise SystemExit("report.html: expected one script-src 'self' file: in the CSP")
     return html.replace("<script>", f"{BLOCK_OPEN}{payload}</script>\n<script>", 1)
 
 

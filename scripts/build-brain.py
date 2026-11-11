@@ -152,7 +152,12 @@ def load_focus(ideas_dir, slugs):
 
 
 def md(s):
-    return str(s).replace("|", "\\|").replace("\n", " ").strip()
+    """Plain text for one Markdown table cell or line: no markers, HTML, links or line breaks."""
+    s = re.sub(r"\s+", " ", str(s))
+    s = re.sub(r"<!--|-->|kmi:auto", "", s, flags=re.I)
+    for ch, rep in (("\\", "\\\\"), ("|", "\\|"), ("<", "&lt;"), (">", "&gt;"), ("[", "\\["), ("]", "\\]"), ("(", "\\("), (")", "\\)"), ("`", "\\`")):
+        s = s.replace(ch, rep)
+    return s.strip()[:300]
 
 
 def brain_block(ideas, pats, focus, today):
@@ -162,7 +167,7 @@ def brain_block(ideas, pats, focus, today):
     L.append("")
     if focus:
         x = by_slug[focus["slug"]]
-        L.append(f"**{md(x['title'])}**, {x['verdict']} {x['score']}/100 ([report]({x['report']}))")
+        L.append(f"**{md(x['title'])}**, {md(x['verdict'])} {int(x['score'])}/100 ([report]({md(x['report'])}))")
         for k, label in (("why", "Why"), ("first_action", "First action"), ("deadline", "Deadline")):
             if focus.get(k):
                 L.append(f"- {label}: {md(focus[k])}")
@@ -173,10 +178,12 @@ def brain_block(ideas, pats, focus, today):
           "|---|------|---------|-------|------------|-----------|-------------------|-------------|"]
     for i, x in enumerate(ideas, 1):
         r = x["best_rescue"]
-        rescue = f"{md(r['change'])} → {r['score_after']} ({r['difficulty']})" if r else "none"
+        rescue = f"{md(r['change'])} → {int(r['score_after'])} ({md(r['difficulty'])})" if r else "none"
         stale = " (stale)" if x["stale"] else ""
-        L.append(f"| {i} | [{md(x['title'])}]({x['report']}) | {x['verdict']} | {x['score']} | "
-                 f"{x['confidence'] or 'unknown'} | {x['evaluated'] or 'unknown'}{stale} | "
+        verdict = x["verdict"] if x["verdict"] in ("GO", "PIVOT", "NO-GO") else "unknown"
+        conf = x["confidence"] if x["confidence"] in ("high", "medium", "low") else "unknown"
+        L.append(f"| {i} | [{md(x['title'])}]({md(x['report'])}) | {verdict} | {int(x['score'])} | "
+                 f"{conf} | {x['evaluated'] or 'unknown'}{stale} | "
                  f"{KILL_SHOTS.get(x['primary_kill_shot'], 'none')} | {rescue} |")
     L += ["", "## What keeps killing your ideas", ""]
     hit = [p for p in pats if p["hits"]]
@@ -208,7 +215,8 @@ def brain_block(ideas, pats, focus, today):
 def write_brain(path, block):
     if path.exists():
         text = path.read_text(encoding="utf-8")
-        a, b = text.find(START), text.find(END)
+        a = text.find(START)
+        b = text.rfind(END)  # the real end is the last marker: titles can't contain one (md strips it)
         if a != -1 and b > a:
             text = text[:a] + block + text[b + len(END):].lstrip("\n")
         else:
