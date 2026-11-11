@@ -193,6 +193,54 @@ class TypesAndAnswers(unittest.TestCase):
         c.close()
 
 
+class GoToMarket(unittest.TestCase):
+    """deepdive: personas, strategies, promotion and branding are validated when present."""
+
+    def _gtm(self, fixture="dental", **narr):
+        import json as _j
+        c = IdeaCopy(fixture)
+        p = c.dir / "report-data.js"
+        text = p.read_text()
+        data = _j.loads(text[text.index("{"):text.rindex("}") + 1])
+        data["narrative"].update(narr)
+        p.write_text("window.KMI_DATA = " + _j.dumps(data) + ";")
+        return c
+
+    Q = [{"quote": f"q{i}", "url": "https://example.com/q"} for i in range(3)]
+
+    def test_persona_needs_3_quotes(self):
+        c = self._gtm(personas=[{"name": "A", "role": "r", "trigger": "t", "where": ["x"], "pain_quotes": self.Q[:2]}])
+        self.assertTrue(any("at least 3 linked quotes" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_exactly_one_recommended_strategy(self):
+        st = [{"name": n, "segment": "s", "channel": "c", "score_after": 55, "recommended": True, "why": "w"} for n in "AB"]
+        c = self._gtm(strategies=st)
+        self.assertTrue(any("exactly one recommended" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_five_checked_names(self):
+        names = [{"name": f"n{i}", "domain_com": "taken", "trademark": "unknown", "checked": "2026-11-11"} for i in range(4)]
+        c = self._gtm(branding={"positioning": {"for": "a", "category": "b", "difference": "c"}, "names": names})
+        self.assertTrue(any("exactly 5 names" in e for e in errors(c.dir)))
+        c.close()
+
+    def test_no_plan_for_a_dead_idea(self):
+        c = self._gtm("pet", personas=[{"name": "A", "role": "r", "trigger": "t", "where": ["x"], "pain_quotes": self.Q}])
+        v = c.verdict()
+        for r in v.get("rescue") or []:
+            r["score_after"] = min(r["score_after"], 49)
+        c.save(v)
+        import json as _j
+        p = c.dir / "report-data.js"
+        text = p.read_text()
+        data = _j.loads(text[text.index("{"):text.rindex("}") + 1])
+        data["verdict"] = v
+        p.write_text("window.KMI_DATA = " + _j.dumps(data) + ";")
+        self.assertTrue(any("only for an idea that survives" in e for e in errors(c.dir)))
+        c.close()
+
+
 class Safety(unittest.TestCase):
     def test_code_in_report_data_is_refused(self):
         c = IdeaCopy("dental")

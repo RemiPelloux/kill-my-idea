@@ -35,6 +35,17 @@
   `competitor_density` instead. It hit 13 of 14 gallery ideas before. (#6, checked again at the gallery re-run)
 - **Golden runs:** 5 real verdicts are frozen in `tests/golden/`. A rule change that moves their score
   fails CI until the golden file is updated on purpose. (#11)
+- **Go to market in deepdive** (only for an idea that survives, score or best rescue 50+), built
+  from the evidence already gathered and shown in a new report section:
+  - **personas** (2–3), each with at least 3 linked verbatim quotes, what they pay today, the trigger
+    and where to reach them (#26);
+  - **ways in** (2–3 strategies: niche, country, partner, service first), each re-scored, one
+    recommended with its reason (#27);
+  - **promotion angles** (3–5) tied to a ranked pain and a persona, with a sourced proof, the
+    competitor messages to beat, and a landing page for the 7-day test (#28);
+  - **branding**: a positioning statement, 5 names checked by search only (domains, the launch
+    country's trademark register, handles, with the date), and the tone. Nothing is registered or
+    bought (#29).
 
 ## 0.9.1 — 2026-11-11
 

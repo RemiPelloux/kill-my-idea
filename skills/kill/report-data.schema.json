@@ -665,6 +665,337 @@
           "type": "string",
           "pattern": "^[a-z]{2}$",
           "description": "Same as idea.language"
+        },
+        "personas": {
+          "type": "array",
+          "maxItems": 3,
+          "description": "deepdive go to market: 2-3 personas built from the customer voice",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "role",
+              "pain_quotes",
+              "trigger",
+              "where"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxLength": 60
+              },
+              "role": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "context": {
+                "type": "string",
+                "maxLength": 240
+              },
+              "pain_quotes": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 6,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "quote",
+                    "url"
+                  ],
+                  "properties": {
+                    "quote": {
+                      "type": "string",
+                      "maxLength": 300
+                    },
+                    "url": {
+                      "type": "string",
+                      "pattern": "^https?://"
+                    }
+                  }
+                }
+              },
+              "uses_today": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "pays_today": {
+                "type": "string",
+                "maxLength": 160
+              },
+              "trigger": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "objections": {
+                "type": "array",
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "maxLength": 160
+                }
+              },
+              "where": {
+                "type": "array",
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "maxLength": 120
+                }
+              }
+            }
+          }
+        },
+        "strategies": {
+          "type": "array",
+          "maxItems": 3,
+          "description": "deepdive go to market: 2-3 ways in, exactly one recommended",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "segment",
+              "channel",
+              "score_after",
+              "recommended"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "segment": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "channel": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "price": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "cost_first_10": {
+                "type": "string",
+                "maxLength": 160
+              },
+              "risks": {
+                "type": "string",
+                "maxLength": 240
+              },
+              "score_after": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "recommended": {
+                "type": "boolean"
+              },
+              "why": {
+                "type": "string",
+                "maxLength": 240
+              }
+            }
+          }
+        },
+        "promotion": {
+          "type": "array",
+          "maxItems": 5,
+          "description": "deepdive go to market: 3-5 messaging angles tied to a pain and a persona",
+          "items": {
+            "type": "object",
+            "required": [
+              "angle",
+              "persona",
+              "pain",
+              "headline",
+              "proof",
+              "proof_source",
+              "channel"
+            ],
+            "properties": {
+              "angle": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "persona": {
+                "type": "string",
+                "maxLength": 60
+              },
+              "pain": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "headline": {
+                "type": "string",
+                "maxLength": 70
+              },
+              "proof": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "proof_source": {
+                "type": "string",
+                "pattern": "^https?://"
+              },
+              "channel": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "beat": {
+                "type": "array",
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "competitor",
+                    "message",
+                    "url"
+                  ],
+                  "properties": {
+                    "competitor": {
+                      "type": "string",
+                      "maxLength": 60
+                    },
+                    "message": {
+                      "type": "string",
+                      "maxLength": 200
+                    },
+                    "url": {
+                      "type": "string",
+                      "pattern": "^https?://"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "landing": {
+          "type": "object",
+          "description": "deepdive go to market: the landing page for the 7-day test",
+          "properties": {
+            "headline": {
+              "type": "string",
+              "maxLength": 90
+            },
+            "subhead": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "sections": {
+              "type": "array",
+              "maxItems": 5,
+              "items": {
+                "type": "string",
+                "maxLength": 160
+              }
+            },
+            "cta": {
+              "type": "string",
+              "maxLength": 40
+            }
+          }
+        },
+        "branding": {
+          "type": "object",
+          "description": "deepdive go to market: positioning, 5 names checked by search only, tone",
+          "required": [
+            "positioning",
+            "names"
+          ],
+          "properties": {
+            "positioning": {
+              "type": "object",
+              "required": [
+                "for",
+                "category",
+                "difference"
+              ],
+              "properties": {
+                "for": {
+                  "type": "string",
+                  "maxLength": 160
+                },
+                "category": {
+                  "type": "string",
+                  "maxLength": 80
+                },
+                "difference": {
+                  "type": "string",
+                  "maxLength": 200
+                },
+                "proof": {
+                  "type": "string",
+                  "maxLength": 200
+                }
+              }
+            },
+            "names": {
+              "type": "array",
+              "minItems": 5,
+              "maxItems": 5,
+              "items": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "domain_com",
+                  "trademark",
+                  "checked"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "maxLength": 40
+                  },
+                  "domain_com": {
+                    "enum": [
+                      "available",
+                      "taken",
+                      "unknown"
+                    ]
+                  },
+                  "domain_local": {
+                    "enum": [
+                      "available",
+                      "taken",
+                      "unknown"
+                    ]
+                  },
+                  "trademark": {
+                    "enum": [
+                      "clear",
+                      "conflict",
+                      "unknown"
+                    ]
+                  },
+                  "trademark_source": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "pattern": "^https?://"
+                  },
+                  "handles": {
+                    "type": "string",
+                    "maxLength": 200
+                  },
+                  "checked": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                  }
+                }
+              }
+            },
+            "tone": {
+              "type": "array",
+              "maxItems": 5,
+              "items": {
+                "type": "string",
+                "maxLength": 40
+              }
+            }
+          }
         }
       }
     }

@@ -39,7 +39,31 @@ rubric and fixed rules §5) with higher minimums.
    - The verdict may change. Say what moved it, which sub-scores, and by how many points.
    - Rewrite the premortem, why now and ICP (kill skill §3 and §5) from the new evidence.
      Every premortem cause links to a kill shot or sub-score of the updated verdict.
-4. **Write `deepdive.md`** next to `report.md`, with these sections:
+4. **Go to market** (only when the updated score, or the best rescue path, is 50 or more; for a
+   dead idea write "no go-to-market plan: the idea doesn't survive" and skip this step). Build it
+   from the evidence you already have, nothing invented. Save it in `report-data.json` `narrative`:
+   - **`personas`** (2–3): `name` (a label, e.g. "The solo mandataire"), `role`, `context`,
+     `pain_quotes` (at least 3 verbatim quotes from the customer voice, each `{quote, url}`),
+     `uses_today` and `pays_today` (with price), `trigger` (the moment they start looking),
+     `objections` (up to 3), `where` (up to 5 places to reach them). A persona with fewer than 3
+     linked quotes is not written.
+   - **`strategies`** (2–3 ways in): `name` (beachhead niche, launch country, partner or reseller,
+     service first…), `segment`, `channel`, `price`, `cost_first_10` (the cost to win the first 10
+     customers, sourced or estimate), `risks`, `score_after` (re-scored with the same rubric and
+     rules, as an estimate), and `recommended: true` on exactly one, with `why`.
+   - **`promotion`** (3–5 messaging angles): `angle`, `persona` (one of the persona names),
+     `pain` (one of the ranked pains), `headline` (at most 70 characters), `proof` and
+     `proof_source` (a sourced fact that backs the headline), `channel`, and `beat`: up to 3
+     competitor messages it must beat, quoted from their sites (`{competitor, message, url}`).
+     Plus `landing`: `{headline, subhead, sections (up to 5), cta}` for the 7-day test page.
+   - **`branding`**: `positioning` `{for, category, difference, proof}`; `names`: exactly 5,
+     each checked **by search only** on the day: `domain_com` and `domain_local`
+     (`available`, `taken` or `unknown`), `trademark` (`clear`, `conflict` or `unknown`, from a
+     search of the launch country's register: USPTO, EUIPO, INPI, UKIPO…) with
+     `trademark_source`, `handles` (App Store, X, Instagram, TikTok: what you found), `checked`
+     (the date). And `tone`: 3–5 words for the voice, taken from how the personas talk.
+     Never register, buy or reserve anything.
+5. **Write `deepdive.md`** next to `report.md`, with these sections:
    1. Updated card.
    2. What changed since the quick verdict (score before → after, the sub-scores that moved).
    3. Market, why now and ICP.
@@ -50,8 +74,10 @@ rubric and fixed rules §5) with higher minimums.
    8. Country comparison and the launch country.
    9. Risks and premortem.
    10. Updated rescue paths, 7-day test and kill criteria.
-   11. Sources: **at least 40 from 15 domains**, each with its tier and access date.
-5. **Update `verdict.json` and the HTML report.**
+   11. Go to market: personas, strategies (the recommended one first), promotion angles with the
+       landing page, and branding (positioning, the 5 names with their checks, tone).
+   12. Sources: **at least 40 from 15 domains**, each with its tier and access date.
+6. **Update `verdict.json` and the HTML report.**
    - In `verdict.json`: append the previous evaluation to `history`, set `mode` to
      `"deepdive"` and `evaluated` to today, and refresh the metrics, sub-scores, score,
      rules, confidence, rescue paths and sources.
@@ -62,15 +88,17 @@ rubric and fixed rules §5) with higher minimums.
      (kill skill §6). An older folder with `report-data.js` is moved to JSON first with
      `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/migrate.py" --json ideas/<folder>`. The HTML then shows
      the deep-dive version, with the score history.
-6. **Update the brain**: `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-brain.py" ideas`
+7. **Update the brain**: `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/build-brain.py" ideas`
    when Bash is available (kill skill §8).
-7. **Self-check** with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>`
+8. **Self-check** with `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/check-idea.py" ideas/<folder>`
    when Bash is available; fix every error before answering.
-8. **Answer in chat**:
+9. **Answer in chat**:
    - the updated card;
    - the score change ("42 → 47, because…") and the confidence level;
    - the 3 most surprising findings;
    - the launch country;
+   - the recommended way in (strategy), the strongest promotion angle, and the name with the
+     cleanest checks (or "no plan: the idea doesn't survive");
    - the path to `report.html` (open it in a browser) and to `deepdive.md`.
 
 Evidence rules are the same as in the kill skill: every number is sourced or marked (estimate)

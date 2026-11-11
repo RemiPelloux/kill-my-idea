@@ -701,6 +701,88 @@ def check_icp(rep, n):
                 rep.error(f"report-data: icp.where[{i}] is {len(w)} chars; max 120")
 
 
+def check_go_to_market(rep, n, v):
+    """deepdive 1.0: personas, strategies, promotion angles, landing page and branding."""
+    gtm = [k for k in ("personas", "strategies", "promotion", "branding") if n.get(k)]
+    if not gtm:
+        return
+    if v.get("mode") != "deepdive":
+        rep.warn(f"report-data: go-to-market sections ({', '.join(gtm)}) are written by deepdive; mode is {v.get('mode')!r}")
+    best = max([v.get("score") or 0] + [r.get("score_after", 0) for r in v.get("rescue") or [] if isinstance(r, dict)])
+    if best < 50:
+        rep.error(f"report-data: go to market is only for an idea that survives (score or best rescue 50+); best is {best}")
+    pers = n.get("personas") or []
+    names = set()
+    for i, p in enumerate(pers if isinstance(pers, list) else []):
+        w = f"report-data: personas[{i}]"
+        if not isinstance(p, dict) or not p.get("name"):
+            rep.error(f"{w} needs a name")
+            continue
+        names.add(p["name"])
+        q = p.get("pain_quotes") or []
+        if not isinstance(q, list) or len(q) < 3:
+            rep.error(f"{w} ({p['name']}) has {len(q) if isinstance(q, list) else 0} pain quotes; a persona needs at least 3 linked quotes")
+        for j, x in enumerate(q if isinstance(q, list) else []):
+            if not isinstance(x, dict) or not x.get("quote"):
+                rep.error(f"{w}.pain_quotes[{j}] needs a quote")
+            else:
+                check_url(rep, f"{w}.pain_quotes[{j}].url", x.get("url"), required=True)
+        for k in ("role", "trigger"):
+            if not p.get(k):
+                rep.error(f"{w} ({p['name']}) needs {k}")
+    if isinstance(pers, list) and len(pers) > 3:
+        rep.error("report-data: at most 3 personas")
+    st = n.get("strategies") or []
+    if st:
+        rec = [s for s in st if isinstance(s, dict) and s.get("recommended") is True]
+        if len(rec) != 1:
+            rep.error(f"report-data: strategies need exactly one recommended (found {len(rec)})")
+        for i, s in enumerate(st):
+            sa = s.get("score_after") if isinstance(s, dict) else None
+            if not isinstance(sa, int) or isinstance(sa, bool) or not 0 <= sa <= 100:
+                rep.error(f"report-data: strategies[{i}].score_after must be an integer 0-100")
+            if isinstance(s, dict) and s.get("recommended") and not s.get("why"):
+                rep.error(f"report-data: the recommended strategy needs a why")
+    for i, a in enumerate(n.get("promotion") or []):
+        w = f"report-data: promotion[{i}]"
+        if not isinstance(a, dict):
+            rep.error(f"{w} must be an object")
+            continue
+        if names and a.get("persona") not in names:
+            rep.error(f"{w}.persona {a.get('persona')!r} is not one of the personas {sorted(names)}")
+        for k in ("pain", "headline", "proof"):
+            if not a.get(k):
+                rep.error(f"{w} needs {k}")
+        if len(str(a.get("headline") or "")) > 70:
+            rep.error(f"{w}.headline is over 70 characters")
+        check_url(rep, f"{w}.proof_source", a.get("proof_source"), required=True)
+        for j, b in enumerate(a.get("beat") or []):
+            if isinstance(b, dict):
+                check_url(rep, f"{w}.beat[{j}].url", b.get("url"), required=True)
+    br = n.get("branding")
+    if br:
+        pos = br.get("positioning") if isinstance(br, dict) else None
+        if not isinstance(pos, dict) or not all(pos.get(k) for k in ("for", "category", "difference")):
+            rep.error("report-data: branding.positioning needs for, category and difference")
+        nm = br.get("names") if isinstance(br, dict) else None
+        if not isinstance(nm, list) or len(nm) != 5:
+            rep.error(f"report-data: branding.names must have exactly 5 names (found {len(nm) if isinstance(nm, list) else 0})")
+        for i, x in enumerate(nm if isinstance(nm, list) else []):
+            w = f"report-data: branding.names[{i}]"
+            if not isinstance(x, dict) or not x.get("name"):
+                rep.error(f"{w} needs a name")
+                continue
+            for k, allowed in (("domain_com", ("available", "taken", "unknown")), ("trademark", ("clear", "conflict", "unknown"))):
+                if x.get(k) not in allowed:
+                    rep.error(f"{w}.{k} {x.get(k)!r} must be one of {', '.join(allowed)}")
+            if x.get("domain_local") not in (None, "available", "taken", "unknown"):
+                rep.error(f"{w}.domain_local must be available, taken or unknown")
+            if x.get("trademark") in ("clear", "conflict"):
+                check_url(rep, f"{w}.trademark_source", x.get("trademark_source"), required=True)
+            if not DATE_RX.match(str(x.get("checked"))):
+                rep.error(f"{w}.checked {x.get('checked')!r} is not YYYY-MM-DD (the day of the search)")
+
+
 def check_report_data(rep, data, idea, v):
     if data is None:
         return None
@@ -712,6 +794,7 @@ def check_report_data(rep, data, idea, v):
     if data.get("verdict") != v:
         rep.error("report-data: verdict differs from verdict.json; copy verdict.json into it")
     n = data.get("narrative") or {}
+    check_go_to_market(rep, n, v)
     ans = n.get("answer")
     if not ans or not isinstance(ans, str):
         rep.error("report-data: narrative.answer is required")

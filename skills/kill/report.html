@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-j5DT4AI34KcRzPwcbi1oSYGN0Dn+4luND8TOnpt3bhY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-vymh/n71d9Th3mSE/RZr5KFb6MWd5EDuC/t3LQaz7Qw='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,6 +194,10 @@ td.r,th.r{text-align:right}
 .tl.wn li{padding-bottom:14px}
 .icp{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:12px 16px;margin:0;font-size:15px}
 .icp dt{display:flex;gap:8px;align-items:flex-start;color:var(--muted-fg);font-weight:500;font-size:14px} .icp dt .ic{margin-top:4px;color:var(--primary)}
+.gq{margin:0;padding:10px 14px;border-left:3px solid var(--secondary);background:var(--bg);border-radius:0 8px 8px 0;font-size:15px;font-style:italic}
+.gq+.gq{margin-top:8px} .gtm-h{font:700 20px/1.3 var(--sans);margin:4px 0 6px} .gtm-l{font:600 12px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted-fg);margin:var(--s2) 0 6px}
+.gtm-rec{outline:2px solid var(--primary);outline-offset:-1px} .pos{font:500 19px/1.55 var(--sans);margin:0}
+.st-ok{color:var(--go)} .st-bad{color:var(--nogo)} .st-unk{color:var(--muted-fg)}
 .qa{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .qa li{display:grid;gap:4px;padding-bottom:12px;border-bottom:1px solid var(--line)} .qa li:last-child{border-bottom:0;padding-bottom:0}
 .qa-q{font-weight:600} .qa-v{color:var(--fg)} .qa-f{display:flex;flex-wrap:wrap;gap:6px;font:400 12px var(--mono);color:var(--muted-fg)} .qa-f span{padding:1px 7px;border-radius:6px;background:var(--muted)}
@@ -299,6 +303,11 @@ if (ICP) ICP.where = Array.isArray(ICP.where) ? ICP.where.filter(w => typeof w =
 /* language: UI labels follow the idea's language (en, fr) */
 const LANG = String(I.language || N.language || "en").slice(0, 2).toLowerCase() === "fr" ? "fr" : "en";
 const FR = {
+  "Go to market": "Mise sur le marché", "Who to sell to, how to get in, what to say, and under what name. Built from the evidence above.": "À qui vendre, par où entrer, quoi dire et sous quel nom. Construit à partir des preuves ci-dessus.",
+  "Personas": "Personas", "In their words": "Avec leurs mots", "Uses today": "Utilise aujourd'hui", "Pays today": "Paie aujourd'hui", "Starts looking when": "Commence à chercher quand", "Objections": "Objections", "Reach them": "Où les toucher",
+  "Ways in": "Par où entrer", "Recommended": "Recommandé", "Segment": "Segment", "Channel": "Canal", "Price": "Prix", "First 10 customers": "10 premiers clients", "Risks": "Risques",
+  "Promotion angles": "Axes de communication", "Pain": "Douleur", "Proof": "Preuve", "Must beat": "Doit battre", "Landing page for the test": "Page d'atterrissage du test",
+  "Branding": "Marque", "Positioning": "Positionnement", "Names, checked by search": "Noms, vérifiés par recherche", "Name": "Nom", "Trademark": "Marque déposée", "Handles": "Comptes", "Checked": "Vérifié le", "Tone": "Ton",
   "Answers and checks": "Réponses et vérifications", "What you told us, and the checks for this kind of business.": "Ce que vous avez dit, et les vérifications propres à ce type d'activité.",
   "Your answers": "Vos réponses", "After the research": "Après la recherche", "Checks for this type": "Vérifications pour ce type", "Hit": "Touché", "Clear": "Écarté", "Not checked": "Non vérifié", "Still assumed": "Encore supposé",
   "SaaS": "SaaS", "Marketplace": "Place de marché", "Mobile app": "Appli mobile", "E-commerce": "E-commerce", "Content": "Contenu", "Service": "Service", "Local business": "Commerce local",
@@ -349,7 +358,7 @@ const FR_RX = [[/^As pitched it scores (\d+)\. Each option fixes at least one ki
   [/^What a customer is worth, what one costs, and how many you need\.$/, "Ce que vaut un client, ce qu'il coûte, et combien il en faut."]];
 const T = k => (LANG === "fr" && FR[k]) || k;
 const translateUI = root => { if (LANG !== "fr") return; const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
-  for (const n of nodes) { if (n.parentElement && n.parentElement.closest(".answer,.kf p,.rx .ch,.rx .why,.e,.snote,.quote,ol.src,.tl,.stop ul,td,.pm-c,.pm-d,.icp-v,.wn-n,.chip,.chips,.qa-v,.tc-n")) continue;
+  for (const n of nodes) { if (n.parentElement && n.parentElement.closest(".answer,.kf p,.rx .ch,.rx .why,.e,.snote,.quote,ol.src,.tl,.stop ul,td,.pm-c,.pm-d,.icp-v,.wn-n,.chip,.chips,.qa-v,.tc-n,.gtm-u")) continue;
     const raw = n.textContent, t = raw.trim(); if (!t) continue; let out = FR[t];
     if (!out) for (const [rx, rep] of FR_RX) if (rx.test(t)) { out = t.replace(rx, rep); break; }
     if (out) n.textContent = raw.replace(t, out); }
@@ -691,6 +700,36 @@ const sTest = (has(N.test_plan) || V.cheapest_test || kc.length) ? section("test
 /* pre-mortem (narrative.premortem) */
 const PML = { H: ["NO-GO", "High likelihood"], M: ["PIVOT", "Medium likelihood"], L: ["neutral", "Low likelihood"] };
 const linkLabel = k => { const s = String(k || ""); return KS[s] || SUB[s] || LB[s] || s.replace(/_/g, " "); };
+/* go to market (deepdive 1.0): personas, ways in, promotion angles, landing page, branding */
+const arr = (x, n) => Array.isArray(x) ? x.filter(e => e && typeof e === "object").slice(0, n) : [];
+const PER = arr(N.personas, 3), STR = arr(N.strategies, 3), PRO = arr(N.promotion, 5), LND = N.landing && typeof N.landing === "object" ? N.landing : null;
+const BR = N.branding && typeof N.branding === "object" ? N.branding : null, BRN = BR ? arr(BR.names, 5) : [];
+const strs = (x, n) => Array.isArray(x) ? x.filter(e => typeof e === "string" && e).slice(0, n) : [];
+const dlRows = rows => { const r = rows.filter(([, v]) => v); return r.length ? `<dl class="facts">${r.map(([k, v]) => `<dt>${k}</dt><dd class="gtm-u">${v}</dd>`).join("")}</dl>` : ""; };
+const persona = (p, n) => card(`<h3 class="gtm-h gtm-u">${esc(p.name)}</h3>${p.role ? `<p class="sub gtm-u" style="margin:0 0 10px">${esc(p.role)}</p>` : ""}${p.context ? `<p class="gtm-u" style="margin:0 0 10px">${rt(p.context)}</p>` : ""}
+  <div class="gtm-l">In their words</div>${arr(p.pain_quotes, 6).map(q => `<blockquote class="gq gtm-u">“${esc(q.quote)}”${fn(q.url)}</blockquote>`).join("")}
+  ${dlRows([["Uses today", esc(p.uses_today || "")], ["Pays today", esc(p.pays_today || "")], ["Starts looking when", esc(p.trigger || "")], ["Objections", strs(p.objections, 3).map(esc).join(" · ")]])}
+  ${strs(p.where, 5).length ? `<div class="gtm-l">Reach them</div><div class="chips">${strs(p.where, 5).map(w => `<span class="chip">${esc(w)}</span>`).join("")}</div>` : ""}`, n * 70);
+const strategy = (x, n) => { const sa = num(x.score_after); return `<div class="card rv${x.recommended === true ? " gtm-rec" : ""}" style="--d:${n * 70}ms">
+  <div class="delta">${x.recommended === true ? `<span class="badge b-GO">${ic("check", 13)}Recommended</span>` : ""}${sa !== null ? vbadge(clampN(sa)) : ""}</div>
+  <h3 class="gtm-h gtm-u">${esc(x.name)}</h3>${x.why ? `<p class="gtm-u" style="margin:0 0 8px">${rt(x.why)}</p>` : ""}
+  ${dlRows([["Segment", esc(x.segment || "")], ["Channel", esc(x.channel || "")], ["Price", esc(x.price || "")], ["First 10 customers", esc(x.cost_first_10 || "")], ["Risks", esc(x.risks || "")]])}</div>`; };
+const clampN = v => Math.max(0, Math.min(100, Math.round(v)));
+const angle = (a, n) => card(`<div class="gtm-l" style="margin-top:0">${esc(a.angle || "")}${a.channel ? ` · ${esc(a.channel)}` : ""}</div><h3 class="gtm-h gtm-u">${esc(a.headline || "")}</h3>
+  ${dlRows([["Persona", esc(a.persona || "")], ["Pain", rt(a.pain || "")], ["Proof", `${rt(a.proof || "")}${fn(a.proof_source)}`]])}
+  ${arr(a.beat, 3).length ? `<div class="gtm-l">Must beat</div>${arr(a.beat, 3).map(b => `<blockquote class="gq gtm-u"><strong style="font-style:normal">${esc(b.competitor)}:</strong> “${esc(b.message)}”${fn(b.url)}</blockquote>`).join("")}` : ""}`, n * 60);
+const CHK = { available: ["st-ok", "check"], clear: ["st-ok", "check"], taken: ["st-bad", "x"], conflict: ["st-bad", "x"], unknown: ["st-unk", "alert"] };
+const chk = v => { const c = CHK[v] || CHK.unknown; return `<span class="${c[0]}">${ic(c[1], 14)} ${esc(CHK[v] ? v : "unknown")}</span>`; };
+const pos = BR && BR.positioning && typeof BR.positioning === "object" ? BR.positioning : null;
+const brandCard = BR ? card(`${pos ? `<div class="gtm-l" style="margin-top:0">Positioning</div><p class="pos gtm-u">For <strong>${esc(pos.for || "")}</strong>, the <strong>${esc(pos.category || "")}</strong> that ${esc(pos.difference || "")}${pos.proof ? `, because ${esc(pos.proof)}` : ""}.</p>` : ""}
+  ${BRN.length ? `<div class="gtm-l">Names, checked by search</div><div class="scroll"><table><thead><tr><th>Name</th><th>.com</th><th>Local domain</th><th>Trademark</th><th>Handles</th><th>Checked</th></tr></thead><tbody>${BRN.map(x => `<tr><td class="gtm-u"><strong>${esc(x.name)}</strong></td><td>${chk(x.domain_com)}</td><td>${x.domain_local ? chk(x.domain_local) : "–"}</td><td>${chk(x.trademark)}${fn(x.trademark_source)}</td><td class="gtm-u">${esc(x.handles || "")}</td><td class="num">${esc(x.checked || "")}</td></tr>`).join("")}</tbody></table></div>` : ""}
+  ${strs(BR.tone, 5).length ? `<div class="gtm-l">Tone</div><div class="chips">${strs(BR.tone, 5).map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>` : ""}`) : "";
+const landCard = LND && LND.headline ? card(`<div class="gtm-l" style="margin-top:0">Landing page for the test</div><h3 class="gtm-h gtm-u">${esc(LND.headline)}</h3>${LND.subhead ? `<p class="gtm-u" style="margin:0 0 10px">${esc(LND.subhead)}</p>` : ""}${strs(LND.sections, 5).length ? `<ol class="gtm-u">${strs(LND.sections, 5).map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}${LND.cta ? `<span class="badge b-neutral">${esc(LND.cta)}</span>` : ""}`) : "";
+const sGtm = (PER.length || STR.length || PRO.length || BR) ? section("gtm", "Go to market", "Who to sell to, how to get in, what to say, and under what name. Built from the evidence above.",
+  `${PER.length ? `<h3 class="gtm-l">Personas</h3><div class="grid ${PER.length > 2 ? "g3" : "g2"}">${PER.map(persona).join("")}</div>` : ""}
+   ${STR.length ? `<h3 class="gtm-l" style="margin-top:var(--s4)">Ways in</h3><div class="grid ${STR.length > 2 ? "g3" : "g2"}">${STR.slice().sort((a, b) => (b.recommended === true) - (a.recommended === true)).map(strategy).join("")}</div>` : ""}
+   ${PRO.length ? `<h3 class="gtm-l" style="margin-top:var(--s4)">Promotion angles</h3><div class="grid g2">${PRO.map(angle).join("")}${landCard}</div>` : landCard ? `<div style="margin-top:var(--s4)">${landCard}</div>` : ""}
+   ${brandCard ? `<h3 class="gtm-l" style="margin-top:var(--s4)">Branding</h3>${brandCard}` : ""}`) : "";
 /* answers and type checks (1.0): what the founder said, what it fed, and the 2 checks of the idea's type */
 const ANS = Array.isArray(I.answers) ? I.answers.filter(a => a && typeof a === "object" && a.question).slice(0, 10) : [];
 const TCS = Array.isArray(V.type_checks) ? V.type_checks.filter(c => c && typeof c === "object" && TC_L[c.check]).slice(0, 2) : [];
@@ -704,7 +743,7 @@ const sPremortem = N.premortem.length ? section("premortem", "Pre-mortem", "It's
   `<div class="grid g3">${N.premortem.map((p, n) => { const [b, l] = PML[p.likelihood]; return `<div class="card rv pm" style="--d:${n * 80}ms"><div class="pm-top"><span class="kf-n">${n + 1}</span><span class="badge b-${b}">${ic("alert", 13)}${l}</span></div>
     <div class="pm-c">${rt(p.cause)}</div>${p.early_signal ? `<div class="pm-s">${ic("flag", 14)}<span><strong>Early signal:</strong> <span class="pm-d">${rt(p.early_signal)}</span></span></div>` : ""}
     ${p.linked_to ? `<div><span class="chip">${ic("target", 12)}${esc(T("linked to"))} ${esc(T(linkLabel(p.linked_to)))}</span></div>` : ""}</div>`; }).join("")}</div>`) : "";
-const body = [sSummary, sRescue, sPremortem, sTest, sAbout, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
+const body = [sSummary, sRescue, sPremortem, sTest, sGtm, sAbout, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
 const TIER = { primary: "primary", secondary: "secondary", tertiary: "tertiary" };
 const tiers = SRC.reduce((a, s) => { if (TIER[s.tier]) a[s.tier] = (a[s.tier] || 0) + 1; return a; }, {});
 const tierSub = Object.keys(tiers).length ? ` ${["primary", "secondary", "tertiary"].filter(t => tiers[t]).map(t => `${tiers[t]} ${t}`).join(", ")}.` : "";
