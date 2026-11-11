@@ -202,6 +202,12 @@ def check_scores(rep, v):
             rep.error("verdict.json: kill_shots.no_distribution is true and the raw total is above 69, so rules_applied must contain R2_no_channel")
     if capped:
         expected = min(expected, 69)
+    lc = ((v.get("metrics") or {}).get("ltv_cac") or {}).get("value")
+    r6 = ks.get("no_distribution") is True and isinstance(lc, (int, float)) and not isinstance(lc, bool) and lc < 1
+    if r6:
+        if "R6_unprofitable_no_channel" not in rule_ids and expected > 49 and v.get("rules_applied") is not None:
+            rep.error(f"verdict.json: no channel and LTV:CAC {lc} (below 1): rules_applied must contain R6_unprofitable_no_channel and the score is capped at 49")
+        expected = min(expected, 49)
     if "score_raw" in v:
         if not isinstance(v["score_raw"], (int, float)) or abs(float(v["score_raw"]) - raw1) > 0.051:
             rep.error(f"verdict.json: score_raw = {v.get('score_raw')} but sum(weight x mean) / 5 = {raw1}")
@@ -211,7 +217,7 @@ def check_scores(rep, v):
     if not isinstance(score, int):
         rep.error(f"verdict.json: score {score!r} must be an integer")
     elif score != expected:
-        how = f"raw {raw1} rounds half up to {round_half_up(raw)}" + (", capped at 69 (R2: no channel)" if capped else "")
+        how = f"raw {raw1} rounds half up to {round_half_up(raw)}" + (", capped at 49 (R6: loses money, no channel)" if r6 else ", capped at 69 (R2: no channel)" if capped else "")
         rep.error(f"verdict.json: score is {score} but recomputes to {expected} ({how})")
     verdict = v.get("verdict")
     if isinstance(score, int) and verdict != band(score):
@@ -225,7 +231,6 @@ def check_scores(rep, v):
         rep.error("verdict.json: R1 applied but free_alternatives is above 1.5")
     if "R4_ltv_cac_below_1" in rule_ids and means.get("profit", 0) > 2 + 1e-9:
         rep.error("verdict.json: R4 applied but Profit potential mean is above 2")
-    lc = ((v.get("metrics") or {}).get("ltv_cac") or {}).get("value")
     if isinstance(lc, (int, float)) and lc < 1 and "R4_ltv_cac_below_1" not in rule_ids and means.get("profit", 0) > 2:
         rep.warn(f"verdict.json: LTV:CAC is {lc} (below 1) and Profit potential is {means['profit']:.2f}: apply R4, or state the path that fixes it in the ltv_cac note")
     # R5 coherence

@@ -221,6 +221,7 @@ rounded to 0.5. Never round before summing.
 | R2 no channel | No credible way to reach the first 10 customers | Total capped at 69: no GO. Say so in the report |
 | R3 saturated wave | 10+ near-identical launches in 12 months and no specific edge | Competitive room ≤ 1.5 and `differentiation` ≤ 1.5 |
 | R4 LTV : CAC < 1 | Below 1 with no path to fix it | Profit potential ≤ 2 |
+| R6 loses money, no channel | `no_distribution` is a hit **and** LTV : CAC is below 1 | Total capped at 49: NO-GO. Every customer costs more than they bring and there is no cheap way to reach them, so no average of the other criteria can make it a PIVOT |
 | R5 coherence | A kill shot hit must show in the sub-scores | `free_alternative` → free_alternatives ≤ 2 · `no_distribution` → channel_readiness ≤ 2 · `costs_eat_margin` → gross_margin ≤ 2 · `weak_demand` → trend ≤ 2.5 · `legal_platform_risk` → min(legal_regulatory, platform_dependency) ≤ 2.5 · `saturated_wave` → competitor_density ≤ 2 · `strong_competitor` → competitor_density ≤ 3 |
 
 When a rule caps a criterion, lower its sub-scores to match (the mean must equal the display

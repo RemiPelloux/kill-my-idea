@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.1 — 2026-11-11
+
+**Fixed: dead ideas scored as PIVOT.** Twelve real runs for the new gallery showed it: an idea with no
+channel to customers that loses money on each one (LTV:CAC 0.11 to 0.95) still scored 50–59, because
+easy feasibility and fast first revenue lifted the average. New fixed rule **R6**: no channel **and**
+LTV:CAC below 1 caps the total at 49, a NO-GO. The checker and the report enforce it.
+
 ## Unreleased
 
 - `build-brain.py --no-brain <dir>` builds the dashboard without writing `BRAIN.md`, for public galleries.
