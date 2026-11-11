@@ -9,6 +9,7 @@ from helpers import FIXTURES, ROOT, load
 
 brain = load("build-brain")
 build = load("build-report")
+cal = load("calibrate")
 chk = load("check-idea")
 export = load("export-standalone")
 csp = load("update-csp")
@@ -135,6 +136,21 @@ class BuildReport(unittest.TestCase):
         (self.dir / "report-data.json").write_text('{"idea": alert(1)}')
         with self.assertRaises(SystemExit):
             build.load_data(self.dir)
+
+
+class Calibrate(unittest.TestCase):
+    def test_targets(self):
+        w = Workspace()
+        res = cal.report(cal.verdicts([w.ideas]))
+        self.assertEqual(sorted(res["scores"].values()), [49, 51])
+        self.assertFalse(cal.targets(res, {"pet-dropshipping-tiktok": "failed", "dental-ai-receptionist": "worked"}))
+        w.tmp.cleanup()
+
+    def test_rescore_matches_checker_with_default_weights(self):
+        w = Workspace()
+        for v in cal.verdicts([w.ideas]):
+            self.assertEqual(cal.rescore(v, dict(chk.WEIGHTS)), v["score"])
+        w.tmp.cleanup()
 
 
 class Csp(unittest.TestCase):

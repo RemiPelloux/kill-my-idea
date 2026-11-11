@@ -13,6 +13,11 @@
   exactly the data file. `report-data.js` stays only as the no-Bash fallback and for old reports
   (`migrate.py --json` converts them). The gallery is converted. SECURITY.md's known limitation is now
   limited to that fallback. (#12)
+- **`scripts/calibrate.py`:** score spread, caps, rules fired and kill-shot hit rates across any set
+  of verdicts, flags a kill shot that hits more than 2 ideas in 3, checks the 1.0 calibration targets
+  (`--outcomes`) and rescores with other weights (`--weights`). CI prints it for the gallery. On the
+  gallery today: 43–58, stdev 3.4, no GO; free alternative, strong competitor and no channel are
+  flagged. (#5)
 
 ## 0.9.1 — 2026-11-11
 

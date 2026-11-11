@@ -51,6 +51,9 @@ jobs:
           python3 scripts/check-idea.py --board "$tmp"
           grep -q "kmi:auto:end" "$tmp/BRAIN.md"
 
+      - name: Score calibration report (gallery)
+        run: python3 scripts/calibrate.py docs/gallery
+
       - name: Schemas are valid JSON
         run: |
           find . -name '*.schema.json' -not -path './.git/*' -print0 \
