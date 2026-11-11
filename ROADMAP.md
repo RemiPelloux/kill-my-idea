@@ -1,6 +1,6 @@
 # Roadmap to 1.0.0
 
-1.0.0 is a quality bar, not a date. It ships when every item in the four milestones below is done.
+1.0.0 is a quality bar, not a date. All the work happens in **one sprint**, the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) milestone (19 issues), and 1.0.0 ships when it is closed.
 
 **What 1.0 means**
 
@@ -13,7 +13,45 @@ Each item below has why (the evidence), effort (S = under a day, M = a few days,
 
 ---
 
-## 0.10 — Trust the score
+## Work order
+
+Do the items top to bottom; each one builds on the ones before it. The paid steps (the calibration
+set, the regenerated examples and the gallery re-run) are real runs: at most 3 at a time, with the cost stated first.
+
+**Foundations: build what everything else needs**
+
+1. [#10](https://github.com/RemiPelloux/kill-my-idea/issues/10) Test suite
+2. [#9](https://github.com/RemiPelloux/kill-my-idea/issues/9) Add schema_version to every file
+3. [#12](https://github.com/RemiPelloux/kill-my-idea/issues/12) No executable data by default
+4. [#5](https://github.com/RemiPelloux/kill-my-idea/issues/5) Add scripts/calibrate.py
+5. [#8](https://github.com/RemiPelloux/kill-my-idea/issues/8) Hindsight guard
+
+**The score: calibrate it, then freeze it**
+
+6. [#4](https://github.com/RemiPelloux/kill-my-idea/issues/4) Calibration set
+7. [#6](https://github.com/RemiPelloux/kill-my-idea/issues/6) Strong competitor threshold
+8. [#7](https://github.com/RemiPelloux/kill-my-idea/issues/7) Weights review
+9. [#11](https://github.com/RemiPelloux/kill-my-idea/issues/11) Golden runs
+10. [#13](https://github.com/RemiPelloux/kill-my-idea/issues/13) Regenerate the examples
+
+**Speed and docs**
+
+11. [#14](https://github.com/RemiPelloux/kill-my-idea/issues/14) Cost and time in the report
+12. [#16](https://github.com/RemiPelloux/kill-my-idea/issues/16) Parallel research by default
+13. [#15](https://github.com/RemiPelloux/kill-my-idea/issues/15) Quick mode
+14. [#17](https://github.com/RemiPelloux/kill-my-idea/issues/17) Write a "How scoring works" page
+15. [#18](https://github.com/RemiPelloux/kill-my-idea/issues/18) Rubric-change process
+
+**Freeze**
+
+16. [#21](https://github.com/RemiPelloux/kill-my-idea/issues/21) Release checklist
+17. [#19](https://github.com/RemiPelloux/kill-my-idea/issues/19) Compatibility promise
+18. [#20](https://github.com/RemiPelloux/kill-my-idea/issues/20) Security review
+19. [#22](https://github.com/RemiPelloux/kill-my-idea/issues/22) Gallery re-run
+
+---
+
+## Trust the score
 
 The evidence: of 19 real runs (7 examples, 12 new runs in the gallery), **none scored GO**. The
 12 gallery runs range from 43 to 58 (standard deviation 3.3), and 8 of them score exactly 49, 6 of
@@ -27,7 +65,7 @@ those because of the R6 cap. A score that never leaves 43–58 is not telling id
 | **Weights review** | R6 was needed because easy feasibility and fast first revenue lifted dead ideas above 50. | M | Feasibility and time to first revenue are re-weighted, or capped when Profit is 2 or lower. The change is checked against the calibration set, and the old and new scores are published in the changelog. |
 | **Hindsight guard** | Scoring a famous company with today's sources leaks the outcome into the score. | S | Roast and calibration runs take an `as_of` date. Sources dated after it are flagged by the checker. |
 
-## 0.11 — Stable formats and tests
+## Stable formats and tests
 
 | Item | Why | Effort | Done when |
 |---|---|---|---|
@@ -37,7 +75,7 @@ those because of the R6 cap. A score that never leaves 43–58 is not telling id
 | **No executable data by default** | SECURITY.md lists one known limitation: `report-data.js` is JavaScript written by the model. | M | The skill writes `report-data.json`, and a script embeds it as an inert `application/json` block (the export already does this). The default report contains no model-written script, and SECURITY.md's known limitation is closed. |
 | **Regenerate the examples** | The two example reports only pass the checker in `--legacy` mode. | M | Every example passes the checker without `--legacy`. `--legacy` remains for users' old files only. |
 
-## 0.12 — Faster, cheaper, clearer
+## Faster, cheaper, clearer
 
 The evidence: across the gallery runs, a kill run took a median of 6 minutes and $2.50 of plan usage (range $2.00–4.50).
 
@@ -49,7 +87,7 @@ The evidence: across the gallery runs, a kill run took a median of 6 minutes and
 | **"How scoring works" page** | The rules are spread across SKILL.md, the README and the report footnote. | S | One page with a worked example from raw score to rules to verdict, linked from the report. |
 | **Rubric-change process** | Users will want to reweight the scores. | S | CONTRIBUTING explains how to propose a rubric change: run calibrate.py before and after, and include the diff. |
 
-## 1.0 — Freeze
+## Freeze
 
 | Item | Why | Effort | Done when |
 |---|---|---|---|
