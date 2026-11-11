@@ -1,0 +1,1134 @@
+{
+  "schema_version": "1.0",
+  "idea": {
+    "schema_version": "1.0",
+    "slug": "calendly",
+    "title": "Calendly: personal scheduling links (as of 2013-06-01)",
+    "created": "2026-11-11",
+    "language": "en",
+    "type": "saas",
+    "source": {
+      "type": "own-idea",
+      "text": "Calendly: scheduling links so people book a meeting without email back-and-forth, freemium with a paid plan at $8 per month, launch country US. Score it as of 2013-06-01: use only evidence published on or before that date (set verdict.as_of). Founder: a solo developer with $5,000 and full time. Just go: do not ask questions. Use the slug calendly.",
+      "url": null,
+      "author": null,
+      "posted": null
+    },
+    "problem": "Booking a meeting takes several emails of back-and-forth to find a time.",
+    "customer": null,
+    "solution": "A personal scheduling link that shows open slots from the user's calendar so the other person books directly.",
+    "revenue_model": "subscription",
+    "price": {
+      "amount": 8,
+      "currency": "USD",
+      "period": "month"
+    },
+    "channel": null,
+    "countries": [
+      "US"
+    ],
+    "claims": [],
+    "context": {
+      "budget": "USD 5,000",
+      "time_per_week": "full time (40+ h)",
+      "goal": null,
+      "edge": "solo developer"
+    },
+    "assumptions": [
+      "Scored as of 2013-06-01 with evidence published on or before that date.",
+      "Target customer assumed: US independent professionals and salespeople who book many 1:1 meetings.",
+      "Goal assumed: a startup (full-time commitment), not side income.",
+      "Main channel assumed: the viral loop of the link itself (every invitee sees the product).",
+      "No existing audience, network or domain asset assumed (none stated).",
+      "Monthly churn assumed 4% (no dated prosumer benchmark found)."
+    ],
+    "unknowns": [
+      "customer",
+      "channel",
+      "goal",
+      "edge beyond development skills",
+      "audience"
+    ],
+    "answers": []
+  },
+  "verdict": {
+    "schema_version": "1.0",
+    "slug": "calendly",
+    "evaluated": "2026-11-11",
+    "as_of": "2013-06-01",
+    "mode": "kill",
+    "verdict": "PIVOT",
+    "score": 68,
+    "score_raw": 67.5,
+    "confidence": {
+      "level": "high",
+      "sourced_subscores": 16,
+      "sources": 38,
+      "primary_sources": 14,
+      "note": "No dated 2013 pricing pages for ScheduleOnce/YouCanBook.me or a prosumer churn benchmark; those would firm up pricing_power and ltv_cac."
+    },
+    "criteria": {
+      "profit": 3.5,
+      "feasibility": 4.0,
+      "time_to_first_revenue": 3.5,
+      "demand": 3.5,
+      "competition": 2.0,
+      "risk": 4.0,
+      "fit": 2.5
+    },
+    "criteria_detail": {
+      "profit": {
+        "gross_margin": {
+          "score": 4.5,
+          "note": "About 87% after Stripe 2.9%+30c (~$0.53) and ~$0.47 infra/email per payer (estimate).",
+          "source": "https://dc.fortune.com/2012/10/24/stripe-wants-to-reboot-online-payments/"
+        },
+        "ltv_cac": {
+          "score": 3.5,
+          "note": "LTV $175 vs CAC ~$50 (estimate) = 3.5; viral link keeps CAC low, 4% churn caps LTV.",
+          "source": "https://davidcummings.org/2012/08/19/the-1-enemy-of-saas-churn/"
+        },
+        "pricing_power": {
+          "score": 2,
+          "note": "Free Doodle, Google slots and Atlas set a $0-5 anchor; Atlas plans Pro at $5/month.",
+          "source": "https://thenextweb.com/news/atlas-launches-to-reduce-the-stress-of-scheduling-helping-you-organize-group-meetings-on-the-go"
+        }
+      },
+      "feasibility": {
+        "build_effort": {
+          "score": 3,
+          "note": "Google Calendar API v3 (2011) makes a link MVP a 1-2 month solo build.",
+          "source": "https://gsuite-developers.googleblog.com/2011/11/introducing-next-version-of-google.html"
+        },
+        "skills_match": {
+          "score": 4,
+          "note": "Solo developer: the core build is code; marketing and sales are the missing half.",
+          "source": null
+        },
+        "capital_needed": {
+          "score": 4.5,
+          "note": "Heroku/AWS at ~$50-100/month: $5,000 covers 12+ months of runway on infra.",
+          "source": "https://www.heroku.com/blog/2x-dynos-beta/"
+        }
+      },
+      "time_to_first_revenue": {
+        "time_to_mvp": {
+          "score": 2.5,
+          "note": "About 8 weeks to a usable, reliable calendar sync plus billing (estimate).",
+          "source": null
+        },
+        "sales_cycle": {
+          "score": 4.5,
+          "note": "Self-serve $8/month card payment via Stripe: same-day purchase, no procurement.",
+          "source": "https://techcrunch.com/2011/09/30/sequoia-backed-stripe-launches-to-disrupt-the-online-payments-industry-with-a-developer-friendly-platform"
+        },
+        "channel_readiness": {
+          "score": 3,
+          "note": "Viral loop exists (98% of Doodle users came by invitation) but founder has no audience.",
+          "source": "https://thenextweb.com/news/its-not-sexy-but-it-sure-is-popular-group-scheduling-tool-doodle-hits-10m-monthly-users"
+        }
+      },
+      "demand": {
+        "search_demand": {
+          "score": 4,
+          "note": "Doodle had 10M monthly users, 2M in the US (2011): online scheduling is mass-market.",
+          "source": "https://thenextweb.com/news/its-not-sexy-but-it-sure-is-popular-group-scheduling-tool-doodle-hits-10m-monthly-users"
+        },
+        "trend": {
+          "score": 4.5,
+          "note": "Doodle US base grew ~4x in two years and still at 10M monthly users in 2012-07.",
+          "source": "https://thenextweb.com/news/doodles-new-ipad-app-makes-scheduling-easier-for-its-10-million-monthly-users"
+        },
+        "willingness_to_pay": {
+          "score": 2.5,
+          "note": "SMBs pay $19.95-58/month for booking, but individuals expect free; freemium converts 0.5-4%.",
+          "source": "https://www.cleaner.com/editorial/2012/02/book_em_online"
+        }
+      },
+      "competition": {
+        "free_alternatives": {
+          "score": 2,
+          "note": "Doodle MeetMe (free) and Google appointment slots cover much of the job; not polished links.",
+          "source": "https://thenextweb.com/news/arrange-one-to-one-meetings-with-ease-using-doodles-new-meetme"
+        },
+        "competitor_density": {
+          "score": 2,
+          "note": "12+ tools: Doodle, TimeBridge, ScheduleOnce, Bookfresh, TimeTrade, Atlas, Meetin.gs.",
+          "source": "https://thenextweb.com/news/atlas-launches-to-reduce-the-stress-of-scheduling-helping-you-organize-group-meetings-on-the-go"
+        },
+        "differentiation": {
+          "score": 2.5,
+          "note": "Tungle.me's shutdown (2012-12) left the signature-link use case open; edge is execution only.",
+          "source": "https://davidcummings.org/2012/04/09/tungle-me-email-signature-self-service-meeting-signups/"
+        }
+      },
+      "risk": {
+        "legal_regulatory": {
+          "score": 4.5,
+          "note": "Only CAN-SPAM; transactional booking emails are mostly exempt. No licence needed.",
+          "source": "https://webarchive.library.unt.edu/web/20130214054537/http://business.ftc.gov/documents/bus61-can-spam-act-compliance-guide-business"
+        },
+        "platform_dependency": {
+          "score": 2.5,
+          "note": "Rides Google Calendar API; Google dropped deprecation guarantees and kills products.",
+          "source": "https://developers.googleblog.com/2012/04/changes-to-deprecation-policies-and-api.html"
+        },
+        "market_risk": {
+          "score": 4.5,
+          "note": "Meetings are a durable, daily need; scheduling is moving to mobile, not fading.",
+          "source": "https://thenextweb.com/news/doodles-new-ipad-app-makes-scheduling-easier-for-its-10-million-monthly-users"
+        }
+      },
+      "fit": {
+        "skills": {
+          "score": 3.5,
+          "note": "Strong build skills; no stated go-to-market or sales track record.",
+          "source": null
+        },
+        "assets": {
+          "score": 1.5,
+          "note": "No audience, list, network or data stated.",
+          "source": null
+        },
+        "interest": {
+          "score": 2.5,
+          "note": "Motivation not stated; full-time commitment suggests more than curiosity.",
+          "source": null
+        }
+      }
+    },
+    "rules_applied": [],
+    "metrics": {
+      "tam": {
+        "value": 1622,
+        "unit": "USD million/year",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "16.9M US independent workers (MBO 2012) x $96/year; upper bound, excludes salaried salespeople"
+      },
+      "sam": {
+        "value": 192,
+        "unit": "USD million/year",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "2M US Doodle users already scheduling online (TNW 2011) x $96/year"
+      },
+      "som": {
+        "value": 0.19,
+        "unit": "USD million/year",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "0.1% of SAM in year 1 = ~2,000 paying users x $96"
+      },
+      "competitors_found": {
+        "value": 14,
+        "unit": "competitors",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Named in dated sources: Doodle, MeetMe, BookMe, Google slots, Tungle (dead), TimeBridge, ScheduleOnce, Bookfresh, TimeTrade, Schedulicity, MyTime, Meetin.gs, Atlas, Groupon Scheduler"
+      },
+      "competitor_price_range": {
+        "value": "0-58",
+        "unit": "USD/month",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Free (Doodle, Google slots, Atlas) to Bookfresh $19.95 and Doodle BookMe EUR 45 (~$58), 2012"
+      },
+      "demand_trend": {
+        "value": "rising",
+        "unit": null,
+        "basis": "sourced",
+        "as_of": "2011-10",
+        "source": "https://thenextweb.com/news/its-not-sexy-but-it-sure-is-popular-group-scheduling-tool-doodle-hits-10m-monthly-users"
+      },
+      "price": {
+        "value": 8,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Founder's stated price; between free tools and $19.95+ SMB booking tools"
+      },
+      "variable_cost_per_unit": {
+        "value": 1.0,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Stripe 2.9% x $8 + $0.30 = $0.53, plus ~$0.47 hosting/email/support incl. free users carried per payer"
+      },
+      "gross_margin_pct": {
+        "value": 87.5,
+        "unit": "%",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "(8 - 1.00) / 8"
+      },
+      "churn_monthly_pct": {
+        "value": 4,
+        "unit": "%",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Above the 3% 'killer' threshold (Cummings 2012) because switching costs are low for an $8 prosumer tool"
+      },
+      "expected_lifetime": {
+        "value": 25,
+        "unit": "months",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "lifetime = 1 / churn 0.04"
+      },
+      "conversion_rate_pct": {
+        "value": 2,
+        "unit": "%",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Free-to-paid; Evernote 0.5% early to ~4% overall (2012); midpoint for a narrower tool"
+      },
+      "cac": {
+        "value": 50,
+        "unit": "USD",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Organic/viral: ~1 founder hour per paying user at $50/h (outreach, launch posts, support); AdWords ruled out (Dropbox CPA $233-388)"
+      },
+      "ltv": {
+        "value": 175,
+        "unit": "USD",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "8 x 0.875 x 25 months"
+      },
+      "ltv_cac": {
+        "value": 3.5,
+        "unit": "ratio",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "LTV 175 / CAC 50"
+      },
+      "payback_months": {
+        "value": 7.1,
+        "unit": "months",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "50 / (8 x 0.875 = 7.00)"
+      },
+      "fixed_costs_month": {
+        "value": 100,
+        "unit": "USD/month",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "Heroku dyno ~$36 + database ~$50 + email/domain ~$14 (Heroku 2013-04, SendGrid 2011)"
+      },
+      "break_even_customers_per_month": {
+        "value": 15,
+        "unit": "paying customers",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "100 / 7.00 = 14.3, rounded up; founder salary excluded"
+      },
+      "time_to_first_revenue_weeks": {
+        "value": 10,
+        "unit": "weeks",
+        "basis": "estimate",
+        "as_of": "2013-06",
+        "reasoning": "~8 weeks to MVP + 2 weeks for first free users to upgrade"
+      }
+    },
+    "launch_country": "US",
+    "launch_reason": "Largest pool of independent workers and salespeople, and the home market of the free Google tools it must beat.",
+    "kill_shots": {
+      "free_alternative": true,
+      "strong_competitor": true,
+      "graveyard": true,
+      "no_distribution": false,
+      "costs_eat_margin": false,
+      "weak_demand": false,
+      "legal_platform_risk": true,
+      "saturated_wave": false
+    },
+    "primary_kill_shot": "free_alternative",
+    "cheapest_test": "A landing page plus a hand-run concierge link (Google appointment slots behind your domain) for 50 sales reps, with an $8/month pre-order button, 7 days.",
+    "kill_criteria": [
+      "Fewer than 100 sign-ups from 500 targeted sales reps by day 7 -> stop or re-target",
+      "Fewer than 10 people say they would pay $8/month on the pricing step by day 7 -> drop the paid plan idea",
+      "Fewer than 20% of beta users send their link to 3+ invitees in week 1 -> the viral loop does not exist, stop"
+    ],
+    "sources": [
+      "https://gmail.googleblog.com/2011/06/introducing-appointment-slots-in-google.html",
+      "https://workspaceupdates.googleblog.com/2011/06/manage-your-availability-with.html",
+      "https://thenextweb.com/news/its-not-sexy-but-it-sure-is-popular-group-scheduling-tool-doodle-hits-10m-monthly-users",
+      "https://thenextweb.com/news/doodles-new-ipad-app-makes-scheduling-easier-for-its-10-million-monthly-users",
+      "https://thenextweb.com/news/arrange-one-to-one-meetings-with-ease-using-doodles-new-meetme",
+      "https://thenextweb.com/news/swiss-simple-scheduler-doodle-launches-bookme-appointment-service-online-bookings",
+      "https://techcrunch.com/2012/09/18/rim-to-shut-down-tungle-me-team-will-focus-on-blackberry-10-calendar-app",
+      "https://phys.org/news/2011-04-rim-app-tungle.html",
+      "https://thenextweb.com/news/meeting-scheduler-tungle-me-hits-deadpool-focuses-working-within-rim",
+      "https://davidcummings.org/2012/04/09/tungle-me-email-signature-self-service-meeting-signups/",
+      "https://techcrunch.com/?p=522108",
+      "https://techcrunch.com/?p=76591",
+      "https://www.cleaner.com/editorial/2012/02/book_em_online",
+      "https://techcrunch.com/?p=221885",
+      "https://globenewswire.com/news-release/2010/09/24/1213032/0/en/TimeTrade-Systems-Raises-5-6M-in-Funding-Led-by-Ascent-Venture-Partners.html",
+      "https://techcrunch.com/2013/02/07/redbeacon-founder-launches-mytime-a-booking-and-ecommerce-platform-for-local-services-and-open-appointments",
+      "https://thenextweb.com/news/helsinkis-meetin-gs-relaunches-with-a-makeover-and-increased-focus-on-mobile",
+      "https://thenextweb.com/news/atlas-launches-to-reduce-the-stress-of-scheduling-helping-you-organize-group-meetings-on-the-go",
+      "https://cloud.googleblog.com/2012/07/a-new-future-hitting-refresh-on.html",
+      "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners",
+      "https://gsuite-developers.googleblog.com/2011/11/introducing-next-version-of-google.html",
+      "https://techcrunch.com/2011/09/30/sequoia-backed-stripe-launches-to-disrupt-the-online-payments-industry-with-a-developer-friendly-platform",
+      "https://www.mbopartners.com/wp-content/uploads/2019/02/2012-MBO_Partners_State_of_Independence_Report.pdf",
+      "https://www.slideshare.net/slideshow/dropbox-startup-lessons-learned-3836587/3836587",
+      "https://gsuite-developers.googleblog.com/2010/03/reach-new-customers-integrate-with.html",
+      "https://onemanandhisblog.com/2012/06/phil_libin_evernote_by_the_numbers",
+      "https://www.bls.gov/news.release/archives/ocwage_03292013.htm",
+      "https://www.bls.gov/opub/ted/2011/ted_20110816.htm",
+      "https://www.heroku.com/blog/2x-dynos-beta/",
+      "https://aws.amazon.com/about-aws/whats-new/2012/10/31/announcing-amazon-ec2-m3-instances-and-m1-price-drop/",
+      "https://dc.fortune.com/2012/10/24/stripe-wants-to-reboot-online-payments/",
+      "https://techcrunch.com/2011/05/10/email-delivery-system-sendgrid-announces-new-pricing-model-now-you-can-pay-as-you-go",
+      "https://developers.googleblog.com/2012/04/changes-to-deprecation-policies-and-api.html",
+      "https://www.engadget.com/2013/03/13/google-reader-shut-down-spring-cleaning/",
+      "https://webarchive.library.unt.edu/web/20130214054537/http://business.ftc.gov/documents/bus61-can-spam-act-compliance-guide-business",
+      "https://davidcummings.org/2012/08/19/the-1-enemy-of-saas-churn/",
+      "https://forentrepreneurs.com/saas-survey",
+      "https://techcrunch.com/2009/10/18/ps-i-love-you-get-your-free-email-at-hotmail"
+    ],
+    "rescue": [
+      {
+        "change": "Sell to outbound salespeople and recruiters first: booking link in the email signature, team plan at $10/user/month.",
+        "why": "Raises pricing_power, willingness_to_pay and differentiation: the Tungle signature use case has a buyer with a budget.",
+        "score_after": 71,
+        "difficulty": "doable",
+        "effort": "1 week of repositioning and outreach",
+        "cost": "under $200",
+        "requires": "Lists of sales reps on LinkedIn; team billing in Stripe"
+      },
+      {
+        "change": "Capture Tungle.me refugees and list on the Google Apps Marketplace at launch.",
+        "why": "Lifts channel_readiness: an orphaned user base plus a channel to 5M Google Apps businesses.",
+        "score_after": 69,
+        "difficulty": "doable",
+        "effort": "2 weeks",
+        "cost": "near $0",
+        "requires": "Marketplace listing, migration page for Tungle users"
+      },
+      {
+        "change": "Support Outlook/Exchange and iCal alongside Google Calendar from v1.",
+        "why": "Cuts platform_dependency on a single Google API with no deprecation guarantee.",
+        "score_after": 68,
+        "difficulty": "hard",
+        "effort": "2-3 extra months",
+        "cost": "time only",
+        "requires": "Exchange Web Services integration skills"
+      }
+    ],
+    "type_checks": [
+      {
+        "check": "churn_benchmark",
+        "result": "unknown",
+        "note": "Only 'over 3% monthly is killer' (2012) and enterprise-skewed Pacific Crest data; no dated prosumer benchmark. Modelled at 4%.",
+        "source": "https://davidcummings.org/2012/08/19/the-1-enemy-of-saas-churn/"
+      },
+      {
+        "check": "switching_cost",
+        "result": "clear",
+        "note": "The incumbent is email back-and-forth; Tungle users moved to ScheduleOnce in weeks. Low switching costs help acquisition and hurt retention.",
+        "source": "https://davidcummings.org/2012/04/09/tungle-me-email-signature-self-service-meeting-signups/"
+      }
+    ],
+    "quick": false,
+    "run": {
+      "started": "2026-11-11T08:58:57Z",
+      "minutes": 6,
+      "searches": 85,
+      "fetches": 32,
+      "subagents": 4
+    }
+  },
+  "narrative": {
+    "language": "en",
+    "answer": "**PIVOT, 68/100.** Demand is real and rising (Doodle: **10M monthly users**), costs are tiny and the link spreads itself. But free tools from Doodle and Google anchor the price near $0, and a solo $8 prosumer plan needs a paying niche first.",
+    "tldr": [
+      "Demand is proven: Doodle had **10M monthly users** and 98% arrived by invitation, the same loop a booking link has.",
+      "The problem is price: **free** Doodle MeetMe, Google slots and Atlas set a $0-5 anchor for individuals.",
+      "Tungle.me's shutdown (2012-12) left the **signature-link** use case orphaned: start with salespeople who pay."
+    ],
+    "key_findings": [
+      {
+        "title": "Free tools anchor the price at zero",
+        "detail": "Doodle MeetMe (2011) and Google appointment slots (2011) give a **free** booking page; Atlas plans its Pro link at **$5/month** (2013-05).",
+        "source": "https://thenextweb.com/news/arrange-one-to-one-meetings-with-ease-using-doodles-new-meetme"
+      },
+      {
+        "title": "Demand is mass-market and viral",
+        "detail": "Doodle reached **10M monthly users**, 2M in the US, and **98%** found it through an invitation (TNW, 2011).",
+        "source": "https://thenextweb.com/news/its-not-sexy-but-it-sure-is-popular-group-scheduling-tool-doodle-hits-10m-monthly-users"
+      },
+      {
+        "title": "The closest rival just died",
+        "detail": "RIM shut down Tungle.me on **2012-12-03**, orphaning salespeople who used a booking link in their **email signature**.",
+        "source": "https://techcrunch.com/2012/09/18/rim-to-shut-down-tungle-me-team-will-focus-on-blackberry-10-calendar-app"
+      }
+    ],
+    "recommendation": "Do not launch a generic $8 consumer plan. Launch for outbound salespeople and Tungle refugees, and pre-sell 10 paid seats in 7 days before building beyond an MVP.",
+    "steelman": "A link that books meetings spreads itself with every invite, like Doodle's **98%** invitation-led growth, costs almost nothing to run, and Tungle's exit left the best use case unserved. The evidence supports demand and margin; it does not yet show that individuals pay.",
+    "premortem": [
+      {
+        "cause": "Users love the free tier but under 1% upgrade, because Doodle and Google already give the core job away.",
+        "linked_to": "free_alternative",
+        "likelihood": "H",
+        "early_signal": "Fewer than 2 upgrades per 100 active free users by day 30"
+      },
+      {
+        "cause": "No differentiation from Atlas, Meetin.gs and Doodle MeetMe: launches get a spike, then flat sign-ups.",
+        "linked_to": "differentiation",
+        "likelihood": "M",
+        "early_signal": "Under 30% of new sign-ups come from invitee links after week 2"
+      },
+      {
+        "cause": "A Google Calendar API change or a free Google feature undercuts the product.",
+        "linked_to": "legal_platform_risk",
+        "likelihood": "L",
+        "early_signal": "Google announces booking features or API quota cuts; over 5% of syncs fail in a week"
+      }
+    ],
+    "why_now": {
+      "verdict": "now",
+      "note": "APIs, payments and mobile all matured in 2011-2012, and Tungle's exit opened a gap; the free incumbents are the risk, not timing.",
+      "changes": [
+        {
+          "what": "Google Calendar API v3 launched with JSON and better recurring events.",
+          "when": "2011-11",
+          "source": "https://gsuite-developers.googleblog.com/2011/11/introducing-next-version-of-google.html"
+        },
+        {
+          "what": "Stripe launched publicly at 2.9% + 30c, making $8 self-serve billing trivial.",
+          "when": "2011-09",
+          "source": "https://techcrunch.com/2011/09/30/sequoia-backed-stripe-launches-to-disrupt-the-online-payments-industry-with-a-developer-friendly-platform"
+        },
+        {
+          "what": "US smartphone ownership reached 46% of adults.",
+          "when": "2012-03",
+          "source": "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners"
+        },
+        {
+          "what": "Google Apps passed 5M businesses on shared calendars.",
+          "when": "2012-07",
+          "source": "https://cloud.googleblog.com/2012/07/a-new-future-hitting-refresh-on.html"
+        },
+        {
+          "what": "Tungle.me, the leading booking-link tool, shut down.",
+          "when": "2012-12",
+          "source": "https://techcrunch.com/2012/09/18/rim-to-shut-down-tungle-me-team-will-focus-on-blackberry-10-calendar-app"
+        }
+      ]
+    },
+    "icp": {
+      "who": "US outbound salespeople, recruiters and consultants booking 10+ external 1:1 meetings a week from Google Calendar",
+      "where": [
+        "LinkedIn sales and recruiting groups",
+        "Former Tungle.me users",
+        "Google Apps Marketplace",
+        "Hacker News and TechCrunch launch coverage",
+        "Sales blogs (e.g. davidcummings.org readers)"
+      ],
+      "pays_for_today": "Mostly nothing (email, Doodle free); SMBs pay Bookfresh $19.95/month or Doodle BookMe EUR 45/month",
+      "budget": "unknown; sales tools are expensed per seat, likely $10-30/user/month",
+      "trigger": "Their scheduling tool shuts down (Tungle, 2012-12) or they start a high-volume outreach role"
+    },
+    "customer": {
+      "segment": "US salespeople, recruiters and independent professionals with many external 1:1 meetings",
+      "pain": "Several emails to agree a time; lost prospects when replies stall",
+      "today": "Email back-and-forth, Doodle polls, Google appointment slots, ScheduleOnce"
+    },
+    "use_cases": [
+      {
+        "name": "Sales rep booking demos from an email signature link",
+        "who_pays": "Rep or sales manager",
+        "effort": "Low",
+        "best": true
+      },
+      {
+        "name": "Recruiter booking candidate screens",
+        "who_pays": "Recruiting team",
+        "effort": "Low",
+        "best": false
+      },
+      {
+        "name": "Consultant or coach booking client calls",
+        "who_pays": "The professional",
+        "effort": "Low",
+        "best": false
+      },
+      {
+        "name": "Small business taking customer appointments",
+        "who_pays": "Business owner",
+        "effort": "Medium (payments, reminders)",
+        "best": false
+      }
+    ],
+    "kill_shots": {
+      "free_alternative": {
+        "evidence": "Doodle MeetMe (2011-02) and Google Calendar appointment slots (2011-06) offer free booking pages; Atlas launched free in 2013-05.",
+        "source": "https://thenextweb.com/news/arrange-one-to-one-meetings-with-ease-using-doodles-new-meetme",
+        "count": 4
+      },
+      "strong_competitor": {
+        "evidence": "Doodle has 10M monthly users and a paid BookMe tier at EUR 45/month; TimeBridge had 500,000+ users; TimeTrade raised $5.6M.",
+        "source": "https://thenextweb.com/news/swiss-simple-scheduler-doodle-launches-bookme-appointment-service-online-bookings",
+        "count": 14
+      },
+      "graveyard": {
+        "evidence": "Tungle.me was acquired by RIM (2011-04) and shut down 2012-12-03; TimeBridge sold to MerchantCircle in 2010.",
+        "source": "https://techcrunch.com/2012/09/18/rim-to-shut-down-tungle-me-team-will-focus-on-blackberry-10-calendar-app"
+      },
+      "no_distribution": {
+        "evidence": "Clear: the link exposes every invitee, like Doodle's 98% invitation-led growth; Google Apps Marketplace reaches 2M+ businesses.",
+        "source": "https://thenextweb.com/news/its-not-sexy-but-it-sure-is-popular-group-scheduling-tool-doodle-hits-10m-monthly-users"
+      },
+      "costs_eat_margin": {
+        "evidence": "Clear: Stripe ~$0.53 per $8 charge and Heroku from $0.05/hour leave about 87% gross margin (estimate).",
+        "source": "https://www.heroku.com/blog/2x-dynos-beta/"
+      },
+      "weak_demand": {
+        "evidence": "Clear: Doodle's US base grew about 4x in two years to 2M (2011) and held 10M monthly users in 2012.",
+        "source": "https://thenextweb.com/news/its-not-sexy-but-it-sure-is-popular-group-scheduling-tool-doodle-hits-10m-monthly-users"
+      },
+      "legal_platform_risk": {
+        "evidence": "Hit: Google removed deprecation guarantees for many APIs (2012-04) and closed 70 products by 2013-03; the product rides its Calendar API.",
+        "source": "https://developers.googleblog.com/2012/04/changes-to-deprecation-policies-and-api.html"
+      },
+      "saturated_wave": {
+        "evidence": "Clear: about 5 look-alike launches in 12 months (Doodle BookMe, MyTime, Meetin.gs relaunch, Atlas, ScheduleOnce push), below 10.",
+        "source": "https://thenextweb.com/news/atlas-launches-to-reduce-the-stress-of-scheduling-helping-you-organize-group-meetings-on-the-go",
+        "count": 5,
+        "window": "2012-06 to 2013-06"
+      }
+    },
+    "competitors": [
+      {
+        "name": "Doodle (polls + MeetMe)",
+        "url": "https://thenextweb.com/news/arrange-one-to-one-meetings-with-ease-using-doodles-new-meetme",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 5,
+        "traction_note": "10M monthly users, 2M US (2011)",
+        "gap": "Poll-first; personal link is a side feature",
+        "free": true,
+        "country": null,
+        "price_source": "https://thenextweb.com/news/arrange-one-to-one-meetings-with-ease-using-doodles-new-meetme",
+        "price_period": "month",
+        "price_as_of": "2011-02"
+      },
+      {
+        "name": "Doodle BookMe",
+        "url": "https://thenextweb.com/news/swiss-simple-scheduler-doodle-launches-bookme-appointment-service-online-bookings",
+        "price_low": 58,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 4,
+        "traction_note": "Parent has 10M monthly users",
+        "gap": "Priced for businesses (EUR 45/month)",
+        "free": false,
+        "country": null,
+        "price_source": "https://thenextweb.com/news/swiss-simple-scheduler-doodle-launches-bookme-appointment-service-online-bookings",
+        "price_period": "month",
+        "price_as_of": "2012-09"
+      },
+      {
+        "name": "Google Calendar appointment slots",
+        "url": "https://gmail.googleblog.com/2011/06/introducing-appointment-slots-in-google.html",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 4,
+        "traction_note": "Built into Google Calendar; possibly discontinued 2012-01 (unverified)",
+        "gap": "Clunky, no external-calendar check",
+        "free": true,
+        "country": "US",
+        "price_source": "https://gmail.googleblog.com/2011/06/introducing-appointment-slots-in-google.html",
+        "price_period": "month",
+        "price_as_of": "2011-06"
+      },
+      {
+        "name": "Bookfresh",
+        "url": "https://www.cleaner.com/editorial/2012/02/book_em_online",
+        "price_low": 19.95,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 3,
+        "traction_note": "Independent SMB booking tool since 2009",
+        "gap": "Built for shops, not individuals",
+        "free": false,
+        "country": "US",
+        "price_source": "https://www.cleaner.com/editorial/2012/02/book_em_online",
+        "price_period": "month",
+        "price_as_of": "2012-02"
+      },
+      {
+        "name": "TimeBridge",
+        "url": "https://techcrunch.com/?p=221885",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 3,
+        "traction_note": "500,000+ users at acquisition (2010)",
+        "gap": "Group meetings; acquired, low focus",
+        "free": true,
+        "country": "US",
+        "price_source": "https://techcrunch.com/?p=221885",
+        "price_period": "month",
+        "price_as_of": "2010-09"
+      },
+      {
+        "name": "Atlas",
+        "url": "https://thenextweb.com/news/atlas-launches-to-reduce-the-stress-of-scheduling-helping-you-organize-group-meetings-on-the-go",
+        "price_low": 0,
+        "price_high": 5,
+        "currency": "USD",
+        "traction": 1,
+        "traction_note": "Just launched 2013-05",
+        "gap": "Same idea, Pro vanity link planned at $5",
+        "free": true,
+        "country": null,
+        "price_source": "https://thenextweb.com/news/atlas-launches-to-reduce-the-stress-of-scheduling-helping-you-organize-group-meetings-on-the-go",
+        "price_period": "month",
+        "price_as_of": "2013-05"
+      },
+      {
+        "name": "Meetin.gs",
+        "url": "https://thenextweb.com/news/helsinkis-meetin-gs-relaunches-with-a-makeover-and-increased-focus-on-mobile",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 2,
+        "traction_note": "About 22,000 users (2013-04)",
+        "gap": "Meeting pages, Finland-based",
+        "free": true,
+        "country": "FI",
+        "price_source": "https://thenextweb.com/news/helsinkis-meetin-gs-relaunches-with-a-makeover-and-increased-focus-on-mobile",
+        "price_period": "month",
+        "price_as_of": "2013-04"
+      },
+      {
+        "name": "TimeTrade",
+        "url": "https://globenewswire.com/news-release/2010/09/24/1213032/0/en/TimeTrade-Systems-Raises-5-6M-in-Funding-Led-by-Ascent-Venture-Partners.html",
+        "price_low": null,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 4,
+        "traction_note": "$5.6M Series D (2010)",
+        "gap": "Enterprise sales, not self-serve",
+        "free": false,
+        "country": "US",
+        "price_source": null,
+        "price_period": null,
+        "price_as_of": null
+      },
+      {
+        "name": "Groupon Scheduler",
+        "url": "https://techcrunch.com/?p=522108",
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "traction": 3,
+        "traction_note": "Free to all US/Canada SMBs (2012-03)",
+        "gap": "Merchants only",
+        "free": true,
+        "country": "US",
+        "price_source": "https://techcrunch.com/?p=522108",
+        "price_period": "month",
+        "price_as_of": "2012-03"
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "customers_month": 20,
+        "revenue_month": 160,
+        "costs_month": 100,
+        "note": "Month 12: 1,000 free users at 2% conversion; covers infra only"
+      },
+      {
+        "name": "Base",
+        "customers_month": 150,
+        "revenue_month": 1200,
+        "costs_month": 150,
+        "note": "Month 12: 7,500 free users via invitee loop, 2% paid"
+      },
+      {
+        "name": "Optimistic",
+        "customers_month": 600,
+        "revenue_month": 4800,
+        "costs_month": 300,
+        "note": "Month 12: sales-team niche, team plans, 4% paid"
+      }
+    ],
+    "currency": "USD",
+    "risks": [
+      {
+        "risk": "Free tools keep individuals from upgrading",
+        "likelihood": "H",
+        "impact": "H",
+        "mitigation": "Charge for team and sales features, not the link",
+        "source": "https://thenextweb.com/news/arrange-one-to-one-meetings-with-ease-using-doodles-new-meetme"
+      },
+      {
+        "risk": "Google Calendar API change or deprecation",
+        "likelihood": "M",
+        "impact": "H",
+        "mitigation": "Add Exchange and iCal sync",
+        "source": "https://developers.googleblog.com/2012/04/changes-to-deprecation-policies-and-api.html"
+      },
+      {
+        "risk": "Google ships a better free booking feature",
+        "likelihood": "M",
+        "impact": "H",
+        "mitigation": "Win on cross-calendar, branded links",
+        "source": "https://workspaceupdates.googleblog.com/2011/06/manage-your-availability-with.html"
+      },
+      {
+        "risk": "Churn above 3% monthly at $8",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Annual plans, team seats",
+        "source": "https://davidcummings.org/2012/08/19/the-1-enemy-of-saas-churn/"
+      },
+      {
+        "risk": "Founder runs out of runway before traction (no salary in $5,000)",
+        "likelihood": "M",
+        "impact": "H",
+        "mitigation": "Pre-sell seats; keep infra under $100/month",
+        "source": "https://www.heroku.com/blog/2x-dynos-beta/"
+      }
+    ],
+    "test_plan": [
+      {
+        "when": "Day 1",
+        "step": "Landing page: 'Put a booking link in your signature', $8/month pre-order button",
+        "verify": "Page live, analytics tracking 3 events"
+      },
+      {
+        "when": "Day 2-3",
+        "step": "Message 500 US sales reps and ex-Tungle users on LinkedIn and Twitter",
+        "verify": "100+ visits, 40+ sign-ups"
+      },
+      {
+        "when": "Day 4-5",
+        "step": "Concierge: give 30 sign-ups a hand-set Google appointment-slot link on your domain",
+        "verify": "20+ use it; 3+ invitees per link"
+      },
+      {
+        "when": "Day 6-7",
+        "step": "Ask each user to pre-pay $8 for month one",
+        "verify": "10+ paid pre-orders"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://gmail.googleblog.com/2011/06/introducing-appointment-slots-in-google.html",
+        "title": "Google Gmail blog, Introducing appointment slots in Google Calendar",
+        "supports": "Free Google booking slots (free alternative)",
+        "accessed": "2026-11-11",
+        "published": "2011-06-06",
+        "tier": "primary"
+      },
+      {
+        "url": "https://workspaceupdates.googleblog.com/2011/06/manage-your-availability-with.html",
+        "title": "Google Apps updates, Manage your availability with appointment slots",
+        "supports": "Google ships a competing free feature",
+        "accessed": "2026-11-11",
+        "published": "2011-06-07",
+        "tier": "primary"
+      },
+      {
+        "url": "https://thenextweb.com/news/its-not-sexy-but-it-sure-is-popular-group-scheduling-tool-doodle-hits-10m-monthly-users",
+        "title": "The Next Web, Doodle hits 10M monthly users",
+        "supports": "Doodle 10M monthly users, 2M US, 4x US in 2 years; 98% via invitations",
+        "accessed": "2026-11-11",
+        "published": "2011-10-15",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/doodles-new-ipad-app-makes-scheduling-easier-for-its-10-million-monthly-users",
+        "title": "The Next Web, Doodle iPad app for its 10M monthly users",
+        "supports": "Demand sustained in 2012; scheduling moves to mobile",
+        "accessed": "2026-11-11",
+        "published": "2012-07-12",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/arrange-one-to-one-meetings-with-ease-using-doodles-new-meetme",
+        "title": "The Next Web, Doodle launches MeetMe for one-to-one meetings",
+        "supports": "Free personal booking page from the category leader",
+        "accessed": "2026-11-11",
+        "published": "2011-02-08",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/swiss-simple-scheduler-doodle-launches-bookme-appointment-service-online-bookings",
+        "title": "The Next Web, Doodle launches BookMe at EUR 45/month",
+        "supports": "Paid booking tier, EUR 45/month",
+        "accessed": "2026-11-11",
+        "published": "2012-09-26",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2012/09/18/rim-to-shut-down-tungle-me-team-will-focus-on-blackberry-10-calendar-app",
+        "title": "TechCrunch, RIM to shut down Tungle.me",
+        "supports": "Graveyard: Tungle.me shut down 2012-12-03",
+        "accessed": "2026-11-11",
+        "published": "2012-09-18",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://phys.org/news/2011-04-rim-app-tungle.html",
+        "title": "Phys.org, RIM acquires Tungle",
+        "supports": "Tungle acquired by RIM, 2011-04",
+        "accessed": "2026-11-11",
+        "published": "2011-04-27",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/meeting-scheduler-tungle-me-hits-deadpool-focuses-working-within-rim",
+        "title": "The Next Web, Tungle.me hits the deadpool",
+        "supports": "Second source for Tungle shutdown",
+        "accessed": "2026-11-11",
+        "published": "2012-09-18",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://davidcummings.org/2012/04/09/tungle-me-email-signature-self-service-meeting-signups/",
+        "title": "David Cummings blog, Tungle.me in email signature",
+        "supports": "Booking link in signature: the exact use case, loved by sales people",
+        "accessed": "2026-11-11",
+        "published": "2012-04-09",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://techcrunch.com/?p=522108",
+        "title": "TechCrunch, Groupon Scheduler free for US and Canadian SMBs",
+        "supports": "Free SMB booking tool from Groupon",
+        "accessed": "2026-11-11",
+        "published": "2012-03-19",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/?p=76591",
+        "title": "TechCrunch, Bookfresh booking at $19.95/month",
+        "supports": "Paid SMB booking price",
+        "accessed": "2026-11-11",
+        "published": "2009-06-24",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.cleaner.com/editorial/2012/02/book_em_online",
+        "title": "Cleaner.com, Book 'em online (Bookfresh $19.95/month)",
+        "supports": "Bookfresh still $19.95/month in 2012",
+        "accessed": "2026-11-11",
+        "published": "2012-02",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/?p=221885",
+        "title": "TechCrunch, MerchantCircle acquires TimeBridge (500,000+ users)",
+        "supports": "TimeBridge traction and exit",
+        "accessed": "2026-11-11",
+        "published": "2010-09-21",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://globenewswire.com/news-release/2010/09/24/1213032/0/en/TimeTrade-Systems-Raises-5-6M-in-Funding-Led-by-Ascent-Venture-Partners.html",
+        "title": "GlobeNewswire, TimeTrade raises $5.6M",
+        "supports": "Funded enterprise competitor",
+        "accessed": "2026-11-11",
+        "published": "2010-09-24",
+        "tier": "primary"
+      },
+      {
+        "url": "https://techcrunch.com/2013/02/07/redbeacon-founder-launches-mytime-a-booking-and-ecommerce-platform-for-local-services-and-open-appointments",
+        "title": "TechCrunch, MyTime launches with $3M seed",
+        "supports": "Funded booking launch, 2013-02",
+        "accessed": "2026-11-11",
+        "published": "2013-02-07",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/helsinkis-meetin-gs-relaunches-with-a-makeover-and-increased-focus-on-mobile",
+        "title": "The Next Web, Meetin.gs relaunches freemium (22,000 users)",
+        "supports": "Look-alike launch, 2013-04",
+        "accessed": "2026-11-11",
+        "published": "2013-04-25",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/atlas-launches-to-reduce-the-stress-of-scheduling-helping-you-organize-group-meetings-on-the-go",
+        "title": "The Next Web, Atlas launches as a free Tungle replacement",
+        "supports": "Near-identical launch with $5/month Pro vanity link, 2013-05",
+        "accessed": "2026-11-11",
+        "published": "2013-05-07",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://cloud.googleblog.com/2012/07/a-new-future-hitting-refresh-on.html",
+        "title": "Google Enterprise blog, 5M+ businesses on Google Apps",
+        "supports": "Installed base of Google Calendar businesses",
+        "accessed": "2026-11-11",
+        "published": "2012-07",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.pewresearch.org/internet/2012/03/01/nearly-half-of-american-adults-are-smartphone-owners",
+        "title": "Pew Research, Nearly half of American adults are smartphone owners",
+        "supports": "46% US smartphone ownership, 2012",
+        "accessed": "2026-11-11",
+        "published": "2012-03-01",
+        "tier": "primary"
+      },
+      {
+        "url": "https://gsuite-developers.googleblog.com/2011/11/introducing-next-version-of-google.html",
+        "title": "Google Apps Developers blog, Calendar API v3",
+        "supports": "Enabling API, 2011-11",
+        "accessed": "2026-11-11",
+        "published": "2011-11",
+        "tier": "primary"
+      },
+      {
+        "url": "https://techcrunch.com/2011/09/30/sequoia-backed-stripe-launches-to-disrupt-the-online-payments-industry-with-a-developer-friendly-platform",
+        "title": "TechCrunch, Stripe launches publicly",
+        "supports": "Self-serve card billing for a solo dev",
+        "accessed": "2026-11-11",
+        "published": "2011-09-30",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.mbopartners.com/wp-content/uploads/2019/02/2012-MBO_Partners_State_of_Independence_Report.pdf",
+        "title": "MBO Partners, State of Independence 2012",
+        "supports": "16.9M US independent workers in 2012",
+        "accessed": "2026-11-11",
+        "published": "2012",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.slideshare.net/slideshow/dropbox-startup-lessons-learned-3836587/3836587",
+        "title": "Dropbox (Drew Houston), Startup Lessons Learned deck",
+        "supports": "AdWords CPA $233-388 vs $99 product; referrals +60%",
+        "accessed": "2026-11-11",
+        "published": "2010-04",
+        "tier": "primary"
+      },
+      {
+        "url": "https://gsuite-developers.googleblog.com/2010/03/reach-new-customers-integrate-with.html",
+        "title": "Google Apps Developers blog, Apps Marketplace launch",
+        "supports": "Channel to 2M businesses / 25M users",
+        "accessed": "2026-11-11",
+        "published": "2010-03-09",
+        "tier": "primary"
+      },
+      {
+        "url": "https://onemanandhisblog.com/2012/06/phil_libin_evernote_by_the_numbers",
+        "title": "One Man and His Blog, Phil Libin: Evernote by the numbers",
+        "supports": "Freemium conversion 0.5% early to ~4% overall",
+        "accessed": "2026-11-11",
+        "published": "2012-06",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://www.bls.gov/news.release/archives/ocwage_03292013.htm",
+        "title": "US BLS, Occupational Employment and Wages May 2012",
+        "supports": "Sales is the 2nd-largest US occupational group",
+        "accessed": "2026-11-11",
+        "published": "2013-03-29",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.bls.gov/opub/ted/2011/ted_20110816.htm",
+        "title": "US BLS, TED: sales representatives wages",
+        "supports": "1.37M wholesale/manufacturing sales reps",
+        "accessed": "2026-11-11",
+        "published": "2011-08-16",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.heroku.com/blog/2x-dynos-beta/",
+        "title": "Heroku blog, 2X dynos beta (pricing)",
+        "supports": "1X dyno $0.05/hr, 750 free hours",
+        "accessed": "2026-11-11",
+        "published": "2013-04-05",
+        "tier": "primary"
+      },
+      {
+        "url": "https://aws.amazon.com/about-aws/whats-new/2012/10/31/announcing-amazon-ec2-m3-instances-and-m1-price-drop/",
+        "title": "AWS, EC2 M3 instances and M1 price drop",
+        "supports": "m1.small $0.065/hr (~$47/month)",
+        "accessed": "2026-11-11",
+        "published": "2012-10-31",
+        "tier": "primary"
+      },
+      {
+        "url": "https://dc.fortune.com/2012/10/24/stripe-wants-to-reboot-online-payments/",
+        "title": "Fortune, Stripe wants to reboot online payments",
+        "supports": "Stripe 2.9% + 30 cents",
+        "accessed": "2026-11-11",
+        "published": "2012-10-24",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2011/05/10/email-delivery-system-sendgrid-announces-new-pricing-model-now-you-can-pay-as-you-go",
+        "title": "TechCrunch, SendGrid pay-as-you-go pricing",
+        "supports": "Email at $0.10 per 1,000",
+        "accessed": "2026-11-11",
+        "published": "2011-05-10",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://developers.googleblog.com/2012/04/changes-to-deprecation-policies-and-api.html",
+        "title": "Google Developers blog, Changes to deprecation policies",
+        "supports": "No contractual deprecation guarantee for most APIs",
+        "accessed": "2026-11-11",
+        "published": "2012-04-20",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.engadget.com/2013/03/13/google-reader-shut-down-spring-cleaning/",
+        "title": "Engadget, Google Reader shut down in spring cleaning",
+        "supports": "Google killed 70 products since 2011",
+        "accessed": "2026-11-11",
+        "published": "2013-03-13",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://webarchive.library.unt.edu/web/20130214054537/http://business.ftc.gov/documents/bus61-can-spam-act-compliance-guide-business",
+        "title": "FTC, CAN-SPAM Act compliance guide (2013 snapshot)",
+        "supports": "Transactional emails mostly exempt",
+        "accessed": "2026-11-11",
+        "published": "2013-02-14",
+        "tier": "primary"
+      },
+      {
+        "url": "https://davidcummings.org/2012/08/19/the-1-enemy-of-saas-churn/",
+        "title": "David Cummings blog, The #1 enemy of SaaS: churn",
+        "supports": "3%+ monthly churn is 'killer'",
+        "accessed": "2026-11-11",
+        "published": "2012-08-19",
+        "tier": "tertiary"
+      },
+      {
+        "url": "https://forentrepreneurs.com/saas-survey",
+        "title": "For Entrepreneurs (David Skok), Pacific Crest SaaS survey",
+        "supports": "B2B SaaS churn benchmarks, enterprise-skewed",
+        "accessed": "2026-11-11",
+        "published": "2012-06",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2009/10/18/ps-i-love-you-get-your-free-email-at-hotmail",
+        "title": "TechCrunch, PS I love you: Hotmail's signature loop",
+        "supports": "Powered-by viral loop precedent",
+        "accessed": "2026-11-11",
+        "published": "2009-10-18",
+        "tier": "secondary"
+      }
+    ]
+  }
+}

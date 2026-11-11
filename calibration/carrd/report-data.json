@@ -1,0 +1,1086 @@
+{
+  "schema_version": "1.0",
+  "idea": {
+    "schema_version": "1.0",
+    "slug": "carrd",
+    "title": "Carrd: one-page websites, free with a $19/year Pro plan",
+    "created": "2026-11-11",
+    "language": "en",
+    "type": "saas",
+    "source": {
+      "type": "own-idea",
+      "text": "Carrd: one-page websites, free with a Pro plan at $19 per year, launch country US. Score it as of 2016-03-01: use only evidence published on or before that date (set verdict.as_of). Founder: a solo developer with $1,000, side project. Just go: do not ask questions. Use the slug carrd.",
+      "url": null,
+      "author": null,
+      "posted": null
+    },
+    "problem": "Building a simple single-page website (profile, portfolio, landing page) is slow or costly on full site builders.",
+    "customer": null,
+    "solution": "A builder for one-page websites, free to use, with a Pro plan.",
+    "revenue_model": "subscription",
+    "price": {
+      "amount": 19,
+      "currency": "USD",
+      "period": "year"
+    },
+    "channel": null,
+    "countries": [
+      "US"
+    ],
+    "claims": [],
+    "context": {
+      "budget": "USD 1,000",
+      "time_per_week": null,
+      "goal": "side-income",
+      "edge": "solo developer"
+    },
+    "assumptions": [
+      "Customer assumed: US freelancers, designers, indie makers and job seekers who need one page with a custom domain.",
+      "Pro plan assumed to include custom domains, more sites and forms.",
+      "Founder has no existing audience, template following or list.",
+      "Side project at roughly 10 hours per week.",
+      "Goal read as side income from 'side project'.",
+      "Headless run: no questions asked; scored as of 2016-03-01 with evidence published on or before that date."
+    ],
+    "unknowns": [
+      "customer",
+      "channel",
+      "time_per_week"
+    ],
+    "answers": []
+  },
+  "verdict": {
+    "schema_version": "1.0",
+    "slug": "carrd",
+    "evaluated": "2026-11-11",
+    "as_of": "2016-03-01",
+    "mode": "kill",
+    "verdict": "PIVOT",
+    "score": 64,
+    "score_raw": 63.8,
+    "confidence": {
+      "level": "high",
+      "sourced_subscores": 15,
+      "sources": 37,
+      "primary_sources": 17,
+      "note": "No pre-2016 CPC for 'website builder', no dated Strikingly pricing, and no archived pricing pages; churn for $19/yr products is a benchmark."
+    },
+    "criteria": {
+      "profit": 3.0,
+      "feasibility": 3.5,
+      "time_to_first_revenue": 3.0,
+      "demand": 4.0,
+      "competition": 2.0,
+      "risk": 3.5,
+      "fit": 2.5
+    },
+    "criteria_detail": {
+      "profit": {
+        "gross_margin": {
+          "score": 5,
+          "note": "About 90% after Stripe's $0.85 per $19 charge and hosting cents: static one-page sites are nearly free to serve.",
+          "source": "https://blog.5pmweb.com/2013/02/25/stripe-vs-paypal"
+        },
+        "ltv_cac": {
+          "score": 2,
+          "note": "LTV ~$36 vs organic CAC ~$22 (estimate): 1.6. Paid search is out of reach at $19/yr.",
+          "source": "https://www.tomtunguz.com/saas-innovators-dilemma/index.md"
+        },
+        "pricing_power": {
+          "score": 2,
+          "note": "Free tiers (Wix, Weebly, about.me) anchor near $0; $19/yr undercuts Squarespace Cover at $36/yr rather than commanding a premium.",
+          "source": "https://thenextweb.com/news/squarespace-launches-two-new-pricing-tiers-for-its-splash-page-and-e-commerce-customers"
+        }
+      },
+      "feasibility": {
+        "build_effort": {
+          "score": 2.5,
+          "note": "A hosted drag-and-drop builder with custom domains and SSL is 2-3 months of side-project work (estimate)."
+        },
+        "skills_match": {
+          "score": 3.5,
+          "note": "Solo developer covers the build; design taste and marketing are unproven (assumption)."
+        },
+        "capital_needed": {
+          "score": 4.5,
+          "note": "Hosting from $5/month and S3 at $0.03/GB: the $1,000 budget covers years of runway.",
+          "source": "https://www.digitalocean.com/blog/now-offering-double-the-memory-solid-state-drives-for-all-plans"
+        }
+      },
+      "time_to_first_revenue": {
+        "time_to_mvp": {
+          "score": 2,
+          "note": "About 10 weeks to a paid Pro tier at side-project pace (estimate)."
+        },
+        "sales_cycle": {
+          "score": 4.5,
+          "note": "A $19/year self-serve purchase is an impulse buy: no committee, same-day checkout.",
+          "source": "https://blog.5pmweb.com/2013/02/25/stripe-vs-paypal"
+        },
+        "channel_readiness": {
+          "score": 2.5,
+          "note": "Product Hunt launches bring thousands of visitors, but the founder has no audience of their own.",
+          "source": "https://businessesgrow.com/2015/07/30/product-hunt/"
+        }
+      },
+      "demand": {
+        "search_demand": {
+          "score": 4,
+          "note": "Wix had 77M registered users; 55% of US very small businesses still had no website in 2015.",
+          "source": "https://domainnamewire.com/2015/09/16/godaddy-survey/"
+        },
+        "trend": {
+          "score": 4.5,
+          "note": "Wix revenue grew 43% in 2015 to $203.5M and premium subs grew 43%.",
+          "source": "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html"
+        },
+        "willingness_to_pay": {
+          "score": 3,
+          "note": "People pay (1.77M Wix premium subs) but only ~2.3% of registered users convert.",
+          "source": "https://sec.gov/Archives/edgar/data/1576789/000117891316004203/exhibit_99-1.htm"
+        }
+      },
+      "competition": {
+        "free_alternatives": {
+          "score": 2,
+          "note": "Wix, Weebly (30M sites) and about.me (5M users) do a free one-page site; R5: free alternative hit, capped at 2.",
+          "source": "https://techcrunch.com/2015/10/01/weebly-carbon/"
+        },
+        "competitor_density": {
+          "score": 2,
+          "note": "9 competitors found incl. Squarespace Cover Pages and Strikingly; strong_competitor hit (R5 <= 3).",
+          "source": "https://prnewswire.com/news-releases/squarespace-takes-on-growing-customer-needs-with-two-new-product-offerings-300171455.html"
+        },
+        "differentiation": {
+          "score": 2.5,
+          "note": "One specific edge: price, $19/yr vs $36/yr for Squarespace Cover; the rest is simplicity.",
+          "source": "https://thenextweb.com/news/squarespace-launches-two-new-pricing-tiers-for-its-splash-page-and-e-commerce-customers"
+        }
+      },
+      "risk": {
+        "legal_regulatory": {
+          "score": 3,
+          "note": "Needs a DMCA agent filing and abuse handling: free subdomain hosts carried 14% of phishing in 1H2014.",
+          "source": "https://docs.apwg.org/reports/APWG_GlobalPhishingSurvey_1H2014.pdf"
+        },
+        "platform_dependency": {
+          "score": 4,
+          "note": "Owns the product, domain and data; relies on commodity hosting with many substitutes.",
+          "source": "https://aws.amazon.com/blogs/aws/aws-price-reduction-42-ec2-s3-rds-elasticache-and-elastic-mapreduce"
+        },
+        "market_risk": {
+          "score": 4,
+          "note": "Durable need: personal and small-business web presence keeps growing with mobile.",
+          "source": "https://www.pewresearch.org/internet/2015/04/01/chapter-one-a-portrait-of-smartphone-ownership"
+        }
+      },
+      "fit": {
+        "skills": {
+          "score": 3.5,
+          "note": "Developer skills cover the product; no track record in design or SaaS marketing (assumption)."
+        },
+        "assets": {
+          "score": 1.5,
+          "note": "No audience, list or template following stated; $1,000 only."
+        },
+        "interest": {
+          "score": 3,
+          "note": "Side project: curiosity, not stated domain passion (assumption)."
+        }
+      }
+    },
+    "rules_applied": [],
+    "metrics": {
+      "tam": {
+        "value": 203500000.0,
+        "basis": "sourced",
+        "unit": "USD/year",
+        "source": "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html",
+        "as_of": "2015-12"
+      },
+      "sam": {
+        "value": 3400000.0,
+        "basis": "estimate",
+        "unit": "USD/year",
+        "reasoning": "10% of Wix's 1.77M premium subs assumed to be single-page or personal sites = 177k x $19/yr"
+      },
+      "som": {
+        "value": 10000,
+        "basis": "estimate",
+        "unit": "USD/year",
+        "reasoning": "0.3% of SAM in year 1: ~530 Pro customers x $19/yr"
+      },
+      "competitors_found": {
+        "value": 9,
+        "basis": "sourced",
+        "unit": "competitors",
+        "source": "https://prnewswire.com/news-releases/squarespace-takes-on-growing-customer-needs-with-two-new-product-offerings-300171455.html",
+        "as_of": "2016-02"
+      },
+      "competitor_price_range": {
+        "value": "36-216",
+        "basis": "sourced",
+        "unit": "USD/year",
+        "source": "https://thenextweb.com/news/squarespace-launches-two-new-pricing-tiers-for-its-splash-page-and-e-commerce-customers",
+        "as_of": "2015-11"
+      },
+      "demand_trend": {
+        "value": "rising",
+        "basis": "sourced",
+        "unit": null,
+        "source": "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html",
+        "as_of": "2015-12"
+      },
+      "price": {
+        "value": 19.0,
+        "basis": "estimate",
+        "unit": "USD/year",
+        "reasoning": "Founder's stated Pro price: $19 per year, billed annually"
+      },
+      "variable_cost_per_unit": {
+        "value": 1.85,
+        "basis": "estimate",
+        "unit": "USD/year",
+        "reasoning": "Stripe 2.9% x 19 + 0.30 = 0.85; hosting/bandwidth ~0.50; support ~0.50 per Pro user per year"
+      },
+      "gross_margin_pct": {
+        "value": 90,
+        "basis": "estimate",
+        "unit": "%",
+        "reasoning": "(19 - 1.85) / 19"
+      },
+      "churn_monthly_pct": {
+        "value": 4,
+        "basis": "estimate",
+        "unit": "%",
+        "reasoning": "Mid-range of SMB SaaS churn 3-7%/month (Tunguz 2015) and 5.4% median (Point Nine 2015); annual billing pulls it lower"
+      },
+      "expected_lifetime": {
+        "value": 25,
+        "basis": "estimate",
+        "unit": "months",
+        "reasoning": "1 / 0.04 monthly churn = 25 months"
+      },
+      "conversion_rate_pct": {
+        "value": 2.3,
+        "basis": "estimate",
+        "unit": "%",
+        "reasoning": "Wix FY2015: 1.77M premium subs / 77M registered users = 2.3% free-to-paid"
+      },
+      "cac": {
+        "value": 21.7,
+        "basis": "estimate",
+        "unit": "USD",
+        "reasoning": "Launch work 40 h x $25/h = $1,000 / (2,000 free sign-ups from Product Hunt + Show HN x 2.3%) = 46 Pro users"
+      },
+      "ltv": {
+        "value": 35.7,
+        "basis": "estimate",
+        "unit": "USD",
+        "reasoning": "19 x 0.90 margin x 25/12 years"
+      },
+      "ltv_cac": {
+        "value": 1.65,
+        "basis": "estimate",
+        "unit": "ratio",
+        "reasoning": "LTV 35.7 / CAC 21.7"
+      },
+      "payback_months": {
+        "value": 15.2,
+        "basis": "estimate",
+        "unit": "months",
+        "reasoning": "CAC 21.7 / (17.15 / 12 monthly gross profit); annual upfront billing recovers $17.15 on day 1"
+      },
+      "fixed_costs_month": {
+        "value": 15,
+        "basis": "estimate",
+        "unit": "USD/month",
+        "reasoning": "$5 server (DigitalOcean 2013 price) + ~$5 storage/CDN + ~$5 domain, email, DMCA filing amortised"
+      },
+      "break_even_customers_per_month": {
+        "value": 10.5,
+        "basis": "estimate",
+        "unit": "customers",
+        "reasoning": "15 / 1.43 monthly gross profit per Pro customer = ~11 Pro customers in total"
+      },
+      "time_to_first_revenue_weeks": {
+        "value": 10,
+        "basis": "estimate",
+        "unit": "weeks",
+        "reasoning": "~10 weeks of side-project build to a Pro tier with custom domains, then launch day"
+      }
+    },
+    "launch_country": "US",
+    "launch_reason": "The founder's stated launch market, and home of the Product Hunt and Hacker News audiences.",
+    "kill_shots": {
+      "free_alternative": true,
+      "strong_competitor": true,
+      "graveyard": true,
+      "no_distribution": false,
+      "costs_eat_margin": false,
+      "weak_demand": false,
+      "legal_platform_risk": false,
+      "saturated_wave": false
+    },
+    "primary_kill_shot": "strong_competitor",
+    "cheapest_test": "Landing page with 3 demo one-page sites and a $19/yr Pro pre-order button, posted to Show HN, Product Hunt and r/web_design for 7 days.",
+    "kill_criteria": [
+      "Fewer than 300 waitlist sign-ups within 7 days of the Show HN / Product Hunt post -> stop",
+      "Fewer than 10 paid $19 pre-orders by day 7 -> stop",
+      "Free-to-Pro conversion below 1% after 60 days live -> stop"
+    ],
+    "sources": [
+      "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html",
+      "https://sec.gov/Archives/edgar/data/1576789/000117891316004203/exhibit_99-1.htm",
+      "https://thenextweb.com/news/squarespace-launches-two-new-pricing-tiers-for-its-splash-page-and-e-commerce-customers",
+      "https://prnewswire.com/news-releases/squarespace-takes-on-growing-customer-needs-with-two-new-product-offerings-300171455.html",
+      "https://www.squarespace.com/press-releases/2014/10/13/squarespace-announces-squarespace-7-featuring-new-cover-page-builder-and-integrations-with-getty-images-and-google",
+      "https://www.squarespace.com/press-coverage/2014/4/15/squarespace-raises-40-million-as-website-tools-battle-heats-up",
+      "https://techcrunch.com/2015/02/05/after-a-crazy-2014-about-me-zeroes-in-on-mobile/",
+      "https://techcrunch.com/2015/10/01/weebly-carbon/",
+      "https://techcrunch.com/2014/04/22/weebly-series-c",
+      "https://thenextweb.com/news/yc-alum-strikingly-nabs-1-5m-from-sv-angel-index-ventures-fundersclub-others-for-its-diy-website-creator-service",
+      "https://techcrunch.com/2016/02/19/where-are-they-now-startup-battlefield-company-pagecloud/",
+      "https://www.producthunt.com/products/onepager/awards",
+      "https://hunted.space/product/qwilr/launches/resume-builder-2",
+      "https://hunted.space/product/leadpages/launches/lead-pages",
+      "https://www.producthunt.com/products/tilda-publishing/awards",
+      "https://thenextweb.com/news/jux-closing-down-citing-slow-growth",
+      "https://www.computerworld.com/article/1333713/yahoo-geocities-closes-on-oct-26.html",
+      "https://blogger.googleblog.com/2010/02/how-google-page-creator-shutdown-may.html",
+      "https://thenextweb.com/news/the-posterous-rides-away-as-in-shuts-down-april-30t",
+      "https://techcrunch.com/2012/09/20/business-card-upstart-moo-com-buys-flavors-me-to-expand-its-digital-profile",
+      "https://techcrunch.com/2014/03/13/fundable-acquires-launchrock/",
+      "https://domainnamewire.com/2015/09/16/godaddy-survey/",
+      "https://clutch.co/press-releases/survey-shows-opportunity-small-businesses-improve-web-presence",
+      "https://search.googleblog.com/2015/04/ranking-change-to-help-you-find-mobile_21.html",
+      "https://webmasters.googleblog.com/2015/04/rolling-out-mobile-friendly-update.html",
+      "https://www.pewresearch.org/internet/2015/04/01/chapter-one-a-portrait-of-smartphone-ownership",
+      "https://letsencrypt.org/2015/11/12/public-beta-timing.html",
+      "https://businessesgrow.com/2015/07/30/product-hunt/",
+      "https://thenextweb.com/news/the-future-of-evernote-from-memory-machine-to-time-machine",
+      "https://blog.5pmweb.com/2013/02/25/stripe-vs-paypal",
+      "https://www.digitalocean.com/blog/now-offering-double-the-memory-solid-state-drives-for-all-plans",
+      "https://aws.amazon.com/blogs/aws/aws-price-reduction-42-ec2-s3-rds-elasticache-and-elastic-mapreduce",
+      "https://docs.apwg.org/reports/APWG_GlobalPhishingSurvey_1H2014.pdf",
+      "https://www.plagiarismtoday.com/?p=9309",
+      "https://www.tomtunguz.com/saas-innovators-dilemma/index.md",
+      "https://writing.pointnine.com/p/saas-metrics-benchmarking-your-churn",
+      "https://www.forentrepreneurs.com/2015-saas-survey-part-2/"
+    ],
+    "rescue": [
+      {
+        "change": "Cut scope to a 2-week MVP: fixed templates, no drag-and-drop, Pro = custom domain only, then launch on Product Hunt and Show HN",
+        "why": "time_to_mvp 2 -> 4 and build_effort 2.5 -> 4: revenue in weeks, not months",
+        "score_after": 68,
+        "difficulty": "doable",
+        "effort": "2 weeks",
+        "cost": "under $100",
+        "requires": "Discipline to ship a narrow product"
+      },
+      {
+        "change": "Build distribution first: publish free one-page templates and a 'made with' badge on every free site",
+        "why": "channel_readiness 2.5 -> 4 and assets 1.5 -> 3: owned, compounding channel",
+        "score_after": 66,
+        "difficulty": "hard",
+        "effort": "3-6 months",
+        "cost": "$0-200",
+        "requires": "Design skill to make templates people share"
+      },
+      {
+        "change": "Niche down to one ICP (freelance designers or job seekers) with a tailored Pro bundle",
+        "why": "differentiation 2.5 -> 3.5 and channel_readiness 2.5 -> 3",
+        "score_after": 65,
+        "difficulty": "doable",
+        "effort": "2 weeks",
+        "cost": "under $100",
+        "requires": "Access to one community (Dribbble, r/web_design)"
+      }
+    ],
+    "type_checks": [
+      {
+        "check": "churn_benchmark",
+        "result": "hit",
+        "note": "SMB SaaS churns 3-7%/month (Tunguz 2015); at $19/yr that caps LTV near $36, shown in ltv_cac = 2.",
+        "source": "https://www.tomtunguz.com/saas-innovators-dilemma/index.md"
+      },
+      {
+        "check": "switching_cost",
+        "result": "clear",
+        "note": "Targets people with no site yet; a one-page site is cheap to rebuild, so switching costs neither block entry nor protect retention.",
+        "source": null
+      }
+    ],
+    "run": {
+      "started": "2026-11-11T08:58:57Z",
+      "minutes": 8,
+      "searches": 65,
+      "fetches": 40,
+      "subagents": 4
+    }
+  },
+  "narrative": {
+    "answer": "PIVOT at 64. Margins are excellent and demand is rising, but **Wix and Squarespace** already give the job away free or at $3/month, and a founder with **no audience** has only launch-day spikes to reach users.",
+    "tldr": [
+      "Demand is real and rising: Wix grew revenue 43% to $203.5M in 2015.",
+      "Squarespace launched a $3/month one-page tier in Nov 2015; free tiers do the basic job.",
+      "Unit economics work at ~90% margin, but $19/yr leaves LTV near $36: only free, viral channels pay."
+    ],
+    "key_findings": [
+      {
+        "title": "Incumbents already sell one-page sites",
+        "detail": "Squarespace launched **Cover Pages at $3/month** in Nov 2015, backed by $78.5M raised; Wix has **77M users**.",
+        "source": "https://prnewswire.com/news-releases/squarespace-takes-on-growing-customer-needs-with-two-new-product-offerings-300171455.html"
+      },
+      {
+        "title": "Price leaves no room for paid acquisition",
+        "detail": "At $19/yr and **3-7% monthly SMB churn**, LTV is about **$36** (estimate): only free channels can pay back.",
+        "source": "https://www.tomtunguz.com/saas-innovators-dilemma/index.md"
+      },
+      {
+        "title": "Demand rising, margins near 90%",
+        "detail": "Wix grew **43%** in 2015; serving a static page costs cents, so Stripe's **$0.85** per charge is the main cost.",
+        "source": "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html"
+      }
+    ],
+    "recommendation": "Do not build the full builder yet. Ship a 2-week, template-only MVP with a $19 Pro pre-order and launch it on Show HN and Product Hunt; continue only with 10+ pre-orders in 7 days.",
+    "steelman": "Full builders are overkill for one page: a fast, ultra-simple tool at **$19/yr** (half Squarespace's $36) with ~90% margin and viral free sites can win a niche incumbents underprice. Evidence: margin and price gap hold; the channel is unproven.",
+    "premortem": [
+      {
+        "cause": "Launch-day traffic faded and no owned channel replaced it, so sign-ups stalled.",
+        "linked_to": "channel_readiness",
+        "likelihood": "H",
+        "early_signal": "Fewer than 20 organic sign-ups a day by week 3 after launch"
+      },
+      {
+        "cause": "Free users never upgraded: $19/yr bought too little over free tiers.",
+        "linked_to": "ltv_cac",
+        "likelihood": "M",
+        "early_signal": "Free-to-Pro conversion under 1% after 30 days"
+      },
+      {
+        "cause": "Squarespace or Wix cut one-page pricing and out-marketed a solo founder.",
+        "linked_to": "strong_competitor",
+        "likelihood": "M",
+        "early_signal": "An incumbent price cut or free custom-domain offer within 30 days of launch"
+      }
+    ],
+    "why_now": {
+      "verdict": "now",
+      "summary": "Mobile ranking pressure and **free SSL** make cheap, responsive custom-domain pages easy to offer in early 2016, but incumbents are entering the same niche.",
+      "changes": [
+        {
+          "what": "Google ranks mobile-friendly pages higher on mobile search",
+          "when": "2015-04",
+          "source": "https://search.googleblog.com/2015/04/ranking-change-to-help-you-find-mobile_21.html"
+        },
+        {
+          "what": "Let's Encrypt offers free SSL certificates to anyone",
+          "when": "2015-12",
+          "source": "https://letsencrypt.org/2015/11/12/public-beta-timing.html"
+        },
+        {
+          "what": "64% of US adults own a smartphone, up from 35% in 2011",
+          "when": "2015-04",
+          "source": "https://www.pewresearch.org/internet/2015/04/01/chapter-one-a-portrait-of-smartphone-ownership"
+        },
+        {
+          "what": "Squarespace prices a one-page product at $3/month, validating the segment",
+          "when": "2015-11",
+          "source": "https://prnewswire.com/news-releases/squarespace-takes-on-growing-customer-needs-with-two-new-product-offerings-300171455.html"
+        }
+      ]
+    },
+    "icp": {
+      "who": "US freelancers, designers, indie makers and job seekers who need one page on a custom domain",
+      "where": [
+        "Product Hunt",
+        "Hacker News (Show HN)",
+        "r/web_design and r/webdev",
+        "Designer News",
+        "Dribbble"
+      ],
+      "pays_for_today": "Squarespace Cover Page at $3/month billed annually ($36/yr), or free about.me / Wix pages",
+      "budget": "under $40/year (estimate, anchored by Squarespace Cover Page)",
+      "trigger": "Launching a side project, starting a job search or needing a link for a profile"
+    },
+    "rescue": [
+      {
+        "change": "Cut scope to a 2-week MVP: fixed templates, no drag-and-drop, Pro = custom domain only, then launch on Product Hunt and Show HN",
+        "why": "time_to_mvp 2 -> 4 and build_effort 2.5 -> 4: revenue in weeks, not months",
+        "score_after": 68,
+        "difficulty": "doable",
+        "effort": "2 weeks",
+        "cost": "under $100",
+        "requires": "Discipline to ship a narrow product"
+      },
+      {
+        "change": "Build distribution first: publish free one-page templates and a 'made with' badge on every free site",
+        "why": "channel_readiness 2.5 -> 4 and assets 1.5 -> 3: owned, compounding channel",
+        "score_after": 66,
+        "difficulty": "hard",
+        "effort": "3-6 months",
+        "cost": "$0-200",
+        "requires": "Design skill to make templates people share"
+      },
+      {
+        "change": "Niche down to one ICP (freelance designers or job seekers) with a tailored Pro bundle",
+        "why": "differentiation 2.5 -> 3.5 and channel_readiness 2.5 -> 3",
+        "score_after": 65,
+        "difficulty": "doable",
+        "effort": "2 weeks",
+        "cost": "under $100",
+        "requires": "Access to one community (Dribbble, r/web_design)"
+      }
+    ],
+    "kill_shots": {
+      "free_alternative": {
+        "evidence": "Weebly (**30M** sites built), about.me (~5M users) and Wix's free plan let anyone publish a one-page site for $0 (2015).",
+        "source": "https://techcrunch.com/2015/10/01/weebly-carbon/",
+        "count": 3
+      },
+      "strong_competitor": {
+        "evidence": "Wix: **77M** registered users and $203.5M 2015 revenue; Squarespace Cover Pages from $3/month since Nov 2015.",
+        "source": "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html",
+        "count": 9
+      },
+      "graveyard": {
+        "evidence": "Jux closed citing **slow growth** (2013); GeoCities (2009), Google Page Creator and Posterous (2013) were shut by their owners.",
+        "source": "https://thenextweb.com/news/jux-closing-down-citing-slow-growth"
+      },
+      "no_distribution": {
+        "evidence": "Clear: a Product Hunt feature brings **thousands** of visitors at $0; free sites can carry a viral badge. Paid search CPC before 2016 unknown.",
+        "source": "https://businessesgrow.com/2015/07/30/product-hunt/"
+      },
+      "costs_eat_margin": {
+        "evidence": "Clear: Stripe takes **$0.85** of $19 and a $5/month server hosts thousands of static pages: margin ~90% (estimate).",
+        "source": "https://blog.5pmweb.com/2013/02/25/stripe-vs-paypal"
+      },
+      "weak_demand": {
+        "evidence": "Clear: Wix revenue **+43%** in 2015 and 55% of US very small businesses had no website (GoDaddy, 2015).",
+        "source": "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html"
+      },
+      "legal_platform_risk": {
+        "evidence": "Clear but real work: free subdomain hosts carried **14%** of phishing attacks in 1H2014; DMCA agent filing needed for safe harbor.",
+        "source": "https://docs.apwg.org/reports/APWG_GlobalPhishingSurvey_1H2014.pdf"
+      },
+      "saturated_wave": {
+        "evidence": "Clear: **6** look-alike launches found (OnePager, Resume Builder, Lead Pages, Tilda, PageCloud, Squarespace Cover Pages), under the 10 threshold.",
+        "source": "https://www.producthunt.com/products/onepager/awards",
+        "count": 6,
+        "window": "2015-03 to 2016-03"
+      }
+    },
+    "customer": {
+      "segment": "US freelancers, creatives, indie makers and job seekers (assumed)",
+      "pain": "Full site builders are slow and priced for multi-page sites when they need one page.",
+      "today": "about.me or a free Wix/Weebly page on a subdomain, or Squarespace Cover Page at $36/yr"
+    },
+    "use_cases": [
+      {
+        "name": "Personal profile / link page",
+        "who_pays": "Freelancers, job seekers",
+        "effort": "Low",
+        "best": false
+      },
+      {
+        "name": "Product or app landing page",
+        "who_pays": "Indie makers launching side projects",
+        "effort": "Low",
+        "best": true
+      },
+      {
+        "name": "Portfolio one-pager",
+        "who_pays": "Designers, photographers",
+        "effort": "Medium",
+        "best": false
+      }
+    ],
+    "competitors": [
+      {
+        "name": "Squarespace Cover Pages",
+        "url": null,
+        "price_low": 36,
+        "price_high": 60,
+        "currency": "USD",
+        "price_period": "year",
+        "price_source": "https://prnewswire.com/news-releases/squarespace-takes-on-growing-customer-needs-with-two-new-product-offerings-300171455.html",
+        "price_as_of": "2015-11",
+        "traction": 5,
+        "traction_note": "$78.5M raised; launched one-page tier Nov 2015",
+        "gap": "Costs ~2x the $19/yr price",
+        "free": false,
+        "country": "US"
+      },
+      {
+        "name": "Wix",
+        "url": null,
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "price_period": "year",
+        "price_source": "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html",
+        "price_as_of": "2015-12",
+        "traction": 5,
+        "traction_note": "77M users, 1.77M premium subs, $203.5M revenue (2015)",
+        "gap": "Heavy multi-page editor; ads on free sites",
+        "free": true,
+        "country": "IL"
+      },
+      {
+        "name": "Weebly",
+        "url": null,
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "price_period": "year",
+        "price_source": null,
+        "price_as_of": null,
+        "traction": 5,
+        "traction_note": "30M people built sites; $35M Series C",
+        "gap": "General builder, not one-page focused",
+        "free": true,
+        "country": "US"
+      },
+      {
+        "name": "about.me",
+        "url": null,
+        "price_low": 0,
+        "price_high": null,
+        "currency": "USD",
+        "price_period": null,
+        "price_source": null,
+        "price_as_of": null,
+        "traction": 4,
+        "traction_note": "~5M users (Feb 2015)",
+        "gap": "Fixed profile layout only; no landing pages",
+        "free": true,
+        "country": "US"
+      },
+      {
+        "name": "Strikingly",
+        "url": null,
+        "price_low": null,
+        "price_high": null,
+        "currency": "USD",
+        "price_period": null,
+        "price_source": null,
+        "price_as_of": null,
+        "traction": 3,
+        "traction_note": "YC W13, $1.5M seed, profitable (2013); 2015 pricing unknown",
+        "gap": "Pricing unknown as of 2016",
+        "free": true,
+        "country": "US"
+      },
+      {
+        "name": "PageCloud",
+        "url": null,
+        "price_low": 99,
+        "price_high": null,
+        "currency": "USD",
+        "price_period": "one-off",
+        "price_source": "https://techcrunch.com/2016/02/19/where-are-they-now-startup-battlefield-company-pagecloud/",
+        "price_as_of": "2016-02",
+        "traction": 3,
+        "traction_note": "14,000 paying customers (Feb 2016)",
+        "gap": "Multi-page, pricier",
+        "free": false,
+        "country": "CA"
+      },
+      {
+        "name": "Tilda Publishing",
+        "url": null,
+        "price_low": null,
+        "price_high": null,
+        "currency": "USD",
+        "price_period": null,
+        "price_source": null,
+        "price_as_of": null,
+        "traction": 2,
+        "traction_note": "Product Hunt Launch of the Day, Feb 2016",
+        "gap": "Block-based pages, broader scope",
+        "free": true,
+        "country": "RU"
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "customers_month": 50,
+        "revenue_month": 79,
+        "costs_month": 15,
+        "note": "50 Pro customers at month 12 after one launch spike"
+      },
+      {
+        "name": "Base",
+        "customers_month": 300,
+        "revenue_month": 475,
+        "costs_month": 25,
+        "note": "~13,000 free users x 2.3% conversion by month 12"
+      },
+      {
+        "name": "Optimistic",
+        "customers_month": 1500,
+        "revenue_month": 2375,
+        "costs_month": 60,
+        "note": "Viral free sites compound; ~65,000 free users"
+      }
+    ],
+    "currency": "USD",
+    "risks": [
+      {
+        "risk": "Phishing and spam abuse on free subdomains gets the domain blocklisted",
+        "likelihood": "H",
+        "impact": "M",
+        "mitigation": "Moderation queue, abuse reports, no free forms at first",
+        "source": "https://docs.apwg.org/reports/APWG_GlobalPhishingSurvey_1H2014.pdf"
+      },
+      {
+        "risk": "Missing DMCA agent filing removes safe harbor",
+        "likelihood": "L",
+        "impact": "H",
+        "mitigation": "File the $105 designated agent form before launch",
+        "source": "https://www.plagiarismtoday.com/?p=9309"
+      },
+      {
+        "risk": "Incumbent price cut on one-page tiers",
+        "likelihood": "M",
+        "impact": "H",
+        "mitigation": "Stay cheaper and simpler; own a niche",
+        "source": "https://thenextweb.com/news/squarespace-launches-two-new-pricing-tiers-for-its-splash-page-and-e-commerce-customers"
+      },
+      {
+        "risk": "Low free-to-paid conversion",
+        "likelihood": "M",
+        "impact": "M",
+        "mitigation": "Gate custom domains and badge removal behind Pro",
+        "source": "https://thenextweb.com/news/the-future-of-evernote-from-memory-machine-to-time-machine"
+      }
+    ],
+    "test_plan": [
+      {
+        "when": "Day 1",
+        "step": "Build a landing page with 3 demo one-page sites and a $19/yr Pro pre-order via Stripe",
+        "verify": "Page live, checkout tested with 1 real charge"
+      },
+      {
+        "when": "Day 2",
+        "step": "Post Show HN and share in r/web_design and r/webdev",
+        "verify": "500+ visitors and 100+ waitlist sign-ups"
+      },
+      {
+        "when": "Day 3-4",
+        "step": "Launch on Product Hunt; reply to every comment",
+        "verify": "300+ total sign-ups"
+      },
+      {
+        "when": "Day 5-6",
+        "step": "Email the waitlist the pre-order offer",
+        "verify": "10+ paid pre-orders"
+      },
+      {
+        "when": "Day 7",
+        "step": "Count pre-orders and interview 5 buyers about what they would use it for",
+        "verify": "10+ pre-orders, 3+ repeat use cases -> build the 2-week MVP"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://rss.globenewswire.com/news-release/2016/02/10/809175/29041/en/Wix-com-Reports-Fourth-Quarter-and-Full-Year-2015-Results.html",
+        "title": "Wix.com, Q4 and FY2015 results",
+        "supports": "77M users, 1.77M premium subs, $203.5M revenue +43%, 84% gross margin",
+        "accessed": "2026-11-11",
+        "published": "2016-02-10",
+        "tier": "primary"
+      },
+      {
+        "url": "https://sec.gov/Archives/edgar/data/1576789/000117891316004203/exhibit_99-1.htm",
+        "title": "Wix.com, SEC exhibit 99.1 FY2015 earnings",
+        "supports": "1,767,425 premium subscriptions at end 2015",
+        "accessed": "2026-11-11",
+        "published": "2016-02-10",
+        "tier": "primary"
+      },
+      {
+        "url": "https://thenextweb.com/news/squarespace-launches-two-new-pricing-tiers-for-its-splash-page-and-e-commerce-customers",
+        "title": "The Next Web, Squarespace launches Cover Page tier",
+        "supports": "Cover Page tier $3/month billed annually",
+        "accessed": "2026-11-11",
+        "published": "2015-11-03",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://prnewswire.com/news-releases/squarespace-takes-on-growing-customer-needs-with-two-new-product-offerings-300171455.html",
+        "title": "Squarespace press release, two new product offerings",
+        "supports": "Cover Pages from $3/mo for people launching a simple idea; Website plans from $8/mo",
+        "accessed": "2026-11-11",
+        "published": "2015-11-03",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.squarespace.com/press-releases/2014/10/13/squarespace-announces-squarespace-7-featuring-new-cover-page-builder-and-integrations-with-getty-images-and-google",
+        "title": "Squarespace press release, Squarespace 7 with cover page builder",
+        "supports": "Incumbent already ships a one-page builder",
+        "accessed": "2026-11-11",
+        "published": "2014-10-13",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.squarespace.com/press-coverage/2014/4/15/squarespace-raises-40-million-as-website-tools-battle-heats-up",
+        "title": "Squarespace press coverage, raises $40M as website tools battle heats up",
+        "supports": "$40M Series B, $78.5M raised in total",
+        "accessed": "2026-11-11",
+        "published": "2014-04-15",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2015/02/05/after-a-crazy-2014-about-me-zeroes-in-on-mobile/",
+        "title": "TechCrunch, about.me zeroes in on mobile",
+        "supports": "Free profile pages, nearly 5M users",
+        "accessed": "2026-11-11",
+        "published": "2015-02-05",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2015/10/01/weebly-carbon/",
+        "title": "TechCrunch, Weebly Carbon",
+        "supports": "30M people built sites on Weebly, free tier, cash-flow positive",
+        "accessed": "2026-11-11",
+        "published": "2015-10-01",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2014/04/22/weebly-series-c",
+        "title": "TechCrunch, Weebly $35M Series C",
+        "supports": "Weebly $35M Series C at $455M valuation",
+        "accessed": "2026-11-11",
+        "published": "2014-04-22",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/yc-alum-strikingly-nabs-1-5m-from-sv-angel-index-ventures-fundersclub-others-for-its-diy-website-creator-service",
+        "title": "The Next Web, Strikingly raises $1.5M",
+        "supports": "One-page builder, $1.5M seed, profitable",
+        "accessed": "2026-11-11",
+        "published": "2013-04-26",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2016/02/19/where-are-they-now-startup-battlefield-company-pagecloud/",
+        "title": "TechCrunch, Where are they now: PageCloud",
+        "supports": "14,000 paying customers, $99 pre-orders",
+        "accessed": "2026-11-11",
+        "published": "2016-02-19",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/onepager/awards",
+        "title": "Product Hunt, OnePager awards",
+        "supports": "One-page builder, Launch of the Day 2015-08-04",
+        "accessed": "2026-11-11",
+        "published": "2015-08-04",
+        "tier": "primary"
+      },
+      {
+        "url": "https://hunted.space/product/qwilr/launches/resume-builder-2",
+        "title": "hunted.space, Resume Builder launch",
+        "supports": "One-page site tool, 320 upvotes, 2015-10-20",
+        "accessed": "2026-11-11",
+        "published": "2015-10-20",
+        "tier": "primary"
+      },
+      {
+        "url": "https://hunted.space/product/leadpages/launches/lead-pages",
+        "title": "hunted.space, Lead Pages launch",
+        "supports": "Landing-page generator, 135 upvotes, 2015-11-05",
+        "accessed": "2026-11-11",
+        "published": "2015-11-05",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.producthunt.com/products/tilda-publishing/awards",
+        "title": "Product Hunt, Tilda Publishing awards",
+        "supports": "Landing-page builder, Launch of the Day 2016-02-02",
+        "accessed": "2026-11-11",
+        "published": "2016-02-02",
+        "tier": "primary"
+      },
+      {
+        "url": "https://thenextweb.com/news/jux-closing-down-citing-slow-growth",
+        "title": "The Next Web, Jux closing down citing slow growth",
+        "supports": "Creative page platform closing for slow growth",
+        "accessed": "2026-11-11",
+        "published": "2013-05-25",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.computerworld.com/article/1333713/yahoo-geocities-closes-on-oct-26.html",
+        "title": "Computerworld, Yahoo GeoCities closes on Oct. 26",
+        "supports": "Free personal page host shut 2009-10-26",
+        "accessed": "2026-11-11",
+        "published": "2009-10",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://blogger.googleblog.com/2010/02/how-google-page-creator-shutdown-may.html",
+        "title": "Google Blogger blog, Google Page Creator shutdown",
+        "supports": "Google closed its simple page builder",
+        "accessed": "2026-11-11",
+        "published": "2010-02",
+        "tier": "primary"
+      },
+      {
+        "url": "https://thenextweb.com/news/the-posterous-rides-away-as-in-shuts-down-april-30t",
+        "title": "The Next Web, Posterous shuts down April 30",
+        "supports": "Simple publishing host shut 2013-04-30",
+        "accessed": "2026-11-11",
+        "published": "2013-02-15",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2012/09/20/business-card-upstart-moo-com-buys-flavors-me-to-expand-its-digital-profile",
+        "title": "TechCrunch, Moo buys Flavors.me",
+        "supports": "One-page profile builder sold with 500k users",
+        "accessed": "2026-11-11",
+        "published": "2012-09-20",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://techcrunch.com/2014/03/13/fundable-acquires-launchrock/",
+        "title": "TechCrunch, Fundable acquires LaunchRock",
+        "supports": "Landing-page builder absorbed by Fundable",
+        "accessed": "2026-11-11",
+        "published": "2014-03-13",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://domainnamewire.com/2015/09/16/godaddy-survey/",
+        "title": "Domain Name Wire, GoDaddy small-business survey",
+        "supports": "55% of US very small businesses have no website",
+        "accessed": "2026-11-11",
+        "published": "2015-09-16",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://clutch.co/press-releases/survey-shows-opportunity-small-businesses-improve-web-presence",
+        "title": "Clutch, small business web presence survey",
+        "supports": "More than 25% of small businesses have no website",
+        "accessed": "2026-11-11",
+        "published": "2015-04",
+        "tier": "primary"
+      },
+      {
+        "url": "https://search.googleblog.com/2015/04/ranking-change-to-help-you-find-mobile_21.html",
+        "title": "Google Search blog, mobile-friendly ranking change",
+        "supports": "Mobile-friendly ranking signal from 2015-04-21",
+        "accessed": "2026-11-11",
+        "published": "2015-04-21",
+        "tier": "primary"
+      },
+      {
+        "url": "https://webmasters.googleblog.com/2015/04/rolling-out-mobile-friendly-update.html",
+        "title": "Google Webmaster Central, rolling out the mobile-friendly update",
+        "supports": "Mobile update rollout 2015-04",
+        "accessed": "2026-11-11",
+        "published": "2015-04-21",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.pewresearch.org/internet/2015/04/01/chapter-one-a-portrait-of-smartphone-ownership",
+        "title": "Pew Research, A portrait of smartphone ownership",
+        "supports": "64% of US adults own a smartphone (2015)",
+        "accessed": "2026-11-11",
+        "published": "2015-04-01",
+        "tier": "primary"
+      },
+      {
+        "url": "https://letsencrypt.org/2015/11/12/public-beta-timing.html",
+        "title": "Let's Encrypt, public beta timing",
+        "supports": "Free SSL certificates for anyone from 2015-12-03",
+        "accessed": "2026-11-11",
+        "published": "2015-11-12",
+        "tier": "primary"
+      },
+      {
+        "url": "https://businessesgrow.com/2015/07/30/product-hunt/",
+        "title": "Businesses Grow, What Product Hunt did for us",
+        "supports": "A Product Hunt feature brings thousands to tens of thousands of visitors",
+        "accessed": "2026-11-11",
+        "published": "2015-07-30",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://thenextweb.com/news/the-future-of-evernote-from-memory-machine-to-time-machine",
+        "title": "The Next Web, The future of Evernote",
+        "supports": "Freemium conversion about 4.5%",
+        "accessed": "2026-11-11",
+        "published": "2011-09-10",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://blog.5pmweb.com/2013/02/25/stripe-vs-paypal",
+        "title": "5pm Web blog, Stripe vs PayPal",
+        "supports": "Stripe 2.9% + $0.30 per charge",
+        "accessed": "2026-11-11",
+        "published": "2013-02-25",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.digitalocean.com/blog/now-offering-double-the-memory-solid-state-drives-for-all-plans",
+        "title": "DigitalOcean blog, $5 plan with SSD",
+        "supports": "$5/month server",
+        "accessed": "2026-11-11",
+        "published": "2013-01-13",
+        "tier": "primary"
+      },
+      {
+        "url": "https://aws.amazon.com/blogs/aws/aws-price-reduction-42-ec2-s3-rds-elasticache-and-elastic-mapreduce",
+        "title": "AWS blog, price reduction for S3 and EC2",
+        "supports": "S3 at $0.03/GB-month",
+        "accessed": "2026-11-11",
+        "published": "2014-03-26",
+        "tier": "primary"
+      },
+      {
+        "url": "https://docs.apwg.org/reports/APWG_GlobalPhishingSurvey_1H2014.pdf",
+        "title": "APWG, Global Phishing Survey 1H2014",
+        "supports": "16,986 phishing attacks on free subdomain services, 14% of all",
+        "accessed": "2026-11-11",
+        "published": "2014-09-24",
+        "tier": "primary"
+      },
+      {
+        "url": "https://www.plagiarismtoday.com/?p=9309",
+        "title": "Plagiarism Today, DMCA agent registration",
+        "supports": "DMCA designated agent filing $105; no filing = no safe harbor",
+        "accessed": "2026-11-11",
+        "published": "2011-03-28",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.tomtunguz.com/saas-innovators-dilemma/index.md",
+        "title": "Tomasz Tunguz, The SaaS innovator's dilemma",
+        "supports": "SMB SaaS churn 3-7% a month",
+        "accessed": "2026-11-11",
+        "published": "2015-04-09",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://writing.pointnine.com/p/saas-metrics-benchmarking-your-churn",
+        "title": "Point Nine Capital, Benchmarking your churn",
+        "supports": "Median SMB monthly user churn 5.4% (Baremetrics data)",
+        "accessed": "2026-11-11",
+        "published": "2015-10-20",
+        "tier": "secondary"
+      },
+      {
+        "url": "https://www.forentrepreneurs.com/2015-saas-survey-part-2/",
+        "title": "For Entrepreneurs, 2015 Pacific Crest SaaS survey part 2",
+        "supports": "Churn falls as contract size grows",
+        "accessed": "2026-11-11",
+        "published": "2015-10",
+        "tier": "secondary"
+      }
+    ]
+  }
+}

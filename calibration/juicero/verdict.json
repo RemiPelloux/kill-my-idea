@@ -1,0 +1,416 @@
+{
+  "schema_version": "1.0",
+  "slug": "juicero",
+  "evaluated": "2026-11-11",
+  "as_of": "2016-03-01",
+  "mode": "kill",
+  "verdict": "NO-GO",
+  "score": 49,
+  "score_raw": 48.8,
+  "confidence": {
+    "level": "high",
+    "sourced_subscores": 16,
+    "sources": 42,
+    "primary_sources": 8,
+    "note": "Juicero's own pack yield, pack COGS and retention were not public before 2016-03-01; a teardown or pack cost sheet would raise it."
+  },
+  "criteria": {
+    "profit": 1.5,
+    "feasibility": 2.5,
+    "time_to_first_revenue": 2.0,
+    "demand": 3.5,
+    "competition": 2.5,
+    "risk": 2.5,
+    "fit": 3.5
+  },
+  "criteria_detail": {
+    "profit": {
+      "gross_margin": {
+        "score": 1.5,
+        "note": "Est. 28% per $6.50 pack after produce, pouch and cold-chain delivery; bottled juice targets ~60%. R5: costs_eat_margin.",
+        "source": "https://goodnature.com/blog/calculating-food-costs-for-cold-pressed-juice"
+      },
+      "ltv_cac": {
+        "score": 2,
+        "note": "Est. LTV $390 vs CAC $200 (CPC / 0.75% conversion): LTV:CAC 1.95, before any hardware subsidy.",
+        "source": "https://www.retaildive.com/news/facebooks-mobile-network-delivers-lower-costs-for-advertisers/402152"
+      },
+      "pricing_power": {
+        "score": 1.5,
+        "note": "Anchor is falling: Suja cut 16oz to $7.99 and launched $3.99; Costco sells it at $0.17/oz.",
+        "source": "https://www.foodnavigator.com/Article/2015/01/22/HPP-cold-pressed-Suja-Juice-predicts-2015-revenues-of-70-80m"
+      }
+    },
+    "feasibility": {
+      "build_effort": {
+        "score": 1,
+        "note": "Custom high-force press plus a produce-pack plant: over 6 months; still unlaunched after raising since 2013.",
+        "source": "https://www.businessinsider.in/A-Secret-Startup-In-Silicon-Valley-Is-Raising-120-Million-To-Make-The-Freshest-Juice-Youve-Ever-Tasted/articleshow/45861795.cms"
+      },
+      "skills_match": {
+        "score": 3,
+        "note": "Hardware team in place; food safety, fresh-produce sourcing and cold chain are new skills.",
+        "source": null
+      },
+      "capital_needed": {
+        "score": 3,
+        "note": "About $20M raised and ~$120M being raised: fits, but hardware plus a food plant burns capital fast.",
+        "source": "https://www.yahoo.com/news/juicero-future-juice-biggest-tech-start-youve-never-202554940.html"
+      }
+    },
+    "time_to_first_revenue": {
+      "time_to_mvp": {
+        "score": 1,
+        "note": "Over 2 years from seed (2013) with no product on sale by early 2016.",
+        "source": "https://www.businessinsider.in/A-Secret-Startup-In-Silicon-Valley-Is-Raising-120-Million-To-Make-The-Freshest-Juice-Youve-Ever-Tasted/articleshow/45861795.cms"
+      },
+      "sales_cycle": {
+        "score": 3,
+        "note": "$699 considered consumer purchase: days to weeks, not impulse.",
+        "source": null
+      },
+      "channel_readiness": {
+        "score": 2.5,
+        "note": "Direct online plus tech press exists; CAC for a $699 device unproven (est. $100-$300).",
+        "source": "https://www.digitalcommerce360.com/?p=5269"
+      }
+    },
+    "demand": {
+      "search_demand": {
+        "score": 3.5,
+        "note": "Juice bars a $2.2B US industry riding the cold-pressed craze; active cleanse culture.",
+        "source": "https://www.prweb.com/releases/juice_and_smoothie_bars_in_the_us_industry_market_research_report_now_available_from_ibisworld/prweb11867375.htm"
+      },
+      "trend": {
+        "score": 4.5,
+        "note": "Super-premium cold-pressed juice +130.5% YoY (IRI, 52 weeks to 2015-03).",
+        "source": "https://perishablenews.com/?p=121471"
+      },
+      "willingness_to_pay": {
+        "score": 3,
+        "note": "Buyers pay up to $10 a 16oz bottle, but leaders are cutting prices to widen the market.",
+        "source": "https://www.huffpost.com/entry/cold-pressed-juice_us_4911492"
+      }
+    },
+    "competition": {
+      "free_alternatives": {
+        "score": 2.5,
+        "note": "No free equivalent, but $70-$400 juicers and $3.99-$8 bottles do much of the job.",
+        "source": "https://www.tastingtable.com/690658/best-juicers-2015-hurom-omega-hamilton-beach"
+      },
+      "competitor_density": {
+        "score": 2.5,
+        "note": "Suja ($45M revenue, Coca-Cola $90M stake), Evolution Fresh, Jamba, Pressed Juicery. R5: strong_competitor.",
+        "source": "https://www.beveragedaily.com/Article/2015/08/19/Coca-Cola-makes-90m-investment-in-Suja-Juice-to-take-30-stake"
+      },
+      "differentiation": {
+        "score": 3,
+        "note": "Only connected juicer found: fresh-pressed at home with no cleanup is a real, specific difference.",
+        "source": null
+      }
+    },
+    "risk": {
+      "legal_regulatory": {
+        "score": 2.5,
+        "note": "Raw cut-produce plant under new FSMA rules (2015); unpasteurized juice E. coli outbreaks in 2015.",
+        "source": "https://www.govinfo.gov/content/pkg/FR-2015-09-17/html/2015-21920.htm"
+      },
+      "platform_dependency": {
+        "score": 3,
+        "note": "Owns its channel, but each pack needs a server check: Wink hubs bricked by one expired certificate.",
+        "source": "https://www.engadget.com/2015/04/19/wink-hub-bricked-dns-fix/"
+      },
+      "market_risk": {
+        "score": 2,
+        "note": "Cold-pressed may be a fad: pioneer chain Organic Avenue shut all 10 stores in 2015-10.",
+        "source": "https://www.yahoo.com/lifestyle/organic-avenue-to-close-all-locations-183331812.html"
+      }
+    },
+    "fit": {
+      "skills": {
+        "score": 3.5,
+        "note": "Funded hardware team; no pre-2016 evidence of food-manufacturing track record.",
+        "source": null
+      },
+      "assets": {
+        "score": 3.5,
+        "note": "Kleiner Perkins and Campbell's backing: capital and food-industry network.",
+        "source": "https://www.businessinsider.in/A-Secret-Startup-In-Silicon-Valley-Is-Raising-120-Million-To-Make-The-Freshest-Juice-Youve-Ever-Tasted/articleshow/45861795.cms"
+      },
+      "interest": {
+        "score": 3,
+        "note": "Founder motivation not documented in pre-2016 sources: scored neutral.",
+        "source": null
+      }
+    }
+  },
+  "rules_applied": [],
+  "metrics": {
+    "tam": {
+      "value": 1600000000,
+      "unit": "USD/year",
+      "basis": "sourced",
+      "source": "https://perishablenews.com/?p=121471",
+      "reasoning": null,
+      "as_of": "2015-03"
+    },
+    "sam": {
+      "value": 844600000,
+      "unit": "USD/year",
+      "basis": "sourced",
+      "source": "https://perishablenews.com/?p=121471",
+      "reasoning": null,
+      "as_of": "2015-03"
+    },
+    "som": {
+      "value": 11900000,
+      "unit": "USD/year",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "5,000 households x ($699 press + 260 packs x $6.50 = $1,690) = $11.9M, ~1.4% of the $844.6M cold-pressed SAM",
+      "as_of": "2016-03"
+    },
+    "competitors_found": {
+      "value": 10,
+      "unit": "competitors",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Counted: Suja, Evolution Fresh, BluePrint, Jamba, Pressed Juicery, Juice Press, Costco/retail bottles, Omega, Hurom, Hamilton Beach juicers",
+      "as_of": "2016-03"
+    },
+    "competitor_price_range": {
+      "value": "3.99-12",
+      "unit": "USD per bottle",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Suja $3.99-$7.99 (FoodNavigator 2015-01), Jamba $5.39 (NRN 2014-09), up to $12 per 12oz (HuffPost 2014-03)",
+      "as_of": "2016-03"
+    },
+    "demand_trend": {
+      "value": "rising",
+      "unit": null,
+      "basis": "sourced",
+      "source": "https://perishablenews.com/?p=121471",
+      "reasoning": null,
+      "as_of": "2015-03"
+    },
+    "price": {
+      "value": 6.5,
+      "unit": "USD/pack",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Midpoint of the brief's $5-$8 pack price; no pre-2016 source discloses Juicero pricing",
+      "as_of": "2016-03"
+    },
+    "variable_cost_per_unit": {
+      "value": 4.7,
+      "unit": "USD/pack",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "8oz pack: ~0.8 lb organic produce at ~$2/lb = $1.75 + pouch and labor $0.75 + cold-chain box ~$11.50 / ~6 packs = $2.00 + spoilage $0.20 = $4.70",
+      "as_of": "2016-03"
+    },
+    "gross_margin_pct": {
+      "value": 27.7,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "(6.50 - 4.70) / 6.50 = 27.7%, packs only; press assumed sold near cost",
+      "as_of": "2016-03"
+    },
+    "churn_monthly_pct": {
+      "value": 10,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Assumption: no pre-2016 retention benchmark for perishable subscriptions found; 10%/month used",
+      "as_of": "2016-03"
+    },
+    "expected_lifetime": {
+      "value": 10,
+      "unit": "months",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "1 / 10% monthly churn = 10 months",
+      "as_of": "2016-03"
+    },
+    "conversion_rate_pct": {
+      "value": 0.75,
+      "unit": "%",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "US e-commerce averages 3.06% (Monetate 2015); a $699 considered purchase assumed at 0.5-1%, midpoint 0.75%",
+      "as_of": "2016-03"
+    },
+    "cac": {
+      "value": 200,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Blended CPC: Facebook $0.31-$0.85, Google $2.32; / 0.5-1% conversion = $31-$464; midpoint ~$200",
+      "as_of": "2016-03"
+    },
+    "ltv": {
+      "value": 390,
+      "unit": "USD",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "5 packs/week x 4.33 = 21.65 packs x $6.50 = $140.7/month x 27.7% margin x 10 months = $390",
+      "as_of": "2016-03"
+    },
+    "ltv_cac": {
+      "value": 1.95,
+      "unit": "ratio",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "LTV $390 / CAC $200 = 1.95",
+      "as_of": "2016-03"
+    },
+    "payback_months": {
+      "value": 5.1,
+      "unit": "months",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "CAC $200 / $39 monthly gross profit per subscriber = 5.1 months",
+      "as_of": "2016-03"
+    },
+    "fixed_costs_month": {
+      "value": 1000000,
+      "unit": "USD/month",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Assumption: ~50 staff x ~$15k loaded cost + pack facility and leases ~ $1M/month",
+      "as_of": "2016-03"
+    },
+    "break_even_customers_per_month": {
+      "value": 25641,
+      "unit": "subscribers",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "$1,000,000 fixed / $39 gross profit per subscriber per month = 25,641 active subscribers",
+      "as_of": "2016-03"
+    },
+    "time_to_first_revenue_weeks": {
+      "value": 12,
+      "unit": "weeks",
+      "basis": "estimate",
+      "source": null,
+      "reasoning": "Not on sale as of 2016-03-01 after raising since 2013; at least one quarter to launch and deliver (assumption)",
+      "as_of": "2016-03"
+    }
+  },
+  "launch_country": "US",
+  "launch_reason": "Founder and investors are in the Bay Area, where premium cold-pressed buyers concentrate.",
+  "kill_shots": {
+    "free_alternative": false,
+    "strong_competitor": true,
+    "graveyard": true,
+    "no_distribution": false,
+    "costs_eat_margin": true,
+    "weak_demand": false,
+    "legal_platform_risk": true,
+    "saturated_wave": false
+  },
+  "primary_kill_shot": "costs_eat_margin",
+  "cheapest_test": "7-day fake-door in the Bay Area: $699 press pre-order with $50 refundable deposit plus hand-delivered pack trial to 20 households",
+  "kill_criteria": [
+    "Fewer than 300 paid $50 deposits on the Bay Area landing page by day 7 -> stop",
+    "Measured cold-chain cost per weekly box above $10 in the day 5 test delivery -> stop",
+    "Fewer than 3 packs per week per tester household in the day 1-7 trial -> stop"
+  ],
+  "sources": [
+    "https://www.tastingtable.com/690658/best-juicers-2015-hurom-omega-hamilton-beach",
+    "https://www.foodnavigator.com/Article/2015/01/22/HPP-cold-pressed-Suja-Juice-predicts-2015-revenues-of-70-80m",
+    "https://www.beveragedaily.com/Article/2015/08/19/Coca-Cola-makes-90m-investment-in-Suja-Juice-to-take-30-stake",
+    "https://perishablenews.com/?p=121471",
+    "https://www.nrn.com/beverage-trends/jamba-juice-introduces-cold-pressed-juices-in-southern-california",
+    "https://www.yahoo.com/lifestyle/organic-avenue-to-close-all-locations-183331812.html",
+    "https://www.hungryonion.org/t/costco-faves-disappointments-4th-quarter-2015/571/16",
+    "https://www.businessinsider.in/A-Secret-Startup-In-Silicon-Valley-Is-Raising-120-Million-To-Make-The-Freshest-Juice-Youve-Ever-Tasted/articleshow/45861795.cms",
+    "https://www.yahoo.com/news/juicero-future-juice-biggest-tech-start-youve-never-202554940.html",
+    "https://techcrunch.com/2015/06/09/june-a-countertop-smart-oven-launches-with-a-1495-price-tag",
+    "https://fortune.com/2015/12/04/teforia-funding",
+    "https://fortune.com/2016/01/06/home-appliances-ces-2016/",
+    "https://www.federalregister.gov/documents/2001/01/19/01-1291/hazard-analysis-and-critical-control-point-haacp-procedures-for-the-safe-and-sanitary-processing-and",
+    "https://www.fda.gov/food/guidance-documents-regulatory-information-topic/guidance-industry-questions-and-answers-juice-haccp-regulation-2003",
+    "https://www.govinfo.gov/content/pkg/FR-2015-09-17/html/2015-21920.htm",
+    "https://www.govinfo.gov/content/pkg/FR-2015-11-27/pdf/2015-28158.pdf",
+    "https://www.foodsafetynews.com/2015/11/update-13-e-coli-illnesses-in-california-linked-to-recalled-unpasteurized-apple-juice",
+    "https://www.consumerreports.org/cro/news/2014/12/keurig-2-0-pod-coffeemaker-rejects-older-k-cups/index.htm",
+    "https://techcrunch.com/2015/05/08/keurig-ceo-blames-coffee-pod-drm-for-falling-sales/amp/",
+    "https://www.foodnavigator-usa.com/Article/2014/02/12/TreeHouse-sues-GMCR-Keurig-for-monopolizing-single-serve-brewer-market/",
+    "https://www.ftc.gov/news-events/news/press-releases/2015/01/ftc-report-internet-things-urges-companies-adopt-best-practices-address-consumer-privacy-security",
+    "https://www.engadget.com/2015/04/19/wink-hub-bricked-dns-fix/",
+    "https://techcrunch.com/2015/06/09/blue-apron-cooks-up-135-million-in-series-d-funding",
+    "https://fortune.com/2015/08/03/freshrealm-cold-delivery/",
+    "https://www.supplychain247.com/article/ups_rolls_out_dimensional_pricing_changes_effective_december_2014",
+    "https://www.channelinsider.com/news-and-trends/consumer-electronics-industry-faces-a-projected-17-billion-product-returns-bill-accenture/",
+    "https://www.huffpost.com/entry/cold-pressed-juice_us_4911492",
+    "https://goodnature.com/blog/calculating-food-costs-for-cold-pressed-juice",
+    "https://www.consumerreports.org/cro/news/2015/03/cost-of-organic-food/index.htm",
+    "https://www.retaildive.com/news/facebooks-mobile-network-delivers-lower-costs-for-advertisers/402152",
+    "https://blog.bolt.io/?p=112",
+    "https://www.sec.gov/Archives/edgar/data/0000719955/000119312515118009/d851953d10k.htm",
+    "https://www.digitalcommerce360.com/?p=5269",
+    "https://www.wordstream.com/blog/ws/2016/02/29/google-adwords-industry-benchmarks",
+    "https://fortune.com/2015/05/14/keurig-cold-beverage-machine",
+    "https://techcrunch.com/2015/10/20/the-kuerig-kold-is-a-space-oddity-in-the-world-of-soft-drinks",
+    "https://www.vendingtimes.com/news/keurig-brewer-and-k-cup-sales-decline-impacting-q4-revenue-profit/",
+    "https://fortune.com/2014/10/07/at-home-soda-fizzling/",
+    "https://fortune.com/2015/09/22/quirky-files-bankruptcy/",
+    "https://www.prweb.com/releases/juice_and_smoothie_bars_in_the_us_industry_market_research_report_now_available_from_ibisworld/prweb11867375.htm",
+    "https://engadget.com/2015/02/06/unsurprisingly-people-didn-t-like-keurigs-drm-protected-coffee/",
+    "https://triplepundit.com/story/2011/pressed-juicery-hitting-green-price-ceiling/75486"
+  ],
+  "rescue": [
+    {
+      "change": "Drop the press: sell the same organic juice as HPP bottles through grocery retail",
+      "why": "Fixes costs_eat_margin (bottled juice ~60% margin) and build_effort; still faces strong_competitor Suja",
+      "score_after": 56,
+      "difficulty": "hard",
+      "effort": "6 months",
+      "cost": "USD 2-5M (co-packer, HPP tolling, slotting)",
+      "requires": "Beverage distribution contacts and a brand that beats Suja on shelf"
+    },
+    {
+      "change": "Sell the press to offices, gyms and cafes with daily pack volume",
+      "why": "Fixes contribution_margin: one cold-chain drop serves 30+ packs a day instead of 5 a week",
+      "score_after": 52,
+      "difficulty": "hard",
+      "effort": "3-6 months",
+      "cost": "USD 0.5-1M (B2B sales team, route delivery)",
+      "requires": "B2B sales and a local delivery route in one metro"
+    },
+    {
+      "change": "Open the system: no pack lock, sell packs as convenience in one metro only",
+      "why": "Fixes legal_platform_risk and the Keurig 2.0 graveyard pattern; cuts server dependency",
+      "score_after": 50,
+      "difficulty": "hard",
+      "effort": "3 months",
+      "cost": "USD 0.5M",
+      "requires": "Accepting lower attach rate on packs"
+    }
+  ],
+  "type_checks": [
+    {
+      "check": "contribution_margin",
+      "result": "hit",
+      "note": "Est. weekly box: ~$15 (33%) at 7 packs, ~$0 at 3 packs, since cold-chain shipping (~$11.50 a box, gel packs, dim-weight pricing) is fixed per box.",
+      "source": "https://fortune.com/2015/08/03/freshrealm-cold-delivery/"
+    },
+    {
+      "check": "returns_shipping",
+      "result": "clear",
+      "note": "Est. 15% return rate x ~$245 per returned 30 lb press = ~$37 per unit (5% of price); opened packs are a total loss but cheap.",
+      "source": "https://www.channelinsider.com/news-and-trends/consumer-electronics-industry-faces-a-projected-17-billion-product-returns-bill-accenture/"
+    }
+  ],
+  "quick": false,
+  "run": {
+    "started": "2026-11-11T08:58:59Z",
+    "minutes": 8,
+    "searches": 110,
+    "fetches": 55,
+    "subagents": 4
+  }
+}

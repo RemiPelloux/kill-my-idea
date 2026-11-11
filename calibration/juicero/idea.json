@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "slug": "juicero",
+  "title": "Juicero: $699 Wi-Fi juicer pressing subscription produce packs",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "ecommerce",
+  "source": {
+    "type": "own-idea",
+    "text": "Juicero: a $699 Wi-Fi juicer that presses proprietary produce packs sold by subscription at $5 to $8 each, launch country US. Score it as of 2016-03-01: use only evidence published on or before that date (set verdict.as_of). Founder: a funded hardware startup. Just go: do not ask questions. Use the slug juicero.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Fresh cold-pressed juice is expensive ($8-12 a bottle), and juicing at home is messy, slow and needs cleaning.",
+  "customer": "Affluent, health-conscious urban US households (Bay Area, NYC, LA) who already buy premium cold-pressed juice several times a week.",
+  "solution": "A $699 Wi-Fi press that squeezes proprietary pre-chopped organic produce packs; the machine scans each pack's code to check freshness before pressing.",
+  "revenue_model": "subscription",
+  "price": {"amount": 699, "currency": "USD", "period": "one-off"},
+  "channel": null,
+  "countries": ["US"],
+  "claims": [
+    "$699 Wi-Fi juicer",
+    "presses proprietary produce packs",
+    "packs sold by subscription at $5 to $8 each"
+  ],
+  "context": {
+    "budget": "venture-funded (USD 15M+ raised by 2014)",
+    "time_per_week": "full-time team",
+    "goal": "startup",
+    "edge": "venture backing and hardware engineering team"
+  },
+  "assumptions": [
+    "Pack price $6.50 (midpoint of $5-8); pack yield about 8 oz, not disclosed before 2016-03-01",
+    "Customer presses 5 packs a week on average",
+    "Channel is direct online sales plus press coverage; no retail deal confirmed before 2016-03-01",
+    "Founder is a venture-funded hardware team with the skills to build the press (as stated)",
+    "No questions asked: the user said just go"
+  ],
+  "unknowns": ["channel", "pack yield", "pack COGS", "machine BOM", "retention", "delivery area"],
+  "answers": []
+}

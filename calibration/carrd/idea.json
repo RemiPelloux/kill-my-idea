@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "slug": "carrd",
+  "title": "Carrd: one-page websites, free with a $19/year Pro plan",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "Carrd: one-page websites, free with a Pro plan at $19 per year, launch country US. Score it as of 2016-03-01: use only evidence published on or before that date (set verdict.as_of). Founder: a solo developer with $1,000, side project. Just go: do not ask questions. Use the slug carrd.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Building a simple single-page website (profile, portfolio, landing page) is slow or costly on full site builders.",
+  "customer": null,
+  "solution": "A builder for one-page websites, free to use, with a Pro plan.",
+  "revenue_model": "subscription",
+  "price": {
+    "amount": 19,
+    "currency": "USD",
+    "period": "year"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [],
+  "context": {
+    "budget": "USD 1,000",
+    "time_per_week": null,
+    "goal": "side-income",
+    "edge": "solo developer"
+  },
+  "assumptions": [
+    "Customer assumed: US freelancers, designers, indie makers and job seekers who need one page with a custom domain.",
+    "Pro plan assumed to include custom domains, more sites and forms.",
+    "Founder has no existing audience, template following or list.",
+    "Side project at roughly 10 hours per week.",
+    "Goal read as side income from 'side project'.",
+    "Headless run: no questions asked; scored as of 2016-03-01 with evidence published on or before that date."
+  ],
+  "unknowns": [
+    "customer",
+    "channel",
+    "time_per_week"
+  ],
+  "answers": []
+}

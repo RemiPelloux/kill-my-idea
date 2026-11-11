@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "slug": "calendly",
+  "title": "Calendly: personal scheduling links (as of 2013-06-01)",
+  "created": "2026-11-11",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "Calendly: scheduling links so people book a meeting without email back-and-forth, freemium with a paid plan at $8 per month, launch country US. Score it as of 2013-06-01: use only evidence published on or before that date (set verdict.as_of). Founder: a solo developer with $5,000 and full time. Just go: do not ask questions. Use the slug calendly.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Booking a meeting takes several emails of back-and-forth to find a time.",
+  "customer": null,
+  "solution": "A personal scheduling link that shows open slots from the user's calendar so the other person books directly.",
+  "revenue_model": "subscription",
+  "price": {
+    "amount": 8,
+    "currency": "USD",
+    "period": "month"
+  },
+  "channel": null,
+  "countries": [
+    "US"
+  ],
+  "claims": [],
+  "context": {
+    "budget": "USD 5,000",
+    "time_per_week": "full time (40+ h)",
+    "goal": null,
+    "edge": "solo developer"
+  },
+  "assumptions": [
+    "Scored as of 2013-06-01 with evidence published on or before that date.",
+    "Target customer assumed: US independent professionals and salespeople who book many 1:1 meetings.",
+    "Goal assumed: a startup (full-time commitment), not side income.",
+    "Main channel assumed: the viral loop of the link itself (every invitee sees the product).",
+    "No existing audience, network or domain asset assumed (none stated).",
+    "Monthly churn assumed 4% (no dated prosumer benchmark found)."
+  ],
+  "unknowns": [
+    "customer",
+    "channel",
+    "goal",
+    "edge beyond development skills",
+    "audience"
+  ],
+  "answers": []
+}

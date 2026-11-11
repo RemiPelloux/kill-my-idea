@@ -131,7 +131,10 @@ message**, and don't search one query at a time in the main thread:
 3. distribution, the ICP and where it gathers, real costs from price pages;
 4. legal and platform risk, and the 2 type checks (§1).
 Give each the idea brief, the country and language, the source rules below and the safety rules
-(§0), and ask for facts with URLs, tiers and dates, estimates with formulas, and unknowns. Then
+(§0), and ask for facts with URLs, tiers and dates, estimates with formulas, and unknowns.
+**Budget:** each subagent runs at most **8 searches and 4 page fetches**, then reports; the main
+thread adds at most 8 more searches to fill gaps. About 40 searches in all is enough for the
+20-source minimum. Without a budget, the first runs used 65–110 searches and twice the cost. Then
 merge, deduplicate and fill the gaps yourself. Without the Agent tool, run the searches in
 parallel batches. Search in the target country's language and on its local sites. Go down
 this kill-shot checklist and record evidence for every item, hit or clear:
