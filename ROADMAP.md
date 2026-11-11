@@ -1,6 +1,6 @@
 # Roadmap to 1.0.0
 
-1.0.0 is a quality bar, not a date. All the work happens in **one sprint**, the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) milestone (22 issues), and 1.0.0 ships when it is closed.
+1.0.0 is a quality bar, not a date. All the work happens in **one sprint**, the [1.0.0 sprint](https://github.com/RemiPelloux/kill-my-idea/milestone/4) milestone (26 issues), and 1.0.0 ships when it is closed.
 
 **What 1.0 means**
 
@@ -8,6 +8,7 @@
 2. **The formats are stable.** Every file has a versioned schema. After 1.0, a breaking change needs a major version.
 3. **Everything is tested.** The scripts and the rules have tests in CI, not only the example runs.
 4. **Nothing in the default output runs code** written by the model.
+5. **A surviving idea gets a plan.** Deepdive turns its evidence into personas, market strategies, promotion angles and a checked name, all sourced.
 
 Each item below has why (the evidence), effort (S = under a day, M = a few days, L = a week or more) and done when.
 
@@ -37,20 +38,27 @@ set, the regenerated examples and the gallery re-run) are real runs: at most 3 a
 12. [#11](https://github.com/RemiPelloux/kill-my-idea/issues/11) Golden runs
 13. [#13](https://github.com/RemiPelloux/kill-my-idea/issues/13) Regenerate the examples
 
+**Go to market (deepdive)**
+
+14. [#26](https://github.com/RemiPelloux/kill-my-idea/issues/26) Deepdive: personas
+15. [#27](https://github.com/RemiPelloux/kill-my-idea/issues/27) Deepdive: market strategy options
+16. [#28](https://github.com/RemiPelloux/kill-my-idea/issues/28) Deepdive: promotion axes
+17. [#29](https://github.com/RemiPelloux/kill-my-idea/issues/29) Deepdive: branding
+
 **Speed and docs**
 
-14. [#14](https://github.com/RemiPelloux/kill-my-idea/issues/14) Cost and time in the report
-15. [#16](https://github.com/RemiPelloux/kill-my-idea/issues/16) Parallel research by default
-16. [#15](https://github.com/RemiPelloux/kill-my-idea/issues/15) Quick mode
-17. [#17](https://github.com/RemiPelloux/kill-my-idea/issues/17) Write a "How scoring works" page
-18. [#18](https://github.com/RemiPelloux/kill-my-idea/issues/18) Rubric-change process
+18. [#14](https://github.com/RemiPelloux/kill-my-idea/issues/14) Cost and time in the report
+19. [#16](https://github.com/RemiPelloux/kill-my-idea/issues/16) Parallel research by default
+20. [#15](https://github.com/RemiPelloux/kill-my-idea/issues/15) Quick mode
+21. [#17](https://github.com/RemiPelloux/kill-my-idea/issues/17) Write a "How scoring works" page
+22. [#18](https://github.com/RemiPelloux/kill-my-idea/issues/18) Rubric-change process
 
 **Freeze**
 
-19. [#21](https://github.com/RemiPelloux/kill-my-idea/issues/21) Release checklist
-20. [#19](https://github.com/RemiPelloux/kill-my-idea/issues/19) Compatibility promise
-21. [#20](https://github.com/RemiPelloux/kill-my-idea/issues/20) Security review
-22. [#22](https://github.com/RemiPelloux/kill-my-idea/issues/22) Gallery re-run
+23. [#21](https://github.com/RemiPelloux/kill-my-idea/issues/21) Release checklist
+24. [#19](https://github.com/RemiPelloux/kill-my-idea/issues/19) Compatibility promise
+25. [#20](https://github.com/RemiPelloux/kill-my-idea/issues/20) Security review
+26. [#22](https://github.com/RemiPelloux/kill-my-idea/issues/22) Gallery re-run
 
 ---
 
@@ -80,6 +88,20 @@ those because of the R6 cap. A score that never leaves 43–58 is not telling id
 | **Golden runs** | A prompt or rubric change can shift every score without anyone noticing. | S | 5 gallery verdicts are frozen as fixtures. CI fails if the checker's recomputed score for them changes. |
 | **No executable data by default** | SECURITY.md lists one known limitation: `report-data.js` is JavaScript written by the model. | M | The skill writes `report-data.json`, and a script embeds it as an inert `application/json` block (the export already does this). The default report contains no model-written script, and SECURITY.md's known limitation is closed. |
 | **Regenerate the examples** | The two example reports only pass the checker in `--legacy` mode. | M | Every example passes the checker without `--legacy`. `--legacy` remains for users' old files only. |
+
+## Go to market (deepdive)
+
+A verdict says whether to build. When the idea survives, the next questions are who exactly to
+sell to, with what message, where, and under what name. Deepdive already collects 15+ verbatim
+customer quotes, the channels with their costs, and the competitors' positioning. Today that
+evidence stops at the verdict.
+
+| Item | Why | Effort | Done when |
+|---|---|---|---|
+| **Personas** | "Small businesses" is not a customer. Deepdive's customer voice already holds the raw material. | M | 2–3 personas, each built from the customer-voice quotes and the ICP: role, context, the pain in their own words (verbatim, linked), what they use today and pay for it, the trigger that makes them look, objections, and where to reach them. Every field is sourced or marked as an estimate. A persona without at least 3 linked quotes is not written. Shown as cards in the report. |
+| **Market strategy options** | There is usually more than one way in: a niche first, another country first, a service before the product, a partner channel. Today only the rescue paths hint at this. | M | 2–3 strategies (for example: beachhead niche, launch country, partner or reseller, service first). Each has the first customer segment, the entry channel, the price point, the cost to the first 10 customers and the risks, re-scored with the same rubric. One is recommended and the choice is explained. |
+| **Promotion axes** | The pains ranked by frequency are the best ad and landing-page copy, and they are already in the data. | S | 3–5 messaging angles, each tied to a ranked pain and a persona, with a headline, a proof point (sourced), the channel it fits, and the competitor messages it must beat (quoted from their sites). Plus one landing-page outline for the 7-day test. |
+| **Branding** | A name that is taken, or a position that copies the leader, costs months later. | M | A positioning statement (for whom, the category, the one difference, proof). 5 name ideas, each checked by search only: .com and local domain, a trademark search in the launch country's register, App Store and social handles, with the result and the date of the check. The tone of voice comes from how the personas talk. Nothing is registered or bought. |
 
 ## Faster, cheaper, clearer
 
