@@ -120,6 +120,7 @@ Both are rebuilt from the verdicts by `scripts/build-brain.py`, so nothing on th
 
 | Command | What it does |
 |---|---|
+| `/kill-my-idea:nuke` | Everything in one command: kill, a deep dive when it scores a PIVOT, fix, the 7-day test kit, the starter kit and post drafts, tied together in `NUKE.md` and a "Full run" summary at the top of the report. Stops after fix when even the fixed idea stays under 50 |
 | `/kill-my-idea:kill` | The verdict, report and 7-day test. Accepts one line, a pasted tweet, a URL or a long document |
 | `/kill-my-idea:deepdive` | Six research tracks in parallel, 40+ sources: market size, competitor teardown, real customer quotes, pricing, channels, regulation per country |
 | `/kill-my-idea:check-tweet` | Fact-checks a viral "make money" post: every claim, the real math, what the author sells, then a verdict |
@@ -127,6 +128,8 @@ Both are rebuilt from the verdicts by `scripts/build-brain.py`, so nothing on th
 | `/kill-my-idea:compare` | Ranks every idea you've checked by score, speed and confidence, picks the one to work on this week, and updates the dashboard and the brain note. `--refresh` re-checks the stale ones |
 | `/kill-my-idea:fix` | The path to GO: the smallest set of changes (price against the competitors' price pages, must-have features, customer, channel, model) with what each one needs first and the points it adds, re-scored with the same rules. Says so when GO is out of reach ([example](https://remipelloux.github.io/kill-my-idea/gallery/2026-11-notion-real-estate/report.html#fix)) |
 | `/kill-my-idea:build` | The starter kit for building an idea (or one of its rescue paths): README, `.env.example`, folder structure, PRD, architecture, user stories, sprints, Definition of Done, a 12-month business plan with 3 scenarios, brand tokens, a storyboard with a ready [Remotion](https://www.remotion.dev) video project, and creative ads with a target cost per customer ([example](examples/ugc-agency-build/BUILD.md)) |
+| `/kill-my-idea:validate` | Turns the 7-day test into a kit: a landing page with a waitlist, an interview script that asks about the past (never "would you…"), outreach messages that follow each place's link rules, and targets with numbers. `--results` re-scores the idea from what really happened, shown as researched → validated |
+| `/kill-my-idea:share` | A verdict card image and post drafts for Reddit, X, LinkedIn or Hacker News, checked against each place's rules: length, no link where links are banned, every score quoted is a real one. Nothing is posted |
 
 You can also just write "kill my idea: …", "is this worth building?" or "which idea should I do?".
 
@@ -205,6 +208,9 @@ Everything goes into `ideas/<YYYY-MM>-<slug>/` in your current folder.
 | `ideas/board.html` + `ideas/BRAIN.md` | The dashboard and the brain note for all your ideas, rebuilt after every run |
 | `ideas/RANKING.md` + `ideas/focus.json` | The ranking and this week's focus (`compare`) |
 | `fix.json` + `fix.md` | The path to GO (`fix` only): levers, prerequisites, price table, features, the re-scored idea as a projection ([schema](skills/fix/fix.schema.json)). `scripts/fix-kit.py` checks it and adds the section to `report.html`; `verdict.json` never changes |
+| `validate.json` + `validate/` | The 7-day test (`validate` only): `landing.html` (static, no script), `interview.md`, `outreach.md`, `tracker.csv`, and the results once you have them ([schema](skills/validate/validate.schema.json)). `scripts/validate-kit.py` checks it and re-scores from the results |
+| `share.json` + `share/` | Post drafts and the verdict card, `card.svg` and `card.png` (`share` only, [schema](skills/share/share.schema.json)). `scripts/share-kit.py` checks each post against its place |
+| `nuke.json` + `NUKE.md` | The full run (`nuke` only): each step, done or skipped and why ([schema](skills/nuke/nuke.schema.json)). `scripts/nuke-kit.py` checks the run and every step's file |
 | `build/` | The starter kit (`build` only): start with `build/BUILD.md`. `build/plan.json` is the data ([schema](skills/build/build-plan.schema.json)); `scripts/build-kit.py` checks it against the verdict, does the business-plan math and renders the docs, `.env.example`, design tokens and the video props |
 
 Check any run yourself:

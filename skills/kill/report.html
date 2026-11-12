@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-WtDpnxQloaWOihHyWY2fkUsrGyIV+UoAiYVdeVgrrl8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file: 'sha256-P8K4d467sE1yLvYaX3NzW6QZtxaSHwr9yVm6AOaIvEg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>kill-my-idea report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -303,6 +303,20 @@ if (FX) { FX.score_after = num(FX.score_after) ?? 0; FX.score_before = num(FX.sc
   if (P.current && typeof P.current === "object") P.current.amount = num(P.current.amount); else P.current = null; FX.pricing = P;
   const F = FX.features && typeof FX.features === "object" ? FX.features : {}; F.must = Array.isArray(F.must) ? F.must.slice(0, 8) : []; F.cut = Array.isArray(F.cut) ? F.cut.slice(0, 8) : [];
   F.differentiator = F.differentiator && typeof F.differentiator === "object" ? F.differentiator : null; FX.features = F; }
+const VA = N.validate && typeof N.validate === "object" && !Array.isArray(N.validate) ? N.validate : null;
+if (VA) { VA.score_before = num(VA.score_before) ?? V.score; VA.score_after = num(VA.score_after);
+  VA.targets = Array.isArray(VA.targets) ? VA.targets.filter(t => t && typeof t === "object").slice(0, 6) : [];
+  VA.targets.forEach(t => { ["goal", "out_of", "actual", "actual_out_of"].forEach(k => { t[k] = num(t[k]); }); if (!["met", "missed", "pending"].includes(t.status)) t.status = "pending"; });
+  VA.moves = Array.isArray(VA.moves) ? VA.moves.filter(m => m && typeof m === "object").slice(0, 21) : []; VA.moves.forEach(m => { m.from = num(m.from) ?? 0; m.to = num(m.to) ?? 0; });
+  ["kill_criteria", "files"].forEach(k => { VA[k] = Array.isArray(VA[k]) ? VA[k].slice(0, 8) : []; });
+  VA.landing = VA.landing && typeof VA.landing === "object" ? VA.landing : {}; }
+const NK = N.nuke && typeof N.nuke === "object" && !Array.isArray(N.nuke) ? N.nuke : null;
+if (NK) { NK.kill_score = num(NK.kill_score) ?? V.score; NK.cost_usd = num(NK.cost_usd); NK.minutes = num(NK.minutes);
+  NK.steps = Array.isArray(NK.steps) ? NK.steps.filter(x => x && typeof x === "object").slice(0, 6) : [];
+  NK.steps.forEach(x => { if (!["done", "skipped", "stopped"].includes(x.status)) x.status = "skipped"; });
+  NK.fix = NK.fix && typeof NK.fix === "object" ? NK.fix : null; if (NK.fix) NK.fix.score_after = num(NK.fix.score_after) ?? 0;
+  NK.validate = NK.validate && typeof NK.validate === "object" ? NK.validate : null; if (NK.validate) NK.validate.validated = num(NK.validate.validated);
+  NK.build = NK.build && typeof NK.build === "object" ? NK.build : null; NK.share = Array.isArray(NK.share) ? NK.share.slice(0, 6) : []; }
 (N.rescue || []).forEach(r => { r.score_after = num(r.score_after) ?? 0; if (!["doable", "hard", "very-hard"].includes(r.difficulty)) r.difficulty = "hard"; });
 (N.competitors || []).forEach(c => { c.traction = num(c.traction); c.price_low = num(c.price_low); c.price_high = num(c.price_high); });
 (N.scenarios || []).forEach(sc => { ["customers_month", "revenue_month", "costs_month"].forEach(k => { sc[k] = num(sc[k]); }); });
@@ -784,7 +798,24 @@ const sFix = FX ? section("fix", FX.reachable ? "Path to GO" : "How close it can
   ${FX.plan.length ? `<h3 style="margin:var(--s3) 0 8px">In order</h3><table><thead><tr><th>When</th><th>Step</th><th>Proof it worked</th></tr></thead><tbody>${FX.plan.map(s => `<tr><td>${esc(s.when)}</td><td>${rt(s.step)}</td><td>${rt(s.verify)}</td></tr>`).join("")}</tbody></table>` : ""}
   ${FX.kill_criteria.length ? `<div class="card rv" style="margin-top:var(--s3)"><p style="margin:0"><strong>Stop if:</strong> ${FX.kill_criteria.map(rt).join(" · ")}</p></div>` : ""}`) : "";
 
-const body = [sSummary, sRescue, sFix, sPremortem, sTest, sGtm, sAbout, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
+const STEP = { kill: "Kill", deepdive: "Deep dive", fix: "Fix", validate: "7-day test kit", build: "Starter kit", share: "Posts" };
+const STAT = { done: "Done", skipped: "Skipped", stopped: "Stopped" };
+const sNuke = NK ? section("nuke", "Full run", `Every step of kill-my-idea on this idea, in one run${NK.minutes ? ` (${NK.minutes} min` : ""}${NK.cost_usd ? `${NK.minutes ? ", " : " ("}about $${NK.cost_usd}` : ""}${NK.minutes || NK.cost_usd ? ")" : ""}. Nothing was published, bought or sent.`,
+  `<div class="grid g3">${card(`<div class="kpi"><div class="k">${ic("target")}Verdict</div><div class="delta">${NK.kill_score !== V.score ? `${vbadge(NK.kill_score)}<span style="color:var(--muted-fg)">${ic("arrow")}</span>` : ""}${vbadge(V.score)}</div>${NK.kill_score !== V.score ? `<p class="why">Kill, then the deep dive</p>` : ""}</div>`)}
+  ${NK.fix ? card(`<div class="kpi"><div class="k">${ic("arrow")}Path to GO</div><div class="delta">${vbadge(V.score)}<span style="color:var(--muted-fg)">${ic("arrow")}</span>${vbadge(NK.fix.score_after)}</div><p class="why">${rt(String(NK.fix.summary || "").replace(/\.?$/, "."))}${NK.fix.reachable === true ? "" : " GO is out of reach."} <a href="#fix">See the changes</a></p></div>`, 80) : ""}
+  ${NK.validate ? card(`<div class="kpi"><div class="k">${ic("check")}7-day test</div><p class="why">${rt(NK.validate.hypothesis || "")}</p>${NK.validate.validated !== null ? `<div class="delta"><span class="why">Validated</span>${vbadge(NK.validate.validated)}</div>` : `<p class="why">Kit ready in validate/, waiting for results. <a href="#validate">See the targets</a></p>`}</div>`, 160) : ""}</div>
+  <table style="margin-top:var(--s3)"><thead><tr><th>Step</th><th>Status</th><th>Why</th></tr></thead><tbody>${NK.steps.map(x => `<tr><td>${esc(STEP[x.step] || x.step)}</td><td><span class="fx-have ${x.status === "done" ? "yes" : x.status === "stopped" ? "no" : "unknown"}">${STAT[x.status]}</span></td><td>${x.why ? rt(x.why) : ""}</td></tr>`).join("")}</tbody></table>
+  ${NK.build ? `<div class="card rv reco" style="margin-top:var(--s3)"><div class="reco-k">${ic("target")}The starter kit</div><p><strong>${esc(NK.build.name)}</strong>: ${rt(NK.build.one_liner || "")}</p><p class="why">Start at build/BUILD.md${NK.build.key_metric ? `. Key metric: ${esc(NK.build.key_metric)}` : ""}.</p></div>` : ""}
+  ${NK.share.length ? `<p class="why" style="margin-top:12px">Post drafts for ${NK.share.map(esc).join(", ")} in share/posts.md, with the card image. Nothing was posted.</p>` : ""}`) : "";
+const TSTAT = { met: "Met", missed: "Missed", pending: "Waiting" };
+const sValidate = VA ? section("validate", "7-day test kit", VA.score_after !== null ? `Researched ${VA.score_before}, validated ${VA.score_after} with real numbers from ${esc(VA.date || "the test")}. The verdict above is the researched one.` : "Run the test, fill in validate/tracker.csv, then run /kill-my-idea:validate --results to re-score with real numbers.",
+  `<div class="card rv reco"><div class="reco-k">${ic("target")}What the test proves or kills</div><p>${rt(VA.hypothesis || "")}</p>${VA.score_after !== null ? `<div class="delta">${vbadge(VA.score_before)}<span style="color:var(--muted-fg)">${ic("arrow")}</span>${vbadge(VA.score_after)}</div>` : ""}
+    ${VA.landing.headline ? `<p class="why" style="margin:12px 0 0">Landing page: <strong>${esc(VA.landing.name || "")}</strong>, "${esc(VA.landing.headline)}", button "${esc(VA.landing.cta || "")}"</p>` : ""}</div>
+  <h3 style="margin:var(--s3) 0 8px">Targets</h3><table><thead><tr><th>Target</th><th class="num">Goal</th><th>By</th><th class="num">Result</th><th>Status</th></tr></thead><tbody>${VA.targets.map(t => `<tr><td>${rt(t.label || "")}</td><td class="num">${t.goal ?? ""}${t.out_of ? ` / ${t.out_of}` : ""}</td><td>${esc(t.by)}</td><td class="num">${t.actual ?? ""}${t.actual !== null && t.actual_out_of ? ` / ${t.actual_out_of}` : ""}</td><td><span class="fx-have ${t.status === "met" ? "yes" : t.status === "missed" ? "no" : "unknown"}">${TSTAT[t.status]}</span></td></tr>`).join("")}</tbody></table>
+  ${VA.moves.length ? `<h3 style="margin:var(--s3) 0 8px">What the evidence changed</h3><table><thead><tr><th>Sub-score</th><th class="num">Before</th><th class="num">After</th><th>Why</th></tr></thead><tbody>${VA.moves.map(m => `<tr><td>${esc(SUB[m.sub] || String(m.sub || "").replace(/_/g, " "))}</td><td class="num">${m.from.toFixed(1)}</td><td class="num">${m.to.toFixed(1)}</td><td>${rt(m.why || "")}</td></tr>`).join("")}</tbody></table>` : ""}
+  ${VA.files.length ? `<p class="why" style="margin-top:12px">In the idea folder: ${VA.files.map(esc).join(" · ")}</p>` : ""}
+  ${VA.kill_criteria.length ? `<div class="card rv" style="margin-top:var(--s3)"><p style="margin:0"><strong>Stop if:</strong> ${VA.kill_criteria.map(rt).join(" · ")}</p></div>` : ""}`) : "";
+const body = [sNuke, sSummary, sRescue, sFix, sValidate, sPremortem, sTest, sGtm, sAbout, sEvidence, sMarket, sComp, sVoice, sEcon, sCountry, sRisk, sScore].join("");
 const TIER = { primary: "primary", secondary: "secondary", tertiary: "tertiary" };
 const tiers = SRC.reduce((a, s) => { if (TIER[s.tier]) a[s.tier] = (a[s.tier] || 0) + 1; return a; }, {});
 const tierSub = Object.keys(tiers).length ? ` ${["primary", "secondary", "tertiary"].filter(t => tiers[t]).map(t => `${tiers[t]} ${t}`).join(", ")}.` : "";

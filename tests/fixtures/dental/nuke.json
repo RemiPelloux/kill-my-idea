@@ -1,0 +1,41 @@
+{
+ "schema_version": "1.0",
+ "slug": "dental-ai-receptionist",
+ "generated": "2026-11-12",
+ "kill_score": 41,
+ "steps": [
+  {
+   "step": "kill",
+   "status": "done",
+   "why": ""
+  },
+  {
+   "step": "deepdive",
+   "status": "skipped",
+   "why": "Kill scored 41, a NO-GO; deepdive runs only for a PIVOT"
+  },
+  {
+   "step": "fix",
+   "status": "done",
+   "why": ""
+  },
+  {
+   "step": "validate",
+   "status": "done",
+   "why": ""
+  },
+  {
+   "step": "build",
+   "status": "skipped",
+   "why": "The founder chose to wait for the 7-day test before building"
+  },
+  {
+   "step": "share",
+   "status": "done",
+   "why": ""
+  }
+ ],
+ "continued_past_stop": null,
+ "cost_usd": null,
+ "minutes": null
+}

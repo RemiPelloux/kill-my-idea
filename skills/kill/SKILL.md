@@ -431,8 +431,10 @@ Save the paths in `verdict.json` as `rescue`, and copy them to the report data a
    `ideas/board.html` from every verdict. Say "Your dashboard: open `ideas/board.html`".
    Without Bash, skip this and suggest `/kill-my-idea:compare`.
 8. One line offering the next moves:
-   `/kill-my-idea:deepdive` (more evidence) · `/kill-my-idea:roast` (shareable) ·
-   `/kill-my-idea:compare` (rank all your ideas).
+   `/kill-my-idea:fix` (path to GO) · `/kill-my-idea:validate` (7-day test kit) ·
+   `/kill-my-idea:deepdive` (more evidence) · `/kill-my-idea:share` (post drafts) ·
+   `/kill-my-idea:compare` (rank all your ideas). Inside a `/kill-my-idea:nuke` run, skip this
+   line and go on to the next step.
 
 ## Writing standard
 

@@ -45,6 +45,14 @@ jobs:
             python3 scripts/fix-kit.py --check "$(dirname "$f")"
           done < <(find examples docs/gallery -name fix.json -type f | sort)
 
+      - name: Check test kits, posts and full runs
+        run: |
+          for kind in validate share nuke; do
+            while IFS= read -r f; do
+              python3 scripts/$kind-kit.py --check "$(dirname "$f")"
+            done < <(find examples docs/gallery -name "$kind.json" -not -path '*/build/*' -type f | sort)
+          done
+
       - name: Check example build kits
         run: |
           while IFS= read -r p; do

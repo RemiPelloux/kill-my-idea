@@ -189,26 +189,27 @@ def check_levers(rep, fix, verdict):
     return moves
 
 
-def rescore(rep, fix, verdict, moves):
-    """Re-score the fixed idea with check-idea.py's own rules."""
-    fx = fix.get("fixed") or {}
+def rescore_against(rep, verdict, fx, moves, cleared, what="fixed", by="lever"):
+    """Check a re-scored copy of the verdict (fx) with check-idea.py's own rules.
+
+    moves = {sub: (from, to, who)}; cleared = the kill shots something removed. Shared by fix-kit
+    (levers) and validate-kit (test results)."""
     cd = fx.get("criteria_detail") or {}
     vcd = verdict.get("criteria_detail") or {}
     for sub in SUB_OF:
         before, after = sub_score(vcd, sub), sub_score(cd, sub)
         if sub in moves:
             if after != moves[sub][1]:
-                rep.error(f"fixed.{sub}: {after} but lever {moves[sub][2]} moves it to {moves[sub][1]}")
+                rep.error(f"{what}.{sub}: {after} but {by} {moves[sub][2]} moves it to {moves[sub][1]}")
         elif after != before:
-            rep.error(f"fixed.{sub}: {before} → {after} with no lever; every change needs a lever")
+            rep.error(f"{what}.{sub}: {before} → {after} with no {by}; every change needs a {by}")
     vks = verdict.get("kill_shots") or {}
     fks = fx.get("kill_shots") or {}
-    cleared = {k for lv in fix.get("levers") or [] for k in lv.get("clears") or []}
     for k in chk.KILL_SHOTS:
         if vks.get(k) is True and fks.get(k) is not True and k not in cleared:
-            rep.error(f"fixed.kill_shots.{k}: no longer hits, but no lever clears it")
+            rep.error(f"{what}.kill_shots.{k}: no longer hits, but no {by} clears it")
         if vks.get(k) is not True and fks.get(k) is True:
-            rep.warn(f"fixed.kill_shots.{k}: a fix introduces a new kill shot")
+            rep.warn(f"{what}.kill_shots.{k}: a new kill shot")
     pseudo = copy.deepcopy(verdict)
     pseudo.update({k: fx.get(k) for k in ("criteria_detail", "kill_shots", "rules_applied", "score", "score_raw",
                                           "verdict")})
@@ -219,7 +220,14 @@ def rescore(rep, fix, verdict, moves):
     sub_rep = Report()
     chk.check_scores(sub_rep, pseudo)
     for e in sub_rep.errors:
-        rep.error("fixed: " + e.replace("verdict.json: ", ""))
+        rep.error(f"{what}: " + e.replace("verdict.json: ", ""))
+
+
+def rescore(rep, fix, verdict, moves):
+    """Re-score the fixed idea with check-idea.py's own rules."""
+    fx = fix.get("fixed") or {}
+    cleared = {k for lv in fix.get("levers") or [] for k in lv.get("clears") or []}
+    rescore_against(rep, verdict, fx, moves, cleared)
     score = fx.get("score")
     if isinstance(score, int):
         if fix.get("reachable") is not (score >= GO):

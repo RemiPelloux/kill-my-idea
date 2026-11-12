@@ -126,6 +126,9 @@ The evidence: across the gallery runs, a kill run took a median of 6 minutes and
 
 ## After 1.0
 
+- ✅ **Full run, test kit and posts (1.3.0):** `/kill-my-idea:nuke` runs every step in one command; `/kill-my-idea:validate` prepares the 7-day test and re-scores from real results; `/kill-my-idea:share` drafts the posts and draws the verdict card.
+- **Works outside Claude Code:** check the skills in Cowork and claude.ai, the requirement for Anthropic's plugin directory.
+- **Watch:** re-check saved ideas every month and say when a competitor, a price or a kill shot moved.
 - ✅ **Path to GO (1.2.0):** `/kill-my-idea:fix` finds the changes that move the score, with prerequisites and a competitor price check, re-scored with the same rules.
 - ✅ **Build kit (1.1.0):** `/kill-my-idea:build` turns a verdict into the files to start building: stories, sprints, Definition of Done, a computed business plan, a Remotion video and ads.
 - **Faster runs:** the 30% speed target from #16. Measure where the 7 minutes go (subagent start-up, the research budget, report writing) before cutting.

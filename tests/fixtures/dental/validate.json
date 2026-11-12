@@ -1,0 +1,267 @@
+{
+ "schema_version": "1.0",
+ "slug": "dental-ai-receptionist",
+ "generated": "2026-11-12",
+ "based_on": {
+  "verdict": "NO-GO",
+  "score": 41
+ },
+ "hypothesis": "Solo practices on Open Dental will pay 300 USD a month for an AI receptionist that books appointments after hours",
+ "landing": {
+  "name": "NightDesk",
+  "headline": "Never miss an after-hours patient call again",
+  "subhead": "An AI receptionist that answers your practice's phone at night and books the appointment in your calendar.",
+  "bullets": [
+   "Answers every call after 6 pm",
+   "Books straight into Open Dental",
+   "Sends you a morning summary of every call"
+  ],
+  "cta": "Join the pilot",
+  "price": {
+   "amount": 300,
+   "currency": "USD",
+   "period": "month"
+  },
+  "form_url": ""
+ },
+ "interview": {
+  "who": "Dentists or office managers in solo or 2-chair practices that use Open Dental",
+  "questions": [
+   "Tell me about the last time a patient called after hours. What happened?",
+   "How do you handle calls when the front desk is busy today?",
+   "How many calls do you think you miss in a week, and how do you know?",
+   "What have you tried to fix it, and what did it cost?",
+   "Who decides on new tools for the practice, and how did the last purchase go?"
+  ],
+  "red_flags": [
+   "They don't know how many calls they miss",
+   "They already use the booking line of their calendar tool and are happy with it"
+  ]
+ },
+ "outreach": [
+  {
+   "channel": "Email",
+   "where": "Practice contact forms",
+   "links_allowed": true,
+   "text": "Hi Dr. Smith, I'm testing an after-hours phone assistant for practices on Open Dental. Could I ask you 5 questions about how you handle calls at night? 15 minutes, no sales pitch."
+  },
+  {
+   "channel": "Facebook group",
+   "where": "Dental office managers group",
+   "links_allowed": false,
+   "text": "Question for practice owners: how do you handle patient calls after 6 pm? I'm researching this for a small project and would love to hear what works for you."
+  }
+ ],
+ "targets": [
+  {
+   "id": "T1",
+   "metric": "presales",
+   "label": "Practices that pay the 300 EUR pilot deposit",
+   "goal": 2,
+   "out_of": null,
+   "by": "Day 7",
+   "moves": [
+    "pricing_power",
+    "willingness_to_pay"
+   ]
+  },
+  {
+   "id": "T2",
+   "metric": "replies",
+   "label": "Replies to 40 cold messages",
+   "goal": 8,
+   "out_of": 40,
+   "by": "Day 5",
+   "moves": [
+    "channel_readiness"
+   ]
+  }
+ ],
+ "kill_criteria": [
+  "Fewer than 1 paid pilot out of 10 calls by 2026-11-19: archive"
+ ],
+ "results": {
+  "date": "2026-11-19",
+  "entries": [
+   {
+    "target": "T1",
+    "actual": 0,
+    "evidence": "10 calls, 2 interested, nobody paid the deposit"
+   },
+   {
+    "target": "T2",
+    "actual": 11,
+    "out_of": 40,
+    "evidence": "11 replies to 40 emails, 4 calls booked"
+   }
+  ],
+  "moves": [
+   {
+    "sub": "pricing_power",
+    "from": 2,
+    "to": 1.5,
+    "target": "T1",
+    "why": "Nobody paid 300 EUR up front"
+   },
+   {
+    "sub": "channel_readiness",
+    "from": 2,
+    "to": 3,
+    "target": "T2",
+    "why": "Cold email got a 27% reply rate"
+   }
+  ],
+  "clears": [
+   {
+    "kill_shot": "no_distribution",
+    "target": "T2"
+   }
+  ],
+  "rescored": {
+   "criteria_detail": {
+    "profit": {
+     "gross_margin": {
+      "score": 2,
+      "note": "~49% margin (estimate): $101 voice, PMS API, fees on $199. R5 cap: costs_eat_margin hit (2.5 -> 2).",
+      "source": "https://www.retellai.com/it/pricing"
+     },
+     "ltv_cac": {
+      "score": 1.5,
+      "note": "LTV $1,958 vs founder-led CAC $1,500 = 1.3 (estimate).",
+      "source": "https://visionary-marketing.co.uk/blog/saas-churn-benchmarks-2026"
+     },
+     "pricing_power": {
+      "score": 1.5,
+      "note": "$199 undercuts $299-$899 dental tools; generic Quo Sona tops out at $199. Price is the only lever.",
+      "source": "https://www.dentalbase.ai/blogs/ai-dental-receptionist-cost-2026-pricing-breakdown"
+     }
+    },
+    "feasibility": {
+     "build_effort": {
+      "score": 2.5,
+      "note": "Voice API + Open Dental slot/booking API: ~4-6 weeks at 10 h/week; HIPAA setup on top.",
+      "source": "https://nirmitee.io/healthcare-interoperability/open-dental-api-integration/"
+     },
+     "skills_match": {
+      "score": 3,
+      "note": "Developer covers the build; dental workflows, HIPAA and B2B sales are new.",
+      "source": null
+     },
+     "capital_needed": {
+      "score": 3,
+      "note": "$2,000 covers a pilot on Open Dental; Dentrix write access costs $10,000 one-time.",
+      "source": "https://ainora.lt/blog/denticon-vs-open-dental-vs-dentrix-ai-comparison-2026"
+     }
+    },
+    "time_to_first_revenue": {
+     "time_to_mvp": {
+      "score": 2.5,
+      "note": "First paid pilot ~8 weeks out (estimate): build, BAA, per-practice PMS access.",
+      "source": null
+     },
+     "sales_cycle": {
+      "score": 2.5,
+      "note": "Dentist demo, trust in an AI touching the schedule, PMS vendor access: weeks per deal.",
+      "source": "https://www.eesel.ai/blog/ai-receptionist-for-dentists"
+     },
+     "channel_readiness": {
+      "score": 3,
+      "note": "No audience; cold outreach only. Dental clicks average $7.85; ADA channel taken by Weave.",
+      "source": "https://netpeak.us/blog/the-average-cpc-for-dental-ads-on-google-in-2025-defined/"
+     }
+    },
+    "demand": {
+     "search_demand": {
+      "score": 3.5,
+      "note": "'AI receptionist' ~4,400 US searches/month (tertiary keyword-tool data, 2026).",
+      "source": "https://findskill.ai/learn/ai-receptionist/"
+     },
+     "trend": {
+      "score": 4.5,
+      "note": "+86% YoY search growth for 'AI receptionist' (DataForSEO via FindSkill, 2026).",
+      "source": "https://findskill.ai/learn/ai-receptionist/"
+     },
+     "willingness_to_pay": {
+      "score": 4,
+      "note": "Flossy reports ~$4M ARR at $500/location/month (self-reported, 2026).",
+      "source": "https://getlatka.com/interviews/flossy-miles-beckett-2026"
+     }
+    },
+    "competition": {
+     "free_alternatives": {
+      "score": 3,
+      "note": "Quo includes 10 free AI calls/month; Weave bundles it. Free covers part, not PMS booking.",
+      "source": "https://support.quo.com/hc/en-us/articles/30808928416151-FAQs-about-Sona-the-OpenPhone-AI-Agent"
+     },
+     "competitor_density": {
+      "score": 1,
+      "note": "20+ direct competitors found: Weave, Arini, Flossy, Dentina, Viva, TensorLinks, SmileDial...",
+      "source": "https://www.producthunt.com/p/tensorlinks-ai-frontdesk"
+     },
+     "differentiation": {
+      "score": 1.5,
+      "note": "Only a lower price. 'I am a developer' is not an edge buyers see.",
+      "source": "https://www.cloudtalk.io/blog/dentina-ai-pricing/"
+     }
+    },
+    "risk": {
+     "legal_regulatory": {
+      "score": 2.5,
+      "note": "PHI on calls: BAAs needed across telephony, LLM, TTS and storage; TCPA for AI-voice callbacks.",
+      "source": "https://www.getaira.io/hipaa"
+     },
+     "platform_dependency": {
+      "score": 2.5,
+      "note": "Depends on PMS API access per practice and on one voice-AI vendor's pricing.",
+      "source": "https://ainora.lt/blog/denticon-vs-open-dental-vs-dentrix-ai-comparison-2026"
+     },
+     "market_risk": {
+      "score": 4,
+      "note": "Durable need: 55% of dentists find admin hiring extremely/very hard (ADA HPI, 2025).",
+      "source": "https://www.beckersdental.com/staffing-issues/how-dentists-are-faring-against-workforce-shortages/"
+     }
+    },
+    "fit": {
+     "skills": {
+      "score": 3,
+      "note": "Builds software; no dental, healthcare compliance or sales track record stated.",
+      "source": null
+     },
+     "assets": {
+      "score": 1,
+      "note": "No audience, dental network or data stated.",
+      "source": null
+     },
+     "interest": {
+      "score": 1.5,
+      "note": "Goal stated as side income; no domain interest stated.",
+      "source": null
+     }
+    }
+   },
+   "kill_shots": {
+    "free_alternative": false,
+    "strong_competitor": true,
+    "graveyard": false,
+    "no_distribution": false,
+    "costs_eat_margin": true,
+    "weak_demand": false,
+    "legal_platform_risk": true,
+    "saturated_wave": null
+   },
+   "rules_applied": [
+    {
+     "rule": "R5_kill_shot_coherence",
+     "effect": "costs_eat_margin hit: gross_margin 2.5 -> 2"
+    },
+    {
+     "rule": "R7_unprofitable_model",
+     "effect": "Profit potential 1.67 (2 or less): 51 - 10 = 41"
+    }
+   ],
+   "score": 41,
+   "score_raw": 51.2,
+   "verdict": "NO-GO"
+  }
+ }
+}

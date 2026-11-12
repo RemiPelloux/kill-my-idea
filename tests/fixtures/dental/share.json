@@ -1,0 +1,39 @@
+{
+ "schema_version": "1.0",
+ "slug": "dental-ai-receptionist",
+ "generated": "2026-11-12",
+ "card": {
+  "headline": "An AI receptionist for dental practices",
+  "reasons": [
+   "Each practice costs more to win than it brings in",
+   "A strong competitor already sells to the same practices"
+  ],
+  "after": "With the fixes: 60/100, still not a GO"
+ },
+ "posts": [
+  {
+   "platform": "reddit",
+   "place": "r/SideProject",
+   "links_allowed": true,
+   "title": "I ran my dental AI receptionist idea through a plugin that tries to kill it: 41/100",
+   "body": "It found that every practice costs more to win than it pays back, and a funded competitor already sells the same thing. The fix step got it to 60/100 with a different channel, still short of GO.",
+   "link": "https://github.com/RemiPelloux/kill-my-idea"
+  },
+  {
+   "platform": "x",
+   "place": "X",
+   "links_allowed": true,
+   "title": "",
+   "body": "Dental AI receptionist: NO-GO, 41/100. Winning a practice costs more than it pays back. Best fix gets it to 60.",
+   "link": "https://github.com/RemiPelloux/kill-my-idea"
+  },
+  {
+   "platform": "reddit",
+   "place": "r/EntrepreneurRideAlong",
+   "links_allowed": false,
+   "title": "My AI receptionist idea for dentists scored 41/100. Here is why",
+   "body": "The research found a funded competitor and a customer that costs more to win than it pays. The best fix (selling through dental marketing agencies) projects to 60. Would you still test it?",
+   "link": null
+  }
+ ]
+}
