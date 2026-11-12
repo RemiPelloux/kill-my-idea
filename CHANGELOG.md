@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.3.0 — 2026-11-12
+
+- **New skill, `/kill-my-idea:nuke`:** every step in one command. Kill, a deep dive only when the
+  idea scores a PIVOT (50 to 69, where more evidence can change the verdict), fix, the 7-day test
+  kit, the starter kit and post drafts. It shows the time and cost first, asks once, and stops
+  after fix when even the fixed idea projects under 50, unless you choose to go on.
+  `scripts/nuke-kit.py` checks the run against those rules and runs each step's own checker on its
+  file, then writes `NUKE.md` and a "Full run" summary at the top of the report.
+- **New skill, `/kill-my-idea:validate`:** the 7-day test as a kit. One hypothesis (who pays how
+  much for what), 2 to 6 targets with numbers (at least one is sign-ups or pre-sales), a static
+  landing page with a waitlist, an interview script about what people did rather than what they
+  would do, and outreach messages that respect each place's link rules. With `--results`, it
+  re-scores the idea from what really happened: a sub-score goes up only on a target you met,
+  down only on one you missed, by 2 points at most. The report shows researched → validated;
+  `verdict.json` never changes.
+- **New skill, `/kill-my-idea:share`:** a verdict card (SVG, plus PNG when rsvg-convert or
+  ImageMagick is installed) drawn by the script from `verdict.json`, and post drafts for Reddit,
+  X, LinkedIn or Hacker News. `scripts/share-kit.py` checks length limits, links where a place bans
+  them, that every "N/100" is one of the idea's real scores, and refuses em dashes and "What I
+  learned" sections. Nothing is posted.
+- `kill` now offers fix, validate and share as next steps. `fix-kit.py`'s re-scoring is shared with
+  `validate-kit.py`, so both use the checker's own rules.
+- 22 new tests (102 in all). CI checks every `validate.json`, `share.json` and `nuke.json`. Every
+  report was rebuilt with the new template.
+
 ## 1.2.0 — 2026-11-11
 
 - **New skill, `/kill-my-idea:fix`:** the path to GO. It finds where the points are lost (sub-scores
