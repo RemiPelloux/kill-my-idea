@@ -1,0 +1,416 @@
+{
+  "schema_version": "1.0",
+  "slug": "dental-ai-receptionist",
+  "generated": "2026-11-12",
+  "based_on": {
+    "verdict": "PIVOT",
+    "score": 56
+  },
+  "summary": "An Open Dental-native, HIPAA-covered AI receptionist for independent practices, $199/month with no contract, sold by missed-call audits.",
+  "pricing": {
+    "current": {
+      "amount": 199,
+      "currency": "USD",
+      "period": "month"
+    },
+    "competitors": [
+      {
+        "name": "Smith.ai AI (dental)",
+        "amount": 285,
+        "period": "month",
+        "source": "https://smith.ai/industries/dentists-answering-service",
+        "as_of": "2026-11-12"
+      },
+      {
+        "name": "Dentina AI",
+        "amount": 299,
+        "period": "month",
+        "source": "https://www.cloudtalk.io/blog/dentina-ai-pricing/",
+        "as_of": "2026-09-11"
+      },
+      {
+        "name": "Viva AI",
+        "amount": 350,
+        "period": "month",
+        "source": "https://www.getviva.ai/exciting-update-new-viva-ai-demo-promotional-pricing-350-month-no-contract/",
+        "as_of": "2026-11-12"
+      },
+      {
+        "name": "Arini",
+        "amount": 499,
+        "period": "month",
+        "source": "https://www.capterra.com/p/10036210/Arini/reviews/",
+        "as_of": "2026-11-12"
+      }
+    ],
+    "recommended": {
+      "amount": 199,
+      "period": "month",
+      "position": "undercut",
+      "why": "30-60% under dental tools with PMS booking ($285-499) while keeping ~60% gross margin and LTV:CAC near 3; generic $29-129 tools lack HIPAA or PMS depth, so no need to go lower"
+    }
+  },
+  "features": {
+    "must": [
+      {
+        "feature": "Real write-back booking into Open Dental",
+        "why": "Top AI complaint: says it books but doesn't",
+        "source": "https://ca.trustpilot.com/review/smith.ai?page=4"
+      },
+      {
+        "feature": "Warm hand-off or forward to the front desk",
+        "why": "Reviewers value calls routed to the right person",
+        "source": "https://ca.trustpilot.com/review/smith.ai?page=4"
+      },
+      {
+        "feature": "Month-to-month billing, cancel by email",
+        "why": "Contract complaints lead competitor reviews",
+        "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2"
+      },
+      {
+        "feature": "Signed BAA and recording plus AI disclosure",
+        "why": "HIPAA business associate rules and state consent laws",
+        "source": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/"
+      }
+    ],
+    "cut": [
+      {
+        "feature": "Outbound AI reminder calls",
+        "why": "TCPA treats AI voices as artificial voices; consent risk for no core value"
+      },
+      {
+        "feature": "Dentrix and Eaglesoft support",
+        "why": "Dentrix access costs ~$10k plus royalties, 5x the budget"
+      },
+      {
+        "feature": "SMS marketing campaigns",
+        "why": "10DLC vetting and scope creep; text-back only"
+      }
+    ],
+    "differentiator": {
+      "feature": "Native Open Dental booking, month to month",
+      "why": "Weave books only on qualified PMS inside a 12-month bundle; generic tools don't integrate",
+      "source": "https://www.opendental.com/site/apipermissions.html"
+    }
+  },
+  "levers": [
+    {
+      "id": "L1",
+      "kind": "features",
+      "change": "Book straight into Open Dental (write API) under a signed BAA, with a warm hand-off to the front desk",
+      "evidence": "Users complain AI receptionists 'state they book but never do' and that Weave is 'not very compatible with Open Dental'; Open Dental sells write access at $30-35 per location",
+      "source": "https://www.opendental.com/site/apipermissions.html",
+      "difficulty": "hard",
+      "effort": "6-8 weeks at 10 h/week",
+      "cost": "$30-35/clinic/month",
+      "moves": [
+        {
+          "sub": "differentiation",
+          "from": 1.5,
+          "to": 3,
+          "why": "One real, specific difference: native Open Dental booking that generic and $29 tools lack"
+        },
+        {
+          "sub": "free_alternatives",
+          "from": 2,
+          "to": 3,
+          "why": "Free text-back covers part of the job; nothing free books into a PMS under a BAA"
+        }
+      ],
+      "clears": [],
+      "prerequisites": [
+        {
+          "what": "Open Dental API developer key and write tier",
+          "kind": "data",
+          "cost": "$30-35/clinic/month",
+          "have": "no"
+        },
+        {
+          "what": "Retell self-serve BAA",
+          "kind": "legal",
+          "cost": "$0 (vendor claim)",
+          "have": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "L2",
+      "kind": "channel",
+      "change": "Missed-call audit outreach: call practices at lunch, then email the owner the result; first 3 pilots won locally in person",
+      "evidence": "75.2% of missed dental calls are after hours and 20-38% go unanswered, so a personal audit gives a concrete hook; NPPES lists are free",
+      "source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/",
+      "difficulty": "doable",
+      "effort": "5 h/week ongoing",
+      "cost": "~$100/month tools",
+      "moves": [
+        {
+          "sub": "channel_readiness",
+          "from": 2,
+          "to": 3,
+          "why": "A channel exists with an estimated CAC (~$600) under first-year gross profit ($1,428)"
+        },
+        {
+          "sub": "ltv_cac",
+          "from": 2.5,
+          "to": 3,
+          "why": "CAC falls from ~$800 to ~$600 with a higher-reply audit hook: LTV:CAC ≈ 3.3"
+        }
+      ],
+      "clears": [
+        "no_distribution"
+      ],
+      "prerequisites": [
+        {
+          "what": "5 hours a week for calls and emails",
+          "kind": "time",
+          "cost": "half the weekly budget",
+          "have": "yes"
+        },
+        {
+          "what": "Cold email domain and inboxes",
+          "kind": "money",
+          "cost": "~$100/month",
+          "have": "yes"
+        }
+      ]
+    },
+    {
+      "id": "L3",
+      "kind": "model",
+      "change": "Month-to-month with a paid 30-day pilot at $199; cancel by email",
+      "evidence": "Contract and cancellation complaints are the most repeated pain in Weave and Smith.ai reviews",
+      "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+      "difficulty": "doable",
+      "effort": "1 day",
+      "cost": "$0",
+      "moves": [
+        {
+          "sub": "sales_cycle",
+          "from": 3,
+          "to": 3.5,
+          "why": "No contract and a paid pilot shorten the decision to about a week"
+        }
+      ],
+      "clears": [],
+      "prerequisites": [
+        {
+          "what": "Stripe billing with cancel link",
+          "kind": "skill",
+          "cost": "$0 + fees",
+          "have": "yes"
+        }
+      ]
+    },
+    {
+      "id": "L4",
+      "kind": "other",
+      "change": "Compliance pack: BAA chain (Retell; no OpenAI or Twilio direct without BAA), recording and AI disclosure on every call, state checklist",
+      "evidence": "HIPAA requires BAAs with business associates; ~11 states need all-party consent; CA, TX and UT require AI disclosure",
+      "source": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/",
+      "difficulty": "doable",
+      "effort": "20-30 hours",
+      "cost": "$0-500",
+      "moves": [
+        {
+          "sub": "legal_regulatory",
+          "from": 2,
+          "to": 2.5,
+          "why": "Known compliance work, done before the first pilot"
+        }
+      ],
+      "clears": [],
+      "prerequisites": [
+        {
+          "what": "HIPAA risk assessment template",
+          "kind": "legal",
+          "cost": "$0-300",
+          "have": "no"
+        }
+      ]
+    }
+  ],
+  "fixed": {
+    "criteria_detail": {
+      "profit": {
+        "gross_margin": {
+          "score": 3,
+          "note": "About **60%**: Retell ~$0.12/min x 450 min = $54 plus number, NexHealth, fees, 10DLC ≈ $80 per clinic",
+          "source": "https://www.retellai.com/pricing?utm_category=ai"
+        },
+        "ltv_cac": {
+          "score": 3,
+          "note": "CAC falls from ~$800 to ~$600 with a higher-reply audit hook: LTV:CAC ≈ 3.3",
+          "source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/"
+        },
+        "pricing_power": {
+          "score": 3,
+          "note": "$199 fills the gap: generic tools lack HIPAA (ElevenLabs) or PMS depth; dental AI starts at **$299-499**",
+          "source": "https://elevenlabs.io/reception"
+        }
+      },
+      "feasibility": {
+        "build_effort": {
+          "score": 3,
+          "note": "Voice stack is off the shelf (Retell); PMS write booking and HIPAA setup take 1-2 months at 10 h/week",
+          "source": "https://www.opendental.com/site/apipermissions.html"
+        },
+        "skills_match": {
+          "score": 3,
+          "note": "Developer can build it; HIPAA compliance and selling to dentists are skills the founder lacks"
+        },
+        "capital_needed": {
+          "score": 3,
+          "note": "Fits $2,000 with Retell BAA and Open Dental; Dentrix ($10k) or a Vapi HIPAA add-on would not",
+          "source": "https://ainora.lt/blog/denticon-vs-open-dental-vs-dentrix-ai-comparison-2026"
+        }
+      },
+      "time_to_first_revenue": {
+        "time_to_mvp": {
+          "score": 2.5,
+          "note": "About 8 weeks to a booking-capable, BAA-covered pilot at 10 h/week (estimate)"
+        },
+        "sales_cycle": {
+          "score": 3.5,
+          "note": "No contract and a paid pilot shorten the decision to about a week",
+          "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2"
+        },
+        "channel_readiness": {
+          "score": 3,
+          "note": "A channel exists with an estimated CAC (~$600) under first-year gross profit ($1,428)",
+          "source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/"
+        }
+      },
+      "demand": {
+        "search_demand": {
+          "score": 3.5,
+          "note": "135,665 dental offices (CBP 2023); Dentaltown ~255k members discuss missed calls",
+          "source": "https://vantainsights.com/industry/621210-offices-dentists"
+        },
+        "trend": {
+          "score": 4.5,
+          "note": "Healthcare AI voice agents grow **37.8%/yr** (GVR); RingCentral AI receptionist 5.9x in 11 months",
+          "source": "https://grandviewresearch.com/industry-analysis/ai-voice-agents-healthcare-market-report"
+        },
+        "willingness_to_pay": {
+          "score": 4,
+          "note": "Practices pay $175-700/month for human answering and Weave's median customer $12.5k/year",
+          "source": "https://costbench.com/software/dental-software/weave-dental/"
+        }
+      },
+      "competition": {
+        "free_alternatives": {
+          "score": 3,
+          "note": "Free text-back covers part of the job; nothing free books into a PMS under a BAA",
+          "source": "https://www.opendental.com/site/apipermissions.html"
+        },
+        "competitor_density": {
+          "score": 1,
+          "note": "R3/R5: 15+ rivals and 10 look-alike launches in 12 months; Weave serves 40,000+ locations",
+          "source": "https://www.usecarly.com/blog/weave-ai-receptionist/"
+        },
+        "differentiation": {
+          "score": 3,
+          "note": "One real, specific difference: native Open Dental booking that generic and $29 tools lack",
+          "source": "https://www.opendental.com/site/apipermissions.html"
+        }
+      },
+      "risk": {
+        "legal_regulatory": {
+          "score": 2.5,
+          "note": "Known compliance work, done before the first pilot",
+          "source": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/"
+        },
+        "platform_dependency": {
+          "score": 2.5,
+          "note": "Booking needs PMS access (Open Dental $30-35, NexHealth); OpenAI BAAs case by case; Twilio BAA needs Security Edition",
+          "source": "https://www.twilio.com/en-us/hipaa"
+        },
+        "market_risk": {
+          "score": 3.5,
+          "note": "Missed calls are a durable need (75% after hours), but incumbents are absorbing the feature",
+          "source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/"
+        }
+      },
+      "fit": {
+        "skills": {
+          "score": 2.5,
+          "note": "Builds software; no healthcare compliance or B2B dental sales track record"
+        },
+        "assets": {
+          "score": 1,
+          "note": "No dental network, audience or data (stated)"
+        },
+        "interest": {
+          "score": 1.5,
+          "note": "Stated goal is a side business at $5k MRR: money first, no dental interest stated"
+        }
+      }
+    },
+    "kill_shots": {
+      "free_alternative": false,
+      "strong_competitor": true,
+      "graveyard": true,
+      "no_distribution": false,
+      "costs_eat_margin": false,
+      "weak_demand": false,
+      "legal_platform_risk": true,
+      "saturated_wave": true
+    },
+    "rules_applied": [
+      {
+        "rule": "R5_kill_shot_coherence",
+        "effect": "saturated_wave -> competitor_density 1; legal_platform_risk -> legal 2.5; strong_competitor -> density <= 3"
+      }
+    ],
+    "metrics": {
+      "ltv_cac": {
+        "value": 3.3,
+        "basis": "estimate",
+        "reasoning": "LTV $1,987 / CAC ~$600 with the audit hook = 3.3"
+      }
+    },
+    "score": 60,
+    "score_raw": 60.0,
+    "verdict": "PIVOT"
+  },
+  "reachable": false,
+  "blockers": [
+    "Founder fit: no dental network, no healthcare compliance track record, 10 h/week (fit 1.7 of 5)",
+    "A saturated field: Weave (40,000+ locations, ADA-endorsed) and 15+ rivals keep competitor density at 1",
+    "Legal and platform exposure stays: HIPAA chain, state AI-disclosure laws and PMS access cap risk near 2.8",
+    "Time to MVP stays ~8 weeks at 10 h/week; a team or full-time founder would move it"
+  ],
+  "plan": [
+    {
+      "when": "Week 1",
+      "step": "Run the 7-day missed-call audit test: 40 calls, 150 emails, 5 demos",
+      "verify": "2 or more paid $199 pilots or signed letters of intent"
+    },
+    {
+      "when": "Week 2",
+      "step": "Sign the Retell BAA, get an Open Dental developer key, write the compliance pack",
+      "verify": "BAA signed and test booking written into an Open Dental sandbox"
+    },
+    {
+      "when": "Weeks 3-8",
+      "step": "Build the Open Dental booking agent and onboard the pilots",
+      "verify": "95% of AI bookings correct over 100 test calls"
+    },
+    {
+      "when": "Weeks 9-12",
+      "step": "Audit outreach at 300 emails a week",
+      "verify": "5 paying clinics, under 20% call hang-up rate"
+    },
+    {
+      "when": "Month 6",
+      "step": "Review churn and CAC; pitch 1 dental agency for white-label",
+      "verify": "12 clinics, monthly churn under 6%"
+    }
+  ],
+  "kill_criteria": [
+    "Fewer than 2 paid pilots from the audit test by 2026-11-20 -> stop",
+    "AI booking accuracy under 90% on 100 test calls by 2027-01-15 -> stop or go request-only",
+    "Fewer than 5 paying clinics by 2027-02-28 -> stop",
+    "Monthly churn above 10% across 10+ clinics by 2027-05-31 -> stop"
+  ]
+}

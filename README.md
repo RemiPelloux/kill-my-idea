@@ -120,7 +120,7 @@ Both are rebuilt from the verdicts by `scripts/build-brain.py`, so nothing on th
 
 | Command | What it does |
 |---|---|
-| `/kill-my-idea:nuke` | Everything in one command: kill, a deep dive when it scores a PIVOT, fix, the 7-day test kit, the starter kit and post drafts, tied together in `NUKE.md` and a "Full run" summary at the top of the report. Stops after fix when even the fixed idea stays under 50 |
+| `/kill-my-idea:nuke` | Everything in one command: kill, a deep dive when it scores a PIVOT, fix, the 7-day test kit, the starter kit and post drafts, tied together in `NUKE.md` and a "Full run" summary at the top of the report. Stops after fix when even the fixed idea stays under 50 ([example](examples/dental-receptionist-nuke/NUKE.md): 54 → 56 after the deep dive → 60 projected, 16 min, $8.97) |
 | `/kill-my-idea:kill` | The verdict, report and 7-day test. Accepts one line, a pasted tweet, a URL or a long document |
 | `/kill-my-idea:deepdive` | Six research tracks in parallel, 40+ sources: market size, competitor teardown, real customer quotes, pricing, channels, regulation per country |
 | `/kill-my-idea:check-tweet` | Fact-checks a viral "make money" post: every claim, the real math, what the author sells, then a verdict |

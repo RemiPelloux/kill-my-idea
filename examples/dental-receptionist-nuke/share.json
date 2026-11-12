@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0", "slug": "dental-ai-receptionist", "generated": "2026-11-12",
+  "card": {
+    "headline": "AI receptionist for US dental clinics, $199/month",
+    "reasons": [
+      "Weave already bundles an AI receptionist for 40,000+ practices",
+      "10 look-alike AI receptionist launches in 12 months",
+      "Real gap: $29 tools lack HIPAA, dental tools start at $299"
+    ],
+    "after": "Fixed: 60/100, Open Dental-native, no contract"
+  },
+  "posts": [
+    {"platform": "reddit", "place": "r/SideProject", "links_allowed": false,
+     "title": "I stress-tested my AI receptionist idea for dentists before writing code. It scored 56/100.",
+     "body": "The idea: an AI receptionist that answers the calls a dental front desk misses and books the appointment, $199 a month per clinic. I'm a solo dev with 10 hours a week and no contacts in dentistry.\n\nBefore building I ran it through a research pass (97 sources). It came back PIVOT, 56/100.\n\nWhat hurt:\n- Weave, the phone platform a lot of practices already use, bundles an AI receptionist, serves 40,000+ locations and got endorsed by the ADA this year.\n- I counted 10 near-identical AI receptionist launches in the last 12 months.\n- r/SideProject and X don't reach dentists. Google Ads for dental keywords runs about $7.85 a click.\n\nWhat held up:\n- Practices already pay $285 to $799 a month for AI answering, and $175 to $700 for human answering services.\n- The cheap generic tools ($29 a month) don't support HIPAA, and the dental ones with real booking start around $299.\n- The most repeated complaint in competitor reviews is contracts.\n\nThe narrowed version: book straight into Open Dental, signed BAA, month to month, sold with a missed-call audit (I call the office at lunch and email the owner what happened). That projects to 60/100, still not a clear go.\n\nNext week I'm calling 40 practices at lunch to count how many don't pick up. I'll post the numbers. If you work in a dental office, how do you handle lunch and after-hours calls today?",
+     "link": null},
+    {"platform": "x", "place": "X", "links_allowed": true, "title": "",
+     "body": "Scored my AI receptionist for dentists idea before building: 56/100.\n\nWeave already bundles one for 40k+ practices, and 10 look-alikes launched this year.\n\nThe gap: $29 tools lack HIPAA.\n\nNext: calling 40 dental offices at lunch to count who misses the call. Numbers in 7 days.",
+     "link": null}
+  ]
+}

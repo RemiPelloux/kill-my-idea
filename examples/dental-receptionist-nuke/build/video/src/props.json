@@ -1,0 +1,86 @@
+{
+  "brand": {
+    "name": "LunchLine",
+    "tagline": "Every missed call, answered and booked.",
+    "colors": {
+      "bg": "#0f1720",
+      "fg": "#f5f7fa",
+      "accent": "#f2b134",
+      "muted": "#9aa7b5"
+    }
+  },
+  "motion": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "scenes": [
+      {
+        "kind": "hook",
+        "duration_s": 3,
+        "text": "12:40. The phone rings. Nobody answers.",
+        "sub": ""
+      },
+      {
+        "kind": "stat",
+        "duration_s": 4,
+        "text": "of missed dental calls come after hours",
+        "sub": "Convirza",
+        "stat": 75,
+        "stat_suffix": "%"
+      },
+      {
+        "kind": "problem",
+        "duration_s": 4,
+        "text": "That caller books with the next practice.",
+        "sub": ""
+      },
+      {
+        "kind": "product",
+        "duration_s": 5,
+        "text": "LunchLine answers and books into Open Dental",
+        "sub": "Signed BAA, AI disclosure on every call"
+      },
+      {
+        "kind": "proof",
+        "duration_s": 4,
+        "text": "$199 a month. No contract.",
+        "sub": "Cancel by email"
+      },
+      {
+        "kind": "cta",
+        "duration_s": 4,
+        "text": "Get your free missed-call audit",
+        "sub": "lunchline (name unchecked)"
+      }
+    ]
+  },
+  "ads": [
+    {
+      "id": "AD-1",
+      "width": 1080,
+      "height": 1080,
+      "hook": "Month to month. Cancel by email. Every missed call answered.",
+      "headline": "AI receptionist, no contract",
+      "cta": "Get my audit",
+      "proof": "Contract and cancellation complaints are the most repeated pain in Weave reviews"
+    },
+    {
+      "id": "AD-2",
+      "width": 1080,
+      "height": 1920,
+      "hook": "We called your office at 12:40. Nobody answered.",
+      "headline": "Your free missed-call audit",
+      "cta": "Test my line",
+      "proof": "75.2% of missed dental calls come after hours"
+    },
+    {
+      "id": "AD-3",
+      "width": 1200,
+      "height": 628,
+      "hook": "It books in Open Dental. No sticky notes, no call-backs.",
+      "headline": "Open Dental AI receptionist",
+      "cta": "Book a demo",
+      "proof": "Open Dental sells API write access at $30-35 per location"
+    }
+  ]
+}

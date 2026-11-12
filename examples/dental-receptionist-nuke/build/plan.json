@@ -1,0 +1,510 @@
+{
+  "schema_version": "1.0",
+  "slug": "dental-ai-receptionist",
+  "generated": "2026-11-12",
+  "based_on": {
+    "verdict": "PIVOT",
+    "score": 56,
+    "path": "fix",
+    "change": "An Open Dental-native, HIPAA-covered AI receptionist for independent practices, $199/month with no contract, sold by missed-call audits."
+  },
+  "product": {
+    "name": "LunchLine",
+    "one_liner": "An AI receptionist that answers the calls a dental front desk misses and books them into Open Dental.",
+    "customer": "Owner-dentists and office managers of independent 1-3 location US practices on Open Dental",
+    "problem": "Practices miss 20-38% of calls, mostly at lunch and after hours, and missed new-patient calls are lost revenue.",
+    "key_metric": {
+      "name": "Paying clinics",
+      "target": "5 paying clinics at $199/month",
+      "deadline": "2027-02-28"
+    }
+  },
+  "stack": {
+    "choice": "Node.js 22 (stdlib HTTP server) + Retell AI voice agent + Open Dental API, hosted on AWS EC2 under the AWS BAA",
+    "why": "Retell handles telephony, speech and the LLM under a self-serve BAA; a small Node webhook service checks slots and writes appointments to Open Dental. No framework is needed for 3 endpoints.",
+    "components": [
+      {
+        "name": "Voice agent and telephony",
+        "tool": "Retell AI (pay as you go, ~$0.12/min)",
+        "cost_month": 54,
+        "source": "https://www.retellai.com/pricing?utm_category=ai"
+      },
+      {
+        "name": "PMS booking",
+        "tool": "Open Dental API write tier",
+        "cost_month": 32,
+        "source": "https://www.opendental.com/site/apipermissions.html"
+      },
+      {
+        "name": "Hosting with BAA",
+        "tool": "AWS EC2 small instance, encrypted EBS, AWS BAA via Artifact",
+        "cost_month": 20,
+        "source": "https://aws.amazon.com/compliance/hipaa-compliance"
+      },
+      {
+        "name": "Billing",
+        "tool": "Stripe (card fees only)",
+        "cost_month": 0,
+        "source": ""
+      }
+    ],
+    "alternatives": [
+      {
+        "name": "Vapi + Twilio",
+        "why_not": "Vapi's HIPAA add-on is reported at $1,000-2,000/month and Twilio's BAA needs Security Edition: over budget"
+      },
+      {
+        "name": "NexHealth Synchronizer for all PMS",
+        "why_not": "Wider PMS reach, but BAAs sit on the custom Scale tier; start Open Dental-only and add it later"
+      }
+    ]
+  },
+  "env": [
+    {
+      "name": "RETELL_API_KEY",
+      "purpose": "Authenticate Retell API calls and verify webhooks",
+      "required": true,
+      "where": "https://www.retellai.com/pricing?utm_category=ai"
+    },
+    {
+      "name": "OPEN_DENTAL_DEVELOPER_KEY",
+      "purpose": "Open Dental API developer key",
+      "required": true,
+      "where": "https://www.opendental.com/site/apipermissions.html"
+    },
+    {
+      "name": "OPEN_DENTAL_CUSTOMER_KEY",
+      "purpose": "Per-clinic customer key (one clinic in the pilot)",
+      "required": true
+    },
+    {
+      "name": "PORT",
+      "purpose": "HTTP port for the webhook server",
+      "required": false
+    },
+    {
+      "name": "STRIPE_SECRET_KEY",
+      "purpose": "Monthly billing and cancel link",
+      "required": false
+    }
+  ],
+  "structure": [
+    {
+      "path": "package.json",
+      "purpose": "Scripts: start and test (node --test), no dependencies"
+    },
+    {
+      "path": "src/",
+      "purpose": "Application code"
+    },
+    {
+      "path": "src/config.js",
+      "purpose": "Reads env vars and named constants"
+    },
+    {
+      "path": "src/slots.js",
+      "purpose": "Pure functions: find open slots in a schedule"
+    },
+    {
+      "path": "src/openDental.js",
+      "purpose": "Thin client for Open Dental appointment endpoints"
+    },
+    {
+      "path": "src/server.js",
+      "purpose": "Webhook endpoints Retell calls: check availability, book, hand off"
+    },
+    {
+      "path": "test/",
+      "purpose": "Tests run by node --test"
+    },
+    {
+      "path": "test/slots.test.js",
+      "purpose": "Unit tests for slot finding"
+    }
+  ],
+  "personas": [
+    {
+      "name": "The swamped office manager",
+      "role": "Office manager at an independent 1-3 location practice",
+      "pain": "Phones ring during check-ins and lunch; callers can't get through",
+      "quote": "create frustrated callers who WANT to become new patients, but cannot successfully get through to make an appointment.",
+      "quote_url": "https://www.dentaltown.com/channel/post/9320/when-your-successful-marketing-overwhelms-your-front-desk"
+    },
+    {
+      "name": "The contract-burned owner",
+      "role": "Owner-dentist locked into phone or answering contracts",
+      "pain": "Long contracts and tools that don't work with Open Dental",
+      "quote": "not very compatible with Open Dental, always gives us issues",
+      "quote_url": "https://www.capterra.com/p/141842/Weave/reviews/?page=2"
+    }
+  ],
+  "stories": [
+    {
+      "id": "US-01",
+      "persona": "The contract-burned owner",
+      "want": "to receive my missed-call audit result by email",
+      "so_that": "I see how many calls my office misses before I buy anything",
+      "priority": "must",
+      "points": 2,
+      "sprint": 0,
+      "acceptance": [
+        "40 practices are called at lunch or after 5 pm and each result is logged in tracker.csv",
+        "Each owner email names the time of the test call and its outcome"
+      ]
+    },
+    {
+      "id": "US-02",
+      "persona": "The contract-burned owner",
+      "want": "a demo number that answers as a sample practice",
+      "so_that": "I hear what my patients would hear",
+      "priority": "must",
+      "points": 3,
+      "sprint": 0,
+      "acceptance": [
+        "The demo line answers within 2 rings",
+        "5 of 5 test calls end with a correct booking request"
+      ]
+    },
+    {
+      "id": "US-03",
+      "persona": "The swamped office manager",
+      "want": "the AI to offer real open slots from Open Dental",
+      "so_that": "patients only get times we can honour",
+      "priority": "must",
+      "points": 5,
+      "sprint": 1,
+      "acceptance": [
+        "Slots come from the clinic's Open Dental schedule, not a static list",
+        "No slot overlapping an existing appointment is ever offered in 50 test calls"
+      ]
+    },
+    {
+      "id": "US-04",
+      "persona": "The swamped office manager",
+      "want": "the AI to write the booked appointment into Open Dental",
+      "so_that": "nobody re-types bookings from voicemail",
+      "priority": "must",
+      "points": 8,
+      "sprint": 2,
+      "acceptance": [
+        "A booked call creates the appointment in Open Dental with patient name and phone",
+        "95% of 100 test bookings are correct with no manual fix"
+      ]
+    },
+    {
+      "id": "US-05",
+      "persona": "The swamped office manager",
+      "want": "callers who ask for a person to be handed to the front desk or a call-back list",
+      "so_that": "no patient is stuck with a robot",
+      "priority": "must",
+      "points": 3,
+      "sprint": 2,
+      "acceptance": [
+        "Saying 'a person' transfers during open hours",
+        "After hours, a call-back entry with the caller's number is created"
+      ]
+    },
+    {
+      "id": "US-06",
+      "persona": "The contract-burned owner",
+      "want": "every call to play recording and AI disclosure, under a signed BAA",
+      "so_that": "my practice stays HIPAA and state-law compliant",
+      "priority": "must",
+      "points": 3,
+      "sprint": 1,
+      "acceptance": [
+        "The disclosure plays in the first 10 seconds of every call",
+        "Signed BAAs with Retell and AWS are stored in the compliance folder"
+      ]
+    },
+    {
+      "id": "US-07",
+      "persona": "The contract-burned owner",
+      "want": "to pay $199 a month and cancel by email",
+      "so_that": "I'm never locked in",
+      "priority": "must",
+      "points": 2,
+      "sprint": 3,
+      "acceptance": [
+        "Stripe charges $199 monthly with no setup fee",
+        "A cancel request by email stops the next charge within 1 business day"
+      ]
+    },
+    {
+      "id": "US-08",
+      "persona": "The swamped office manager",
+      "want": "a weekly summary of calls answered and booked",
+      "so_that": "I can see the value",
+      "priority": "should",
+      "points": 3,
+      "sprint": 3,
+      "acceptance": [
+        "The email lists calls answered, booked and handed off for the week",
+        "Numbers match the call log for 2 sample weeks"
+      ]
+    }
+  ],
+  "sprints": [
+    {
+      "number": 0,
+      "name": "7-day missed-call test",
+      "goal": "Prove practices miss calls and will pay a $199 pilot",
+      "weeks": 1,
+      "exit": "2 or more paid pilots or signed letters of intent from 5 demos"
+    },
+    {
+      "number": 1,
+      "name": "Compliance and real slots",
+      "goal": "BAAs signed and real Open Dental slots offered",
+      "weeks": 2,
+      "exit": "0 overlapping slots offered in 50 test calls"
+    },
+    {
+      "number": 2,
+      "name": "Booking and hand-off",
+      "goal": "Write bookings into Open Dental and hand off to humans",
+      "weeks": 2,
+      "exit": "95% of 100 test bookings correct"
+    },
+    {
+      "number": 3,
+      "name": "Pilots live and billing",
+      "goal": "Pilot clinics live and billed monthly",
+      "weeks": 2,
+      "exit": "2 clinics paying $199 and under 20% call hang-up rate"
+    }
+  ],
+  "dod": [
+    "All tests pass with node --test",
+    "Every acceptance criterion is checked on a real call or the Open Dental sandbox",
+    "The README Run section works from a clean clone",
+    "No secrets or patient data in the repo; .env is ignored",
+    "A pilot clinic or prospect saw the change working"
+  ],
+  "business_plan": {
+    "currency": "USD",
+    "inputs": {
+      "revenue_per_customer_month": {
+        "value": 199,
+        "basis": "verdict"
+      },
+      "variable_cost_per_customer_month": {
+        "value": 97,
+        "basis": "estimate",
+        "reasoning": "Fix lever L1 swaps NexHealth for Open Dental write access: 450 min x $0.12 = $54 + number $2 + Open Dental $32 + card fees $6 + 10DLC $3 = $97"
+      },
+      "cac": {
+        "value": 600,
+        "basis": "estimate",
+        "reasoning": "Fix lever L2: missed-call audit hook lifts replies; ~$100 tools + ~10 h x $50 per customer"
+      },
+      "churn_monthly_pct": {
+        "value": 6,
+        "basis": "verdict"
+      },
+      "fixed_costs_month": {
+        "value": 150,
+        "basis": "verdict"
+      },
+      "start_cash": {
+        "value": 2000,
+        "basis": "estimate",
+        "reasoning": "The founder's stated budget of USD 2,000"
+      }
+    },
+    "scenarios": [
+      {
+        "name": "Pessimistic",
+        "new_customers": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "note": "Cold email underperforms and no partner signs"
+      },
+      {
+        "name": "Base",
+        "new_customers": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "note": "Audit outreach at 300 emails a week, about 15 clinics by month 12"
+      },
+      {
+        "name": "Optimistic",
+        "new_customers": [
+          0,
+          1,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4
+        ],
+        "note": "One agency white-label partner adds clinics from month 5"
+      }
+    ],
+    "milestones": [
+      {
+        "month": 1,
+        "what": "Missed-call test done; 2 paid pilots"
+      },
+      {
+        "month": 3,
+        "what": "Booking agent live in pilot clinics"
+      },
+      {
+        "month": 4,
+        "what": "5 paying clinics (key metric)"
+      },
+      {
+        "month": 12,
+        "what": "About 15 paying clinics in the base case"
+      }
+    ]
+  },
+  "brand": {
+    "name": "LunchLine",
+    "tagline": "Every missed call, answered and booked.",
+    "tone": [
+      "plain",
+      "busy-day practical",
+      "no hype",
+      "reassuring on HIPAA"
+    ],
+    "colors": {
+      "bg": "#0f1720",
+      "fg": "#f5f7fa",
+      "accent": "#f2b134",
+      "muted": "#9aa7b5"
+    }
+  },
+  "motion": {
+    "format": "1080x1920",
+    "fps": 30,
+    "music": "calm, upbeat, no vocals",
+    "scenes": [
+      {
+        "kind": "hook",
+        "duration_s": 3,
+        "text": "12:40. The phone rings. Nobody answers.",
+        "sub": "",
+        "voiceover": "It's lunch. The phone rings. Nobody picks up."
+      },
+      {
+        "kind": "stat",
+        "duration_s": 4,
+        "text": "of missed dental calls come after hours",
+        "sub": "Convirza",
+        "voiceover": "Three in four missed dental calls come after hours.",
+        "stat": 75,
+        "stat_suffix": "%",
+        "source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/"
+      },
+      {
+        "kind": "problem",
+        "duration_s": 4,
+        "text": "That caller books with the next practice.",
+        "sub": "",
+        "voiceover": "And a new patient who can't get through calls someone else."
+      },
+      {
+        "kind": "product",
+        "duration_s": 5,
+        "text": "LunchLine answers and books into Open Dental",
+        "sub": "Signed BAA, AI disclosure on every call",
+        "voiceover": "LunchLine answers, finds a real slot and books it straight into Open Dental."
+      },
+      {
+        "kind": "proof",
+        "duration_s": 4,
+        "text": "$199 a month. No contract.",
+        "sub": "Cancel by email",
+        "voiceover": "One hundred ninety-nine dollars a month. Cancel by email."
+      },
+      {
+        "kind": "cta",
+        "duration_s": 4,
+        "text": "Get your free missed-call audit",
+        "sub": "lunchline (name unchecked)",
+        "voiceover": "Get your free missed-call audit today."
+      }
+    ]
+  },
+  "ads": [
+    {
+      "id": "AD-1",
+      "channel": "meta",
+      "persona": "The contract-burned owner",
+      "angle": "No contract",
+      "hook": "Month to month. Cancel by email. Every missed call answered.",
+      "headline": "AI receptionist, no contract",
+      "primary_text": "Tired of 12-month phone contracts? LunchLine answers the calls your front desk misses and books them into Open Dental for $199 a month. Cancel by email.",
+      "cta": "Get my audit",
+      "format": "1080x1080",
+      "visual": "A cancel email next to a booked appointment in Open Dental",
+      "proof": "Contract and cancellation complaints are the most repeated pain in Weave reviews",
+      "proof_source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+      "target_cpa": 500
+    },
+    {
+      "id": "AD-2",
+      "channel": "meta",
+      "persona": "The swamped office manager",
+      "angle": "The lunch-hour test",
+      "hook": "We called your office at 12:40. Nobody answered.",
+      "headline": "Your free missed-call audit",
+      "primary_text": "Practices miss 20-38% of calls, mostly at lunch and after hours. We'll test your line and show you the result, free.",
+      "cta": "Test my line",
+      "format": "1080x1920",
+      "visual": "A phone ringing on an empty front desk, clock at 12:40",
+      "proof": "75.2% of missed dental calls come after hours",
+      "proof_source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/",
+      "target_cpa": 500
+    },
+    {
+      "id": "AD-3",
+      "channel": "google",
+      "persona": "The swamped office manager",
+      "angle": "Books straight into Open Dental",
+      "hook": "It books in Open Dental. No sticky notes, no call-backs.",
+      "headline": "Open Dental AI receptionist",
+      "primary_text": "Answers missed calls, offers real open slots and writes the appointment into Open Dental. $199/month, signed BAA.",
+      "cta": "Book a demo",
+      "format": "1200x628",
+      "visual": "Open Dental schedule with a new booking highlighted",
+      "proof": "Open Dental sells API write access at $30-35 per location",
+      "proof_source": "https://www.opendental.com/site/apipermissions.html",
+      "target_cpa": 500
+    }
+  ],
+  "ad_test": {
+    "budget": 300,
+    "days": 10,
+    "kill_rule": "Fewer than 2 demo bookings from $300 of spend by day 10 -> stop ads"
+  }
+}

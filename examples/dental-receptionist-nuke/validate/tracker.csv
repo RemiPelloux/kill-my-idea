@@ -1,0 +1,5 @@
+target,metric,label,goal,out_of,by,actual,actual_out_of,evidence
+T1,other,Practices that miss a lunch or after-hours test call,10,40,Day 2,,,
+T2,replies,Replies to audit emails,6,150,Day 5,,,
+T3,interviews_pain,Demos where the owner describes a recent lost new-patient call,3,5,Day 6,,,
+T4,presales,Paid $199 pilots or signed letters of intent,2,,Day 7,,,

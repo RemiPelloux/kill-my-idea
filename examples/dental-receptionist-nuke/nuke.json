@@ -1,0 +1,42 @@
+{
+ "schema_version": "1.0",
+ "slug": "dental-ai-receptionist",
+ "generated": "2026-11-12",
+ "kill_score": 54,
+ "steps": [
+  {
+   "step": "kill",
+   "status": "done",
+   "why": ""
+  },
+  {
+   "step": "deepdive",
+   "status": "done",
+   "why": ""
+  },
+  {
+   "step": "fix",
+   "status": "done",
+   "why": ""
+  },
+  {
+   "step": "validate",
+   "status": "done",
+   "why": ""
+  },
+  {
+   "step": "build",
+   "status": "done",
+   "why": ""
+  },
+  {
+   "step": "share",
+   "status": "done",
+   "why": ""
+  }
+ ],
+ "continued_past_stop": null,
+ "continued_why": "",
+ "minutes": 16,
+ "cost_usd": 8.97
+}

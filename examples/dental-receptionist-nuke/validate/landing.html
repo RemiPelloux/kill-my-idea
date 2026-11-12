@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; form-action 'none'; base-uri 'none'">
+<title>LunchLine</title>
+<style>
+:root{--bg:#f6f8fb;--fg:#0f172a;--muted:#475569;--accent:#2563eb;--card:#fff;--line:#dbe3ee}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1220;--fg:#e2e8f0;--muted:#94a3b8;--accent:#60a5fa;--card:#111a2e;--line:#1e293b}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 system-ui,sans-serif}
+main{max-width:640px;margin:0 auto;padding:56px 16px}.name{font-weight:700;color:var(--accent);letter-spacing:.02em}
+h1{font-size:clamp(28px,6vw,42px);line-height:1.15;margin:12px 0}.sub{color:var(--muted);font-size:19px}
+ul{padding:0;list-style:none}li{padding:10px 0 10px 28px;border-bottom:1px solid var(--line);position:relative}
+li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+.price{font-size:22px;font-weight:700}form{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 8px}
+label{position:absolute;left:-9999px}input{flex:1 1 220px;padding:12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--card);color:var(--fg)}
+button{padding:12px 20px;border:0;border-radius:8px;background:var(--accent);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}.proof,.todo{color:var(--muted);font-size:14px}.todo{border-left:3px solid var(--accent);padding-left:10px}
+a{color:var(--accent)}
+</style></head><body><main>
+<div class="name">LunchLine</div><h1>Every missed call answered and booked into Open Dental</h1><p class="sub">An AI receptionist for independent dental practices. It picks up at lunch, after hours and when the front desk is busy, under a signed BAA.</p>
+<ul><li>Books straight into Open Dental, no sticky notes or call-backs</li><li>Hands the call to your front desk when a patient asks for a person</li><li>Signed BAA, with recording and AI disclosure on every call</li><li>Month to month: cancel by email, no 12-month contract</li></ul><p class="price">199 USD / month</p><form><input type="email" disabled placeholder="you@example.com" aria-label="Email"><button type="button" disabled>Get my missed-call audit</button></form><p class="todo">Add your form URL (Tally, Formspree, Google Forms…) as landing.form_url in validate.json, then rerun validate-kit.py.</p><p class="proof">Practices miss 20-38% of calls, and 75% of missed calls come after hours. <a href="https://www.convirza.com/content-hub/missed-dental-calls-after-hours/" rel="noopener noreferrer">source</a></p>
+</main></body></html>

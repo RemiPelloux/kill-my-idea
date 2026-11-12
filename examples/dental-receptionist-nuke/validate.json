@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0", "slug": "dental-ai-receptionist", "generated": "2026-11-12",
+  "based_on": {"verdict": "PIVOT", "score": 56},
+  "hypothesis": "Owners of independent US dental practices on Open Dental will pay $199/month, no contract, for an AI receptionist that answers missed calls and books into Open Dental.",
+  "landing": {
+    "name": "LunchLine",
+    "headline": "Every missed call answered and booked into Open Dental",
+    "subhead": "An AI receptionist for independent dental practices. It picks up at lunch, after hours and when the front desk is busy, under a signed BAA.",
+    "bullets": [
+      "Books straight into Open Dental, no sticky notes or call-backs",
+      "Hands the call to your front desk when a patient asks for a person",
+      "Signed BAA, with recording and AI disclosure on every call",
+      "Month to month: cancel by email, no 12-month contract"
+    ],
+    "cta": "Get my missed-call audit",
+    "price": {"amount": 199, "currency": "USD", "period": "month"},
+    "proof": {"text": "Practices miss 20-38% of calls, and 75% of missed calls come after hours.", "source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/"},
+    "form_url": ""
+  },
+  "interview": {
+    "who": "Owner-dentists and office managers of independent 1-3 location practices on Open Dental",
+    "questions": [
+      "Walk me through the last time the phones rang and nobody could pick up. What happened?",
+      "What happens today to a call that comes in at lunch or after 5 pm?",
+      "When did you last find out a new patient called and never got through? How did you find out?",
+      "What have you tried for missed calls so far: voicemail, an answering service, Weave, extra staff?",
+      "What do you pay today for phones and call coverage, and on what contract?",
+      "Last time you switched a phone or software vendor, who decided and how long did it take?",
+      "What went wrong the last time a tool booked or handled patients for you?",
+      "Which practice-management system do you use, and who manages it?"
+    ],
+    "red_flags": [
+      "They can't remember a recent missed call",
+      "They already use Weave's AI receptionist and are happy with it",
+      "They are not on Open Dental and won't switch",
+      "Phone decisions sit with a DSO head office"
+    ]
+  },
+  "outreach": [
+    {"channel": "Cold email", "where": "Owners of practices called during the audit (NPPES-listed)", "links_allowed": true, "text": "Hi Dr. {name}, I called {practice} today at 12:40 to test how busy practices handle calls, and it went to voicemail. That's common: 20-38% of dental calls go unanswered. I'm building an AI receptionist that answers those calls and books them straight into Open Dental, at $199/month with no contract. Could I show you a 15-minute demo this week? I'll send you the full result of your missed-call audit either way."},
+    {"channel": "Phone", "where": "Front desk of independent practices, mid-afternoon", "links_allowed": false, "text": "Hi, I'm a local developer working on missed calls for dental offices. Who looks after your phones and scheduling? I'd like to send the office manager a short note about it. Do you use Open Dental?"},
+    {"channel": "Forum post", "where": "Dentaltown practice management forum (professionals only; read the rules first)", "links_allowed": false, "text": "Question for office managers and owners: how do you handle calls at lunch and after hours today? Voicemail, an answering service, or something else? I'm researching missed new-patient calls in independent practices and would value 10 minutes with anyone on Open Dental. No pitch in this thread."},
+    {"channel": "Build in public", "where": "r/SideProject and X", "links_allowed": true, "text": "Testing an idea in public: an AI receptionist for independent dental practices that books into Open Dental, $199/month with no contract. This week I'm calling 40 practices at lunch to count how many miss the call. I'll post the numbers on day 7. If you work at or run a dental practice, I'd love to hear how you handle missed calls."}
+  ],
+  "targets": [
+    {"id": "T1", "metric": "other", "label": "Practices that miss a lunch or after-hours test call", "goal": 10, "out_of": 40, "by": "Day 2", "moves": ["search_demand", "market_risk"]},
+    {"id": "T2", "metric": "replies", "label": "Replies to audit emails", "goal": 6, "out_of": 150, "by": "Day 5", "moves": ["channel_readiness"]},
+    {"id": "T3", "metric": "interviews_pain", "label": "Demos where the owner describes a recent lost new-patient call", "goal": 3, "out_of": 5, "by": "Day 6", "moves": ["willingness_to_pay"]},
+    {"id": "T4", "metric": "presales", "label": "Paid $199 pilots or signed letters of intent", "goal": 2, "out_of": null, "by": "Day 7", "moves": ["willingness_to_pay", "ltv_cac", "sales_cycle"]}
+  ],
+  "kill_criteria": [
+    "Fewer than 8 of 40 test calls unanswered by 2026-11-14 -> the pain is weak, stop",
+    "Fewer than 3 demo bookings from 150 emails by 2026-11-19 -> stop",
+    "0 paid pilots from 5 demos by 2026-11-22 -> stop"
+  ],
+  "results": null
+}

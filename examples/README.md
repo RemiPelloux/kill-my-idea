@@ -4,6 +4,7 @@ Real runs of kill-my-idea, mostly on ideas we were about to spend time or money 
 
 | Example | Command | Verdict | What it shows |
 |---|---|---|---|
+| [AI receptionist for US dental clinics, full run](dental-receptionist-nuke/NUKE.md) | `nuke` | PIVOT 56 (kill 54) | Every step in one command, 16 min and $8.97 on Opus: deep dive, path to GO (60, out of reach), 7-day test kit, starter kit, card and posts |
 | [Notion templates for French real-estate agents](notion-real-estate-report/) ([live](https://remipelloux.github.io/kill-my-idea/reports/notion-real-estate/)) | `kill` | NO-GO 43 | The full HTML report: 21 sub-scores, rescue paths, France vs Belgium |
 | [AI wedding-speech app](wedding-speeches.md) ([full report](wedding-speeches-report/), [live](https://remipelloux.github.io/kill-my-idea/reports/wedding-speeches/)) | `kill` | NO-GO 44 | The verdict card, US vs France, and a look-alike's verified revenue |
 | [Plain Claude on the same idea](plain-claude-wedding.md) | none | — | The unedited baseline answer used in the README comparison |

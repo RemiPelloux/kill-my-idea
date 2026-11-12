@@ -1,0 +1,2693 @@
+{
+ "schema_version": "1.0",
+ "idea": {
+  "schema_version": "1.0",
+  "slug": "dental-ai-receptionist",
+  "title": "AI receptionist for US dental clinics",
+  "created": "2026-11-12",
+  "language": "en",
+  "type": "saas",
+  "source": {
+   "type": "own-idea",
+   "text": "AI receptionist that answers missed calls and books appointments for US dental clinics, 199 USD a month per clinic. Country: United States. Budget: 2000 USD. Goal: a side business reaching 5k USD MRR within 12 months. Founder: solo developer, 10 hours a week, no dental network. Places to post: r/SideProject and X. Just go: do not ask questions.",
+   "url": null,
+   "author": null,
+   "posted": null
+  },
+  "problem": "Dental clinics miss calls, and each missed call can be a lost new patient.",
+  "customer": "US dental clinics",
+  "solution": "An AI receptionist that answers missed calls and books appointments.",
+  "revenue_model": "subscription",
+  "price": {
+   "amount": 199,
+   "currency": "USD",
+   "period": "month"
+  },
+  "channel": "r/SideProject and X",
+  "countries": [
+   "US"
+  ],
+  "claims": [
+   "5k USD MRR within 12 months"
+  ],
+  "context": {
+   "budget": "USD 2,000",
+   "time_per_week": "10 h",
+   "goal": "side-income",
+   "edge": "solo developer, no dental network"
+  },
+  "assumptions": [
+   "Headless run ('just go'): no questions asked; every gap below is an assumption.",
+   "Booking writes into the clinic's practice-management system through Open Dental's API or NexHealth; Dentrix direct integration is out of budget.",
+   "A clinic sends about 450 AI-handled minutes a month (300-600 range); not measured.",
+   "Monthly churn 6%, from SMB SaaS benchmarks (3-7%) and a critic's 3-6 month stays.",
+   "The voice stack is Retell with its BAA; Vapi's HIPAA add-on (~$1,000-2,000/month) is not used.",
+   "Goal of 5k USD MRR means about 26 paying clinics at 199 USD."
+  ],
+  "unknowns": [
+   "which practice-management systems the target clinics run",
+   "who signs the purchase (owner dentist or office manager)",
+   "real minutes per clinic per month",
+   "follow-up: none asked (headless)"
+  ],
+  "answers": [
+   {
+    "question": "Do you already have an audience, list or customers among US dentists?",
+    "answer": "No dental network (stated); posting places are r/SideProject and X.",
+    "feeds": [
+     "no_distribution",
+     "channel_readiness",
+     "assets"
+    ],
+    "stage": "intake"
+   },
+   {
+    "question": "Budget and hours per week?",
+    "answer": "USD 2,000 and 10 hours a week (stated).",
+    "feeds": [
+     "capital_needed",
+     "time_to_mvp"
+    ],
+    "stage": "intake"
+   },
+   {
+    "question": "Goal?",
+    "answer": "Side business reaching USD 5k MRR within 12 months (stated).",
+    "feeds": [
+     "interest",
+     "rescue"
+    ],
+    "stage": "intake"
+   },
+   {
+    "question": "Can you get a free or cheap BAA from your voice and LLM vendors? (not asked: headless)",
+    "answer": null,
+    "feeds": [
+     "legal_regulatory",
+     "capital_needed"
+    ],
+    "stage": "follow_up",
+    "effect": "assumed Retell self-service BAA; if not, capital_needed drops to 1.5"
+   }
+  ]
+ },
+ "verdict": {
+  "schema_version": "1.0",
+  "slug": "dental-ai-receptionist",
+  "evaluated": "2026-11-12",
+  "mode": "deepdive",
+  "verdict": "PIVOT",
+  "score": 56,
+  "score_raw": 55.7,
+  "criteria": {
+   "profit": 3.0,
+   "feasibility": 3.0,
+   "time_to_first_revenue": 2.5,
+   "demand": 4.0,
+   "competition": 1.5,
+   "risk": 2.5,
+   "fit": 1.5
+  },
+  "criteria_detail": {
+   "profit": {
+    "gross_margin": {
+     "score": 3,
+     "note": "About **60%**: Retell ~$0.12/min x 450 min = $54 plus number, NexHealth, fees, 10DLC ≈ $80 per clinic",
+     "source": "https://www.retellai.com/pricing?utm_category=ai"
+    },
+    "ltv_cac": {
+     "score": 2.5,
+     "note": "LTV ≈ $1,990 (6% churn, $119 GP/month) vs CAC ≈ $800 by cold email: **2.5**; no dental benchmark exists",
+     "source": "https://www.webtonic.io/blog/dental-cold-email-outbound-statistics"
+    },
+    "pricing_power": {
+     "score": 3,
+     "note": "$199 fills the gap: generic tools lack HIPAA (ElevenLabs) or PMS depth; dental AI starts at **$299-499**",
+     "source": "https://elevenlabs.io/reception"
+    }
+   },
+   "feasibility": {
+    "build_effort": {
+     "score": 3,
+     "note": "Voice stack is off the shelf (Retell); PMS write booking and HIPAA setup take 1-2 months at 10 h/week",
+     "source": "https://www.opendental.com/site/apipermissions.html"
+    },
+    "skills_match": {
+     "score": 3,
+     "note": "Developer can build it; HIPAA compliance and selling to dentists are skills the founder lacks"
+    },
+    "capital_needed": {
+     "score": 3,
+     "note": "Fits $2,000 with Retell BAA and Open Dental; Dentrix ($10k) or a Vapi HIPAA add-on would not",
+     "source": "https://ainora.lt/blog/denticon-vs-open-dental-vs-dentrix-ai-comparison-2026"
+    }
+   },
+   "time_to_first_revenue": {
+    "time_to_mvp": {
+     "score": 2.5,
+     "note": "About 8 weeks to a booking-capable, BAA-covered pilot at 10 h/week (estimate)"
+    },
+    "sales_cycle": {
+     "score": 3,
+     "note": "Month-to-month and free trials are the norm (Smith.ai, Viva); owner decides in 2-6 weeks (estimate)",
+     "source": "https://smith.ai/pricing"
+    },
+    "channel_readiness": {
+     "score": 2,
+     "note": "R5: cold email to free NPPES lists is credible but untested; still no network; Dentaltown is pros-only",
+     "source": "https://www.dentaltown.com/blog/post/10941/timeline-of-dentaltown"
+    }
+   },
+   "demand": {
+    "search_demand": {
+     "score": 3.5,
+     "note": "135,665 dental offices (CBP 2023); Dentaltown ~255k members discuss missed calls",
+     "source": "https://vantainsights.com/industry/621210-offices-dentists"
+    },
+    "trend": {
+     "score": 4.5,
+     "note": "Healthcare AI voice agents grow **37.8%/yr** (GVR); RingCentral AI receptionist 5.9x in 11 months",
+     "source": "https://grandviewresearch.com/industry-analysis/ai-voice-agents-healthcare-market-report"
+    },
+    "willingness_to_pay": {
+     "score": 4,
+     "note": "Practices pay $175-700/month for human answering and Weave's median customer $12.5k/year",
+     "source": "https://costbench.com/software/dental-software/weave-dental/"
+    }
+   },
+   "competition": {
+    "free_alternatives": {
+     "score": 2,
+     "note": "R3: free text-back (Solvea) and $29 ElevenLabs cover part of the job; neither does HIPAA-covered PMS booking",
+     "source": "https://solvea.cx/tools/missed-call-text-back"
+    },
+    "competitor_density": {
+     "score": 1,
+     "note": "R3/R5: 15+ rivals and 10 look-alike launches in 12 months; Weave serves 40,000+ locations",
+     "source": "https://www.usecarly.com/blog/weave-ai-receptionist/"
+    },
+    "differentiation": {
+     "score": 1.5,
+     "note": "R3: nothing specific yet; a cheaper generic AI receptionist is what the wave already sells"
+    }
+   },
+   "risk": {
+    "legal_regulatory": {
+     "score": 2,
+     "note": "R5: HIPAA penalties up to **$73,011** per violation; CA AB 3030, Texas TRAIGA and Utah AI disclosure rules",
+     "source": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-102"
+    },
+    "platform_dependency": {
+     "score": 2.5,
+     "note": "Booking needs PMS access (Open Dental $30-35, NexHealth); OpenAI BAAs case by case; Twilio BAA needs Security Edition",
+     "source": "https://www.twilio.com/en-us/hipaa"
+    },
+    "market_risk": {
+     "score": 3.5,
+     "note": "Missed calls are a durable need (75% after hours), but incumbents are absorbing the feature",
+     "source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/"
+    }
+   },
+   "fit": {
+    "skills": {
+     "score": 2.5,
+     "note": "Builds software; no healthcare compliance or B2B dental sales track record"
+    },
+    "assets": {
+     "score": 1,
+     "note": "No dental network, audience or data (stated)"
+    },
+    "interest": {
+     "score": 1.5,
+     "note": "Stated goal is a side business at $5k MRR: money first, no dental interest stated"
+    }
+   }
+  },
+  "metrics": {
+   "tam": {
+    "value": 324000000,
+    "unit": "USD/year",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "135,665 offices (Census CBP 2023 via Vanta) x $2,388 = $324M; cross-check 0.19% of $173.8B dental spending (CMS)"
+   },
+   "sam": {
+    "value": 194000000,
+    "unit": "USD/year",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "Independent 1-3 dentist offices, ~60% of offices (solo share ~50%, DSO 16.1%): 81,400 x $2,388 = $194M"
+   },
+   "som": {
+    "value": 38200,
+    "unit": "USD/year",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "16 clinics (0.02% of SAM offices) x $2,388 = $38.2k in year 1"
+   },
+   "competitors_found": {
+    "value": 18,
+    "unit": "competitors",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "Kill count 15 + Goodcall, Rosie, Dialzara found in the teardown"
+   },
+   "competitor_price_range": {
+    "value": "29-799",
+    "unit": "USD/month",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "ElevenLabs Reception $29 (no HIPAA) to Arini $799; dental-specific with PMS booking $299-499"
+   },
+   "demand_trend": {
+    "value": "rising",
+    "unit": null,
+    "basis": "sourced",
+    "as_of": "2026-05",
+    "source": "https://www.cloudtalk.io/blog/ai-voice-agent-statistics/"
+   },
+   "price": {
+    "value": 199,
+    "unit": "USD/month",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "The founder's stated price: 199 USD per clinic per month"
+   },
+   "variable_cost_per_unit": {
+    "value": 80,
+    "unit": "USD/clinic/month",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "450 min x ~$0.12 (Retell infra 0.055 + LLM + voice + telephony 0.015) = $54 + number $2 + NexHealth ~$15 + card 3% $6 + 10DLC ~$3 = $80"
+   },
+   "gross_margin_pct": {
+    "value": 60,
+    "unit": "%",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "(199 - 80) / 199 = 59.8%"
+   },
+   "churn_monthly_pct": {
+    "value": 6,
+    "unit": "%",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "SMB SaaS 3-7% monthly (UserJot) and a Dentaltown critic's 3-6 month stays: take 6%"
+   },
+   "expected_lifetime": {
+    "value": 16.7,
+    "unit": "months",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "1 / 0.06 = 16.7 months"
+   },
+   "conversion_rate_pct": {
+    "value": 0.2,
+    "unit": "% of cold emails",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "1.5% median reply (Webtonic) x 50% booking a demo x 25% close ≈ 0.2% of sends"
+   },
+   "cac": {
+    "value": 800,
+    "unit": "USD",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "Cold email: ~$100 tools per customer + ~14 h prospecting, demos and setup x $50/h = $800"
+   },
+   "ltv": {
+    "value": 1990,
+    "unit": "USD",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "$119 gross profit/month x 16.7 months = $1,987"
+   },
+   "ltv_cac": {
+    "value": 2.5,
+    "unit": "ratio",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "1,987 / 800 = 2.48"
+   },
+   "payback_months": {
+    "value": 6.7,
+    "unit": "months",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "800 / 119 = 6.7"
+   },
+   "fixed_costs_month": {
+    "value": 150,
+    "unit": "USD/month",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "Cold email tool ~$100 + domain, hosting and DB ~$30 + misc $20"
+   },
+   "break_even_customers_per_month": {
+    "value": 2,
+    "unit": "customers",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "150 fixed / 119 = 1.3, rounded up to 2"
+   },
+   "time_to_first_revenue_weeks": {
+    "value": 11,
+    "unit": "weeks",
+    "basis": "estimate",
+    "as_of": "2026-11-12",
+    "reasoning": "8 weeks to a BAA-covered pilot at 10 h/week + 3 weeks of outreach and demo"
+   }
+  },
+  "kill_shots": {
+   "free_alternative": false,
+   "strong_competitor": true,
+   "graveyard": true,
+   "no_distribution": true,
+   "costs_eat_margin": false,
+   "weak_demand": false,
+   "legal_platform_risk": true,
+   "saturated_wave": true
+  },
+  "primary_kill_shot": "no_distribution",
+  "rules_applied": [
+   {
+    "rule": "R5_kill_shot_coherence",
+    "effect": "no_distribution -> channel_readiness 2; saturated_wave -> competitor_density 1; legal_platform_risk -> legal 2"
+   },
+   {
+    "rule": "R3_saturated_wave",
+    "effect": "competition 2.2 -> 1.5, differentiation 2 -> 1.5 (10 look-alikes in 12 months, no specific edge)"
+   }
+  ],
+  "confidence": {
+   "level": "high",
+   "sourced_subscores": 15,
+   "sources": 97,
+   "primary_sources": 44,
+   "note": "No first-hand dentist quotes from Reddit; cold-email conversion in dental is unmeasured"
+  },
+  "sources": [
+   "https://www.getweave.com/press-releases/weaves-latest-platform-enhancements-power-smarter-growth-for-healthcare-practices/",
+   "https://www.businesswire.com/news/home/20260417125956/en/",
+   "https://adanews.ada.org/ada-news/2026/march/ada-member-advantage-endorses-weave-as-patient-engagement-platform/",
+   "https://www.usecarly.com/blog/weave-ai-receptionist/",
+   "https://ycombinator.com/companies/arini",
+   "https://www.trysignalbase.com/news/funding/arini-raises-500k-seed-funding",
+   "https://www.capterra.com/p/10036210/Arini/reviews/",
+   "https://www.getviva.ai/viva-ai-pricing-which-plan-is-right-for-your-dental-office/",
+   "https://www.cloudtalk.io/blog/dentina-ai-pricing/",
+   "https://mangovoice.com/dental/practices",
+   "https://schedulingkit.com/pricing-guides/my-ai-front-desk-pricing",
+   "https://www.trillet.ai/blogs/best-ai-phone-system-for-dental-office",
+   "https://www.dentalbase.ai/blogs/dental-virtual-receptionist-buyers-guide-2026",
+   "https://www.dentalbase.ai/blogs/dental-ai-receptionist-options-guide",
+   "https://www.ringcentral.com/us/en/blog/ai-receptionist-for-small-business/",
+   "https://zapier.com/apps/ringcentral/integrations/sms/255591004/send-sms-for-new-missed-calls-in-ringcentral-with-sms-by-zapier",
+   "https://voicestack.com/dental-phones/features/missed-call-automations",
+   "https://solvea.cx/tools/missed-call-text-back",
+   "https://www.producthunt.com/products/ai-recepts/launches",
+   "https://www.producthunt.com/products/ringuzu-ai-receptionist/launches",
+   "https://www.producthunt.com/products/catch-ai/launches/catchai",
+   "https://www.producthunt.com/products/oncallclerk/launches/oncallclerk-2-0-sounds-human",
+   "https://hunted.space/dashboard/solvea/launches/solvea",
+   "https://www.getnextphone.com/blog/breezy-alternative",
+   "https://ai-main.pages.dev/compare/vs-air-ai",
+   "https://www.dentaltown.com/blog/post/22270/ai-dental-receptionists-the-latest-grift",
+   "https://www.ada.org/en/resources/research/health-policy-institute/dentist-workforce",
+   "https://naicslist.com/naics/621210",
+   "https://dentaleconomics.com/practice/article/55385634/the-economics-of-missed-calls-quantifying-revenue-loss-in-dental-practices",
+   "https://www.dentalbase.ai/blogs/38-percent-calls-go-unanswered-lost-revenue",
+   "https://adanews.ada.org/new-dentist/2025/march/staffing-shortages-top-expected-challenges-this-year",
+   "https://market.us/report/ai-receptionist-market/",
+   "https://www.cloudtalk.io/blog/ai-voice-agent-statistics/",
+   "https://www.implicator.ai/openai-pushes-voice-agents-toward-enterprise-with-production-api-launch/",
+   "https://techsy.io/en/blog/ai-voice-agent-pricing",
+   "https://runtimewire.com/article/elevenlabs-reception-ai-receptionist-small-business",
+   "https://www.retellai.com/pricing?utm_category=ai",
+   "https://www.retellai.com/healthcare",
+   "https://happyrobot.ai/hub/vapi-ai-pricing",
+   "https://www.twilio.com/voice/pricing/us",
+   "https://synchronizer.nexhealth.com/pricing",
+   "https://www.opendental.com/site/apipermissions.html",
+   "https://smith.ai/industries/dentists-answering-service",
+   "https://netpeak.us/blog/the-average-cpc-for-dental-ads-on-google-in-2025-defined/",
+   "https://ciela.ai/blogs/cold-email-open-rate-benchmarks-by-industry-2026",
+   "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/",
+   "https://www.dentaltown.com/channel/post/20099/why-an-average-dental-practice-converts-only-1-3rd-of-new-patient-calls-to-appointments",
+   "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/",
+   "https://www.cooley.com/news/insight/2024/2024-02-15-fcc-ai-generated-robocalls-illegal-under-the-tcpa",
+   "https://ktslaw.com/en/Blog/GlobalPrivacy-and-CybersecurityLaw/2024/7/Wiretap-Laws-in-the-United-States",
+   "https://dwt.com/blogs/artificial-intelligence-law-advisor/2024/04/utah-enacts-ai-and-bot-business-disclosure-law",
+   "https://support.twilio.com/hc/en-us/articles/11587910480155-A2P-10DLC-Campaign-Vetting-FAQ",
+   "https://ainora.lt/blog/denticon-vs-open-dental-vs-dentrix-ai-comparison-2026",
+   "https://userjot.com/blog/saas-churn-rate-benchmarks",
+   "https://www.capterra.com/p/141842/Weave/reviews/?page=9",
+   "https://listicler.com/blog/weave-pricing-deep-dive-small-healthcare-practices",
+   "https://vantainsights.com/industry/621210-offices-dentists",
+   "https://www.cms.gov/files/document/highlights.pdf",
+   "https://adanews.ada.org/ada-news/2024/december/dental-spending-increased-by-4-billion-dollars-in-2023/",
+   "https://adanews.ada.org/new-dentist/2025/november/hpi-more-new-dentists-affiliated-with-dsos/",
+   "https://grandviewresearch.com/industry-analysis/ai-voice-agents-healthcare-market-report",
+   "https://www.gminsights.com/industry-analysis/dental-practice-management-software-market",
+   "https://www.businesswire.com/news/home/20250505777895/en",
+   "https://smith.ai/pricing",
+   "https://www.ruby.com/pricing/",
+   "https://www.goodcall.com/pricing",
+   "https://www.getviva.ai/exciting-update-new-viva-ai-demo-promotional-pricing-350-month-no-contract/",
+   "https://costbench.com/software/dental-software/weave-dental/",
+   "https://www.bls.gov/ooh/office-and-administrative-support/receptionists.htm",
+   "https://getviva.ai/dental-answering-service-cost",
+   "https://elevenlabs.io/reception",
+   "https://ainora.lt/blog/best-dental-ai-receptionists-2026",
+   "https://www.capterra.com/p/10032324/VoiceStack/",
+   "https://beside.com/blog/smith-ai-alternatives",
+   "https://www.webtonic.io/blog/dental-cold-email-outbound-statistics",
+   "https://www.dentalmanagers.com/membership/plans/practice-national/",
+   "https://www.dentaltown.com/blog/post/10941/timeline-of-dentaltown",
+   "https://www.keragon.com/blog/ai-receptionist-dental",
+   "https://www.drbicuspid.com/dental-business/industry-updates/article/15768275/2026-midwinter-meeting-in-chicago-gets-bigger",
+   "https://ca.trustpilot.com/review/smith.ai?page=4",
+   "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+   "https://www.dentalmanagers.com/blog/dental-staffing-crisis-and-the-path-forward/",
+   "https://www.dentistryiq.com/practice-management/marketing/article/14207217/troubleshooter-frustrated-marketer-says-practice-lacks-customer-service",
+   "https://www.dentaltown.com/channel/post/9320/when-your-successful-marketing-overwhelms-your-front-desk",
+   "https://www.hhs.gov/hipaa/for-professionals/faq/may-a-hipaa-covered-entity-or-business-associate-use-cloud-service-to-store-or-process-ephi/index.html",
+   "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-102",
+   "https://www.federalregister.gov/documents/2026/10/21/2026-21524/no-adjustment-to-hhs-civil-monetary-penalty-amounts-for-2026",
+   "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180SB1001",
+   "https://morganlewis.com/pubs/2024/12/california-law-requiring-disclaimers-by-healthcare-providers-using-genai-will-affect-providers-and-genai-developers",
+   "https://leg.colorado.gov/bills/sb24-205",
+   "https://www.tmlt.org/resource/new-ai-disclosure-requirements-for-physicians-passed-into-texas-law",
+   "https://www.tx.cpa/news/latest-news/news/article/2026/02/06/data-processing-services-saas-and-software-licenses",
+   "https://www.twilio.com/en-us/hipaa",
+   "https://www.retellai.com/blog/hipaa-compliant-voice-ai-without-enterprise-contract",
+   "https://help.openai.com/articles/20001069",
+   "https://developers.openai.com/api/docs/models/gpt-realtime.md",
+   "https://openai.com/blog/introducing-the-realtime-api/"
+  ],
+  "launch_country": "US",
+  "launch_reason": "The founder's market; US dental offices pay for answering services today.",
+  "cheapest_test": "7 days: call 40 Open Dental-area practices at lunch, email 150 owners their missed-call result, demo a Retell agent, ask for $199 paid pilots.",
+  "kill_criteria": [
+   "Fewer than 8 of 40 test calls to clinics go unanswered by day 2 -> the pain is weak, stop",
+   "Fewer than 3 demo bookings from 150 cold emails by day 7 -> stop",
+   "0 paid pilots ($199 first month) from 5 demos by day 10 -> stop"
+  ],
+  "rescue": [
+   {
+    "change": "Open Dental-native and no-contract: write-back booking, done-for-you setup, month-to-month, sold by cold email to Open Dental practices",
+    "why": "Gives one specific difference (lifts R3) against contract complaints and weak PMS depth; cold email to a defined list fixes channel",
+    "score_after": 63,
+    "difficulty": "hard",
+    "effort": "3 months at 10 h/week",
+    "cost": "$30-35/clinic/month API + ~$400",
+    "requires": "Open Dental write API, Retell BAA, NPPES lead list"
+   },
+   {
+    "change": "White-label to dental marketing agencies or IT providers, who resell at $199+",
+    "why": "Fixes no_distribution: one partner brings 10-50 clinics",
+    "score_after": 60,
+    "difficulty": "hard",
+    "effort": "2-3 months",
+    "cost": "under $500 + 20-30% revenue share",
+    "requires": "1-2 agency partners, white-label dashboard"
+   },
+   {
+    "change": "Local metro: phone and walk-in outreach to 200 independent dentists, concierge setup",
+    "why": "Fixes channel_readiness with a cheap, direct channel",
+    "score_after": 58,
+    "difficulty": "doable",
+    "effort": "4-6 weeks",
+    "cost": "under $300",
+    "requires": "evenings for calls and visits; a demo line"
+   }
+  ],
+  "type_checks": [
+   {
+    "check": "churn_benchmark",
+    "result": "hit",
+    "note": "SMB SaaS loses 3-7% a month; a Dentaltown critic says dentists drop AI receptionists after 3-6 months",
+    "source": "https://userjot.com/blog/saas-churn-rate-benchmarks"
+   },
+   {
+    "check": "switching_cost",
+    "result": "clear",
+    "note": "It overlays the clinic's phones by call-forward, so no need to leave Weave's 12-month contract; but lock-in is low both ways",
+    "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=9"
+   }
+  ],
+  "run": {
+   "started": "2026-11-12T11:49:15Z",
+   "minutes": 12,
+   "searches": 82,
+   "fetches": 39,
+   "subagents": 10
+  },
+  "history": [
+   {
+    "mode": "kill",
+    "evaluated": "2026-11-12",
+    "score": 54,
+    "verdict": "PIVOT",
+    "sources": 56
+   }
+  ],
+  "by_country": {
+   "US": {
+    "tam": {
+     "value": 324000000,
+     "unit": "USD/year",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "135,665 offices (Census CBP 2023 via Vanta) x $2,388 = $324M; cross-check 0.19% of $173.8B dental spending (CMS)"
+    },
+    "sam": {
+     "value": 194000000,
+     "unit": "USD/year",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "Independent 1-3 dentist offices, ~60% of offices (solo share ~50%, DSO 16.1%): 81,400 x $2,388 = $194M"
+    },
+    "som": {
+     "value": 38200,
+     "unit": "USD/year",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "16 clinics (0.02% of SAM offices) x $2,388 = $38.2k in year 1"
+    },
+    "competitors_found": {
+     "value": 18,
+     "unit": "competitors",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "Kill count 15 + Goodcall, Rosie, Dialzara found in the teardown"
+    },
+    "competitor_price_range": {
+     "value": "29-799",
+     "unit": "USD/month",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "ElevenLabs Reception $29 (no HIPAA) to Arini $799; dental-specific with PMS booking $299-499"
+    },
+    "demand_trend": {
+     "value": "rising",
+     "unit": null,
+     "basis": "sourced",
+     "as_of": "2026-05",
+     "source": "https://www.cloudtalk.io/blog/ai-voice-agent-statistics/"
+    },
+    "price": {
+     "value": 199,
+     "unit": "USD/month",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "The founder's stated price: 199 USD per clinic per month"
+    },
+    "variable_cost_per_unit": {
+     "value": 80,
+     "unit": "USD/clinic/month",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "450 min x ~$0.12 (Retell infra 0.055 + LLM + voice + telephony 0.015) = $54 + number $2 + NexHealth ~$15 + card 3% $6 + 10DLC ~$3 = $80"
+    },
+    "gross_margin_pct": {
+     "value": 60,
+     "unit": "%",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "(199 - 80) / 199 = 59.8%"
+    },
+    "churn_monthly_pct": {
+     "value": 6,
+     "unit": "%",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "SMB SaaS 3-7% monthly (UserJot) and a Dentaltown critic's 3-6 month stays: take 6%"
+    },
+    "expected_lifetime": {
+     "value": 16.7,
+     "unit": "months",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "1 / 0.06 = 16.7 months"
+    },
+    "conversion_rate_pct": {
+     "value": 0.2,
+     "unit": "% of cold emails",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "1.5% median reply (Webtonic) x 50% booking a demo x 25% close ≈ 0.2% of sends"
+    },
+    "cac": {
+     "value": 800,
+     "unit": "USD",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "Cold email: ~$100 tools per customer + ~14 h prospecting, demos and setup x $50/h = $800"
+    },
+    "ltv": {
+     "value": 1990,
+     "unit": "USD",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "$119 gross profit/month x 16.7 months = $1,987"
+    },
+    "ltv_cac": {
+     "value": 2.5,
+     "unit": "ratio",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "1,987 / 800 = 2.48"
+    },
+    "payback_months": {
+     "value": 6.7,
+     "unit": "months",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "800 / 119 = 6.7"
+    },
+    "fixed_costs_month": {
+     "value": 150,
+     "unit": "USD/month",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "Cold email tool ~$100 + domain, hosting and DB ~$30 + misc $20"
+    },
+    "break_even_customers_per_month": {
+     "value": 2,
+     "unit": "customers",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "150 fixed / 119 = 1.3, rounded up to 2"
+    },
+    "time_to_first_revenue_weeks": {
+     "value": 11,
+     "unit": "weeks",
+     "basis": "estimate",
+     "as_of": "2026-11-12",
+     "reasoning": "8 weeks to a BAA-covered pilot at 10 h/week + 3 weeks of outreach and demo"
+    }
+   }
+  }
+ },
+ "narrative": {
+  "language": "en",
+  "currency": "USD",
+  "answer": "**PIVOT at 56** (was 54). Demand and willingness to pay are real, but Weave bundles the feature, 10 look-alikes launched in a year, and the founder still has **no tested channel** to dentists.",
+  "tldr": [
+   "Real pain and real budgets: dentists pay $285-799/month for AI answering today.",
+   "But the field is crowded, the incumbent phone platform already bundles it, and $29 tools anchor the price.",
+   "The founder's channels (r/SideProject, X) don't reach dentists; distribution decides this."
+  ],
+  "key_findings": [
+   {
+    "title": "Weave owns the phone line",
+    "detail": "Weave bought TrueLark for **$35M**, bundles an AI receptionist and won ADA endorsement in 2026-03.",
+    "source": "https://www.businesswire.com/news/home/20250505777895/en"
+   },
+   {
+    "title": "A real gap at $199",
+    "detail": "ElevenLabs Reception ($29) **does not support HIPAA**; dental tools with PMS booking start at $299-499.",
+    "source": "https://elevenlabs.io/reception"
+   },
+   {
+    "title": "Contracts are the top complaint",
+    "detail": "Reviews of Weave and Smith.ai repeat contract and billing pain most, so **no contract** is a usable wedge.",
+    "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2"
+   }
+  ],
+  "recommendation": "Don't build the generic receptionist. Position it Open Dental-native and contract-free, then run the 7-day missed-call audit test; build only if 2 practices pay a $199 pilot.",
+  "steelman": "A missed new-patient call is worth $850-1,800 in year one, generic $29 tools can't touch PHI, and practices hate contracts: a HIPAA-covered, Open Dental-native, month-to-month receptionist at $199 sits in a real gap. The evidence supports the gap; the channel is still unproven.",
+  "premortem": [
+   {
+    "cause": "Cold email to dentists never produced demos at scale; 10 h/week could not sustain 500 sends a week",
+    "linked_to": "no_distribution",
+    "likelihood": "H",
+    "early_signal": "Fewer than 3 demos from 300 cold emails in the first 30 days"
+   },
+   {
+    "cause": "Pilots churned because the AI said it booked but didn't, the top complaint against Smith.ai",
+    "linked_to": "ltv_cac",
+    "likelihood": "M",
+    "early_signal": "More than 5% of AI bookings need manual fixing in week 2"
+   },
+   {
+    "cause": "A HIPAA or state AI-disclosure gap scared clinics off or forced a costly vendor switch",
+    "linked_to": "legal_platform_risk",
+    "likelihood": "M",
+    "early_signal": "2 of the first 5 prospects ask for a BAA chain you can't show"
+   }
+  ],
+  "why_now": {
+   "verdict": "late",
+   "changes": [
+    {
+     "what": "OpenAI Realtime API GA: audio $32/$64 per M tokens, down from $100/$200 at launch, with SIP",
+     "when": "2025-08",
+     "source": "https://developers.openai.com/api/docs/models/gpt-realtime.md"
+    },
+    {
+     "what": "Weave bought TrueLark for $35M and extended its AI receptionist",
+     "when": "2025-05",
+     "source": "https://www.businesswire.com/news/home/20250505777895/en"
+    },
+    {
+     "what": "ADA Member Advantage endorsed Weave",
+     "when": "2026-03",
+     "source": "https://adanews.ada.org/ada-news/2026/march/ada-member-advantage-endorses-weave-as-patient-engagement-platform/"
+    },
+    {
+     "what": "RingCentral AI Receptionist grew from 2,000+ to 11,800+ organizations",
+     "when": "2026-05",
+     "source": "https://www.cloudtalk.io/blog/ai-voice-agent-statistics/"
+    },
+    {
+     "what": "ElevenLabs launched Reception at $29/month, without HIPAA support",
+     "when": "2026-09",
+     "source": "https://elevenlabs.io/reception"
+    }
+   ],
+   "note": "Voice AI cost fell ~68% since 2024; incumbents and $29 tools now crowd the window, though HIPAA keeps generic tools out."
+  },
+  "icp": {
+   "who": "Owner-dentist or office manager of an independent 1-3 location general practice on Open Dental, not on Weave",
+   "where": [
+    "Dentaltown (~255k members)",
+    "AADOM (3,500+ office managers)",
+    "r/Dentistry",
+    "state dental association meetings",
+    "cold email from NPPES-listed practices"
+   ],
+   "pays_for_today": "Voicemail and front-desk overtime, or answering services $175-700/month (human) and $285+ (Smith.ai AI)",
+   "budget": "About $200-500 a month for call coverage (estimate from competitor prices)",
+   "trigger": "A front-desk employee quits, or a 12-month phone contract comes up for renewal"
+  },
+  "customer": {
+   "segment": "Independent US general dental practices, 1-3 locations",
+   "pain": "20-38% of calls go unanswered, mostly after hours, and missed new-patient calls are lost revenue",
+   "today": "Voicemail, a busy front desk, Weave's bundle, or a paid answering service"
+  },
+  "use_cases": [
+   {
+    "name": "After-hours and lunch overflow answering with booking",
+    "who_pays": "Owner dentist",
+    "effort": "medium",
+    "best": true
+   },
+   {
+    "name": "Missed-call text-back only",
+    "who_pays": "Office manager",
+    "effort": "low",
+    "best": false
+   },
+   {
+    "name": "Full-time front-desk replacement",
+    "who_pays": "DSO operations",
+    "effort": "high",
+    "best": false
+   }
+  ],
+  "kill_shots": {
+   "free_alternative": {
+    "evidence": "Free missed-call text-back (Solvea, RingCentral + Zapier) covers part of the job, but nothing free answers and books into a PMS.",
+    "source": "https://solvea.cx/tools/missed-call-text-back",
+    "count": 2
+   },
+   "strong_competitor": {
+    "evidence": "Weave serves 40,000+ practice locations (2026-11) and bundles an AI receptionist; Arini (YC W24) and Smith.ai also sell to dentists.",
+    "source": "https://www.usecarly.com/blog/weave-ai-receptionist/",
+    "count": 15
+   },
+   "graveyard": {
+    "evidence": "Breezy AI receptionist shut down on 2026-07-25; Air.ai stopped operating and faced an FTC suit (2025-08, allegations).",
+    "source": "https://www.getnextphone.com/blog/breezy-alternative"
+   },
+   "no_distribution": {
+    "evidence": "No dental network; r/SideProject and X reach founders; dental CPC ~$7.85 gives a Google Ads CAC near $1,960 (estimate).",
+    "source": "https://netpeak.us/blog/the-average-cpc-for-dental-ads-on-google-in-2025-defined/"
+   },
+   "costs_eat_margin": {
+    "evidence": "Retell parts ~$0.098/min and Twilio $0.0085/min leave ~65% gross margin at 450 min/month (estimate).",
+    "source": "https://www.retellai.com/pricing?utm_category=ai"
+   },
+   "weak_demand": {
+    "evidence": "Demand is rising: RingCentral's AI receptionist went from 2,000+ to 11,800+ organizations by 2026-05.",
+    "source": "https://www.cloudtalk.io/blog/ai-voice-agent-statistics/"
+   },
+   "legal_platform_risk": {
+    "evidence": "PHI on calls requires a BAA chain (HHS); ~11 all-party recording states; Dentrix integration reportedly $10k plus royalties.",
+    "source": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/"
+   },
+   "saturated_wave": {
+    "evidence": "10 near-identical AI receptionist launches found (Product Hunt and others), e.g. AI Recepts, Ringuzu, Catch.ai, OnCallClerk, Solvea.",
+    "source": "https://www.producthunt.com/products/ai-recepts/launches",
+    "count": 10,
+    "window": "2025-11 to 2026-11"
+   }
+  },
+  "competitors": [
+   {
+    "name": "Weave",
+    "url": "https://www.getweave.com/press-releases/weaves-latest-platform-enhancements-power-smarter-growth-for-healthcare-practices/",
+    "price_low": 199,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://www.usecarly.com/blog/weave-ai-receptionist/",
+    "price_as_of": "2026-11",
+    "traction": 5,
+    "traction_note": "40,000+ practice locations; ADA endorsed",
+    "gap": "Bundle with 12-month contract; AI books directly only on qualified PMS",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "Arini",
+    "url": "https://ycombinator.com/companies/arini",
+    "price_low": 499,
+    "price_high": 799,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://www.capterra.com/p/10036210/Arini/reviews/",
+    "price_as_of": "2026-11",
+    "traction": 3,
+    "traction_note": "YC W24, 17 staff, $500K seed",
+    "gap": "Priced 2.5-4x above $199; moving to a broad ops platform",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "Smith.ai (dental)",
+    "url": "https://smith.ai/industries/dentists-answering-service",
+    "price_low": 285,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://smith.ai/industries/dentists-answering-service",
+    "price_as_of": "2026-11",
+    "traction": 4,
+    "traction_note": "Established answering service with AI tier",
+    "gap": "Generalist, not dental-PMS native",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "Viva AI",
+    "url": "https://www.getviva.ai/viva-ai-pricing-which-plan-is-right-for-your-dental-office/",
+    "price_low": 349,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://www.getviva.ai/viva-ai-pricing-which-plan-is-right-for-your-dental-office/",
+    "price_as_of": "2025-06",
+    "traction": 2,
+    "traction_note": "Dental-only; no review counts found",
+    "gap": "Credit overages $0.08-0.10",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "Dentina AI",
+    "url": "https://www.cloudtalk.io/blog/dentina-ai-pricing/",
+    "price_low": 299,
+    "price_high": 399,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://www.cloudtalk.io/blog/dentina-ai-pricing/",
+    "price_as_of": "2026-09",
+    "traction": 2,
+    "traction_note": "No G2 or Capterra profile",
+    "gap": "Annual billing",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "My AI Front Desk",
+    "url": "https://schedulingkit.com/pricing-guides/my-ai-front-desk-pricing",
+    "price_low": 79,
+    "price_high": 99,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://schedulingkit.com/pricing-guides/my-ai-front-desk-pricing",
+    "price_as_of": "2026",
+    "traction": 2,
+    "traction_note": "General SMB AI receptionist",
+    "gap": "200 minutes, then $0.25/min; not dental-specific",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "Solvea missed-call text-back",
+    "url": "https://solvea.cx/tools/missed-call-text-back",
+    "price_low": 0,
+    "price_high": null,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://solvea.cx/tools/missed-call-text-back",
+    "price_as_of": "2026-11",
+    "traction": 2,
+    "traction_note": "227 upvotes on Product Hunt launch day",
+    "gap": "Text-back only, no voice booking",
+    "free": true,
+    "country": "US"
+   },
+   {
+    "name": "ElevenLabs Reception",
+    "url": "https://elevenlabs.io/reception",
+    "price_low": 29,
+    "price_high": 199,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://elevenlabs.io/reception",
+    "price_as_of": "2026-11",
+    "traction": 4,
+    "traction_note": "Big voice-AI brand, launched 2026-09",
+    "gap": "Does not support HIPAA; no dental PMS integration",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "Goodcall",
+    "url": "https://www.goodcall.com/pricing",
+    "price_low": 79,
+    "price_high": 299,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://www.goodcall.com/pricing",
+    "price_as_of": "2026-11",
+    "traction": 2,
+    "traction_note": "Generalist; prices rising ($59 -> $79 starter)",
+    "gap": "Light PMS depth",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "Ruby (live)",
+    "url": "https://www.ruby.com/pricing/",
+    "price_low": 250,
+    "price_high": 1725,
+    "currency": "USD",
+    "price_period": "month",
+    "price_source": "https://www.ruby.com/pricing/",
+    "price_as_of": "2026-11",
+    "traction": 4,
+    "traction_note": "Established live answering",
+    "gap": "Humans at ~$3.45-5/min; no PMS booking",
+    "free": false,
+    "country": "US"
+   },
+   {
+    "name": "VoiceStack",
+    "url": "https://www.capterra.com/p/10032324/VoiceStack/",
+    "price_low": 79,
+    "price_high": 399,
+    "currency": "USD",
+    "price_period": "per-seat-month",
+    "price_source": "https://www.capterra.com/p/10032324/VoiceStack/",
+    "price_as_of": "2026",
+    "traction": 2,
+    "traction_note": "24-25 Capterra reviews, 4.9",
+    "gap": "Requires switching phone system",
+    "free": false,
+    "country": "US"
+   }
+  ],
+  "scenarios": [
+   {
+    "name": "Pessimistic",
+    "customers_month": 6,
+    "revenue_month": 1194,
+    "costs_month": 570,
+    "note": "Cold email only; 6 clinics by month 12, churn 6%"
+   },
+   {
+    "name": "Base",
+    "customers_month": 15,
+    "revenue_month": 2985,
+    "costs_month": 1200,
+    "note": "Cold email plus local outreach; 15 clinics by month 12"
+   },
+   {
+    "name": "Optimistic",
+    "customers_month": 26,
+    "revenue_month": 5174,
+    "costs_month": 1970,
+    "note": "One reseller partner brings 10+ clinics; hits the 5k MRR goal"
+   }
+  ],
+  "risks": [
+   {
+    "risk": "A HIPAA gap in the vendor chain (voice, LLM, telephony) exposes patient data",
+    "likelihood": "M",
+    "impact": "H",
+    "mitigation": "Use only vendors that sign BAAs; log and encrypt; no PHI in prompts beyond need",
+    "source": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/"
+   },
+   {
+    "risk": "Recording calls in all-party consent states without disclosure",
+    "likelihood": "M",
+    "impact": "M",
+    "mitigation": "Play a recording and AI disclosure on every call",
+    "source": "https://ktslaw.com/en/Blog/GlobalPrivacy-and-CybersecurityLaw/2024/7/Wiretap-Laws-in-the-United-States"
+   },
+   {
+    "risk": "PMS integration cost or access blocks booking (Dentrix ~$10k)",
+    "likelihood": "H",
+    "impact": "M",
+    "mitigation": "Start with Open Dental or NexHealth; request-only booking elsewhere",
+    "source": "https://ainora.lt/blog/denticon-vs-open-dental-vs-dentrix-ai-comparison-2026"
+   },
+   {
+    "risk": "Weave or phone vendors bundle the feature for free",
+    "likelihood": "H",
+    "impact": "H",
+    "mitigation": "Target clinics not on Weave; sell on setup and results",
+    "source": "https://www.getweave.com/press-releases/weaves-latest-platform-enhancements-power-smarter-growth-for-healthcare-practices/"
+   },
+   {
+    "risk": "Patients hang up on an AI voice; clinics churn in 3-6 months",
+    "likelihood": "M",
+    "impact": "H",
+    "mitigation": "Measure hang-up rate in pilots; human handoff to the front desk",
+    "source": "https://www.dentaltown.com/blog/post/22270/ai-dental-receptionists-the-latest-grift"
+   }
+  ],
+  "test_plan": [
+   {
+    "when": "Day 1",
+    "step": "One-page site: 'We answer the calls your front desk misses, $199/month', with a booking link and a demo number",
+    "verify": "Page and demo line live, under $30 spent"
+   },
+   {
+    "when": "Day 2",
+    "step": "Call 40 independent practices at lunch and after 5 pm; log which go unanswered",
+    "verify": "10 or more of 40 calls unanswered"
+   },
+   {
+    "when": "Day 3",
+    "step": "Build a Retell demo agent that answers as a sample practice and takes a booking request",
+    "verify": "5 test calls booked correctly"
+   },
+   {
+    "when": "Day 4",
+    "step": "Email 150 owners, including those you called: 'I called your office at 12:40 and nobody answered'",
+    "verify": "6 or more replies"
+   },
+   {
+    "when": "Day 6",
+    "step": "Run demos; offer a 30-day paid pilot at $199",
+    "verify": "3 or more demos held"
+   },
+   {
+    "when": "Day 7",
+    "step": "Count pilots and objections (HIPAA, PMS, voice quality)",
+    "verify": "2 or more paid pilots or signed letters of intent"
+   }
+  ],
+  "rescue": [
+   {
+    "change": "Open Dental-native and no-contract: write-back booking, done-for-you setup, month-to-month, sold by cold email to Open Dental practices",
+    "why": "Gives one specific difference (lifts R3) against contract complaints and weak PMS depth; cold email to a defined list fixes channel",
+    "score_after": 63,
+    "difficulty": "hard",
+    "effort": "3 months at 10 h/week",
+    "cost": "$30-35/clinic/month API + ~$400",
+    "requires": "Open Dental write API, Retell BAA, NPPES lead list"
+   },
+   {
+    "change": "White-label to dental marketing agencies or IT providers, who resell at $199+",
+    "why": "Fixes no_distribution: one partner brings 10-50 clinics",
+    "score_after": 60,
+    "difficulty": "hard",
+    "effort": "2-3 months",
+    "cost": "under $500 + 20-30% revenue share",
+    "requires": "1-2 agency partners, white-label dashboard"
+   },
+   {
+    "change": "Local metro: phone and walk-in outreach to 200 independent dentists, concierge setup",
+    "why": "Fixes channel_readiness with a cheap, direct channel",
+    "score_after": 58,
+    "difficulty": "doable",
+    "effort": "4-6 weeks",
+    "cost": "under $300",
+    "requires": "evenings for calls and visits; a demo line"
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.getweave.com/press-releases/weaves-latest-platform-enhancements-power-smarter-growth-for-healthcare-practices/",
+    "title": "Weave press release: platform enhancements (AI receptionist)",
+    "supports": "Weave extends AI receptionist across voice and text; bought TrueLark",
+    "accessed": "2026-11-12",
+    "published": "2026-04",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.businesswire.com/news/home/20260417125956/en/",
+    "title": "Business Wire: Weave AI receptionist expansion",
+    "supports": "Weave AI receptionist across voice and text, April 2026",
+    "accessed": "2026-11-12",
+    "published": "2026-04-17",
+    "tier": "primary"
+   },
+   {
+    "url": "https://adanews.ada.org/ada-news/2026/march/ada-member-advantage-endorses-weave-as-patient-engagement-platform/",
+    "title": "ADA News: ADA Member Advantage endorses Weave",
+    "supports": "ADA endorses Weave as patient-engagement platform",
+    "accessed": "2026-11-12",
+    "published": "2026-03",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.usecarly.com/blog/weave-ai-receptionist/",
+    "title": "Carly: Weave AI receptionist review",
+    "supports": "Weave 40,000+ locations, plans from $199/month",
+    "accessed": "2026-11-12",
+    "published": "2026-11-04",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://ycombinator.com/companies/arini",
+    "title": "Y Combinator: Arini company page",
+    "supports": "Arini YC W24, 17 staff, dental AI receptionist",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.trysignalbase.com/news/funding/arini-raises-500k-seed-funding",
+    "title": "Signalbase: Arini raises $500K seed",
+    "supports": "Arini $500K seed, Feb 2024",
+    "accessed": "2026-11-12",
+    "published": "2024-02",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.capterra.com/p/10036210/Arini/reviews/",
+    "title": "Capterra: Arini reviews and pricing",
+    "supports": "Arini $499 Starter, $799 Growth per month",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.getviva.ai/viva-ai-pricing-which-plan-is-right-for-your-dental-office/",
+    "title": "Viva AI pricing: which plan is right for your dental office",
+    "supports": "Viva dental AI plans from $349-350/month",
+    "accessed": "2026-11-12",
+    "published": "2025-06-05",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.cloudtalk.io/blog/dentina-ai-pricing/",
+    "title": "CloudTalk: Dentina AI pricing",
+    "supports": "Dentina $299-$399/month per location, annual",
+    "accessed": "2026-11-12",
+    "published": "2026-09-11",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://mangovoice.com/dental/practices",
+    "title": "Mango Voice: dental practices",
+    "supports": "Dental VoIP with built-in AI receptionist Margo",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://schedulingkit.com/pricing-guides/my-ai-front-desk-pricing",
+    "title": "SchedulingKit: My AI Front Desk pricing",
+    "supports": "General AI receptionist $79-99/month for 200 min",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.trillet.ai/blogs/best-ai-phone-system-for-dental-office",
+    "title": "Trillet: best AI phone system for dental office",
+    "supports": "General AI receptionist $49/month for 150 min",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.dentalbase.ai/blogs/dental-virtual-receptionist-buyers-guide-2026",
+    "title": "DentalBase: dental virtual receptionist buyer's guide 2026",
+    "supports": "Dental AI $299-1,500/month; live answering $800-2,500",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.dentalbase.ai/blogs/dental-ai-receptionist-options-guide",
+    "title": "DentalBase: dental AI receptionist options guide",
+    "supports": "Lists Annie by Sindi and other dental-only call products",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.ringcentral.com/us/en/blog/ai-receptionist-for-small-business/",
+    "title": "RingCentral: AI receptionist for small business",
+    "supports": "Phone platform bundles a 24/7 AI receptionist that books",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://zapier.com/apps/ringcentral/integrations/sms/255591004/send-sms-for-new-missed-calls-in-ringcentral-with-sms-by-zapier",
+    "title": "Zapier: send SMS for new missed calls in RingCentral",
+    "supports": "Missed-call text-back for near zero",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://voicestack.com/dental-phones/features/missed-call-automations",
+    "title": "VoiceStack: missed-call automations for dental phones",
+    "supports": "Dental phone system with missed-call automation, Open Dental integration",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://solvea.cx/tools/missed-call-text-back",
+    "title": "Solvea: free missed-call text-back tool",
+    "supports": "Free missed-call text-back",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.producthunt.com/products/ai-recepts/launches",
+    "title": "Product Hunt: AI Recepts launches",
+    "supports": "AI receptionist launch 2026-02-17, from $250/month",
+    "accessed": "2026-11-12",
+    "published": "2026-02-17",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.producthunt.com/products/ringuzu-ai-receptionist/launches",
+    "title": "Product Hunt: Ringuzu AI Receptionist",
+    "supports": "AI receptionist launch 2026-01-14",
+    "accessed": "2026-11-12",
+    "published": "2026-01-14",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.producthunt.com/products/catch-ai/launches/catchai",
+    "title": "Product Hunt: Catch.ai",
+    "supports": "AI receptionist for dental and medical clinics, 2026-05",
+    "accessed": "2026-11-12",
+    "published": "2026-05-14",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.producthunt.com/products/oncallclerk/launches/oncallclerk-2-0-sounds-human",
+    "title": "Product Hunt: OnCallClerk 2.0",
+    "supports": "AI receptionist launch 2026-05-01",
+    "accessed": "2026-11-12",
+    "published": "2026-05-01",
+    "tier": "primary"
+   },
+   {
+    "url": "https://hunted.space/dashboard/solvea/launches/solvea",
+    "title": "Hunted.space: Solvea launch stats",
+    "supports": "Solvea #4 of the day, 227 upvotes, 2026-03-31",
+    "accessed": "2026-11-12",
+    "published": "2026-03-31",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.getnextphone.com/blog/breezy-alternative",
+    "title": "NextPhone: Breezy alternative (Breezy shutting down)",
+    "supports": "Breezy AI receptionist shut down 2026-07-25",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://ai-main.pages.dev/compare/vs-air-ai",
+    "title": "Comparison page: Air.ai no longer operational",
+    "supports": "Air.ai stopped operating; FTC suit Aug 2025 (allegations)",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.dentaltown.com/blog/post/22270/ai-dental-receptionists-the-latest-grift",
+    "title": "Dentaltown: AI Dental Receptionists - The Latest Grift",
+    "supports": "White-label resellers; dentists quit after 3-6 months (biased author)",
+    "accessed": "2026-11-12",
+    "published": "2025-03-07",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.ada.org/en/resources/research/health-policy-institute/dentist-workforce",
+    "title": "ADA HPI: dentist workforce",
+    "supports": "205,088 professionally active US dentists in 2025",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "primary"
+   },
+   {
+    "url": "https://naicslist.com/naics/621210",
+    "title": "NAICS 621210 offices of dentists",
+    "supports": "135,333 dental offices, 122,711 firms (Census 2020 relay)",
+    "accessed": "2026-11-12",
+    "published": "2020",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://dentaleconomics.com/practice/article/55385634/the-economics-of-missed-calls-quantifying-revenue-loss-in-dental-practices",
+    "title": "Dental Economics: the economics of missed calls",
+    "supports": "20-38% of dental calls unanswered (vendor-sourced)",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.dentalbase.ai/blogs/38-percent-calls-go-unanswered-lost-revenue",
+    "title": "DentalBase: 38% of calls go unanswered",
+    "supports": "Missed-call rates and new-patient share",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://adanews.ada.org/new-dentist/2025/march/staffing-shortages-top-expected-challenges-this-year",
+    "title": "ADA News: staffing shortages top expected challenges",
+    "supports": "62% of dentists name staffing as top 2025 challenge",
+    "accessed": "2026-11-12",
+    "published": "2025-03",
+    "tier": "primary"
+   },
+   {
+    "url": "https://market.us/report/ai-receptionist-market/",
+    "title": "Market.us: AI receptionist market report",
+    "supports": "$2.7B in 2025 to $31.3B by 2035, 27.8% CAGR",
+    "accessed": "2026-11-12",
+    "published": "2026-08",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.cloudtalk.io/blog/ai-voice-agent-statistics/",
+    "title": "CloudTalk: AI voice agent statistics",
+    "supports": "RingCentral AI Receptionist 2,000+ to 11,800+ orgs (2025-06 to 2026-05)",
+    "accessed": "2026-11-12",
+    "published": "2026-07",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.implicator.ai/openai-pushes-voice-agents-toward-enterprise-with-production-api-launch/",
+    "title": "Implicator: OpenAI Realtime API goes GA",
+    "supports": "gpt-realtime GA Aug 2025, 20% cheaper, phone calling",
+    "accessed": "2026-11-12",
+    "published": "2025-08",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://techsy.io/en/blog/ai-voice-agent-pricing",
+    "title": "Techsy: AI voice agent pricing",
+    "supports": "All-in $0.07-0.31/min on Retell and Vapi",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://runtimewire.com/article/elevenlabs-reception-ai-receptionist-small-business",
+    "title": "RuntimeWire: ElevenLabs launches Reception",
+    "supports": "ElevenLabs Reception $29/month self-serve receptionist, 2026-09-16",
+    "accessed": "2026-11-12",
+    "published": "2026-09-16",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.retellai.com/pricing?utm_category=ai",
+    "title": "Retell AI pricing",
+    "supports": "Per-minute voice infra, LLM, telephony prices",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.retellai.com/healthcare",
+    "title": "Retell AI healthcare",
+    "supports": "HIPAA, self-service BAA claim, $0.07-0.31/min",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://happyrobot.ai/hub/vapi-ai-pricing",
+    "title": "HappyRobot: Vapi AI pricing",
+    "supports": "Vapi $0.05/min platform; HIPAA add-on ~$1,000-2,000/month",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.twilio.com/voice/pricing/us",
+    "title": "Twilio voice pricing US",
+    "supports": "Inbound $0.0085/min, number $1.15/month",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://synchronizer.nexhealth.com/pricing",
+    "title": "NexHealth Synchronizer pricing",
+    "supports": "$0.10 per API call; ~$14.75/month per location; BAA on Scale tier",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.opendental.com/site/apipermissions.html",
+    "title": "Open Dental API permissions and pricing",
+    "supports": "Free read; $15/$30/$35 per location for write tiers",
+    "accessed": "2026-11-12",
+    "published": "2020-09",
+    "tier": "primary"
+   },
+   {
+    "url": "https://smith.ai/industries/dentists-answering-service",
+    "title": "Smith.ai dental answering service",
+    "supports": "AI receptionist starts at $285/month",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://netpeak.us/blog/the-average-cpc-for-dental-ads-on-google-in-2025-defined/",
+    "title": "Netpeak: average CPC for dental ads on Google 2025",
+    "supports": "Dental CPC about $7.85 (US, 2025)",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://ciela.ai/blogs/cold-email-open-rate-benchmarks-by-industry-2026",
+    "title": "Ciela: cold email benchmarks by industry 2026",
+    "supports": "Healthcare cold email 2-5% reply rate",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/",
+    "title": "Convirza: missed dental calls after hours",
+    "supports": "75.2% of missed dental calls are after hours",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.dentaltown.com/channel/post/20099/why-an-average-dental-practice-converts-only-1-3rd-of-new-patient-calls-to-appointments",
+    "title": "Dentaltown: practices convert only a third of new-patient calls",
+    "supports": "Dentaltown discusses call conversion; active venue",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/",
+    "title": "HHS: sample business associate agreement provisions",
+    "supports": "Business associates must sign BAAs to handle PHI",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.cooley.com/news/insight/2024/2024-02-15-fcc-ai-generated-robocalls-illegal-under-the-tcpa",
+    "title": "Cooley: FCC rules AI-generated robocalls fall under TCPA",
+    "supports": "FCC 24-17: AI voices are 'artificial' voices under TCPA",
+    "accessed": "2026-11-12",
+    "published": "2024-02-15",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://ktslaw.com/en/Blog/GlobalPrivacy-and-CybersecurityLaw/2024/7/Wiretap-Laws-in-the-United-States",
+    "title": "Kilpatrick: wiretap laws in the United States",
+    "supports": "About 11 all-party consent states incl. CA, FL",
+    "accessed": "2026-11-12",
+    "published": "2024-07",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://dwt.com/blogs/artificial-intelligence-law-advisor/2024/04/utah-enacts-ai-and-bot-business-disclosure-law",
+    "title": "DWT: Utah enacts AI and bot disclosure law",
+    "supports": "Regulated occupations must disclose genAI at start of a call",
+    "accessed": "2026-11-12",
+    "published": "2024-04",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://support.twilio.com/hc/en-us/articles/11587910480155-A2P-10DLC-Campaign-Vetting-FAQ",
+    "title": "Twilio: A2P 10DLC campaign vetting FAQ",
+    "supports": "10DLC registration and vetting fees for SMS text-back",
+    "accessed": "2026-11-12",
+    "published": "2025-08",
+    "tier": "primary"
+   },
+   {
+    "url": "https://ainora.lt/blog/denticon-vs-open-dental-vs-dentrix-ai-comparison-2026",
+    "title": "Ainora: Denticon vs Open Dental vs Dentrix for AI",
+    "supports": "Dentrix developer program reportedly $5k read + $5k write + royalties",
+    "accessed": "2026-11-12",
+    "published": "2026-08-26",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://userjot.com/blog/saas-churn-rate-benchmarks",
+    "title": "UserJot: SaaS churn rate benchmarks",
+    "supports": "SMB SaaS monthly churn 3-7%",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.capterra.com/p/141842/Weave/reviews/?page=9",
+    "title": "Capterra: Weave reviews",
+    "supports": "12-month contracts and cancellation complaints",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://listicler.com/blog/weave-pricing-deep-dive-small-healthcare-practices",
+    "title": "Listicler: Weave pricing deep dive",
+    "supports": "Weave onboarding $499-1,500; early termination fees",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://vantainsights.com/industry/621210-offices-dentists",
+    "title": "Vanta Insights: NAICS 621210 offices of dentists (Census CBP 2023)",
+    "supports": "135,665 US dental offices, 1,028,889 employees (CBP 2023)",
+    "accessed": "2026-11-12",
+    "published": "2023",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.cms.gov/files/document/highlights.pdf",
+    "title": "CMS National Health Expenditure highlights",
+    "supports": "Dental services spending $173.8B in 2023, +6.2%",
+    "accessed": "2026-11-12",
+    "published": "2024-12",
+    "tier": "primary"
+   },
+   {
+    "url": "https://adanews.ada.org/ada-news/2024/december/dental-spending-increased-by-4-billion-dollars-in-2023/",
+    "title": "ADA News: dental spending increased by $4 billion in 2023",
+    "supports": "$174B dental spending, 3.6% of health spending",
+    "accessed": "2026-11-12",
+    "published": "2024-12",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://adanews.ada.org/new-dentist/2025/november/hpi-more-new-dentists-affiliated-with-dsos/",
+    "title": "ADA News: more new dentists affiliated with DSOs",
+    "supports": "DSO affiliation rising; 1 in 4 young dentists",
+    "accessed": "2026-11-12",
+    "published": "2025-11-17",
+    "tier": "primary"
+   },
+   {
+    "url": "https://grandviewresearch.com/industry-analysis/ai-voice-agents-healthcare-market-report",
+    "title": "Grand View Research: AI voice agents in healthcare market",
+    "supports": "$468M (2024) to $3.18B (2030), 37.8% CAGR",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.gminsights.com/industry-analysis/dental-practice-management-software-market",
+    "title": "GMI: dental practice management software market",
+    "supports": "$2.87B (2026) to $6.94B (2035), 10.3% CAGR",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.businesswire.com/news/home/20250505777895/en",
+    "title": "Business Wire: Weave to acquire TrueLark",
+    "supports": "Weave buys TrueLark for $35M ($25M cash, $10M equity)",
+    "accessed": "2026-11-12",
+    "published": "2025-05-05",
+    "tier": "primary"
+   },
+   {
+    "url": "https://smith.ai/pricing",
+    "title": "Smith.ai pricing",
+    "supports": "Live: $300/30 calls to $2,100/300; month-to-month; no setup fees",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.ruby.com/pricing/",
+    "title": "Ruby pricing",
+    "supports": "Live receptionists $250/50 min to $1,725/500 min",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.goodcall.com/pricing",
+    "title": "Goodcall pricing",
+    "supports": "$79/$129/$299 by unique callers; 'We never meter minutes'",
+    "accessed": "2026-11-12",
+    "published": "2026-11",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.getviva.ai/exciting-update-new-viva-ai-demo-promotional-pricing-350-month-no-contract/",
+    "title": "Viva AI: promotional pricing $350/month, no contract",
+    "supports": "Dental AI at $350/month promo, no contract",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "primary"
+   },
+   {
+    "url": "https://costbench.com/software/dental-software/weave-dental/",
+    "title": "Costbench: Weave dental pricing",
+    "supports": "Weave median customer pays $12,500/year; AI add-on unpriced",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.bls.gov/ooh/office-and-administrative-support/receptionists.htm",
+    "title": "BLS Occupational Outlook: receptionists",
+    "supports": "Median $17.90/hour (May 2024)",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "primary"
+   },
+   {
+    "url": "https://getviva.ai/dental-answering-service-cost",
+    "title": "Viva: dental answering service cost",
+    "supports": "Practices pay human services $175-700/month",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://elevenlabs.io/reception",
+    "title": "ElevenLabs Reception",
+    "supports": "$29-199/month; FAQ: does not currently support HIPAA compliance",
+    "accessed": "2026-11-12",
+    "published": "2026-11-12",
+    "tier": "primary"
+   },
+   {
+    "url": "https://ainora.lt/blog/best-dental-ai-receptionists-2026",
+    "title": "Ainora: best dental AI receptionists 2026",
+    "supports": "Goodcall and Rosie light on PMS depth; Smith.ai dental $7-10 per call",
+    "accessed": "2026-11-12",
+    "published": "2026-10",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.capterra.com/p/10032324/VoiceStack/",
+    "title": "Capterra: VoiceStack",
+    "supports": "24-25 reviews, 4.9 rating; per-user VoIP",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://beside.com/blog/smith-ai-alternatives",
+    "title": "Beside: Smith.ai alternatives",
+    "supports": "Smith.ai AI plans: free 25 calls, $150 for 75 calls",
+    "accessed": "2026-11-12",
+    "published": "2026-07",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.webtonic.io/blog/dental-cold-email-outbound-statistics",
+    "title": "Webtonic: dental cold email outbound statistics",
+    "supports": "No dental-specific cold email benchmark; 1.5% median reply",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.dentalmanagers.com/membership/plans/practice-national/",
+    "title": "AADOM: practice national membership plans",
+    "supports": "3,500+ office-manager members; $190-205/year",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.dentaltown.com/blog/post/10941/timeline-of-dentaltown",
+    "title": "Dentaltown: timeline of Dentaltown",
+    "supports": "About 255,000 dental-professional members",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.keragon.com/blog/ai-receptionist-dental",
+    "title": "Keragon: AI receptionist for dental",
+    "supports": "NexHealth Synchronizer connects ~70 PMS incl. Open Dental, Dentrix",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.drbicuspid.com/dental-business/industry-updates/article/15768275/2026-midwinter-meeting-in-chicago-gets-bigger",
+    "title": "DrBicuspid: 2026 Midwinter Meeting gets bigger",
+    "supports": "Chicago Midwinter 650+ exhibitors, Feb 2026",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "title": "Trustpilot: Smith.ai reviews (page 4)",
+    "supports": "Customer complaints about AI bookings and billing",
+    "accessed": "2026-11-12",
+    "published": "2025-12",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+    "title": "Capterra: Weave reviews (page 2)",
+    "supports": "Contract and Open Dental compatibility complaints",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.dentalmanagers.com/blog/dental-staffing-crisis-and-the-path-forward/",
+    "title": "AADOM blog: dental staffing crisis and the path forward",
+    "supports": "Unanswered calls named the number one issue",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.dentistryiq.com/practice-management/marketing/article/14207217/troubleshooter-frustrated-marketer-says-practice-lacks-customer-service",
+    "title": "DentistryIQ: troubleshooter, practice lacks customer service",
+    "supports": "Patients can never reach anyone for an appointment",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.dentaltown.com/channel/post/9320/when-your-successful-marketing-overwhelms-your-front-desk",
+    "title": "Dentaltown: when your marketing overwhelms your front desk",
+    "supports": "Callers can't get through; hiring is the pricey fix",
+    "accessed": "2026-11-12",
+    "published": "2018-05-04",
+    "tier": "tertiary"
+   },
+   {
+    "url": "https://www.hhs.gov/hipaa/for-professionals/faq/may-a-hipaa-covered-entity-or-business-associate-use-cloud-service-to-store-or-process-ephi/index.html",
+    "title": "HHS FAQ: cloud services and ePHI",
+    "supports": "Cloud providers handling ePHI need a BAA and are directly liable",
+    "accessed": "2026-11-12",
+    "published": null,
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-102",
+    "title": "eCFR 45 CFR part 102: civil monetary penalty adjustments",
+    "supports": "HIPAA penalties $145-73,011 per violation; $2.19M annual cap",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.federalregister.gov/documents/2026/10/21/2026-21524/no-adjustment-to-hhs-civil-monetary-penalty-amounts-for-2026",
+    "title": "Federal Register: no adjustment to HHS penalty amounts for 2026",
+    "supports": "2026 HIPAA penalty amounts unchanged",
+    "accessed": "2026-11-12",
+    "published": "2026-10-21",
+    "tier": "primary"
+   },
+   {
+    "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180SB1001",
+    "title": "California SB 1001: bot disclosure",
+    "supports": "Bots must disclose they are bots in California",
+    "accessed": "2026-11-12",
+    "published": "2018",
+    "tier": "primary"
+   },
+   {
+    "url": "https://morganlewis.com/pubs/2024/12/california-law-requiring-disclaimers-by-healthcare-providers-using-genai-will-affect-providers-and-genai-developers",
+    "title": "Morgan Lewis: California AB 3030 genAI disclaimers",
+    "supports": "GenAI patient clinical messages need disclaimer, from 2025-01-01",
+    "accessed": "2026-11-12",
+    "published": "2024-12",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://leg.colorado.gov/bills/sb24-205",
+    "title": "Colorado General Assembly: SB 24-205",
+    "supports": "Colorado AI Act, law since 2024-05-17",
+    "accessed": "2026-11-12",
+    "published": "2024-05-17",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.tmlt.org/resource/new-ai-disclosure-requirements-for-physicians-passed-into-texas-law",
+    "title": "TMLT: new AI disclosure requirements in Texas law",
+    "supports": "Texas providers must disclose AI use in care from 2026-01-01",
+    "accessed": "2026-11-12",
+    "published": "2025",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.tx.cpa/news/latest-news/news/article/2026/02/06/data-processing-services-saas-and-software-licenses",
+    "title": "Texas Comptroller news: SaaS as data processing",
+    "supports": "80% of SaaS price taxable in Texas",
+    "accessed": "2026-11-12",
+    "published": "2026-02-06",
+    "tier": "secondary"
+   },
+   {
+    "url": "https://www.twilio.com/en-us/hipaa",
+    "title": "Twilio HIPAA",
+    "supports": "BAA requires Security or Enterprise Edition",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://www.retellai.com/blog/hipaa-compliant-voice-ai-without-enterprise-contract",
+    "title": "Retell: HIPAA-compliant voice AI without an enterprise contract",
+    "supports": "Self-serve BAA on pay-as-you-go, free to sign (vendor claim)",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://help.openai.com/articles/20001069",
+    "title": "OpenAI Help: HIPAA and BAAs for the API",
+    "supports": "API BAAs approved case by case; Modified Retention required",
+    "accessed": "2026-11-12",
+    "published": "2026",
+    "tier": "primary"
+   },
+   {
+    "url": "https://developers.openai.com/api/docs/models/gpt-realtime.md",
+    "title": "OpenAI docs: gpt-realtime model",
+    "supports": "GA 2025-08-28 at $32/$64 per M audio tokens, SIP support",
+    "accessed": "2026-11-12",
+    "published": "2025-08-28",
+    "tier": "primary"
+   },
+   {
+    "url": "https://openai.com/blog/introducing-the-realtime-api/",
+    "title": "OpenAI: introducing the Realtime API",
+    "supports": "Launched Oct 2024 at $100/$200 per M audio tokens",
+    "accessed": "2026-11-12",
+    "published": "2024-10",
+    "tier": "primary"
+   }
+  ],
+  "customer_voice": [
+   {
+    "quote": "Not great receptionist who deny work, and state they book but never do.",
+    "source": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "pain": "AI does not book",
+    "date": "2025-10-17"
+   },
+   {
+    "quote": "To be clear the AI isn't the favorite of our clients.",
+    "source": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "pain": "AI does not book",
+    "date": "2025-12-31"
+   },
+   {
+    "quote": "They made a lot of promises to get us to sign on and then could not do any of what they said they would do.",
+    "source": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "pain": "AI does not book",
+    "date": "2025-11-06"
+   },
+   {
+    "quote": "Found a different company with far better ai capabilities for less than half the price.",
+    "source": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "pain": "Price",
+    "date": "2025-11-06"
+   },
+   {
+    "quote": "it does an adequate job of capturing data from callers and forwarding them to the correct person.",
+    "source": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "pain": "AI does not book",
+    "date": "2025-12-31"
+   },
+   {
+    "quote": "I canceled during the trial period, yet they continued charging my credit card for five months without my knowledge.",
+    "source": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "pain": "Contracts and billing",
+    "date": "2025-12-26"
+   },
+   {
+    "quote": "refused to cancel my contract even after I finished a 12 month contract and gave them a 60 day cancellation",
+    "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+    "pain": "Contracts and billing",
+    "date": null
+   },
+   {
+    "quote": "once we signed the contract, we were no longer a priority",
+    "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+    "pain": "Contracts and billing",
+    "date": null
+   },
+   {
+    "quote": "They tell you that this is a no contract service and you can quit any time, but yet you will have to give them at least 30 days notice and in the mean time, they will bill you for that time.",
+    "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+    "pain": "Contracts and billing",
+    "date": null
+   },
+   {
+    "quote": "Simple issues and questions will go literally weeks before being properly answered",
+    "source": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "pain": "Reliability and support",
+    "date": "2025-10-22"
+   },
+   {
+    "quote": "response time on the back end is significantly delayed.",
+    "source": "https://ca.trustpilot.com/review/smith.ai?page=4",
+    "pain": "Reliability and support",
+    "date": "2025-10-22"
+   },
+   {
+    "quote": "not very compatible with Open Dental, always gives us issues",
+    "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+    "pain": "Reliability and support",
+    "date": null
+   },
+   {
+    "quote": "glitchy at times",
+    "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+    "pain": "Reliability and support",
+    "date": null
+   },
+   {
+    "quote": "the number one issue [they're] seeing right now. And it's because there's just not enough manpower.",
+    "source": "https://www.dentalmanagers.com/blog/dental-staffing-crisis-and-the-path-forward/",
+    "pain": "Missed calls and staffing",
+    "date": null
+   },
+   {
+    "quote": "people tell me they can never reach anyone for an appointment",
+    "source": "https://www.dentistryiq.com/practice-management/marketing/article/14207217/troubleshooter-frustrated-marketer-says-practice-lacks-customer-service",
+    "pain": "Missed calls and staffing",
+    "date": null
+   },
+   {
+    "quote": "create frustrated callers who WANT to become new patients, but cannot successfully get through to make an appointment.",
+    "source": "https://www.dentaltown.com/channel/post/9320/when-your-successful-marketing-overwhelms-your-front-desk",
+    "pain": "Missed calls and staffing",
+    "date": "2018-05-04"
+   },
+   {
+    "quote": "The first instinct of many practice manager is to just hire another person to help handle calls.",
+    "source": "https://www.dentaltown.com/channel/post/9320/when-your-successful-marketing-overwhelms-your-front-desk",
+    "pain": "Missed calls and staffing",
+    "date": "2018-05-04"
+   }
+  ],
+  "personas": [
+   {
+    "name": "The swamped office manager",
+    "role": "Office manager at an independent 1-3 location practice",
+    "context": "Runs the front desk with 1-2 people; phones ring during check-ins and lunch",
+    "pain_quotes": [
+     {
+      "quote": "the number one issue [they're] seeing right now. And it's because there's just not enough manpower.",
+      "url": "https://www.dentalmanagers.com/blog/dental-staffing-crisis-and-the-path-forward/"
+     },
+     {
+      "quote": "create frustrated callers who WANT to become new patients, but cannot successfully get through to make an appointment.",
+      "url": "https://www.dentaltown.com/channel/post/9320/when-your-successful-marketing-overwhelms-your-front-desk"
+     },
+     {
+      "quote": "The first instinct of many practice manager is to just hire another person to help handle calls.",
+      "url": "https://www.dentaltown.com/channel/post/9320/when-your-successful-marketing-overwhelms-your-front-desk"
+     },
+     {
+      "quote": "people tell me they can never reach anyone for an appointment",
+      "url": "https://www.dentistryiq.com/practice-management/marketing/article/14207217/troubleshooter-frustrated-marketer-says-practice-lacks-customer-service"
+     }
+    ],
+    "uses_today": "Voicemail, call-back lists, maybe a Weave phone system",
+    "pays_today": "Front-desk wage ~$17.90/hour (BLS) or $175-700/month answering service",
+    "trigger": "A front-desk employee quits",
+    "objections": [
+     "Will it book wrong?",
+     "Is it HIPAA compliant?",
+     "Patients hate robots"
+    ],
+    "where": [
+     "AADOM",
+     "Dentaltown",
+     "office-manager Facebook groups"
+    ]
+   },
+   {
+    "name": "The contract-burned owner",
+    "role": "Owner-dentist who has been locked into phone or answering contracts",
+    "context": "Pays for Weave or an answering service and resents the terms",
+    "pain_quotes": [
+     {
+      "quote": "refused to cancel my contract even after I finished a 12 month contract and gave them a 60 day cancellation",
+      "url": "https://www.capterra.com/p/141842/Weave/reviews/?page=2"
+     },
+     {
+      "quote": "once we signed the contract, we were no longer a priority",
+      "url": "https://www.capterra.com/p/141842/Weave/reviews/?page=2"
+     },
+     {
+      "quote": "not very compatible with Open Dental, always gives us issues",
+      "url": "https://www.capterra.com/p/141842/Weave/reviews/?page=2"
+     },
+     {
+      "quote": "Found a different company with far better ai capabilities for less than half the price.",
+      "url": "https://ca.trustpilot.com/review/smith.ai?page=4"
+     }
+    ],
+    "uses_today": "Weave bundle or a live answering service",
+    "pays_today": "Weave median ~$12,500/year; Smith.ai from $285/month",
+    "trigger": "Contract renewal or a price increase",
+    "objections": [
+     "Another contract?",
+     "Switching hassle",
+     "Does it work with my PMS?"
+    ],
+    "where": [
+     "Dentaltown",
+     "r/Dentistry",
+     "state dental association events"
+    ]
+   }
+  ],
+  "strategies": [
+   {
+    "name": "Open Dental beachhead, no contract",
+    "segment": "Independent practices on Open Dental, not on Weave",
+    "channel": "Cold email and calls to NPPES-listed practices, with a missed-call audit",
+    "price": "$199/month, month-to-month, first month as paid pilot",
+    "cost_first_10": "~$1,000 cash (tools, API) + ~140 hours (estimate)",
+    "risks": "Cold email untested in dental; Open Dental share of practices unknown",
+    "score_after": 63,
+    "recommended": true,
+    "why": "One specific difference (native write booking, no contract) that answers the top two complaints, through a channel the founder can run alone"
+   },
+   {
+    "name": "Agency white-label",
+    "segment": "Clinics of dental marketing agencies",
+    "channel": "1-2 agency partnerships",
+    "price": "$129 wholesale, agency resells at $199+",
+    "cost_first_10": "~$500 + 20-30% revenue share (estimate)",
+    "risks": "Agency owns the client; slow to sign the first partner",
+    "score_after": 60,
+    "recommended": false,
+    "why": "Best leverage but depends on one partner"
+   },
+   {
+    "name": "Local metro concierge",
+    "segment": "200 independent dentists in one metro",
+    "channel": "Phone and walk-in visits",
+    "price": "$199/month",
+    "cost_first_10": "~$300 + 60 hours (estimate)",
+    "risks": "Doesn't scale past one city at 10 h/week",
+    "score_after": 58,
+    "recommended": false,
+    "why": "Cheapest start, but caps growth"
+   }
+  ],
+  "promotion": [
+   {
+    "angle": "No contract",
+    "persona": "The contract-burned owner",
+    "pain": "Contracts and billing",
+    "headline": "Month to month. Cancel by email. Every missed call answered.",
+    "proof": "Contract and cancellation complaints are the most repeated pain in Weave and Smith.ai reviews",
+    "proof_source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+    "channel": "Cold email",
+    "beat": [
+     {
+      "competitor": "Viva AI",
+      "message": "Plans from $350/mo | No Contract",
+      "url": "https://www.getviva.ai/viva-ai-pricing-which-plan-is-right-for-your-dental-office/"
+     },
+     {
+      "competitor": "Smith.ai",
+      "message": "a month-to-month service",
+      "url": "https://smith.ai/pricing"
+     }
+    ]
+   },
+   {
+    "angle": "The lunch-hour test",
+    "persona": "The swamped office manager",
+    "pain": "Missed calls and staffing",
+    "headline": "We called your office at 12:40. Nobody answered.",
+    "proof": "20-38% of dental calls go unanswered; 75.2% of missed calls come after hours",
+    "proof_source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/",
+    "channel": "Cold email and calls",
+    "beat": [
+     {
+      "competitor": "Ruby",
+      "message": "no additional or hidden fees for activation, onboarding, setup",
+      "url": "https://www.ruby.com/pricing/"
+     }
+    ]
+   },
+   {
+    "angle": "Books straight into Open Dental",
+    "persona": "The swamped office manager",
+    "pain": "AI does not book",
+    "headline": "It books in Open Dental. No sticky notes, no call-backs.",
+    "proof": "Open Dental's API sells write access at $30-35 per location, so true booking is possible",
+    "proof_source": "https://www.opendental.com/site/apipermissions.html",
+    "channel": "Dentaltown and AADOM",
+    "beat": [
+     {
+      "competitor": "Smith.ai",
+      "message": "starts at just $285 per month",
+      "url": "https://smith.ai/industries/dentists-answering-service"
+     },
+     {
+      "competitor": "Goodcall",
+      "message": "We never meter minutes",
+      "url": "https://www.goodcall.com/pricing"
+     }
+    ]
+   }
+  ],
+  "landing": {
+   "headline": "Every missed call answered and booked in Open Dental. $199/month, no contract.",
+   "subhead": "An AI receptionist for independent dental practices that picks up at lunch, after hours and when the front desk is busy, under a signed BAA.",
+   "sections": [
+    "The missed-call audit: we call your office and show you the result",
+    "How it books into Open Dental",
+    "HIPAA: BAA chain, recording and AI disclosure",
+    "Price: $199/month, cancel by email",
+    "Book a 15-minute demo"
+   ],
+   "cta": "Get my missed-call audit"
+  },
+  "branding": {
+   "positioning": {
+    "for": "Independent US dental practices on Open Dental",
+    "category": "AI receptionist",
+    "difference": "Books directly into Open Dental, month to month, under a BAA",
+    "proof": "Contract complaints lead Weave reviews; generic tools lack HIPAA or PMS depth"
+   },
+   "names": [
+    {
+     "name": "LunchLine",
+     "domain_com": "unknown",
+     "domain_local": "unknown",
+     "trademark": "unknown",
+     "trademark_source": null,
+     "handles": "not checked: no search budget left this run",
+     "checked": "2026-11-12"
+    },
+    {
+     "name": "MolarLine",
+     "domain_com": "unknown",
+     "domain_local": "unknown",
+     "trademark": "unknown",
+     "trademark_source": null,
+     "handles": "not checked: no search budget left this run",
+     "checked": "2026-11-12"
+    },
+    {
+     "name": "ChairsideAnswer",
+     "domain_com": "unknown",
+     "domain_local": "unknown",
+     "trademark": "unknown",
+     "trademark_source": null,
+     "handles": "not checked: no search budget left this run",
+     "checked": "2026-11-12"
+    },
+    {
+     "name": "FrontDeskEcho",
+     "domain_com": "unknown",
+     "domain_local": "unknown",
+     "trademark": "unknown",
+     "trademark_source": null,
+     "handles": "not checked: no search budget left this run",
+     "checked": "2026-11-12"
+    },
+    {
+     "name": "RecallRing",
+     "domain_com": "unknown",
+     "domain_local": "unknown",
+     "trademark": "unknown",
+     "trademark_source": null,
+     "handles": "not checked: no search budget left this run",
+     "checked": "2026-11-12"
+    }
+   ],
+   "tone": [
+    "plain",
+    "busy-day practical",
+    "no hype",
+    "reassuring on HIPAA"
+   ]
+  },
+  "fix": {
+   "summary": "An Open Dental-native, HIPAA-covered AI receptionist for independent practices, $199/month with no contract, sold by missed-call audits.",
+   "score_before": 56,
+   "score_after": 60,
+   "verdict_after": "PIVOT",
+   "reachable": false,
+   "blockers": [
+    "Founder fit: no dental network, no healthcare compliance track record, 10 h/week (fit 1.7 of 5)",
+    "A saturated field: Weave (40,000+ locations, ADA-endorsed) and 15+ rivals keep competitor density at 1",
+    "Legal and platform exposure stays: HIPAA chain, state AI-disclosure laws and PMS access cap risk near 2.8",
+    "Time to MVP stays ~8 weeks at 10 h/week; a team or full-time founder would move it"
+   ],
+   "rules_after": [
+    "R5_kill_shot_coherence"
+   ],
+   "rules_lifted": [
+    "R3_saturated_wave"
+   ],
+   "gaps": [
+    {
+     "criterion": "profit",
+     "sub": "ltv_cac",
+     "score": 2.5,
+     "points_lost": 4.2
+    },
+    {
+     "criterion": "profit",
+     "sub": "gross_margin",
+     "score": 3,
+     "points_lost": 3.3
+    },
+    {
+     "criterion": "profit",
+     "sub": "pricing_power",
+     "score": 3,
+     "points_lost": 3.3
+    },
+    {
+     "criterion": "time_to_first_revenue",
+     "sub": "channel_readiness",
+     "score": 2,
+     "points_lost": 3.0
+    },
+    {
+     "criterion": "feasibility",
+     "sub": "build_effort",
+     "score": 3,
+     "points_lost": 2.7
+    },
+    {
+     "criterion": "feasibility",
+     "sub": "skills_match",
+     "score": 3,
+     "points_lost": 2.7
+    }
+   ],
+   "levers": [
+    {
+     "id": "L1",
+     "kind": "features",
+     "change": "Book straight into Open Dental (write API) under a signed BAA, with a warm hand-off to the front desk",
+     "evidence": "Users complain AI receptionists 'state they book but never do' and that Weave is 'not very compatible with Open Dental'; Open Dental sells write access at $30-35 per location",
+     "source": "https://www.opendental.com/site/apipermissions.html",
+     "difficulty": "hard",
+     "effort": "6-8 weeks at 10 h/week",
+     "cost": "$30-35/clinic/month",
+     "clears": [],
+     "prerequisites": [
+      {
+       "what": "Open Dental API developer key and write tier",
+       "kind": "data",
+       "cost": "$30-35/clinic/month",
+       "have": "no"
+      },
+      {
+       "what": "Retell self-serve BAA",
+       "kind": "legal",
+       "cost": "$0 (vendor claim)",
+       "have": "unknown"
+      }
+     ],
+     "points": 1.7,
+     "moves": [
+      {
+       "sub": "differentiation",
+       "from": 1.5,
+       "to": 3,
+       "why": "One real, specific difference: native Open Dental booking that generic and $29 tools lack"
+      },
+      {
+       "sub": "free_alternatives",
+       "from": 2,
+       "to": 3,
+       "why": "Free text-back covers part of the job; nothing free books into a PMS under a BAA"
+      }
+     ]
+    },
+    {
+     "id": "L2",
+     "kind": "channel",
+     "change": "Missed-call audit outreach: call practices at lunch, then email the owner the result; first 3 pilots won locally in person",
+     "evidence": "75.2% of missed dental calls are after hours and 20-38% go unanswered, so a personal audit gives a concrete hook; NPPES lists are free",
+     "source": "https://www.convirza.com/content-hub/missed-dental-calls-after-hours/",
+     "difficulty": "doable",
+     "effort": "5 h/week ongoing",
+     "cost": "~$100/month tools",
+     "clears": [
+      "no_distribution"
+     ],
+     "prerequisites": [
+      {
+       "what": "5 hours a week for calls and emails",
+       "kind": "time",
+       "cost": "half the weekly budget",
+       "have": "yes"
+      },
+      {
+       "what": "Cold email domain and inboxes",
+       "kind": "money",
+       "cost": "~$100/month",
+       "have": "yes"
+      }
+     ],
+     "points": 1.8,
+     "moves": [
+      {
+       "sub": "channel_readiness",
+       "from": 2,
+       "to": 3,
+       "why": "A channel exists with an estimated CAC (~$600) under first-year gross profit ($1,428)"
+      },
+      {
+       "sub": "ltv_cac",
+       "from": 2.5,
+       "to": 3,
+       "why": "CAC falls from ~$800 to ~$600 with a higher-reply audit hook: LTV:CAC ≈ 3.3"
+      }
+     ]
+    },
+    {
+     "id": "L3",
+     "kind": "model",
+     "change": "Month-to-month with a paid 30-day pilot at $199; cancel by email",
+     "evidence": "Contract and cancellation complaints are the most repeated pain in Weave and Smith.ai reviews",
+     "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2",
+     "difficulty": "doable",
+     "effort": "1 day",
+     "cost": "$0",
+     "clears": [],
+     "prerequisites": [
+      {
+       "what": "Stripe billing with cancel link",
+       "kind": "skill",
+       "cost": "$0 + fees",
+       "have": "yes"
+      }
+     ],
+     "points": 0.5,
+     "moves": [
+      {
+       "sub": "sales_cycle",
+       "from": 3,
+       "to": 3.5,
+       "why": "No contract and a paid pilot shorten the decision to about a week"
+      }
+     ]
+    },
+    {
+     "id": "L4",
+     "kind": "other",
+     "change": "Compliance pack: BAA chain (Retell; no OpenAI or Twilio direct without BAA), recording and AI disclosure on every call, state checklist",
+     "evidence": "HIPAA requires BAAs with business associates; ~11 states need all-party consent; CA, TX and UT require AI disclosure",
+     "source": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/",
+     "difficulty": "doable",
+     "effort": "20-30 hours",
+     "cost": "$0-500",
+     "clears": [],
+     "prerequisites": [
+      {
+       "what": "HIPAA risk assessment template",
+       "kind": "legal",
+       "cost": "$0-300",
+       "have": "no"
+      }
+     ],
+     "points": 0.3,
+     "moves": [
+      {
+       "sub": "legal_regulatory",
+       "from": 2,
+       "to": 2.5,
+       "why": "Known compliance work, done before the first pilot"
+      }
+     ]
+    }
+   ],
+   "pricing": {
+    "current": {
+     "amount": 199,
+     "currency": "USD",
+     "period": "month"
+    },
+    "competitors": [
+     {
+      "name": "Smith.ai AI (dental)",
+      "amount": 285,
+      "period": "month",
+      "source": "https://smith.ai/industries/dentists-answering-service",
+      "as_of": "2026-11-12"
+     },
+     {
+      "name": "Dentina AI",
+      "amount": 299,
+      "period": "month",
+      "source": "https://www.cloudtalk.io/blog/dentina-ai-pricing/",
+      "as_of": "2026-09-11"
+     },
+     {
+      "name": "Viva AI",
+      "amount": 350,
+      "period": "month",
+      "source": "https://www.getviva.ai/exciting-update-new-viva-ai-demo-promotional-pricing-350-month-no-contract/",
+      "as_of": "2026-11-12"
+     },
+     {
+      "name": "Arini",
+      "amount": 499,
+      "period": "month",
+      "source": "https://www.capterra.com/p/10036210/Arini/reviews/",
+      "as_of": "2026-11-12"
+     }
+    ],
+    "recommended": {
+     "amount": 199,
+     "period": "month",
+     "position": "undercut",
+     "why": "30-60% under dental tools with PMS booking ($285-499) while keeping ~60% gross margin and LTV:CAC near 3; generic $29-129 tools lack HIPAA or PMS depth, so no need to go lower"
+    }
+   },
+   "features": {
+    "must": [
+     {
+      "feature": "Real write-back booking into Open Dental",
+      "why": "Top AI complaint: says it books but doesn't",
+      "source": "https://ca.trustpilot.com/review/smith.ai?page=4"
+     },
+     {
+      "feature": "Warm hand-off or forward to the front desk",
+      "why": "Reviewers value calls routed to the right person",
+      "source": "https://ca.trustpilot.com/review/smith.ai?page=4"
+     },
+     {
+      "feature": "Month-to-month billing, cancel by email",
+      "why": "Contract complaints lead competitor reviews",
+      "source": "https://www.capterra.com/p/141842/Weave/reviews/?page=2"
+     },
+     {
+      "feature": "Signed BAA and recording plus AI disclosure",
+      "why": "HIPAA business associate rules and state consent laws",
+      "source": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/"
+     }
+    ],
+    "cut": [
+     {
+      "feature": "Outbound AI reminder calls",
+      "why": "TCPA treats AI voices as artificial voices; consent risk for no core value"
+     },
+     {
+      "feature": "Dentrix and Eaglesoft support",
+      "why": "Dentrix access costs ~$10k plus royalties, 5x the budget"
+     },
+     {
+      "feature": "SMS marketing campaigns",
+      "why": "10DLC vetting and scope creep; text-back only"
+     }
+    ],
+    "differentiator": {
+     "feature": "Native Open Dental booking, month to month",
+     "why": "Weave books only on qualified PMS inside a 12-month bundle; generic tools don't integrate",
+     "source": "https://www.opendental.com/site/apipermissions.html"
+    }
+   },
+   "plan": [
+    {
+     "when": "Week 1",
+     "step": "Run the 7-day missed-call audit test: 40 calls, 150 emails, 5 demos",
+     "verify": "2 or more paid $199 pilots or signed letters of intent"
+    },
+    {
+     "when": "Week 2",
+     "step": "Sign the Retell BAA, get an Open Dental developer key, write the compliance pack",
+     "verify": "BAA signed and test booking written into an Open Dental sandbox"
+    },
+    {
+     "when": "Weeks 3-8",
+     "step": "Build the Open Dental booking agent and onboard the pilots",
+     "verify": "95% of AI bookings correct over 100 test calls"
+    },
+    {
+     "when": "Weeks 9-12",
+     "step": "Audit outreach at 300 emails a week",
+     "verify": "5 paying clinics, under 20% call hang-up rate"
+    },
+    {
+     "when": "Month 6",
+     "step": "Review churn and CAC; pitch 1 dental agency for white-label",
+     "verify": "12 clinics, monthly churn under 6%"
+    }
+   ],
+   "kill_criteria": [
+    "Fewer than 2 paid pilots from the audit test by 2026-11-20 -> stop",
+    "AI booking accuracy under 90% on 100 test calls by 2027-01-15 -> stop or go request-only",
+    "Fewer than 5 paying clinics by 2027-02-28 -> stop",
+    "Monthly churn above 10% across 10+ clinics by 2027-05-31 -> stop"
+   ]
+  },
+  "validate": {
+   "hypothesis": "Owners of independent US dental practices on Open Dental will pay $199/month, no contract, for an AI receptionist that answers missed calls and books into Open Dental.",
+   "landing": {
+    "name": "LunchLine",
+    "headline": "Every missed call answered and booked into Open Dental",
+    "cta": "Get my missed-call audit"
+   },
+   "score_before": 56,
+   "kill_criteria": [
+    "Fewer than 8 of 40 test calls unanswered by 2026-11-14 -> the pain is weak, stop",
+    "Fewer than 3 demo bookings from 150 emails by 2026-11-19 -> stop",
+    "0 paid pilots from 5 demos by 2026-11-22 -> stop"
+   ],
+   "targets": [
+    {
+     "id": "T1",
+     "metric": "other",
+     "label": "Practices that miss a lunch or after-hours test call",
+     "goal": 10,
+     "out_of": 40,
+     "by": "Day 2",
+     "status": "pending"
+    },
+    {
+     "id": "T2",
+     "metric": "replies",
+     "label": "Replies to audit emails",
+     "goal": 6,
+     "out_of": 150,
+     "by": "Day 5",
+     "status": "pending"
+    },
+    {
+     "id": "T3",
+     "metric": "interviews_pain",
+     "label": "Demos where the owner describes a recent lost new-patient call",
+     "goal": 3,
+     "out_of": 5,
+     "by": "Day 6",
+     "status": "pending"
+    },
+    {
+     "id": "T4",
+     "metric": "presales",
+     "label": "Paid $199 pilots or signed letters of intent",
+     "goal": 2,
+     "out_of": null,
+     "by": "Day 7",
+     "status": "pending"
+    }
+   ],
+   "files": [
+    "validate/landing.html",
+    "validate/interview.md",
+    "validate/outreach.md",
+    "validate/tracker.csv"
+   ]
+  },
+  "nuke": {
+   "kill_score": 54,
+   "score": 56,
+   "verdict": "PIVOT",
+   "steps": [
+    {
+     "step": "kill",
+     "status": "done",
+     "why": ""
+    },
+    {
+     "step": "deepdive",
+     "status": "done",
+     "why": ""
+    },
+    {
+     "step": "fix",
+     "status": "done",
+     "why": ""
+    },
+    {
+     "step": "validate",
+     "status": "done",
+     "why": ""
+    },
+    {
+     "step": "build",
+     "status": "done",
+     "why": ""
+    },
+    {
+     "step": "share",
+     "status": "done",
+     "why": ""
+    }
+   ],
+   "cost_usd": 8.97,
+   "minutes": 16,
+   "fix": {
+    "summary": "An Open Dental-native, HIPAA-covered AI receptionist for independent practices, $199/month with no contract, sold by missed-call audits.",
+    "score_after": 60,
+    "reachable": false
+   },
+   "validate": {
+    "hypothesis": "Owners of independent US dental practices on Open Dental will pay $199/month, no contract, for an AI receptionist that answers missed calls and books into Open Dental.",
+    "targets": 4,
+    "validated": null
+   },
+   "build": {
+    "name": "LunchLine",
+    "one_liner": "An AI receptionist that answers the calls a dental front desk misses and books them into Open Dental.",
+    "key_metric": "Paying clinics"
+   },
+   "share": [
+    "r/SideProject",
+    "X"
+   ]
+  }
+ }
+}

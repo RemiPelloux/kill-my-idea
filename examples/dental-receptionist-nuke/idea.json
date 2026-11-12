@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "slug": "dental-ai-receptionist",
+  "title": "AI receptionist for US dental clinics",
+  "created": "2026-11-12",
+  "language": "en",
+  "type": "saas",
+  "source": {
+    "type": "own-idea",
+    "text": "AI receptionist that answers missed calls and books appointments for US dental clinics, 199 USD a month per clinic. Country: United States. Budget: 2000 USD. Goal: a side business reaching 5k USD MRR within 12 months. Founder: solo developer, 10 hours a week, no dental network. Places to post: r/SideProject and X. Just go: do not ask questions.",
+    "url": null,
+    "author": null,
+    "posted": null
+  },
+  "problem": "Dental clinics miss calls, and each missed call can be a lost new patient.",
+  "customer": "US dental clinics",
+  "solution": "An AI receptionist that answers missed calls and books appointments.",
+  "revenue_model": "subscription",
+  "price": {
+    "amount": 199,
+    "currency": "USD",
+    "period": "month"
+  },
+  "channel": "r/SideProject and X",
+  "countries": [
+    "US"
+  ],
+  "claims": [
+    "5k USD MRR within 12 months"
+  ],
+  "context": {
+    "budget": "USD 2,000",
+    "time_per_week": "10 h",
+    "goal": "side-income",
+    "edge": "solo developer, no dental network"
+  },
+  "assumptions": [
+    "Headless run ('just go'): no questions asked; every gap below is an assumption.",
+    "Booking writes into the clinic's practice-management system through Open Dental's API or NexHealth; Dentrix direct integration is out of budget.",
+    "A clinic sends about 450 AI-handled minutes a month (300-600 range); not measured.",
+    "Monthly churn 6%, from SMB SaaS benchmarks (3-7%) and a critic's 3-6 month stays.",
+    "The voice stack is Retell with its BAA; Vapi's HIPAA add-on (~$1,000-2,000/month) is not used.",
+    "Goal of 5k USD MRR means about 26 paying clinics at 199 USD."
+  ],
+  "unknowns": [
+    "which practice-management systems the target clinics run",
+    "who signs the purchase (owner dentist or office manager)",
+    "real minutes per clinic per month",
+    "follow-up: none asked (headless)"
+  ],
+  "answers": [
+    {
+      "question": "Do you already have an audience, list or customers among US dentists?",
+      "answer": "No dental network (stated); posting places are r/SideProject and X.",
+      "feeds": [
+        "no_distribution",
+        "channel_readiness",
+        "assets"
+      ],
+      "stage": "intake"
+    },
+    {
+      "question": "Budget and hours per week?",
+      "answer": "USD 2,000 and 10 hours a week (stated).",
+      "feeds": [
+        "capital_needed",
+        "time_to_mvp"
+      ],
+      "stage": "intake"
+    },
+    {
+      "question": "Goal?",
+      "answer": "Side business reaching USD 5k MRR within 12 months (stated).",
+      "feeds": [
+        "interest",
+        "rescue"
+      ],
+      "stage": "intake"
+    },
+    {
+      "question": "Can you get a free or cheap BAA from your voice and LLM vendors? (not asked: headless)",
+      "answer": null,
+      "feeds": [
+        "legal_regulatory",
+        "capital_needed"
+      ],
+      "stage": "follow_up",
+      "effect": "assumed Retell self-service BAA; if not, capital_needed drops to 1.5"
+    }
+  ]
+}
